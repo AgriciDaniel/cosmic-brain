@@ -299,6 +299,11 @@ This repo ships with a seeded vault. Open it in Obsidian and you'll see:
 The graph view will show a connected cluster of 5 pages. This is what the wiki looks like after one ingest. Add more sources and it grows from there.
 
 <p align="center">
+  <img src="wiki/meta/image-example-graph-view.png" alt="Graph view — color-coded wiki nodes" width="48%" />
+  <img src="wiki/meta/image-example-wiki-map-view.png" alt="Wiki Map canvas" width="48%" />
+</p>
+
+<p align="center">
   <img src="wiki/meta/wiki-graph-grow.gif" alt="Knowledge graph growing" width="48%" />
   <img src="wiki/meta/workflow-loop.gif" alt="Workflow loop" width="48%" />
 </p>
