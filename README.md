@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="cover.gif" alt="Cosmic Brain" width="100%" />
-</p>
 
 # cosmic-brain
 

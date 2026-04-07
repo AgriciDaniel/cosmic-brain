@@ -37,4 +37,15 @@ node_modules/
 WIKI*.md
 PROMPT.md
 *.tmp.*
-"Obsidian vault*"
+Obsidian vault*
+Untitled.canvas
+
+# Daily notes created by Calendar plugin
+????-??-??.md
+
+# Excalidraw drawings (personal, user-specific)
+Excalidraw/
+
+# Loose brand/personal GIFs and images in vault root (not _attachments/)
+Claude SEO*.gif
+Claude SEO*.png
