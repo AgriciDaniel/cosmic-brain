@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-04-07T16:00:00
+updated: 2026-04-07T17:00:00
 tags:
   - meta
   - hot-cache
@@ -20,23 +20,24 @@ Navigation: [[index]] | [[log]] | [[overview]]
 ---
 
 ## Last Updated
-2026-04-07 — v1.2.0 release session complete
+2026-04-07 — Full audit + plugin installation session complete
 
 ## Key Recent Facts
-- Project renamed from `cosmic-brain` → `claude-obsidian` across all files, repos, and local directory
-- Plugin is live at: `claude plugin install github:AgriciDaniel/claude-obsidian`
-- Two GitHub repos: **AgriciDaniel/claude-obsidian** (public) + **avalonreset-pro/claude-obsidian** (private, community only)
-- Future pushes: `git push origin main && git push community main` from `~/claude-obsidian/`
-- MIT LICENSE file and ATTRIBUTION.md now exist — legal is clean
-- Excalidraw `main.js` is NOT in git — downloaded by `bin/setup-vault.sh`
+- **Plugin installed locally**: `claude-obsidian@claude-obsidian-marketplace` — active in this Claude Code session
+- **Install command**: `claude plugin marketplace add AgriciDaniel/claude-obsidian` then `claude plugin install claude-obsidian`
+- **Repo**: `~/claude-obsidian/` — public at github.com/AgriciDaniel/claude-obsidian
+- **Community repo**: avalonreset-pro/claude-obsidian (private)
+- **Working folder**: renamed from `~/Desktop/Obsidian & Claude/` → `~/Desktop/claude-obsidian/`
+- Both remotes: `git push origin main && git push community main`
 
 ## Recent Changes
-- v1.2.0 released: getting-started.md, index.md populated, dashboard fixed, CLAUDE.md fixed, welcome.canvas CTA, PDF install guide
-- Branded GIFs: `claude-obsidian-gif-cover-16x9.gif` (1.3MB) + `claude-obsidian-gif-1x1.gif` (848KB) compressed via FFmpeg
-- Legal: LICENSE + ATTRIBUTION.md + GPL-2.0 headers on ITS CSS snippets
-- .gitignore tightened: blocks video files, transcripts, scratch canvases
+- Full 12-area audit: all clean, 3 minor fixes applied
+- Untracked: Cosmic Brain Clean.gif, Cosmic Brain Cover.png, Welcome.md
+- Fixed: vault-colors.css comment updated to claude-obsidian
+- Plugin registered as marketplace + installed user-scope
+- Session saved: [[full-audit-and-system-setup-session]]
 
 ## Active Threads
-- Wiki is seeded with: [[LLM Wiki Pattern]], [[Hot Cache]], [[Compounding Knowledge]], [[Andrej Karpathy]], [[How does the LLM Wiki pattern work]], [[Wiki vs RAG]]
+- Wiki is seeded: [[LLM Wiki Pattern]], [[Hot Cache]], [[Compounding Knowledge]], [[Andrej Karpathy]], [[How does the LLM Wiki pattern work]], [[Wiki vs RAG]]
 - No user domain scaffolded yet — run `/wiki` to scaffold for your domain
-- Session saved: [[claude-obsidian-v1.2.0-release-session]]
+- Karpathy Gist comment ready to post
