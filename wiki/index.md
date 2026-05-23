@@ -63,6 +63,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 ## Sources
 
 - [[claude-obsidian-ecosystem-research]] — 2026-04-08 | web research across 16+ repos | 8 wiki pages created
+- [[fluent-ui-blazor-badge-components]] — 2026-05-23 | FluentUI Blazor v5 official docs | Badge, CounterBadge, PresenceBadge components
 
 ---
 
