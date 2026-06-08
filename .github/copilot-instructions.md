@@ -14,7 +14,7 @@ This repository is a **Claude Code plugin and Obsidian vault** that builds persi
 - `hooks/hooks.json`: Claude Code lifecycle hooks (SessionStart, PostCompact, PostToolUse, Stop)
 - `.claude-plugin/plugin.json`: plugin manifest
 - `wiki/`: generated knowledge base (Markdown files with YAML frontmatter)
-- `.raw/`: immutable source documents (never modify)
+- `raw/`: immutable source documents (never modify)
 - `_templates/`: Obsidian Templater templates
 - `_attachments/`: images and PDFs referenced by wiki pages
 
@@ -25,7 +25,7 @@ When suggesting edits:
 1. **Frontmatter is flat YAML** with plural keys: `tags`, `aliases`, `cssclasses`
 2. **Internal links are wikilinks**: `[[Note Name]]`, not Markdown links to `.md` paths
 3. **Dates are `YYYY-MM-DD`**, not ISO datetimes
-4. **`.raw/` is immutable**. Never suggest edits to anything under that path
+4. **`raw/` is immutable**. Never suggest edits to anything under that path
 5. **`wiki/log.md` is append-only**, with new entries at the top
 6. **`wiki/hot.md` is overwritten** at session end, not appended to
 7. **Skills use only `name` and `description` in frontmatter**. No `allowed-tools`, no `triggers`, no `globs` (these are not part of the Agent Skills spec)

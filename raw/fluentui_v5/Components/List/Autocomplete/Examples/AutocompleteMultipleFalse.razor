@@ -1,0 +1,26 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+<div>Selected: <b>@SelectedCountry?.Name</b></div>
+
+<FluentAutocomplete TOption="Country"
+                    TValue="string"
+                    Label="Select a country"
+                    Multiple="false"
+                    Placeholder="Type to search..."
+                    OnOptionsSearch="@OnSearchAsync"
+                    OptionText="@(item => item?.Name)"
+                    OptionDisabled="@(item => item?.Code == "au")"
+                    @bind-SelectedItem="@SelectedCountry" />
+
+@code
+{
+    Country? SelectedCountry = Countries.FirstOrDefault(c => c.Code == "be");
+
+    Task OnSearchAsync(OptionsSearchEventArgs<Country> e)
+    {
+        e.Items = Countries.Where(i => i.Name.StartsWith(e.Text, StringComparison.OrdinalIgnoreCase))
+                           .OrderBy(i => i.Name);
+
+        return Task.CompletedTask;
+    }
+}

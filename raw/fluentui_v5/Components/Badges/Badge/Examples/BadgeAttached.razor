@@ -1,0 +1,187 @@
+﻿@namespace FluentUI.Demo.Client.Documentation.Components.Badges.Badge.Examples
+<style>
+    .grid {
+        display: grid;
+        margin: auto;
+        gap: 4px;
+        width: min-content;
+        grid-template-areas: ". above-start above above-end ."
+            "before-top . . . after-top"
+            "before . contents . after"
+            "before-bottom . . . after-bottom"
+            ". below-start below below-end .";
+    }
+
+    /* Start (Start/Before) */
+    .above-start.start svg { transform: rotate(-90deg) scaleX(-1); }
+    .before-top.start svg { transform: rotate(0deg); }
+    .before.start svg { transform: rotate(-90deg); }
+    .before-bottom.start svg { transform: rotate(180deg) scaleX(-1); }
+    .below-start.start svg { transform: rotate(-90deg); }
+
+    /* End (End/After) */
+    .above-end.end svg { transform: rotate(90deg); }
+    .after-top.end svg { transform: rotate(0deg) scaleX(-1); }
+    .after.end svg { transform: rotate(90deg); }
+    .after-bottom.end svg { transform: rotate(180deg); }
+    .below-end.end svg { transform: rotate(90deg) scaleX(-1); }
+
+    /* Center */
+    .above svg { transform: rotate(0deg); }
+    .below svg { transform: rotate(180deg); }
+
+    /* RTL Swaps */
+    [dir="rtl"] .above-start.start svg { transform: rotate(90deg); }
+    [dir="rtl"] .before-top.start svg { transform: rotate(0deg) scaleX(-1); }
+    [dir="rtl"] .above-end.end svg { transform: rotate(-90deg) scaleX(-1); }
+    [dir="rtl"] .after-top.end svg { transform: rotate(0deg); }
+    [dir="rtl"] .before.start svg { transform: rotate(90deg); }
+    [dir="rtl"] .after.end svg { transform: rotate(-90deg); }
+    [dir="rtl"] .before-bottom.start svg { transform: rotate(180deg); }
+    [dir="rtl"] .after-bottom.end svg { transform: rotate(180deg) scaleX(-1); }
+    [dir="rtl"] .below-start.start svg { transform: rotate(90deg) scaleX(-1); }
+    [dir="rtl"] .below-end.end svg { transform: rotate(-90deg); }
+</style>
+<FluentStack VerticalAlignment="VerticalAlignment.Top">
+    <span>
+        <FluentStack HorizontalAlignment="HorizontalAlignment.Left" Orientation="Orientation.Vertical">
+            <FluentTextInput InputMode="TextInputMode.Numeric" @bind-Value="@content" Label="Content" AutoComplete="off" />
+            <FluentTextInput InputMode="TextInputMode.Numeric" @bind-Value="@offsetX" Label="Offset X" AutoComplete="off" />
+            <FluentTextInput InputMode="TextInputMode.Numeric" @bind-Value="@offsetY" Label="Offset Y" AutoComplete="off" />
+        </FluentStack>
+    </span>
+    <div class="grid">
+        <span style="grid-area: contents; grid-column: 2/5; justify-self:center ">
+            <FluentBadge Color="BadgeColor.Danger"
+                         Content="@content"
+                         OffsetX="@(SByte.TryParse(offsetX, out sbyte x) ? x : null)"
+                         OffsetY="@(SByte.TryParse(offsetY, out sbyte y) ? y : null)"
+                         Size="BadgeSize.Small"
+                         Positioning="@_positioning">
+				<AnchorContent>
+                	<FluentButton Id="center-center" IconStart="@(new Icons.Regular.Size24.Mail())" OnClick="@(() => HandlePositioning(Positioning.CenterCenter))">Inbox</FluentButton>
+            	</AnchorContent>
+            </FluentBadge>
+        </span>
+
+		<FluentButton IconOnly="true"
+					  Id="above-start"
+					  Class="above-start start"
+					  Style="grid-area: above-start"
+					  Title="Above Start"
+					  OnClick="@(() => HandlePositioning(Positioning.AboveStart))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="above"
+					  Class="above"
+					  Style="grid-area: above"
+					  Title="Above"
+					  OnClick="@(() => HandlePositioning(Positioning.Above))">
+			<svg><use href="#arrow-step-out-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="above-end"
+					  Class="above-end end"
+					  Style="grid-area: above-end"
+					  Title="Above End"
+					  OnClick="@(() => HandlePositioning(Positioning.AboveEnd))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="before-top"
+					  Class="before-top start"
+					  Style="grid-area: before-top"
+					  Title="Before Top"
+					  OnClick="@(() => HandlePositioning(Positioning.BeforeTop))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="before"
+					  Class="before start"
+					  Style="grid-area: before"
+					  Title="Before"
+					  OnClick="@(() => HandlePositioning(Positioning.Before))">
+			<svg><use href="#arrow-step-out-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="before-bottom"
+					  Class="before-bottom start"
+					  Style="grid-area: before-bottom"
+					  Title="Before Bottom"
+					  OnClick="@(() => HandlePositioning(Positioning.BeforeBottom))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="after-top"
+					  Class="after-top end"
+					  Style="grid-area: after-top"
+					  Title="After Top"
+					  OnClick="@(() => HandlePositioning(Positioning.AfterTop))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="after"
+					  Class="after end"
+					  Style="grid-area: after"
+					  Title="After"
+					  OnClick="@(() => HandlePositioning(Positioning.After))">
+			<svg><use href="#arrow-step-out-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="after-bottom"
+					  Class="after-bottom end"
+					  Style="grid-area: after-bottom"
+					  Title="After Bottom"
+					  OnClick="@(() => HandlePositioning(Positioning.AfterBottom))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="below-start"
+					  Class="below-start start"
+					  Style="grid-area: below-start"
+					  Title="Below Start"
+					  OnClick="@(() => HandlePositioning(Positioning.BelowStart))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="below"
+					  Class="below"
+					  Style="grid-area: below"
+					  Title="Below"
+					  OnClick="@(() => HandlePositioning(Positioning.Below))">
+			<svg><use href="#arrow-step-out-20-regular"></use></svg>
+		</FluentButton>
+
+		<FluentButton IconOnly="true"
+					  Id="below-end"
+					  Class="below-end end"
+					  Style="grid-area: below-end"
+					  Title="Below End"
+					  OnClick="@(() => HandlePositioning(Positioning.BelowEnd))">
+			<svg><use href="#arrow-step-back-20-regular"></use></svg>
+		</FluentButton>
+
+        <svg style="display: none">
+            <symbol id="arrow-step-out-20-regular" viewBox="0 0 20 20">
+                <path fill="currentColor" d="M10 15a1 1 0 1 0 0 2a1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0a2 2 0 0 1-4 0m2-4a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L9.5 3.707V11.5a.5.5 0 0 0 .5.5"></path>
+            </symbol>
+            <symbol id="arrow-step-back-20-regular" viewBox="0 0 20 20">
+                <path fill="currentColor" d="M7.851 3.146a.5.5 0 0 1 0 .707L4.706 7H10c2.932 0 5.593 1.64 6.936 4.043a.5.5 0 1 1-.872.488C14.894 9.439 12.564 8 10 8H4.707l3.144 3.145a.5.5 0 0 1-.707.707L3.161 7.867a.5.5 0 0 1-.014-.721l3.997-4a.5.5 0 0 1 .707 0M8 15a2 2 0 1 1 4 0a2 2 0 0 1-4 0m2-1a1 1 0 1 0 0 2a1 1 0 0 0 0-2"></path>
+            </symbol>
+        </svg>
+    </div>
+    <p style="width: 400px;">We use a general <code>Positioning</code> enumeration. When using it for the badge positioning, the 'corner' position pairs (eg. AboveStart and BeforeTop) give the exact same result.</p>
+</FluentStack>
+
+

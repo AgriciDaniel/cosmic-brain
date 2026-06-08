@@ -1,0 +1,820 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><style>.bespoke-marp-note,.bespoke-marp-osc,.bespoke-progress-parent{display:none;transition:none}@media screen{body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;color:inherit;cursor:pointer;font-size:inherit;opacity:.8;outline:none;padding:0;transition:opacity .2s linear;-webkit-tap-highlight-color:transparent}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:disabled{cursor:not-allowed;opacity:.15!important}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover{opacity:1}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:active{opacity:.6}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:not(:disabled){transition:none}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-prev{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNNjggOTBMMjggNTBsNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-next{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNMzIgOTBsNDAtNDAtNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTQwIDcwSDIwVjUwbTIwIDBMMjAgNzBtNDAtNDBoMjB2MjBtLTIwIDBsMjAtMjAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen]{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTIwIDUwaDIwdjIwbS0yMCAwbDIwLTIwbTQwIDBINjBWMzBtMjAgMEw2MCA1MCIvPjwvc3ZnPg==")}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS13aWR0aDo1cHh9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImEiIGQ9Ik0yMCA2MGgtNWE1IDUgMCAwMS01LTVWMjBhNSA1IDAgMDE1LTVoNjBhNSA1IDAgMDE1IDV2NU0zMCA4NWg2MCIvPjxyZWN0IHg9IjMwIiB5PSIzNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiByeD0iNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIi8+PHJlY3QgY2xhc3M9ImEiIHg9IjMwIiB5PSIzNSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiByeD0iNSIvPjxwYXRoIGNsYXNzPSJhIiBkPSJNNDAgNTBoNDBNNDAgNjBoMzAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body,html{height:100%;margin:0}body{background:#000;overflow:hidden}svg.bespoke-marp-slide{content-visibility:hidden;z-index:-1;pointer-events:none;opacity:0}svg.bespoke-marp-slide.bespoke-marp-active{content-visibility:visible;z-index:0;pointer-events:auto;opacity:1}svg.bespoke-marp-slide.bespoke-marp-active.bespoke-marp-active-ready *{-webkit-animation-name:__bespoke_marp__!important;animation-name:__bespoke_marp__!important}@supports not (content-visibility:hidden){svg.bespoke-marp-slide[data-bespoke-marp-load=hideable]{display:none}svg.bespoke-marp-slide[data-bespoke-marp-load=hideable].bespoke-marp-active{display:block}}[data-bespoke-marp-fragment=inactive]{visibility:hidden}body[data-bespoke-view=""] .bespoke-marp-parent,body[data-bespoke-view=next] .bespoke-marp-parent{bottom:0;left:0;position:absolute;right:0;top:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc{background:rgba(0,0,0,.65);border-radius:7px;bottom:50px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:16px;left:50%;line-height:0;opacity:1;padding:12px;position:absolute;touch-action:manipulation;transform:translateX(-50%);transition:opacity .2s linear;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;z-index:1;will-change:transform}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>*,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>*{margin-left:6px}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>:first-child,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>:first-child{margin-left:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span{opacity:.8}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page]{display:inline-block;min-width:140px;text-align:center}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev]{height:32px;line-height:32px;width:32px}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive{cursor:none}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc{opacity:0;pointer-events:none}body[data-bespoke-view=""] svg.bespoke-marp-slide,body[data-bespoke-view=next] svg.bespoke-marp-slide{height:100%;left:0;position:absolute;top:0;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent{background:#222;display:flex;height:5px;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent+.bespoke-marp-parent{top:5px}body[data-bespoke-view=""] .bespoke-progress-parent .bespoke-progress-bar{flex:0 0 0;background:#0288d1;transition:flex-basis .2s cubic-bezier(0,1,1,1)}body[data-bespoke-view=next]{background:transparent}body[data-bespoke-view=presenter]{background:#161616}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container{font-family:Helvetica,Arial,sans-serif;height:100%;left:0;position:absolute;top:0;width:100%;display:grid;grid-template-columns:2fr 1fr;grid-template-rows:minmax(140px,1fr) 2fr 3em;grid-template-areas:"current next" "current note" "info    note"}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent{grid-area:current;position:relative;overflow:hidden}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide{height:calc(100% - 40px);left:20px;position:absolute;pointer-events:none;top:20px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide.bespoke-marp-active{filter:drop-shadow(0 3px 10px rgba(0,0,0,.5))}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container{background:#222;cursor:pointer;display:none;grid-area:next;overflow:hidden;position:relative}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container iframe.bespoke-marp-presenter-next{background:transparent;border:0;display:block;filter:drop-shadow(0 3px 10px rgba(0,0,0,.5));height:calc(100% - 40px);left:20px;position:absolute;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;top:20px;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container{background:#222;color:#eee;grid-area:note}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note{margin:20px;width:calc(100% - 40px);height:calc(100% - 40px);box-sizing:border-box;font-size:1.1em;overflow:auto;padding-right:3px;white-space:pre-wrap;word-wrap:break-word;scrollbar-width:thin;scrollbar-color:hsla(0,0%,93.3%,.5) transparent}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar{width:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-track{background:transparent}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-thumb{background:hsla(0,0%,93.3%,.5);border-radius:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note:empty{pointer-events:none}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:first-child{margin-top:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:last-child{margin-bottom:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container{align-items:center;box-sizing:border-box;color:#eee;display:flex;flex-wrap:nowrap;grid-area:info;justify-content:center;padding:0 10px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{display:block;box-sizing:border-box;padding:0 10px;white-space:nowrap;width:100%}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button{height:1.5em;line-height:1.5em;width:1.5em}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page{order:2;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page .bespoke-marp-presenter-info-page-text{display:inline-block;min-width:120px;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time{color:#999;order:1;text-align:left}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{color:#999;order:3;text-align:right}}@media print{.bespoke-marp-presenter-info-container,.bespoke-marp-presenter-next-container,.bespoke-marp-presenter-note-container{display:none}}</style><style>div#p>svg>foreignObject>section{width:1280px;height:720px;box-sizing:border-box;overflow:hidden;position:relative;scroll-snap-align:center center}div#p>svg>foreignObject>section:after{bottom:0;content:attr(data-marpit-pagination);padding:inherit;pointer-events:none;position:absolute;right:0}div#p>svg>foreignObject>section:not([data-marpit-pagination]):after{display:none}/* Normalization */div#p>svg>foreignObject>section h1{font-size:2em;margin:0.67em 0}div#p>svg>foreignObject>section video::-webkit-media-controls{will-change:transform}@page{size:1280px 720px;margin:0}@media print{body,html{background-color:#fff;margin:0;page-break-inside:avoid;break-inside:avoid-page}div#p>svg>foreignObject>section{page-break-before:always;break-before:page}div#p>svg>foreignObject>section,div#p>svg>foreignObject>section *{-webkit-print-color-adjust:exact!important;animation-delay:0s!important;animation-duration:0s!important;color-adjust:exact!important;transition:none!important}div#p>svg[data-marpit-svg]{display:block;height:100vh;width:100vw}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{display:block;height:auto;width:100%}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{position:static}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{content:""}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{position:relative}}div#p>svg>foreignObject>section [data-marp-fitting-svg-content]{display:table;white-space:nowrap}div#p>svg>foreignObject>section [data-marp-fitting-svg-content-wrap]{white-space:pre}div#p>svg>foreignObject>section img[data-marp-twemoji]{background:transparent;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em;width:1em}
+/*!
+ * Marp default theme.
+ *
+ * @theme default
+ * @author Yuki Hattori
+ *
+ * @auto-scaling true
+ * @size 4:3 960px 720px
+ */div#p>svg>foreignObject>section .octicon{display:inline-block;fill:currentColor;vertical-align:text-bottom}div#p>svg>foreignObject>section .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}div#p>svg>foreignObject>section .anchor:focus{outline:none}div#p>svg>foreignObject>section h1 .octicon-link,div#p>svg>foreignObject>section h2 .octicon-link,div#p>svg>foreignObject>section h3 .octicon-link,div#p>svg>foreignObject>section h4 .octicon-link,div#p>svg>foreignObject>section h5 .octicon-link,div#p>svg>foreignObject>section h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}div#p>svg>foreignObject>section h1:hover .anchor,div#p>svg>foreignObject>section h2:hover .anchor,div#p>svg>foreignObject>section h3:hover .anchor,div#p>svg>foreignObject>section h4:hover .anchor,div#p>svg>foreignObject>section h5:hover .anchor,div#p>svg>foreignObject>section h6:hover .anchor{text-decoration:none}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link{visibility:visible}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link:before{width:16px;height:16px;content:" ";display:inline-block;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'/%3E%3C/svg%3E")}div#p>svg>foreignObject>section{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#24292e;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;font-size:16px;line-height:1.5;word-wrap:break-word}div#p>svg>foreignObject>section{--marpit-root-font-size:16px}div#p>svg>foreignObject>section details{display:block}div#p>svg>foreignObject>section summary{display:list-item}div#p>svg>foreignObject>section a{background-color:initial}div#p>svg>foreignObject>section a:active,div#p>svg>foreignObject>section a:hover{outline-width:0}div#p>svg>foreignObject>section strong{font-weight:inherit;font-weight:bolder}div#p>svg>foreignObject>section h1{margin:.67em 0}div#p>svg>foreignObject>section img{border-style:none}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section kbd,div#p>svg>foreignObject>section pre{font-family:monospace,monospace;font-size:1em}div#p>svg>foreignObject>section hr{box-sizing:initial;overflow:visible}div#p>svg>foreignObject>section input{font:inherit;margin:0;overflow:visible}div#p>svg>foreignObject>section [type=checkbox]{padding:0}div#p>svg>foreignObject>section *,div#p>svg>foreignObject>section [type=checkbox]{box-sizing:border-box}div#p>svg>foreignObject>section input{font-family:inherit;font-size:inherit;line-height:inherit}div#p>svg>foreignObject>section a{color:#0366d6;text-decoration:none}div#p>svg>foreignObject>section a:hover{text-decoration:underline}div#p>svg>foreignObject>section strong{font-weight:600}div#p>svg>foreignObject>section hr{height:0;margin:15px 0;overflow:hidden;background:transparent;border-bottom:1px solid #dfe2e5}div#p>svg>foreignObject>section hr:after,div#p>svg>foreignObject>section hr:before{display:table;content:""}div#p>svg>foreignObject>section hr:after{clear:both}div#p>svg>foreignObject>section table{border-spacing:0;border-collapse:collapse}div#p>svg>foreignObject>section td,div#p>svg>foreignObject>section th{padding:0}div#p>svg>foreignObject>section details summary{cursor:pointer}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2,div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4,div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section h1{font-size:32px}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{font-weight:600}div#p>svg>foreignObject>section h2{font-size:24px}div#p>svg>foreignObject>section h3{font-size:20px}div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4{font-weight:600}div#p>svg>foreignObject>section h4{font-size:16px}div#p>svg>foreignObject>section h5{font-size:14px}div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{font-weight:600}div#p>svg>foreignObject>section h6{font-size:12px}div#p>svg>foreignObject>section p{margin-top:0;margin-bottom:10px}div#p>svg>foreignObject>section blockquote{margin:0}div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section ul{padding-left:0;margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ul ol{list-style-type:lower-roman}div#p>svg>foreignObject>section ol ol ol,div#p>svg>foreignObject>section ol ul ol,div#p>svg>foreignObject>section ul ol ol,div#p>svg>foreignObject>section ul ul ol{list-style-type:lower-alpha}div#p>svg>foreignObject>section dd{margin-left:0}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section pre{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px}div#p>svg>foreignObject>section pre{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section input::-webkit-inner-spin-button,div#p>svg>foreignObject>section input::-webkit-outer-spin-button{margin:0;-webkit-appearance:none;appearance:none}div#p>svg>foreignObject>section :checked+.radio-label{position:relative;z-index:1;border-color:#0366d6}div#p>svg>foreignObject>section .border{border:1px solid #e1e4e8!important}div#p>svg>foreignObject>section .border-0{border:0!important}div#p>svg>foreignObject>section .border-bottom{border-bottom:1px solid #e1e4e8!important}div#p>svg>foreignObject>section .rounded-1{border-radius:3px!important}div#p>svg>foreignObject>section .bg-white{background-color:#fff!important}div#p>svg>foreignObject>section .bg-gray-light{background-color:#fafbfc!important}div#p>svg>foreignObject>section .text-gray-light{color:#6a737d!important}div#p>svg>foreignObject>section .pl-3,div#p>svg>foreignObject>section .px-3{padding-left:16px!important}div#p>svg>foreignObject>section .px-3{padding-right:16px!important}div#p>svg>foreignObject>section .f6{font-size:12px!important}div#p>svg>foreignObject>section div#p>svg>foreignObject>section section.f6{--marpit-root-font-size:12px!important}div#p>svg>foreignObject>section .lh-condensed{line-height:1.25!important}div#p>svg>foreignObject>section .text-bold{font-weight:600!important}div#p>svg>foreignObject>section .pl-c{color:#6a737d}div#p>svg>foreignObject>section .pl-c1,div#p>svg>foreignObject>section .pl-s .pl-v{color:#005cc5}div#p>svg>foreignObject>section .pl-e,div#p>svg>foreignObject>section .pl-en{color:#6f42c1}div#p>svg>foreignObject>section .pl-s .pl-s1,div#p>svg>foreignObject>section .pl-smi{color:#24292e}div#p>svg>foreignObject>section .pl-ent{color:#22863a}div#p>svg>foreignObject>section .pl-k{color:#d73a49}div#p>svg>foreignObject>section .pl-pds,div#p>svg>foreignObject>section .pl-s,div#p>svg>foreignObject>section .pl-s .pl-pse .pl-s1,div#p>svg>foreignObject>section .pl-sr,div#p>svg>foreignObject>section .pl-sr .pl-cce,div#p>svg>foreignObject>section .pl-sr .pl-sra,div#p>svg>foreignObject>section .pl-sr .pl-sre{color:#032f62}div#p>svg>foreignObject>section .pl-smw,div#p>svg>foreignObject>section .pl-v{color:#e36209}div#p>svg>foreignObject>section .pl-bu{color:#b31d28}div#p>svg>foreignObject>section .pl-ii{color:#fafbfc;background-color:#b31d28}div#p>svg>foreignObject>section .pl-c2{color:#fafbfc;background-color:#d73a49}div#p>svg>foreignObject>section .pl-c2:before{content:"^M"}div#p>svg>foreignObject>section .pl-sr .pl-cce{font-weight:700;color:#22863a}div#p>svg>foreignObject>section .pl-ml{color:#735c0f}div#p>svg>foreignObject>section .pl-mh,div#p>svg>foreignObject>section .pl-mh .pl-en,div#p>svg>foreignObject>section .pl-ms{font-weight:700;color:#005cc5}div#p>svg>foreignObject>section .pl-mi{font-style:italic;color:#24292e}div#p>svg>foreignObject>section .pl-mb{font-weight:700;color:#24292e}div#p>svg>foreignObject>section .pl-md{color:#b31d28;background-color:#ffeef0}div#p>svg>foreignObject>section .pl-mi1{color:#22863a;background-color:#f0fff4}div#p>svg>foreignObject>section .pl-mc{color:#e36209;background-color:#ffebda}div#p>svg>foreignObject>section .pl-mi2{color:#f6f8fa;background-color:#005cc5}div#p>svg>foreignObject>section .pl-mdr{font-weight:700;color:#6f42c1}div#p>svg>foreignObject>section .pl-ba{color:#586069}div#p>svg>foreignObject>section .pl-sg{color:#959da5}div#p>svg>foreignObject>section .pl-corl{text-decoration:underline;color:#032f62}div#p>svg>foreignObject>section .mb-0{margin-bottom:0!important}div#p>svg>foreignObject>section .my-2{margin-bottom:8px!important;margin-top:8px!important}div#p>svg>foreignObject>section .pl-0{padding-left:0!important}div#p>svg>foreignObject>section .py-0{padding-top:0!important;padding-bottom:0!important}div#p>svg>foreignObject>section .pl-1{padding-left:4px!important}div#p>svg>foreignObject>section .pl-2{padding-left:8px!important}div#p>svg>foreignObject>section .py-2{padding-top:8px!important;padding-bottom:8px!important}div#p>svg>foreignObject>section .pl-3{padding-left:16px!important}div#p>svg>foreignObject>section .pl-4{padding-left:24px!important}div#p>svg>foreignObject>section .pl-5{padding-left:32px!important}div#p>svg>foreignObject>section .pl-6{padding-left:40px!important}div#p>svg>foreignObject>section .pl-7{padding-left:48px!important}div#p>svg>foreignObject>section .pl-8{padding-left:64px!important}div#p>svg>foreignObject>section .pl-9{padding-left:80px!important}div#p>svg>foreignObject>section .pl-10{padding-left:96px!important}div#p>svg>foreignObject>section .pl-11{padding-left:112px!important}div#p>svg>foreignObject>section .pl-12{padding-left:128px!important}div#p>svg>foreignObject>section hr{border-bottom-color:#eee}div#p>svg>foreignObject>section kbd{display:inline-block;padding:3px 5px;font:11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;line-height:10px;color:#444d56;vertical-align:middle;background-color:#fafbfc;border:1px solid #d1d5da;border-radius:3px;box-shadow:inset 0 -1px 0 #d1d5da}div#p>svg>foreignObject>section:after,div#p>svg>foreignObject>section:before{display:table
+  /* content:""; */}div#p>svg>foreignObject>section:after{clear:both}div#p>svg>foreignObject>section>:first-child{margin-top:0!important}div#p>svg>foreignObject>section>:last-child{margin-bottom:0!important}div#p>svg>foreignObject>section a:not([href]){color:inherit;text-decoration:none}div#p>svg>foreignObject>section blockquote,div#p>svg>foreignObject>section details,div#p>svg>foreignObject>section dl,div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section p,div#p>svg>foreignObject>section pre,div#p>svg>foreignObject>section table,div#p>svg>foreignObject>section ul{margin-top:0;margin-bottom:16px}div#p>svg>foreignObject>section hr{height:.25em;padding:0;margin:24px 0;background-color:#e1e4e8;border:0}div#p>svg>foreignObject>section blockquote{padding:0 1em;color:#6a737d;border-left:.25em solid #dfe2e5}div#p>svg>foreignObject>section blockquote>:first-child{margin-top:0}div#p>svg>foreignObject>section blockquote>:last-child{margin-bottom:0}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2,div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4,div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}div#p>svg>foreignObject>section h1{font-size:2em}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{padding-bottom:.3em;border-bottom:1px solid #eaecef}div#p>svg>foreignObject>section h2{font-size:1.5em}div#p>svg>foreignObject>section h3{font-size:1.25em}div#p>svg>foreignObject>section h4{font-size:1em}div#p>svg>foreignObject>section h5{font-size:.875em}div#p>svg>foreignObject>section h6{font-size:.85em;color:#6a737d}div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section ul{padding-left:2em}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ol ul,div#p>svg>foreignObject>section ul ol,div#p>svg>foreignObject>section ul ul{margin-top:0;margin-bottom:0}div#p>svg>foreignObject>section li{word-wrap:break-all}div#p>svg>foreignObject>section li>p{margin-top:16px}div#p>svg>foreignObject>section li+li{margin-top:.25em}div#p>svg>foreignObject>section dl{padding:0}div#p>svg>foreignObject>section dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:600}div#p>svg>foreignObject>section dl dd{padding:0 16px;margin-bottom:16px}div#p>svg>foreignObject>section table{display:block;width:100%;overflow:auto}div#p>svg>foreignObject>section table th{font-weight:600}div#p>svg>foreignObject>section table td,div#p>svg>foreignObject>section table th{padding:6px 13px;border:1px solid #dfe2e5}div#p>svg>foreignObject>section table tr{background-color:#fff;border-top:1px solid #c6cbd1}div#p>svg>foreignObject>section table tr:nth-child(2n){background-color:#f6f8fa}div#p>svg>foreignObject>section img{max-width:100%;box-sizing:initial;background-color:#fff}div#p>svg>foreignObject>section img[align=right]{padding-left:20px}div#p>svg>foreignObject>section img[align=left]{padding-right:20px}div#p>svg>foreignObject>section code{padding:.2em .4em;margin:0;font-size:85%;background-color:rgba(27,31,35,.05);border-radius:3px}div#p>svg>foreignObject>section pre{word-wrap:normal}div#p>svg>foreignObject>section pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}div#p>svg>foreignObject>section .highlight{margin-bottom:16px}div#p>svg>foreignObject>section .highlight pre{margin-bottom:0;word-break:normal}div#p>svg>foreignObject>section pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f6f8fa;border-radius:3px}div#p>svg>foreignObject>section pre code{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:initial;border:0}div#p>svg>foreignObject>section .commit-tease-sha{display:inline-block;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:90%;color:#444d56}div#p>svg>foreignObject>section div#p>svg>foreignObject>section section.commit-tease-sha{--marpit-root-font-size:90%}div#p>svg>foreignObject>section .full-commit .btn-outline:not(:disabled):hover{color:#005cc5;border-color:#005cc5}div#p>svg>foreignObject>section .blob-wrapper{overflow-x:auto;overflow-y:hidden}div#p>svg>foreignObject>section .blob-wrapper-embedded{max-height:240px;overflow-y:auto}div#p>svg>foreignObject>section .blob-num{width:1%;min-width:50px;padding-right:10px;padding-left:10px;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;line-height:20px;color:rgba(27,31,35,.3);text-align:right;white-space:nowrap;vertical-align:top;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}div#p>svg>foreignObject>section div#p>svg>foreignObject>section section.blob-num{--marpit-root-font-size:12px}div#p>svg>foreignObject>section .blob-num:hover{color:rgba(27,31,35,.6)}div#p>svg>foreignObject>section .blob-num:before{content:attr(data-line-number)}div#p>svg>foreignObject>section .blob-code{position:relative;padding-right:10px;padding-left:10px;line-height:20px;vertical-align:top}div#p>svg>foreignObject>section .blob-code-inner{overflow:visible;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;color:#24292e;word-wrap:normal;white-space:pre}div#p>svg>foreignObject>section div#p>svg>foreignObject>section section.blob-code-inner{--marpit-root-font-size:12px}div#p>svg>foreignObject>section .pl-token.active,div#p>svg>foreignObject>section .pl-token:hover{cursor:pointer;background:#ffea7f}div#p>svg>foreignObject>section .tab-size[data-tab-size="1"]{-moz-tab-size:1;-o-tab-size:1;tab-size:1}div#p>svg>foreignObject>section .tab-size[data-tab-size="2"]{-moz-tab-size:2;-o-tab-size:2;tab-size:2}div#p>svg>foreignObject>section .tab-size[data-tab-size="3"]{-moz-tab-size:3;-o-tab-size:3;tab-size:3}div#p>svg>foreignObject>section .tab-size[data-tab-size="4"]{-moz-tab-size:4;-o-tab-size:4;tab-size:4}div#p>svg>foreignObject>section .tab-size[data-tab-size="5"]{-moz-tab-size:5;-o-tab-size:5;tab-size:5}div#p>svg>foreignObject>section .tab-size[data-tab-size="6"]{-moz-tab-size:6;-o-tab-size:6;tab-size:6}div#p>svg>foreignObject>section .tab-size[data-tab-size="7"]{-moz-tab-size:7;-o-tab-size:7;tab-size:7}div#p>svg>foreignObject>section .tab-size[data-tab-size="8"]{-moz-tab-size:8;-o-tab-size:8;tab-size:8}div#p>svg>foreignObject>section .tab-size[data-tab-size="9"]{-moz-tab-size:9;-o-tab-size:9;tab-size:9}div#p>svg>foreignObject>section .tab-size[data-tab-size="10"]{-moz-tab-size:10;-o-tab-size:10;tab-size:10}div#p>svg>foreignObject>section .tab-size[data-tab-size="11"]{-moz-tab-size:11;-o-tab-size:11;tab-size:11}div#p>svg>foreignObject>section .tab-size[data-tab-size="12"]{-moz-tab-size:12;-o-tab-size:12;tab-size:12}div#p>svg>foreignObject>section .task-list-item{list-style-type:none}div#p>svg>foreignObject>section .task-list-item+.task-list-item{margin-top:3px}div#p>svg>foreignObject>section .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}div#p>svg>foreignObject>section .hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}div#p>svg>foreignObject>section .hljs-comment,div#p>svg>foreignObject>section .hljs-meta{color:#969896}div#p>svg>foreignObject>section .hljs-emphasis,div#p>svg>foreignObject>section .hljs-quote,div#p>svg>foreignObject>section .hljs-strong,div#p>svg>foreignObject>section .hljs-template-variable,div#p>svg>foreignObject>section .hljs-variable{color:#df5000}div#p>svg>foreignObject>section .hljs-keyword,div#p>svg>foreignObject>section .hljs-selector-tag,div#p>svg>foreignObject>section .hljs-type{color:#d73a49}div#p>svg>foreignObject>section .hljs-attribute,div#p>svg>foreignObject>section .hljs-bullet,div#p>svg>foreignObject>section .hljs-literal,div#p>svg>foreignObject>section .hljs-symbol{color:#0086b3}div#p>svg>foreignObject>section .hljs-name,div#p>svg>foreignObject>section .hljs-section{color:#63a35c}div#p>svg>foreignObject>section .hljs-tag{color:#333}div#p>svg>foreignObject>section .hljs-attr,div#p>svg>foreignObject>section .hljs-selector-attr,div#p>svg>foreignObject>section .hljs-selector-class,div#p>svg>foreignObject>section .hljs-selector-id,div#p>svg>foreignObject>section .hljs-selector-pseudo,div#p>svg>foreignObject>section .hljs-title{color:#6f42c1}div#p>svg>foreignObject>section .hljs-addition{color:#55a532;background-color:#eaffea}div#p>svg>foreignObject>section .hljs-deletion{color:#bd2c00;background-color:#ffecec}div#p>svg>foreignObject>section .hljs-link{text-decoration:underline}div#p>svg>foreignObject>section .hljs-number{color:#005cc5}div#p>svg>foreignObject>section .hljs-string{color:#032f62}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{max-height:563px}div#p>svg>foreignObject>section h1{color:#246;font-size:1.6em}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{border-bottom:none}div#p>svg>foreignObject>section h2{font-size:1.3em}div#p>svg>foreignObject>section h3{font-size:1.1em}div#p>svg>foreignObject>section h4{font-size:1.05em}div#p>svg>foreignObject>section h5{font-size:1em}div#p>svg>foreignObject>section h6{font-size:.9em}div#p>svg>foreignObject>section h1 strong,div#p>svg>foreignObject>section h2 strong,div#p>svg>foreignObject>section h3 strong,div#p>svg>foreignObject>section h4 strong,div#p>svg>foreignObject>section h5 strong,div#p>svg>foreignObject>section h6 strong{font-weight:inherit;color:#48c}div#p>svg>foreignObject>section hr{height:0;padding-top:.25em}div#p>svg>foreignObject>section pre{border:1px solid #999;line-height:1.15;overflow:visible}div#p>svg>foreignObject>section pre code svg[data-marp-fitting=svg]{max-height:529px}div#p>svg>foreignObject>section footer,div#p>svg>foreignObject>section header{margin:0;position:absolute;left:30px;color:hsla(0,0%,40%,.75);font-size:18px}div#p>svg>foreignObject>section header{top:21px}div#p>svg>foreignObject>section footer{bottom:21px}div#p>svg>foreignObject>section{align-items:stretch;background:#fff;display:flex;flex-direction:column;flex-wrap:nowrap;font-size:29px;height:720px;justify-content:center;padding:78.5px;width:1280px}div#p>svg>foreignObject>section{--marpit-root-font-size:29px}div#p>svg>foreignObject>section>:last-child,div#p>svg>foreignObject>section[data-footer]>:nth-last-child(2){margin-bottom:0}div#p>svg>foreignObject>section>:first-child,div#p>svg>foreignObject>section>header:first-child+*{margin-top:0}div#p>svg>foreignObject>section:after{position:absolute;padding:0;right:30px;bottom:21px;font-size:24px;color:#777}div#p>svg>foreignObject>section:after{--marpit-root-font-size:24px}div#p>svg>foreignObject>section.invert{background-color:#222;color:#e6eaf0}div#p>svg>foreignObject>section.invert:after{color:#999}div#p>svg>foreignObject>section.invert img{background-color:transparent}div#p>svg>foreignObject>section.invert a{color:#50b3ff}div#p>svg>foreignObject>section.invert h1{color:#a3c5e7}div#p>svg>foreignObject>section.invert h2,div#p>svg>foreignObject>section.invert h3,div#p>svg>foreignObject>section.invert h4,div#p>svg>foreignObject>section.invert h5{color:#ebeff5}div#p>svg>foreignObject>section.invert blockquote,div#p>svg>foreignObject>section.invert h6{border-color:#3d3f43;color:#939699}div#p>svg>foreignObject>section.invert h1 strong,div#p>svg>foreignObject>section.invert h2 strong,div#p>svg>foreignObject>section.invert h3 strong,div#p>svg>foreignObject>section.invert h4 strong,div#p>svg>foreignObject>section.invert h5 strong,div#p>svg>foreignObject>section.invert h6 strong{color:#7bf}div#p>svg>foreignObject>section.invert hr{background-color:#3d3f43}div#p>svg>foreignObject>section.invert footer,div#p>svg>foreignObject>section.invert header{color:hsla(0,0%,60%,.75)}div#p>svg>foreignObject>section.invert code,div#p>svg>foreignObject>section.invert kbd{background-color:#111}div#p>svg>foreignObject>section.invert kbd{border-color:#666;box-shadow:inset 0 -1px 0 #555;color:#e6eaf0}div#p>svg>foreignObject>section.invert table tr{background-color:#12181d;border-color:#60657b}div#p>svg>foreignObject>section.invert table tr:nth-child(2n){background-color:#1b2024}div#p>svg>foreignObject>section.invert table td,div#p>svg>foreignObject>section.invert table th{border-color:#5b5e61}div#p>svg>foreignObject>section.invert pre{background-color:#0a0e12;border-color:#777}div#p>svg>foreignObject>section.invert pre code{background-color:transparent}div#p>svg>foreignObject>section[data-color] h1,div#p>svg>foreignObject>section[data-color] h2,div#p>svg>foreignObject>section[data-color] h3,div#p>svg>foreignObject>section[data-color] h4,div#p>svg>foreignObject>section[data-color] h5,div#p>svg>foreignObject>section[data-color] h6{color:currentColor}div#p>svg>foreignObject>section tt{font-weight:bold}div#p>svg>foreignObject>section span.hljs-string{color:#50b050}div#p>svg>foreignObject>section span.hljs-title{color:#7ff2e1}div#p>svg>foreignObject>section span.hljs-number{color:#00acc5}div#p>svg>foreignObject>section.highlight em{color:#aff;font-style:normal}div#p>svg>foreignObject>section.highlight strong{color:#f44;font-style:normal;font-weight:normal}div#p>svg>foreignObject>section.center{text-align:center}div#p>svg>foreignObject>section.video{padding:0px;margin:0px}div#p>svg>foreignObject>section.video iframe{width:100%;height:100%}div#p>svg>foreignObject>section div.col2{margin-top:35px;column-count:2}div#p>svg>foreignObject>section div.col2 h1:first-child,div#p>svg>foreignObject>section div.col2 h2:first-child,div#p>svg>foreignObject>section div.col2 h3:first-child,div#p>svg>foreignObject>section div.col2 p:first-child,div#p>svg>foreignObject>section div.col2 ul:first-child,div#p>svg>foreignObject>section div.col2 ul li:first-child,div#p>svg>foreignObject>section div.col2 ul li p:first-child{margin-top:0!important}div#p>svg>foreignObject>section div.col2 .break{break-before:column;margin-top:0}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]{display:block!important;padding:0!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#p>svg>foreignObject>section[data-marpit-advanced-background=content],div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id="p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:60%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Racoon.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="40%" height="720" x="60%"><section id="1" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:60%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<h2>Is real-time UI <br />really hard to code<br /> or do I suck?</h2>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/TwitterMinusOneLike.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="2" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/DogOnFire.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="3" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2>You'll learn:</h2>
+<ul>
+<li>What do you need to have a good <em>real-time UI</em>?</li>
+<li>How real-time is related to <em>cache invalidation and eventual consistency</em>?</li>
+<li>What really makes <em>React and Blazor</em> so convenient?</li>
+<li>How all of this is related to <em>functional programming</em>?</li>
+<li>And many other things...</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Flow1.jpg&quot;);filter:brightness(0.2);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="4" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content">
+<h1>Typical Real-time UI Data Flow</h1>
+
+<p><strong>Reads:</strong> UI ← Client ← API ← Services ← DB &amp; other storages<br />
+<strong>Updates</strong>:</p>
+<ul>
+<li>UI must subscribe to (and unsubscribe from!) domain events (error prone)</li>
+<li>These events must be transformed to UI model changes (breaks DRY)</li>
+<li>The UI displaying these models must be updated</li>
+<li>Server-side code must implement event sourcing / CQRS</li>
+<li>... a lot more ...</li>
+</ul>
+<h3>But the main downside is:</h3>
+<p>Your UI becomes implicitly dependent on the server-side change processing logic. It accumulates more and more knowledge of which models &amp; parts of the UI are impacted by which changes.</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/SupplyChain.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="5" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>UI as a Composition of Functions</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment">// Client</span>
+<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">RenderAppUI</span>(<span class="hljs-params"></span>)</span> { 
+  <span class="hljs-comment">// Uses router, which ends up calling RenderUserName</span>
+} 
+
+<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">RenderUserName</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> userId</span>)</span> {
+  <span class="hljs-keyword">var</span> user = UserApiClient.GetUser(userId);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">$&quot;&lt;div&gt;<span class="hljs-subst">{user.Name}</span>&lt;/div&gt;&quot;</span>;
+}
+
+<span class="hljs-comment">// API controller</span>
+<span class="hljs-function">UserModel <span class="hljs-title">GetUser</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> userId</span>)</span> {
+  <span class="hljs-keyword">var</span> user = UserRepository.Get(<span class="hljs-built_in">string</span> userId);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> UserModel(user.Id, user.Name, ...);
+}
+
+<span class="hljs-comment">// UserRepository</span>
+<span class="hljs-function">User <span class="hljs-title">Get</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> userId</span>)</span> { ... }
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;">
+<h1>Why don't we use this approach?</h1>
+<ol>
+<li>It's quite expensive to recompute everything on every update</li>
+<li>And quite time consuming, because a part of these functions require RPC.</li>
+</ol>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Yoda1.jpg&quot;);filter:brightness(0.2);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="8" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="content">
+<h1>But wait...</h1>
+<ol>
+<li>It's quite expensive to recompute everything on every update<br />
+<strong>Cache use you must?</strong></li>
+<li>And quite time consuming, because a part of these functions require RPC.<br />
+<strong>Client-side cache use you must?</strong></li>
+</ol>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/ShockedDog.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="9" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>To Cache</h1>
+
+<p>means to store and reuse the results of computations executed in past.</p>
+<p><strong>Do we cache everything?</strong></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Caching as a Higher Order Function</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-title">Func</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt; <span class="hljs-title">ToCaching</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt;(<span class="hljs-params">Func&lt;TIn, TOut&gt; computer</span>)</span>
+  =&gt; input =&gt; {
+    <span class="hljs-keyword">var</span> key = CreateKey(computer, input);
+
+    <span class="hljs-keyword">if</span> (TryGetCached(key, <span class="hljs-keyword">out</span> <span class="hljs-keyword">var</span> output)) <span class="hljs-keyword">return</span> output;
+    <span class="hljs-keyword">lock</span> (GetLock(key)) { <span class="hljs-comment">// Double-check locking</span>
+      <span class="hljs-keyword">if</span> (TryGetCached(key, <span class="hljs-keyword">out</span> <span class="hljs-keyword">var</span> output)) <span class="hljs-keyword">return</span> output;
+
+      output = computer(input);
+      StoreCached(key, output);
+
+      <span class="hljs-keyword">return</span> output;
+    }
+  }
+
+<span class="hljs-keyword">var</span> getUser = (Func&lt;<span class="hljs-built_in">long</span>, User&gt;) (userId =&gt; UserRepository.Get(userId));
+<span class="hljs-keyword">var</span> cachingGetUser = ToCaching(getUser);
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/ShockedCat1.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="11" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>A Small Problem*</h1>
+
+<p>The code you saw works only when <tt>computer</tt> is a <em>pure function</em>.</p>
+<p>So you just saw a tiny example of vaporware.</p>
+<footer>
+(*) Let's omit all minor issues for now &ndash; such as the fact it's non-async code.
+</footer>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Solutions*</h1>
+<div class="col2">
+<p><b>Plan 😈:</b> Purify every function!</p>
+<p><img src="./img/Hell.gif" width="100%" /></p>
+<div class="break"></div>
+<p><b>Plan 🙀:</b> Implement dependency tracking + cascading invalidation </p>
+<p><img src="./img/Chance.jpg" width="100%" /></p>
+</div>
+<footer>
+(*) I'm absolutely sure there are other solutions. But there is no more space on this slide, so...
+</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Plan <img class="emoji" draggable="false" alt="🙀" src="https://twemoji.maxcdn.com/2/svg/1f640.svg" data-marp-twemoji=""/>: Caching + Dependency Tracking + Invalidation</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-title">Func</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt; <span class="hljs-title">ToAwesome</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt;(<span class="hljs-params">Func&lt;TIn, TOut&gt; computer</span>)</span>
+  =&gt; input =&gt; {
+    <span class="hljs-keyword">var</span> key = CreateKey(computer, input);
+    <span class="hljs-keyword">if</span> (TryGetCached(key, <span class="hljs-keyword">out</span> <span class="hljs-keyword">var</span> computed) || Computed.IsInvalidating) <span class="hljs-comment">// [ThreadStatic]</span>
+      <span class="hljs-keyword">return</span> computed.UseOrInvalidate();
+    <span class="hljs-keyword">lock</span> (GetLock(key)) { 
+      <span class="hljs-keyword">if</span> (TryGetCached(key, <span class="hljs-keyword">out</span> <span class="hljs-keyword">var</span> computed)) 
+        <span class="hljs-keyword">return</span> computed.Use();
+      
+      <span class="hljs-keyword">var</span> oldCurrent = Computed.Current; <span class="hljs-comment">// [ThreadStatic]</span>
+      Computed.Current = computed = <span class="hljs-keyword">new</span> Computed(computer, input, key);
+      <span class="hljs-keyword">try</span> {
+        computed.Value = computer(input);
+      }
+      catch (Exception error) {
+        computed.Error = error;
+      }
+      <span class="hljs-keyword">finally</span> {
+        Computed.Current = oldCurrent;
+      }
+      
+      StoreCached(key, computed);
+      <span class="hljs-keyword">return</span> computed.Use();
+    }
+  }
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1><code>Computed.Use()</code> = dependency tracking</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">static</span> TOut <span class="hljs-title">Use</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> Computed&lt;TIn, TOut&gt; computed</span>)</span>
+{
+  Computed.Current.AddDependency(computed);
+  <span class="hljs-keyword">return</span> computed.Value;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> TOut <span class="hljs-title">UseOrInvalidate</span>&lt;<span class="hljs-title">TIn</span>, <span class="hljs-title">TOut</span>&gt;(<span class="hljs-params"><span class="hljs-keyword">this</span> Computed&lt;TIn, TOut&gt;? computed</span>)</span>
+{
+  <span class="hljs-keyword">if</span> (Computed.IsInvalidating) { <span class="hljs-comment">// [ThreadStatic]</span>
+    <span class="hljs-comment">// Invalidation mode is on, so just invalidate &amp; don&#x27;t compute anything!</span>
+    computed?.Invalidate(); 
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">default</span>;
+  }
+  <span class="hljs-keyword">return</span> computed.Use();
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>What is invalidation / <code>Computed.Invalidate()</code>?</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Invalidate</span>(<span class="hljs-params"></span>)</span> 
+{
+  <span class="hljs-keyword">if</span> (State == State.Invalidated) <span class="hljs-keyword">return</span>;
+  <span class="hljs-keyword">lock</span> (<span class="hljs-keyword">this</span>) { <span class="hljs-comment">// Double-check locking</span>
+    <span class="hljs-keyword">if</span> (State == State.Invalidated) <span class="hljs-keyword">return</span>;
+    State = State.Invalidated;
+    RemoveCached(Key);
+    InvalidateDependants(); <span class="hljs-comment">// Calls Invalidate() on dependants</span>
+    OnInvalidated();
+  }
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Invalidation mode: call to invalidate the call result!</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> Computed.Invalidate(Action action) 
+{
+  <span class="hljs-keyword">var</span> oldIsInvalidating = Computed.IsInvalidating;
+  Computed.IsInvalidating = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">try</span> {
+    action();
+  }
+  <span class="hljs-keyword">finally</span> {
+    Computed.IsInvalidating = oldIsInvalidating;
+  }
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Caching + Dependency Tracking Example</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">var</span> counters = <span class="hljs-keyword">new</span> Dictionary&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">int</span>&gt;();
+ 
+<span class="hljs-comment">// Dependency</span>
+<span class="hljs-keyword">var</span> getCounter = ToAwesome((Func&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">int</span>&gt;) (key
+  =&gt; counters.GetValueOrDefault(key)));
+
+<span class="hljs-comment">// Dependent function</span>
+<span class="hljs-keyword">var</span> getCounterText = ToAwesome((Func&lt;<span class="hljs-built_in">long</span>, <span class="hljs-built_in">string</span>&gt;) (key
+  =&gt; <span class="hljs-string">$&quot;Count: <span class="hljs-subst">{GetCounter(key)}</span>&quot;</span>));
+
+WriteLine(getCounterText(<span class="hljs-string">&quot;A&quot;</span>)); <span class="hljs-comment">// &quot;Count: 0&quot; - invokes both delegates</span>
+WriteLine(getCounterText(<span class="hljs-string">&quot;A&quot;</span>)); <span class="hljs-comment">// &quot;Count: 0&quot; - cache hit for getCounterText(&quot;A&quot;)</span>
+
+counters[<span class="hljs-string">&quot;A&quot;</span>] = <span class="hljs-number">1</span>;
+Computed.Invalidate(() =&gt; getCounter(<span class="hljs-string">&quot;A&quot;</span>)) <span class="hljs-comment">// Invalidates both cached values</span>
+WriteLine(getCounterText(<span class="hljs-string">&quot;A&quot;</span>)); <span class="hljs-comment">// &quot;Count: 1&quot; - invokes both delegates again</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-fragments="3" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Stitch1.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="18" data-marpit-fragments="3" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Our new superpowers:</h1>
+<ul>
+<li data-marpit-fragment="1"><em>Call result caching</em></li>
+<li data-marpit-fragment="2"><em>Dependency tracking</em></li>
+<li data-marpit-fragment="3"><em>The same value is never computed concurrently</em></li>
+</ul>
+<p>And it does this <em>without changing neither the signature, nor the implementation</em> of a function it gets!</p>
+<blockquote>
+<p>&quot;So, tell me, my little one-eyed one, on what poor, pitiful, defenseless planet has my monstrosity been unleashed?&quot;<br />
+– <a href="https://disney.fandom.com/wiki/Jumba_Jookiba">Dr. Jumba Jookiba</a>, #1 scientist in my list</p>
+</blockquote>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-fragments="1" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Yoda1.jpg&quot;);filter:brightness(0.2);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="19" data-marpit-fragments="1" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="content">
+<h1>The Incrementally-Build-EVERYTHING Decorator!</h1>
+<p>Let's remember where we started:</p>
+<ol>
+<li>It's quite expensive to recompute everything on every update<br />
+<strong>Cache use you must?</strong>
+<ul>
+<li data-marpit-fragment="1">But what if some of our functions are impure?<br />
+<em>Not a problem this is anymore!</em></li>
+</ul>
+</li>
+<li>And quite time consuming, because a part of these functions require RPC.<br />
+<strong>Client-side cache use you must?</strong><br />
+<em>We'll get back to this part later.</em></li>
+</ol>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/IncrementalBuild.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="20" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/InvisibleEverything.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="21" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"><footer style="width: 100%; text-align: center;">
+  <div style="font-size: 48px; color: #fff">
+    A transparent <strike>furniture</strike> abstraction!*
+    <div style="font-size: 24px; color: #fff">
+      (*) Except <tt>Computed.Invalidate</tt> &ndash; nothing is prefect :(
+    </div>
+  </div>
+</footer>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/YouDontNeedIt.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="22" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Do we really need this syntax with delegates?</h1>
+<p>We don't. It's actually much more convenient to apply this decorator to virtual methods tagged by a special attribute by generating a proxy type in runtime that overrides them.</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Buzz2.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="55%" height="720"><section id="23" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>What else is missing?</h1>
+<ul>
+<li>Actual implementation of a &quot;box&quot;</li>
+<li>Async support</li>
+<li>GC-friendly &quot;box&quot; cache</li>
+<li>GC-friendly refs to dependants</li>
+<li>A lot more. But slides are to show the bright side of things, right?</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;--marpit-advanced-background-split:53%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/DeepEnough.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="47%" height="720" x="53%"><section id="24" data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;--marpit-advanced-background-split:53%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<h3>What about eventual consistency?</h3>
+<h3>What about React and Blazor?</h3>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Zootopia.jpg&quot;);filter:brightness(0.4);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="25" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="content">
+<h2>Flash Slothmore is eventually consistent:</h2>
+<p>He will close all of his tasks-in-slow-progress <em>eventually</em>.<br />
+<em>Once</em> <a href="https://zootopia.fandom.com/wiki/Judy_Hopps">Judy Hopps</a> stops distracting him with her problems<br />
+(stops giving him more tasks).</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Dinosaurs.jpg&quot;);filter:brightness(0.4);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="26" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="content"><h2>
+&ndash; Bro, do you have a cache?<br />
+&ndash; I do - but it's so tiny...<br />
+&ndash; We are doomed! The state is eventually consistent!
+</h2>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/TwoDogs.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="27" data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="content"><div>
+Imagine two <b>eventually consistent</b> systems -<br />
+what's their key difference?
+</div>
+<div class="col2">
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1</h1>
+<div class="break"></div>
+<h1>#2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+</div>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Caching.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="28" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/AllTheThings.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="29" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>I'm in the real-time business. How this is relevant?</h1>
+
+<p>Real-time updates require you to:</p>
+<ul>
+<li>Know when a result of a function changes<br />
+<strong>Invalidate all the things!</strong></li>
+<li>Recompute new results quickly<br />
+<strong>Incrementally build all the things!</strong></li>
+<li>Send them over the network<br />
+*.NET all the things?</li>
+<li>Ideally, as a compact diff to the prev. state<br />
+<strong>Diff can be computed in <code>O(diffSize)</code> for immutable types (<a href="https://medium.com/swlh/fusion-current-state-and-upcoming-features-88bc4201594b?source=friends_link&sk=375290c4538167fe99419a744f3d42d5">details</a>).</span></strong></li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;">
+<p><em>&quot;There are only two hard things in Computer Science: <strong>cache invalidation</strong> and <strong>naming things</strong>.&quot;</em><br />
+– Phil Karlton</p>
+<br />
+<p>Naming problem is of the same scale as the Ultimate Question of Life, the Universe, and Everything, so... Good we've made a meaningful progress with a simpler one!</p>
+<footer>
+A  collection of other "two things in computer science" memes: <a href="https://martinfowler.com/bliki/TwoHardThings.html">https://martinfowler.com/bliki/TwoHardThings.html</a>
+</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/BlazorAndReact.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="31" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Steve.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="32" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Blazor is:</h1>
+<ul>
+<li>.NET running in your browser</li>
+<li>Nearly 100% compatibility with .NET 5!
+<ul>
+<li><code>Expression.Compile(...)</code>, Reflection, etc. works</li>
+<li>No threads yet, but <code>Task&lt;T&gt;</code> works</li>
+</ul>
+</li>
+<li>Blazor UI Components ≃ React Components, but with .NET bells and whistles!</li>
+</ul>
+<footer>
+Blazor fans, see the image of the Blazor God!<br />
+Coincidentally, <a href="https://twitter.com/StevenSanderson">Mr. Sanderson</a> is also the creator of <a href="https://knockoutjs.com/">Knockout.js.</a>
+</footer>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Blazor.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="33" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Blazor – cons:</h1>
+<ul>
+<li>No JIT / AOT compilation yet - in fact, everything is interpreted</li>
+<li>It's .NET, so even a tiny project loads a fair number of assemblies.<br />
+There is linking with tree shaking, but even it leaves 2…4 MB of .dlls.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;">
+<h1>Blazor – pros:</h1>
+
+<ul>
+<li>.NET = so many ready-to-use NuGet packages + no need for JS, TS, etc.</li>
+<li>.dlls are loaded once &amp; stored in application cache.<br />
+They aren't updated even on <code>F5</code> – unless you explicitly clear it.</li>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-5.0">Blazor Server</a> helps to mitigate this by further letting your UI code to run on server side (e.g. for slow mobile devices). The JS payload is tiny in this case.</li>
+<li>AOT and threads are expected in 2021.<br />
+<strong>JS won't get threads - ever. CPU core count is increasing. So I bet in 1-2 years WASM (and Blazor) will be #1 choice for truly responsive UI.</strong></li>
+<li>There is experimental <a href="https://docs.microsoft.com/en-us/mobile-blazor-bindings/">Blazor Mobile</a>: like <a href="https://reactnative.dev/">React Native</a>, but relying on Blazor compontens and native .NET runtime on each platform.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h2>Blazor Components - UI markup example</h2>
+<pre><code class="language-html"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;@CssClass&quot;</span> @<span class="hljs-attr">attributes</span>=<span class="hljs-string">&quot;@Attributes&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-body&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-title&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Icon</span> <span class="hljs-attr">CssClass</span>=<span class="hljs-string">&quot;@IconCssClass&quot;</span> /&gt;</span> 
+            @Title
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;card-text&quot;</span>&gt;</span>
+            @ChildContent
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h2>Blazor Components - compiled version of above markup</h2>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">BuildRenderTree</span>(<span class="hljs-params">RenderTreeBuilder __builder</span>)</span>
+{
+  __builder.OpenElement(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;div&quot;</span>);
+  __builder.AddAttribute(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;class&quot;</span>, <span class="hljs-keyword">this</span>.CssClass);
+  __builder.AddMultipleAttributes(<span class="hljs-number">2</span>, 
+    RuntimeHelpers.TypeCheck&lt;<span class="hljs-comment">/* ... */</span>&gt;(
+        (IEnumerable&lt;KeyValuePair&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">object</span>&gt;&gt;) <span class="hljs-keyword">this</span>.Attributes));
+  <span class="hljs-comment">// ...</span>
+  __builder.OpenComponent&lt;Icon&gt;(<span class="hljs-number">7</span>);
+  __builder.AddAttribute(<span class="hljs-number">8</span>, <span class="hljs-string">&quot;CssClass&quot;</span>, 
+    RuntimeHelpers.TypeCheck&lt;<span class="hljs-built_in">string</span>&gt;(<span class="hljs-keyword">this</span>.IconCssClass));
+  __builder.CloseComponent();
+  <span class="hljs-comment">// ...</span>
+  __builder.AddContent(<span class="hljs-number">14</span>, <span class="hljs-keyword">this</span>.ChildContent);
+  __builder.CloseElement();
+  __builder.CloseElement();
+  __builder.CloseElement();
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h2>Blazor Components - the same markup, functional style</h2>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> HashSet&lt;Component&gt; <span class="hljs-title">RenderChildren</span>(<span class="hljs-params"></span>)</span>
+{
+  <span class="hljs-keyword">var</span> div = Element(<span class="hljs-keyword">this</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;div&quot;</span>) <span class="hljs-comment">// parent, key, type</span>
+    .SetAttributes(<span class="hljs-string">&quot;class&quot;</span>, CssClass)
+    .SetAttributes(Attributes)); 
+  <span class="hljs-keyword">var</span> icon = Component&lt;Icon&gt;(div, <span class="hljs-number">7</span>) <span class="hljs-comment">// parent, key</span>
+    .SetAttributes(<span class="hljs-string">&quot;CssClass&quot;</span>, IconCssClass));
+  <span class="hljs-comment">// ...</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">new</span> HashSet&lt;Component&gt;() { div, icon, ... };
+}
+
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Render</span>(<span class="hljs-params"></span>)</span>
+{
+  <span class="hljs-keyword">var</span> newChildren = RenderChildren();
+  <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> c <span class="hljs-keyword">in</span> Children.ToHashSet().ExceptWith(newChildren))
+      c.Dispose();
+  <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">var</span> c <span class="hljs-keyword">in</span> newChildren)
+      c.TryRender();
+}
+
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Blazor and React - so what's common there?</h1>
+<ul>
+<li>Virtual DOM = the result cache for <code>Component&lt;T&gt;(...)</code> &amp; <code>Element(...)</code> calls:
+<ul>
+<li>Сache miss = build a component</li>
+<li>Cache hit = reuse the exiting one, + maybe rebuild its own Virtual DOM</li>
+</ul>
+</li>
+<li><code>TryRender()</code> calls <code>Render()</code> for every component that changed after its last <code>Render()</code> call.</li>
+</ul>
+<br />
+<br />
+<div style="text-align: center">
+<h2 style="margin: 0px">
+  All in all, <strong>React and Blazor = an incremental builder for your UI!</strong>
+</h2>
+<div style="margin: 0px">
+  Just specialized to produce a diff to apply to the real DOM or UI controls.
+</div>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/FP1.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="40" data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<div class="col2">
+<img src="./img/FP3.jpg" />
+<div class="break">
+<img src="./img/FP2.jpg" />
+</div>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/FP4-En.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="42" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content">
+<p><img src="./img/Substance.jpg" alt="w:300px" style="width:300px;" /><br />
+</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/RaptorJesus.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="43" data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Does <code>ToAwesome()</code> really exist?</h1>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/FusionWebsite.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="44" data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Fusion Service Example</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CounterService</span>
+{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-built_in">int</span> _count;
+
+  [<span class="hljs-meta">ComputeMethod</span>]
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">int</span>&gt; <span class="hljs-title">GetCountAsync</span>(<span class="hljs-params"></span>)</span>
+    =&gt; _count;
+
+  [<span class="hljs-meta">ComputeMethod</span>]
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">GetCountTextAsync</span>(<span class="hljs-params"></span>)</span> 
+    =&gt; (<span class="hljs-keyword">await</span> GetCountAsync()).ToString();
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">IncrementCountAsync</span>(<span class="hljs-params"></span>)</span>
+  {
+    Interlocked.Increment(<span class="hljs-keyword">ref</span> _count);
+    Computed.Invalidate(() =&gt; GetCountAsync());
+  }
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/ConsistencyState.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="70%" height="720"><section id="46" data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Fusion's <code>IComputed&lt;T&gt;</code>:</h1>
+<p>Below is a simplified version of &quot;a box&quot; storing call result, its dependencies, dependants, etc.:</p>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">interface</span> <span class="hljs-title">IComputed</span>&lt;<span class="hljs-title">T</span>&gt; {
+  <span class="hljs-comment">// Computing -&gt; Consistent -&gt; Invalidated</span>
+  ConsistencyState ConsistencyState { <span class="hljs-keyword">get</span>; } 
+  T Value { <span class="hljs-keyword">get</span>; }
+  Exception Error { <span class="hljs-keyword">get</span>; }
+  
+  <span class="hljs-keyword">event</span> Action Invalidated; <span class="hljs-comment">// Event, triggered just once on invalidation</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Invalidate</span>(<span class="hljs-params"></span>)</span>;
+  Task&lt;IComputed&lt;T&gt;&gt; UpdateAsync();
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Computed-Gantt.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="47" data-class="invert" data-theme="default" data-background-color="black" class="invert" style="--class:invert;--theme:default;--background-color:black;background-color:black;background-image:none;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Samples-Blazor.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="48" data-class="center" data-theme="default" class="center" style="--class:center;--theme:default;" data-marpit-advanced-background="content"><div style="font-size: 100px; color: #eee; text-shadow: 2px 2px #000;">
+  <a href="http://fusion-samples.servicetitan.com/" 
+     style="color: #eee">DEMO</a>
+</div>
+<footer>
+  <a href="http://fusion-samples.servicetitan.com/"
+     style="background: white; padding: 3pt;">https://fusion-samples.servicetitan.com</a>
+</footer>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>Can we <em>replicate</em> <code>IComputed</code> on a remote host?</h1>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ReplicaComputed</span>&lt;<span class="hljs-title">T</span>&gt; : <span class="hljs-title">IComputed</span>&lt;<span class="hljs-title">T</span>&gt; 
+{
+    ConsistencyState ConsistencyState { <span class="hljs-keyword">get</span>; }
+    T Value { <span class="hljs-keyword">get</span>; }
+    Exception Error { <span class="hljs-keyword">get</span>; }
+    <span class="hljs-keyword">event</span> Action Invalidated;
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ReplicaComputed</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params">IComputed&lt;T&gt; source</span>)</span> 
+    {
+        source.ThrowIfComputing();
+        (Value, Error) = (source.Value, source.Error);
+        ConsistencyState = source.ConsistencyState;
+        source.Invalidated += () =&gt; Invalidate();
+    }
+
+    <span class="hljs-comment">// ...</span>
+}
+</span></span></foreignObject></svg></code></pre>
+<p>Do the same, but deliver the invalidation event via RPC.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/RegularDog.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="50" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Your Web API call:</h1>
+
+<p>→ How's my app doing?<br />
+← Still alive.</p>
+<p><strong>1 request = 1 response.</strong></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/CoolDog.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720" x="50%"><section id="51" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<h1>Fusion API call:</h1>
+
+<p>→ How's my app doing? <em>+publish</em><br />
+← Still alive. <em>+watch pub-666</em><br />
+<em>← Be brave, pub-666 is... Invalidated.</em></p>
+<p><strong>1 request = 1 or 2 responses,<br />
+the 2nd one might come much later.</strong></p>
+<p>The invalidation notifications are delivered via Publisher-Replicator channel. Fusion uses WebSocket connection for such channels now, but more options to be available <em>eventually</em>.</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h2><code>ComposerService</code> - an example service relying on remote replicas</h2>
+<p>See it live: <a href="https://fusion-samples.servicetitan.com/composition">https://fusion-samples.servicetitan.com/composition</a><br />
+Source code: <a href="https://github.com/servicetitan/Stl.Fusion.Samples/blob/master/src/Blazor/Server/Services/ComposerService.cs">ComposerService</a>, <a href="https://github.com/servicetitan/Stl.Fusion.Samples/blob/master/src/Blazor/UI/Services/LocalComposerService.cs">LocalComposerService</a>.</p>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">async</span> Task&lt;ComposedValue&gt; <span class="hljs-title">GetComposedValueAsync</span>(<span class="hljs-params">
+    <span class="hljs-built_in">string</span> parameter, Session session</span>)</span>
+{
+  <span class="hljs-comment">// Fusion magic: all these seemingly RPC call complete instantly w/o</span>
+  <span class="hljs-comment">// a real RPC while the result they produce is known to be consistent.</span>
+  <span class="hljs-keyword">var</span> chatTail = <span class="hljs-keyword">await</span> ChatService.GetChatTailAsync(<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">var</span> uptime = <span class="hljs-keyword">await</span> TimeService.GetUptimeAsync(TimeSpan.FromSeconds(<span class="hljs-number">10</span>));
+  <span class="hljs-keyword">var</span> sum = (<span class="hljs-built_in">double</span>?) <span class="hljs-literal">null</span>;
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">double</span>.TryParse(parameter, <span class="hljs-keyword">out</span> <span class="hljs-keyword">var</span> <span class="hljs-keyword">value</span>))
+      sum = <span class="hljs-keyword">await</span> SumService.SumAsync(<span class="hljs-keyword">new</span> [] { <span class="hljs-keyword">value</span> }, <span class="hljs-literal">true</span>);
+  <span class="hljs-keyword">var</span> lastChatMessage = chatTail.Messages.SingleOrDefault()?.Text ?? <span class="hljs-string">&quot;(no messages)&quot;</span>;
+  <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">await</span> AuthService.GetUserAsync(session);
+  <span class="hljs-keyword">var</span> activeUserCount = <span class="hljs-keyword">await</span> ChatService.GetActiveUserCountAsync();
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ComposedValue(
+    <span class="hljs-string">$&quot;<span class="hljs-subst">{parameter}</span> - server&quot;</span>, uptime, sum, 
+    lastChatMessage, user, activeUserCount);
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<p>A real Blazor component that updates in real-time:</p>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>@inherits LiveComponentBase&lt;ActiveTranscriptions.Model&gt;
+@using System.Threading
+@using ServiceTitan.Speech.Abstractions
+@inject ITranscriber Transcriber
+
+@{
+    <span class="hljs-keyword">var</span> state = State.LastValue; <span class="hljs-comment">// We want to show the last correct model on error</span>
+    <span class="hljs-keyword">var</span> error = State.Error;
+}
+
+&lt;DataGrid TItem=<span class="hljs-string">&quot;Transcript&quot;</span>
+          Data=<span class="hljs-string">&quot;@state.Transcripts&quot;</span>
+          TotalItems=<span class="hljs-string">&quot;@state.Transcripts.Length&quot;</span>
+          Sortable=<span class="hljs-string">&quot;false&quot;</span>
+          ShowPager=<span class="hljs-string">&quot;false&quot;</span>&gt;
+    &lt;DataGridCommandColumn TItem=<span class="hljs-string">&quot;Transcript&quot;</span>/&gt;
+    &lt;DataGridColumn TItem=<span class="hljs-string">&quot;Transcript&quot;</span> Field=<span class="hljs-string">&quot;@nameof(Transcript.Id)&quot;</span> Caption=<span class="hljs-string">&quot;#&quot;</span>/&gt;
+    &lt;DataGridColumn TItem=<span class="hljs-string">&quot;Transcript&quot;</span> Field=<span class="hljs-string">&quot;@nameof(Transcript.StartTime)&quot;</span> Caption=<span class="hljs-string">&quot;Start Time&quot;</span>/&gt;
+    &lt;DataGridColumn TItem=<span class="hljs-string">&quot;Transcript&quot;</span> Field=<span class="hljs-string">&quot;@nameof(Transcript.Duration)&quot;</span> Caption=<span class="hljs-string">&quot;Duration&quot;</span>/&gt;
+    &lt;DataGridColumn TItem=<span class="hljs-string">&quot;Transcript&quot;</span> Field=<span class="hljs-string">&quot;@nameof(Transcript.Text)&quot;</span> Caption=<span class="hljs-string">&quot;Text&quot;</span> Width=<span class="hljs-string">&quot;75%&quot;</span> /&gt;
+&lt;/DataGrid&gt;
+
+@code {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Model</span>
+    {
+        <span class="hljs-keyword">public</span> Transcript[] Transcripts { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; } = Array.Empty&lt;Transcript&gt;();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ConfigureState</span>(<span class="hljs-params">LiveState&lt;Model&gt;.Options options</span>)
+        <span class="hljs-comment">// Update delays are configurable per-state / per-component</span></span>
+        =&gt; options.WithUpdateDelayer(o =&gt; o.Delay = TimeSpan.FromSeconds(<span class="hljs-number">1</span>));
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">async</span> Task&lt;Model&gt; <span class="hljs-title">ComputeStateAsync</span>(<span class="hljs-params">CancellationToken cancellationToken</span>)</span>
+    {
+        <span class="hljs-keyword">var</span> transcriptIds = <span class="hljs-keyword">await</span> Transcriber.GetActiveTranscriptionIdsAsync(cancellationToken);
+        <span class="hljs-keyword">var</span> transcriptTasks = transcriptIds.Select(id =&gt; Transcriber.GetAsync(id, cancellationToken));
+        <span class="hljs-keyword">var</span> transcripts = <span class="hljs-keyword">await</span> Task.WhenAll(transcriptTasks); <span class="hljs-comment">// Get them all in parallel!</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Model() { Transcripts = transcripts };
+    }
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>How efficient is Fusion caching?</h1>
+<p>The method we're repeatedly calling in our <a href="https://github.com/servicetitan/Stl.Fusion/blob/master/tests/Stl.Fusion.Tests/PerformanceTest.cs">performance test</a>:</p>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">async</span> Task&lt;User?&gt; TryGetAsync(<span class="hljs-built_in">long</span> userId)
+{
+  <span class="hljs-keyword">await</span> Everything(); <span class="hljs-comment">// LMK if you know what&#x27;s the role of this call!</span>
+  <span class="hljs-keyword">await</span> <span class="hljs-keyword">using</span> <span class="hljs-keyword">var</span> dbContext = DbContextFactory.CreateDbContext(); <span class="hljs-comment">// Pooled</span>
+  <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">await</span> dbContext.Users.FindAsync(<span class="hljs-keyword">new</span>[] {(<span class="hljs-built_in">object</span>) userId});
+  <span class="hljs-keyword">return</span> user;
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h1>How efficient is Fusion caching?</h1>
+<p>The <code>Reader</code> async task (the test runs 3 readers per core):</p>
+<pre><code class="language-cs"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-function"><span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">long</span>&gt; <span class="hljs-title">Reader</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name, <span class="hljs-built_in">int</span> iterationCount</span>)</span>
+{
+    <span class="hljs-keyword">var</span> rnd = <span class="hljs-keyword">new</span> Random();
+    <span class="hljs-keyword">var</span> count = <span class="hljs-number">0L</span>;
+    <span class="hljs-keyword">for</span> (; iterationCount &gt; <span class="hljs-number">0</span>; iterationCount--) {
+        <span class="hljs-keyword">var</span> userId = (<span class="hljs-built_in">long</span>) rnd.Next(UserCount);
+        <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">await</span> users.TryGetAsync(userId);
+        <span class="hljs-keyword">if</span> (user!.Id == userId)
+            count++;
+        extraAction.Invoke(user!); <span class="hljs-comment">// Optionally serializes the user</span>
+    }
+    <span class="hljs-keyword">return</span> count;
+}
+</span></span></foreignObject></svg></code></pre>
+<p>There is also a similar <code>Mutator</code>, but only one instance of it is running.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;">
+<h1>How efficient is Fusion caching?</h1>
+
+<p>Sqlite EF provider: <strong>16,070x</strong></p>
+<div class="col2" style="margin-top: 0px;">
+<pre>
+With Stl.Fusion:
+  Standard test:
+    Speed:      35708.280 K Ops/sec
+  Standard test + serialization:
+    Speed:      12481.940 K Ops/sec
+</pre>
+<div class="break"></div>
+<pre>
+Without Stl.Fusion:
+  Standard test:
+    Speed:      2.222 K Ops/sec
+  Standard test + serialization:
+    Speed:      2.179 K Ops/sec
+</pre>
+</div>
+<p>In-memory EF provider: <strong>1,140x</strong></p>
+<div class="col2" style="margin-top: 0px;">
+<pre>
+With Stl.Fusion:
+  Standard test:
+    Speed:      30338.256 K Ops/sec
+  Standard test + serialization:
+    Speed:      11789.282 K Ops/sec
+</pre>
+<div class="break"></div>
+<pre>
+Without Stl.Fusion:
+  Standard test:
+    Speed:      26.553 K Ops/sec
+  Standard test + serialization:
+    Speed:      26.143 K Ops/sec
+</pre>
+</div>
+<p>And that's just a plain caching, i.e. no any extra benefits from the &quot;incremental build for everything&quot; that Fusion adds!</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;">
+<h1>Fusion's Caching Sample</h1>
+
+<p>A very similar code, but exposing the service via Web API. The results:</p>
+<ul>
+<li>20,000 → 130,000 RPS = <strong>6.5x throughput</strong><br />
+With server-side changes only, i.e. the same client.</li>
+<li>20,000 → 20,000,000 RPS = <strong>1000x throughput!</strong><br />
+If you switch to Fusion client (so-called <a href="https://github.com/servicetitan/Stl.Fusion.Samples/blob/master/docs/tutorial/Part04.md">&quot;Replica Service&quot;</a>)</li>
+</ul>
+<pre><code class="language-text"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>RestEase Client -&gt; ASP.NET Core -&gt; EF Core Service:
+  Reads: 20.46K operations/s
+
+RestEase Client -&gt; ASP.NET Core -&gt; Fusion Proxy -&gt; EF Core Service:
+  Reads: 127.96K operations/s
+
+Fusion&#x27;s Replica Client:
+  Reads: 20.29M operations/s
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-class="center invert" data-theme="default" class="center invert" style="--class:center invert;--theme:default;">
+<h2>How 10x speed boost looks like?</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59" data-class="video" data-theme="default" class="video" style="--class:video;--theme:default;"><iframe src="https://www.youtube.com/embed/05pzUXujMJU?start=186" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="60" data-class="video" data-theme="default" class="video" style="--class:video;--theme:default;"><iframe src="https://www.youtube.com/embed/lzP0JIzrYmM?start=24" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/FlyingCat.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="61" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:40%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2>What do you get with Fusion?</h2>
+
+<p><strong>The feeling of flight:</strong></p>
+<ul>
+<li>Caching - with automatic dependency tracking and cascading invalidation</li>
+<li>The same value is never computed concurrently</li>
+<li>But: all <code>[ComputeMethod]</code>-s can run concurrently!</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-fragments="2" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Substance.jpg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="80%" height="720"><section id="62" data-marpit-fragments="2" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2>What do you get with Fusion?</h2>
+
+<p><strong>The feeling of awesomeness</strong> of your clean code:</p>
+<ul>
+<li data-marpit-fragment="1"><em>You describe the substance.</em><br />
+&quot;That's what I want to get&quot;</li>
+<li data-marpit-fragment="2"><em>Fusion allows you to express this substance in the clean form.</em><br />
+By ensuring you get what you want as efficiently as possible.</li>
+</ul>
+<p>Just imagine, Fusion's Replica Services resolve 99.9% of your RPC calls locally, but still produce the right answers. And to achieve that, they span the web of their invalidation chains across multiple servers. Awesome, right?</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/LazyCat.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="55%" height="720"><section id="63" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;--marpit-advanced-background-split:45%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2>What do you get with Fusion?</h2>
+
+<p><strong>The feeling of laziness:</strong> you get all of that with almost zero changes in code!</p>
+<br />
+<blockquote>
+<p>Just add <strike>water</strike> <code>Computed.Invalidate(...)</code>.<br />
+– AY, Fusion's creator</p>
+</blockquote>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Incredibles.gif&quot;);filter:blur(5px) brightness(0.5);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="64" data-class="highlight invert" data-theme="default" class="highlight invert" style="--class:highlight invert;--theme:default;" data-marpit-advanced-background="content">
+<h2>What do you get with Fusion?</h2>
+
+<p><strong>The feeling of ultimate super power</strong> (together with Blazor):</p>
+<ul>
+<li>You can run Fusion services on the client too!</li>
+<li>Moreover, Fusion includes <code>LiveComponent</code> - a base base type for your Blazor components that has everything you need for real-time updates!</li>
+<li>So you don't need a Knockout or MobX alternative for Blazor. Just use Fusion - everywhere!</li>
+</ul>
+<p>Moreover, if you use the same interfaces for your Fusion services and their client-side replicas, your UI code will run equally well on the server side too! This is what allows Fusions samples to support both Blazor WebAssembly and Blazor Server mode.</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="highlight invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="65" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;">
+<h2>What's the cost?</h2>
+<ul>
+<li><strong>Money:</strong> thanks to <a href="servicetitan.com">ServiceTitan</a>, Fusion is free (MIT license)</li>
+<li><strong>CPU:</strong> free your CPUs! The torture of making them to run recurring computations again and again must be stopped!</li>
+<li><strong>RAM:</strong> is where the cost is really paid. Besides that, <a href="https://github.com/servicetitan/Stl.Fusion.Samples/blob/master/docs/tutorial/Part08.md#large-working-sets-and-gc-pauses">remember about GC pauses</a> and other downsides of local caching. But the upside is so bright + Fusion actually supports external caching via <a href="https://github.com/servicetitan/Stl.Fusion.Samples/blob/master/docs/tutorial/Part05.md#caching-options">&quot;swapping&quot; feature</a>.</li>
+<li><strong>Learning curve:</strong> is relatively shallow in the beginning, but getting steeper once you start to dig deeper. Though Fusion is definitely not as complex as e.g. TPL with its <code>ExecutionContext</code>, <code>ValueTask&lt;T&gt;</code>, and other tricky parts.</li>
+<li><strong>Other risks:</strong> First lines of Fusion code were written 9 months ago. What &quot;other risks&quot; are you talking about?</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/StitchAndOthers.jpg&quot;);filter:brightness(0.7);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="66" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content">
+<h2>What's the cost?</h2>
+<p>If you need a real-time UI, Fusion is probably the lesser of many evils you'll have to deal with otherwise. *<br />
+<br /><br />
+<br /></p>
+<footer>(*) Fusion creator's opinion, totally unbiased.</footer>
+<h2></h2>
+<h2></h2>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="67" data-class="center invert" data-theme="default" class="center invert" style="--class:center invert;--theme:default;">
+<h2>Why having real-time UI is important?</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/IT_ETF.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="68" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;" data-marpit-advanced-background="content"></section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/Mosaic.png&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720" x="50%"><section id="69" data-class="invert" data-theme="default" class="invert" style="--class:invert;--theme:default;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<p>On a serious note: <a href="https://alexyakunin.medium.com/features-of-the-future-web-apps-part-1-e32cf4e4e4f4?sk=65dacdbf670ef9b5d961c4c666e223e2">Real-Time is #1 Feature Your Next Web App Needs</a></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-class="center invert" data-theme="default" class="center invert" style="--class:center invert;--theme:default;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;./img/FusionBg.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="70" data-class="center invert" data-theme="default" class="center invert" style="--class:center invert;--theme:default;" data-marpit-advanced-background="content">
+<p><br /><br /><br /><br /></p>
+<h2 style="font-size: 60pt">Thank you!</h1>
+<footer style="width: 95%; text-align: right; font-size: 20pt; color: white">
+Alex Yakunin<br />
+The creator of Fusion, <a href="https://www.servicetitan.com/">ServiceTitan, Inc.</a> CTO<br />
+<a href="https://github.com/servicetitan/Stl.Fusion">https://github.com/servicetitan/Stl.Fusion</a><br />
+P.S. We need your stars and forks! <img src="https://img.shields.io/github/stars/servicetitan/Stl.Fusion?style=social" style="height: 1.1em; vertical-align: middle" /> <img src="https://img.shields.io/github/forks/servicetitan/Stl.Fusion?style=social" style="height: 1.1em; vertical-align: middle" /><br />
+</footer>
+</section>
+<script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
+</script></foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section class="center invert" style="" data-marpit-advanced-background="pseudo"></section></foreignObject></svg></div><script>!function(){"use strict";var e=function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),s=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},i=function(e,t){return(t=t||{}).index=s.indexOf(e),t.slide=e,t},o=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},l=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},c=function(e,t){s[e]&&(n&&l("deactivate",i(n,t)),n=s[e],l("activate",i(n,t)))},d=function(e,t){var r=s.indexOf(n)+e;l(e>0?"next":"prev",i(n,t))&&c(r,t)},u={off:o,on:function(e,t){return(a[e]||(a[e]=[])).push(t),o.bind(null,e,t)},fire:l,slide:function(e,t){if(!arguments.length)return s.indexOf(n);l("slide",i(s[e],t))&&c(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:s,destroy:function(e){l("destroy",i(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||c(0),u};function t(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n=t.slide,r=!n.classList.contains("bespoke-marp-active");e.slides.forEach((e=>{e.classList.remove("bespoke-marp-active"),e.setAttribute("aria-hidden","true")})),n.classList.add("bespoke-marp-active"),n.removeAttribute("aria-hidden"),r&&(n.classList.add("bespoke-marp-active-ready"),document.body.clientHeight,n.classList.remove("bespoke-marp-active-ready"))}))}function n(e){let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],s=(r,s)=>{t=r,n=s,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=s;e.setAttribute("data-bespoke-marp-fragment",a?"active":"inactive"),t===r&&n===s?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")}))})),e.fragmentIndex=s;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:s};e.fire("fragment",a)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return s(t,n+1),!1;const a=t+1;e.fragments[a]&&s(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return s(t,r-1),!1;const a=e.fragments[t+1];a&&s(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return s(t,n-1),!1;const i=t-1;e.fragments[i]&&s(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const s=e.fragments[t];if(s){const{length:e}=s;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}s(t,r)})),s(0,0)}
+/*!
+* screenfull
+* v5.0.2 - 2020-02-13
+* (c) Sindre Sorhus; MIT License
+*/
+var r,s=(function(e){!function(){var t="undefined"!=typeof window&&void 0!==window.document?window.document:{},n=e.exports,r=function(){for(var e,n=[["requestFullscreen","exitFullscreen","fullscreenElement","fullscreenEnabled","fullscreenchange","fullscreenerror"],["webkitRequestFullscreen","webkitExitFullscreen","webkitFullscreenElement","webkitFullscreenEnabled","webkitfullscreenchange","webkitfullscreenerror"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitCurrentFullScreenElement","webkitCancelFullScreen","webkitfullscreenchange","webkitfullscreenerror"],["mozRequestFullScreen","mozCancelFullScreen","mozFullScreenElement","mozFullScreenEnabled","mozfullscreenchange","mozfullscreenerror"],["msRequestFullscreen","msExitFullscreen","msFullscreenElement","msFullscreenEnabled","MSFullscreenChange","MSFullscreenError"]],r=0,s=n.length,a={};r<s;r++)if((e=n[r])&&e[1]in t){for(r=0;r<e.length;r++)a[n[0][r]]=e[r];return a}return!1}(),s={change:r.fullscreenchange,error:r.fullscreenerror},a={request:function(e){return new Promise(function(n,s){var a=function(){this.off("change",a),n()}.bind(this);this.on("change",a);var i=(e=e||t.documentElement)[r.requestFullscreen]();i instanceof Promise&&i.then(a).catch(s)}.bind(this))},exit:function(){return new Promise(function(e,n){if(this.isFullscreen){var s=function(){this.off("change",s),e()}.bind(this);this.on("change",s);var a=t[r.exitFullscreen]();a instanceof Promise&&a.then(s).catch(n)}else e()}.bind(this))},toggle:function(e){return this.isFullscreen?this.exit():this.request(e)},onchange:function(e){this.on("change",e)},onerror:function(e){this.on("error",e)},on:function(e,n){var r=s[e];r&&t.addEventListener(r,n,!1)},off:function(e,n){var r=s[e];r&&t.removeEventListener(r,n,!1)},raw:r};r?(Object.defineProperties(a,{isFullscreen:{get:function(){return Boolean(t[r.fullscreenElement])}},element:{enumerable:!0,get:function(){return t[r.fullscreenElement]}},isEnabled:{enumerable:!0,get:function(){return Boolean(t[r.fullscreenEnabled])}}}),n?e.exports=a:window.screenfull=a):n?e.exports={isEnabled:!1}:window.screenfull={isEnabled:!1}}()}(r={exports:{}},r.exports),r.exports);function a(e){e.fullscreen=()=>{s.isEnabled&&s.toggle(document.body)},document.addEventListener("keydown",(t=>{70!==t.which&&122!==t.which||t.altKey||t.ctrlKey||t.metaKey||!s.isEnabled||(e.fullscreen(),t.preventDefault())}))}function i(e=2e3){return t=>{let n;function r(){n&&clearTimeout(n),n=setTimeout((()=>{t.parent.classList.add("bespoke-marp-inactive"),t.fire("marp-inactive")}),e),t.parent.classList.contains("bespoke-marp-inactive")&&(t.parent.classList.remove("bespoke-marp-inactive"),t.fire("marp-active"))}document.addEventListener("mousedown",r),document.addEventListener("mousemove",r),document.addEventListener("touchend",r),setTimeout(r,0)}}const o=["AUDIO","BUTTON","INPUT","SELECT","TEXTAREA","VIDEO"];function l(e){e.parent.addEventListener("keydown",(e=>{if(!e.target)return;const t=e.target;(o.includes(t.nodeName)||"true"===t.contentEditable)&&e.stopPropagation()}))}function c(e){window.addEventListener("load",(()=>{for(const t of e.slides){const e=t.querySelector("[data-marp-fitting]")?"":"hideable";t.setAttribute("data-bespoke-marp-load",e)}}))}var d;function u({interval:e=200}={}){return t=>{document.addEventListener("keydown",(e=>{if(32===e.which&&e.shiftKey)t.prev();else if(33===e.which||37===e.which||38===e.which)t.prev({fragment:!e.shiftKey});else if(32!==e.which||e.shiftKey)if(34===e.which||39===e.which||40===e.which)t.next({fragment:!e.shiftKey});else if(35===e.which)t.slide(t.slides.length-1,{fragment:-1});else{if(36!==e.which)return;t.slide(0)}else t.next();e.preventDefault()}));let n,r,s=0;t.parent.addEventListener("wheel",(a=>{let i=!1;const o=(e,t)=>{e&&(i=i||function(e,t){return function(e,t){const n=t===d.X?"Width":"Height";return e[`client${n}`]<e[`scroll${n}`]}(e,t)&&function(e,t){const{overflow:n}=e,r=e[`overflow${t}`];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r}(getComputedStyle(e),t)}(e,t)),(null==e?void 0:e.parentElement)&&o(e.parentElement,t)};if(0!==a.deltaX&&o(a.target,d.X),0!==a.deltaY&&o(a.target,d.Y),i)return;a.preventDefault(),r&&clearTimeout(r),r=setTimeout((()=>{n=0}),e);const l=Date.now()-s<e,c=Math.sqrt(Math.pow(a.deltaX,2)+Math.pow(a.deltaY,2)),u=c<=n;if(n=c,l||u)return;let f;(a.deltaX>0||a.deltaY>0)&&(f="next"),(a.deltaX<0||a.deltaY<0)&&(f="prev"),f&&(t[f](),s=Date.now())}))}}!function(e){e.X="X",e.Y="Y"}(d||(d={}));const f=(...e)=>history.replaceState(...e),m="data-bespoke-view";var p;!function(e){e.Normal="",e.Presenter="presenter",e.Next="next"}(p||(p={}));const h=(e,{protocol:t,host:n,pathname:r,hash:s}=location)=>{const a=e.toString();return`${t}//${n}${r}${a?"?":""}${a}${s}`},g=()=>{switch(document.body.getAttribute(m)){case p.Normal:return p.Normal;case p.Presenter:return p.Presenter;case p.Next:return p.Next;default:throw new Error("View mode is not assigned.")}},v=e=>new URLSearchParams(location.search).get(e),b=(e,t={})=>{const n=Object.assign({location:location,setter:f},t),r=new URLSearchParams(n.location.search);for(const t of Object.keys(e)){const n=e[t];"string"==typeof n?r.set(t,n):r.delete(t)}try{n.setter(null,document.title,h(r,n.location))}catch(e){console.error(e)}},w={available:(()=>{try{return localStorage.setItem("bespoke-marp","bespoke-marp"),localStorage.removeItem("bespoke-marp"),!0}catch(e){return console.warn("Warning: Using localStorage is restricted in the current host so some features may not work."),!1}})(),get:e=>{try{return localStorage.getItem(e)}catch(e){return null}},set:(e,t)=>{try{return localStorage.setItem(e,t),!0}catch(e){return!1}},remove:e=>{try{return localStorage.removeItem(e),!0}catch(e){return!1}}};function y(e=".bespoke-marp-osc"){const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[data-bespoke-marp-osc=${JSON.stringify(e)}]`).forEach(n)};return s.isEnabled||n("fullscreen",(e=>e.style.display="none")),w.available||n("presenter",(e=>{e.disabled=!0,e.title="Presenter view is disabled due to restricted localStorage."})),e=>{t.addEventListener("click",(t=>{if(t.target instanceof HTMLElement){const{bespokeMarpOsc:n}=t.target.dataset;switch(n&&t.target.blur(),n){case"next":e.next({fragment:!t.shiftKey});break;case"prev":e.prev({fragment:!t.shiftKey});break;case"fullscreen":"function"==typeof e.fullscreen&&s.isEnabled&&e.fullscreen();break;case"presenter":e.openPresenterView()}}})),e.parent.appendChild(t),e.on("activate",(({index:t})=>{n("page",(n=>n.textContent=`Page ${t+1} of ${e.slides.length}`))})),e.on("fragment",(({index:t,fragments:r,fragmentIndex:s})=>{n("prev",(e=>e.disabled=0===t&&0===s)),n("next",(n=>n.disabled=t===e.slides.length-1&&s===r.length-1))})),e.on("marp-active",(()=>t.removeAttribute("aria-hidden"))),e.on("marp-inactive",(()=>t.setAttribute("aria-hidden","true"))),s.isEnabled&&s.onchange((()=>n("fullscreen",(e=>e.classList.toggle("exit",s.isEnabled&&s.isFullscreen)))))}}function x(){const e=Math.max(Math.floor(.85*window.innerWidth),640),t=Math.max(Math.floor(.85*window.innerHeight),360);return window.open(this.presenterUrl,`bespoke-marp-presenter-${this.syncKey}`,`width=${e},height=${t},menubar=no,toolbar=no`)}function k(){const e=new URLSearchParams(location.search);return e.set("view","presenter"),e.set("sync",this.syncKey),h(e)}var E=["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"];let L=e=>String(e).replace(/[&<>"']/g,(e=>`&${S[e]};`)),S={"&":"amp","<":"lt",">":"gt",'"':"quot","'":"apos"},I="dangerouslySetInnerHTML",P={className:"class",htmlFor:"for"},M={};function N(e,t){let n=[],r="";t=t||{};for(let e=arguments.length;e-- >2;)n.push(arguments[e]);if("function"==typeof e)return t.children=n.reverse(),e(t);if(e){if(r+="<"+e,t)for(let e in t)!1!==t[e]&&null!=t[e]&&e!==I&&(r+=` ${P[e]?P[e]:L(e)}="${L(t[e])}"`);r+=">"}if(-1===E.indexOf(e)){if(t[I])r+=t[I].__html;else for(;n.length;){let e=n.pop();if(e)if(e.pop)for(let t=e.length;t--;)n.push(e[t]);else r+=!0===M[e]?e:L(e)}r+=e?`</${e}>`:""}return M[r]=!0,r}const F=({children:e})=>N(null,null,...e),$="bespoke-marp-presenter-container",O="bespoke-marp-presenter-next",q="bespoke-marp-presenter-next-container",C="bespoke-marp-presenter-note-container",T="bespoke-marp-presenter-info-container",A="bespoke-marp-presenter-info-page",K="bespoke-marp-presenter-info-page-text",j="bespoke-marp-presenter-info-page-prev",R="bespoke-marp-presenter-info-page-next",U="bespoke-marp-presenter-info-time",D="bespoke-marp-presenter-info-timer";function V(e){const{title:t}=document;document.title="[Presenter view]"+(t?` - ${t}`:"");const n={},r=e=>(n[e]=n[e]||document.querySelector(`.${e}`),n[e]);document.body.appendChild((e=>{const t=document.createElement("div");return t.className=$,t.appendChild(e),t.insertAdjacentHTML("beforeend",N(F,null,N("div",{class:q},N("iframe",{class:O,src:"?view=next"})),N("div",{class:C}),N("div",{class:T},N("div",{class:A},N("button",{class:j,tabindex:"-1",title:"Previous"},"Previous"),N("span",{class:K}),N("button",{class:R,tabindex:"-1",title:"Next"},"Next")),N("time",{class:U,title:"Current time"}),N("div",{class:D})))),t})(e.parent)),(e=>{r(q).addEventListener("click",(()=>e.next()));const t=r(O),n=(s=t,(e,t)=>{var n;return null===(n=s.contentWindow)||void 0===n?void 0:n.postMessage(`navigate:${e},${t}`,"null"===window.origin?"*":window.origin)});var s;t.addEventListener("load",(()=>{r(q).classList.add("active"),n(e.slide(),e.fragmentIndex),e.on("fragment",(({index:e,fragmentIndex:t})=>n(e,t)))}));const a=document.querySelectorAll(".bespoke-marp-note");a.forEach((e=>{e.addEventListener("keydown",(e=>e.stopPropagation())),r(C).appendChild(e)})),e.on("activate",(()=>a.forEach((t=>t.classList.toggle("active",t.dataset.index==e.slide()))))),e.on("activate",(({index:t})=>{r(K).textContent=`${t+1} / ${e.slides.length}`}));const i=r(j),o=r(R);i.addEventListener("click",(t=>{i.blur(),e.prev({fragment:!t.shiftKey})})),o.addEventListener("click",(t=>{o.blur(),e.next({fragment:!t.shiftKey})})),e.on("fragment",(({index:t,fragments:n,fragmentIndex:r})=>{i.disabled=0===t&&0===r,o.disabled=t===e.slides.length-1&&r===n.length-1}));const l=()=>r(U).textContent=(new Date).toLocaleTimeString();l(),setInterval(l,250)})(e)}function X(e){const t=g();return t===p.Next&&e.appendChild(document.createElement("span")),e=>{t===p.Normal&&function(e){if(!(e=>e.syncKey&&"string"==typeof e.syncKey)(e))throw new Error("The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin.");Object.defineProperties(e,{openPresenterView:{enumerable:!0,value:x},presenterUrl:{enumerable:!0,get:k}}),w.available&&document.addEventListener("keydown",(t=>{80!==t.which||t.altKey||t.ctrlKey||t.metaKey||(t.preventDefault(),e.openPresenterView())}))}(e),t===p.Presenter&&V(e),t===p.Next&&function(e){const t=t=>{if(t.origin!==window.origin)return;const[n,r]=t.data.split(":");if("navigate"===n){const[t,n]=r.split(",");let s=Number.parseInt(t,10),a=Number.parseInt(n,10)+1;a>=e.fragments[s].length&&(s+=1,a=0),e.slide(s,{fragment:a})}};window.addEventListener("message",t),e.on("destroy",(()=>window.removeEventListener("message",t)))}(e)}}function Y(e){e.on("activate",(t=>{document.querySelectorAll(".bespoke-progress-parent > .bespoke-progress-bar").forEach((n=>{n.style.flexBasis=100*t.index/(e.slides.length-1)+"%"}))}))}const B=e=>{const t=Number.parseInt(e,10);return Number.isNaN(t)?null:t};function z(e={}){const t=Object.assign({history:!0},e);return e=>{let n=!0;const r=e=>{const t=n;try{return n=!0,e()}finally{n=t}},s=(t={fragment:!0})=>{((t,n)=>{const{fragments:r,slides:s}=e,a=Math.max(0,Math.min(t,s.length-1)),i=Math.max(0,Math.min(n||0,r[a].length-1));a===e.slide()&&i===e.fragmentIndex||e.slide(a,{fragment:i})})((B(location.hash.slice(1))||1)-1,t.fragment?B(v("f")||""):null)};e.on("fragment",(({index:e,fragmentIndex:r})=>{n||b({f:0===r||r.toString()},{location:Object.assign(Object.assign({},location),{hash:`#${e+1}`}),setter:(...e)=>t.history?history.pushState(...e):history.replaceState(...e)})})),setTimeout((()=>{s(),window.addEventListener("hashchange",(()=>r((()=>{s({fragment:!1}),b({f:void 0})})))),window.addEventListener("popstate",(()=>{n||r((()=>s()))})),n=!1}),0)}}let H;function W(e={}){const t=e.key||((e=21)=>{let t="",n=crypto.getRandomValues(new Uint8Array(e));for(;e--;){let r=63&n[e];t+=r<36?r.toString(36):r<62?(r-26).toString(36).toUpperCase():r<63?"_":"-"}return t})(),n=`bespoke-marp-sync-${t}`,r=()=>{const e=w.get(n);return e?JSON.parse(e):Object.create(null)},s=e=>{const t=r(),s=Object.assign(Object.assign({},t),e(t));return w.set(n,JSON.stringify(s)),s};return s((e=>({reference:(e.reference||0)+1}))),e=>{Object.defineProperty(e,"syncKey",{value:t,enumerable:!0});let a=!0;setTimeout((()=>{e.on("fragment",(e=>{a&&s((()=>({index:e.index,fragmentIndex:e.fragmentIndex})))}))}),0),window.addEventListener("storage",(t=>{if(t.key===n&&t.oldValue&&t.newValue){const n=JSON.parse(t.oldValue),r=JSON.parse(t.newValue);if(n.index!==r.index||n.fragmentIndex!==r.fragmentIndex)try{a=!1,e.slide(r.index,{fragment:r.fragmentIndex})}finally{a=!0}}})),e.on("destroy",(()=>{const{reference:e}=r();void 0===e||e<=1?w.remove(n):s((()=>({reference:e-1})))}))}}function J({slope:e=Math.tan(-35*Math.PI/180),swipeThreshold:t=30}={}){return n=>{let r;const s=n.parent,a=e=>{const t=s.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};s.addEventListener("touchstart",(e=>{r=1===e.touches.length?a(e.touches[0]):void 0}),{passive:!0}),s.addEventListener("touchmove",(e=>{if(r)if(1===e.touches.length){e.preventDefault();const t=a(e.touches[0]),n=t.x-r.x,s=t.y-r.y;r.delta=Math.sqrt(Math.pow(Math.abs(n),2)+Math.pow(Math.abs(s),2)),r.radian=Math.atan2(n,s)}else r=void 0})),s.addEventListener("touchend",(s=>{if(r){if(r.delta&&r.delta>=t&&r.radian){let t=r.radian-e;t=(t+Math.PI)%(2*Math.PI)-Math.PI,n[t<0?"next":"prev"](),s.stopPropagation()}r=void 0}}),{passive:!0})}}
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */function _(e,t,n,r){return new(n||(n=Promise))((function(s,a){function i(e){try{l(r.next(e))}catch(e){a(e)}}function o(e){try{l(r.throw(e))}catch(e){a(e)}}function l(e){var t;e.done?s(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,o)}l((r=r.apply(e,t||[])).next())}))}const G=()=>(void 0===H&&(H="wakeLock"in navigator&&navigator.wakeLock),H),Q=()=>_(void 0,void 0,void 0,(function*(){const e=G();if(e)try{const t=yield e.request("screen");return t.addEventListener("release",(()=>{console.debug("[Marp CLI] Wake Lock was released")})),console.debug("[Marp CLI] Wake Lock is active"),t}catch(e){console.warn(e)}return null}));function Z(){return _(this,void 0,void 0,(function*(){if(!G())return;let e;const t=()=>{e&&"visible"===document.visibilityState&&Q()};return document.addEventListener("visibilitychange",t),document.addEventListener("fullscreenchange",t),e=yield Q(),e}))}const ee=[p.Normal,p.Presenter,p.Next];!function(r=document.getElementById("p")){document.body.setAttribute(m,(()=>{switch(v("view")){case"next":return p.Next;case"presenter":return p.Presenter;default:return p.Normal}})());const s=(e=>{const t=v(e);return b({[e]:void 0}),t})("sync")||void 0,o=!1,d=!0,f=e(r,((...e)=>{const t=ee.findIndex((e=>g()===e));if(t<0)throw new Error("Invalid view");return e.map((([e,n])=>e[t]&&n)).filter((e=>e))})([[d,d,o],W({key:s})],[[d,d,d],X(r)],[[d,d,o],l],[[d,d,d],t],[[d,o,o],i()],[[d,d,d],c],[[d,d,d],z({history:!1})],[[d,d,o],u()],[[d,d,o],a],[[d,o,o],Y],[[d,d,o],J()],[[d,o,o],y()],[[d,d,d],n],[[d,d,o],Z]));window.addEventListener("beforeunload",(()=>b({sync:f.syncKey}))),window.addEventListener("unload",(()=>f.destroy()))}()}();</script></body></html>

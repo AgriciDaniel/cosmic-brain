@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f0e8fc" />
+            <stop offset="100%" stop-color="#ddd0f0" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges / Arrows -->
+    <!-- Call to Check -->
+    <path d="M 450,80 L 450,120" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Check to Create (No) -->
+    <path d="M 360,160 C 310,160 260,200 260,260" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="310" y="150" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">No</text>
+
+    <!-- Create to Store -->
+    <path d="M 260,300 L 260,360" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Store to Execute -->
+    <path d="M 260,400 C 260,430 430,420 430,452" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Check to Cached (Yes) -->
+    <path d="M 540,160 C 590,160 640,200 640,260" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="590" y="150" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Yes</text>
+
+    <!-- Cached to Execute -->
+    <path d="M 640,300 C 640,430 470,420 470,452" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Nodes -->
+    <!-- Call -->
+    <rect x="380" y="40" width="140" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="450" y="65" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Method Call</text>
+
+    <!-- Check -->
+    <polygon points="450,120 540,160 450,200 360,160" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="450" y="164" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Handler in cache?</text>
+
+    <!-- Create -->
+    <rect x="90" y="260" width="340" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="260" y="285" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">CreateTypedHandler&lt;TUnwrapped&gt;(...)</text>
+
+    <!-- Store -->
+    <rect x="180" y="360" width="160" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="260" y="385" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Store in cache</text>
+
+    <!-- Cached -->
+    <rect x="550" y="260" width="180" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="640" y="285" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Use cached handler</text>
+
+    <!-- Execute -->
+    <rect x="340" y="452" width="220" height="56" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="450" y="476" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Execute handler</text>
+    <text x="450" y="494" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">handler(invocation)</text>
+</svg>

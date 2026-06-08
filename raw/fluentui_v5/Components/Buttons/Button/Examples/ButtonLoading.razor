@@ -1,0 +1,25 @@
+﻿<FluentButton Loading="@loading"
+              OnClick="@StartLoadingAsync">
+    Refresh
+</FluentButton>
+<FluentButton IconStart="@(new Icons.Regular.Size16.ArrowClockwise())"
+              Appearance="ButtonAppearance.Primary"
+              Loading="@loading"
+              OnClick="@StartLoadingAsync">
+    Refresh
+</FluentButton>
+
+@code {
+
+    bool loading = false;
+
+    async Task StartLoadingAsync()
+    {
+        Console.WriteLine("Loading started");
+
+        loading = true;
+        await this.TimerWaitAsync(2000, () => loading = false);
+
+        Console.WriteLine("Loading finished");
+    }
+}

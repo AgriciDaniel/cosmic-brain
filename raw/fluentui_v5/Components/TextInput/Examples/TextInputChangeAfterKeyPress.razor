@@ -1,0 +1,31 @@
+﻿<FluentTextInput Placeholder="Search"
+                 Spellcheck="false"
+                 ReadOnly="Running"
+                 @bind-Value="@SearchText"
+                 ChangeAfterKeyPress="@([KeyPress.For(KeyCode.Enter)])"
+                 OnChangeAfterKeyPress="@StartSearch">
+    <StartTemplate>
+        <FluentIcon Value="@(new Icons.Regular.Size16.Search())" Color="Color.Primary" />
+    </StartTemplate>
+</FluentTextInput>
+
+<div style="height: 10px;">
+    <FluentProgressBar Visible="@Running" Width="180px" />
+</div>
+
+Search: <b>@SearchText</b>
+
+@code
+{
+    string SearchText = string.Empty;
+    bool Running = false;
+
+    async Task StartSearch(FluentKeyPressEventArgs e)
+    {
+        Running = true;
+
+        await Task.Delay(2000); // Simulate a delay for processing
+
+        Running = false;
+    }
+}

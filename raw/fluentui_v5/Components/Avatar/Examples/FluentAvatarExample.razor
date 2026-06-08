@@ -1,0 +1,29 @@
+﻿<FluentStack HorizontalGap="12px"
+             Style="margin-bottom:15px;"
+             VerticalAlignment="VerticalAlignment.Bottom"
+             Orientation="Orientation.Horizontal"
+             Wrap="true">
+
+    <FluentSelect Label="Color"
+                  Items="@(Enum.GetValues<AvatarColor>())"
+                  @bind-Value="@color" />
+
+    <FluentSelect Label="Shape"
+                  Items="@(Enum.GetValues<AvatarShape>())"
+                  @bind-Value="@shape" />
+
+    <FluentSelect Label="Size"
+                  Items="@(Enum.GetValues<AvatarSize>())"
+                  @bind-Value="@size" />
+</FluentStack>
+
+<FluentAvatar Color="@color"
+              Shape="@shape"
+              Size="@size" />
+
+@code
+{
+    AvatarColor color = AvatarColor.Neutral;
+    AvatarShape shape = AvatarShape.Circle;
+    AvatarSize size = AvatarSize.Size32;
+}

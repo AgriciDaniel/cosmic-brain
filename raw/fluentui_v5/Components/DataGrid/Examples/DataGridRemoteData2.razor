@@ -1,0 +1,102 @@
+﻿@using FluentUI.Demo.SampleData
+
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<FluentAccordion ExpandMode="AccordionExpandMode.Single" MarkerPosition="AccordionItemMarkerPosition.End" Block="true"  Style="width: 100%;">
+    <FluentAccordionItem Header="Filter(s)" Expanded="true"  >
+        <FluentGrid Spacing="1" Justify="JustifyContent.FlexStart" Style="padding: 5px;">
+            <FluentGridItem xs="12" sm="6" md="4">
+                <FluentTextInput @bind-Value=_stateFilter Label="State Filter" Width="450px"></FluentTextInput>
+            </FluentGridItem>
+        </FluentGrid>
+        <FluentStack Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.End" HorizontalGap="5">
+            <FluentButton IconStart="@(new Icons.Regular.Size16.Broom())"
+                          Disabled="loading"
+                          OnClick="ClearFilters">
+                Clear
+            </FluentButton>
+            <FluentButton IconStart="@(new Icons.Regular.Size16.ArrowClockwise())"
+                          Appearance="ButtonAppearance.Primary"
+                          Loading="loading"
+                          OnClick="DataGridRefreshDataAsync">
+                Search
+            </FluentButton>
+        </FluentStack>
+    </FluentAccordionItem>
+</FluentAccordion>
+<br />
+<div style="height: 484px; overflow:auto;" tabindex="-1">
+    <FluentDataGrid @ref="dataGrid"
+                    Items="foodRecallItems"
+                    RefreshItems="RefreshItemsAsync"
+                    OnRowDoubleClick="@(()=>Console.WriteLine("Row double clicked!"))"
+                    RowSize="DataGridRowSize.Medium"
+                    GenerateHeader="DataGridGeneratedHeaderType.Sticky"
+                    TGridItem="FoodRecall"
+                    Loading="loading"
+                    Pagination="pagination">
+        <PropertyColumn Title="ID" Property="@(c => c!.Event_Id)" />
+        <PropertyColumn Property="@(c => c!.State)" Style="color: #af5f00 ;" />
+        <PropertyColumn Property="@(c => c!.City)" />
+        <PropertyColumn Title="Company" Property="@(c => c!.Recalling_Firm)" Tooltip="true" />
+        <PropertyColumn Property="@(c => c!.Status)" />
+        <PropertyColumn Title="Termination Date" Property="@(c => c!.Termination_Date)" SortBy="@(new ColumnKeyGridSort<FoodRecall>("termination_date"))" Sortable="true" />
+        <TemplateColumn Title="Actions" Align="@DataGridCellAlignment.End">
+            <FluentButton Size="ButtonSize.Small" aria-label="Edit item" IconEnd="@(new Icons.Regular.Size16.Edit())" OnClick="@(() => Console.WriteLine("Edit clicked"))" />
+            <FluentButton Size="ButtonSize.Small" aria-label="Delete item" IconEnd="@(new Icons.Regular.Size16.Delete())" OnClick="@(() => Console.WriteLine("Delete clicked"))" />
+        </TemplateColumn>
+    </FluentDataGrid>
+</div>
+<FluentPaginator State="@pagination" />
+
+@code {
+
+    FluentDataGrid<FoodRecall> dataGrid = default!;
+    IQueryable<FoodRecall> foodRecallItems = default!;
+    bool loading = true;
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+    string? _stateFilter = "NY";
+
+    protected async Task RefreshItemsAsync(GridItemsProviderRequest<FoodRecall> req)
+    {
+        loading = true;
+        await InvokeAsync(StateHasChanged);
+
+        var filters = new Dictionary<string, object?>
+        {
+            { "skip", req.StartIndex },
+            { "limit", req.Count },
+        };
+
+        if (!string.IsNullOrWhiteSpace(_stateFilter))
+            filters.Add("search", $"state:{_stateFilter}");
+
+        var s = req.GetSortByProperties().FirstOrDefault();
+        if (req.SortByColumn != null && !string.IsNullOrEmpty(s.PropertyName))
+        {
+            filters.Add("sort", s.PropertyName + (s.Direction == DataGridSortDirection.Ascending ? ":asc" : ":desc"));
+        }
+
+        var url = NavManager.GetUriWithQueryParameters("https://api.fda.gov/food/enforcement.json", filters);
+
+        var response = await Http.GetFromJsonAsync<FoodRecallQueryResult>(url);
+
+        foodRecallItems = response!.Results.AsQueryable();
+        await pagination.SetTotalItemCountAsync(response!.Meta.Results.Total);
+
+        loading = false;
+        await InvokeAsync(StateHasChanged);
+
+    }
+
+    public void ClearFilters()
+    {
+        _stateFilter = null;
+    }
+
+    public async Task DataGridRefreshDataAsync()
+    {
+        await dataGrid.RefreshDataAsync(true);
+    }
+}

@@ -1,0 +1,8 @@
+::deep #multiple1 {
+  --fluent-sortable-list-item-background-color: var(--colorPaletteYellowBackground1);
+  --fluent-sortable-list-item-border-color: var(--colorPaletteYellowBorder2);
+  --fluent-sortable-list-item-focused-background-color: var(--colorPaletteYellowBackground2);
+  --fluent-sortable-list-item-focused-border-color: var(--colorPaletteYellowBorder2);
+  --fluent-sortable-list-item-grabbed-background-color: var(--colorPaletteYellowBackground3);
+  --fluent-sortable-list-item-grabbed-border-color: var(--colorPaletteYellowBorderActive);
+}

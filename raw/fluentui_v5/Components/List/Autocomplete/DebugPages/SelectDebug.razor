@@ -1,0 +1,21 @@
+﻿@page "/Lists/Select/Debug"
+
+@using static FluentUI.Demo.SampleData.Olympics2024
+
+<div style="margin: 24px;">
+    <h2>4705 - Nullable support in FluentSelect</h2>
+
+    <FluentSelect Label="@($"Nullable Enum: {Day1}.")"
+                  Items="Enum.GetValues<DayOfWeek>()"
+                  @bind-Value="Day1" />
+
+    <FluentSelect Label="@($"Non-Nullable Enum: {Day2}.")"
+                  Items="Enum.GetValues<DayOfWeek>()"
+                  @bind-Value="Day2" />
+
+</div>
+
+@code {
+    public DayOfWeek? Day1 { get; set; } = DayOfWeek.Tuesday;
+    public DayOfWeek Day2 { get; set; } = DayOfWeek.Tuesday;
+}

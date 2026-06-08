@@ -1,0 +1,40 @@
+﻿<FluentButton Appearance="ButtonAppearance.Primary" Id="interactive">Toggle Menu</FluentButton>
+<FluentMenu Trigger="interactive" OnCheckedChanged="HandleMenuItems" OnClick="HandleMenuItems">
+    <FluentMenuList>
+        <FluentMenuItem Label="Item 1">
+            <MenuItems>
+                <FluentMenuItem>Subitem 1</FluentMenuItem>
+                <FluentMenuItem>Subitem 2</FluentMenuItem>
+            </MenuItems>
+        </FluentMenuItem>
+
+        <FluentMenuItem Role="MenuItemRole.Checkbox">Item 2</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Checkbox">Item 3</FluentMenuItem>
+
+        <FluentDivider />
+
+        <FluentMenuItem Role="MenuItemRole.Radio">Menu item 4</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Radio">Menu item 5</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Radio">Menu item 6</FluentMenuItem>
+
+        <FluentDivider />
+
+        <FluentMenuItem>Item 7</FluentMenuItem>
+        <FluentMenuItem Disabled="true">Item 8</FluentMenuItem>
+        <FluentMenuItem>Item 9</FluentMenuItem>
+    </FluentMenuList>
+</FluentMenu>
+
+@code {
+    private void HandleMenuItems(MenuItemEventArgs args)
+    {
+        if (args.Checked.HasValue)
+        {
+            Console.WriteLine($"Menu item {(args.Checked.Value ? "checked" : "unchecked")}: {args.Text}");
+        }
+        else
+        {
+            Console.WriteLine($"Menu item clicked: {args.Text}");
+        }
+    }
+}

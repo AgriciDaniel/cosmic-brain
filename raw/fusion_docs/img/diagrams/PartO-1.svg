@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="380" rx="10" fill="url(#bg-grad)"/>
+
+  <!-- Subgraph: Server A -->
+  <rect x="40" y="50" width="160" height="120" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="120" y="75" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Server A (Fusion)</text>
+  
+  <rect x="70" y="95" width="100" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="120" y="124" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Cache</text>
+
+  <!-- Subgraph: Server B -->
+  <rect x="240" y="50" width="160" height="120" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="320" y="75" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Server B (Fusion)</text>
+  
+  <rect x="270" y="95" width="100" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="320" y="124" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Cache</text>
+
+  <!-- Subgraph: Server C -->
+  <rect x="440" y="50" width="160" height="120" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="520" y="75" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Server C (Fusion)</text>
+  
+  <rect x="470" y="95" width="100" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="520" y="124" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Cache</text>
+
+  <!-- Database Node -->
+  <rect x="240" y="250" width="160" height="60" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="320" y="284" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Database</text>
+
+  <!-- Edges -->
+  <path d="M 120 170 C 120 210, 280 210, 280 250" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 320 170 L 320 250" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 520 170 C 520 210, 360 210, 360 250" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+</svg>

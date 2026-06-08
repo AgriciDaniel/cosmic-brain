@@ -1,0 +1,30 @@
+﻿﻿<div>
+    <b>Selected Date:</b> @(SelectedValue?.ToString("yyyy-MM-dd"))
+</div>
+
+<FluentStack Orientation="Orientation.Horizontal" HorizontalGap="24px" Wrap="true">
+
+    <FluentDatePicker Label="Days view"
+                      RenderStyle="DatePickerRenderStyle.Native"
+                      DoubleClickToDate="@DateTime.Today"
+                      @bind-Value="@SelectedValue" />
+
+    <FluentDatePicker Label="Months view"
+                      RenderStyle="DatePickerRenderStyle.Native"
+                      @bind-Value="@SelectedValue"
+                      Width="150px"
+                      View="CalendarViews.Months" />
+
+    <FluentDatePicker Label="Years view"
+                      RenderStyle="DatePickerRenderStyle.Native"
+                      @bind-Value="@SelectedValue"
+                      Width="100px"
+                      View="CalendarViews.Years" />
+</FluentStack>
+
+
+@code
+{
+    DateTime? SelectedValue = DateTime.Today.AddDays(-2);
+}
+

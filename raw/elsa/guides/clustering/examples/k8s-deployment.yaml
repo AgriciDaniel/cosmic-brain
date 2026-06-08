@@ -1,0 +1,292 @@
+# Elsa Workflows Kubernetes Deployment Example for Clustering
+# This minimal example demonstrates deploying Elsa with multiple replicas for high availability.
+# 
+# Deployment Pattern Options:
+# 1. Single scheduler pattern: One dedicated scheduler pod + multiple worker pods
+# 2. Quartz clustering: All pods run Quartz in clustered mode (recommended for simplicity)
+#
+# This example uses Pattern 2 (Quartz clustering) for simplicity.
+
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: elsa-workflows
+  labels:
+    name: elsa-workflows
+
+---
+# Elsa Server Deployment (multiple replicas with distributed runtime)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elsa-server
+  namespace: elsa-workflows
+  labels:
+    app: elsa-server
+    component: workflow-engine
+spec:
+  # Multiple replicas for high availability and load distribution
+  replicas: 3
+  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0  # Ensure zero downtime
+  
+  selector:
+    matchLabels:
+      app: elsa-server
+  
+  template:
+    metadata:
+      labels:
+        app: elsa-server
+        component: workflow-engine
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    
+    spec:
+      # Anti-affinity to spread pods across nodes
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - elsa-server
+                topologyKey: kubernetes.io/hostname
+      
+      containers:
+        - name: elsa-server
+          image: elsaworkflows/elsa-server-v3:latest
+          imagePullPolicy: IfNotPresent
+          
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: HTTP_PORTS
+              value: "8080"
+            
+            # Database configuration
+            - name: DATABASEPROVIDER
+              value: "PostgreSql"
+            - name: CONNECTIONSTRINGS__POSTGRESQL
+              valueFrom:
+                secretKeyRef:
+                  name: elsa-secrets
+                  key: postgresql-connection-string
+            
+            # Redis for distributed locking
+            - name: REDIS__CONNECTIONSTRING
+              valueFrom:
+                secretKeyRef:
+                  name: elsa-secrets
+                  key: redis-connection-string
+            
+            # RabbitMQ for distributed cache invalidation
+            - name: RABBITMQ__CONNECTIONSTRING
+              valueFrom:
+                secretKeyRef:
+                  name: elsa-secrets
+                  key: rabbitmq-connection-string
+            
+            # Enable distributed runtime
+            - name: ELSA__RUNTIME__TYPE
+              value: "Distributed"
+            
+            # Enable distributed caching
+            - name: ELSA__CACHING__TYPE
+              value: "Distributed"
+            
+            # Distributed locking provider (Redis or PostgreSQL)
+            - name: ELSA__LOCKING__PROVIDER
+              value: "Redis"
+            
+            # Quartz clustering (all pods participate in scheduling)
+            - name: QUARTZ__CLUSTERED
+              value: "true"
+            - name: QUARTZ__INSTANCENAME
+              value: "ElsaQuartzCluster"
+            - name: QUARTZ__SCHEDULER_INSTANCEID
+              value: "AUTO"  # Auto-generate unique instance ID per pod
+            
+            # Pod identity for logging/tracing
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+          
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "2Gi"
+              cpu: "2000m"
+          
+          # Liveness probe: restart if unresponsive
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          
+          # Readiness probe: remove from load balancer if not ready
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          
+          # Startup probe: allow time for initialization
+          startupProbe:
+            httpGet:
+              path: /health/startup
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            failureThreshold: 30  # Allow up to 150s for startup
+          
+          # Graceful shutdown
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 15"]
+          
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: false
+
+---
+# Service (ClusterIP - no sticky sessions needed)
+apiVersion: v1
+kind: Service
+metadata:
+  name: elsa-server
+  namespace: elsa-workflows
+  labels:
+    app: elsa-server
+spec:
+  type: ClusterIP
+  # No session affinity - distributed state is managed externally
+  sessionAffinity: None
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: elsa-server
+
+---
+# Horizontal Pod Autoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: elsa-server-hpa
+  namespace: elsa-workflows
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: elsa-server
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300  # Wait 5 minutes before scaling down
+      policies:
+        - type: Percent
+          value: 50
+          periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0  # Scale up immediately
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 30
+
+---
+# Pod Disruption Budget (ensure minimum availability during updates)
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: elsa-server-pdb
+  namespace: elsa-workflows
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: elsa-server
+
+---
+# ConfigMap for non-sensitive configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elsa-config
+  namespace: elsa-workflows
+data:
+  ASPNETCORE_ENVIRONMENT: "Production"
+  HTTP_PORTS: "8080"
+  DATABASEPROVIDER: "PostgreSql"
+
+---
+# NOTE: Secrets should be created separately and never committed to version control
+# Example secret creation command:
+# kubectl create secret generic elsa-secrets \
+#   --from-literal=postgresql-connection-string="Server=elsa-postgresql;Username=elsa;Database=elsa;Port=5432;Password=YOUR_PASSWORD;SSLMode=Prefer;MaxPoolSize=100" \
+#   --from-literal=redis-connection-string="elsa-redis:6379,password=YOUR_PASSWORD,ssl=False,abortConnect=False" \
+#   --from-literal=rabbitmq-connection-string="amqp://elsa:YOUR_PASSWORD@elsa-rabbitmq:5672/" \
+#   --namespace elsa-workflows
+
+# Alternative Pattern: Single Scheduler Pod
+# To use a dedicated scheduler pod instead of Quartz clustering:
+# 1. Create a separate deployment with replicas: 1 for the scheduler
+# 2. Set ELSA__SCHEDULING__ENABLED=true only on the scheduler pod
+# 3. Set ELSA__SCHEDULING__ENABLED=false on worker pods
+# 4. All pods still need distributed runtime and locking configured

@@ -1,0 +1,440 @@
+{
+  "$schema": "https://elsa-workflows.github.io/elsa-core/schema/workflow.json",
+  "definitionId": "WaitForApprovalDemo",
+  "name": "Wait For Approval Demo",
+  "description": "Demonstrates a blocking WaitForApproval activity with timeout handling",
+  "version": 1,
+  "isReadonly": false,
+  "isPublished": true,
+  "root": {
+    "id": "root",
+    "type": "Elsa.Flowchart",
+    "activities": [
+      {
+        "id": "start",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "Start",
+        "displayName": "Start",
+        "description": "Log the start of the workflow",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "=== Approval Workflow Started ==="
+          }
+        },
+        "canStartWorkflow": true
+      },
+      {
+        "id": "wait-approval",
+        "type": "Custom.WaitForApprovalActivity,CustomAssembly",
+        "version": 1,
+        "name": "WaitForApproval",
+        "displayName": "Wait For Approval",
+        "description": "Waits for approval decision - creates a bookmark",
+        "approvalMessage": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Please approve the expense report for $1,250.00"
+          }
+        }
+      },
+      {
+        "id": "send-notification",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "SendNotification",
+        "displayName": "Send Notification",
+        "description": "In a real workflow, this would send an email with the resume URL",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "JavaScript",
+            "value": "`Approval URL: ${getVariable('ResumeUrl') ?? 'N/A'}`"
+          }
+        }
+      },
+      {
+        "id": "timeout-delay",
+        "type": "Elsa.Delay",
+        "version": 1,
+        "name": "TimeoutDelay",
+        "displayName": "Timeout (7 days)",
+        "description": "Timeout after 7 days if no approval is received",
+        "duration": {
+          "typeName": "TimeSpan",
+          "expression": {
+            "type": "Literal",
+            "value": "7.00:00:00"
+          }
+        }
+      },
+      {
+        "id": "fork-approval-timeout",
+        "type": "Elsa.Fork",
+        "version": 1,
+        "name": "ForkApprovalTimeout",
+        "displayName": "Race: Approval vs Timeout",
+        "description": "Waits for either approval or timeout, whichever comes first",
+        "joinMode": "WaitAny",
+        "branches": [
+          {
+            "id": "branch-timeout",
+            "activities": ["timeout-delay"]
+          }
+        ]
+      },
+      {
+        "id": "decision",
+        "type": "Elsa.Switch",
+        "version": 1,
+        "name": "DecisionSwitch",
+        "displayName": "Check Decision",
+        "description": "Routes based on approval outcome",
+        "cases": [
+          {
+            "label": "Approved",
+            "condition": {
+              "type": "JavaScript",
+              "value": "getLastResult() === 'Approved'"
+            }
+          },
+          {
+            "label": "Rejected",
+            "condition": {
+              "type": "JavaScript",
+              "value": "getLastResult() === 'Rejected'"
+            }
+          },
+          {
+            "label": "TimedOut",
+            "condition": {
+              "type": "JavaScript",
+              "value": "getLastResult() === 'Done' || getLastResult() === null"
+            }
+          }
+        ]
+      },
+      {
+        "id": "approved-action",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "ApprovedAction",
+        "displayName": "Approved",
+        "description": "Handle approval",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "✓ APPROVED - Processing expense reimbursement..."
+          }
+        }
+      },
+      {
+        "id": "rejected-action",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "RejectedAction",
+        "displayName": "Rejected",
+        "description": "Handle rejection",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "✗ REJECTED - Notifying employee..."
+          }
+        }
+      },
+      {
+        "id": "timeout-action",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "TimeoutAction",
+        "displayName": "Timed Out",
+        "description": "Handle timeout",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "⏱ TIMED OUT - No approval received within 7 days"
+          }
+        }
+      },
+      {
+        "id": "complete",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "name": "Complete",
+        "displayName": "Complete",
+        "description": "Log completion",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "=== Workflow Completed ==="
+          }
+        }
+      }
+    ],
+    "connections": [
+      {
+        "source": {
+          "activity": "start",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "wait-approval",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "wait-approval",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "decision",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "decision",
+          "port": "Approved"
+        },
+        "target": {
+          "activity": "approved-action",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "decision",
+          "port": "Rejected"
+        },
+        "target": {
+          "activity": "rejected-action",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "decision",
+          "port": "TimedOut"
+        },
+        "target": {
+          "activity": "timeout-action",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "approved-action",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "complete",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "rejected-action",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "complete",
+          "port": "In"
+        }
+      },
+      {
+        "source": {
+          "activity": "timeout-action",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "complete",
+          "port": "In"
+        }
+      }
+    ]
+  },
+  "variables": [
+    {
+      "name": "ResumeUrl",
+      "typeName": "String",
+      "isArray": false,
+      "storageDriverTypeName": "Elsa.Workflows.Runtime.WorkflowStorageDriver"
+    }
+  ],
+  "inputs": [],
+  "outputs": [],
+  "outcomes": []
+}
+
+/*
+ * IMPORTANT NOTE
+ * ==============
+ * 
+ * This is a sample workflow JSON demonstrating how to use the WaitForApprovalActivity.
+ * 
+ * Before using this workflow:
+ * 1. Replace "Custom.WaitForApprovalActivity,CustomAssembly" with your actual activity type name
+ *    Format: "{Namespace}.{ClassName},{AssemblyName}"
+ *    Example: "MyCompany.Activities.WaitForApprovalActivity,MyCompany.Workflows"
+ * 
+ * 2. Ensure the WaitForApprovalActivity is registered in your Elsa configuration:
+ *    builder.Services.AddElsa(elsa =>
+ *    {
+ *        elsa.AddActivity<WaitForApprovalActivity>();
+ *    });
+ * 
+ * 3. This JSON can be imported into Elsa Studio or loaded programmatically:
+ *    
+ *    Using IWorkflowDefinitionImporter:
+ *    var json = File.ReadAllText("workflow-wait-for-approval.json");
+ *    var definition = await workflowDefinitionImporter.ImportAsync(json);
+ *    await workflowDefinitionStore.SaveAsync(definition);
+ * 
+ * 
+ * WORKFLOW STRUCTURE
+ * ==================
+ * 
+ * This workflow demonstrates a simple approval pattern:
+ * 
+ * 1. Start: Log workflow start
+ * 2. WaitForApproval: Creates bookmark and sets ResumeUrl variable, workflow suspends
+ * 3. [Workflow suspended - external system sends notification using ResumeUrl from workflow variable]
+ * 4. Decision: Route based on outcome (Approved or Rejected)
+ * 5. Actions: Execute appropriate action based on decision
+ * 6. Complete: Log completion
+ * 
+ * Note: The ResumeUrl is stored in the workflow variable "ResumeUrl" and can be accessed
+ * by querying the workflow instance. In a real scenario, you would:
+ * 
+ * Example - Query workflow instance for ResumeUrl:
+ * ```csharp
+ * var workflowInstance = await workflowInstanceStore.FindAsync(workflowInstanceId);
+ * var resumeUrl = workflowInstance.Variables.TryGetValue("ResumeUrl", out var value)
+ *     ? value?.ToString()
+ *     : null;
+ * // Send resumeUrl via email, SMS, or other notification
+ * ```
+ * 
+ * Or use the IWorkflowInstanceVariableReader service:
+ * ```csharp
+ * var resumeUrl = await variableReader.GetVariableAsync<string>(
+ *     workflowInstanceId, "ResumeUrl");
+ * ```
+ * 
+ * For timeout handling, see the README.md for examples using Fork/WaitAny patterns.
+ * 
+ * 
+ * WORKFLOW EXECUTION FLOW
+ * =======================
+ * 
+ * Normal Approval Flow:
+ * Start → WaitForApproval (creates bookmark, sets ResumeUrl variable) → [suspended]
+ *   → [external: notification sent with ResumeUrl]
+ *   → [external: POST to resume URL or IWorkflowResumer.ResumeAsync]
+ *   → Decision (Approved) → ApprovedAction → Complete
+ * 
+ * Rejection Flow:
+ * Start → WaitForApproval (creates bookmark) → [suspended]
+ *   → [external rejection]
+ *   → Decision (Rejected) → RejectedAction → Complete
+ * 
+ * 
+ * TESTING THIS WORKFLOW
+ * =====================
+ * 
+ * 1. Import this workflow into Elsa Studio or load it programmatically
+ * 2. Publish the workflow
+ * 3. Start the workflow (manually or via trigger)
+ * 4. The workflow will suspend at the WaitForApproval activity
+ * 5. Retrieve the bookmark ID or resume URL from the workflow instance
+ * 6. Resume the workflow using one of these methods:
+ * 
+ *    a) HTTP POST to the generated resume URL:
+ *       POST https://your-server.com/workflows/resume/{token}
+ *       Content-Type: application/json
+ *       {
+ *         "Decision": "Approved",
+ *         "ApprovedBy": "john.doe@example.com"
+ *       }
+ * 
+ *    b) Via IWorkflowResumer in code:
+ *       await workflowResumer.ResumeAsync(bookmarkId, new Dictionary<string, object>
+ *       {
+ *           ["Decision"] = "Approved",
+ *           ["ApprovedBy"] = "john.doe@example.com"
+ *       });
+ * 
+ *    c) Via the ApprovalController endpoints:
+ *       POST /api/approval/approve/{bookmarkId}
+ *       {
+ *         "decision": "Approved",
+ *         "approvedBy": "john.doe@example.com"
+ *       }
+ * 
+ * 
+ * CUSTOMIZATION
+ * =============
+ * 
+ * You can customize this workflow to fit your needs:
+ * 
+ * - Add timeout handling using Fork/WaitAny patterns (see README.md)
+ * - Add more complex routing logic in the decision
+ * - Add email/SMS activities to send notifications  (access ResumeUrl via workflow variable)
+ * - Add data persistence activities to store approval results
+ * - Add parallel approval requirements (multiple approvers)
+ * - Add escalation logic (notify manager after X days)
+ * 
+ * 
+ * VISUAL REPRESENTATION
+ * =====================
+ * 
+ *     ┌─────────┐
+ *     │  Start  │
+ *     └────┬────┘
+ *          │
+ *   ┌──────▼──────────┐
+ *   │ WaitForApproval │ ← Creates bookmark, sets ResumeUrl variable
+ *   │   (suspended)   │   Workflow suspends here
+ *   └──────┬──────────┘
+ *          │
+ *          │ [External: notification sent, approval received]
+ *          │
+ *     ┌────▼─────┐
+ *     │ Decision │
+ *     └────┬─────┘
+ *          │
+ *    ┌─────┴─────┐
+ *    │           │
+ * ┌──▼────┐ ┌───▼────┐
+ * │Approved│ │Rejected│
+ * └──┬────┘ └───┬────┘
+ *    └─────┬────┘
+ *          │
+ *     ┌────▼────┐
+ *     │Complete │
+ *     └─────────┘
+ * 
+ * 
+ * ALTERNATIVE WORKFLOW STRUCTURES
+ * ===============================
+ * 
+ * Approval with Timeout (using Fork/WaitAny):
+ * Start → Fork(WaitAny) → [WaitForApproval, Delay(7days)] → Decision → Actions → Complete
+ * 
+ * Parallel Approvals (all required):
+ * Start → Fork(WaitAll) → [Approval1, Approval2, Approval3] → Decision → Complete
+ * 
+ * Sequential Approvals:
+ * Start → ManagerApproval → FinanceApproval → LegalApproval → Complete
+ * 
+ * Conditional Approval:
+ * Start → If(Amount > 1000) → ManagerApproval : AutoApprove → Complete
+ */

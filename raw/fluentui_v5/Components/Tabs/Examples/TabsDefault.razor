@@ -1,0 +1,28 @@
+﻿<FluentTabs ActiveTabId="@ActiveTabId" @bind-ActiveTab="@ActiveTab" @bind-ActiveTab:after="@OnTabChanged">
+    <FluentTab Id="default-tab1" Header="Chat" IconStart="@(new Icons.Regular.Size16.Chat())">
+        Here's some information about the chat.
+    </FluentTab>
+
+    <FluentTab Id="default-tab2" Header="Files" Disabled="true" IconStart="@(new Icons.Regular.Size16.Folder())">
+        Here's the list of all files.
+    </FluentTab>
+
+    <FluentTab Id="default-tab3" Header="Recap" IconStart="@(new Icons.Regular.Size16.List())" IconColor="@Color.Primary">
+        Here's some information about the recap.
+    </FluentTab>
+</FluentTabs>
+
+<p>
+    ActiveTab: <b>@(ActiveTab?.Header)</b>
+</p>
+
+@code
+{
+    string? ActiveTabId = "default-tab3";
+    FluentTab? ActiveTab;
+
+    void OnTabChanged()
+    {
+        Console.WriteLine($"Tab changed to '{ActiveTab?.Header}'."); 
+    }
+}

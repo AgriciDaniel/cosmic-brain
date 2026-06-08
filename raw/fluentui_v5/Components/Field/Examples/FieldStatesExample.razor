@@ -1,0 +1,19 @@
+﻿<FluentTextInput Label="Error state"
+                 MessageState="@MessageState.Error"
+                 Message="This is an error message."
+                 MessageCondition="@FluentFieldCondition.Always" />
+
+<FluentTextInput Label="Warning state"
+                 MessageState="@MessageState.Warning"
+                 Message="This is a warning message."
+                 MessageCondition="@FluentFieldCondition.Always" />
+
+<FluentTextInput Label="Success state"
+                 MessageState="@MessageState.Success"
+                 Message="This is a success message."
+                 MessageCondition="@FluentFieldCondition.Always" />
+
+<FluentTextInput Label="Custom state"
+                 Message="This is a custom message."
+                 MessageIcon="@(new Icons.Regular.Size24.Accessibility())"
+                 MessageCondition="@FluentFieldCondition.Always" />

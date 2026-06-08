@@ -114,7 +114,7 @@ Format: `c-<6-digit-counter>`. `c-` means "creation-order counter." Zero-padded.
 
 **Implementation** (Phase 2, shipped):
 - `scripts/allocate-address.sh`: flock-guarded atomic allocator. All counter reads/writes go through this script; direct Write/Edit on `.vault-meta/address-counter.txt` is prohibited (would fire PostToolUse hook).
-- `skills/wiki-ingest/SKILL.md` → Address Assignment section: opt-in feature detection; delegates allocation to the helper; records path-to-address mapping in `.raw/.manifest.json` `address_map` for re-ingest stability.
+- `skills/wiki-ingest/SKILL.md` → Address Assignment section: opt-in feature detection; delegates allocation to the helper; records path-to-address mapping in `raw/.manifest.json` `address_map` for re-ingest stability.
 - `skills/wiki-lint/SKILL.md` → Address Validation section: format check, uniqueness check, counter-drift check, address-map consistency check.
 
 **Lint severity model** (matches `skills/wiki-lint/SKILL.md` Address Validation behavior):
@@ -271,7 +271,7 @@ Verified against primary sources on 2026-04-23. **Scope of tagging**: the specif
 
 **v0.1 (2026-04-23, initial draft)** — written after a verification pass against Wikipedia, arXiv, and Anthropic docs. Four mechanisms proposed.
 
-**v0.4 (2026-04-24, Phase 4 shipped)** — Mechanism 4 (boundary-first autoresearch) implemented as `scripts/boundary-score.py` with `tests/test_boundary_score.py` covering parsing, recency weight, wikilink extraction (with fence-length + tilde + indented-block tests), graph construction (self-loop/unresolved/meta-target exclusion), symlink rejection, and CLI surface (`--top`, `--page`, `--json`). Integrated into `skills/autoresearch/SKILL.md` as an opt-in Topic Selection mode with explicit helper-failure fallback. Spec's "NOT IMPLEMENTED" marker removed; exact scoring formula (no recency floor), filename-stem-only resolution disclosure, scope, and "what is NOT included" section added. Phase 3.6 pre-Phase-4 hardening shipped concurrently (5 fixes: `--report` path confinement, rollout baseline, AGENTS.md consistency, wiki-ingest .raw contradiction, install-guide version).
+**v0.4 (2026-04-24, Phase 4 shipped)** — Mechanism 4 (boundary-first autoresearch) implemented as `scripts/boundary-score.py` with `tests/test_boundary_score.py` covering parsing, recency weight, wikilink extraction (with fence-length + tilde + indented-block tests), graph construction (self-loop/unresolved/meta-target exclusion), symlink rejection, and CLI surface (`--top`, `--page`, `--json`). Integrated into `skills/autoresearch/SKILL.md` as an opt-in Topic Selection mode with explicit helper-failure fallback. Spec's "NOT IMPLEMENTED" marker removed; exact scoring formula (no recency floor), filename-stem-only resolution disclosure, scope, and "what is NOT included" section added. Phase 3.6 pre-Phase-4 hardening shipped concurrently (5 fixes: `--report` path confinement, rollout baseline, AGENTS.md consistency, wiki-ingest raw contradiction, install-guide version).
 
 **v0.3 (2026-04-23, Phase 2 alignment)** — Mechanism 2 rewritten to match the actual Phase 2 MVP shipped in `wiki-ingest` and `wiki-lint`. Renamed from "Content-Addressable Paths" to "Deterministic Page Addresses" (the MVP is a creation-order counter, not a content hash). Documented the extension path for fold-ancestry bits and content-hash suffix, both explicitly deferred.
 

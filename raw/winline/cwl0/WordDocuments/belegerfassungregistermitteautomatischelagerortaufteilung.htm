@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Belegerfassung - Register "Mitte" - Automatische Lagerortaufteilung</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84fakt21.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt"><A 
+name=_Ref108440898></A>Belegerfassung - Register "Mitte" - Automatische 
+Lagerortaufteilung</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Bei Artikel mit Lagerortstruktur handelt es sich um 
+sogenannte "Lagerortartikel", d.h. die Artikel können an unterschiedlichen 
+Lagerorten zu finden sein. In der Belegerfassung muss entsprechend angegeben 
+werden, von "wo" die Waren entnommen wird (Verkauf) oder wohin die Ware 
+eingelagert wird (Einkauf). Um diesen wichtigen Punkt der Lagerortverwaltung 
+noch komfortabler zu gestalten bzw. zu vereinfachen, stehen in der 
+Belegerfassung Funktionen zur automatische Lagerortaufteilung zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerortaufteilung - Allgemein</P>
+<P class=MsoNormal>Damit eine automatische Lagerortaufteilung grundsätzlich 
+stattfindet, müssen die folgenden Voraussetzungen erfüllt sein:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Allgemein<BR>Die Vorbelegung des 
+Lagerorts (Artikelstamm und / oder Belegart) wirkt sich ausschließlich auf die 
+Belegerfassung aus, d.h. die Programmbereiche "Kundenbestellungen bearbeiten", 
+"Lieferantenlieferungen bearbeiten", "Batchbelege", "Autobeleg", "Stückliste 
+bearbeiten", etc. berücksichtigen die Vorbelegung und somit automatische 
+Lagerortaufteilung nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Aufteilungsoptionen" 
+(Lagerorte)<BR>Die Lagerortaufteilung muss erlaubt sein. D.h. es muss der 
+Belegstufe der Aufteilungstyp "2 - kann erfolgen" oder "1 - muss erfolgen" 
+zugeordnet worden sein.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Damit eine automatische 
+Aufteilung immer stattfinden kann, sollte das "automatische Öffnen" ebenfalls 
+aktiviert werden (alle Optionen)!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Lagerorte 
+erfassen"<BR>Die Einzelerfassung innerhalb des Fensters <A 
+href="JavaScript:TL_460128.HHClick()">Lagerorte erfassen</A> darf nicht 
+aktiviert sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerortaufteilung - Aufteilung lt. Artikelstamm</P>
+<P class=MsoNormal>Die automatische Lagerortaufteilung kann auf Grundlage einer 
+Hinterlegung in der Belegart und / oder des Artikelstamms erfolgen. Folgende 
+Voraussetzungen sind zu erfüllen, wenn der zu verwendende Lagerort direkt dem 
+Artikelstamm entnommen werden soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Artikelstamm"<BR>Im 
+Artikelstamm muss die Option "Selektion über Lagerort-Zuordnung" aktiviert 
+worden sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Lagerorte - 
+Zuordnung"<BR>Im Programm "Lagerorte - Zuordnung" wurde dem Artikel ein 
+Standardlagerort zugewiesen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Ein Artikel kann natürlich auch 
+mehrere Standardlagerorte haben, wobei zu beachten ist, dass nicht mehrere 
+Lagerorte - für die gleiche Lagerortfunktion - der Standard sind! Wichtig für 
+die spätere automatische Aufteilung ist dementsprechend nur, dass die WinLine in 
+Verbindung mit der verwendeten Lagerortfunktion(en) lt. Belegart nur einen 
+Standardlagerort für den Artikel "findet".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Belegerfassung"<BR>In 
+dem Register <A href="JavaScript:TL_460129.HHClick()">Optionen</A> der 
+Belegerfassung muss im Bereich "Automatische Aufteilung - Lagerorte" die 
+Aufteilungsart "1 - Aufteilung gemäß Artikelstamm/Belegart" gewählt worden 
+sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerortaufteilung - Aufteilung lt. Belegart</P>
+<P class=MsoNormal>Die automatische Lagerortaufteilung kann auf Grundlage einer 
+Hinterlegung in der Belegart und / oder des Artikelstamms erfolgen. Folgende 
+Voraussetzungen sind zu erfüllen, wenn der zu verwendende Lagerort aus der 
+Belegart stammen soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Belegartenstamm"<BR>In 
+dem Register "Erweitert" des Belegartenstamms muss die Herkunft des Lagerorts 
+angegeben werden (Option "Vorbelegung"). Des Weiteren muss der Ort, welcher in 
+das Register <A href="JavaScript:TL_460130.HHClick()">Zusatz</A> der 
+Belegerfassung übertragen werden soll, zumindest einer Lagerortfunktion des 
+Belegs entsprechen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Wenn der vorgegebene Lagerort 
+nicht der letzten Hierarchie-Ebene entspricht, so erfolgt die Suche nach 
+passenden Lagerorten innerhalb der vorgegebenen Hierarchie.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Programm "Belegerfassung"<BR>In 
+dem Register <A href="JavaScript:TL_460131.HHClick()">Optionen</A> der 
+Belegerfassung sollte im Bereich "Automatische Aufteilung - Lagerorte" die 
+Aufteilungsart "0 - Aufteilung gemäß Belegart" gewählt worden sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerortaufteilung - Bei Artikelerfassung / 
+-änderung</P>
+<P class=MsoNormal>Wenn alles Voraussetzungen erfüllt werden, so findet direkt 
+bei Artikelerfassung (nach der Mengeneingabe) die automatische 
+Lagerortaufteilung statt. Die Aufteilung wird hierbei natürlich aktualisiert, 
+sobald die Menge editiert wird. Darüber hinaus sind folgende Punkte zu 
+beachten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Allgemein<BR>Bei einer 
+automatischen Aufteilung werden neben den Lagerortfunktionen auch die 
+Lagerortzuordnungen- und -eigenschaften berücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Aufteilungstyp<BR>Bei einer 
+"Kann"-Aufteilung wird bei einem Fehlerfall (d.h. kein Lagerort gefunden) das 
+Fenster <A href="JavaScript:TL_460132.HHClick()">Lagerorte erfassen</A> nur bei 
+der Eingabe des Artikels geöffnet.<BR>Bei einer "Muss"-Aufteilung wird bei einem 
+Fehlerfall (d.h. kein Lagerort gefunden oder keine ausreichende Menge vorhanden) 
+das Fenster <A href="JavaScript:TL_460133.HHClick()">Lagerorte erfassen</A> 
+immer geöffnet (Eingabe des Artikels bzw. Mengenänderung).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Einkauf<BR>Die Menge wird immer 
+dem (ersten) Lagerort zugewiesen. Der Aufteilungstyp bzw. Lagerortbestand spielt 
+dabei keine Rolle.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf<BR>Bei einer Aufteilung 
+des Typs "2 - kann erfolgen" wird die gesamte Menge dem Lagerort gemäß Vorgabe 
+zugewiesen, wobei es unerheblich ist, ob genügend Bestand auf dem Ort vorhanden 
+ist.<BR>Bei einer Aufteilung des Typs "1 - muss erfolgen" wird der Lagerbestand 
+hingegen geprüft und bei möglichen Problemen das Fenster <A 
+href="JavaScript:TL_460134.HHClick()">Lagerorte erfassen</A> geöffnet. Eine 
+Ausnahme bilden hierbei nur Minus-Mengen, die automatisch dem ersten Ort 
+(unabhängig vom Bestand) zugewiesen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ausprägungsartikel<BR>Handelt es 
+sich bei dem Artikel um einen Artikel mit Ausprägungen und es kommt zu einem 
+Fehlerfall (z.B. kein Lagerort gefunden), so wird das Fenster <A 
+href="JavaScript:TL_460135.HHClick()">Lagerorte erfassen</A> im Kontext des 
+ersten Fehlerfalls geöffnet und für alle nachfolgenden Ausprägungen keine 
+Lagerortaufteilung vorgenommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerortaufteilung - Nachträgliche Aufteilung</P>
+<P class=MsoNormal>In der Praxis kann es natürlich notwendig sein die 
+automatische Lagerortaufteilung für bereits erfasste Artikel "nachträglich" 
+durchzuführen. Hierfür steht im Register <A 
+href="JavaScript:TL_460136.HHClick()">Mitte</A> der Button "ohne Auswahl 
+aufteilen" zur Verfügung, wobei folgende Punkte zu beachten sind:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lagerortbestand<BR>Bei einer 
+nachträglichen Aufteilung wird immer der Bestand der Lagerorte berücksichtigt! 
+Eine Ausnahme bilden hierbei nur Minus-Mengen, die automatisch dem ersten Ort 
+(unabhängig vom Bestand) zugewiesen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Belegtyp "Lieferschein / 
+Faktura"<BR>Handelt es sich bei dem aktuellen Beleg um einen zu editierenden 
+Lieferschein oder eine zu editierende Faktura, so werden bei Anwahl des Button 
+"ohne Auswahl aufteilen" nur jene Zeilen automatisch mit Lagerorten versehen, 
+bei denen Belegmenge und Lagerortmenge abweichend sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bestehende 
+Lagerorterfassungen<BR>Sollten bereits Lagerorterfassungen existieren, so werden 
+diese zuvor nicht gelöscht, sondern "nur" ersetzt bzw. ergänzt (immer abhängig 
+vom aktuellen Lagerortbestand). Bei Nutzung einer Lagerortvorgabe kann dieses 
+dazu führen, dass z.B. manuelle Lagerorterfassung auf nicht vorgegebenen Orten 
+erhalten bleiben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf - Aufteilungstyp "2 - kann 
+erfolgen"<BR>Wenn in den Aufteilungsoptionen der Aufteilungstyp "2 - kann 
+erfolgen" gewählt wurde, so wird bei Anwahl des Buttons die Menge der 
+Belegzeile, aufgrund ggfs. nicht ausreichend vorhandenen Lagerbestands, nicht 
+reduziert (d.h. es findet eine Teilzuweisung statt). Dieses gilt auch bei 
+Nutzung einer Lagerortvorgabe (siehe Feld "Lagerort" im Register "Zusatz"), 
+wobei dann nur der vorgegebene Lagerort bzw. die Lagerorte der gewünschten 
+Lagerort-Hierarchie berücksichtigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf - Aufteilungstyp "1 - muss 
+erfolgen"<BR>Wenn in den Aufteilungsoptionen der Aufteilungstyp "1 - muss 
+erfolgen" gewählt wurde, so wird bei Anwahl des Buttons die (auszuliefernde) 
+Menge bei normalen Artikeln automatisch korrigiert, wenn nicht genug Bestand auf 
+den Lagerorten vorhanden ist. In solch einem Fall wird zusätzlich eine 
+Hinweismeldung am Bildschirm ausgegeben und die entsprechenden Zeilen mit einem 
+Hinweissymbol gekennzeichnet.<BR>Handelt es sich hingegen um einen 
+Ausprägungsartikel, so wird die (auszuliefernde) Menge nicht angepasst, aber die 
+Lagerortkugel auf "orange" gestellt.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_460128 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460129 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/belegerfassenregisteroptionen.htm"></OBJECT>
+<OBJECT id=TL_460130 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/belegerfassenregisterzusatz.htm"></OBJECT>
+<OBJECT id=TL_460131 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/belegerfassenregisteroptionen.htm"></OBJECT>
+<OBJECT id=TL_460132 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460133 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460134 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460135 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460136 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/belegerfassenregistermitte.htm"></OBJECT></DIV></BODY></HTML>

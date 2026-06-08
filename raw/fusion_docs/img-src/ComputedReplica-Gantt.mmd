@@ -1,0 +1,31 @@
+gantt
+  dateFormat s
+  axisFormat %S
+
+  section Web API (in)
+    GetUser(1)  : crit, g0, 0, 2s
+  section Web API (out)
+    User {...} + publication headers for c1_v0 : after a0, 1s
+  section Websocket (in)
+    RequestUpdate(c1_v0)       : crit, u0, 15, 1s
+    RequestUpdate(c1_v1)       : crit, u1, 27, 1s
+  section Websocket (out)
+    Invalidated(c1_v0)         : done, i0, after a1, 1s
+    Consistent(c1_v0 -> c1_v1) : after u0, 1s
+    Invalidated(c1_v0)         : done, i1, after b1, 1s
+    Consistent(c1_v1 -> c1_v2) : after u1, 1s
+  section IUpdateDelayer
+    DelayAsync : done, after i0, 3s
+
+  section c1_v0
+    Computing   : crit, a0, 0, 1s
+    Consistent  : a1, after a0, 10s
+    Invalidated : done, a2, after a1, 25s
+  section c1_v1
+    Computin    : crit, b0, 15, 1s
+    Consistent  : b1, after b0, 10s
+    Invalidated : done, b2, after b1, 10s
+  section c1_v2 (Consistent)
+    Computing   : crit, c0, 27, 1s
+    Consistent  : c1, after c0, 8s
+  

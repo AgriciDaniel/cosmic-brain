@@ -1,0 +1,31 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+@inject IJSRuntime JSRuntime
+
+<div id="datagrid-container">
+    <FluentDataGrid Items="items!.AsQueryable()"
+    Pagination="@pagination"
+    RowSize="@rowSize"
+    AutoItemsPerPage="true"
+    Style="overflow-y:hidden;">
+        <PropertyColumn Property="@(c => c.Code)" Sortable="true" />
+        <PropertyColumn Property="@(c => c.Medals.Gold)" Sortable="true" />
+        <PropertyColumn Property="@(c => c.Medals.Silver)" Sortable="true" />
+        <PropertyColumn Property="@(c => c.Medals.Bronze)" Sortable="true" />
+        <PropertyColumn Property="@(c => c.Medals.Total)" Sortable="true" />
+    </FluentDataGrid>
+</div>
+
+<FluentPaginator State="@pagination" />
+
+@code {
+
+    DataGridRowSize rowSize = DataGridRowSize.Small;
+    IQueryable<Country>? items;
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+
+    protected override void OnInitialized() =>
+    items = SampleData.Olympics2024.Countries.AsQueryable();
+
+}
+

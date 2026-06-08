@@ -1,0 +1,34 @@
+﻿<div class="my-2">
+    <b>Selected item:</b> @SelectedItem?.Text
+</div>
+
+<FluentTreeView Items="@Items"
+                @bind-SelectedItem="@SelectedItem">
+    <ItemTemplate>
+        <FluentBadge Color="BadgeColor.Informative" Content="@context.Id" Style="pointer-events: none;" />
+        @context.Text
+    </ItemTemplate>
+</FluentTreeView>
+
+@code
+{
+    private ITreeViewItem? SelectedItem;
+    private IEnumerable<ITreeViewItem>? Items = new List<ITreeViewItem>();
+
+    // Read the Tree content and set the selected item
+    protected override void OnInitialized()
+    {
+        Items = GetCompanyOrganization();
+        SelectedItem = Items?.ElementAt(3);
+    }
+
+    // Example of a tree with a company organization
+    // (5 companies containing 4 departments with 10 employees)
+    private TreeViewItem[] GetCompanyOrganization()
+    {
+        return SampleData.People
+                         .GetOrganization(companyCount: 5, departmentCount: 4, employeeCount: 10)
+                         .ToTreeViewItems()
+                         .ToArray();
+    }
+}

@@ -1,0 +1,75 @@
+classDiagram
+  IStateSnapshot "1" --o "1" IState : via Snapshot property
+  IResult <|-- IState
+  IResult <|-- IMutableResult
+  IState <|-- IComputedState
+  IState <|-- IMutableState
+  IMutableResult <|-- IMutableState
+  IComputedState <|-- ILiveState
+  IUpdateDelayer "1" <.. "many" ILiveState : via UpdateDelayer property
+  ILiveState <|-- ILiveStateWithLocals
+
+  class IResult {
+    <<Describes computation result>>
+    +T Value
+    +Exception? Error
+    +bool HasValue
+    +bool HasError
+
+    AsResult() Result~T~
+    IsValue(out T value) bool
+    IsValue(out T value, out Exception? error) bool
+    ...
+  }
+
+  class IMutableResult {
+    <<Like IResult, but has Value & Error setters>>
+    Update(Result~T~ result) void
+  }
+
+  class IStateSnapshot {
+    <<Instant snapshot of an IState; immutable>>
+    +IComputed~T~ Computed
+    +IComputed~T~ LastValueComputed
+    +T LastValue
+    +int UpdateCount
+    +int FailureCount
+    +int RetryCount
+  }
+
+  class IState {
+    <<Tracks the evolution of its Computed over time>>
+    +IStateSnapshot~T~ Snapshot
+    +IComputed~T~ Computed
+    +IComputed~T~ LastValueComputed
+    +T LastValue
+    +event Invalidated;
+    +event Updated;
+  }
+
+  class IMutableState {
+    <<An IState describing a variable>>
+  }
+
+  class IComputedState {
+    <<An IState describing function's output>>
+  }
+
+  class ILiveState {
+    <<Auto-updates itself after invalidation>>
+    +IUpdateDelayer UpdateDelayer
+  }
+
+  class ILiveStateWithLocals {
+    <<A LiveState with variable (Locals)>>
+    <<The actual type is ILiveState<T, TLocals>>>
+    +bool InvalidateOnLocalsUpdate
+    +bool UpdateOnLocalsUpdate
+    +IMutableState~TLocals~ Locals
+  }
+
+  class IUpdateDelayer {
+    <<Controls update delays>>
+    +DelayAsync(IState state, CancellationToken ct) Task
+    +CancelDelays(bool immediately = false) void
+  }

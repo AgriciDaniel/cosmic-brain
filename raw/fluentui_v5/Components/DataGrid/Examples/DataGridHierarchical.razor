@@ -1,0 +1,18 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+<FluentDataGrid Items="@items.Where(i => !i.IsHidden).AsQueryable()" ShowHover="true" ResizableColumns="true">
+	<TemplateColumn Title="Name" HierarchicalToggle="true">
+		@if (context.Item.ContinentCode != null)
+		{
+			<img class="flag" src="@(context.Item.Flag())" alt="Flag of @(context.Item.Code)" />
+		}
+		@context.Item.Name
+	</TemplateColumn>
+	<PropertyColumn Title="Gold" Property="@(i => i.Item.Medals.Gold)" />
+	<PropertyColumn Title="Silver" Property="@(i => i.Item.Medals.Silver)" Align="DataGridCellAlignment.Center" />
+	<PropertyColumn Title="Bronze" Property="@(i => i.Item.Medals.Bronze)" Align="DataGridCellAlignment.Center" />
+	<PropertyColumn Title="Total" Property="@(i => i.Item.Medals.Total)" Align="DataGridCellAlignment.End" />
+
+</FluentDataGrid>
+
+

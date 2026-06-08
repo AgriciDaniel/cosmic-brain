@@ -1,0 +1,15 @@
+﻿<FluentButton OnClick="@ButtonClick">Default</FluentButton>
+<FluentButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Primary" Title="A tooltip for this button">Primary</FluentButton>
+<FluentButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Outline">Outline</FluentButton>
+<FluentButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Subtle">Subtle</FluentButton>
+<FluentButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Transparent">Transparent</FluentButton>
+<FluentButton OnClick="@ButtonClick" BackgroundColor="var(--highlight-bg)" Color="var(--presence-busy)">Colored</FluentButton>
+<FluentButton OnClick="@ButtonClick" Disabled="true">Disabled</FluentButton>
+
+@code
+{
+    void ButtonClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+}

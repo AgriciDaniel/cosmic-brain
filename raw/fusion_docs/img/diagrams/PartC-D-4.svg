@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges / Arrows -->
+    <path d="M 400 90 L 400 122" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 340 210 C 340 250, 220 240, 220 277" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 460 210 C 460 250, 580 240, 580 277" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 220 335 L 220 392" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 580 335 L 580 392" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Nodes -->
+    
+    <!-- Call (Action Node) -->
+    <rect x="240" y="30" width="320" height="60" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="400" y="50" text-anchor="middle" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">Commander.Call(BatchProcessCommand)</text>
+    <text x="400" y="70" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">// IDelegatingCommand</text>
+
+    <!-- Context #1 (State Node) -->
+    <rect x="210" y="130" width="380" height="80" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="400" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Context #1 (Delegating command context)</text>
+    <text x="400" y="170" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• Operations Framework handlers filtered out</text>
+    <text x="400" y="190" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• No operation logging for this command</text>
+
+    <!-- Item 1 (Action Node) -->
+    <rect x="60" y="285" width="320" height="50" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="220" y="314" text-anchor="middle" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">Commander.Call(ProcessItemCommand)</text>
+
+    <!-- Item 2 (Action Node) -->
+    <rect x="420" y="285" width="320" height="50" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="580" y="314" text-anchor="middle" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">Commander.Call(ProcessItemCommand)</text>
+
+    <!-- Context #2 (State Node) -->
+    <rect x="60" y="400" width="320" height="80" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="220" y="420" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Context #2 (Forced outermost)</text>
+    <text x="220" y="440" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• NEW ServiceScope</text>
+    <text x="220" y="460" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• Full Operations Framework pipeline</text>
+
+    <!-- Context #3 (State Node) -->
+    <rect x="420" y="400" width="320" height="80" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="580" y="420" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Context #3 (Also forced outermost)</text>
+    <text x="580" y="440" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• NEW ServiceScope</text>
+    <text x="580" y="460" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">• Independent from Context #2</text>
+</svg>

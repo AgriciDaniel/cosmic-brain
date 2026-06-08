@@ -1,0 +1,28 @@
+﻿@page "/List/Combobox/Debug"
+@inject IDialogService DialogService
+
+@* Combobox in a Dialog *@
+<FluentStack Margin="@Margin.All3"
+             Padding="@Padding.All3"
+             Style="@CommonStyles.NeutralBorder1"
+             Orientation="Orientation.Vertical"
+             Width="90%">
+    <FluentButton OnClick="@OpenDialogAsync">Open</FluentButton>
+    <div>
+        Selected: @SelectedNumber
+    </div>
+</FluentStack>
+
+@code {
+    int SelectedNumber = 0;
+
+    async Task OpenDialogAsync()
+    {
+        var result = await DialogService.ShowDrawerAsync<DebugComboboxDialog>(options =>
+        {
+            options.Modal = true;
+        });
+
+        SelectedNumber = result.GetValue<int>();
+    }
+}

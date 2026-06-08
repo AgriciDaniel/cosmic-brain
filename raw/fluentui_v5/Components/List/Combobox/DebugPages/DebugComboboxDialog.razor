@@ -1,0 +1,22 @@
+﻿@inherits FluentDialogInstance
+
+<FluentDialogBody>
+    <FluentCombobox Label="Number" Items="@Numbers" @bind-Value="@SelectedNumber" />
+
+    <div>
+        Selected: @SelectedNumber
+    </div>
+</FluentDialogBody>
+
+@code
+{
+    int[] Numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int SelectedNumber = 1;
+
+    protected override Task OnActionClickedAsync(bool primary)
+    {
+        return primary
+        ? DialogInstance.CloseAsync(SelectedNumber)
+        : DialogInstance.CancelAsync();
+    }
+}

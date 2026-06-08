@@ -1,0 +1,65 @@
+﻿<FluentInputFile Id="my-file-uploader"
+                 Mode="InputFileMode.SaveToTemporaryFolder"
+                 Multiple="true"
+                 MaximumFileCount="4"
+                 MaximumFileSize="@FileSizeConverter.FromMegaBytes(10)"
+                 Accept="image/*"
+                 @bind-ProgressPercent="@ProgressPercent"
+                 OnCompleted="@OnCompletedAsync"
+                 Height="300px">
+    <ChildContent>
+        <label for="my-file-uploader">
+            <FluentIcon Value="@(new @Icons.Regular.Size24.ArrowUpload())" Color="@Color.Primary" />
+        </label>
+
+        <div class="@Margin.All2">
+            Drag files here you wish to upload,
+            or <label for="my-file-uploader">browse</label>
+            for them <span style="color: red;">*</span>.
+            <br />
+            <em>Maximum of 4 files allowed.</em>
+        </div>
+
+        <div>
+            <a href="#">Read more about our supported file formats.</a>
+        </div>
+    </ChildContent>
+</FluentInputFile>
+
+@if (Files.Any())
+{
+    <h4>File(s) uploaded:</h4>
+    <ul>
+        @foreach (var file in Files)
+        {
+            <li>
+                <b>@file.Name</b> 🔹
+                @($"{FileSizeConverter.ToKiloBytes(file.Size):N} KB") 🔹
+                @file.ContentType 🔹
+                @file.LocalFile?.FullName
+                @file.ErrorMessage
+            </li>
+        }
+    </ul>
+}
+
+@code
+{
+    int ProgressPercent = 0;
+    FluentInputFileEventArgs[] Files = [];
+
+    private async Task OnCompletedAsync(IEnumerable<FluentInputFileEventArgs> files)
+    {
+        Files = files.Where(i => !i.IsCancelled).ToArray();
+
+        // For the demo, delete these files.
+        foreach (var file in Files)
+        {
+            file.LocalFile?.Delete();
+        }
+
+        // Wait 3 seconds before to reset the progress bar.
+        await Task.Delay(3000);
+        ProgressPercent = 0;
+    }
+}

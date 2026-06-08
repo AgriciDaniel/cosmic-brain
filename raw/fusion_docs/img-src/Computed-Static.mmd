@@ -1,0 +1,10 @@
+classDiagram
+  class Computed {
+    <<static>>
+    +GetCurrent()$ IComputed
+    +ChangeCurrent(IComputed newCurrent)$ IDisposable
+    +Suppress()$ Disposalbe
+    +Invalidate(Func producer)$ void
+    +CaptureAsync(Func producer, CancellationToken ct)$ Task~IComputed~
+    +TryGetCached(Func producer)$ IComputed
+  }

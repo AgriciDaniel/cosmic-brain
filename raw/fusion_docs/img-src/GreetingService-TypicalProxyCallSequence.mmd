@@ -1,0 +1,6 @@
+sequenceDiagram
+  autonumber
+  User Code->>+GreetingServiceProxy: GreetUserAsync(1)
+  GreetingServiceProxy->>+ComputedRegistry: Is consistent IComputed for 'this.GreetUserAsync(1)' key available?
+  ComputedRegistry-->>-GreetingServiceProxy: Yes, here it is
+  GreetingServiceProxy-->>-User Code: Return IComputed.Value

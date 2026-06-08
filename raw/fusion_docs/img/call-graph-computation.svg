@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#8b90a8"/>
+    </marker>
+    <style>
+      .mt { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 13px; fill: #1a1a2e }
+      .lt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 11px; font-style: italic; fill: #6b7084 }
+      .dt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; font-style: italic; fill: #6b7084 }
+      .tt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #4a8c66; font-weight: 500 }
+
+      /*
+       * Timeline (10s):
+       *  5%  Root → computing
+       * 10%  Arrow1 appears ("calls")
+       * 15%  GetUser → computing
+       * 25%  GetUser → cached + tag;  Arrow1 label → "depends on"
+       * 30%  Arrow2 appears ("calls")
+       * 35%  GetUserAvatar → computing
+       * 40%  Arrow3 appears ("calls")
+       * 45%  GetThumbnail → computing
+       * 55%  GetThumbnail → cached + tag;  Arrow3 label → "depends on"
+       * 60%  GetUserAvatar → cached + tag;  Arrow2 label → "depends on"
+       * 65%  Root → cached + tag
+       */
+
+      /* Box: neutral → computing → cached */
+      @keyframes bx-rt { 0%,3%{fill:#e2ecf8;stroke:#bcc8da;stroke-width:1} 6%,63%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 66%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes bx-gu { 0%,13%{fill:#e2ecf8;stroke:#bcc8da;stroke-width:1} 16%,23%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 26%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes bx-av { 0%,33%{fill:#e2ecf8;stroke:#bcc8da;stroke-width:1} 36%,58%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 61%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes bx-th { 0%,43%{fill:#e2ecf8;stroke:#bcc8da;stroke-width:1} 46%,53%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 56%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+
+      /* Arrow groups fade in */
+      @keyframes a1 { 0%,9%{opacity:0} 13%,100%{opacity:1} }
+      @keyframes a2 { 0%,29%{opacity:0} 33%,100%{opacity:1} }
+      @keyframes a3 { 0%,39%{opacity:0} 43%,100%{opacity:1} }
+
+      /* "calls" labels fade out when child cached */
+      @keyframes a1c { 0%,23%{opacity:1} 27%,100%{opacity:0} }
+      @keyframes a3c { 0%,53%{opacity:1} 57%,100%{opacity:0} }
+      @keyframes a2c { 0%,58%{opacity:1} 62%,100%{opacity:0} }
+
+      /* "depends on" labels fade in when child cached */
+      @keyframes a1d { 0%,23%{opacity:0} 27%,100%{opacity:1} }
+      @keyframes a3d { 0%,53%{opacity:0} 57%,100%{opacity:1} }
+      @keyframes a2d { 0%,58%{opacity:0} 62%,100%{opacity:1} }
+
+      /* Tags fade in */
+      @keyframes t-gu { 0%,25%{opacity:0} 28%,100%{opacity:1} }
+      @keyframes t-th { 0%,55%{opacity:0} 58%,100%{opacity:1} }
+      @keyframes t-av { 0%,60%{opacity:0} 63%,100%{opacity:1} }
+      @keyframes t-rt { 0%,65%{opacity:0} 68%,100%{opacity:1} }
+
+      #bx-rt{animation:bx-rt 10s ease forwards} #bx-gu{animation:bx-gu 10s ease forwards}
+      #bx-av{animation:bx-av 10s ease forwards} #bx-th{animation:bx-th 10s ease forwards}
+      #a1{animation:a1 10s ease forwards} #a2{animation:a2 10s ease forwards} #a3{animation:a3 10s ease forwards}
+      #a1c{animation:a1c 10s ease forwards} #a2c{animation:a2c 10s ease forwards} #a3c{animation:a3c 10s ease forwards}
+      #a1d{animation:a1d 10s ease forwards} #a2d{animation:a2d 10s ease forwards} #a3d{animation:a3d 10s ease forwards}
+      #t-rt{animation:t-rt 10s ease forwards} #t-gu{animation:t-gu 10s ease forwards}
+      #t-av{animation:t-av 10s ease forwards} #t-th{animation:t-th 10s ease forwards}
+    </style>
+  </defs>
+
+  <rect width="750" height="300" rx="10" fill="url(#bg)"/>
+
+  <!-- Arrows -->
+  <g id="a1" opacity="0">
+    <path d="M 192 142 C 220 142, 220 52, 248 52" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="a1c" x="218" y="93" class="lt" text-anchor="middle">calls</text>
+    <text id="a1d" x="218" y="93" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+  <g id="a2" opacity="0">
+    <path d="M 192 142 C 220 142, 220 232, 248 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="a2c" x="218" y="183" class="lt" text-anchor="middle">calls</text>
+    <text id="a2d" x="218" y="183" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+  <g id="a3" opacity="0">
+    <path d="M 404 232 C 430 232, 430 232, 456 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="a3c" x="430" y="228" class="lt" text-anchor="middle">calls</text>
+    <text id="a3d" x="430" y="228" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+
+  <!-- Boxes -->
+  <rect id="bx-rt" x="16" y="120" width="176" height="44" rx="12" fill="#e2ecf8" stroke="#bcc8da" stroke-width="1"/>
+  <text x="104" y="142" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserProfile<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="bx-gu" x="248" y="30" width="114" height="44" rx="12" fill="#e2ecf8" stroke="#bcc8da" stroke-width="1"/>
+  <text x="305" y="52" class="mt" text-anchor="middle" dominant-baseline="middle">GetUser<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="bx-av" x="248" y="210" width="156" height="44" rx="12" fill="#e2ecf8" stroke="#bcc8da" stroke-width="1"/>
+  <text x="326" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserAvatar<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="bx-th" x="456" y="210" width="280" height="44" rx="12" fill="#e2ecf8" stroke="#bcc8da" stroke-width="1"/>
+  <text x="596" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetThumbnail<tspan fill="#6b7084">("user_3_avatar", 64)</tspan></text>
+
+  <!-- Tags -->
+  <text id="t-rt" x="104" y="178" class="tt" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+  <text id="t-gu" x="305" y="88" class="tt" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+  <text id="t-av" x="326" y="268" class="tt" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+  <text id="t-th" x="596" y="268" class="tt" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+</svg>

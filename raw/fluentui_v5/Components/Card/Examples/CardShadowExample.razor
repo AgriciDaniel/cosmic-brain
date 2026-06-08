@@ -1,0 +1,31 @@
+﻿<FluentStack VerticalGap="12px" HorizontalGap="12px" Wrap="true">
+
+    <FluentCard Shadow="CardShadow.Small" Width="150px" OnClick="@CardClick">
+        Small shadow
+    </FluentCard>
+
+    <FluentCard Shadow="CardShadow.Default" Width="150px" OnClick="@CardClick">
+        Default shadow
+    </FluentCard>
+
+    <FluentCard Shadow="CardShadow.Medium" Width="150px" OnClick="@CardClick">
+        Medium shadow
+    </FluentCard>
+
+    <FluentCard Shadow="CardShadow.Large" Width="150px" OnClick="@CardClick">
+        Large shadow
+    </FluentCard>
+
+    <FluentCard Shadow="CardShadow.None" Width="150px" OnClick="@CardClick">
+        No shadow
+    </FluentCard>
+
+</FluentStack>
+
+@code
+{
+    void CardClick()
+    {
+        Console.WriteLine("Card clicked");
+    }
+}

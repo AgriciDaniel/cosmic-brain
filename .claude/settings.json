@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {},
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:fluent2.microsoft.design)"
+    ]
+  }
+}

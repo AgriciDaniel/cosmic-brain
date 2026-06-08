@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_comment": "Minimal Elsa v3 fan-out workflow example using Flowchart with two parallel branches.",
+  "_note": "Replace type names (e.g., 'Elsa.Flowchart') with your actual registered type names if different.",
+  
+  "definitionId": "fanout-demo-workflow",
+  "version": 1,
+  "name": "Fan-Out Demo",
+  "description": "Demonstrates parallel execution with two branches converging at a Join activity.",
+  
+  "root": {
+    "type": "Elsa.Flowchart",
+    "version": 1,
+    "customId": "flowchart-root",
+    
+    "activities": [
+      {
+        "id": "start",
+        "type": "Elsa.Start",
+        "version": 1,
+        "_comment": "Entry point of the workflow"
+      },
+      {
+        "id": "log-start",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Starting parallel execution..."
+          }
+        }
+      },
+      {
+        "id": "branch-1-task",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "_comment": "First parallel branch - replace with your actual activity",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Executing Branch 1: Processing Order Items"
+          }
+        }
+      },
+      {
+        "id": "branch-2-task",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "_comment": "Second parallel branch - replace with your actual activity",
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Executing Branch 2: Sending Notifications"
+          }
+        }
+      },
+      {
+        "id": "join-all",
+        "type": "Elsa.Join",
+        "version": 1,
+        "_comment": "Wait for all incoming branches to complete before continuing",
+        "mode": "WaitAll"
+      },
+      {
+        "id": "log-complete",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "All parallel branches completed. Continuing workflow..."
+          }
+        }
+      }
+    ],
+    
+    "connections": [
+      {
+        "_comment": "Start -> Log Start",
+        "source": {
+          "activity": "start",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "log-start",
+          "port": "In"
+        }
+      },
+      {
+        "_comment": "Log Start -> Branch 1 (fan-out)",
+        "source": {
+          "activity": "log-start",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "branch-1-task",
+          "port": "In"
+        }
+      },
+      {
+        "_comment": "Log Start -> Branch 2 (fan-out)",
+        "source": {
+          "activity": "log-start",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "branch-2-task",
+          "port": "In"
+        }
+      },
+      {
+        "_comment": "Branch 1 -> Join (fan-in)",
+        "source": {
+          "activity": "branch-1-task",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "join-all",
+          "port": "In"
+        }
+      },
+      {
+        "_comment": "Branch 2 -> Join (fan-in)",
+        "source": {
+          "activity": "branch-2-task",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "join-all",
+          "port": "In"
+        }
+      },
+      {
+        "_comment": "Join -> Log Complete",
+        "source": {
+          "activity": "join-all",
+          "port": "Done"
+        },
+        "target": {
+          "activity": "log-complete",
+          "port": "In"
+        }
+      }
+    ]
+  },
+  
+  "_usage_notes": {
+    "1_type_names": "Replace 'Elsa.XXX' type names with your registered activity type names if using custom naming.",
+    "2_extending_branches": "Add more parallel branches by adding activities and connecting them from the same source to the Join.",
+    "3_join_modes": "Use 'WaitAll' to wait for all branches, 'WaitAny' to continue when the first branch completes.",
+    "4_real_activities": "Replace WriteLine activities with your actual business logic activities (e.g., HTTP requests, database calls).",
+    "5_error_handling": "Consider adding try/catch patterns for production workflows."
+  }
+}

@@ -1,0 +1,55 @@
+﻿@inject IKeyCodeService KeyCodeService
+@implements IAsyncDisposable
+
+<FluentStack Margin="@Margin.Bottom2" HorizontalGap="12px" Wrap="true">
+    <FluentSwitch Label="Include KeyUp" @bind-Value="@IncludeKeyUp" />
+    <FluentSwitch Label="Allow Repeat" @bind-Value="@StopRepeat"/>
+</FluentStack>
+
+<FluentStack Style="@CommonStyles.NeutralBorder1" Wrap="true">
+    @if (!KeyPressed.Any())
+    {
+        <div>Press any key to get the keycode info.</div>
+    }
+
+    @foreach (var key in KeyPressed)
+    {
+        <span class="key" type="@key.Event">@key.Key</span>
+    }
+</FluentStack>
+
+@code
+{
+    private bool IncludeKeyUp = false;
+    private bool StopRepeat = false;
+    private List<(string Key, string Event)> KeyPressed = new();
+
+    protected override void OnInitialized()
+    {
+        // FluentKeyCode.PreventMultipleKeyDown = true;
+        KeyCodeService.RegisterListener(OnKeyHandleAsync, OnKeyHandleAsync);
+    }
+
+    private Task OnKeyHandleAsync(FluentKeyCodeEventArgs args)
+    {
+        if (!IncludeKeyUp && args.Name == "keyup")
+        {
+            return Task.CompletedTask;
+        }
+
+        if (StopRepeat && args.Repeat)
+        {
+            return Task.CompletedTask;
+        }
+
+        KeyPressed.Add((args.ToString(), args.Name));
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        KeyCodeService.UnregisterListener(OnKeyHandleAsync, OnKeyHandleAsync);
+        return ValueTask.CompletedTask;
+    }
+}

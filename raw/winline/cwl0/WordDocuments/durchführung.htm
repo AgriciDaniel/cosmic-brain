@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Durchführung</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84fakt11.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="auspr&auml;gungenersetzen.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="endkontrolle.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefakt1.htm">WinLine FAKT</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Stammdaten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="artikelkomprimierung.htm">Artikelkomprimierung</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Durchführung</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc117090965>Durchführung</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nachdem eine Datenstandsicherung abgelegt wurde und die zu 
+komprimierenden Artikel selektiert wurden, kann man mit der Artikelkomprimierung 
+beginnen. Dies geschieht über F5 oder OK-Button, gefolgt durch folgende 
+Warnung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image864_284.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Abfrage </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image864_285.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>mit JA bestätigt, werden temporäre Indices gesetzt, die die 
+Umstellung bei großen Datenständen beschleunigen. Danach werden Artikel wie 
+folgt komprimiert:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei Produktionsartikeln und HSL 
+werden die Einträge in den Stücklisten (Dispotabelle/wird produziert, 
+Stücklistentabelle, Tätigkeiten) in allen Wirtschaftsjahren gelöscht.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Wenn der Artikel Lagerwerte 
+enthält, werden diese auf den Sammelartikel gebucht. Das betrifft die Tabellen: 
+Lagerwerte (T030/V164), Periodenwerte (T308). Falls der Sammelartikel dieselbe 
+Lagerortstruktur wird der zu löschende Artikel hat, werden auch die 
+Lagerortwerte (T299) und EB-Werte (T303) auf den Sammelartikel gebucht.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die jahresabhängigen Tabellen 
+T083, T215, T318, T343 werden in allen betroffenen Wirtschaftsjahren mit 
+demselben Stammdatenjahr umbenannt.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die Stammdatenjahr-Tabellen T084, 
+T319, T326, T228, T332, T338, T350 werden im Stammdatenjahr umbenannt.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die jahresunabhängigen Tabellen 
+T014, T026, T039, T324, T342, T170, T077, T105, T042, T337, T038, T040, T046, 
+T329, T185 werden in allen Jahren umbenannt.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Folgende jahresabhängige Tabellen 
+werden im aktuellen Jahr gelöscht und bleiben in den Vorjahren: T024, T023, 
+T037, T031, T030, T057, T070, T355, T359, T043, T308 (der Vorjahre), T096, T299, 
+T303, T371, T338, T341 (macht keinen Sinn vor allem bei einem unterschiedlichen 
+Datum), T118</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Reservierungszeilen in der T014 
+werden übernommen, falls der Sammelartikel das Reservierungsflag auch verwendet, 
+sonst werden sie gelöscht.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kontraktzeilen und Kontraktpreise 
+werden in allen Wirtschaftsjahren gelöscht.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei Hauptartikel mit Ausprägungen 
+wird in der T026 immer der gesamte Block (aufgeteilter Hauptartikel + alle 
+Ausprägungen) umgestellt. Dabei wird der Hauptartikel auf den Sammelartikel 
+umgestellt und die Ausprägungszeilen gelöscht. Es kann aber auch die 
+Hauptartikelzeile gelöscht und die Ausprägungszeilen behalten werden. Dafür gibt 
+es die Option "Ausprägungen im Beleg belassen"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Wenn die Ausprägungszeilen 
+gelöscht werden und nur die Hauptartikelzeile übrigbleibt, wird der Belegkey bei 
+Verweisen in diversen Tabellen gelöscht (T083, T040, T042, T125).</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Des Weiteren werden die T014, die 
+Kommissionierungszeilen in der T083 und die kommissionierte Menge im 
+Artikelstamm gelöscht. Falls es Dispozeilen für eine der Ausprägungen gibt, die 
+nachher beim Hauptartikel fehlen, wird ein Hinweis auf das Rebuild der T014 im 
+Protokoll und bei der abschließenden Meldung angezeigt.<BR>Wenn die Option 
+"Ausprägungen im Beleg belassen" aktiviert wird, bleiben die Verweise, die 
+Reservierungs- und die Kommissionierungszeilen erhalten.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Wenn eine der Ausprägungen nicht 
+inaktiv ist, wird trotzdem der Hauptartikel und alle seine Ausprägungen 
+umgestellt (so wie beim manuellen Löschen eines Hauptartikels im 
+Artikelstamm)</P>
+<P class=BeispielAchtung>Hinweis 1</P>
+<P class=MsoNormal>Der Artikel wird danach im Stammdatenjahr reorganisiert. In 
+den Vorjahren bleibt der Artikel erhalten!</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Während der Komprimierung wird ein Protokoll ausgegeben, auf 
+dem die umgestellten Artikel</P>
+<P class=MsoNormal>aufgelistet werden. Das Protokoll der Umstellung wird im 
+Archiv gespeichert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image864_286.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image864_287.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image864_288.png"></P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-04-08
+updated: 2026-06-05
 tags:
   - meta
   - log
@@ -23,7 +23,169 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-06-08] batch-ingest | Mesonic WinLine help (6 modules from cwl0.chm)
+- Source: `raw/winline/cwl0/cwl0.chm` (decompiled German CHM, ~2900 topics; 6 modules selected: ACC1/ACC2/PROD/LIST/ADMN/Settings)
+- Summary pages: [[WinLine FIBU]], [[WinLine KORE]], [[WinLine PPS]], [[WinLine LIST]], [[WinLine ADMIN]], [[WinLine Settings]]
+- Pages created: [[Mesonic WinLine]] (c-000222), [[WinLine LIST]] (c-000223), [[WinLine FIBU]] (c-000224), [[Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA)]] (c-000225), [[WinLine Wirtschaftsjahr]] (c-000226), [[WinLine Jahresabschluss]] (c-000227), [[WinLine Offene Posten (OP)]] (c-000228), [[WinLine Mandant]] (c-000229), [[WinLine KORE]] (c-000230), [[WinLine PPS]] (c-000231), [[WinLine ADMIN]] (c-000232), [[WinLine Benutzer- und Berechtigungsverwaltung]] (c-000233), [[WinLine Settings]] (c-000234)
+- Pages updated: [[index]], [[hot]], [[sources/_index]], [[entities/_index]], [[concepts/_index]]
+- Key insight: WinLine is a modular Austrian ERP; modules share one Mandant + data stand. Wirtschaftsjahr is stored as a relative index so LIST formulas survive year-end close. Cross-links to existing [[Framas]] / [[Framas WL Schema]] (Framas runs on WinLine). Synthesized to 1 summary page per module + cross-cutting concepts — NOT a 1:1 topic mirror. Remaining modules (FAKT, LOHN, ANBU, INFO/CRM, BI, KASSE) not yet ingested.
+
+## [2026-06-08] ingest | Framas Scanner HANGING_HC_BAG Procs (fGE)
+- Source: `raw/framas/app/framas_scanner/tenants/fGE/` (2 stored procs + app description)
+- Summary: [[framas-scanner-hc-bag-procs]]
+- Pages created: [[framas-scanner-hc-bag-procs]] (c-000219), [[FramasScanner]] (c-000220), [[Framas Scanner Label Scan Flow]] (c-000221)
+- Pages updated: [[Framas]], [[Framas DBO Schema]], [[index]], [[concepts/_index]], [[entities/_index]], [[sources/_index]]
+- Key insight: FramasScanner backend is a two-phase, per-mode/per-tenant proc pattern — CheckLabel (validate + lock pending row) → PostSingle (commit + delete pending). FT176 doubles as the HC scan-tag/dedup store; display strings are MAUI XAML returned from SQL.
+- Note: `scripts/allocate-address.sh` unusable here (no `flock` in Windows git-bash); addresses allocated via inline Bash, counter → 222.
+
+## [2026-06-05] ingest | MSSQL Obsolete Object Finder (re-ingest v2)
+- Source: `raw/mssql/mssql-obsolete-objects.md` (hash: facfedb0b1d677946ea1ff9b6b1f2e1c)
+- Summary: [[mssql-obsolete-objects-detection]]
+- Pages created: (none — delta only)
+- Pages updated: [[mssql-obsolete-objects-detection]], [[SQL Server DMV Usage Tracking]], [[Research - MSSQL Obsolete Object Detection]]
+- Key insight: v2 query adds ActiveCallers CTE (force score to 0 if caller has execution history), TableReads CTE (suppress zero-row bonus for staging tables), ObsoleteVerdict/ScoreReason output columns, and a documented blind-spots table; max score raised to 10, verdict threshold ≥7 = very likely obsolete
+
+## [2026-06-05] autoresearch | MSSQL Obsolete Object Detection
+- Rounds: 2 | Searches: 9 | Sources fetched: 5
+- Pages created: [[mssql-obsolete-objects-detection]] (source), [[SQL Server DMV Usage Tracking]] (concept), [[SQL Server Object Dependency Tracking]] (concept), [[SQL Server Object Deprecation Workflow]] (concept), [[Research - MSSQL Obsolete Object Detection]] (synthesis)
+- Synthesis: [[Research - MSSQL Obsolete Object Detection]]
+- Key finding: DMV stats reset on restart and on plan eviction — absence from sys.dm_exec_procedure_stats never proves non-use; persistent storage pattern (capture to table, detect restart via tempdb create_date) is required for reliable usage history
+
+## [2026-06-05] autoresearch | Google OR-Tools
+- Rounds: 1 (broad) | Searches: 8 | Sources fetched: 12
+- Pages created: [[google-or-tools]] (c-000213), [[Google OR-Tools]] (c-000214), [[CP-SAT Solver]] (c-000215), [[PDLP Solver]] (c-000216), [[Vehicle Routing Problem]] (c-000217), [[Combinatorial Optimization]] (c-000218), [[Research: Google OR-Tools]] (c-000219)
+- Synthesis: [[Research: Google OR-Tools]]
+- Key finding: CP-SAT is the best free CP solver (2024 MiniZinc gold sweep); PDLP is the only free LP solver at billion-nonzero scale; OR-Tools routing underpins Google Maps Route Optimization API
+
+## [2026-06-05] ingest | Framas Monorepo Architecture Guide
+- Source: `raw/framas/architects/architecture-guide.md`
+- Summary: [[framas-monorepo-architecture-guide]] (c-000209)
+- Pages created: [[framas-monorepo-architecture-guide]] (c-000209), [[Framas Monorepo Architecture]] (c-000210), [[Git Bare Worktree Pattern]] (c-000211)
+- Pages updated: [[Framas]] (added dev architecture section), [[concepts/_index]] (new Software Architecture section), [[index]]
+- Key insight: Framas 10-dev team rejected Plugin Architecture (DLL-from-SQL) in favor of Monorepo; Git Bare + Worktree gives each feature its own folder so devs run parallel features on separate ports without stashing.
+
+## [2026-06-05] ingest | FramasDbSchemaManagement (DOGE_WH)
+- Source: `raw/articles/framas-db-schema-management-2026-06-05.md`
+- Summary: [[framas-db-schema-management]]
+- Pages created: [[Framas]] (c-000201), [[DOGE WH Database Schema]] (c-000202), [[Framas DBO Schema]] (c-000203), [[Framas WL Schema]] (c-000204), [[framas-db-schema-management]] (c-000200)
+- Pages updated: [[entities/_index]] (added Framas org), [[index]], [[hot]]
+- Key insight: `dbo` schema is the integration hub — FT400+ bridges WinLine ERP PO data, FT600 bridges HYDRA production orders. Both WinLine (`wl.*`) and OMS (`dbo.FT*`) use obfuscated `cNNN` column names with business meaning only in DBML `note:` fields.
+
+## [2026-06-05] ingest | HYDRA BDE/MDE Column Detail + Query Pattern
+- Source: `raw/hydra/CUT-HDB_DataModel_2021.pdf` (BDE p.27-177, MDE p.477-530)
+- Pages updated: [[HYDRA BDE Module]], [[HYDRA MDE Module]]
+- Pages created: [[HYDRA Order-Machine Query Pattern]] (c-000199)
+- Key insight: `hy_zykl` stores machine cycles but has no `auftrag_nr` — first injection time requires bridging via `auftrag_status.e_anmeld_dat/e_anmeld_zeit` as lower bound anchor.
+
 ---
+
+## [2026-05-27] ingest | HYDRA 8 Documentation (October 2020)
+- Source: `raw/hydra/HYDRA_8_Documentation Oct 2020/` (1,557 files: 1,556 PDFs + 1 .doc)
+- Summary: [[hydra-8-documentation]]
+- Pages created: [[hydra-8-documentation]] (source, c-000177), [[HYDRA 8 Function Catalog]] (c-000178), [[HYDRA 8 Glossary]] (c-000179), [[HYDRA 8 Client Types]] (c-000180), [[HYDRA 8 Configuration Procedures]] (c-000181), [[HYDRA 8 Release Notes]] (c-000182)
+- Pages updated: [[MPDV HYDRA]] (entity), [[index]], [[concepts/_index]], [[hot]]
+- Key insight: HYDRA 8 spans 23 product modules with ~200 distinct function documents duplicated across 8 client types (AIP Windows terminal, HWEB web, MBL mobile, MOC Management Cockpit, MESC QlikView analytics, MTS master terminal, SMA Smart App, CT5 legacy). The 12-module SAP integration layer (EIS) covers PP-PDC, HR-PDC, PP-PI, PM, PS, MM, CO, and QM interfaces. Documentation is organized into 7 sections: Functions (751 PDFs), Glossary (17), Objects (17), Procedures (124), Products (~515 release notes), TechnicalInformation (15), Tutorials (1).
+
+## [2026-05-27] ingest | HYDRA CUT-HDB Data Model (2021)
+- Source: `raw/hydra/CUT-HDB_DataModel_2021.pdf`
+- Summary: [[hydra-cuthdb-data-model]]
+- Pages created: [[MPDV HYDRA]] (entity, c-000162), [[HYDRA ANALYSIS Module]] (c-000163), [[HYDRA BDE Module]] (c-000164), [[HYDRA CAQ Module]] (c-000165), [[HYDRA HLS Module]] (c-000166), [[HYDRA KERNEL Module]] (c-000167), [[HYDRA LLE Module]] (c-000168), [[HYDRA MDE Module]] (c-000169), [[HYDRA MLE Module]] (c-000170), [[HYDRA MPL Module]] (c-000171), [[HYDRA PDV Module]] (c-000172), [[HYDRA PEP Module]] (c-000173), [[HYDRA PZE Module]] (c-000174), [[HYDRA WRM Module]] (c-000175), [[HYDRA ZKS Module]] (c-000176)
+- Pages updated: [[index]], [[concepts/_index]], [[entities/_index]], [[hot]]
+- Key insight: MPDV HYDRA is a comprehensive MES with ~800+ tables across 14 product groups covering the full manufacturing execution lifecycle — from production data collection (BDE) and machine monitoring (MDE) through quality (CAQ), time tracking (PZE), SAP integration (MLE), and access control (ZKS). Cross-cutting patterns: event-driven architecture, archive/reload tables, PDM field ID traceability, and mixed natural/technical key strategies.
+
+## [2026-05-26] ingest | Database Indexing & Những Điều Developer Cần Biết
+- Source: `raw/database/Database Indexing & Những Điều Developer Cần Biết.md`
+- Summary: [[database-indexing-developer-guide]]
+- Pages created: [[Nguyễn Thế Huy]], [[Database Indexing]], [[Database Index Advanced Techniques]], [[Database Schema and Performance]]
+- Pages updated: [[index]], [[concepts/_index]], [[entities/_index]], [[hot]], [[log]]
+- Key insight: B+Tree indexing is a systematic discipline governed by four golden rules — understanding the Heap vs Clustered storage model distinction and the cost model behind query optimization is more valuable than memorizing B-Tree algorithm internals.
+
+## [2026-05-25] batch-ingest | FluentUI Blazor v5 Component Reference (~556 files from raw/fluentui_v5/)
+- Sources: 179 `.md` files + 362 `.razor` examples + 15 `.razor.cs` files from `raw/fluentui_v5/`; preprocessed with `{{ }}` template expansion (317 razor examples embedded, 105 API refs, 37 includes)
+- Pages created: [[fluentui-blazor-v5-component-reference]] (source, c-000155) + 55 concept pages (c-000100–c-000154): [[FluentUI Blazor Installation]], [[FluentUI Blazor v5 Migration]], [[FluentUI Blazor MCP Server]], [[FluentUI Blazor Theming]], [[FluentUI Blazor Styles and Spacing]], [[FluentUI Blazor Localization]], [[FluentUI Blazor Button]], [[FluentUI Blazor Checkbox]], [[FluentUI Blazor Radio]], [[FluentUI Blazor Switch]], [[FluentUI Blazor Slider]], [[FluentUI Blazor Number]], [[FluentUI Blazor Text Inputs]], [[FluentUI Blazor ColorPicker]], [[FluentUI Blazor InputFile]], [[FluentUI Blazor Forms]], [[FluentUI Blazor Accordion]], [[FluentUI Blazor Card]], [[FluentUI Blazor Grid]], [[FluentUI Blazor Layout and Stack]], [[FluentUI Blazor Splitter]], [[FluentUI Blazor Dialog]], [[FluentUI Blazor Popover]], [[FluentUI Blazor Tabs]], [[FluentUI Blazor Divider]], [[FluentUI Blazor Wizard]], [[FluentUI Blazor List and Select]], [[FluentUI Blazor Autocomplete]], [[FluentUI Blazor Combobox]], [[FluentUI Blazor Menu]], [[FluentUI Blazor Nav]], [[FluentUI Blazor AppBar]], [[FluentUI Blazor TreeView]], [[FluentUI Blazor Link]], [[FluentUI Blazor Overflow]], [[FluentUI Blazor Avatar]], [[FluentUI Blazor Badges]], [[FluentUI Blazor Icon]], [[FluentUI Blazor Image]], [[FluentUI Blazor Emoji]], [[FluentUI Blazor Text and Typography]], [[FluentUI Blazor Progress and Skeleton]], [[FluentUI Blazor Toast]], [[FluentUI Blazor Tooltip]], [[FluentUI Blazor MessageBar]], [[FluentUI Blazor RatingDisplay]], [[FluentUI Blazor Table]], [[FluentUI Blazor KeyCode]], [[FluentUI Blazor ErrorBoundary]], [[FluentUI Blazor Counter]], [[FluentUI Blazor DataGrid]], [[FluentUI Blazor DateTime]], [[FluentUI Blazor Drag and Drop]], [[FluentUI Blazor Paginator]], [[FluentUI Blazor PullToRefresh]]
+- Pages updated: [[index]], [[concepts/_index]], [[hot]], [[log]]
+- Vault stats: 202 pages, 97 sources ingested, counter advanced to 156
+- Key insight: Complete FluentUI Blazor v5 component API reference now in wiki; every page includes real razor code examples expanded from the source docs. The MCP Server page documents how FluentUI Blazor exposes component info to AI agents via the Model Context Protocol.
+
+## [2026-05-25] batch-ingest | Elsa Workflows 3 Documentation (~150 files from raw/elsa/)
+- Sources: ~150 files from `raw/elsa/` (markdown + C# code + JSON workflow examples + YAML configs)
+- Pages created: [[Elsa Workflows]] (entity, c-000052) + [[elsa-workflows-documentation]] (source, c-000053) + 46 concept pages (c-000054–c-000099): [[Elsa Workflow Concepts]], [[Elsa Architecture]], [[Elsa Hello World]], [[Elsa Packages]], [[Elsa Database Configuration]], [[Elsa Containers]], [[Elsa Application Types]], [[Elsa Workflow Dispatcher]], [[Elsa Onboarding]], [[Elsa Security]], [[Elsa Deployment]], [[Elsa Clustering]], [[Elsa V2 to V3 Migration]], [[Elsa Blazor Dashboard]], [[Elsa Persistence]], [[Elsa API Client]], [[Elsa HTTP Workflows]], [[Elsa Plugins and Modules]], [[Elsa Running Workflows]], [[Elsa Studio Guide]], [[Elsa Workflow Patterns]], [[Elsa Troubleshooting]], [[Elsa External Application Interaction]], [[Elsa Loading Workflows from JSON]], [[Elsa Performance]], [[Elsa Activities]], [[Elsa Blocking Activities and Triggers]], [[Elsa Control Flow]], [[Elsa MassTransit Integration]], [[Elsa Diagnostics]], [[Elsa Workflow as Activity]], [[Elsa Expressions]], [[Elsa Custom Activities]], [[Elsa Multitenancy]], [[Elsa Workflow Instance Variables]], [[Elsa Workflow Activation Strategies]], [[Elsa Incidents]], [[Elsa Log Persistence]], [[Elsa Retention]], [[Elsa Workers]], [[Elsa Distributed Hosting]], [[Elsa Studio Design]], [[Elsa Studio Localization]], [[Elsa Authentication]], [[Elsa Alterations]], [[Elsa Logging Framework]]
+- Pages updated: [[index]], [[concepts/_index]], [[entities/_index]], [[hot]], [[log]]
+- Vault stats: 146 pages, 96 sources ingested, counter advanced to 100
+- Key insight: Elsa is a comprehensive .NET workflow platform covering the full spectrum from embedded engine to standalone workflow server; its modular architecture with visual designer, bookmark-based long-running workflows, and horizontal scaling makes it suitable for both simple automation and enterprise orchestration.
+
+## [2026-05-25] batch-ingest | ActualLab.Fusion Documentation (125 files from raw/fusion_docs/)
+- Sources: 125 files from `raw/fusion_docs/` (root .md + .cs + `to-be-used/` + `video/` + `img-src/*.mmd`)
+- Pages created: [[ActualLab-Fusion]] (entity) + 22 concept pages: [[ActualLab-Fusion Overview]], [[Fusion Story & Philosophy]], [[Fusion Compute Services]], [[Fusion States]], [[Fusion Cache-Aware API Design]], [[Fusion Authentication]], [[Fusion Blazor Integration]], [[Fusion RPC Framework]], [[Fusion CommandR]], [[Fusion Operations Framework]], [[Fusion EF Integration]], [[Fusion Interceptors & Proxies]], [[Fusion Native AOT]], [[Fusion Serialization]], [[Fusion TypeScript Port]], [[Fusion Core Foundation]], [[Fusion Performance & Benchmarks]], [[Fusion HelloCart Tutorial]], [[Fusion API Reference]], [[Fusion NuGet Packages]], [[Fusion FAQ]], [[Fusion External Resources]] + 2 source pages: [[fusion-video-distributed-state-sync]], [[fusion-video-fastest-rpc]]
+- Pages updated: [[index]], [[concepts/_index]], [[entities/_index]], [[sources/_index]], [[log]], [[hot]]
+- Key insight: ActualLab.Fusion is a production-proven .NET end-to-end reactivity framework (powers Voxt.ai). Unifies caching + real-time via automatic dependency tracking — `[ComputeMethod]` on virtual async methods gives you caching, dependency graphs, and cascading invalidation. ~100x faster than Redis (20M cache-resolving calls/s/core), fastest .NET RPC (2-7x faster than gRPC/SignalR). Architecture spans 13 Part* series: Core, Fusion, RPC, CommandR, Operations, EF, Blazor, Auth, Interception, AOT, Serialization, TypeScript. Licensed MIT.
+
+---
+- Sources: 60 files moved from Clippings/ to raw/ — full DevExpress Blazor v25.2 component API references
+- Pages created: [[DevExpress Blazor Component Catalog]] (c-000050) — 65+ components in 12 categories
+- Pages updated: [[DevExpress Blazor]], [[index]], [[concepts/_index]]
+- Key insight: DevExpress Blazor offers 65+ components. The catalog organizes them into Data Editors (17), Navigation (10), Layout (6), Overlays (6), Charts (5), Buttons (4), Rich Content (3), Loading (3), File/Upload (2), Data Display (3), Scheduling (1), and AI-powered (5+).
+
+## [2026-05-25] batch-ingest | DevExpress Blazor Grid, TreeList, FilterBuilder, Data Editors
+- Sources: `raw/Blazor Grid  Blazor.md`, `raw/Blazor TreeList  Blazor.md`, `raw/DxFilterBuilder Class  Blazor.md`, `raw/Data Editors  Blazor.md` (moved from Clippings/)
+- Pages created: [[DevExpress Blazor DxGrid]], [[DevExpress Blazor DxTreeList]], [[DevExpress Blazor DxFilterBuilder]], [[DevExpress Blazor Data Editors]] (concepts) + 4 source pages
+- Pages updated: [[DevExpress Blazor]], [[index]], [[concepts/_index]]
+- Key insight: DxGrid is the most feature-rich component (5 binding/filter/edit modes). DxTreeList mirrors Grid for hierarchical data. DxFilterBuilder is the standalone CriteriaOperator bridge. Data Editors catalog covers 17 components.
+
+## [2026-05-25] ingest | DxAIChat Class API Reference + v26.1 Roadmap Blog
+- Sources: `raw/DxAIChat Class  Blazor.md`, `raw/DevExpress Blazor AI Chat — Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md`
+- Pages created: [[devexpress-blazor-dxaichat-class]] (source), [[DevExpress Blazor AI v26.1 Roadmap]] (concept)
+- Pages updated: [[DevExpress Blazor DxAIChat]] (expanded 3x: all templates, tool calling, OpenAI Assistants, Markdown, streaming, Blazor Hybrid)
+- Key insight: v26.1 (mid-June 2026) introduces IChatResponseProvider to decouple from IChatClient; tool calling layer adds target-aware resolution and dynamic contexts. MCP integration maps tools/resources/prompts to DxAIChat features.
+
+## [2026-05-25] ingest | DevExpress Blazor DxAIChat + AI Examples
+- Source: `raw/articles/devexpress-blazor-dxaichat-2026-05-25.md` + 9 example repos
+- Pages created: [[DevExpress Blazor DxAIChat]], [[DevExpress Blazor AI Examples]]
+- Pages updated: [[index]], [[concepts/_index]]
+- Key insight: DxAIChat adapts to any IChatClient provider; ChatClientServiceKey enables runtime switching. 9 official repos cover function calling, A2A, MCP, tool confirmation, and editor AI.
+
+## [2026-05-25] ingest | DevExpress AI-powered Extensions for Blazor
+- Source: `raw/DevExpress AI-powered Extensions for Blazor  Blazor.md`
+- Summary: [[devexpress-blazor-ai-extensions]]
+- Pages created: [[DevExpress Blazor AI Extensions]]
+- Pages updated: [[DevExpress Blazor]], [[index]], [[concepts/_index]]
+- Key insight: DevExpress AI uses Microsoft.Extensions.AI/IChatClient as the abstraction layer. 6 provider tiers. BYOK model — no proprietary API. Switching from local Ollama to Azure OpenAI requires only DI changes.
+
+## [2026-05-25] ingest | Claude Code Best Practices
+- Source: `raw/Best practices for Claude Code.md`
+- Summary: [[claude-code-best-practices]]
+- Pages created: [[Claude Code Best Practices]], [[Claude Code Context Management]]
+- Pages updated: [[index]], [[concepts/_index]]
+- Key insight: Every Claude Code best practice derives from one constraint: the context window. Verification, subagents, /clear, explicit prompts, and CLAUDE.md pruning all serve context discipline.
+
+## [2026-05-25] ingest | DevExpress Blazor DxToolbar
+- Source: `raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md`
+- Summary: [[devexpress-blazor-dxtoolbar]]
+- Pages created: [[DevExpress Blazor DxToolbar]], [[DevExpress Blazor]]
+- Pages updated: [[index]], [[concepts/_index]], [[entities/_index]]
+- Key insight: DxToolbar is a feature-complete Blazor toolbar with built-in adaptivity, data binding, radio groups, and split dropdown buttons. Commercial competitor to FluentUI Blazor. Cloudflare blocked direct fetch; content sourced via web search.
+
+## [2026-05-24] batch-ingest | Fluent 2 sub-pages (×18)
+- Sources: 18 URLs under https://fluent2.microsoft.design/{color,color-tokens,design-tokens,elevation,iconography,layout,material,motion,shapes,typography,accessibility,content-design,handoffs,onboarding,wait-ux,content-engineering,responsible-AI,ai-harm}
+- Raw files: `raw/articles/<topic>-2026-05-24.md`
+- Pages created (18 concept pages): [[Fluent 2 Color System]] (c-000012), [[Fluent 2 Elevation]] (c-000013), [[Fluent 2 Iconography]] (c-000014), [[Fluent 2 Layout]] (c-000015), [[Fluent 2 Material]] (c-000016), [[Fluent 2 Motion]] (c-000017), [[Fluent 2 Shapes]] (c-000018), [[Fluent 2 Typography]] (c-000019), [[Fluent 2 Accessibility]] (c-000020), [[Fluent 2 Content Design]] (c-000021), [[Fluent 2 Design Tokens]] (c-000022), [[Fluent 2 Color Tokens]] (c-000023), [[Fluent 2 Handoffs]] (c-000024), [[Fluent 2 Onboarding]] (c-000025), [[Fluent 2 Wait UX]] (c-000026), [[Fluent 2 Content Engineering]] (c-000027), [[Fluent 2 Responsible AI]] (c-000028), [[Fluent 2 Types of AI Harm]] (c-000029)
+- Pages updated: [[Fluent 2 Design System]] (now an index of all 18 sub-topics), [[concepts/_index]], [[index]], [[hot]]
+- Pattern deviation: batched 18 closely-related reference pages as single concept pages with embedded source metadata (`source_url`, `raw_file` in frontmatter) instead of separate source + concept pairs. The raw fetches preserve the verbatim content under `raw/articles/`.
+- Key insight: Fluent 2's full surface area decomposes into 13 foundations (color/tokens/typography/layout/shapes/iconography/elevation/material/motion/accessibility/content-design + meta) plus 6 AI-era UX patterns (handoffs/onboarding/wait-ux/content-engineering/responsible-AI/ai-harm). The latter group is conceptually new in v2 and reframes content engineering as a content designer's discipline, not an engineering one.
+
+## [2026-05-24] ingest | Fluent 2 Design Principles
+- Source: `raw/articles/design-principles-2026-05-24.md` (fetched from https://fluent2.microsoft.design/design-principles)
+- Summary: [[fluent-2-design-principles]]
+- Pages created: [[fluent-2-design-principles]] (c-000009), [[Fluent 2 Design Principles]] (c-000010), [[Fluent 2 Design System]] (c-000011)
+- Pages updated: [[FluentUI Blazor]], [[concepts/_index]], [[entities/_index]], [[index]], [[hot]]
+- Key insight: Fluent 2 has four principles, each deliberately two-layered as functional + emotional aspects. "Natural on Every Platform" codifies an 80/20 split — ~80% of any Fluent experience should ride native platform conventions, leaving 20% for signature/brand work. This shapes how downstream toolkits like FluentUI Blazor decide what to expose vs defer.
+
+## [2026-05-24] ingest | Styles - FluentUI Blazor Components
+- Source: `raw/Styles - FluentUI Blazor Components.md`
+- Summary: [[fluent-ui-blazor-styles]]
+- Pages created: [[fluent-ui-blazor-styles]] (c-000007), [[FluentUI Blazor Styles]] (c-000008)
+- Pages updated: [[FluentUI Blazor]], [[concepts/_index]], [[index]], [[hot]]
+- Key insight: FluentUI Blazor ships styling in two opt-in layers (`default-fuib.css` auto, `reboot.css` via `<body use-reboot>`) plus a complete design-token vocabulary as CSS variables on `<html>` — covering spacing, typography, motion curves, 34 named color palettes, and shadows. Microsoft does not guarantee component correctness without `default-fuib.css`.
 
 ## [2026-05-23] ingest | Badge components - FluentUI Blazor Components
 - Source: `.raw/Badge components - FluentUI Blazor Components.md`

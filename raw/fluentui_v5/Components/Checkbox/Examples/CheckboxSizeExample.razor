@@ -1,0 +1,9 @@
+﻿<FluentStack Orientation="@Orientation.Vertical">
+    <FluentCheckbox Margin="0" @bind-Value="@value1" Label="Apples" Size="@CheckboxSize.Medium"/>
+    <FluentCheckbox Margin="0" @bind-Value="@value2" Label="Bananas" Size="@CheckboxSize.Large" />
+</FluentStack>
+
+@code {
+    bool value1 = true;
+    bool value2;
+}

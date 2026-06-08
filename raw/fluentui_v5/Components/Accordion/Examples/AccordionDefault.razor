@@ -1,0 +1,40 @@
+﻿
+<FluentAccordion @bind-ActiveId="@activeId" OnAccordionItemChange="HandleOnAccordionItemChange">
+    <FluentAccordionItem Id="item1" Header="Panel one">
+        Panel one content
+    </FluentAccordionItem>
+    <FluentAccordionItem Id="item2" Header="Panel two" HeaderTooltip="This header has a tooltip">
+        Panel two content
+    </FluentAccordionItem>
+    <FluentAccordionItem Id="item3" Expanded="true" Header="Panel three" Disabled="true">
+        Panel three content
+    </FluentAccordionItem>
+    <FluentAccordionItem Id="item4" Expanded="true">
+        <HeaderTemplate>
+            Panel <span style="color:red">Four</span>
+        </HeaderTemplate>
+        <ChildContent>
+            Panel four content
+        </ChildContent>
+    </FluentAccordionItem>
+</FluentAccordion>
+
+<p>
+    Active Id: @activeId<br />
+    Last changed accordion item: @header<br />
+    Expanded: @changed?.Expanded
+</p>
+
+
+@code {
+    string? activeId;
+    string? header;
+
+    FluentAccordionItem? changed;
+
+    private void HandleOnAccordionItemChange(AccordionItemEventArgs args)
+    {
+        changed = args.Item;
+        header = args.HeaderText;
+    }
+}

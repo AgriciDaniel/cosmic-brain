@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 660" width="100%">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        
+        <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        
+        <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+        </marker>
+    </defs>
+
+    <style>
+        .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+        .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+        .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+        .arrow { fill: none; stroke: #8b90a8; stroke-width: 1.5; stroke-linecap: round; marker-end: url(#arrow); }
+    </style>
+
+    <rect width="100%" height="100%" fill="url(#bgGrad)" rx="10" />
+
+    <path d="M 400 70 L 400 105" class="arrow" />
+    <path d="M 400 155 C 400 175, 220 175, 220 200" class="arrow" />
+    <path d="M 400 155 C 400 175, 580 175, 580 200" class="arrow" />
+    <path d="M 220 290 L 220 330" class="arrow" />
+    <path d="M 580 290 L 580 330" class="arrow" />
+    <path d="M 220 400 L 220 440" class="arrow" />
+    <path d="M 580 400 L 580 440" class="arrow" />
+    <path d="M 220 495 C 220 515, 400 515, 400 535" class="arrow" />
+    <path d="M 580 495 C 580 515, 400 515, 400 535" class="arrow" />
+
+    <rect x="320" y="30" width="160" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="400" y="54" text-anchor="middle" class="code">Command Starts</text>
+
+    <rect x="260" y="105" width="280" height="50" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="400" y="125" text-anchor="middle" class="code">InMemoryOperationScopeProvider</text>
+    <text x="400" y="143" text-anchor="middle" class="code">Creates Scope</text>
+
+    <rect x="110" y="200" width="220" height="90" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="220" y="220" text-anchor="middle" class="header">No DB Access</text>
+    <text x="220" y="240" text-anchor="middle" class="code">InMemoryScope</text>
+    <text x="220" y="260" text-anchor="middle" class="label">IsTransient: true</text>
+    <text x="220" y="278" text-anchor="middle" class="label">UUID: xxx-local</text>
+
+    <rect x="470" y="200" width="220" height="90" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="580" y="220" text-anchor="middle" class="header">DB Access Used</text>
+    <text x="580" y="240" text-anchor="middle" class="code">DbOperationScope</text>
+    <text x="580" y="260" text-anchor="middle" class="label">IsTransient: false</text>
+    <text x="580" y="278" text-anchor="middle" class="label">UUID: xxx</text>
+
+    <rect x="120" y="330" width="200" height="70" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="220" y="352" text-anchor="middle" class="code">Command Executes</text>
+    <text x="220" y="370" text-anchor="middle" class="label">In-memory only</text>
+    <text x="220" y="386" text-anchor="middle" class="label">No persistence</text>
+
+    <rect x="480" y="330" width="200" height="70" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="580" y="352" text-anchor="middle" class="code">BEGIN TRANSACTION</text>
+    <text x="580" y="370" text-anchor="middle" class="label">Business Logic</text>
+    <text x="580" y="386" text-anchor="middle" class="label">Operation Stored</text>
+
+    <rect x="120" y="440" width="200" height="55" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="220" y="462" text-anchor="middle" class="code">Scope Disposed</text>
+    <text x="220" y="480" text-anchor="middle" class="label">Local invalidation only</text>
+
+    <rect x="480" y="440" width="200" height="55" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="580" y="462" text-anchor="middle" class="code">COMMIT</text>
+    <text x="580" y="480" text-anchor="middle" class="label">Verify commit if error</text>
+
+    <rect x="280" y="535" width="240" height="90" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="400" y="555" text-anchor="middle" class="header">Operation Completion</text>
+    <text x="400" y="575" text-anchor="middle" class="code">• Deduplication</text>
+    <text x="400" y="593" text-anchor="middle" class="code">• Listener invocation</text>
+    <text x="400" y="611" text-anchor="middle" class="code">• Invalidation trigger</text>
+</svg>

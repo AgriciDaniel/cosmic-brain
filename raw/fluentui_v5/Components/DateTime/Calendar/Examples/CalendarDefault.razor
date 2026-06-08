@@ -1,0 +1,48 @@
+﻿﻿<FluentStack Wrap="true" HorizontalGap="24px">
+
+    <div>
+        <FluentCalendar DisabledDateFunc="@DisabledDay"
+                        @bind-Value="@SelectedDay"
+                        @bind-PickerMonth="@PickerDay"
+                        Style="height: 250px; align-content: start;" />
+        <p>Selected @(SelectedDay.ToString("yyyy-MM-dd"))</p>
+        <p>Panel @(PickerDay.ToString("yyyy-MM-dd"))</p>
+    </div>
+
+    <div>
+        <FluentCalendar DisabledDateFunc="@DisableMonth"
+                        View="CalendarViews.Months"
+                        @bind-Value="@SelectedMonth"
+                        @bind-PickerMonth="@PickerMonth"
+                        Style="height: 250px; align-content: start;" />
+        <p>Selected @(SelectedMonth.ToString("yyyy-MM-dd"))</p>
+        <p>Panel @(PickerMonth.ToString("yyyy-MM-dd"))</p>
+    </div>
+
+    <div>
+        <FluentCalendar DisabledDateFunc="@DisableYear"
+                        View="CalendarViews.Years"
+                        @bind-Value="@SelectedYear"
+                        @bind-PickerMonth="@PickerYear"
+                        Style="height: 250px; align-content: start;" />
+        <p>Selected @(SelectedYear.ToString("yyyy-MM-dd"))</p>
+        <p>Panel @(PickerYear.ToString("yyyy-MM-dd"))</p>
+    </div>
+</FluentStack>
+
+@code
+{
+    private static readonly DateTime Today = DateTime.Today;
+    private static readonly DateTime StartOfMonth = new DateTime(Today.Year, Today.Month, 1);
+
+    private DateTime SelectedDay = Today;
+    private DateTime PickerDay = StartOfMonth;
+    private DateTime SelectedMonth = Today;
+    private DateTime PickerMonth = StartOfMonth;
+    private DateTime SelectedYear = Today;
+    private DateTime PickerYear = StartOfMonth;
+
+    private bool DisabledDay(DateTime date) => date.Day == 3 || date.Day == 8 || date.Day == 20;
+    private bool DisableMonth(DateTime date) => date.Month == 3 || date.Month == 8;
+    private bool DisableYear(DateTime date) => date.Year == 2026 || date.Year == 2027;
+}

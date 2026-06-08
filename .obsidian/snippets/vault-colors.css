@@ -28,7 +28,7 @@
 .nav-folder-title[data-path^="wiki/entities"]    { color: var(--cb-purple); }
 
 /* ── De-emphasized ── */
-.nav-folder-title[data-path=".raw"]              { color: var(--cb-dim); opacity: 0.55; }
+.nav-folder-title[data-path="raw"]              { color: var(--cb-dim); opacity: 0.55; }
 .nav-folder-title[data-path="_templates"]        { color: var(--cb-dim); opacity: 0.55; }
 .nav-folder-title[data-path="agents"]            { color: var(--cb-dim); opacity: 0.55; }
 .nav-folder-title[data-path="commands"]          { color: var(--cb-dim); opacity: 0.55; }

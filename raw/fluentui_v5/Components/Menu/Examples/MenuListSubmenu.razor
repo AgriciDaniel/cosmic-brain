@@ -1,0 +1,35 @@
+﻿<FluentMenuList OnCheckedChanged="@HandleMenuChanged">
+    <FluentMenuItem Role="MenuItemRole.Checkbox" IconStart="@(new Icons.Regular.Size16.Pen())" Label="Item 1">
+        <MenuItems>
+            <FluentMenuItem Role="MenuItemRole.Checkbox" IconStart="@(new Icons.Regular.Size16.Folder())">
+                Subitem 1
+            </FluentMenuItem>
+            <FluentMenuItem Role="MenuItemRole.Checkbox" IconStart="@(new Icons.Regular.Size16.Code())">
+                Subitem 2
+            </FluentMenuItem>
+        </MenuItems>
+    </FluentMenuItem>
+
+    <FluentMenuItem Label="Item 2">
+        <MenuItems>
+            <FluentMenuItem IconStart="@(new Icons.Regular.Size16.Folder())">
+                Subitem 1
+            </FluentMenuItem>
+            <FluentMenuItem IconStart="@(new Icons.Regular.Size16.Code())">
+                Subitem 2
+            </FluentMenuItem>
+        </MenuItems>
+    </FluentMenuItem>
+    <FluentMenuItem>Item 3</FluentMenuItem>
+</FluentMenuList>
+
+
+@code {
+    void HandleMenuChanged(MenuItemEventArgs args)
+    {
+        if (args.Checked.HasValue)
+        {
+            Console.WriteLine($"Menu item {(args.Checked.Value ? "checked" : "unchecked")}: {args.Text}");
+        }
+    }
+}

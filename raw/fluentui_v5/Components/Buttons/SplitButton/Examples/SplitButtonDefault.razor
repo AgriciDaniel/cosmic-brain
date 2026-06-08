@@ -1,0 +1,70 @@
+﻿<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Appearance="ButtonAppearance.Default"
+                   Title="Open menu"
+                   Label="Default">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Appearance="ButtonAppearance.Primary"
+                   Title="Open menu"
+                   Label="Primary">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Appearance="ButtonAppearance.Outline"
+                   Title="Open menu"
+                   Label="Outline">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Appearance="ButtonAppearance.Subtle"
+                   Title="Open menu"
+                   Label="Subtle">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Appearance="ButtonAppearance.Transparent"
+                   Title="Open menu"
+                   Label="Transparent">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+<FluentSplitButton OnClick="@ButtonClick"
+                   OnMenuClick="@MenuClick"
+                   Title="Open menu"
+                   Label="Colored"
+                   BackgroundColor="var(--highlight-bg)"
+                   Color="var(--presence-busy)">
+    @RenderMenuItems()
+</FluentSplitButton>
+
+@code
+{
+    void ButtonClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+
+    void MenuClick(MenuItemEventArgs args)
+    {
+        Console.WriteLine($"{args.Text} clicked");
+    }
+
+    RenderFragment RenderMenuItems() =>
+        @<FluentMenuList>
+        <FluentMenuItem>Menu item 1</FluentMenuItem>
+        <FluentMenuItem>Menu item 2</FluentMenuItem>
+        <FluentMenuItem>Menu item 3</FluentMenuItem>
+        <FluentMenuItem>Menu item 4</FluentMenuItem>
+    </FluentMenuList>;
+
+}

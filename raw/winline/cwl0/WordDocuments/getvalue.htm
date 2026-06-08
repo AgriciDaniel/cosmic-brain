@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>GETVALUE</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707732></A>GETVALUE</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion kann eine WinLine Variable auf Grundlage 
+eines Keys (Primärschlüssel) ausgegeben werden.</P>
+<P class=BeispielAchtung>Hinweise</P>
+<P class=MsoNormal>Bei Nutzung der Funktion ist folgendes zu beachten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei der Variablenabfrage wird 
+automatisch der aktuelle Mandant und gewählte Wirtschaftsjahr berücksichtigt</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Sollte die betroffene Variable 
+gesperrt sein, so wird nur **** ausgegeben.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Sollte der aktuelle Benutzer keine 
+Berechtigungen für den Datensatz aufweisen, so wird "keine Berechtigung" 
+ausgegeben.</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei den Tabellen 54, 58 und 51 
+wird die Berechtigung der Stammtabelle 55 geprüft.</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei den Tabellen 23, 30, 31 und 37 
+wird die Berechtigung der Stammtabelle 24 geprüft.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=GETVALUE (Key, Tabelle, Variable, abweichende Key-Spalte 
+[optional])</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Key (Eingabe 
+in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf den Key bzw. primären 
+Schlüssel, nach dem gesucht werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Tabelle 
+(Zahl)</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die Tabelle, in welcher sich 
+die gesuchte Information und der Primärschlüssel befindet.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Auf die Tabellen T003, T497, T498, T499 und T599CMP können 
+nicht zugegriffen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Spalte 
+(Zahl)</P>
+<P class=MsoNormal>Hier kann die Spaltennummer eingegeben werden. Es steht ein 
+Matchcode mit den Variablenbezeichnungen zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>abweichende 
+Key-Spalte (Spalte in ") [optional]</P>
+<P class=MsoNormal>Falls nach dem Key nicht in der Primärspalte, sondern in 
+einer anderen Spalte gesucht werden soll, kann diese hier angegeben werden. 
+Hierbei ist die Spalte mit der kompletten Bezeichnung in " anzugeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETVALUE ("<U>230A001</U>", 
+<U>55</U>, <U>3</U>)<BR>Die Funktion gibt die Kontenbezeichnung (Tabelle 
+<B>55</B>, Variable <B>3</B>) der Kontos "<SPAN 
+class=AufzhlungZchn><B>230A001</B></SPAN>" aus.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETVALUE ("<U>10001</U>", 
+<U>24</U>, <U>71</U>)<BR>Die Funktion gibt das Datum der Artikelanlage (Tabelle 
+<B>24</B>, Variable <B>71</B>) des Artikels "<B>10001</B>" aus.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETVALUE ("<U>230A001</U>", 
+<U>54</U>, <U>60</U>)<BR>Die Funktion gibt den aktuellen Kontenumsatz (Tabelle 
+<B>54</B>, Variable <B>60</B>) des Konto "<B>230A001</B>" im CalcSheet aus.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETVALUE ("<U>USD</U>", <U>2</U>, 
+<U>3</U>, "<U>C000</U>")<BR>Die Funktion lädt den aktuellen Kurs (Tabelle 
+<B>2</B>, Variable <B>3</B>) der Fremdwährung "<B>USD</B>". Die Angabe 
+"<I>USD</I>" soll dabei in der Tabellenspalte "<B>C000</B>" stehen.</P>
+<P class=BeispielAchtung-Aufzhlung>Hinweis</P>
+<P class=BeispielAchtung-AufzhlungsText>Die Angabe der "C000" ist zwingend 
+notwendig, da die Primärspalte der Tabelle 2 die Spalte "C017" lautet.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

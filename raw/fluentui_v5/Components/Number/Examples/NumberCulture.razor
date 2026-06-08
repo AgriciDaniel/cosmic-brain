@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+
+<FluentStack HorizontalGap="20px">
+    <FluentNumberInput TValue="int"
+                  Culture="@SelectedCulture"
+                  Label="Integer"
+                  Message="@($"Value: {ValueInt}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueInt" />
+
+    <FluentNumberInput TValue="double"
+                  Culture="@SelectedCulture"
+                  Label="Decimal"
+                  Step="0.1"
+                  Message="@($"Value: {ValueDouble}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueDouble" />
+</FluentStack>
+
+<FluentSelect Label="Select Culture"
+              Items="@AllCultures"
+              Width="380px"
+              OptionText="@(item => $"{item.DisplayName} [{item.NumberFormat.NumberDecimalDigits} digits, '{item.NumberFormat.NumberDecimalSeparator}' decimal, '{item.NumberFormat.NumberGroupSeparator}' group]")"
+              @bind-Value="@SelectedCulture"
+              @bind-Value:after="@ResetValues" />
+
+@code
+{
+    static CultureInfo[] AllCultures = [
+        new FluentNumberInputCultureInfo(),
+        new CultureInfo("fr"),
+        new CultureInfo("en"),
+        new CultureInfo("de"),
+        new CultureInfo("es"),
+        new CultureInfo("ja")];
+
+    CultureInfo SelectedCulture = AllCultures[0];
+
+    int ValueInt = 0;
+    double ValueDouble = 0.0;
+
+    void ResetValues()
+    {
+        ValueInt = 0;
+        ValueDouble = 0.0;
+    }
+}

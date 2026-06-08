@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 800" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+    
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+    </marker>
+    
+    <style>
+      .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+      .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+      .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+      .path { fill: none; stroke: #8b90a8; stroke-width: 1.5; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Edges -->
+  <g id="edges">
+    <path class="path" marker-end="url(#arrow)" d="M 575 100 C 575 130, 575 130, 575 152" />
+    <path class="path" marker-end="url(#arrow)" d="M 575 220 C 575 250, 575 250, 575 272" />
+    
+    <path class="path" marker-end="url(#arrow)" d="M 575 330 C 575 370, 200 370, 200 402" />
+    <path class="path" marker-end="url(#arrow)" d="M 575 330 C 575 370, 575 370, 575 402" />
+    <path class="path" marker-end="url(#arrow)" d="M 575 330 C 575 370, 950 370, 950 402" />
+    
+    <path class="path" marker-end="url(#arrow)" d="M 200 470 C 200 510, 200 510, 200 542" />
+    <path class="path" marker-end="url(#arrow)" d="M 575 470 C 575 510, 575 510, 575 542" />
+    <path class="path" marker-end="url(#arrow)" d="M 950 470 C 950 510, 950 510, 950 542" />
+    
+    <path class="path" marker-end="url(#arrow)" d="M 200 600 C 200 640, 525 640, 525 672" />
+    <path class="path" marker-end="url(#arrow)" d="M 575 600 C 575 640, 575 640, 575 672" />
+    <path class="path" marker-end="url(#arrow)" d="M 950 600 C 950 640, 625 640, 625 672" />
+  </g>
+
+  <!-- Nodes -->
+  <g id="nodes">
+    <!-- Call -->
+    <rect x="345" y="50" width="460" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="575" y="75" dominant-baseline="middle" text-anchor="middle" class="code">Commander.Call(OrderCreatedEvent { ChainId = "" })</text>
+
+    <!-- Detect -->
+    <rect x="395" y="160" width="360" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="575" y="180" dominant-baseline="middle" text-anchor="middle" class="code">Commander.Run() detects:</text>
+    <text x="575" y="200" dominant-baseline="middle" text-anchor="middle" class="code">IEventCommand with empty ChainId</text>
+
+    <!-- Build -->
+    <rect x="435" y="280" width="280" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="575" y="305" dominant-baseline="middle" text-anchor="middle" class="code">RunEvent() builds handler chains</text>
+
+    <!-- Clones -->
+    <rect x="30" y="410" width="340" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="200" y="430" dominant-baseline="middle" text-anchor="middle" class="header">Clone #1</text>
+    <text x="200" y="450" dominant-baseline="middle" text-anchor="middle" class="code">ChainId = "NotificationHandlers.SendEmail"</text>
+
+    <rect x="405" y="410" width="340" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="575" y="430" dominant-baseline="middle" text-anchor="middle" class="header">Clone #2</text>
+    <text x="575" y="450" dominant-baseline="middle" text-anchor="middle" class="code">ChainId = "NotificationHandlers.UpdateAnalytics"</text>
+
+    <rect x="780" y="410" width="340" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="950" y="430" dominant-baseline="middle" text-anchor="middle" class="header">Clone #3</text>
+    <text x="950" y="450" dominant-baseline="middle" text-anchor="middle" class="code">ChainId = "NotificationHandlers.NotifyWarehouse"</text>
+
+    <!-- Handlers -->
+    <rect x="60" y="550" width="280" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="200" y="575" dominant-baseline="middle" text-anchor="middle" class="code">Filters + SendEmail handler</text>
+
+    <rect x="435" y="550" width="280" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="575" y="575" dominant-baseline="middle" text-anchor="middle" class="code">Filters + UpdateAnalytics handler</text>
+
+    <rect x="810" y="550" width="280" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="950" y="575" dominant-baseline="middle" text-anchor="middle" class="code">Filters + NotifyWarehouse handler</text>
+
+    <!-- WhenAll -->
+    <rect x="475" y="680" width="200" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="575" y="700" dominant-baseline="middle" text-anchor="middle" class="code">Task.WhenAll()</text>
+    <text x="575" y="720" dominant-baseline="middle" text-anchor="middle" class="label">All complete</text>
+  </g>
+</svg>

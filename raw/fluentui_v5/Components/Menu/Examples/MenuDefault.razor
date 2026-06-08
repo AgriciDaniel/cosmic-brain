@@ -1,0 +1,29 @@
+﻿<FluentStack Orientation="Orientation.Horizontal" HorizontalGap="10">
+    <FluentButton Appearance="ButtonAppearance.Primary" Id="myButton">Toggle Menu</FluentButton>
+    <FluentMenu Trigger="myButton" OnClick="@OnMenuClick">
+        <FluentMenuList>
+            <FluentMenuItem>Menu item 1</FluentMenuItem>
+            <FluentMenuItem>Menu item 2</FluentMenuItem>
+            <FluentMenuItem>Menu item 3</FluentMenuItem>
+            <FluentMenuItem>Menu item 4</FluentMenuItem>
+        </FluentMenuList>
+    </FluentMenu>
+
+    <FluentIcon Id="myIcon" Value="@(new Icons.Regular.Size24.LineHorizontal3())" Color="@Color.Primary" Style="cursor: pointer;" />
+    <FluentMenu Trigger="myIcon">
+        <FluentMenuList>
+            <FluentMenuItem>Menu item 1</FluentMenuItem>
+            <FluentMenuItem>Menu item 2</FluentMenuItem>
+            <FluentMenuItem>Menu item 3</FluentMenuItem>
+            <FluentMenuItem>Menu item 4</FluentMenuItem>
+        </FluentMenuList>
+    </FluentMenu>
+</FluentStack>
+
+@code {
+    private void OnMenuClick(MenuItemEventArgs args)
+    {
+        Console.WriteLine($"Menu item clicked: {args.Text}");
+
+    }
+}

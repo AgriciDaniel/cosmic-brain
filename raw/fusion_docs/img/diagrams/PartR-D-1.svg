@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 350" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" rx="10" fill="url(#bg-grad)" />
+
+    <!-- Subgraph: RpcHub -->
+    <rect x="40" y="50" width="860" height="120" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="60" y="75" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">RpcHub (singleton)</text>
+
+    <!-- Subgraph Nodes -->
+    <!-- ServiceRegistry -->
+    <rect x="120" y="100" width="160" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="200" y="125" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ServiceRegistry</text>
+
+    <!-- SerializationFormats -->
+    <rect x="380" y="100" width="180" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="470" y="125" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">SerializationFormats</text>
+
+    <!-- Peers Collection -->
+    <rect x="660" y="100" width="160" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="740" y="125" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Peers Collection</text>
+
+    <!-- Arrows from RpcHub Subgraph -->
+    <path d="M 150 170 C 150 200, 150 220, 150 248" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 310 170 C 310 200, 310 220, 310 248" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 470 170 C 470 200, 470 220, 470 248" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Arrows from Peers Collection -->
+    <path d="M 720 140 C 720 195, 630 195, 630 248" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 760 140 C 760 195, 790 195, 790 248" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Bottom Nodes -->
+    <!-- DefaultPeer -->
+    <rect x="80" y="250" width="140" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="150" y="270" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">DefaultPeer</text>
+    <text x="150" y="288" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(RpcClientPeer)</text>
+
+    <!-- LocalPeer -->
+    <rect x="240" y="250" width="140" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="310" y="270" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">LocalPeer</text>
+    <text x="310" y="288" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(in-process)</text>
+
+    <!-- LoopbackPeer -->
+    <rect x="400" y="250" width="140" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="470" y="270" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">LoopbackPeer</text>
+    <text x="470" y="288" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(tests only)</text>
+
+    <!-- RpcClientPeer -->
+    <rect x="560" y="250" width="140" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="630" y="270" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcClientPeer</text>
+    <text x="630" y="288" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(outbound)</text>
+
+    <!-- RpcServerPeer -->
+    <rect x="720" y="250" width="140" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="790" y="270" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcServerPeer</text>
+    <text x="790" y="288" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(inbound)</text>
+</svg>

@@ -1,0 +1,11 @@
+{
+	"id": "hide-folders",
+	"name": "Hide Folders",
+	"version": "1.5.2",
+	"minAppVersion": "0.15.0",
+	"description": "Hides & Toggles configured folders (e.g. attachments folders).",
+	"author": "JonasDoesThings",
+	"authorUrl": "https://jonasdoesthings.com/",
+  "fundingUrl": "https://www.buymeacoffee.com/jonasdoesthings",
+	"isDesktopOnly": false
+}

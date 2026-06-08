@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Arrowhead Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Title -->
+  <text x="30" y="30" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Sign-In Flow</text>
+
+  <!-- Lifelines (Dashed) -->
+  <line x1="80" y1="90" x2="80" y2="560" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+  <line x1="280" y1="90" x2="280" y2="560" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+  <line x1="480" y1="90" x2="480" y2="560" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+  <line x1="680" y1="90" x2="680" y2="560" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+
+  <!-- Activation Boxes -->
+  <!-- Browser -->
+  <rect x="72" y="120" width="16" height="20" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  <rect x="72" y="210" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  <rect x="72" y="300" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  <rect x="72" y="510" width="16" height="20" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  
+  <!-- AuthEndpoint -->
+  <rect x="272" y="120" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  <rect x="272" y="345" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  
+  <!-- OAuth Provider -->
+  <rect x="472" y="165" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  <rect x="472" y="255" width="16" height="65" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+  
+  <!-- ServerAuthHelper -->
+  <rect x="672" y="390" width="16" height="140" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+
+  <!-- Messages -->
+  <!-- 1. Browser -> AuthEndpoint: GET /signIn -->
+  <line x1="88" y1="130" x2="268" y2="130" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="180" y="124" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">GET /signIn</text>
+
+  <!-- 2. AuthEndpoint -> OAuth: Challenge -->
+  <line x1="288" y1="175" x2="468" y2="175" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="380" y="169" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Challenge</text>
+
+  <!-- 3. OAuth -> Browser: Redirect to OAuth -->
+  <line x1="472" y1="220" x2="92" y2="220" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+  <text x="280" y="214" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Redirect to OAuth</text>
+
+  <!-- 4. Browser -> OAuth: User authenticates -->
+  <line x1="88" y1="265" x2="468" y2="265" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="280" y="259" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">User authenticates</text>
+
+  <!-- 5. OAuth -> Browser: Callback with tokens -->
+  <line x1="472" y1="310" x2="92" y2="310" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+  <text x="280" y="304" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Callback with tokens</text>
+
+  <!-- 6. Browser -> AuthEndpoint: Redirect to app -->
+  <line x1="88" y1="355" x2="268" y2="355" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="180" y="349" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Redirect to app</text>
+
+  <!-- 7. AuthEndpoint -> ServerAuthHelper: _HostPage loads -->
+  <line x1="288" y1="400" x2="668" y2="400" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="480" y="394" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">_HostPage loads</text>
+
+  <!-- 8. ServerAuthHelper -> ServerAuthHelper: UpdateAuthState (syncs to IAuth) -->
+  <path d="M 688 430 L 715 430 L 715 460 L 692 460" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="723" y="441" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="start">UpdateAuthState</text>
+  <text x="723" y="455" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="start">(syncs to IAuth)</text>
+
+  <!-- 9. ServerAuthHelper -> Browser: Page rendered (authenticated) -->
+  <line x1="672" y1="520" x2="92" y2="520" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+  <text x="380" y="514" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Page rendered (authenticated)</text>
+
+  <!-- Lifeline Headers (State Nodes) -->
+  <!-- Browser -->
+  <rect x="10" y="50" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="80" y="74" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Browser</text>
+
+  <!-- AuthEndpoint -->
+  <rect x="210" y="50" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="280" y="74" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">AuthEndpoint</text>
+
+  <!-- OAuth Provider -->
+  <rect x="410" y="50" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="480" y="74" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OAuth Provider</text>
+
+  <!-- ServerAuthHelper -->
+  <rect x="610" y="50" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="680" y="74" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ServerAuthHelper</text>
+
+</svg>

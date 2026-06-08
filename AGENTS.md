@@ -40,11 +40,11 @@ bash bin/setup-multi-agent.sh
 
 ## Key Conventions
 
-- **Vault root**: the directory containing `wiki/` and `.raw/`
+- **Vault root**: the directory containing `wiki/` and `raw/`
 - **Hot cache**: `wiki/hot.md` (read at session start, updated at session end)
-- **Source documents**: `.raw/` (immutable: agents never modify these)
+- **Source documents**: `raw/` (immutable: agents never modify these)
 - **Generated knowledge**: `wiki/` (agent-owned, links to sources via wikilinks)
-- **Manifest**: `.raw/.manifest.json` tracks ingested sources (delta tracking)
+- **Manifest**: `raw/.manifest.json` tracks ingested sources (delta tracking)
 
 ## Bootstrap
 

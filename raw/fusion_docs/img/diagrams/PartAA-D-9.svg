@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    
+    <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="300" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Header -->
+  <text x="400" y="30" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Multi-Session Management</text>
+
+  <!-- Edges -->
+  <path d="M 400 110 C 400 150, 200 150, 200 188" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 400 110 C 400 150, 400 150, 400 188" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 400 110 C 400 150, 600 150, 600 188" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- User Node (Entity/Object) -->
+  <rect x="320" y="60" width="160" height="50" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="400" y="89" font-family="&#34;SF Mono&#34;,&#34;Fira Code&#34;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">User (Id: 123)</text>
+
+  <!-- Session A Node (Entity/Object) -->
+  <rect x="120" y="190" width="160" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="200" y="215" font-family="&#34;SF Mono&#34;,&#34;Fira Code&#34;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Session A</text>
+  <text x="200" y="235" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Desktop / Chrome</text>
+
+  <!-- Session B Node (Entity/Object) -->
+  <rect x="320" y="190" width="160" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="400" y="215" font-family="&#34;SF Mono&#34;,&#34;Fira Code&#34;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Session B</text>
+  <text x="400" y="235" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Mobile / Safari</text>
+
+  <!-- Session C Node (Entity/Object) -->
+  <rect x="520" y="190" width="160" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="600" y="215" font-family="&#34;SF Mono&#34;,&#34;Fira Code&#34;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Session C</text>
+  <text x="600" y="235" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Tablet / Firefox</text>
+</svg>

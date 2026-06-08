@@ -1,0 +1,83 @@
+﻿@page "/treeview/debug"
+
+<h1>TreeView Debug</h1>
+
+<div>
+    SelectedId = @SelectedId;
+</div>
+
+<div>
+    Expanded1 = @Expanded1;
+    Expanded2 = @Expanded2;
+    Expanded3 = @Expanded3;
+    Expanded4 = @Expanded4;
+</div>
+
+<button onclick="Expanded(true)">Open</button>
+<button onclick="Expanded(false)">Close</button>
+<button @onclick="@(e => SelectedId = "test-3")">Select #3</button>
+
+<FluentTreeView @bind-SelectedId="@SelectedId"
+                OnExpandedChanged="@(e => Console.WriteLine($"* Expanded: {e.Id}: {e.Expanded}"))"
+                OnSelectedChanged="@(e => Console.WriteLine($"* Selected: {e.Id}"))">
+
+    <FluentTreeItem Id="test-1"
+                    Text="My item"
+                    Height="70px"
+                    @bind-Expanded="@Expanded1"
+                    IconStart="@(new Icons.Regular.Size16.ShareScreenStart())"
+                    IconEnd="@(new Icons.Regular.Size16.CallEnd())"
+                    IconAside="@(new Icons.Regular.Size16.AddCircle())"
+                    SelectedChanged="@(e => Console.WriteLine($". Selected: test-1: {e}"))">
+        <FluentTreeItem Height="unset">Sub Item</FluentTreeItem>
+    </FluentTreeItem>
+
+    <FluentTreeItem Id="test-2"
+                    Text="CollapseOnly with really long tree-item content goes here. Lorem ipsum dolor sit amet."
+                    IconStart="@(new Icons.Regular.Size16.ShareScreenStart())"
+                    IconEnd="@(new Icons.Regular.Size16.CallEnd())"
+                    IconAside="@(new Icons.Regular.Size16.AddCircle())"
+                    IconCollapsed="@(new Icons.Regular.Size16.ArrowCircleRight())"
+                    @bind-Expanded="@Expanded2"
+                    SelectedChanged="@(e => Console.WriteLine($". Selected: test-2: {e}"))">
+            <FluentTreeItem>Sub Item</FluentTreeItem>
+    </FluentTreeItem>
+
+    <FluentTreeItem Id="test-3"
+                    IconExpanded="@(new Icons.Regular.Size16.CopyArrowRight())"
+                    @bind-Expanded="@Expanded3"
+                    SelectedChanged="@(e => Console.WriteLine($". Selected: test-3: {e}"))">
+        ExpandOnly
+        <FluentTreeItem>Sub Item</FluentTreeItem>
+    </FluentTreeItem>
+
+    <FluentTreeItem Id="test-4"
+                    Text="CollapseExpand"
+                    IconCollapsed="@(new Icons.Regular.Size16.ArrowCircleRight())"
+                    IconExpanded="@(new Icons.Regular.Size16.CopyArrowRight())"
+                    @bind-Expanded="@Expanded4"
+                    SelectedChanged="@(e => Console.WriteLine($". Selected: test-4: {e}"))">
+        <FluentTreeItem>Sub Item</FluentTreeItem>
+    </FluentTreeItem>
+</FluentTreeView>
+
+<FluentDivider>Other section</FluentDivider>
+
+<script>
+
+    function Expanded(value) {
+        document.getElementById('test-1').expanded = value;
+        document.getElementById('test-2').expanded = value;
+        document.getElementById('test-3').expanded = value;
+        document.getElementById('test-4').expanded = value;
+    }
+</script>
+
+@code
+{
+    string SelectedId = "test-2";
+    bool Expanded1 = true;
+    bool Expanded2 = false;
+    bool Expanded3 = true;
+    bool Expanded4 = false;
+}

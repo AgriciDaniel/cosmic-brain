@@ -1,0 +1,44 @@
+﻿<div style="min-height: 1000px">
+    <table data-type="common-style">
+        <thead>
+            <tr>
+                <th>Style constant</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var style in CommonStylesTable.GetAllStyleConstants())
+            {
+                <tr>
+                    <td data-type="name">
+                        @style.Name
+                    </td>
+                    <td data-type="value">
+                        <span><code>@style.Value</code></span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    table[data-type='common-style'] {
+        width: unset !important;
+        margin-left: 24px;
+    }
+
+        table[data-type='common-style'] td[data-type='name'] {
+            align-content: center;
+            width: 200px;
+            padding: 0 10px;
+        }
+
+        table[data-type='common-style'] td[data-type='value'] {
+            min-width: 100px;
+        }
+
+    table[data-type='common-color'] td[data-type='value'] span {
+        padding: 0 4px;
+    }
+</style>

@@ -1,0 +1,8 @@
+﻿<FluentSelect Items="@(Enum.GetValues<ImageFit>())" @bind-Value="@_selectedFit" />
+<div style="width: auto; height: 400px; margin-top: 10px">
+    <FluentImage Fit="@_selectedFit" Source="/big-heart.jpg" AlternateText="Placeholder Image" />
+</div>
+
+@code{
+    ImageFit _selectedFit;
+}

@@ -1,0 +1,30 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Extensions
+
+<FluentSelect Label="Colors"
+              Items="@GetEnumValues()"
+              @bind-Value="@Value">
+    <OptionTemplate>
+        <FluentStack Style="pointer-events: none;">
+            <div class="color-block" style="--item-color: @context.ToAttributeValue()"></div>
+            <span>@context</span>
+        </FluentStack>
+    </OptionTemplate>
+</FluentSelect>
+
+<div>
+    Selected: @Value
+</div>
+
+<style>
+    .color-block {
+        width: 20px;
+        height: 20px;
+        background-color: var(--item-color);
+        margin-right: 8px;
+    }
+</style>
+
+@code {
+    IEnumerable<Color> GetEnumValues() => Enum.GetValues(typeof(Color)).Cast<Color>();
+    Color Value;
+}

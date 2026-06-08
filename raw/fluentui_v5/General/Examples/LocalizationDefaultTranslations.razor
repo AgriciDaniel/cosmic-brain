@@ -1,0 +1,104 @@
+﻿@using System.Resources
+@using System.Globalization
+@using System.Collections
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentStack VerticalAlignment="@VerticalAlignment.Center" Height="70px">
+        <FluentMenu Height="300px">
+            <FluentMenuButton Appearance="ButtonAppearance.Transparent"
+                              IconStart="@(new Icons.Regular.Size20.Filter())">
+                Filter&nbsp;
+            </FluentMenuButton>
+            <FluentMenuList>
+                @foreach (var filter in Filters)
+                {
+                    <FluentMenuItem OnClick="@FilterClickHander">@filter</FluentMenuItem>
+                }
+            </FluentMenuList>
+        </FluentMenu>
+
+        <FluentTextInput @bind-Value="Search"
+                         placeholder="Search..."
+                         Spellcheck="false"
+                         ChangeAfterKeyPress="@([KeyPress.For(KeyCode.Enter)])">
+            <StartTemplate>
+                <FluentIcon Value="@(new Icons.Regular.Size16.Search())" Color="Color.Primary" />
+            </StartTemplate>
+        </FluentTextInput>
+
+    </FluentStack>
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Default translation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in _localizedStrings)
+            {
+                if (string.IsNullOrEmpty(Search) ||
+                    entry.Key.Contains(Search, StringComparison.OrdinalIgnoreCase))
+                {
+                    <tr>
+                        <td>@entry.Key</td>
+                        <td>@entry.Value</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</FluentStack>
+
+
+
+@code {
+    [SupplyParameterFromQuery(Name = "search")]
+    private string Search { get; set; } = "";
+
+    private string[] Filters { get; set; } = [];
+    private Dictionary<string, string> _localizedStrings = [];
+
+    protected override Task OnInitializedAsync()
+    {
+        var resourceManager = Microsoft.FluentUI.AspNetCore.Components.Localization.LanguageResource.ResourceManager;
+        var culture = CultureInfo.InvariantCulture;
+        ResourceSet? resourceSet = resourceManager.GetResourceSet(culture, true, true);
+
+        if (resourceSet is not null)
+        {
+            var entries = resourceSet
+                .Cast<DictionaryEntry>()
+                .Where(e => e.Value is string && e.Key is string)
+                .Select(e => new
+                {
+                    Key = (string)e.Key,
+                    Value = (string)e.Value!
+                })
+                .OrderBy(e => e.Key)
+                .ToArray();
+
+            _localizedStrings = entries.ToDictionary(
+                e => e.Key,
+                e => e.Value!
+            );
+
+            Filters = entries
+                .Select(e =>
+                {
+                    var index = e.Key.IndexOf('_');
+                    return index >= 0
+                        ? e.Key[..index]
+                        : e.Key;
+                })
+                .Distinct()
+                .ToArray();
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+    private void FilterClickHander(MenuItemEventArgs item)
+    {
+        Search = item.Text ?? "";
+    }
+}

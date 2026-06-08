@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Umsetzung in der WinLine</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84lohna1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="rechtsvorschriften.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="zukunftssicherung.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinelohn&ouml;sterreich.htm">WinLine LOHN - Österreich</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Abrechnen</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="betrieblichevorsorgeunterbrechungen.htm">Betriebliche Vorsorge - 
+Unterbrechungen</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Umsetzung in der WinLine</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc200979569></A>Umsetzung in der 
+WinLine</H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nachdem für die Unterbrechungszeiträume teilweise nur 
+"fiktive" Bezüge herangezogen werden müssen (diese Bezüge werden ja nicht 
+tatsächlich abgerechnet und ausgezahlt), müssen im WinLine LOHN diese Bezüge 
+gesondert verwaltet werden:</P>
+<P class=BeispielAchtung>ad 1.) Präsenz-, Ausbildung- oder Zivildienst</P>
+<P class=MsoNormal>In diesem Fall empfiehlt es sich, eine eigene Lohnart 
+anzulegen. Besonderheit dabei: es muss das Abrechnungsschema "22 
+Hinzurechnungsbetrag zur BV-Bemessung" verwendet werden, das nur die 
+BV-Bemessungsgrundlage erhöht.</P>
+<P class=BeispielAchtung>Beispiel für die Lohnart "Präsenz-, Ausbildungs- oder 
+Zivildienst"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_179.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Dazu ist es dann auch noch sinnvoll, das Kinderbetreuungsgeld 
+als Firmenkonstante anzulegen, damit der Betrag nicht immer wieder neu 
+eingegeben werden muss. Dazu kann dann auch noch die Formel so angelegt werden, 
+das nur die Anzahl der Tage eingegeben werden muss, das Kinderbetreuungsgeld 
+wird dann aus der Firmenkonstante geholt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für die Formel, wenn das KBG in der 
+Firmenkonstante 5 gespeichert ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_180.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dem Befehl "EingabeStunden" wird zuerst die Anzahl der 
+Tage der Abwesenheit eingetragen. Mit der Funktion "Satz = Firmenkonstante(5)" 
+wird die Firmenkonstante 5 (das ist in unserem Beispiel das KBG von € 14,53) 
+abgeholt und in den Satz (Stundensatz) gestellt. Danach wird mit der Operation 
+"Betrag = Stunden * Satz" das Ergebnis aus den Anzahl der Tagen * den KBG 
+errechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Abrechnung wird zuerst der "normale" Bezug für die 6 
+Arbeitstage erfasst. Dazu kommt dann die Lohnart "98 - Präsenz-, Ausbildungs- 
+oder Zivildienst", mit der die restlichen 25 Tage mit KBG abgerechnet werden. 
+Das KBG erhöht nur die BV-Bemessung, hat aber keinen Einfluss auf das Brutto 
+oder den Nettoauszahlungsbetrag. Ab Juni wird dann nur mehr die Lohnart "98 - 
+Präsenz-, Ausbildungs- oder Zivildienst" für 30 Tage abgerechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>ad 2.) Wochengeld</P>
+<P class=MsoNormal>In diesem Fall empfiehlt es sich, eine eigene Lohnart 
+anzulegen. Besonderheit dabei: es muss das Abrechnungsschema "22 
+Hinzurechnungsbetrag zur BV-Bemessung" verwendet werden, das nur die 
+BV-Bemessungsgrundlage erhöht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für die Lohnart "Wochengeld"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_181.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Dazu kann dann eine Formel verwendet werden, die das 
+Wochengeld automatisch errechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für eine Formel zur Berechnung des fiktiven 
+Wochengeldes</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_182.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dem Befehl "EingabeFaktor1" wird die Zahl des Monats 
+eingegeben, in dem der AN einen vollständigen Bezug erhalten hat. Diese Zahl 
+wird gespeichert. Mit dem Befehl "EingabeStunden" wird die Anzahl der Tage 
+angegeben, für die der AN Wochengeld bekommt. Mit dem Befehl "Satz = 
+GetJLKBrutto (Faktor1, Abrechnungsjahr()) / 30" wird der Bruttobezug des 
+aktuellen Abrechnungsjahres und des zuvor eingegebenen Monats abgeholt und durch 
+30 gerechnet. Und mit dem Befehl "Betrag = Stunden * Satz" wird die Anzahl der 
+Tage mit dem errechneten Wochengeld multipliziert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Abrechnung wird zuerst der "normale" Bezug für die 
+ersten 9 Tage erfasst. Dazu kommt dann die Lohnart "97 - Wochengeld", die für 22 
+Tage abgerechnet wird. Ab Juni erfolgt nur mehr die Abrechnung der Lohnart "97 - 
+Wochengeld", das nur mehr die Bemessungsgrundlage der BV erhöht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>ad 3.) Krankengeld</P>
+<P class=MsoNormal>In diesem Fall empfiehlt es sich, eine eigene Lohnart 
+anzulegen. Besonderheit dabei: es muss das Abrechnungsschema "22 
+Hinzurechnungsbetrag zur BV-Bemessung" verwendet werden, das nur die 
+BV-Bemessungsgrundlage erhöht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für die Lohnart "Krankengeld BV 50 %"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_183.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Dazu kann dann eine Formel verwendet werden, die das 
+Krankengeld automatisch errechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für eine Formel zur Berechnung des fiktiven 
+Krankengeldes</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image872_184.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dem Befehl "EingabeFaktor1" wird die Zahl des Monats 
+eingegeben, in dem der AN einen vollständigen Bezug erhalten hat. Diese Zahl 
+wird gespeichert. Mit dem Befehl "EingabeStunden" wird die Anzahl der Tage 
+angegeben, für die der AN fiktives Krankengeld bekommt. Mit dem Befehl "Satz = 
+GetJLKBrutto (Faktor1, Abrechnungsjahr()) / 30 / 2" wird der halbe Bruttobezug 
+des aktuellen Abrechnungsjahres und des zuvor eingegebenen Monats abgeholt und 
+durch 30 gerechnet. Und mit dem Befehl "Betrag = Stunden * Satz" wird die Anzahl 
+der Tage mit dem errechneten Krankengeld multipliziert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Abrechnung März werden zuerst die "normalen" Bezüge 
+für 12 Tage erfasst, dazu kommt dann das Krankengeld 100 % für die restlichen 
+Tage. In der April-Abrechnung wird nur das Krankengeld 100 % abgerechnet. Im Mai 
+wird für 7 Tage das Krankengeld 100 % abgerechnet, dazu kommt dann das 
+Krankengeld 50 % für 24 Tage. Ebenfalls für 24 Tage muss nun die Lohnart "96 - 
+Krankengeld BV 50 %" erfasst werden, die wiederum nur die Bemessungsgrundlage 
+der BV erhöht. Im Juni wird das Krankengeld 50 % nur mehr für 4 Tage ausbezahlt, 
+die Lohnart "96 - Krankengeld BV 50 %" hingegen muss für 30 Tage abgerechnet 
+werden. Ab Juli wird nur mehr die Lohnart "96 - Krankengeld BV 50 %" 
+abgerechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>ad 4.) Zeiten für Kinderbetreuung und Karenzzeiten und 
+5.) Unbezahlter Urlaub</P>
+<P class=MsoNormal>Diese beiden Punkte haben für die Lohnverrechnung keine 
+direkte Auswirkung, es müssen keine weiteren Lohnarten angelegt oder erfasst 
+werden. Wird eine Lohnart mit dem Abrechnungsschema "07 Unbezahlter Urlaub ( 
+"Blautage" )" abgerechnet, dann wird dieser Bezug auch nicht in die 
+Bemessungsgrundlage der BV eingerechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

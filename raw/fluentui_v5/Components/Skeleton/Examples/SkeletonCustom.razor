@@ -1,0 +1,10 @@
+﻿<FluentSkeleton Width="300px" Height="100px">
+    <FluentStack Orientation="Orientation.Vertical" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentText Weight="TextWeight.Bold">Loading...</FluentText>
+        <FluentStack>
+            @context.DrawCircle(radius: "32px")
+            @context.DrawRectangle(width: "100%", height: "32px")
+            @context.DrawCircle(radius: "32px")
+        </FluentStack>
+    </FluentStack>
+</FluentSkeleton>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Subgraph: PeerRefs -->
+  <rect x="40" y="40" width="300" height="360" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="55" y="65" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">RpcPeerRef</text>
+
+  <!-- Left Nodes (RpcPeerRef Types) -->
+  <!-- Default -->
+  <rect x="60" y="80" width="260" height="54" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="190" y="102" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcPeerRef.Default</text>
+  <text x="190" y="120" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(remote)</text>
+
+  <!-- Custom -->
+  <rect x="60" y="160" width="260" height="54" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="190" y="182" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcPeerRef.NewClient(host)</text>
+  <text x="190" y="200" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(custom remote)</text>
+
+  <!-- Local -->
+  <rect x="60" y="240" width="260" height="54" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="190" y="262" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcPeerRef.Local</text>
+  <text x="190" y="280" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(same-process)</text>
+
+  <!-- Loopback -->
+  <rect x="60" y="320" width="260" height="54" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="190" y="342" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcPeerRef.Loopback</text>
+  <text x="190" y="360" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(in-process test)</text>
+
+  <!-- Right Nodes (Peer Implementations) -->
+  <!-- RpcClientPeer -->
+  <rect x="460" y="125" width="180" height="44" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="550" y="151" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcClientPeer</text>
+
+  <!-- LocalPeer -->
+  <rect x="460" y="245" width="180" height="44" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="550" y="271" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">LocalPeer</text>
+
+  <!-- LoopbackPeer -->
+  <rect x="460" y="325" width="180" height="44" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="550" y="351" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">LoopbackPeer</text>
+
+  <!-- Connections -->
+  <!-- Default -> RpcClientPeer -->
+  <path d="M 320 107 C 390 107, 390 137, 454 137" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Custom -> RpcClientPeer -->
+  <path d="M 320 187 C 390 187, 390 157, 454 157" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Local -> LocalPeer -->
+  <path d="M 320 267 L 454 267" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Loopback -> LoopbackPeer -->
+  <path d="M 320 347 L 454 347" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+</svg>

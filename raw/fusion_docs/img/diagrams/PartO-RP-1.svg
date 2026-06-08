@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+
+        <!-- Node Gradients -->
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        
+        <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f0e8fc" />
+            <stop offset="100%" stop-color="#ddd0f0" />
+        </linearGradient>
+
+        <!-- Arrow Marker -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 8 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges (Paths) -->
+    <!-- Start -> Execute -->
+    <path d="M 340 82 C 340 120, 340 120, 340 158" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- Execute -> Done -->
+    <path d="M 310 202 C 310 250, 200 250, 200 298" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- Execute -> CanRetry -->
+    <path d="M 370 202 C 370 240, 480 240, 480 280" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- CanRetry -> Throw -->
+    <path d="M 445 340 C 420 380, 400 390, 400 438" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- CanRetry -> Wait -->
+    <path d="M 515 340 C 540 380, 560 390, 560 438" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- Wait -> Execute (Loop) -->
+    <path d="M 620 460 C 700 460, 700 180, 400 180" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Edge Labels -->
+    <text x="255" y="240" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle" paint-order="stroke" stroke="#f4f8fd" stroke-width="3">Success</text>
+    <text x="425" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle" paint-order="stroke" stroke="#f4f8fd" stroke-width="3">Transient Error</text>
+    <text x="405" y="380" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle" paint-order="stroke" stroke="#f4f8fd" stroke-width="3">No</text>
+    <text x="555" y="380" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle" paint-order="stroke" stroke="#f4f8fd" stroke-width="3">Yes</text>
+
+    <!-- Nodes -->
+    <!-- Start Node (State/Object) -->
+    <rect x="250" y="38" width="180" height="44" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="340" y="64" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Command Execution</text>
+
+    <!-- Execute Node (Action/Process) -->
+    <rect x="280" y="158" width="120" height="44" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="340" y="184" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Execute</text>
+
+    <!-- Done Node (State/Object) -->
+    <rect x="150" y="298" width="100" height="44" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="200" y="324" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Done</text>
+
+    <!-- CanRetry Node (Decision) -->
+    <polygon points="480,280 550,320 480,360 410,320" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="480" y="324" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Can Retry?</text>
+
+    <!-- Throw Node (Action/Process) -->
+    <rect x="350" y="438" width="100" height="44" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="400" y="464" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Throw</text>
+
+    <!-- Wait Node (Action/Process) -->
+    <rect x="500" y="438" width="120" height="44" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="560" y="464" font-family="&#34;SF Mono&#34;, &#34;Fira Code&#34;, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Wait Delay</text>
+</svg>

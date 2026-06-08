@@ -1,0 +1,465 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>FAKT-Parameter - Belege - Artikel</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">FAKT-Parameter - Belege - Artikel</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Bereich "FAKT-Parameter - Belege - Artikel" können 
+allgemeine Einstellungen für die Verwendung von Artikeln in der Belegerfassung 
+der WinLine FAKT vorgenommen werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Standardmäßig wird das Fenster in einem "Lesemodus" geöffnet, 
+d.h. es können die bestehenden Einstellungen kontrolliert, Änderungen allerdings 
+nicht durchgeführt werden. Hierfür muss zunächst mit Hilfe des Buttons 
+"Bearbeiten" der "Bearbeitungsmodus" aktiviert werden. Alternativ kann diese 
+Aktivierung auch über das Kontextmenü der rechten Maustaste (Funktion 
+"Applikation xxx bearbeiten") erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_597.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Rohertragsprüfung</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_598.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Mind. / 
+Soll</P>
+<P class=MsoNormal>Es besteht die Möglichkeit einen "Mindest Rohertrag" und 
+einen "Soll Rohertrag" zu definieren. Wird ein "Mindest Rohertrag" hinterlegt, 
+dann wird, abhängig von der Schlüsselung in der Artikelgruppe (Spalte 
+"Rohertragsprüfung"), eine Aktion durchgeführt (entweder wird der Benutzer 
+gewarnt oder die Eingabe gesperrt).</P>
+<P class=MsoNormal>Wird auch ein "Soll Rohertrag" definiert, dann erfolgt bei 
+Unterschreitung dieses Rohertrags ein entsprechender Hinweis. Die Kombination 
+beider Eingaben führt zu folgendem Ergebnis:</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal style="tab-stops: 92.15pt">Mindest Rohertrag:&nbsp;&nbsp; 10 
+% (bei Unterschreitung ist "2 - Sperre" definiert)</P>
+<P class=MsoNormal style="tab-stops: 92.15pt">Soll 
+Rohertrag:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 20 %</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf eines Artikels mit einem 
+Rohertrag von 22 %<BR>es erfolgt keine Aktion</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf eines Artikels mit einem 
+DB von 19 %<BR>es erfolgt eine Warnung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verkauf eines Artikels mit einem 
+DB von 9 %<BR>die Erfassungszeile kann nicht gespeichert werden</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die gesamte Rohertragsprüfung ist grundsätzlich abhängig vom 
+verwendeten Vertreter (WinLine FAKT - Stammdaten - Vertreterstammdaten - 
+Vertreterstamm - Register "Erweitert" - Option "Rohertragsprüfung -&gt; keine / 
+individuell / allgemein"). Die Einstellung aus den Applikationsparametern 
+"FAKT-Parameter - Vertreter - Vertreterabrechnung"abzügl. der Rabatte und Skonto 
+werden bei der Rohertragsprüfung (Einstellung bei der Artikelgruppe) 
+mitberücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Nähere Informationen hierzu entnehmen Sie bitte dem WinLine 
+FAKT-Handbuch.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Basis für die Rohertragsprüfung bei Lagerstand &lt;= 
+0</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_599.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Basispreis</P>
+<P class=MsoNormal>An dieser Stelle kann entschieden werden, welcher Basispreis 
+für die Rohertragsprüfung herangezogen werden soll, wenn der Lagerstand des 
+Artikels kleiner oder gleich 0 lautet. Folgende Einstellungen stehen dabei zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Bewertungspreis lt. 
+Artikelstamm<BR>Als Preisbasis wird der Bewertungspreis lt. 
+Artikelstammeinstellung herangezogen (WinLine FAKT - Stammdaten - Artikelstamm - 
+Artikel - Register "Lager" - Unterregister "Einstellungen" - Option "Basis für 
+Rohertrag").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - Einstandspreis<BR>Als 
+Preisbasis wird der Einstandspreis des Artikels herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2- Allg. Einkaufspreis<BR>Als 
+Preisbasis wird der allgemeine Einkaufspreis des Artikels herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - letzter Einkaufspreis<BR>Als 
+Preisbasis wird der letzte Einkaufspreis des Artikels herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - niedrigster 
+Einkaufspreis<BR>Als Preisbasis wird der niedrigste Einkaufspreis des Artikels 
+herangezogen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die hier hinterlegte Einstellung wird nur bei Artikel mit 
+einem Lagerstand von kleiner oder gleich 0 herangezogen. Sollte der Lagerstand 
+größer 0 lauten wird der Basispreis aufgrund der Einstellung im Artikelstamm 
+ermittelt (WinLine FAKT - Stammdaten - Artikelstamm - Artikel - Register "Lager" 
+- Unterregister "Einstellungen" - Option "Basis für Rohertrag").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Preise aktualisieren</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_600.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Preise</P>
+<P class=MsoNormal>In der Belegerfassung besteht die Möglichkeit, geänderte 
+Preise in der Preisliste speichern zu lassen. Welche Preise gespeichert werden 
+sollen, kann hier in den Fakt-Parametern vorbelegt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - kontenspezifische Preise nie 
+ändern<BR>Wenn diese Option aktiviert wird, werden geänderte kontenspezifische 
+Preise nicht in die Preisliste zurück geschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - kontenspezifische Preise immer 
+ändern<BR>Wenn diese Option aktiviert wird, werden kontenspezifische Preise, die 
+im Beleg verwendet und geändert werden, in die Preislisten zurück 
+geschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - alle Preise als 
+kontenspezifische Preise anlegen (Preis und Rabatt)<BR>Wenn diese Option 
+aktiviert wird, werden alle geänderten Preise als kontenspezifische Preise mit 
+dem Preiskennzeichen "0 Preis und Rabatt" angelegt. Wenn es für den Artikel noch 
+keinen kontenspezifischen Preis gibt, wird ein Preislisteneintrag angelegt und 
+der Preis aus dem Beleg übernommen. Wenn ein Rabatt eingegeben bzw. geändert 
+wird, wird in der Preisliste das Kennzeichen "Rabatt in %" gespeichert. Wenn der 
+Rabatt nicht geändert wird, wird in der Preisliste das Kennzeichen "Rabattspalte 
+aus Artikelstamm" gespeichert. Wenn es für den Artikel schon einen 
+kontenspezifischen Preis gibt, wird dieser geändert, falls er im Beleg verwendet 
+wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - alle Preise als allgemeine 
+Preise anlegen (Preis und Rabatt)<BR>Wenn diese Option aktiviert wird, werden 
+alle vorhandenen Preise als allgemeine Preise mit dem Preiskennzeichen "0 Preis 
+und Rabatt" angelegt. Wenn es für den Artikel noch keinen allgemeinen Preis 
+gibt, wird ein Preislisteneintrag angelegt und der Preis aus dem Beleg 
+übernommen. Wenn ein Rabatt eingegeben bzw. geändert wird, wird in der 
+Preisliste das Kennzeichen "Rabatt in %" gespeichert. Wenn der Rabatt nicht 
+geändert wird, wird in der Preisliste das Flag "Rabattspalte aus Artikelstamm" 
+gespeichert. Wenn es für den Artikel schon einen allgemeinen Preis gibt, wird 
+dieser geändert, falls er im Beleg verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>5 - alle Preise als 
+gruppenspezifische Preise anlegen (Preis und Rabatt)<BR>Mit dieser Option werden 
+alle geänderten Preise als gruppenspezifische Preise mit dem Preiskennzeichen "0 
+Preis und Rabatt" angelegt. Wenn es für den Artikel noch keinen 
+gruppenspezifischen Preis der entsprechenden Gruppe gibt, wird ein 
+Preislisteneintrag angelegt und der Preis aus dem Beleg übernommen. Wenn ein 
+Rabatt eingegeben bzw. geändert wird, wird in der Preisliste das Kennzeichen 
+"Rabatt in %" gespeichert. Wenn der Rabatt nicht geändert wird, wird in der 
+Preisliste das Kennzeichen "Rabattspalte aus Artikelstamm" gespeichert. Wenn es 
+für den Artikel schon einen gruppenspezifischen Preis der entsprechenden Gruppe 
+gibt, wird dieser geändert, falls er im Beleg verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>6 - alle Preise als 
+kontenspezifischen Preise anlegen (nur Preis)<BR>Wird diese Option verwendet, so 
+werden angegebenen Preise als kontenspezifische Preise mit dem Preiskennzeichen 
+"1 Preis" angelegt. D.h. wenn es für den Artikel noch keinen kontenspezifischen 
+Preis gibt wird ein Preislisteneintrag angelegt und der Preis aus dem Beleg 
+übernommen. Wenn es für den Artikel schon einen kontenspezifischen Preis gibt, 
+wird dieser geändert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>7 - alle Preise als allgemeinen 
+Preise anlegen (nur Preis)<BR>Bei Verwendung dieser Option werden alle 
+geänderten Preise als kontenspezifische Preise mit dem Preiskennzeichen "1 
+Preis" angelegt. D.h. wenn es für den Artikel noch keinen allgemeinen Preis 
+gibt, wird ein Preislisteneintrag angelegt und der Preis aus dem Beleg 
+übernommen. Wenn es für den Artikel schon einen allgemeinen Preis gibt, wird 
+dieser geändert, falls er im Beleg verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>8 - alle Preise als 
+gruppenspezifische Preise anlegen (nur Preis)<BR>Wenn diese Option gewählt wird, 
+werden alle geänderten Preise als gruppenspezifische Preise mit dem 
+Preiskennzeichen "1 Preis" angelegt. D.h. wenn es für den Artikel noch keinen 
+gruppenspezifischen Preis der entsprechenden Gruppe gibt, wird ein 
+Preislisteneintrag angelegt und der Preis aus dem Beleg übernommen. Wenn es für 
+den Artikel schon einen gruppenspezifischen Preis der entsprechenden Gruppe 
+gibt, wird dieser geändert, falls er im Beleg verwendet wird.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Diese Einstellungen können in der Belegart und / oder in der 
+Belegerfassung übersteuert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Gültigkeit 
+der Preise bei der Neuanlage prüfen</P>
+<P class=MsoNormal>Durch Aktivierung dieser Option wird bei einer Neuanlage 
+eines kundenspezifischen Preises im Zuge des Belegerfassens (Spalte "ändern") 
+geprüft, ob ein gültiger Preis vorhanden ist. Ist dies nicht der Fall, so wird 
+ein neuer Preiseintrag erzeugt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Artikelbezogene Gutschriften</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_601.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Für artikelbezogene Gutschriften können folgende 
+Einstellungen betreffend dem Einstandspreis und der Lagerwerte getroffen 
+werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Einstandspreis</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - vorhandenen Einstandspreis 
+verwenden<BR>Bei Eingabe einer negativen Menge im Belegerfassen wird der 
+Einstandspreis des Artikels verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - Einstandspreis auf 0 
+setzen<BR>Bei Eingabe einer negativen Menge im Belegerfassen wird der 
+Einstandspreis des Artikels in der Belegzeile auf 0 gesetzt (ergibt einen 
+negativen Rohertrag in Höhe des VK-Preises).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - Einstandspreis auf 
+Verkaufspreis setzen<BR>Bei Eingabe einer negativen Menge im Belegerfassen wird 
+der Einstandspreis des Artikels in der Belegzeile auf den verwendeten VK-Preis, 
+umgerechnet in Netto/Landeswährung und in VK-Colli, gesetzt (ergibt eine 
+Rohertragskorrektur von 0).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lagerwerte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - immer verändern<BR>Bei Eingabe 
+einer negativen Menge im Belegerfassen werden Lagerstand und Lagerwert - ohne 
+zusätzliche Abfrage - immer verändert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - nie verändern<BR>Bei Eingabe 
+einer negativen Menge im Belegerfassen werden Lagerstand und Lagerwert nie 
+verändert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - fragen<BR>Bei Eingabe einer 
+negativen Menge im Belegerfassen erfolgt eine Rückfrage, ob Lagerstand und -wert 
+verändert werden sollen, und zwar eine eigene Rückfrage für jede Ausprägung und 
+den Hauptartikel.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - nur bei Hauptartikel 
+fragen<BR>Bei Eingabe einer negativen Menge im Belegerfassen erfolgt eine 
+Rückfrage, ob Lagerstand und -wert verändert werden sollen, und zwar nur eine 
+Rückfrage für den Hauptartikel, die auch gleichzeitig für alle Ausprägungen des 
+Hauptartikels gilt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Wertmäßige Beleghistorie beim Editieren speichern</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_602.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Beleghistorie</P>
+<P class=MsoNormal>Bei Änderungen von bereits gedruckten Aufträgen, 
+Lieferscheinen oder Fakturen werden die ursprünglichen Angaben "überschrieben". 
+Mit folgenden Optionen werden diese Änderungen in der Datenbank gemerkt und in 
+der Auswertung "Tagesjournal" entsprechend dargestellt (nähere Informationen 
+entnehmen Sie bitte dem Kapitel "Tagesjournal"):</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Auftrag / Bestellung<BR>Wenn diese 
+Checkbox aktiviert ist, wird beim ersten Druck eines Auftrags, beim Editieren 
+eines Auftrags und beim Storno des Beleges eine Zeile für jede Änderung 
+vermerkt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nur ohne Teillieferung<BR>Wird 
+diese Checkbox aktiviert so werden Änderungen nur dann geschrieben, wenn keine 
+Teillieferung erfolgt ist. Wenn diese Checkbox nicht aktiviert ist, werden die 
+Änderungen immer geschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lieferschein<BR>Durch Aktivieren 
+dieser Option wird beim ersten Druck eines Lieferscheins, beim Editieren eines 
+Lieferscheins und beim Storno des Beleges eine Zeile für jede Änderung 
+vermerkt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Faktura<BR>Ist diese Checkbox 
+aktiviert so wird beim ersten Druck einer Rechnung, beim Editieren einer 
+Rechnung und beim Storno des Beleges eine Zeile für jede Änderung 
+geschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Bei Ausprägungen nur Menge und Preis aktualisieren</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_603.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Aktualisierung</P>
+<P class=MsoNormal>Wenn in einem Beleg, bei einem bereits aufgeteilten 
+Hauptartikel, nochmals das Fenster "Ausprägungen erfassen" geöffnet wird und 
+anschließend eine Abspeicherung per Button "OK" bzw. der Taste F5 erfolgt, dann 
+werden alle Ausprägungen gelöscht und neu eingefügt. In solch einem Fall werden 
+die Artikeldaten der Ausprägungen nicht aus dem Artikelstamm neu geladen, so 
+dass z.B. Einstellungen wie der Colli, das Lieferdatum oder das Erlöskonto 
+automatisch vom Hauptartikel übernommen werden.</P>
+<P class=MsoNormal>Ist dieses Programmverhalten nicht gewünscht, so kann an 
+dieser Stelle (pro Belegstufe) das Löschen und Einfügen durch ein Aktualisieren 
+ersetzt werden. Hierdurch wird nur noch die Menge und die Preisdaten aus dem 
+Fenster "Ausprägungen erfassen" in die Belegmitte übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Bei Kreditlimitsperre Editieren des Beleges</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_604.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Bei 
+Kreditlimitsperre Editieren des Beleges) ermöglichen</P>
+<P class=MsoNormal>Wenn diese Option aktiviert ist, dann kann trotz einer 
+aktiven Kreditlimitsperre in der Belegerfassung in das Register "Mitte" 
+gewechselt und dort die Mengen der Artikel editieren werden. Zusätzlich ist es 
+möglich zwischen den einzelnen Belegzeilen hin- und herzuwechseln.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei jedem Zeilenwechsel bzw. auch beim Wechsel zwischen den 
+einzelnen Registern wird trotz der Editiermöglichkeit immer eine Warnung 
+ausgegeben, dass der Kunde gesperrt ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Keine Colli in der Preisliste hinterlegt</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_605.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Colli</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, wie der Colli in der 
+Belegerfassung bei einer erneuten Preisfindung geupdatet werden soll, wenn in 
+dem entsprechenden Preislisteneintrag kein Colli hinterlegt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Es wird die in der Belegzeile 
+vorhandene Colli beibehalten<BR>Wenn in dem Preislisteneintrag, welcher aufgrund 
+der Preishierarchie gefunden wurde, kein Colli hinterlegt ist, so bleibt der 
+Colli in der Belegerfassung erhalten</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - Es wird die Colli aus dem 
+Stamm verwendet<BR>Wenn in dem Preislisteneintrag, welcher aufgrund der 
+Preishierarchie gefunden wurde, kein Colli hinterlegt ist, so wird der Colli aus 
+dem Artikelstamm (Register "Preise", Unterregister "Konten") in die Spalte 
+"Colli" der Belegzeile gesetzt.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=BeispielAchtung><A name=_Hlk178770057>Lieferdatum</A></P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_606.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Eingabe mit 
+Uhrzeit</P>
+<P class=MsoNormal>Wird diese Option aktiviert, kann in den Feldern 
+"Lieferdatum" und "best. Lieferdatum" in der Belegmitte eine Uhrzeit miterfasst 
+werden. Die Uhrzeit wird ausschließlich in der Belegmittetabelle gespeichert und 
+kann für Auswertungen dieser Tabelle (z. B. im Belegzeilenkalender) verwendet 
+werden. Bei allen anderen Tabellen, bei denen ein Datum mit dem Lieferdatum der 
+T026 belegt wird, wird die Uhrzeit abgeschnitten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T014 (Dispotabelle)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T083 (Artikeljournal)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T039 (Statistik)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T337 (Lagerortjournal)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T324 (Produktionsjournal)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>T042 (Vertreterjournal)</P>
+<P class=BeispielAchtung>Hinweis 1</P>
+<P class=MsoNormal>Bei der Änderung des Lieferdatums…</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>im Lieferantenbestellungen 
+bearbeiten…</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>in der Sperrliste…</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>im Leitstand/Auftragsinfo 
+oder…</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>im Leitstand/Kundenaufträge - 
+Lieferdatum ändern…</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=MsoNormal>kann keine Uhrzeit eingegeben werden, d.h. hier wird die 
+Uhrzeit in der T026 überschrieben!</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Wenn in den FAKT-Parametern die Option "Lieferdatum mit 
+Uhrzeit" aktiviert ist und ein bestätigtes Lieferdatum mit Uhrzeit eingetragen 
+ist, so wird das Datum im Belegerfassen in der Belegmitte, in der 
+Artikelbedarfsvorschau und in der Sperrliste in der unteren Bildschirmtabelle 
+angezeigt.</P>
+<P class=MsoNormal>Ist die Option "Lieferdatum mit Uhrzeit" in den 
+FAKT-Parametern nicht aktiviert und wird in einem Einkaufsbeleg ein bestätigtes 
+Lieferdatum mit Uhrzeit eingetragen, so wird dieses im Belegerfassen in der 
+Belegmitte mit der Checkbox "Sofort" und in der Artikelbedarfsvorschau und in 
+der Sperrliste in der unteren Bildschirmtabelle mit dem Text "Sofortlieferung" 
+angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lagerorte im Kundenbestellungen bearbeiten</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_607.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Lagerorte im 
+Kundenbestellungen bearbeiten) berücksichtigen</P>
+<P class=MsoNormal>Mit Hilfe dieser Option kann definiert werden, wie mit 
+Lagerortartikeln im Programm "Kundenbestellungen bearbeiten" verfahren werden 
+soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist aktiviert 
+(Standard)<BR>Bei Artikel mit Lagerorten stehen alle Lagerortfunktionalitäten 
+(z.B. die Anzeige und Erfassung von Orten) zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist deaktiviert<BR>Bei 
+Deaktivierung der Option werden Artikel mit Lagerorten im "Kundenbestellungen 
+bearbeiten" wie "normale" Artikel berücksichtigt:<BR><BR></P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei der Anzeige der 
+auszuliefernden Artikel erfolgt keine automatische Aufteilung bzw. Zuweisung auf 
+Lagerorte.</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die Spalte "Lagerort" steht nicht 
+zur Verfügung.</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei Veränderung der Menge erfolgt 
+keine Prüfung gegen die Lagerortmenge bzw. den Lagerortbestand und Fenster 
+"Lagerorte - Erfassen" wird nicht geöffnet.</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Der Button "Lagerorte automatisch 
+aufteilen" hat keine Funktion.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Achtung</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">In der Regel muss eine 
+Aufteilung bzw. Zuweisung der Lagerorte zum Zeitpunkt des Lieferscheindrucks 
+vorliegen. D.h. wird mit diesem Modus gearbeitet, so muss zwischen 
+"Kundenbestellung bearbeiten" und "Lieferscheindruck" dieses, z.B. via 
+Batchbeleg-Import, anderweitig vorgenommen werden.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

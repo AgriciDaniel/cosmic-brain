@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "_comment": "Timeout/Approval pattern example using Fork with WaitAny join mode.",
+  "_note": "Replace 'Custom.WaitForApproval' with your actual approval activity type. Replace 'Elsa.*' types if you use different naming.",
+  
+  "definitionId": "timeout-approval-workflow",
+  "version": 1,
+  "name": "Approval with Timeout",
+  "description": "Demonstrates a pattern where a workflow waits for approval but has a timeout fallback. Whichever completes first wins.",
+  
+  "root": {
+    "type": "Elsa.Sequence",
+    "version": 1,
+    "activities": [
+      {
+        "id": "initialize",
+        "type": "Elsa.SetVariable",
+        "version": 1,
+        "_comment": "Initialize status variable",
+        "variable": {
+          "id": "ApprovalStatus",
+          "name": "ApprovalStatus",
+          "typeName": "String"
+        },
+        "value": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Pending"
+          }
+        }
+      },
+      {
+        "id": "log-start",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "Literal",
+            "value": "Waiting for approval (7 day timeout)..."
+          }
+        }
+      },
+      {
+        "id": "approval-race",
+        "type": "Elsa.Fork",
+        "version": 1,
+        "_comment": "Race between approval and timeout - first to complete wins",
+        "joinMode": "WaitAny",
+        "branches": [
+          {
+            "id": "approval-branch",
+            "type": "Elsa.Sequence",
+            "version": 1,
+            "_comment": "Branch 1: Wait for human approval",
+            "activities": [
+              {
+                "id": "wait-for-approval",
+                "type": "Custom.WaitForApproval",
+                "version": 1,
+                "_note": "REPLACE THIS with your actual approval activity type",
+                "_example_properties": {
+                  "message": "Please review and approve the request",
+                  "approverEmail": "approver@example.com",
+                  "requestId": {
+                    "expression": {
+                      "type": "JavaScript",
+                      "value": "getVariable('RequestId')"
+                    }
+                  }
+                }
+              },
+              {
+                "id": "set-approved",
+                "type": "Elsa.SetVariable",
+                "version": 1,
+                "variable": {
+                  "id": "ApprovalStatus",
+                  "name": "ApprovalStatus",
+                  "typeName": "String"
+                },
+                "value": {
+                  "typeName": "String",
+                  "expression": {
+                    "type": "Literal",
+                    "value": "Approved"
+                  }
+                }
+              },
+              {
+                "id": "log-approved",
+                "type": "Elsa.WriteLine",
+                "version": 1,
+                "text": {
+                  "typeName": "String",
+                  "expression": {
+                    "type": "Literal",
+                    "value": "Request was APPROVED before timeout"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "timeout-branch",
+            "type": "Elsa.Sequence",
+            "version": 1,
+            "_comment": "Branch 2: Timeout after 7 days",
+            "activities": [
+              {
+                "id": "timeout-delay",
+                "type": "Elsa.Delay",
+                "version": 1,
+                "_comment": "Wait for 7 days. Format: d.hh:mm:ss",
+                "timeSpan": {
+                  "typeName": "TimeSpan",
+                  "expression": {
+                    "type": "Literal",
+                    "value": "7.00:00:00"
+                  }
+                }
+              },
+              {
+                "id": "set-timed-out",
+                "type": "Elsa.SetVariable",
+                "version": 1,
+                "variable": {
+                  "id": "ApprovalStatus",
+                  "name": "ApprovalStatus",
+                  "typeName": "String"
+                },
+                "value": {
+                  "typeName": "String",
+                  "expression": {
+                    "type": "Literal",
+                    "value": "TimedOut"
+                  }
+                }
+              },
+              {
+                "id": "log-timeout",
+                "type": "Elsa.WriteLine",
+                "version": 1,
+                "text": {
+                  "typeName": "String",
+                  "expression": {
+                    "type": "Literal",
+                    "value": "Request TIMED OUT after 7 days"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "handle-outcome",
+        "type": "Elsa.Switch",
+        "version": 1,
+        "_comment": "Handle the outcome based on which branch completed first",
+        "expression": {
+          "typeName": "String",
+          "expression": {
+            "type": "JavaScript",
+            "value": "getVariable('ApprovalStatus')"
+          }
+        },
+        "cases": [
+          {
+            "label": "Approved",
+            "activity": {
+              "id": "process-approved",
+              "type": "Elsa.Sequence",
+              "activities": [
+                {
+                  "id": "log-processing-approved",
+                  "type": "Elsa.WriteLine",
+                  "text": {
+                    "typeName": "String",
+                    "expression": {
+                      "type": "Literal",
+                      "value": "Processing approved request..."
+                    }
+                  }
+                }
+              ],
+              "_comment": "Add your approval processing activities here"
+            }
+          },
+          {
+            "label": "TimedOut",
+            "activity": {
+              "id": "handle-timeout",
+              "type": "Elsa.Sequence",
+              "activities": [
+                {
+                  "id": "log-escalating",
+                  "type": "Elsa.WriteLine",
+                  "text": {
+                    "typeName": "String",
+                    "expression": {
+                      "type": "Literal",
+                      "value": "Escalating timed-out request to manager..."
+                    }
+                  }
+                }
+              ],
+              "_comment": "Add your timeout/escalation handling activities here"
+            }
+          }
+        ],
+        "default": {
+          "id": "handle-unknown",
+          "type": "Elsa.WriteLine",
+          "text": {
+            "typeName": "String",
+            "expression": {
+              "type": "Literal",
+              "value": "Unknown approval status"
+            }
+          }
+        }
+      },
+      {
+        "id": "log-complete",
+        "type": "Elsa.WriteLine",
+        "version": 1,
+        "text": {
+          "typeName": "String",
+          "expression": {
+            "type": "JavaScript",
+            "value": "`Workflow completed with status: ${getVariable('ApprovalStatus')}`"
+          }
+        }
+      }
+    ]
+  },
+  
+  "variables": [
+    {
+      "id": "ApprovalStatus",
+      "name": "ApprovalStatus",
+      "typeName": "String",
+      "value": "Pending"
+    },
+    {
+      "id": "RequestId",
+      "name": "RequestId",
+      "typeName": "String",
+      "_comment": "Set via workflow input"
+    }
+  ],
+  
+  "_usage_notes": {
+    "1_approval_activity": "Replace 'Custom.WaitForApproval' with your registered approval activity type. See activities/blocking-and-triggers/WaitForApprovalActivity.cs for an example implementation.",
+    "2_timeout_duration": "Adjust the delay duration (7.00:00:00) to match your SLA requirements. Format is days.hours:minutes:seconds.",
+    "3_clustered_deployment": "For clustered deployments, ensure Quartz is configured with clustering to prevent duplicate timeout executions. See guides/clustering/README.md.",
+    "4_rejection_handling": "This example shows Approved vs TimedOut. Extend with 'Rejected' outcome by checking WaitForApproval's output.",
+    "5_escalation_chain": "For multi-level escalation, nest additional Fork/Delay patterns in the timeout handler."
+  },
+  
+  "_scheduling_notes": {
+    "single_node": "DefaultBookmarkScheduler handles scheduling in single-node deployments.",
+    "clustered": "Configure Quartz.NET clustering to ensure only one node processes the timeout. See guides/clustering/README.md for configuration.",
+    "timezone": "Store times in UTC. The Delay activity uses server time; ensure all nodes are synchronized via NTP."
+  }
+}

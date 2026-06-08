@@ -1,0 +1,14 @@
+﻿@code
+{
+    const string Width = "100%";
+    const string Height = "800px";
+    readonly string ExplorerUrl = "https://fluentui-explorer.azurewebsites.net/emoji-explorer/";
+}
+
+<iframe src="@ExplorerUrl"
+        style="border: 0px none; height: @Height; width: @Width;"
+        id="emoji-explorer"
+        scrolling="yes" frameborder="0"
+        marginheight="0" marginwidth="0"
+        allow="clipboard-write https://fluentui-explorer.azurewebsites.net/*">
+</iframe>

@@ -1,0 +1,57 @@
+﻿@using System.ComponentModel.DataAnnotations
+
+<FluentGrid Spacing="4">
+    <FluentGridItem xs="12">
+        <h4>With auto-fit</h4>
+        <FluentDataGrid Items="@people" Style="width: 100%;" AutoFit="true">
+            <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Bio)" />
+        </FluentDataGrid>
+    </FluentGridItem>
+    <FluentGridItem xs="12">
+        <h4>Without auto-fit</h4>
+        <FluentDataGrid Items="@people">
+            <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Bio)" />
+        </FluentDataGrid>
+    </FluentGridItem>
+</FluentGrid>
+
+@code {
+    public class Person
+    {
+        public Person(int personId, string name, DateOnly birthDate, string bio)
+        {
+            PersonId = personId;
+            Name = name;
+            BirthDate = birthDate;
+            Bio = bio;
+        }
+
+        [Display(Name = "Identity")]
+        public int PersonId { get; set; }
+
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Display(Name = "Birth date")]
+        public DateOnly BirthDate { get; set; }
+
+        [Display(Name = "Biography")]
+        public string Bio { get; set; }
+    }
+
+    IQueryable<Person> people = new[]
+    {
+        new Person(10895, "Jean Martin", new DateOnly(1825, 11, 29), "Born on November 29, 1825, in Paris, France, is renowned as the founder of modern neurology."),
+        new Person(10944, "António Langa", new DateOnly(1972, 5, 15), "Born on May 15, 1972, in Columbia, South Carolina, is a distinguished former professional basketball player."),
+        new Person(11203, "Julie Smith", new DateOnly(1944, 11, 25), "Born on November 25, 1944, in Annapolis, Maryland, is an acclaimed American mystery writer celebrated for her rich storytelling."),
+        new Person(11205, "Nur Sari", new DateOnly(1922, 4, 27), "Nur Sari is a fictional character known for her extraordinary contributions to the field of renewable energy."),
+        new Person(11898, "Jose Hernandez", new DateOnly(1962, 8, 7), "Born on August 7, 1962, in French Camp, California, is a Mexican-American engineer."),
+        new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9), ""),
+    }.AsQueryable();
+}

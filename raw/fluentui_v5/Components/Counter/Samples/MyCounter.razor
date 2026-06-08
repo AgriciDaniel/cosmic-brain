@@ -1,0 +1,14 @@
+﻿@page "/MyCounter"
+
+Value: @Value
+
+<button @onclick="Button_Click">Click</button>
+
+@code {
+    private int Value = 0;
+
+    private void Button_Click()
+    {
+        Value++;
+    }
+}

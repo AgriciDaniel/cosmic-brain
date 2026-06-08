@@ -1,0 +1,53 @@
+﻿<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick">Default</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Primary">Primary</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Outline">Outline</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Subtle">Subtle</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Transparent">Transparent</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" BackgroundColor="var(--highlight-bg)" Color="var(--presence-busy)">Colored</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+<FluentMenu>
+    <FluentMenuButton OnClick="@ButtonClick" Disabled="true">Disabled</FluentMenuButton>
+    @RenderMenuItems()
+</FluentMenu>
+
+
+@code
+{
+    void ButtonClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+
+
+    RenderFragment RenderMenuItems() =>
+        @<FluentMenuList>
+        <FluentMenuItem>Menu item 1</FluentMenuItem>
+        <FluentMenuItem>Menu item 2</FluentMenuItem>
+        <FluentMenuItem>Menu item 3</FluentMenuItem>
+        <FluentMenuItem>Menu item 4</FluentMenuItem>
+    </FluentMenuList>;
+
+}

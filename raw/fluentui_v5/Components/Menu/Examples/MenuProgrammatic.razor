@@ -1,0 +1,36 @@
+﻿<FluentStack Orientation="Orientation.Horizontal" HorizontalGap="10">
+    <FluentMenu @ref=@Menu>
+        <FluentButton Appearance="ButtonAppearance.Primary" slot="@FluentSlot.Trigger">Menu shows here</FluentButton>
+        <FluentMenuList>
+            <FluentMenuItem>Menu item 1</FluentMenuItem>
+            <FluentMenuItem>Menu item 2</FluentMenuItem>
+            <FluentMenuItem>Menu item 3</FluentMenuItem>
+            <FluentMenuItem>Menu item 4</FluentMenuItem>
+        </FluentMenuList>
+    </FluentMenu>
+
+    <FluentButton OnClick="OpenMenuAsync">Open menu</FluentButton>
+    <FluentButton OnClick="CloseMenuAsync">Close menu</FluentButton>
+</FluentStack>
+
+@code {
+    private FluentMenu? Menu { get; set; }
+
+    private async Task OpenMenuAsync()
+    {
+        if (Menu != null)
+        {
+            await Menu.OpenMenuAsync();
+            Console.WriteLine("Menu opened programmatically");
+        }
+    }
+
+    private async Task CloseMenuAsync()
+    {
+        if (Menu != null)
+        {
+            await Menu.CloseMenuAsync();
+            Console.WriteLine("Menu closed programmatically");
+        }
+    }
+}

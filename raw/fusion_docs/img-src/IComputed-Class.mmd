@@ -1,0 +1,16 @@
+classDiagram
+  IResult <|-- IComputed
+  class IComputed {
+    +ConsistencyState ConsistencyState
+    +LTag Version
+    +TIn Input
+    +Result~TOut~ Output
+    +TOut Value
+    +Exception? Error
+    +event~Action~ Invalidated
+
+    +Invalidate() void
+    +UpdateAsync() ValueTask~IComputed~
+    +UseAsync() ValueTask~TOut~
+    +WhenInvalidatedAsync() Task
+  }

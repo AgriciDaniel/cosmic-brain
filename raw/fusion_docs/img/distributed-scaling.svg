@@ -1,0 +1,624 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 870 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#d0daea" stop-opacity="0.12"/>
+    </linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#b8c0cc"/>
+    </marker>
+    <style>
+      .sh { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase }
+      .bl { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 9px; fill: #5c6b82; font-weight: 500 }
+      .wh { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 9px; fill: #5c6b82; font-weight: 600 }
+      .dbl { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 8px; fill: #a09488; font-weight: 500; font-style: italic }
+      .lg { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #8b90a8; font-style: italic; stroke: none }
+      .desc { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 11px; fill: #5c6b82; font-weight: 500; text-anchor: middle }
+
+      /* 48s cycle. Invalidation R→L with fade+drift, recomputation L→R with cache hits. */
+
+      /* Old nodes: bleach → fade + drift down (staggered by x-position) */
+      @keyframes old-B2-0 {
+        0%,10% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        11% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        18% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-B2-1 {
+        0%,12% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        13% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        20% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-B2-2 {
+        0%,8% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        9% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        16% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A1-0 {
+        0%,15% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        16% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        23% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A1-1 {
+        0%,13% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        14% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        21% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A1-2 {
+        0%,11% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        12% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        19% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A2-0 {
+        0%,15% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        16% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        23% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A2-1 {
+        0%,13% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        14% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        21% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-A2-3 {
+        0%,11% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        12% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        19% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C1-0 {
+        0%,18% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        19% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        26% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C1-1 {
+        0%,16% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        17% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        24% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C1-2 {
+        0%,14% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        15% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        22% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C2-0 {
+        0%,17% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        18% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        25% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C2-1 {
+        0%,15% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        16% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        23% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C4-0 {
+        0%,20% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        21% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        28% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+      @keyframes old-C4-1 {
+        0%,18% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        19% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.85;transform:translateY(2px)}
+        26% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(12px)}
+        100% {opacity:0;transform:translateY(12px)}
+      }
+
+      /* New nodes: appear computing → green (with optional cache-hit flashes) */
+      @keyframes new-C1-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        29% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        43% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        44% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C1-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        29% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        43% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        44% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C1-2 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        29% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        43% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        44% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A1-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        39% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        40% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        52% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        54% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        56% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A1-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        39% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        40% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        52% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        54% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        56% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A1-2 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        31% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        39% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        40% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        52% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        54% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        56% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-B2-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        35% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        37% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        38% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        66% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        68% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-B2-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        65% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        67% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        69% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-B2-2 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        35% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        37% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        38% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        66% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        68% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C2-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        49% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        51% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        55% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        56% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C2-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        49% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        51% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        55% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        56% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C4-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        61% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        63% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        71% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        72% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-C4-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        61% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        63% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        71% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        72% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A2-0 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        63% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        65% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        69% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A2-1 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        63% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        65% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        69% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes new-A2-3 {
+        0% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        63% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        65% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        69% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        70% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+        100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+
+      /* B2 DB node flash */
+      @keyframes db-flash {
+        0%,7% {fill:#e4ddd6;stroke:#b0a498;stroke-width:1.5}
+        8%,10% {fill:#f0c8a0;stroke:#d09050;stroke-width:2.5}
+        12%,100% {fill:#e4ddd6;stroke:#b0a498;stroke-width:1.5}
+      }
+
+      /* Animated internal edges */
+      @keyframes ie-B2-0-B2-2 {
+        0%,10% {opacity:1} 11% {opacity:0} 33% {opacity:0} 34%,100% {opacity:1}
+      }
+      @keyframes ie-B2-1-B2-2 {
+        0%,12% {opacity:1} 13% {opacity:0} 65% {opacity:0} 66%,100% {opacity:1}
+      }
+      @keyframes ie-B2-2-B2-3 {
+        0%,8% {opacity:1} 9% {opacity:0} 33% {opacity:0} 34%,100% {opacity:1}
+      }
+      @keyframes ie-A1-0-A1-1 {
+        0%,15% {opacity:1} 16% {opacity:0} 31% {opacity:0} 32%,100% {opacity:1}
+      }
+      @keyframes ie-A1-1-A1-2 {
+        0%,13% {opacity:1} 14% {opacity:0} 31% {opacity:0} 32%,100% {opacity:1}
+      }
+      @keyframes ie-A1-0-A1-3 {
+        0%,15% {opacity:1} 16% {opacity:0} 31% {opacity:0} 32%,100% {opacity:1}
+      }
+      @keyframes ie-A2-0-A2-1 {
+        0%,15% {opacity:1} 16% {opacity:0} 63% {opacity:0} 64%,100% {opacity:1}
+      }
+      @keyframes ie-A2-0-A2-2 {
+        0%,15% {opacity:1} 16% {opacity:0} 63% {opacity:0} 64%,100% {opacity:1}
+      }
+      @keyframes ie-A2-1-A2-3 {
+        0%,13% {opacity:1} 14% {opacity:0} 63% {opacity:0} 64%,100% {opacity:1}
+      }
+      @keyframes ie-C1-0-C1-1 {
+        0%,18% {opacity:1} 19% {opacity:0} 29% {opacity:0} 30%,100% {opacity:1}
+      }
+      @keyframes ie-C1-1-C1-2 {
+        0%,16% {opacity:1} 17% {opacity:0} 29% {opacity:0} 30%,100% {opacity:1}
+      }
+      @keyframes ie-C2-0-C2-1 {
+        0%,17% {opacity:1} 18% {opacity:0} 49% {opacity:0} 50%,100% {opacity:1}
+      }
+      @keyframes ie-C2-0-C2-2 {
+        0%,17% {opacity:1} 18% {opacity:0} 49% {opacity:0} 50%,100% {opacity:1}
+      }
+      @keyframes ie-C2-1-C2-3 {
+        0%,15% {opacity:1} 16% {opacity:0} 49% {opacity:0} 50%,100% {opacity:1}
+      }
+      @keyframes ie-C4-0-C4-1 {
+        0%,20% {opacity:1} 21% {opacity:0} 61% {opacity:0} 62%,100% {opacity:1}
+      }
+      @keyframes ie-C4-0-C4-2 {
+        0%,20% {opacity:1} 21% {opacity:0} 61% {opacity:0} 62%,100% {opacity:1}
+      }
+
+      /* Volatile cross-box edges */
+      @keyframes xe-C1-2-A1-0 {
+        0%,14% {opacity:0.5} 15% {opacity:0} 29% {opacity:0} 30%,100% {opacity:0.5}
+      }
+      @keyframes xe-C2-1-A1-0 {
+        0%,15% {opacity:0.5} 16% {opacity:0} 49% {opacity:0} 50%,100% {opacity:0.5}
+      }
+      @keyframes xe-C4-1-A2-0 {
+        0%,18% {opacity:0.5} 19% {opacity:0} 61% {opacity:0} 62%,100% {opacity:0.5}
+      }
+      @keyframes xe-A1-2-B2-0 {
+        0%,11% {opacity:0.5} 12% {opacity:0} 31% {opacity:0} 32%,100% {opacity:0.5}
+      }
+      @keyframes xe-A2-3-B2-1 {
+        0%,11% {opacity:0.5} 12% {opacity:0} 63% {opacity:0} 64%,100% {opacity:0.5}
+      }
+
+      /* Box stroke animations */
+      @keyframes bx-B2 {
+        0%,7% {stroke:#c0c8d4}
+        8%,33% {stroke:#c4bab2}
+        34%,69% {stroke:#6b9ad4}
+        70%,100% {stroke:#c0c8d4}
+      }
+      @keyframes bx-A1 {
+        0%,10% {stroke:#c0c8d4}
+        11%,31% {stroke:#c4bab2}
+        32%,39% {stroke:#6b9ad4}
+        40%,100% {stroke:#c0c8d4}
+      }
+      @keyframes bx-A2 {
+        0%,10% {stroke:#c0c8d4}
+        11%,63% {stroke:#c4bab2}
+        64%,69% {stroke:#6b9ad4}
+        70%,100% {stroke:#c0c8d4}
+      }
+      @keyframes bx-C1 {
+        0%,13% {stroke:#c0c8d4}
+        14%,29% {stroke:#c4bab2}
+        30%,43% {stroke:#6b9ad4}
+        44%,100% {stroke:#c0c8d4}
+      }
+      @keyframes bx-C2 {
+        0%,14% {stroke:#c0c8d4}
+        15%,49% {stroke:#c4bab2}
+        50%,55% {stroke:#6b9ad4}
+        56%,100% {stroke:#c0c8d4}
+      }
+      @keyframes bx-C4 {
+        0%,17% {stroke:#c0c8d4}
+        18%,61% {stroke:#c4bab2}
+        62%,71% {stroke:#6b9ad4}
+        72%,100% {stroke:#c0c8d4}
+      }
+
+      /* Description text phases */
+      @keyframes desc-0 {
+        0%,0% {opacity:0} 0%,6% {opacity:1} 7%,100% {opacity:0}
+      }
+      @keyframes desc-1 {
+        0%,6% {opacity:0} 7%,10% {opacity:1} 11%,100% {opacity:0}
+      }
+      @keyframes desc-2 {
+        0%,10% {opacity:0} 11%,22% {opacity:1} 23%,100% {opacity:0}
+      }
+      @keyframes desc-3 {
+        0%,29% {opacity:0} 30%,44% {opacity:1} 45%,100% {opacity:0}
+      }
+      @keyframes desc-4 {
+        0%,49% {opacity:0} 50%,56% {opacity:1} 57%,100% {opacity:0}
+      }
+      @keyframes desc-5 {
+        0%,61% {opacity:0} 62%,72% {opacity:1} 73%,100% {opacity:0}
+      }
+      @keyframes desc-6 {
+        0%,77% {opacity:0} 78%,100% {opacity:1} 100%,100% {opacity:0}
+      }
+
+      /* Apply animations */
+      #old-B2-0{animation:old-B2-0 48s ease infinite} #old-B2-1{animation:old-B2-1 48s ease infinite} #old-B2-2{animation:old-B2-2 48s ease infinite} #old-A1-0{animation:old-A1-0 48s ease infinite} #old-A1-1{animation:old-A1-1 48s ease infinite} #old-A1-2{animation:old-A1-2 48s ease infinite} #old-A2-0{animation:old-A2-0 48s ease infinite} #old-A2-1{animation:old-A2-1 48s ease infinite} #old-A2-3{animation:old-A2-3 48s ease infinite} #old-C1-0{animation:old-C1-0 48s ease infinite} #old-C1-1{animation:old-C1-1 48s ease infinite} #old-C1-2{animation:old-C1-2 48s ease infinite} #old-C2-0{animation:old-C2-0 48s ease infinite} #old-C2-1{animation:old-C2-1 48s ease infinite} #old-C4-0{animation:old-C4-0 48s ease infinite} #old-C4-1{animation:old-C4-1 48s ease infinite}
+      #new-C1-0{animation:new-C1-0 48s ease infinite} #new-C1-1{animation:new-C1-1 48s ease infinite} #new-C1-2{animation:new-C1-2 48s ease infinite} #new-A1-0{animation:new-A1-0 48s ease infinite} #new-A1-1{animation:new-A1-1 48s ease infinite} #new-A1-2{animation:new-A1-2 48s ease infinite} #new-B2-0{animation:new-B2-0 48s ease infinite} #new-B2-1{animation:new-B2-1 48s ease infinite} #new-B2-2{animation:new-B2-2 48s ease infinite} #new-C2-0{animation:new-C2-0 48s ease infinite} #new-C2-1{animation:new-C2-1 48s ease infinite} #new-C4-0{animation:new-C4-0 48s ease infinite} #new-C4-1{animation:new-C4-1 48s ease infinite} #new-A2-0{animation:new-A2-0 48s ease infinite} #new-A2-1{animation:new-A2-1 48s ease infinite} #new-A2-3{animation:new-A2-3 48s ease infinite}
+      #db-B2-3{animation:db-flash 48s ease infinite}
+      #ie-B2-0-B2-2{animation:ie-B2-0-B2-2 48s ease infinite} #ie-B2-1-B2-2{animation:ie-B2-1-B2-2 48s ease infinite} #ie-B2-2-B2-3{animation:ie-B2-2-B2-3 48s ease infinite} #ie-A1-0-A1-1{animation:ie-A1-0-A1-1 48s ease infinite} #ie-A1-1-A1-2{animation:ie-A1-1-A1-2 48s ease infinite} #ie-A1-0-A1-3{animation:ie-A1-0-A1-3 48s ease infinite} #ie-A2-0-A2-1{animation:ie-A2-0-A2-1 48s ease infinite} #ie-A2-0-A2-2{animation:ie-A2-0-A2-2 48s ease infinite} #ie-A2-1-A2-3{animation:ie-A2-1-A2-3 48s ease infinite} #ie-C1-0-C1-1{animation:ie-C1-0-C1-1 48s ease infinite} #ie-C1-1-C1-2{animation:ie-C1-1-C1-2 48s ease infinite} #ie-C2-0-C2-1{animation:ie-C2-0-C2-1 48s ease infinite} #ie-C2-0-C2-2{animation:ie-C2-0-C2-2 48s ease infinite} #ie-C2-1-C2-3{animation:ie-C2-1-C2-3 48s ease infinite} #ie-C4-0-C4-1{animation:ie-C4-0-C4-1 48s ease infinite} #ie-C4-0-C4-2{animation:ie-C4-0-C4-2 48s ease infinite}
+      #xe-C1-2-A1-0{animation:xe-C1-2-A1-0 48s ease infinite} #xe-C2-1-A1-0{animation:xe-C2-1-A1-0 48s ease infinite} #xe-C4-1-A2-0{animation:xe-C4-1-A2-0 48s ease infinite} #xe-A1-2-B2-0{animation:xe-A1-2-B2-0 48s ease infinite} #xe-A2-3-B2-1{animation:xe-A2-3-B2-1 48s ease infinite}
+      #bx-B2{animation:bx-B2 48s ease infinite} #bx-A1{animation:bx-A1 48s ease infinite} #bx-A2{animation:bx-A2 48s ease infinite} #bx-C1{animation:bx-C1 48s ease infinite} #bx-C2{animation:bx-C2 48s ease infinite} #bx-C4{animation:bx-C4 48s ease infinite}
+      #desc-0{animation:desc-0 48s ease infinite} #desc-1{animation:desc-1 48s ease infinite} #desc-2{animation:desc-2 48s ease infinite} #desc-3{animation:desc-3 48s ease infinite} #desc-4{animation:desc-4 48s ease infinite} #desc-5{animation:desc-5 48s ease infinite} #desc-6{animation:desc-6 48s ease infinite}
+    </style>
+  </defs>
+  <rect width="870" height="600" rx="10" fill="url(#bg)"/>
+
+  <!-- Section panels -->
+  <rect x="10" y="34" width="275" height="470" rx="8" fill="url(#sbg)"/>
+  <rect x="295" y="34" width="275" height="470" rx="8" fill="url(#sbg)"/>
+  <rect x="580" y="34" width="275" height="470" rx="8" fill="url(#sbg)"/>
+
+  <line x1="290" y1="34" x2="290" y2="504" stroke="#c8d0dc" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="575" y1="34" x2="575" y2="504" stroke="#c8d0dc" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <text x="150" y="26" class="sh" text-anchor="middle">Clients</text>
+  <text x="435" y="26" class="sh" text-anchor="middle">API Servers</text>
+  <text x="720" y="26" class="sh" text-anchor="middle">Backend Servers</text>
+
+  <!-- Window-style boxes -->
+  <rect id="bx-C1" x="50" y="42" width="200" height="70" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="50" y="42" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="50" y="54" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="50" y1="60" x2="250" y2="60" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="150" y="55" class="wh" text-anchor="middle">Client 1</text>
+  <rect id="bx-C2" x="50" y="120" width="200" height="82" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="50" y="120" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="50" y="132" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="50" y1="138" x2="250" y2="138" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="150" y="133" class="wh" text-anchor="middle">Client 2</text>
+  <rect x="50" y="210" width="200" height="96" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="50" y="210" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="50" y="222" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="50" y1="228" x2="250" y2="228" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="150" y="223" class="wh" text-anchor="middle">Client 3</text>
+  <rect id="bx-C4" x="50" y="330" width="200" height="70" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="50" y="330" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="50" y="342" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="50" y1="348" x2="250" y2="348" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="150" y="343" class="wh" text-anchor="middle">Client 4</text>
+  <rect x="50" y="408" width="200" height="82" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="50" y="408" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="50" y="420" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="50" y1="426" x2="250" y2="426" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="150" y="421" class="wh" text-anchor="middle">Client 5</text>
+  <rect id="bx-A1" x="335" y="42" width="200" height="248" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="335" y="42" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="335" y="54" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="335" y1="60" x2="535" y2="60" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="435" y="55" class="wh" text-anchor="middle">API Server 1</text>
+  <rect id="bx-A2" x="335" y="318" width="200" height="172" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="335" y="318" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="335" y="330" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="335" y1="336" x2="535" y2="336" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="435" y="331" class="wh" text-anchor="middle">API Server 2</text>
+  <rect x="620" y="42" width="200" height="96" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="620" y="42" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="620" y="54" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="620" y1="60" x2="820" y2="60" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="720" y="55" class="wh" text-anchor="middle">Backend 1</text>
+  <rect id="bx-B2" x="620" y="174" width="200" height="108" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="620" y="174" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="620" y="186" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="620" y1="192" x2="820" y2="192" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="720" y="187" class="wh" text-anchor="middle">Backend 2</text>
+  <rect x="620" y="318" width="200" height="96" rx="6" fill="#f0f4fa" stroke="#c0c8d4" stroke-width="1.5"/>
+  <rect x="620" y="318" width="200" height="18" rx="6" fill="#e4e9f2"/>
+  <rect x="620" y="330" width="200" height="6" fill="#e4e9f2"/>
+  <line x1="620" y1="336" x2="820" y2="336" stroke="#c0c8d4" stroke-width="1"/>
+  <text x="720" y="331" class="wh" text-anchor="middle">Backend 3</text>
+
+  <!-- DB partition lines -->
+  <line x1="744" y1="64" x2="744" y2="130" stroke="#b8b0a4" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="782" y="132" class="dbl" text-anchor="middle">DBs</text>
+  <line x1="744" y1="196" x2="744" y2="274" stroke="#b8b0a4" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="782" y="276" class="dbl" text-anchor="middle">DBs</text>
+  <line x1="744" y1="340" x2="744" y2="406" stroke="#b8b0a4" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+  <text x="782" y="408" class="dbl" text-anchor="middle">DBs</text>
+
+  <!-- Static internal edges -->
+  <line x1="155" y1="183" x2="208" y2="171" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="83" y1="265" x2="123" y2="252" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="83" y1="269" x2="123" y2="282" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="133" y1="252" x2="177" y2="265" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="133" y1="282" x2="177" y2="269" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="187" y1="266" x2="221" y2="256" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="92" y1="450" x2="149" y2="447" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="92" y1="451" x2="149" y2="469" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="159" y1="448" x2="208" y2="461" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="426" y1="447" x2="484" y2="452" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="667" y1="86" x2="765" y2="86" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="667" y1="112" x2="765" y2="112" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="671" y1="362" x2="765" y2="362" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="671" y1="388" x2="765" y2="388" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+
+  <!-- Animated internal edges -->
+  <line id="ie-B2-0-B2-2" x1="660" y1="219" x2="701" y2="235" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-B2-1-B2-2" x1="660" y1="255" x2="701" y2="239" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-B2-2-B2-3" x1="711" y1="237" x2="773" y2="237" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A1-0-A1-1" x1="372" y1="111" x2="426" y2="105" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A1-1-A1-2" x1="436" y1="104" x2="493" y2="108" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A1-0-A1-3" x1="371" y1="115" x2="494" y2="197" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A2-0-A2-1" x1="372" y1="374" x2="416" y2="368" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A2-0-A2-2" x1="370" y1="379" x2="418" y2="442" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-A2-1-A2-3" x1="426" y1="367" x2="484" y2="370" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C1-0-C1-1" x1="97" y1="82" x2="149" y2="91" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C1-1-C1-2" x1="159" y1="91" x2="208" y2="83" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C2-0-C2-1" x1="92" y1="169" x2="145" y2="157" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C2-0-C2-2" x1="92" y1="171" x2="145" y2="183" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C2-1-C2-3" x1="155" y1="157" x2="208" y2="169" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C4-0-C4-1" x1="97" y1="374" x2="203" y2="365" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="ie-C4-0-C4-2" x1="97" y1="374" x2="203" y2="383" stroke="#b8c0cc" stroke-width="1" stroke-linecap="round" marker-end="url(#ah)"/>
+
+  <!-- Permanent cross-box edges (safe path) -->
+  <line x1="231" y1="254" x2="493" y2="201" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.35"/>
+  <line x1="213" y1="384" x2="416" y2="445" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.35"/>
+  <line x1="218" y1="462" x2="416" y2="446" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.35"/>
+  <line x1="502" y1="197" x2="658" y2="89" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.35"/>
+  <line x1="493" y1="451" x2="662" y2="364" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.35"/>
+
+  <!-- Volatile cross-box edges (affected path) -->
+  <line id="xe-C1-2-A1-0" x1="218" y1="83" x2="362" y2="111" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.5"/>
+  <line id="xe-C2-1-A1-0" x1="155" y1="155" x2="362" y2="113" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.5"/>
+  <line id="xe-C4-1-A2-0" x1="213" y1="365" x2="362" y2="375" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.5"/>
+  <line id="xe-A1-2-B2-0" x1="502" y1="111" x2="651" y2="214" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.5"/>
+  <line id="xe-A2-3-B2-1" x1="493" y1="367" x2="651" y2="260" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3" opacity="0.5"/>
+
+  <!-- Static nodes -->
+  <circle cx="150" cy="184" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="213" cy="170" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="78" cy="267" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="128" cy="250" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="128" cy="284" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="182" cy="267" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="226" cy="255" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="208" cy="383" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="87" cy="450" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="154" cy="447" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="154" cy="470" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="213" cy="462" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="498" cy="200" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="421" cy="446" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="489" cy="453" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="662" cy="86" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="662" cy="112" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="666" cy="362" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <circle cx="666" cy="388" r="5" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+
+  <!-- DB nodes -->
+  <circle cx="770" cy="86" r="5" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+  <circle cx="770" cy="112" r="5" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+  <circle id="db-B2-3" cx="778" cy="237" r="5" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+  <circle cx="770" cy="362" r="5" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+  <circle cx="770" cy="388" r="5" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+
+  <!-- Old nodes (fade + drift down during invalidation) -->
+  <g id="old-B2-0"><circle cx="655" cy="217" r="5"/></g>
+  <g id="old-B2-1"><circle cx="655" cy="257" r="5"/></g>
+  <g id="old-B2-2"><circle cx="706" cy="237" r="5"/></g>
+  <g id="old-A1-0"><circle cx="367" cy="112" r="5"/></g>
+  <g id="old-A1-1"><circle cx="431" cy="104" r="5"/></g>
+  <g id="old-A1-2"><circle cx="498" cy="108" r="5"/></g>
+  <g id="old-A2-0"><circle cx="367" cy="375" r="5"/></g>
+  <g id="old-A2-1"><circle cx="421" cy="367" r="5"/></g>
+  <g id="old-A2-3"><circle cx="489" cy="370" r="5"/></g>
+  <g id="old-C1-0"><circle cx="92" cy="81" r="5"/></g>
+  <g id="old-C1-1"><circle cx="154" cy="92" r="5"/></g>
+  <g id="old-C1-2"><circle cx="213" cy="82" r="5"/></g>
+  <g id="old-C2-0"><circle cx="87" cy="170" r="5"/></g>
+  <g id="old-C2-1"><circle cx="150" cy="156" r="5"/></g>
+  <g id="old-C4-0"><circle cx="92" cy="374" r="5"/></g>
+  <g id="old-C4-1"><circle cx="208" cy="365" r="5"/></g>
+
+  <!-- New nodes (appear during recomputation: blue → green) -->
+  <g id="new-C1-0"><circle cx="92" cy="81" r="5"/></g>
+  <g id="new-C1-1"><circle cx="154" cy="92" r="5"/></g>
+  <g id="new-C1-2"><circle cx="213" cy="82" r="5"/></g>
+  <g id="new-A1-0"><circle cx="367" cy="112" r="5"/></g>
+  <g id="new-A1-1"><circle cx="431" cy="104" r="5"/></g>
+  <g id="new-A1-2"><circle cx="498" cy="108" r="5"/></g>
+  <g id="new-B2-0"><circle cx="655" cy="217" r="5"/></g>
+  <g id="new-B2-1"><circle cx="655" cy="257" r="5"/></g>
+  <g id="new-B2-2"><circle cx="706" cy="237" r="5"/></g>
+  <g id="new-C2-0"><circle cx="87" cy="170" r="5"/></g>
+  <g id="new-C2-1"><circle cx="150" cy="156" r="5"/></g>
+  <g id="new-C4-0"><circle cx="92" cy="374" r="5"/></g>
+  <g id="new-C4-1"><circle cx="208" cy="365" r="5"/></g>
+  <g id="new-A2-0"><circle cx="367" cy="375" r="5"/></g>
+  <g id="new-A2-1"><circle cx="421" cy="367" r="5"/></g>
+  <g id="new-A2-3"><circle cx="489" cy="370" r="5"/></g>
+
+  <!-- Description text -->
+  <text id="desc-0" x="435" y="530" class="desc" opacity="0">All computed values are consistent</text>
+  <text id="desc-1" x="435" y="530" class="desc" opacity="0">A database change in Backend 2 triggers invalidation</text>
+  <text id="desc-2" x="435" y="530" class="desc" opacity="0">Invalidation cascades through both API servers to Clients 1, 2, and 4</text>
+  <text id="desc-3" x="435" y="530" class="desc" opacity="0">Client 1 recomputes — full chain through API Server 1 to Backend 2</text>
+  <text id="desc-4" x="435" y="530" class="desc" opacity="0">Client 2 recomputes — API Server 1 is already computed (cache hit)</text>
+  <text id="desc-5" x="435" y="530" class="desc" opacity="0">Client 4 recomputes via API Server 2 — Backend 2 is already consistent (cache hit)</text>
+  <text id="desc-6" x="435" y="530" class="desc" opacity="0">All computed values are consistent again</text>
+
+  <!-- Legend -->
+  <g transform="translate(135, 580)">
+    <circle cx="0" cy="-2" r="4" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="8" y="2" class="lg">consistent</text>
+    <circle cx="90" cy="-2" r="4" fill="#ede8e3" stroke="#c4bab2" stroke-width="1.5"/>
+    <text x="98" y="2" class="lg">invalidated</text>
+    <circle cx="195" cy="-2" r="4" fill="#c8ddf8" stroke="#6b9ad4" stroke-width="1.5"/>
+    <text x="203" y="2" class="lg">computing</text>
+    <circle cx="295" cy="-2" r="4" fill="#b0dcc0" stroke="#58a078" stroke-width="1.5"/>
+    <text x="303" y="2" class="lg">cache hit</text>
+    <line x1="375" y1="-2" x2="405" y2="-2" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="5,3" stroke-linecap="round"/>
+    <text x="413" y="2" class="lg">network hop</text>
+    <circle cx="500" cy="-2" r="4" fill="#e4ddd6" stroke="#b0a498" stroke-width="1.5"/>
+    <text x="508" y="2" class="lg">DB (ground truth)</text>
+  </g>
+</svg>

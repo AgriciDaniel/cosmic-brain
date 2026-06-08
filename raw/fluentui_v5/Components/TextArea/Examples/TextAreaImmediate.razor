@@ -1,0 +1,15 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentTextArea Appearance="@TextAreaAppearance.Outline"
+                    Placeholder="Updated after 400ms"
+                    @bind-Value="@value"
+                    @bind-Value:after="@(() => Console.WriteLine($"Textarea updated to '{value}'.") )"
+                    Immediate="true"
+                    ImmediateDelay="400" />
+
+    <FluentLabel>Value = @value</FluentLabel>
+</FluentStack>
+
+@code
+{
+    string value = "";
+}

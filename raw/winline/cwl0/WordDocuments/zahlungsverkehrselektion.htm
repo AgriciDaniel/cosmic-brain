@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Zahlungsverkehr - Selektion</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="zahlungsverkehr.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="zahlungsverkehrausgabe.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Zahlungsverkehr - Selektion</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc473645634>Zahlungsverkehr 
+- Selektion</A></H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Zahlungsverkehr - Selektionstabelle ist ein eigenes 
+Fenster außerhalb des Zahlungsverkehrs.</P>
+<P class=MsoNormal>Während das Fenster geöffnet ist, kann im dahinter geöffneten 
+"Ausgabe"-Fenster kein Button geklickt und auch kein Schritt in der 
+Assistenten-Tabelle ausgewählt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Selektionstabelle werden alle fälligen OPs 
+entsprechend den zuvor definierten Parametern dargestellt. Vor jeder Kontonummer 
+und vor jeder Faktura gibt es eine Checkbox. Durch Setzen des Flags vor der 
+entsprechenden Kontonummer werden alle Fakturen dieses Kontos für den 
+Zahlungsverkehr selektiert. Sollen nur ausgewählte Fakturen für die Zahlung 
+vorgesehen werden können durch Setzten dieses Flags innerhalb des entsprechenden 
+Kontos einzelne Fakturen selektiert oder deselektiert werden. In der Spalte 
+"Stapel" wird die Stapelnummer des Zahlungsstapels dargestellt. Wollen Sie eine 
+bestimmte OP manuell in einen anderen Stapel verschieben können Sie die 
+Stapelnummer auf eine andere bestehende Stapelnummer ändern. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_253.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Jede Überweisungseinheit besteht aus einer Summenzeile (pro 
+Konto) und den darunter stehenden einzelnen OP-Zeilen (die in Summe natürlich 
+den darüber dargestellten Gesamtbetrag ergeben). Ist der Summenbetrag positiv, 
+könnte die Überweisung für das Konto durchgeführt werden. Ist der Summenbetrag 
+negativ, wäre der Überweisungsbetrag für das Konto ebenfalls negativ - womit das 
+Konto beim endgültigen Überweisungslauf selbstverständlich abgelehnt würde. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Da sich erst aus der Zusammensetzung der einzelnen OP-Zeilen 
+in der Bearbeitungstabelle eine positive oder negative Gesamtsumme errechnet (je 
+nachdem, welche Rechnungen oder Gutschriften für den Stapel selektiert worden 
+sind), müssen im ersten Schritt ALLE Konten mit fälligen OPs für die Bearbeitung 
+freigegeben werden. Erst beim Verschieben in die anderen Stapel oder den 
+Überweisungslauf selbst wird die Summe pro Konto bezüglich Vorzeichen geprüft 
+und - sofern die Überweisung einen negativen Betrag ergeben würde - 
+abgelehnt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Summenzeile wird die für den Stapel eingestellte 
+Hausbank mit dem aktuellen Saldo angezeigt. In derselben Zeile sehen Sie auch 
+die Summe der zu überweisenden OPs.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Pro OP-Zeile können Sie auch noch manuell den Zahlungsbetrag 
+und den Skontobetrag editieren, falls Sie den Zahlungsvorschlag (der 
+selbstverständlich die in den Fakturen gegebenen Konditionen bezüglich 
+Skontoberechnung automatisch berücksichtigt) noch überarbeiten wollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Option "Bankverbindung berücksichtigen" verwendet, 
+kann durch einen Doppelklick auf die Bankverbindung eine andere Bankverbindung 
+aus den weiteren Bankverbindungen des Personenkontos ausgewählt werden. Sollten 
+dadurch mehrere Summenzeilen pro Konto mit gleicher Bankverbindung existieren. 
+Über den Sortieren-Button werden die einzelnen OP-Zeilen zu einer Summenzeile 
+zusammengefasst. </P>
+<P class=MsoNormal>Durch einen Doppelklick auf die Bankverbindung können über 
+den Bearbeiten-Button innerhalb des Fensters "Bankverbindungen" fehlerhafte 
+Mandatsdaten bearbeitet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Faktura</P>
+<P class=MsoNormal>Im Kopfbereich des Fensters werden alle Informationen der 
+jeweils aktuell angewählten OP dargestellt (Fakturennummer, Fakturentext, Datum, 
+Rest offen, Mahnstufe, etc.).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sortierung</P>
+<P class=MsoNormal>Im Selektionsfenster des Zahlungsverkehrs ist es möglich, die 
+einzelnen Bearbeitungszeilen umzusortieren.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Konten</P>
+<P class=MsoNormal>Wahlweise kann die Sortierung nach</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kontonummer</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kontobezeichnung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Postleitzahl</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vertreter</P>
+<P class=MsoNormal>erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Aus der Auswahllistbox kann gewählt werden, ob die Sortierung 
+aufsteigend (kleinster Wert am Anfang) oder absteigend (größter Wert am Anfang) 
+vorgenommen werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Fakturen</P>
+<P class=MsoNormal>Wahlweise kann die Sortierung nach</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Fakturennummer</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datum</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Fakturenbetrag</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Zahlungsbetrag</P>
+<P class=MsoNormal>erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Aus der Auswahllistbox kann gewählt werden, ob die Sortierung 
+aufsteigend (kleinster Wert am Anfang) oder absteigend (größter Wert am Anfang) 
+vorgenommen werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Informationen zu Konto und Faktura werden in einem OIF 
+angezeigt. Wenn der Focus in einer Kontenzeile steht, werden die Informationen 
+des aktiven Kontos angezeigt und darunter die OPs des Kontos.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_254.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Steht der Focus in einer Fakturenzeile, werden die 
+Informationen zu dieser OP angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_255.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Unterhalb des OIFs gibt es einen neuen Bereich "Fehlerliste". 
+Wenn ein Fehler beim Prüfen der Bankverbindungen für SEPA gefunden wurde, wird 
+nun eine allgemeine Fehlermeldung ausgegeben und alle aufgetretenen Fehler 
+werden in der Fehlerliste angezeigt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_256.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_257.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Im Fußteil der Fehlerliste wird jeweils die Anzahl der 
+aufgetretenen Fehler angezeigt. Mittels Doppelklick in eine Zeile der 
+Fehlerliste wird der Focus in die entsprechende Zeile der Selektionstabelle 
+gesetzt. Beim Verlassen der fehlerhaften Zeile wird erneut geprüft, wenn die 
+Bankverbindung fehlerfrei ist, wird die Fehlermeldung oder Fehlermeldungen der 
+betroffenen Zeile aus der Fehlerliste entfernt und die Zeile wird nicht mehr 
+farblich dargestellt. Sollte in der betroffenen Zeile ein weiterer Fehler 
+auftreten, so wird eine neue Zeile in die Fehlerliste hinzugefügt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis:</P>
+<P class=MsoNormal>Eine fehlerhafte Zeile in der Selektionstabelle kann auch 
+wieder verlassen werden ohne den Fehler korrigiert zu haben. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Selektionstabelle neu sortiert, wird auch die 
+Fehlerliste neu gefüllt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung: </P>
+<P class=MsoNormal>Wenn bei einer Auftraggeberhaftung die Dienstgeberkontonummer 
+fehlt, wird nur eine Warnung ausgegeben und es erfolgt kein Eintrag in der 
+Fehlerliste. Die Ausgabe bzw. der Zahlungslauf kann durchgeführt werden. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>SEPA - Lastschriftverfahren</P>
+<P class=MsoNormal>Bei SEPA Lastschriften ist es nicht notwendig zwischen 
+Bankeinzug (SEPA-Basislastschriften) und Abbuchung (SEPA-Firmenlastschriften) zu 
+unterscheiden, da dies über die Bankverbindung und das Mandat erkannt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Tabelle der Zahlungsverkehr-Selektion ist pro Mandat 
+ersichtlich, um welchen Lastschriften-Typ es sich handelt. Per Doppelklick auf 
+die Bankverbindung können die Daten der Bankverbindung editiert werden (ist nur 
+möglich, wenn die Option "Bankverbindungen berücksichtigen" aktiviert ist).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Bei der Verwendung mehrerer Mandate zu einem Debitor muss das 
+Kennzeichen "Bankverbindungen berücksichtigen" gesetzt werden, damit die 
+einzelnen Mandate und Bankverbindungen berücksichtigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_258.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Zahlungsverkehr-Selektion erfolgt bereits die 
+Mandatsprüfung für die ausgewählten Zeilen, dadurch werden ungültige Mandate 
+erkannt.</P>
+<P class=MsoNormal>Wenn mit VOR in die Zahlungsverkehr-Ausgabe gewechselt wird, 
+werden die Mandate geprüft.</P>
+<P class=MsoNormal>Werden ungültige Mandate gefunden, so bleibt der Cursor in 
+dem Fenster der Zahlungsverkehr-Selektion stehen und die fehlerhaften Zeilen 
+werden farblich markiert. Es wird eine entsprechende Meldung über das 
+fehlerhafte Mandat ausgegeben und der Focus springt in der Tabelle automatisch 
+auf das erste fehlerhafte Mandat. Wurde dieses Mandat bearbeitet, springt der 
+Focus in das nächste fehlerhafte Mandat.</P>
+<P class=MsoNormal>Mandate können nur bearbeitet werden, wenn die Option 
+"Bankverbindung bearbeiten" aktiviert ist. Per Doppelklick auf die 
+Bankverbindung kann in dem Fenster "Bankverbindungen" über den Bearbeiten-Button 
+das Mandat editiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_259.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OK</P>
+<P class=MsoNormal>Entspricht der Zahlungsvorschlag Ihren Vorstellungen, 
+bestätigen Sie diesen durch Drücken des OK-Buttons.</P>
+<P class=MsoNormal>Wird in der Selektions-Tabelle beim Drücken des OK-Buttons 
+ein Fehler in den Bankverbindungen gefunden, wird eine entsprechende Meldung 
+ausgegeben, dabei wird die Fehlerliste neugefüllt und die Selektionstabelle 
+bleibt offen. </P>
+<P class=MsoNormal>Wird kein Fehler mehr in den Bankverbindungen gefunden, wird 
+das Fenster Zahlungsverkehr-Selektionstabelle geschlossen und es wird in die 
+"Ausgabe" gewechselt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Damit schließen die die Selektion und kehren zurück in den 
+Zahlungsverkehr.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Bankverbindungen</P>
+<P class=MsoNormal>Mit diesem Button wird, wenn der Focus auf eine Kontenzeile 
+steht, das Bankverbindungsfenster geöffnet. Der Button ist auch anwählbar, wenn 
+in den Selektions-Einstellungen die Option "Bankverbindungen verwenden" nicht 
+aktiviert ist. Ist die Option nicht gesetzt, so kann nur die 
+Standard-Bankverbindung herangezogen werden, wird eine andere Bankverbindung 
+ausgewählt, so wird eine entsprechende Meldung ausgegeben und es wird wieder die 
+Standardbankverbindung eingetragen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_260.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Sowohl die Standardbankverbindung als auch die weiteren 
+Bankverbindungen können editiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Liste 
+Drucker</P>
+<P class=MsoNormal>Mittels der Liste erhalten Sie eine Übersicht über alle 
+Konten der Zahlungsverkehr-Selektion. Hier haben Sie die Möglichkeit, auch die 
+hinterlegten Fakturen aufzurufen und einzusehen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>VCR-Navigation</P>
+<P class=MsoNormal>Mit den vier Buttons können Sie in der Fenstertabelle 
+zwischen den einzelnen Konten wechseln.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle</P>
+<P class=MsoNormal>Hiermit werden alle Konten selektiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Keine</P>
+<P class=MsoNormal>Es werden keine Konten selektiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Archiv</P>
+<P class=MsoNormal>Wenn das Programm WinLine Archiv eingesetzt und auch 
+verwendet wird, kann durch Anklicken dieses Buttons der Ursprungsbeleg (z.B. die 
+Faktura) angesehen werden. Ansonsten gelangen Sie in das Archiv suchen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Fensterbutton </P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN><IMG 
+src="../ImagesExt/image863_261.png"></P>
+<P class=MsoNormal>Mit Aufruf des Sortieren-Buttons wird die ausgewählte 
+Sortierung durchgeführt. Die Sortierung wird pro Stapel gespeichert, in den 
+weiteren Auswertungen übernommen (z.B. Begleitzettel, Clearingausgabe, 
+Buchungen) und steht ihnen beim nächsten Aufruf des Stapels wieder zur 
+Verfügung. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Option "Bankverbindung berücksichtigen" verwendet, 
+können durch das Editieren der Bankverbindung mehrere Summenzeilen pro Konto mit 
+gleicher Bankverbindung existieren. Über den Sortieren -Button werden die 
+einzelnen OP-Zeilen zu einer Summenzeile zusammengefasst.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

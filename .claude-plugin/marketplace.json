@@ -13,7 +13,7 @@
       "name": "claude-obsidian",
       "source": {
         "source": "github",
-        "repo": "AgriciDaniel/claude-obsidian",
+        "repo": "https://github.com/AgriciDaniel/claude-obsidian",
         "ref": "main"
       },
       "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault. Covers memory management, session notetaking, knowledge organization, and agent context across projects. Optional DragonScale Memory extension adds hierarchical log folds, deterministic page addresses, embedding-based semantic tiling lint, and boundary-first autoresearch topic selection.",

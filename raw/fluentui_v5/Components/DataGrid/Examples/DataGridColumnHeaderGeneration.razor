@@ -1,0 +1,37 @@
+﻿@using System.ComponentModel.DataAnnotations
+<FluentDataGrid Items="@people">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+</FluentDataGrid>
+
+@code {
+    public class Person
+    {
+        public Person(int personId, string name, DateOnly birthDate)
+        {
+            PersonId = personId;
+            Name = name;
+            BirthDate = birthDate;
+        }
+
+        [Display(Name="Identity")]
+        public int PersonId { get; set; }
+
+        [Display(Name = "Full _name")]
+        public string Name { get; set; }
+
+        [Display(Name = "Birth date")]
+        public DateOnly BirthDate { get; set; }
+    }
+
+    IQueryable<Person> people = new[]
+    {
+        new Person(10895, "Jean Martin", new DateOnly(1985, 3, 16)),
+        new Person(10944, "António Langa", new DateOnly(1991, 12, 1)),
+        new Person(11203, "Julie Smith", new DateOnly(1958, 10, 10)),
+        new Person(11205, "Nur Sari", new DateOnly(1922, 4, 27)),
+        new Person(11898, "Jose Hernandez", new DateOnly(2011, 5, 3)),
+        new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9)),
+    }.AsQueryable();
+}

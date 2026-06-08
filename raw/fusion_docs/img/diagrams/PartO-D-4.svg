@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" width="100%">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+        <style>
+            .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+            .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+            .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+            .subgraph { fill: rgba(200,215,240,0.15); stroke: #c0c8d4; stroke-width: 1.5; stroke-dasharray: 6 4; }
+            .state { fill: url(#stateGrad); stroke: #bcc8da; stroke-width: 1.5; }
+            .action { fill: url(#actionGrad); stroke: #e0cba8; stroke-width: 1.5; }
+            .edge { stroke: #8b90a8; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="1040" height="520" fill="url(#bgGrad)" rx="10" ry="10" />
+
+    <!-- Left Subgraph: ContextItems -->
+    <rect x="40" y="40" width="320" height="440" class="subgraph" rx="8" ry="8" />
+    <text x="200" y="65" text-anchor="middle" class="header">CommandContext.Items (Local Only)</text>
+
+    <!-- Right Subgraph: OpItems -->
+    <rect x="400" y="40" width="600" height="440" class="subgraph" rx="8" ry="8" />
+    <text x="700" y="65" text-anchor="middle" class="header">Operation.Items (Cross-Host)</text>
+
+    <!-- ContextItems Nodes -->
+    <rect x="80" y="120" width="240" height="40" class="action" rx="14" ry="14" />
+    <text x="200" y="145" text-anchor="middle" class="code">Host A: Command Execution</text>
+
+    <rect x="60" y="230" width="280" height="60" class="action" rx="14" ry="14" />
+    <text x="200" y="255" text-anchor="middle" class="code">context.Items.Set(...)</text>
+    <text x="200" y="275" text-anchor="middle" class="code">context.Items.Get&lt;T&gt;()</text>
+
+    <!-- ContextItems Edges -->
+    <path d="M 200 160 L 200 230" class="edge" marker-end="url(#arrow)" />
+
+    <!-- OpItems Nodes -->
+    <rect x="580" y="100" width="240" height="40" class="action" rx="14" ry="14" />
+    <text x="700" y="125" text-anchor="middle" class="code">Host A: Command Execution</text>
+
+    <rect x="560" y="180" width="280" height="40" class="action" rx="14" ry="14" />
+    <text x="700" y="205" text-anchor="middle" class="code">operation.Items.KeylessSet(x)</text>
+
+    <rect x="530" y="260" width="340" height="40" class="state" rx="8" ry="8" />
+    <text x="700" y="285" text-anchor="middle" class="code">Serialized to _Operations.ItemsJson</text>
+
+    <rect x="420" y="360" width="260" height="60" class="action" rx="14" ry="14" />
+    <text x="550" y="385" text-anchor="middle" class="code">Host A: Invalidation Block</text>
+    <text x="550" y="405" text-anchor="middle" class="code">operation.Items.KeylessGet&lt;T&gt;()</text>
+
+    <rect x="720" y="360" width="260" height="70" class="action" rx="14" ry="14" />
+    <text x="850" y="380" text-anchor="middle" class="code">Host B: Invalidation Block</text>
+    <text x="850" y="400" text-anchor="middle" class="code">Same data available!</text>
+    <text x="850" y="420" text-anchor="middle" class="label">(deserialized from DB)</text>
+
+    <!-- OpItems Edges -->
+    <path d="M 700 140 L 700 180" class="edge" marker-end="url(#arrow)" />
+    <path d="M 700 220 L 700 260" class="edge" marker-end="url(#arrow)" />
+    <path d="M 660 300 C 660 330, 550 330, 550 360" class="edge" marker-end="url(#arrow)" />
+    <path d="M 740 300 C 740 330, 850 330, 850 360" class="edge" marker-end="url(#arrow)" />
+</svg>

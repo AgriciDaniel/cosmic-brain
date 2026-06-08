@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+
+        <!-- Node Gradients -->
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        
+        <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f0e8fc" />
+            <stop offset="100%" stop-color="#ddd0f0" />
+        </linearGradient>
+
+        <!-- Arrow Marker -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges -->
+    <g fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+        <!-- Q to PG -->
+        <path d="M 400 100 L 400 157" />
+        
+        <!-- PG to Npgsql (Yes) -->
+        <path d="M 310 200 C 240 200, 200 250, 200 317" />
+        
+        <!-- PG to Redis (No) -->
+        <path d="M 490 200 C 560 200, 600 240, 600 297" />
+        
+        <!-- Redis to RedisW (Yes) -->
+        <path d="M 520 340 C 450 340, 400 390, 400 457" />
+        
+        <!-- Redis to Single (No) -->
+        <path d="M 680 340 C 750 340, 800 380, 800 437" />
+        
+        <!-- Single to FS (Yes) -->
+        <path d="M 710 480 C 640 480, 600 530, 600 597" />
+        
+        <!-- Single to Poll (No) -->
+        <path d="M 890 480 C 960 480, 1000 530, 1000 592" />
+    </g>
+
+    <!-- Edge Labels -->
+    <g font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle" dominant-baseline="middle">
+        <text x="265" y="240">Yes</text>
+        <text x="535" y="240">No</text>
+        <text x="465" y="380">Yes</text>
+        <text x="735" y="380">No</text>
+        <text x="665" y="520">Yes</text>
+        <text x="935" y="520">No</text>
+    </g>
+
+    <!-- Nodes -->
+    <g font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">
+        
+        <!-- Q: Which watcher should I use? (Action/Process) -->
+        <rect x="280" y="60" width="240" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+        <text x="400" y="80">Which watcher should I use?</text>
+
+        <!-- PG: Using PostgreSQL? (Decision) -->
+        <polygon points="400,160 490,200 400,240 310,200" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" stroke-linejoin="round" />
+        <text x="400" y="200">Using PostgreSQL?</text>
+
+        <!-- Npgsql: Npgsql Watcher (State/Object) -->
+        <rect x="120" y="320" width="160" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="200" y="340">Npgsql Watcher</text>
+
+        <!-- Redis: Have Redis? (Decision) -->
+        <polygon points="600,300 680,340 600,380 520,340" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" stroke-linejoin="round" />
+        <text x="600" y="340">Have Redis?</text>
+
+        <!-- RedisW: Redis Watcher (State/Object) -->
+        <rect x="320" y="460" width="160" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="400" y="480">Redis Watcher</text>
+
+        <!-- Single: Single machine? (Decision) -->
+        <polygon points="800,440 890,480 800,520 710,480" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" stroke-linejoin="round" />
+        <text x="800" y="480">Single machine?</text>
+
+        <!-- FS: FileSystem Watcher (State/Object) -->
+        <rect x="510" y="600" width="180" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="600" y="620">FileSystem Watcher</text>
+
+        <!-- Poll: Add Redis or use polling (Action/Process) -->
+        <rect x="920" y="595" width="160" height="50" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+        <text x="1000" y="620">
+            <tspan x="1000" y="614">Add Redis or</tspan>
+            <tspan x="1000" y="632">use polling</tspan>
+        </text>
+
+    </g>
+</svg>

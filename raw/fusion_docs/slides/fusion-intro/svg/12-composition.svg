@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a12" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+  </defs>
+
+  <rect x="300" y="50" width="200" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="400" y="82" text-anchor="middle" fill="#fcfcf7" font-size="15" font-weight="500">Authors.Get(...)</text>
+
+  <rect x="60" y="230" width="180" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="150" y="262" text-anchor="middle" fill="#fcfcf7" font-size="14">Chats.Get</text>
+
+  <rect x="310" y="230" width="180" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="400" y="262" text-anchor="middle" fill="#fcfcf7" font-size="14">AuthorsBackend.Get</text>
+
+  <rect x="560" y="230" width="180" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="650" y="262" text-anchor="middle" fill="#fcfcf7" font-size="14">Accounts.GetOwn</text>
+
+  <line x1="370" y1="100" x2="170" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a12)"/>
+  <line x1="400" y1="100" x2="400" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a12)"/>
+  <line x1="430" y1="100" x2="630" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a12)"/>
+
+  <text x="150" y="310" text-anchor="middle" fill="#7e7e87" font-size="12">possibly remote</text>
+  <text x="400" y="310" text-anchor="middle" fill="#7e7e87" font-size="12">possibly remote</text>
+  <text x="650" y="310" text-anchor="middle" fill="#7e7e87" font-size="12">possibly remote</text>
+
+  <text x="400" y="360" text-anchor="middle" fill="#a8b1ff" font-size="13">one call → many backend calls — cached, batched, reactive when they are compute calls</text>
+</svg>

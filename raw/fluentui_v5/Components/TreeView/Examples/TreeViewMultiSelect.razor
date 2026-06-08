@@ -1,0 +1,32 @@
+﻿<div class="my-2">
+    <b>Selected items:</b> @(string.Join("; ", SelectedItems?.Select(i => i.Text) ?? []))
+</div>
+
+<FluentTreeView Items="@Items"
+                HideSelection="true"
+                SelectionMode="TreeSelectionMode.Multiple"
+                @bind-SelectedItems="@SelectedItems">
+</FluentTreeView>
+
+@code
+{
+    private IEnumerable<ITreeViewItem>? SelectedItems;
+    private IEnumerable<ITreeViewItem>? Items = new List<ITreeViewItem>();
+
+    // Read the Tree content
+    protected override void OnInitialized()
+    {
+        Items = GetCompanyOrganization();
+        SelectedItems = Items.Take(2);
+    }
+
+    // Example of a tree with a company organization
+    // (5 companies containing 4 departments with 10 employees)
+    private TreeViewItem[] GetCompanyOrganization()
+    {
+        return SampleData.People
+                         .GetOrganization(companyCount: 5, departmentCount: 4, employeeCount: 10)
+                         .ToTreeViewItems(includeIcons: false)
+                         .ToArray();
+    }
+}

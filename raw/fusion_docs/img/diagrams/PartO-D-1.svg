@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 560" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Action/Process Node Gradient -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Decision Node Gradient -->
+    <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0e8fc" />
+      <stop offset="100%" stop-color="#ddd0f0" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <style>
+    .code-text {
+      font-family: "SF Mono", "Fira Code", Consolas, monospace;
+      font-size: 13px;
+      fill: #1a1a2e;
+    }
+    .label-text {
+      font-family: Inter, -apple-system, sans-serif;
+      font-size: 11px;
+      fill: #6b7084;
+      font-style: italic;
+    }
+    .header-text {
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      fill: #8b90a8;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .subgraph-box {
+      fill: rgba(200,215,240,0.15);
+      stroke: #c0c8d4;
+      stroke-width: 1.5;
+      stroke-dasharray: 6 4;
+    }
+    .state-node {
+      fill: url(#state-grad);
+      stroke: #bcc8da;
+      stroke-width: 1.5;
+    }
+    .edge-path {
+      fill: none;
+      stroke: #8b90a8;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" ry="10" />
+
+  <!-- ==========================================
+       SUBGRAPH: Command Execution Pipeline
+       ========================================== -->
+  <rect class="subgraph-box" x="40" y="40" width="770" height="130" rx="8" ry="8" />
+  <text class="header-text" x="55" y="60">Command Execution Pipeline</text>
+
+  <!-- Node: NestedOperationLogger -->
+  <rect class="state-node" x="60" y="75" width="200" height="70" rx="8" ry="8" />
+  <text class="code-text" x="160" y="106" text-anchor="middle">NestedOperationLogger</text>
+  <text x="160" y="128" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45">priority: 11000</text>
+
+  <!-- Node: InMemory/DbOperation ScopeProvider -->
+  <rect class="state-node" x="290" y="75" width="220" height="70" rx="8" ry="8" />
+  <text class="code-text" x="400" y="96" text-anchor="middle">InMemory/DbOperation</text>
+  <text class="code-text" x="400" y="116" text-anchor="middle">ScopeProvider</text>
+  <text x="400" y="136" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45">priority: 10000 / 1000</text>
+
+  <!-- Node: InvalidatingCompletionHandler -->
+  <rect class="state-node" x="540" y="75" width="250" height="70" rx="8" ry="8" />
+  <text class="code-text" x="665" y="106" text-anchor="middle">InvalidatingCompletionHandler</text>
+  <text x="665" y="128" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45">priority: 100</text>
+
+
+  <!-- ==========================================
+       SUBGRAPH: Background Services
+       ========================================== -->
+  <rect class="subgraph-box" x="170" y="210" width="460" height="155" rx="8" ry="8" />
+  <text class="header-text" x="185" y="230">Background Services</text>
+
+  <!-- Node: Operation Log Reader -->
+  <rect class="state-node" x="190" y="245" width="190" height="40" rx="8" ry="8" />
+  <text class="code-text" x="285" y="270" text-anchor="middle">Operation Log Reader</text>
+
+  <!-- Node: Operation Log Trimmer -->
+  <rect class="state-node" x="420" y="245" width="190" height="40" rx="8" ry="8" />
+  <text class="code-text" x="515" y="270" text-anchor="middle">Operation Log Trimmer</text>
+
+  <!-- Node: Event Log Reader -->
+  <rect class="state-node" x="190" y="305" width="190" height="40" rx="8" ry="8" />
+  <text class="code-text" x="285" y="330" text-anchor="middle">Event Log Reader</text>
+
+  <!-- Node: Event Log Trimmer -->
+  <rect class="state-node" x="420" y="305" width="190" height="40" rx="8" ry="8" />
+  <text class="code-text" x="515" y="330" text-anchor="middle">Event Log Trimmer</text>
+
+
+  <!-- ==========================================
+       SUBGRAPH: Notification System
+       ========================================== -->
+  <rect class="subgraph-box" x="170" y="405" width="460" height="110" rx="8" ry="8" />
+  <text class="header-text" x="185" y="425">Notification System</text>
+
+  <!-- Node: Completion Notifier -->
+  <rect class="state-node" x="190" y="440" width="190" height="55" rx="8" ry="8" />
+  <text class="code-text" x="285" y="472" text-anchor="middle">Completion Notifier</text>
+
+  <!-- Node: Log Watcher -->
+  <rect class="state-node" x="420" y="440" width="190" height="55" rx="8" ry="8" />
+  <text class="code-text" x="515" y="461" text-anchor="middle">Log Watcher</text>
+  <text class="code-text" x="515" y="481" text-anchor="middle">(PG/Redis/FS)</text>
+
+</svg>

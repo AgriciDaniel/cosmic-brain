@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd"/>
+            <stop offset="50%" stop-color="#eaf1fb"/>
+            <stop offset="100%" stop-color="#e2ebf7"/>
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc"/>
+            <stop offset="100%" stop-color="#d4e3f7"/>
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+        </marker>
+        <style>
+            .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; text-anchor: middle; dominant-baseline: middle; }
+            .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; dominant-baseline: middle; }
+            .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; text-anchor: middle; dominant-baseline: middle; }
+            .edge-path { fill: none; stroke: #8b90a8; stroke-width: 1.5; stroke-linecap: round; }
+            .subgraph { fill: rgba(200,215,240,0.15); stroke: #c0c8d4; stroke-width: 1.5; stroke-dasharray: 6 4; }
+            .state-node { fill: url(#state-grad); stroke: #bcc8da; stroke-width: 1.5; }
+        </style>
+    </defs>
+
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+    <!-- Subgraphs -->
+    <rect x="120" y="50" width="560" height="200" class="subgraph" rx="8"/>
+    <text x="400" y="70" class="header">Client (Blazor)</text>
+
+    <rect x="120" y="360" width="560" height="280" class="subgraph" rx="8"/>
+    <text x="400" y="380" class="header">Server</text>
+
+    <rect x="160" y="700" width="480" height="110" class="subgraph" rx="8"/>
+    <text x="400" y="720" class="header">Database</text>
+
+    <!-- Edges -->
+    <path d="M 220 130 C 220 155, 360 155, 360 180" class="edge-path" marker-end="url(#arrow)"/>
+    <path d="M 400 130 L 400 180" class="edge-path" marker-end="url(#arrow)"/>
+    <path d="M 580 130 C 580 155, 440 155, 440 180" class="edge-path" marker-end="url(#arrow)"/>
+    
+    <path d="M 400 220 L 400 490" class="edge-path" marker-end="url(#arrow)"/>
+    <text x="410" y="305" class="label" text-anchor="start">WebSocket RPC</text>
+
+    <path d="M 220 440 C 220 465, 360 465, 360 490" class="edge-path" marker-end="url(#arrow)"/>
+    <path d="M 400 440 L 400 490" class="edge-path" marker-end="url(#arrow)"/>
+    <path d="M 580 440 C 580 465, 440 465, 440 490" class="edge-path" marker-end="url(#arrow)"/>
+
+    <path d="M 400 530 L 400 580" class="edge-path" marker-end="url(#arrow)"/>
+    <path d="M 400 620 L 400 700" class="edge-path" marker-end="url(#arrow)"/>
+
+    <!-- Client Nodes -->
+    <rect x="145" y="90" width="150" height="40" class="state-node" rx="8"/>
+    <text x="220" y="110" class="code">ClientAuthHelper</text>
+
+    <rect x="320" y="90" width="160" height="40" class="state-node" rx="8"/>
+    <text x="400" y="110" class="code">AuthStateProvider</text>
+
+    <rect x="505" y="90" width="150" height="40" class="state-node" rx="8"/>
+    <text x="580" y="110" class="code">PresenceReporter</text>
+
+    <rect x="310" y="180" width="180" height="40" class="state-node" rx="8"/>
+    <text x="400" y="200" class="code">IAuth (RPC Client)</text>
+
+    <!-- Server Nodes -->
+    <rect x="140" y="400" width="160" height="40" class="state-node" rx="8"/>
+    <text x="220" y="420" class="code">SessionMiddleware</text>
+
+    <rect x="325" y="400" width="150" height="40" class="state-node" rx="8"/>
+    <text x="400" y="420" class="code">ServerAuthHelper</text>
+
+    <rect x="510" y="400" width="140" height="40" class="state-node" rx="8"/>
+    <text x="580" y="420" class="code">AuthEndpoint</text>
+
+    <rect x="300" y="490" width="200" height="40" class="state-node" rx="8"/>
+    <text x="400" y="510" class="code">IAuth / IAuthBackend</text>
+
+    <rect x="250" y="580" width="300" height="40" class="state-node" rx="8"/>
+    <text x="400" y="600" class="code">InMemoryAuthService | DbAuthService</text>
+
+    <!-- Database Nodes -->
+    <rect x="190" y="750" width="100" height="40" class="state-node" rx="8"/>
+    <text x="240" y="770" class="code">Users</text>
+
+    <rect x="350" y="750" width="100" height="40" class="state-node" rx="8"/>
+    <text x="400" y="770" class="code">_Sessions</text>
+
+    <rect x="490" y="750" width="140" height="40" class="state-node" rx="8"/>
+    <text x="560" y="770" class="code">UserIdentities</text>
+</svg>

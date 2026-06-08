@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Entities Index"
-updated: 2026-04-07
+updated: 2026-05-27
 tags:
   - meta
   - index
@@ -25,12 +25,13 @@ All entity pages — people, organizations, products, and tools.
 ## People
 
 - [[Andrej Karpathy]] — AI researcher, educator; originated the LLM Wiki pattern
+- [[Nguyễn Thế Huy]] — Vietnamese developer (10+ years); author of "Database Indexing & Những Điều Developer Cần Biết"; email: huynt57@gmail.com, blog: https://huynt.dev
 
 ---
 
 ## Organizations
 
-<!-- Add organization pages here -->
+- [[Framas]] — manufacturing company; DOGE_WH SQL Server database; WinLine ERP + HYDRA MES + custom OMS (T3PO)
 
 ---
 
@@ -38,6 +39,11 @@ All entity pages — people, organizations, products, and tools.
 
 - [[Fluent 2 Design System]] — Microsoft's current-generation design system; four principles + cross-platform tokens
 - [[FluentUI Blazor]] — Microsoft Blazor component library implementing Fluent 2; v5.0.0-RC.3
+- [[DevExpress Blazor]] — commercial Blazor UI suite (40+ components); DxToolbar, DataGrid, Charts, and more; v24.2
+- [[Elsa Workflows]] — open-source .NET workflow engine; visual designer, long-running workflows, multi-tenancy, horizontal scaling; v3.x
+- [[MPDV HYDRA]] — Manufacturing Execution System by MPDV Mikrolab GmbH; 14 product groups, ~800+ tables, complete shop-floor-to-SAP integration
+- [[Mesonic WinLine]] — modular Austrian/DACH ERP suite (CWL); FIBU/KORE/FAKT/PPS/LIST/ADMIN/KASSE modules; the product behind Framas's wl schema
+- [[FramasScanner]] — Framas in-house mobile WH-movement scanner app; SQL Server proc backend (CheckLabel/PostSingle per scan mode + tenant)
 
 ---
 

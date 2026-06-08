@@ -1,0 +1,36 @@
+﻿@inherits FluentDialogInstance
+
+<FluentDialogBody>
+    <FluentTextInput Label="Name:" @bind-Value="@Name" Disabled="true" Style="max-width: 100%;" />
+    <FluentTextInput Label="Age:" @bind-Value="@Person.Age" Style="max-width: 100%;" />
+</FluentDialogBody>
+
+@code {
+    // A simple type is not updatable
+    [Parameter]
+    public string? Name { get; set; }
+
+    // A class is updatable
+    [Parameter]
+    public PersonDetails Person { get; set; } = new();
+
+    // Initialize the dialog
+    protected override void OnInitializeDialog(DialogOptionsHeader header, DialogOptionsFooter footer)
+    {
+        header.Title = $"Dialog Title - {Name}";
+        footer.SecondaryAction.Visible = true;
+    }
+
+    // Handle the action click
+    protected override async Task OnActionClickedAsync(bool primary)
+    {
+        if (primary)
+        {
+            await DialogInstance.CloseAsync("Yes");
+        }
+        else
+        {
+            await DialogInstance.CancelAsync();
+        }
+    }
+}

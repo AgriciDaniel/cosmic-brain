@@ -1,0 +1,577 @@
+# Target Information Architecture for Elsa Workflows Documentation
+# This represents the ideal structure after the documentation overhaul
+
+sections:
+  - id: overview
+    title: Overview
+    description: Introduction to Elsa Workflows and key concepts
+    children:
+      - id: what-is-elsa
+        title: What is Elsa?
+        path: /docs/overview/what-is-elsa.md
+        status: exists
+      
+      - id: features
+        title: Features
+        path: /docs/overview/features.md
+        status: exists
+      
+      - id: whats-new-v3
+        title: What's New in V3
+        path: /docs/overview/whats-new-v3.md
+        status: exists
+      
+      - id: architecture
+        title: Architecture
+        path: /docs/overview/architecture.md
+        status: missing
+        priority: high
+        notes: "Issue #14 - Need high-level and detailed architecture diagrams"
+      
+      - id: use-cases
+        title: Use Cases & Case Studies
+        path: /docs/overview/use-cases.md
+        status: missing
+        priority: medium
+
+  - id: getting-started
+    title: Getting Started
+    description: Quick start guides for different scenarios
+    children:
+      - id: hello-world
+        title: Hello World
+        path: /docs/getting-started/hello-world.md
+        status: outdated
+        priority: critical
+        notes: "Issue #72 - Examples don't work in V3"
+      
+      - id: quickstart-console
+        title: Console Application
+        path: /docs/getting-started/quickstart-console.md
+        status: exists
+      
+      - id: quickstart-web
+        title: Web Application
+        path: /docs/getting-started/quickstart-web.md
+        status: partial
+        notes: "Need to clarify integration scenarios"
+      
+      - id: docker-quickstart
+        title: Docker Quickstart
+        path: /docs/getting-started/docker-quickstart.md
+        status: missing
+        priority: critical
+        notes: "Phase 1 deliverable"
+      
+      - id: first-workflow
+        title: Your First HTTP Workflow
+        path: /docs/getting-started/first-http-workflow.md
+        status: outdated
+        priority: critical
+        notes: "Issues #69, #71, #85 - API broken, links incorrect"
+
+  - id: fundamentals
+    title: Fundamentals
+    description: Core concepts and building blocks
+    children:
+      - id: workflows
+        title: Workflows
+        path: /docs/fundamentals/workflows.md
+        status: exists
+      
+      - id: activities
+        title: Activities
+        path: /docs/fundamentals/activities.md
+        status: exists
+      
+      - id: inputs-outputs
+        title: Inputs & Outputs
+        path: /docs/fundamentals/inputs-outputs.md
+        status: exists
+      
+      - id: variables
+        title: Variables
+        path: /docs/fundamentals/variables.md
+        status: exists
+      
+      - id: expressions
+        title: Expressions
+        path: /docs/fundamentals/expressions.md
+        status: exists
+      
+      - id: bookmarks
+        title: Bookmarks
+        path: /docs/fundamentals/bookmarks.md
+        status: exists
+      
+      - id: triggers
+        title: Triggers
+        path: /docs/fundamentals/triggers.md
+        status: exists
+      
+      - id: workflow-context
+        title: Workflow Context
+        path: /docs/fundamentals/workflow-context.md
+        status: missing
+        priority: high
+        notes: "Issue #20 - V3 version needed"
+      
+      - id: execution-model
+        title: Execution Model
+        path: /docs/fundamentals/execution-model.md
+        status: missing
+        priority: high
+        notes: "Part of issue #14 - Execute vs Dispatch, bookmarks, stimuli"
+      
+      - id: persistence
+        title: Persistence
+        path: /docs/fundamentals/persistence.md
+        status: partial
+        notes: "Needs expansion for different providers"
+
+  - id: using-studio
+    title: Using Elsa Studio
+    description: Visual workflow designer and management
+    children:
+      - id: studio-overview
+        title: Studio Overview
+        path: /docs/using-studio/overview.md
+        status: partial
+        notes: "Need comprehensive tour"
+      
+      - id: studio-setup
+        title: Studio Setup
+        path: /docs/using-studio/setup.md
+        status: partial
+        priority: critical
+        notes: "Authentication issues, connection problems"
+      
+      - id: studio-tour
+        title: Studio Tour
+        path: /docs/using-studio/tour.md
+        status: missing
+        priority: high
+        notes: "Phase 1 deliverable - guided tour of UI"
+      
+      - id: designing-workflows
+        title: Designing Workflows
+        path: /docs/using-studio/designing-workflows.md
+        status: partial
+        notes: "Best practices needed, avoid data loss"
+      
+      - id: testing-debugging
+        title: Testing & Debugging
+        path: /docs/using-studio/testing-debugging.md
+        status: missing
+        priority: high
+        notes: "Troubleshooting guide needed"
+      
+      - id: workflow-instances
+        title: Managing Workflow Instances
+        path: /docs/using-studio/workflow-instances.md
+        status: partial
+      
+      - id: studio-customization
+        title: Studio Customization
+        path: /docs/using-studio/customization.md
+        status: missing
+        priority: medium
+        notes: "Issues #12, #33, #34 - Custom UI, hints, icons"
+      
+      - id: studio-embedding
+        title: Embedding Studio
+        path: /docs/using-studio/embedding.md
+        status: missing
+        priority: high
+        notes: "Issue #13 - React, Angular, Blazor, MVC"
+
+  - id: guides
+    title: Guides
+    description: Step-by-step tutorials for common scenarios
+    children:
+      - id: http-workflows
+        title: HTTP Workflows
+        path: /docs/guides/http-workflows/
+        children:
+          - id: http-overview
+            title: Overview
+            path: /docs/guides/http-workflows/overview.md
+            status: exists
+          
+          - id: http-designer
+            title: Designer Tutorial
+            path: /docs/guides/http-workflows/designer.md
+            status: outdated
+            priority: critical
+            notes: "Issues #69, #71, #85"
+          
+          - id: http-programmatic
+            title: Programmatic Tutorial
+            path: /docs/guides/http-workflows/programmatic.md
+            status: exists
+          
+          - id: http-security
+            title: Securing HTTP Endpoints
+            path: /docs/guides/http-workflows/security.md
+            status: missing
+            priority: high
+            notes: "Issue #37"
+      
+      - id: timer-workflows
+        title: Timer & Scheduled Workflows
+        path: /docs/guides/timer-workflows.md
+        status: missing
+        priority: medium
+      
+      - id: loading-workflows
+        title: Loading Workflows from JSON
+        path: /docs/guides/loading-workflows.md
+        status: exists
+        notes: "Issue #5 - Package reference error"
+      
+      - id: invoking-workflows
+        title: Invoking Workflows
+        path: /docs/guides/invoking-workflows.md
+        status: exists
+        notes: "Needs examples for all methods"
+      
+      - id: workflow-patterns
+        title: Common Workflow Patterns
+        path: /docs/guides/workflow-patterns.md
+        status: missing
+        priority: medium
+        notes: "Loops, conditionals, parallel execution, etc."
+      
+      - id: external-integration
+        title: Integrating with External Systems
+        path: /docs/guides/external-integration.md
+        status: partial
+        notes: "Needs more examples"
+      
+      - id: long-running-workflows
+        title: Long-Running Workflows
+        path: /docs/guides/long-running-workflows.md
+        status: missing
+        priority: medium
+      
+      - id: error-handling
+        title: Error Handling & Retry Logic
+        path: /docs/guides/error-handling.md
+        status: missing
+        priority: medium
+
+  - id: deployment
+    title: Deployment & Configuration
+    description: Production deployment and configuration
+    children:
+      - id: hosting-options
+        title: Hosting Options
+        path: /docs/deployment/hosting-options.md
+        status: partial
+      
+      - id: application-types
+        title: Application Types
+        path: /docs/deployment/application-types/
+        children:
+          - id: elsa-server
+            title: Elsa Server
+            path: /docs/deployment/application-types/elsa-server.md
+            status: exists
+          
+          - id: elsa-studio
+            title: Elsa Studio
+            path: /docs/deployment/application-types/elsa-studio.md
+            status: exists
+          
+          - id: server-and-studio
+            title: Elsa Server + Studio
+            path: /docs/deployment/application-types/server-and-studio.md
+            status: exists
+      
+      - id: database-config
+        title: Database Configuration
+        path: /docs/deployment/database-config.md
+        status: missing
+        priority: critical
+        notes: "Issues #2, #6, #11 - SQL Server, PostgreSQL, MongoDB, EF Core"
+      
+      - id: authentication
+        title: Authentication & Authorization
+        path: /docs/deployment/authentication.md
+        status: missing
+        priority: critical
+        notes: "Issues #16, #29 - OIDC, API keys, custom providers"
+      
+      - id: configuration
+        title: Configuration Management
+        path: /docs/deployment/configuration.md
+        status: missing
+        priority: high
+        notes: "Environment variables, secrets, connection strings"
+      
+      - id: docker-deployment
+        title: Docker Deployment
+        path: /docs/deployment/docker.md
+        status: missing
+        priority: critical
+        notes: "Phase 1 deliverable"
+      
+      - id: kubernetes
+        title: Kubernetes Deployment
+        path: /docs/deployment/kubernetes.md
+        status: missing
+        priority: critical
+        notes: "Issues #35, #75"
+      
+      - id: clustering
+        title: Clustering & Distributed Hosting
+        path: /docs/deployment/clustering.md
+        status: missing
+        priority: high
+        notes: "Issues #22, #41 - Distributed locking, load balancing"
+      
+      - id: scaling
+        title: Scaling & Performance
+        path: /docs/deployment/scaling.md
+        status: missing
+        priority: high
+        notes: "Horizontal scaling, optimization tips"
+      
+      - id: migrations
+        title: Database Migrations
+        path: /docs/deployment/migrations.md
+        status: missing
+        priority: high
+        notes: "Issue #74 - Custom EF Core migrations"
+
+  - id: extensibility
+    title: Extensibility
+    description: Extending Elsa with custom functionality
+    children:
+      - id: custom-activities
+        title: Custom Activities
+        path: /docs/extensibility/custom-activities.md
+        status: outdated
+        priority: critical
+        notes: "Issues #30, #80 - V3 version needed"
+      
+      - id: blocking-trigger-activities
+        title: Blocking & Trigger Activities
+        path: /docs/extensibility/blocking-trigger-activities.md
+        status: missing
+        priority: high
+        notes: "Issue #18"
+      
+      - id: activity-type-providers
+        title: Activity Type Providers
+        path: /docs/extensibility/activity-type-providers.md
+        status: partial
+      
+      - id: custom-ui-hints
+        title: Custom UI Hints
+        path: /docs/extensibility/custom-ui-hints.md
+        status: missing
+        priority: medium
+        notes: "Issue #33"
+      
+      - id: custom-ui-components
+        title: Custom UI Components
+        path: /docs/extensibility/custom-ui-components.md
+        status: missing
+        priority: high
+        notes: "Issue #12 - Studio UI customization"
+      
+      - id: custom-icons
+        title: Custom Icons
+        path: /docs/extensibility/custom-icons.md
+        status: missing
+        priority: low
+        notes: "Issue #34"
+      
+      - id: workflow-providers
+        title: Workflow Providers
+        path: /docs/extensibility/workflow-providers.md
+        status: missing
+        priority: medium
+        notes: "Issue #39"
+      
+      - id: plugins-modules
+        title: Plugins & Modules
+        path: /docs/extensibility/plugins-modules.md
+        status: missing
+        priority: high
+        notes: "Issue #73 - Plugin/module development guide"
+      
+      - id: custom-types
+        title: Registering Custom Types
+        path: /docs/extensibility/custom-types.md
+        status: missing
+        priority: medium
+        notes: "Issue #7"
+      
+      - id: dropins
+        title: DropIns Module
+        path: /docs/extensibility/dropins.md
+        status: missing
+        priority: low
+        notes: "Issue #31"
+      
+      - id: webhooks
+        title: Webhook Extensibility
+        path: /docs/extensibility/webhooks.md
+        status: missing
+        priority: low
+        notes: "Issue #10"
+
+  - id: integrations
+    title: Integrations
+    description: Third-party integrations
+    children:
+      - id: identity-providers
+        title: Identity Providers
+        path: /docs/integrations/identity-providers.md
+        status: missing
+        priority: high
+        notes: "Issue #16 - Azure AD, Auth0, IdentityServer4, OpenIddict"
+      
+      - id: masstransit
+        title: MassTransit
+        path: /docs/integrations/masstransit.md
+        status: partial
+        notes: "Issue #19, #24 - Communication between services"
+      
+      - id: hangfire
+        title: Hangfire
+        path: /docs/integrations/hangfire.md
+        status: missing
+        notes: "Background scheduling"
+      
+      - id: monitoring
+        title: Monitoring & Observability
+        path: /docs/integrations/monitoring.md
+        status: missing
+        priority: critical
+        notes: "Prometheus, Grafana, distributed tracing"
+
+  - id: observability
+    title: Observability & Troubleshooting
+    description: Monitoring, logging, and debugging
+    children:
+      - id: logging
+        title: Logging
+        path: /docs/observability/logging.md
+        status: partial
+      
+      - id: monitoring
+        title: Monitoring & Alerting
+        path: /docs/observability/monitoring.md
+        status: missing
+        priority: critical
+        notes: "Phase 1 deliverable - Prometheus, Grafana integration"
+      
+      - id: distributed-tracing
+        title: Distributed Tracing
+        path: /docs/observability/distributed-tracing.md
+        status: missing
+        priority: high
+      
+      - id: troubleshooting
+        title: Troubleshooting Guide
+        path: /docs/observability/troubleshooting.md
+        status: missing
+        priority: high
+        notes: "Phase 1 deliverable - Common issues & solutions"
+      
+      - id: performance-tuning
+        title: Performance Tuning
+        path: /docs/observability/performance-tuning.md
+        status: missing
+        priority: medium
+      
+      - id: alterations
+        title: Alterations
+        path: /docs/observability/alterations.md
+        status: missing
+        priority: medium
+        notes: "Issue #9"
+
+  - id: migration
+    title: Migration
+    description: Migrating from previous versions
+    children:
+      - id: v2-to-v3
+        title: Migrating from V2 to V3
+        path: /docs/migration/v2-to-v3.md
+        status: missing
+        priority: critical
+        notes: "Issues #23, #86 - Most requested doc"
+      
+      - id: breaking-changes
+        title: Breaking Changes
+        path: /docs/migration/breaking-changes.md
+        status: missing
+        priority: high
+
+  - id: reference
+    title: Reference
+    description: API reference and detailed documentation
+    children:
+      - id: activities
+        title: Activity Reference
+        path: /docs/reference/activities/
+        status: partial
+        notes: "Issue #88 - Need docs for all builtin activities"
+      
+      - id: expressions
+        title: Expression Reference
+        path: /docs/reference/expressions/
+        status: partial
+      
+      - id: api
+        title: API Reference
+        path: /docs/reference/api/
+        status: partial
+      
+      - id: configuration
+        title: Configuration Reference
+        path: /docs/reference/configuration.md
+        status: missing
+      
+      - id: studio-api
+        title: Studio API
+        path: /docs/reference/studio-api.md
+        status: missing
+
+  - id: faq
+    title: FAQ
+    description: Frequently asked questions
+    path: /docs/faq.md
+    status: missing
+    priority: high
+    notes: "Aggregate common questions from issues"
+
+  - id: community
+    title: Community & Resources
+    description: Community resources and third-party content
+    children:
+      - id: community-resources
+        title: Community Resources
+        path: /docs/community/resources.md
+        status: partial
+        notes: "Issue #36 - Reference community projects"
+      
+      - id: case-studies
+        title: Case Studies
+        path: /docs/community/case-studies.md
+        status: missing
+        notes: "Organizations using Elsa in production"
+      
+      - id: contributing
+        title: Contributing
+        path: /CONTRIBUTING.md
+        status: exists
+      
+      - id: support
+        title: Getting Support
+        path: /docs/community/support.md
+        status: partial

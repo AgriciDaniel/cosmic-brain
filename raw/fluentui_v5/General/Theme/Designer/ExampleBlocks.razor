@@ -1,0 +1,55 @@
+﻿<FluentGrid Spacing="2">
+    <FluentGridItem Xs="12" Sm="3">
+        <FluentCard>
+            <FluentText As="TextTag.H4" Size="TextSize.Size500" Weight="TextWeight.Bold">Buttons</FluentText>
+            <FluentStack Orientation="Orientation.Horizontal" HorizontalGap="8px" VerticalGap="8px" Wrap="true" Width="100%">
+                <FluentButton Appearance="ButtonAppearance.Primary">Primary</FluentButton>
+                <FluentButton Appearance="ButtonAppearance.Outline">Outline</FluentButton>
+                <FluentButton>Default</FluentButton>
+                <FluentButton Disabled="true">Disabled</FluentButton>
+            </FluentStack>
+        </FluentCard>
+    </FluentGridItem>
+
+    <FluentGridItem Xs="12" Sm="4">
+        <FluentCard>
+            <FluentText As="TextTag.H4" Size="TextSize.Size500" Weight="TextWeight.Bold">Inputs</FluentText>
+            <FluentStack Orientation="Orientation.Vertical">
+                <FluentTextInput Label="Text" Placeholder="Type here" AutoComplete="off" />
+                <FluentTextInput Label="Number" Value="42" TextInputType="TextInputType.Number" AutoComplete="off" />
+                <FluentCheckbox Value="true" Label="Option 1" />
+                <FluentCheckbox Value="false" Label="Option 2" />
+                <FluentRadioGroup Label="Radio group" @bind-Value="_fruit">
+                    <FluentRadio Label="Apple" />
+                    <FluentRadio Label="Banana" />
+                </FluentRadioGroup>
+
+                <FluentSwitch @bind-Value="_switched" Label="Switch" />
+            </FluentStack>
+        </FluentCard>
+    </FluentGridItem>
+
+    <FluentGridItem Xs="12" Sm="4">
+        <FluentCard>
+            <FluentText As="TextTag.H4" Size="TextSize.Size500" Weight="TextWeight.Bold">Status</FluentText>
+            <FluentStack Orientation="Orientation.Vertical">
+                <FluentCard>
+                    <FluentText As="TextTag.Paragraph">Neutral surface</FluentText>
+                    <FluentText As="TextTag.Paragraph">Foreground and background tokens</FluentText>
+                </FluentCard>
+                <FluentCard Style="background: var(--colorBrandBackground); color: var(--colorNeutralForegroundOnBrand);">
+                    <FluentText As="TextTag.Paragraph">Brand surface</FluentText>
+                    <FluentText As="TextTag.Paragraph">Uses brand background tokens</FluentText>
+                </FluentCard>
+            </FluentStack>
+        </FluentCard>
+    </FluentGridItem>
+
+    <FluentGridItem Xs="12" Sm="4">
+        <FluentCard>
+            <FluentText As="TextTag.H4" Size="TextSize.Size500" Weight="TextWeight.Bold">Progress</FluentText>
+            <FluentSlider @bind-Value="_slider" Min="0" Max="100" Step="5" Style="width: 90%;" />
+        </FluentCard>
+    </FluentGridItem>
+
+</FluentGrid>

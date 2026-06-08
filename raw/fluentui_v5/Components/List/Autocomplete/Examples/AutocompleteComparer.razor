@@ -1,0 +1,41 @@
+<div>Selected: <b>@string.Join("; ", Selected.Select(x => x.Name))</b></div>
+
+<FluentAutocomplete TOption="MyUser" 
+                    TValue="int" 
+                    Width="100%" 
+                    Label="Name" 
+                    Placeholder="Select a user"
+                    OptionText="(option) => option.Name" 
+                    OptionValue="(option) => option.UserId" 
+                    OptionSelectedComparer="MyComparer.Instance"
+                    OnOptionsSearch="@OnSearchAsync" 
+                    @bind-SelectedItems="@Selected" />
+
+@code
+{
+    IEnumerable<MyUser> Selected { get; set; } = [];
+
+    /// Search method called when the user types in the input or opens the options list.
+    /// A new list of MyUser is assigned with new object instances.
+    /// The component will use the OptionSelectedComparer to check if any of the new items are already selected.
+    Task OnSearchAsync(OptionsSearchEventArgs<MyUser> e)
+    {
+        e.Items = [
+            new MyUser(1, "Marvin Klein"),
+            new MyUser(2, "Denis Voituron"),
+        ];
+
+        return Task.CompletedTask;
+    }
+
+    record MyUser(int UserId, string Name);
+
+    class MyComparer : IEqualityComparer<MyUser>
+    {
+        public static readonly MyComparer Instance = new();
+
+        public bool Equals(MyUser? x, MyUser? y) => x?.UserId == y?.UserId;
+
+        public int GetHashCode(MyUser obj) => obj.UserId.GetHashCode();
+    }
+}

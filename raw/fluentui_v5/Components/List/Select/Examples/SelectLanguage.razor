@@ -1,0 +1,41 @@
+﻿<!-- Using Items -->
+<FluentSelect Label="Language"
+              Items="@Languages"
+              @bind-Value="@SelectedId1"
+              OptionText="@(i => i.Name)"
+              OptionValue="@(i => i.Id)" />
+
+<!-- Using FluentOptions -->
+<FluentSelect Label="Language"
+              TOption="Language"
+              TValue="int?"
+              @bind-Value="@SelectedId2">
+    <FluentOption TValue="int?" Value="@(null)" Text="[Select]" />
+    @foreach (var language in Languages)
+    {
+        <FluentOption TValue="int?" Value="@language.Id">
+            @language.Name
+        </FluentOption>
+    }
+</FluentSelect>
+
+<div>
+    IDs: (@SelectedId1, @SelectedId2)
+</div>
+
+@code {
+
+    int SelectedId1 = 3;
+    int? SelectedId2 = 3;
+
+    static Language[] Languages = new Language[]
+    {
+        new(1, "C#"),
+        new(2, "Java"),
+        new(3, "Python"),
+        new(4, "JavaScript"),
+        new(5, "Go")
+    };
+
+    record Language(int Id, string Name);
+}

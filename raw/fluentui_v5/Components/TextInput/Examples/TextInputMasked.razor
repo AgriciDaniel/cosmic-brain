@@ -1,0 +1,21 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentTextInput Label="MaskPattern: +{7}(000)000-00-00"
+                     Placeholder="Phone number"
+                     @bind-Value="@Value1"
+                     MaskPattern="+{7}(000)000-00-00"
+                     Message="@($"Value: {Value1}")"
+                     MessageCondition="@FluentFieldCondition.Always" />
+
+    <FluentTextInput Label="MaskPattern: {#}000[aaa]/NIC-[**]"
+                     @bind-Value="@Value2"
+                     MaskPattern="{#}000[aaa]/NIC-[**]"
+                     Message="@($"Value: {Value2}")"
+                     MessageCondition="@FluentFieldCondition.Always" />
+</FluentStack>
+
+
+@code
+{
+    string Value1 = "";
+    string Value2 = "";
+}

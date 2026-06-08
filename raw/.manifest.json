@@ -3,7 +3,7 @@
   "created": "2026-04-23",
   "description": "Ingest delta tracker and address map for the claude-obsidian vault. Do not hand-edit; wiki-ingest maintains this.",
   "sources": {
-    ".raw/Badge components - FluentUI Blazor Components.md": {
+    "raw/Badge components - FluentUI Blazor Components.md": {
       "hash": "4b35bb05e1b9c9fd973fe346e8d86dab",
       "ingested_at": "2026-05-23",
       "pages_created": [
@@ -16,12 +16,890 @@
         "wiki/log.md",
         "wiki/hot.md"
       ]
+    },
+    "raw/Styles - FluentUI Blazor Components.md": {
+      "hash": "2ef221cd39c53226791c49a7bdf2abba",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/sources/fluent-ui-blazor-styles.md",
+        "wiki/concepts/FluentUI Blazor Styles.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/FluentUI Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/design-principles-2026-05-24.md": {
+      "hash": "abbf6b2fbd59561a8756e0fd48315fab",
+      "source_url": "https://fluent2.microsoft.design/design-principles",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/sources/fluent-2-design-principles.md",
+        "wiki/concepts/Fluent 2 Design Principles.md",
+        "wiki/entities/Fluent 2 Design System.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/FluentUI Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/color-2026-05-24.md": {
+      "hash": "c33d6643e5ec1b735efeff3da9e797dc",
+      "source_url": "https://fluent2.microsoft.design/color",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Color System.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/elevation-2026-05-24.md": {
+      "hash": "344473b8874587bde73de696f2f44d86",
+      "source_url": "https://fluent2.microsoft.design/elevation",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Elevation.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/iconography-2026-05-24.md": {
+      "hash": "043016f105da93fc231dda5fde6825f7",
+      "source_url": "https://fluent2.microsoft.design/iconography",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Iconography.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/layout-2026-05-24.md": {
+      "hash": "ac07e011442b4cf73fc005e77539b449",
+      "source_url": "https://fluent2.microsoft.design/layout",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Layout.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/material-2026-05-24.md": {
+      "hash": "73a5f8cdf1ddf0c49b65469574fa5c31",
+      "source_url": "https://fluent2.microsoft.design/material",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Material.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/motion-2026-05-24.md": {
+      "hash": "76c840ece978e1738cc60104bc2b8362",
+      "source_url": "https://fluent2.microsoft.design/motion",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Motion.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/shapes-2026-05-24.md": {
+      "hash": "9f72930da0d6ec61def4bdb3552dbeb8",
+      "source_url": "https://fluent2.microsoft.design/shapes",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Shapes.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/typography-2026-05-24.md": {
+      "hash": "51c516ebf1da9fcf4f6090cd4b42ea16",
+      "source_url": "https://fluent2.microsoft.design/typography",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Typography.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/accessibility-2026-05-24.md": {
+      "hash": "3994a6e6273071ce20b0abcf1dbf2f87",
+      "source_url": "https://fluent2.microsoft.design/accessibility",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Accessibility.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/content-design-2026-05-24.md": {
+      "hash": "34a2ab3ee609474caef2c7cf35cfdded",
+      "source_url": "https://fluent2.microsoft.design/content-design",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Content Design.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/design-tokens-2026-05-24.md": {
+      "hash": "8caa5bca1d8073c21049ae2c09d93caf",
+      "source_url": "https://fluent2.microsoft.design/design-tokens",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Design Tokens.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/color-tokens-2026-05-24.md": {
+      "hash": "f58fa75d70932e7bdba67d8ccb5de7f6",
+      "source_url": "https://fluent2.microsoft.design/color-tokens",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Color Tokens.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/handoffs-2026-05-24.md": {
+      "hash": "76be1916641cbaf67d654a3173f37b65",
+      "source_url": "https://fluent2.microsoft.design/handoffs",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Handoffs.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/onboarding-2026-05-24.md": {
+      "hash": "9ce3dad8827d23c5411f2bf5acdcfa47",
+      "source_url": "https://fluent2.microsoft.design/onboarding",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Onboarding.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/wait-ux-2026-05-24.md": {
+      "hash": "c273469ab2570e7fcbf894b4c5a08442",
+      "source_url": "https://fluent2.microsoft.design/wait-ux",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Wait UX.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/content-engineering-2026-05-24.md": {
+      "hash": "464f08de893bf9a995bd5659f5d82a84",
+      "source_url": "https://fluent2.microsoft.design/content-engineering",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Content Engineering.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/responsible-ai-2026-05-24.md": {
+      "hash": "a7048ff2d85ac733e6a4adfc2ddcc131",
+      "source_url": "https://fluent2.microsoft.design/responsible-AI",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Responsible AI.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/ai-harm-2026-05-24.md": {
+      "hash": "a6368c15843aa148a27f2bda87c1248e",
+      "source_url": "https://fluent2.microsoft.design/ai-harm",
+      "ingested_at": "2026-05-24",
+      "pages_created": [
+        "wiki/concepts/Fluent 2 Types of AI Harm.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Fluent 2 Design System.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/Best practices for Claude Code.md": {
+      "hash": "0160c3b2ee7b8574b056c060e721d883",
+      "source_url": "https://code.claude.com/docs/en/best-practices",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/sources/claude-code-best-practices.md",
+        "wiki/concepts/Claude Code Best Practices.md",
+        "wiki/concepts/Claude Code Context Management.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/DevExpress AI-powered Extensions for Blazor  Blazor.md": {
+      "hash": "1a492af74c00bda96a057e4f25eca367",
+      "source_url": "https://docs.devexpress.com/Blazor/405228/ai-powered-extensions",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/sources/devexpress-blazor-ai-extensions.md",
+        "wiki/concepts/DevExpress Blazor AI Extensions.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/DxAIChat Class  Blazor.md": {
+      "hash": "61d1037d063445e5c1814a670c086d52",
+      "source_url": "https://docs.devexpress.com/Blazor/DevExpress.AIIntegration.Blazor.Chat.DxAIChat",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/sources/devexpress-blazor-dxaichat-class.md",
+        "wiki/concepts/DevExpress Blazor AI v26.1 Roadmap.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/DevExpress Blazor DxAIChat.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/DevExpress Blazor AI Chat â€” Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md": {
+      "hash": "27cdf4e4d66e25572aefc4d45f5349c2",
+      "source_url": "https://community.devexpress.com/Blogs/aspnet/archive/2026/05/22/devexpress-blazor-ai-chat-multi-model-support-mcp-server-integration-and-a-look-at-what-39-s-coming-next.aspx",
+      "ingested_at": "2026-05-25",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/concepts/DevExpress Blazor AI v26.1 Roadmap.md",
+        "wiki/concepts/DevExpress Blazor DxAIChat.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/Blazor Grid  Blazor.md": {
+      "hash": "clippings-move-2026-05-25-grid",
+      "source_url": "https://docs.devexpress.com/Blazor/403143/components/grid",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor DxGrid.md",
+        "wiki/sources/devexpress-blazor-grid.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/Blazor TreeList  Blazor.md": {
+      "hash": "clippings-move-2026-05-25-treelist",
+      "source_url": "https://docs.devexpress.com/Blazor/404942/components/treelist",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor DxTreeList.md",
+        "wiki/sources/devexpress-blazor-treelist.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/DxFilterBuilder Class  Blazor.md": {
+      "hash": "clippings-move-2026-05-25-filterbuilder",
+      "source_url": "https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxFilterBuilder",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor DxFilterBuilder.md",
+        "wiki/sources/devexpress-blazor-filterbuilder.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/Data Editors  Blazor.md": {
+      "hash": "clippings-move-2026-05-25-editors",
+      "source_url": "https://docs.devexpress.com/Blazor/401156/components/data-editors",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor Data Editors.md",
+        "wiki/sources/devexpress-blazor-data-editors.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/__clippings-batch-60-files__": {
+      "hash": "batch-move-2026-05-25",
+      "ingested_at": "2026-05-25",
+      "file_count": 60,
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor Component Catalog.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/DevExpress Blazor.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/devexpress-blazor-dxaichat-2026-05-25.md": {
+      "hash": "web-search-2026-05-25-dxaichat",
+      "source_url": "https://docs.devexpress.com/Blazor/405290/components/ai-chat",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/concepts/DevExpress Blazor DxAIChat.md",
+        "wiki/concepts/DevExpress Blazor AI Examples.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md": {
+      "hash": "web-search-2026-05-25",
+      "source_url": "https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxToolbar",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/sources/devexpress-blazor-dxtoolbar.md",
+        "wiki/concepts/DevExpress Blazor DxToolbar.md",
+        "wiki/entities/DevExpress Blazor.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/elsa/ (batch, ~150 files)": {
+      "hash": "batch-2026-05-25",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/entities/Elsa Workflows.md",
+        "wiki/sources/elsa-workflows-documentation.md",
+        "wiki/concepts/Elsa Workflow Concepts.md",
+        "wiki/concepts/Elsa Architecture.md",
+        "wiki/concepts/Elsa Hello World.md",
+        "wiki/concepts/Elsa Packages.md",
+        "wiki/concepts/Elsa Database Configuration.md",
+        "wiki/concepts/Elsa Containers.md",
+        "wiki/concepts/Elsa Application Types.md",
+        "wiki/concepts/Elsa Workflow Dispatcher.md",
+        "wiki/concepts/Elsa Onboarding.md",
+        "wiki/concepts/Elsa Security.md",
+        "wiki/concepts/Elsa Deployment.md",
+        "wiki/concepts/Elsa Clustering.md",
+        "wiki/concepts/Elsa V2 to V3 Migration.md",
+        "wiki/concepts/Elsa Blazor Dashboard.md",
+        "wiki/concepts/Elsa Persistence.md",
+        "wiki/concepts/Elsa API Client.md",
+        "wiki/concepts/Elsa HTTP Workflows.md",
+        "wiki/concepts/Elsa Plugins and Modules.md",
+        "wiki/concepts/Elsa Running Workflows.md",
+        "wiki/concepts/Elsa Studio Guide.md",
+        "wiki/concepts/Elsa Workflow Patterns.md",
+        "wiki/concepts/Elsa Troubleshooting.md",
+        "wiki/concepts/Elsa External Application Interaction.md",
+        "wiki/concepts/Elsa Loading Workflows from JSON.md",
+        "wiki/concepts/Elsa Performance.md",
+        "wiki/concepts/Elsa Activities.md",
+        "wiki/concepts/Elsa Blocking Activities and Triggers.md",
+        "wiki/concepts/Elsa Control Flow.md",
+        "wiki/concepts/Elsa MassTransit Integration.md",
+        "wiki/concepts/Elsa Diagnostics.md",
+        "wiki/concepts/Elsa Workflow as Activity.md",
+        "wiki/concepts/Elsa Expressions.md",
+        "wiki/concepts/Elsa Custom Activities.md",
+        "wiki/concepts/Elsa Multitenancy.md",
+        "wiki/concepts/Elsa Workflow Instance Variables.md",
+        "wiki/concepts/Elsa Workflow Activation Strategies.md",
+        "wiki/concepts/Elsa Incidents.md",
+        "wiki/concepts/Elsa Log Persistence.md",
+        "wiki/concepts/Elsa Retention.md",
+        "wiki/concepts/Elsa Workers.md",
+        "wiki/concepts/Elsa Distributed Hosting.md",
+        "wiki/concepts/Elsa Studio Design.md",
+        "wiki/concepts/Elsa Studio Localization.md",
+        "wiki/concepts/Elsa Authentication.md",
+        "wiki/concepts/Elsa Alterations.md",
+        "wiki/concepts/Elsa Logging Framework.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    "raw/fluentui_v5/ (batch, ~556 files)": {
+      "hash": "batch-2026-05-25-fluentui-v5",
+      "ingested_at": "2026-05-25",
+      "pages_created": [
+        "wiki/sources/fluentui-blazor-v5-component-reference.md",
+        "wiki/concepts/FluentUI Blazor Installation.md",
+        "wiki/concepts/FluentUI Blazor v5 Migration.md",
+        "wiki/concepts/FluentUI Blazor MCP Server.md",
+        "wiki/concepts/FluentUI Blazor Theming.md",
+        "wiki/concepts/FluentUI Blazor Styles and Spacing.md",
+        "wiki/concepts/FluentUI Blazor Localization.md",
+        "wiki/concepts/FluentUI Blazor Button.md",
+        "wiki/concepts/FluentUI Blazor Checkbox.md",
+        "wiki/concepts/FluentUI Blazor Radio.md",
+        "wiki/concepts/FluentUI Blazor Switch.md",
+        "wiki/concepts/FluentUI Blazor Slider.md",
+        "wiki/concepts/FluentUI Blazor Number.md",
+        "wiki/concepts/FluentUI Blazor Text Inputs.md",
+        "wiki/concepts/FluentUI Blazor ColorPicker.md",
+        "wiki/concepts/FluentUI Blazor InputFile.md",
+        "wiki/concepts/FluentUI Blazor Forms.md",
+        "wiki/concepts/FluentUI Blazor Accordion.md",
+        "wiki/concepts/FluentUI Blazor Card.md",
+        "wiki/concepts/FluentUI Blazor Grid.md",
+        "wiki/concepts/FluentUI Blazor Layout and Stack.md",
+        "wiki/concepts/FluentUI Blazor Splitter.md",
+        "wiki/concepts/FluentUI Blazor Dialog.md",
+        "wiki/concepts/FluentUI Blazor Popover.md",
+        "wiki/concepts/FluentUI Blazor Tabs.md",
+        "wiki/concepts/FluentUI Blazor Divider.md",
+        "wiki/concepts/FluentUI Blazor Wizard.md",
+        "wiki/concepts/FluentUI Blazor List and Select.md",
+        "wiki/concepts/FluentUI Blazor Autocomplete.md",
+        "wiki/concepts/FluentUI Blazor Combobox.md",
+        "wiki/concepts/FluentUI Blazor Menu.md",
+        "wiki/concepts/FluentUI Blazor Nav.md",
+        "wiki/concepts/FluentUI Blazor AppBar.md",
+        "wiki/concepts/FluentUI Blazor TreeView.md",
+        "wiki/concepts/FluentUI Blazor Link.md",
+        "wiki/concepts/FluentUI Blazor Overflow.md",
+        "wiki/concepts/FluentUI Blazor Avatar.md",
+        "wiki/concepts/FluentUI Blazor Badges.md",
+        "wiki/concepts/FluentUI Blazor Icon.md",
+        "wiki/concepts/FluentUI Blazor Image.md",
+        "wiki/concepts/FluentUI Blazor Emoji.md",
+        "wiki/concepts/FluentUI Blazor Text and Typography.md",
+        "wiki/concepts/FluentUI Blazor Progress and Skeleton.md",
+        "wiki/concepts/FluentUI Blazor Toast.md",
+        "wiki/concepts/FluentUI Blazor Tooltip.md",
+        "wiki/concepts/FluentUI Blazor MessageBar.md",
+        "wiki/concepts/FluentUI Blazor RatingDisplay.md",
+        "wiki/concepts/FluentUI Blazor Table.md",
+        "wiki/concepts/FluentUI Blazor KeyCode.md",
+        "wiki/concepts/FluentUI Blazor ErrorBoundary.md",
+        "wiki/concepts/FluentUI Blazor Counter.md",
+        "wiki/concepts/FluentUI Blazor DataGrid.md",
+        "wiki/concepts/FluentUI Blazor DateTime.md",
+        "wiki/concepts/FluentUI Blazor Drag and Drop.md",
+        "wiki/concepts/FluentUI Blazor Paginator.md",
+        "wiki/concepts/FluentUI Blazor PullToRefresh.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    "raw/database/Database Indexing & Những Điều Developer Cần Biết.md": {
+      "hash": "29f316b766343f6cd9bcfb54bc74085a",
+      "ingested_at": "2026-05-26",
+      "pages_created": [
+        "wiki/sources/database-indexing-developer-guide.md",
+        "wiki/entities/Nguyễn Thế Huy.md",
+        "wiki/concepts/Database Indexing.md",
+        "wiki/concepts/Database Index Advanced Techniques.md",
+        "wiki/concepts/Database Schema and Performance.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/hydra/CUT-HDB_DataModel_2021.pdf": {
+      "hash": "044313db949a71fd0f0cbe77671ed558",
+      "ingested_at": "2026-05-27",
+      "pages_created": [
+        "wiki/sources/hydra-cuthdb-data-model.md",
+        "wiki/entities/MPDV HYDRA.md",
+        "wiki/concepts/HYDRA ANALYSIS Module.md",
+        "wiki/concepts/HYDRA BDE Module.md",
+        "wiki/concepts/HYDRA CAQ Module.md",
+        "wiki/concepts/HYDRA HLS Module.md",
+        "wiki/concepts/HYDRA KERNEL Module.md",
+        "wiki/concepts/HYDRA LLE Module.md",
+        "wiki/concepts/HYDRA MDE Module.md",
+        "wiki/concepts/HYDRA MLE Module.md",
+        "wiki/concepts/HYDRA MPL Module.md",
+        "wiki/concepts/HYDRA PDV Module.md",
+        "wiki/concepts/HYDRA PEP Module.md",
+        "wiki/concepts/HYDRA PZE Module.md",
+        "wiki/concepts/HYDRA WRM Module.md",
+        "wiki/concepts/HYDRA ZKS Module.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/hydra/HYDRA_8_Documentation Oct 2020/": {
+      "hash": "batch-2026-05-27-hydra8-docs",
+      "ingested_at": "2026-05-27",
+      "file_count": 1557,
+      "pages_created": [
+        "wiki/sources/hydra-8-documentation.md",
+        "wiki/concepts/HYDRA 8 Function Catalog.md",
+        "wiki/concepts/HYDRA 8 Glossary.md",
+        "wiki/concepts/HYDRA 8 Client Types.md",
+        "wiki/concepts/HYDRA 8 Configuration Procedures.md",
+        "wiki/concepts/HYDRA 8 Release Notes.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/MPDV HYDRA.md",
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP-CAQ.pdf + AIP2-CAQ.pdf + MBL_Archiving_CAQ.pdf + MOC_OrderTypeCAQAssignment.pdf": {
+      "hash": "pdf-extract-2026-06-05-caq-aip",
+      "ingested_at": "2026-06-05",
+      "file_count": 4,
+      "pages_created": [
+        "wiki/sources/hydra-caq-aip-functions.md",
+        "wiki/concepts/HYDRA AIP-CAQ Functions.md",
+        "wiki/concepts/HYDRA MOC CAQ Order Type Assignment.md",
+        "wiki/concepts/HYDRA AIP-CAQ Archiving.md"
+      ],
+      "pages_updated": []
+    },
+    "raw/framas/architects/architecture-guide.md": {
+      "hash": "82690564493a77f44815e15ba757b6d9",
+      "ingested_at": "2026-06-05",
+      "pages_created": [
+        "wiki/sources/framas-monorepo-architecture-guide.md",
+        "wiki/concepts/Framas Monorepo Architecture.md",
+        "wiki/concepts/Git Bare Worktree Pattern.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Framas.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/articles/framas-db-schema-management-2026-06-05.md": {
+      "hash": "05b4b5cb3679af88cb33ee5cbaff4d49",
+      "ingested_at": "2026-06-05",
+      "pages_created": [
+        "wiki/sources/framas-db-schema-management.md",
+        "wiki/entities/Framas.md",
+        "wiki/concepts/DOGE WH Database Schema.md",
+        "wiki/concepts/Framas DBO Schema.md",
+        "wiki/concepts/Framas WL Schema.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/entities/_index.md"
+      ]
+    },
+    "raw/mssql/mssql-obsolete-objects.md": {
+      "hash": "facfedb0b1d677946ea1ff9b6b1f2e1c",
+      "ingested_at": "2026-06-05",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/mssql-obsolete-objects-detection.md",
+        "wiki/concepts/SQL Server DMV Usage Tracking.md",
+        "wiki/questions/Research - MSSQL Obsolete Object Detection.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/framas/app/framas_scanner/tenants/fGE/": {
+      "hash": "41990b7469ee0567b15851fb92a6f322+aaf428eeeac646d8e68662f1fd31a917",
+      "ingested_at": "2026-06-08",
+      "file_count": 2,
+      "pages_created": [
+        "wiki/sources/framas-scanner-hc-bag-procs.md",
+        "wiki/entities/FramasScanner.md",
+        "wiki/concepts/Framas Scanner Label Scan Flow.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Framas.md",
+        "wiki/concepts/Framas DBO Schema.md",
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/sources/_index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    "raw/winline/cwl0": {
+      "hash": "b4680c811f7c2c55ca8e03bad55a0f93",
+      "ingested_at": "2026-06-08",
+      "scope": "6 modules: FIBU(ACC1), KORE(ACC2), PPS(PROD), LIST, ADMIN(ADMN), Settings",
+      "note": "German CHM ~2900 topics; synthesized to 1 summary page/module + cross-cutting concepts, not 1:1 topic mirror. Remaining modules FAKT/LOHN/ANBU/INFO/BI/KASSE not ingested.",
+      "pages_created": [
+        "wiki/entities/Mesonic WinLine.md",
+        "wiki/sources/winline-list.md",
+        "wiki/sources/winline-fibu.md",
+        "wiki/concepts/Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA).md",
+        "wiki/concepts/WinLine Wirtschaftsjahr.md",
+        "wiki/concepts/WinLine Jahresabschluss.md",
+        "wiki/concepts/WinLine Offene Posten (OP).md",
+        "wiki/concepts/WinLine Mandant.md",
+        "wiki/sources/winline-kore.md",
+        "wiki/sources/winline-pps.md",
+        "wiki/sources/winline-admin.md",
+        "wiki/concepts/WinLine Benutzer- und Berechtigungsverwaltung.md",
+        "wiki/sources/winline-settings.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/sources/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/concepts/_index.md"
+      ],
+      "source_chm": "raw/winline/cwl0.chm",
+      "decompiled_dir": "raw/winline/cwl0/"
     }
   },
   "address_map": {
     "wiki/concepts/DragonScale Memory.md": "c-000001",
     "wiki/sources/fluent-ui-blazor-badge-components.md": "c-000004",
     "wiki/concepts/FluentUI Blazor Badge.md": "c-000005",
-    "wiki/entities/FluentUI Blazor.md": "c-000006"
+    "wiki/entities/FluentUI Blazor.md": "c-000006",
+    "wiki/sources/fluent-ui-blazor-styles.md": "c-000007",
+    "wiki/concepts/FluentUI Blazor Styles.md": "c-000008",
+    "wiki/sources/fluent-2-design-principles.md": "c-000009",
+    "wiki/concepts/Fluent 2 Design Principles.md": "c-000010",
+    "wiki/entities/Fluent 2 Design System.md": "c-000011",
+    "wiki/concepts/Fluent 2 Color System.md": "c-000012",
+    "wiki/concepts/Fluent 2 Elevation.md": "c-000013",
+    "wiki/concepts/Fluent 2 Iconography.md": "c-000014",
+    "wiki/concepts/Fluent 2 Layout.md": "c-000015",
+    "wiki/concepts/Fluent 2 Material.md": "c-000016",
+    "wiki/concepts/Fluent 2 Motion.md": "c-000017",
+    "wiki/concepts/Fluent 2 Shapes.md": "c-000018",
+    "wiki/concepts/Fluent 2 Typography.md": "c-000019",
+    "wiki/concepts/Fluent 2 Accessibility.md": "c-000020",
+    "wiki/concepts/Fluent 2 Content Design.md": "c-000021",
+    "wiki/concepts/Fluent 2 Design Tokens.md": "c-000022",
+    "wiki/concepts/Fluent 2 Color Tokens.md": "c-000023",
+    "wiki/concepts/Fluent 2 Handoffs.md": "c-000024",
+    "wiki/concepts/Fluent 2 Onboarding.md": "c-000025",
+    "wiki/concepts/Fluent 2 Wait UX.md": "c-000026",
+    "wiki/concepts/Fluent 2 Content Engineering.md": "c-000027",
+    "wiki/concepts/Fluent 2 Responsible AI.md": "c-000028",
+    "wiki/concepts/Fluent 2 Types of AI Harm.md": "c-000029",
+    "wiki/sources/devexpress-blazor-dxtoolbar.md": "c-000030",
+    "wiki/concepts/DevExpress Blazor DxToolbar.md": "c-000031",
+    "wiki/entities/DevExpress Blazor.md": "c-000032",
+    "wiki/sources/claude-code-best-practices.md": "c-000033",
+    "wiki/concepts/Claude Code Best Practices.md": "c-000034",
+    "wiki/concepts/Claude Code Context Management.md": "c-000035",
+    "wiki/sources/devexpress-blazor-ai-extensions.md": "c-000036",
+    "wiki/concepts/DevExpress Blazor AI Extensions.md": "c-000037",
+    "wiki/concepts/DevExpress Blazor DxAIChat.md": "c-000038",
+    "wiki/concepts/DevExpress Blazor AI Examples.md": "c-000039",
+    "wiki/concepts/DevExpress Blazor AI v26.1 Roadmap.md": "c-000040",
+    "wiki/sources/devexpress-blazor-dxaichat-class.md": "c-000041",
+    "wiki/concepts/DevExpress Blazor DxGrid.md": "c-000042",
+    "wiki/concepts/DevExpress Blazor DxTreeList.md": "c-000043",
+    "wiki/concepts/DevExpress Blazor DxFilterBuilder.md": "c-000044",
+    "wiki/concepts/DevExpress Blazor Data Editors.md": "c-000045",
+    "wiki/sources/devexpress-blazor-grid.md": "c-000046",
+    "wiki/sources/devexpress-blazor-treelist.md": "c-000047",
+    "wiki/sources/devexpress-blazor-filterbuilder.md": "c-000048",
+    "wiki/sources/devexpress-blazor-data-editors.md": "c-000049",
+    "wiki/concepts/DevExpress Blazor Component Catalog.md": "c-000050",
+    "wiki/sources/database-indexing-developer-guide.md": "c-000156",
+    "wiki/entities/Nguyễn Thế Huy.md": "c-000157",
+    "wiki/concepts/Database Indexing.md": "c-000158",
+    "wiki/concepts/Database Index Advanced Techniques.md": "c-000159",
+    "wiki/concepts/Database Schema and Performance.md": "c-000160",
+    "wiki/sources/hydra-cuthdb-data-model.md": "c-000161",
+    "wiki/entities/MPDV HYDRA.md": "c-000162",
+    "wiki/concepts/HYDRA ANALYSIS Module.md": "c-000163",
+    "wiki/concepts/HYDRA BDE Module.md": "c-000164",
+    "wiki/concepts/HYDRA CAQ Module.md": "c-000165",
+    "wiki/concepts/HYDRA HLS Module.md": "c-000166",
+    "wiki/concepts/HYDRA KERNEL Module.md": "c-000167",
+    "wiki/concepts/HYDRA LLE Module.md": "c-000168",
+    "wiki/concepts/HYDRA MDE Module.md": "c-000169",
+    "wiki/concepts/HYDRA MLE Module.md": "c-000170",
+    "wiki/concepts/HYDRA MPL Module.md": "c-000171",
+    "wiki/concepts/HYDRA PDV Module.md": "c-000172",
+    "wiki/concepts/HYDRA PEP Module.md": "c-000173",
+    "wiki/concepts/HYDRA PZE Module.md": "c-000174",
+    "wiki/concepts/HYDRA WRM Module.md": "c-000175",
+    "wiki/concepts/HYDRA ZKS Module.md": "c-000176",
+    "wiki/sources/hydra-8-documentation.md": "c-000177",
+    "wiki/concepts/HYDRA 8 Function Catalog.md": "c-000178",
+    "wiki/concepts/HYDRA 8 Glossary.md": "c-000179",
+    "wiki/concepts/HYDRA 8 Client Types.md": "c-000180",
+    "wiki/concepts/HYDRA 8 Configuration Procedures.md": "c-000181",
+    "wiki/concepts/HYDRA 8 Release Notes.md": "c-000182",
+    "wiki/sources/framas-db-schema-management.md": "c-000200",
+    "wiki/entities/Framas.md": "c-000201",
+    "wiki/concepts/DOGE WH Database Schema.md": "c-000202",
+    "wiki/concepts/Framas DBO Schema.md": "c-000203",
+    "wiki/concepts/Framas WL Schema.md": "c-000204",
+    "wiki/sources/hydra-caq-aip-functions.md": "c-000205",
+    "wiki/concepts/HYDRA AIP-CAQ Functions.md": "c-000206",
+    "wiki/concepts/HYDRA MOC CAQ Order Type Assignment.md": "c-000207",
+    "wiki/concepts/HYDRA AIP-CAQ Archiving.md": "c-000208",
+    "wiki/sources/framas-monorepo-architecture-guide.md": "c-000209",
+    "wiki/concepts/Framas Monorepo Architecture.md": "c-000210",
+    "wiki/concepts/Git Bare Worktree Pattern.md": "c-000211",
+    "wiki/sources/framas-scanner-hc-bag-procs.md": "c-000219",
+    "wiki/entities/FramasScanner.md": "c-000220",
+    "wiki/concepts/Framas Scanner Label Scan Flow.md": "c-000221",
+    "wiki/entities/Mesonic WinLine.md": "c-000222",
+    "wiki/sources/winline-list.md": "c-000223",
+    "wiki/sources/winline-fibu.md": "c-000224",
+    "wiki/concepts/Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA).md": "c-000225",
+    "wiki/concepts/WinLine Wirtschaftsjahr.md": "c-000226",
+    "wiki/concepts/WinLine Jahresabschluss.md": "c-000227",
+    "wiki/concepts/WinLine Offene Posten (OP).md": "c-000228",
+    "wiki/concepts/WinLine Mandant.md": "c-000229",
+    "wiki/sources/winline-kore.md": "c-000230",
+    "wiki/sources/winline-pps.md": "c-000231",
+    "wiki/sources/winline-admin.md": "c-000232",
+    "wiki/concepts/WinLine Benutzer- und Berechtigungsverwaltung.md": "c-000233",
+    "wiki/sources/winline-settings.md": "c-000234"
   }
 }

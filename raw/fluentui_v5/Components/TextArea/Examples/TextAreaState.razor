@@ -1,0 +1,12 @@
+﻿<FluentStack HorizontalGap="20px" Wrap="true">
+    <FluentTextArea Required="true" Label="Required" Placeholder="Required" @bind-Value="@Value" />
+    <FluentTextArea Disabled="true" Label="Disabled" Placeholder="Disabled" @bind-Value="@Value" />
+    <FluentTextArea ReadOnly="true" Label="ReadOnly" Placeholder="ReadOnly" @bind-Value="@Value" />
+</FluentStack>
+
+<FluentLabel>Value = @Value</FluentLabel>
+
+@code
+{
+    string Value = "";
+}

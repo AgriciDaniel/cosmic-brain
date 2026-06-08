@@ -1,0 +1,14 @@
+﻿<FluentTextInput Label="Example field"
+                 Placeholder="Type some characters"
+                 @bind-Value="@MyValue"
+                 Immediate="true"
+                 MessageCondition="@(i => i.When(() => MyValue.Length <= 1).Display("Less than 1", MessageState.Success)
+                                           .When(() => MyValue.Length <= 3).Display("Less than 3", MessageState.Error)
+                                           .When(() => MyValue.Length <= 5).Display("Less than 5", new Icons.Regular.Size16.Image())
+                                           .When(() => true).Display(MessageState.Warning)
+                                           .Build())" />
+
+@code
+{
+    string MyValue = "";
+}

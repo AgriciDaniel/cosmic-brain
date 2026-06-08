@@ -1,0 +1,18 @@
+﻿<FluentStack Orientation="Orientation.Vertical" VerticalGap="12px">
+
+    <div class="@(IsLoading ? "fluent-skeleton-4" : null)" style="width: 200px; height: 20px;">
+        @(IsLoading ? "" : "HTML div content")
+    </div>
+
+    <FluentLabel Class="@FluentSkeleton.LoadingClass(when: () => IsLoading, size: 4)"
+                 Style="width: 200px; height: 20px;">
+        @(IsLoading ? "" : "FluentLabel content")
+    </FluentLabel>
+
+    <FluentSwitch @bind-Value="IsLoading" Label="Loading" />
+</FluentStack>
+
+@code
+{
+    bool IsLoading = true;
+}

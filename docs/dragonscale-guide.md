@@ -126,7 +126,7 @@ What setup does:
 - makes `scripts/tiling-check.py` executable
 - creates `.vault-meta/` if needed
 - creates address, tiling, and legacy-baseline state files if missing
-- creates `.raw/.manifest.json` if missing
+- creates `raw/.manifest.json` if missing
 - runs sanity checks at the end
 
 What setup does not do:
@@ -148,7 +148,7 @@ In `.vault-meta/` it creates:
 - `tiling-thresholds.json`
 - `legacy-pages.txt`
 
-In `.raw/` it creates:
+In `raw/` it creates:
 
 - `.manifest.json`
 
@@ -164,7 +164,7 @@ In `.raw/` it creates:
 
 `wiki-lint` uses that baseline to separate legacy pages from post-rollout pages for address enforcement.
 
-`.raw/.manifest.json` starts with empty `sources` and `address_map` objects. The ingest skill maintains that file. The source documents under `.raw/` remain immutable.
+`raw/.manifest.json` starts with empty `sources` and `address_map` objects. The ingest skill maintains that file. The source documents under `raw/` remain immutable.
 
 ### How to verify setup
 
@@ -302,7 +302,7 @@ Example command:
 
 `wiki-ingest` enables address assignment only when `./scripts/allocate-address.sh` is executable and `./.vault-meta` exists. If both conditions are true, new non-meta pages get `address:` in frontmatter. If not, ingest proceeds without addresses.
 
-`wiki-lint` enables address validation only when `./scripts/allocate-address.sh` is executable and `./.vault-meta/address-counter.txt` exists. If those conditions are true, lint checks address format, uniqueness, counter consistency against `--peek`, missing addresses on post-rollout pages, and `address_map` consistency in `.raw/.manifest.json`.
+`wiki-lint` enables address validation only when `./scripts/allocate-address.sh` is executable and `./.vault-meta/address-counter.txt` exists. If those conditions are true, lint checks address format, uniqueness, counter consistency against `--peek`, missing addresses on post-rollout pages, and `address_map` consistency in `raw/.manifest.json`.
 
 The single-writer rule matters here. The allocator uses `flock`, but the ingest skill still says Phase 2 is single-writer only. Do not run parallel ingests from multiple sessions or sub-agents that assign addresses.
 

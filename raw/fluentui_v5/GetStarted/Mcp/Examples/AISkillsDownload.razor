@@ -1,0 +1,195 @@
+﻿@inject IStaticAssetService StaticAssetService
+@inject IJSRuntime JSRuntime
+
+<FluentStack Orientation="Orientation.Vertical" VerticalGap="16">
+
+    @* Download all button *@
+    <FluentStack Orientation="Orientation.Horizontal" HorizontalGap="8" VerticalAlignment="VerticalAlignment.Center">
+        <FluentButton Appearance="ButtonAppearance.Primary"
+                      IconStart="@(new Icons.Regular.Size20.ArrowDownload())"
+                      Loading="@_downloadingAll"
+                      OnClick="@DownloadAllAsync">
+            Download all files
+        </FluentButton>
+        <FluentLabel Typo="Typography.Body1" Color="Color.Neutral">
+            Downloads all 4 skill files as individual files
+        </FluentLabel>
+    </FluentStack>
+
+    <FluentDivider Margin="@Margin.Vertical2" />
+
+    @* Individual file cards *@
+    @foreach (var file in _skillFiles)
+    {
+        <FluentCard Padding="@Padding.All3">
+            <FluentStack Orientation="Orientation.Horizontal"
+                         HorizontalGap="12"
+                         VerticalAlignment="VerticalAlignment.Center"
+                         Wrap="true">
+                <FluentIcon Value="@(new Icons.Regular.Size20.Document())" />
+                <FluentStack Orientation="Orientation.Vertical" VerticalGap="2" Style="flex: 1; min-width: 200px;">
+                    <FluentLabel Typo="Typography.Body1Strong">@file.DisplayName</FluentLabel>
+                    <FluentLabel Typo="Typography.Caption1" Color="Color.Neutral">@file.Description</FluentLabel>
+                    <FluentLabel Typo="Typography.Caption1" Color="Color.Neutral">
+                        <code>@file.TargetPath</code>
+                    </FluentLabel>
+                </FluentStack>
+                <FluentStack Orientation="Orientation.Horizontal" HorizontalGap="8">
+                    <FluentButton Appearance="ButtonAppearance.Outline"
+                                  IconStart="@(new Icons.Regular.Size16.Eye())"
+                                  Size="ButtonSize.Small"
+                                  OnClick="@(() => TogglePreview(file))">
+                        @(file.IsPreviewOpen ? "Hide" : "Preview")
+                    </FluentButton>
+                    <FluentButton Appearance="ButtonAppearance.Default"
+                                  IconStart="@(new Icons.Regular.Size16.ArrowDownload())"
+                                  Size="ButtonSize.Small"
+                                  Loading="@file.IsDownloading"
+                                  OnClick="@(() => DownloadFileAsync(file))">
+                        Download
+                    </FluentButton>
+                </FluentStack>
+            </FluentStack>
+
+            @if (file.IsPreviewOpen)
+            {
+                <FluentDivider Margin="@Margin.Vertical2" />
+                <div style="max-height: 400px; overflow: auto; background: var(--colorNeutralBackground3); border-radius: var(--borderRadiusMedium); padding: 12px;">
+                    <pre style="margin: 0; white-space: pre-wrap; font-size: var(--fontSizeBase200); line-height: var(--lineHeightBase200);">@file.Content</pre>
+                </div>
+            }
+        </FluentCard>
+    }
+</FluentStack>
+
+@code {
+    private bool _downloadingAll;
+
+    private readonly List<SkillFile> _skillFiles =
+    [
+        new()
+        {
+            DisplayName = "SKILL.md",
+            Description = "Main skill file — setup, component patterns, v4→v5 migration table, common pitfalls",
+            TargetPath = ".github/skills/fluentui-blazor-usage/SKILL.md",
+            AssetUrl = "skills/fluentui-blazor-usage/SKILL.md",
+            FileName = "SKILL.md",
+        },
+        new()
+        {
+            DisplayName = "SETUP.md",
+            Description = "Full setup guide for Blazor Server, WebAssembly, and Auto modes",
+            TargetPath = ".github/skills/fluentui-blazor-usage/references/SETUP.md",
+            AssetUrl = "skills/fluentui-blazor-usage/references/SETUP.md",
+            FileName = "SETUP.md",
+        },
+        new()
+        {
+            DisplayName = "DATAGRID.md",
+            Description = "Advanced data grid patterns — pagination, virtualization, EF adapter, templates",
+            TargetPath = ".github/skills/fluentui-blazor-usage/references/DATAGRID.md",
+            AssetUrl = "skills/fluentui-blazor-usage/references/DATAGRID.md",
+            FileName = "DATAGRID.md",
+        },
+        new()
+        {
+            DisplayName = "THEMING.md",
+            Description = "Theming — CSS custom properties, design tokens, C# style constants",
+            TargetPath = ".github/skills/fluentui-blazor-usage/references/THEMING.md",
+            AssetUrl = "skills/fluentui-blazor-usage/references/THEMING.md",
+            FileName = "THEMING.md",
+        },
+    ];
+
+    private void TogglePreview(SkillFile file)
+    {
+        if (file.IsPreviewOpen)
+        {
+            file.IsPreviewOpen = false;
+            return;
+        }
+
+        // Load content on first preview
+        if (file.Content is null)
+        {
+            _ = LoadAndPreviewAsync(file);
+        }
+        else
+        {
+            file.IsPreviewOpen = true;
+        }
+    }
+
+    private async Task LoadAndPreviewAsync(SkillFile file)
+    {
+        file.Content = await StaticAssetService.GetAsync(file.AssetUrl) ?? "Unable to load file content.";
+        file.IsPreviewOpen = true;
+        StateHasChanged();
+    }
+
+    private async Task DownloadFileAsync(SkillFile file)
+    {
+        file.IsDownloading = true;
+        StateHasChanged();
+
+        try
+        {
+            file.Content ??= await StaticAssetService.GetAsync(file.AssetUrl) ?? string.Empty;
+            await TriggerDownloadAsync(file.FileName, file.Content);
+        }
+        finally
+        {
+            file.IsDownloading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task DownloadAllAsync()
+    {
+        _downloadingAll = true;
+        StateHasChanged();
+
+        try
+        {
+            foreach (var file in _skillFiles)
+            {
+                file.Content ??= await StaticAssetService.GetAsync(file.AssetUrl) ?? string.Empty;
+                await TriggerDownloadAsync(file.FileName, file.Content);
+                await Task.Delay(250); // Small delay between downloads for browser compatibility
+            }
+        }
+        finally
+        {
+            _downloadingAll = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task TriggerDownloadAsync(string fileName, string content)
+    {
+        // Use JS interop to trigger a file download in the browser
+        await JSRuntime.InvokeVoidAsync(
+            "eval",
+            "((fileName, content) => { " +
+            "const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' }); " +
+            "const url = URL.createObjectURL(blob); " +
+            "const a = document.createElement('a'); " +
+            "a.href = url; a.download = fileName; " +
+            "document.body.appendChild(a); a.click(); " +
+            "document.body.removeChild(a); " +
+            "URL.revokeObjectURL(url); " +
+            "})('" + fileName.Replace("'", "\\'") + "', decodeURIComponent('" + Uri.EscapeDataString(content) + "'))");
+    }
+
+    private class SkillFile
+    {
+        public required string DisplayName { get; init; }
+        public required string Description { get; init; }
+        public required string TargetPath { get; init; }
+        public required string AssetUrl { get; init; }
+        public required string FileName { get; init; }
+        public string? Content { get; set; }
+        public bool IsPreviewOpen { get; set; }
+        public bool IsDownloading { get; set; }
+    }
+}

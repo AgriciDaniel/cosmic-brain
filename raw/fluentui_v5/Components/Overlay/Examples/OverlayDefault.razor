@@ -1,0 +1,12 @@
+﻿<!-- Overlay with the default Spinner -->
+<FluentOverlay FullScreen="true"
+               @bind-Visible="@IsVisible" />
+
+<FluentButton OnClick="@(e => IsVisible = true)">
+    Show Overlay
+</FluentButton>
+
+@code
+{
+    bool IsVisible;
+}

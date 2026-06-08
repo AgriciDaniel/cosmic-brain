@@ -1,0 +1,49 @@
+﻿@inject IDialogService DialogService
+
+<FluentButton OnClick="@OpenDialogAsync"
+              Appearance="ButtonAppearance.Primary">
+    Open Dialog
+</FluentButton>
+
+<hr />
+<div>
+    John: @John
+</div>
+
+@code
+{
+    private Dialog.PersonDetails John = new() { Age = "20" };
+
+    private async Task OpenDialogAsync()
+    {
+        var result = await DialogService.ShowDialogAsync<Dialog.SimpleDialog>(options =>
+        {
+            options.Modal = true;
+            options.Alignment = DialogAlignment.End;
+
+            options.Header.CloseAction.Visible = true;
+
+            options.Header.InfoAction.Visible = true;
+            options.Header.InfoAction.OnClickAsync = async (dialog) => { await Task.CompletedTask; Console.WriteLine("Info action clicked"); };
+            
+            options.Header.AddAction(action =>
+            {
+                action.Icon = new Icons.Regular.Size20.Settings();
+                action.Label = "Settings";
+                action.OnClickAsync = async (dialog) => { await Task.CompletedTask; Console.WriteLine("Settings action clicked"); };
+            });
+
+            options.Parameters.Add(nameof(Dialog.SimpleDialog.Name), "John"); // Simple type
+            options.Parameters.Add(nameof(Dialog.SimpleDialog.Person), John); // Updatable object
+        });
+
+        if (result.Cancelled)
+        {
+            Console.WriteLine($"Dialog Canceled: {result.Value}");
+        }
+        else
+        {
+            Console.WriteLine($"Dialog Saved: {result.Value}");
+        }
+    }
+}

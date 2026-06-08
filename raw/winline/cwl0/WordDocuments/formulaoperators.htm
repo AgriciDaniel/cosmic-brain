@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Formula Operators</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84info1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="formulavalues.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled 
+href="referencingothercellsinformulas.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlineinfo.htm">WinLine INFO</A><SPAN class=d2h_breadcrumbsLinkSeparator> 
+&gt; </SPAN><SPAN class=d2h_breadcrumbsContentsOnly>Info</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="mesocalc.htm">MesoCalc</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; 
+</SPAN><A class=d2h_breadcrumbsNormal 
+href="standardfunktionenimmesocalc.htm">Standardfunktionen im MesoCalc</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Formula Operators</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc228701400>Formula Operators</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Objective Grid supports all the arithmetic, boolean and 
+logical operators available in the C programming language. It does not support 
+the C address operators or the operators that have side effects, such as ++. 
+Objective Grid provides two operators, exponentiation (**) and percent (%), that 
+are not available in the C language.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Objective Grid Formulas can contain the following operators 
+to define relationship between values.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Operator Precedence Definition</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>% 14 Unary percent</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>** 13 Exponentiation</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>+ 12 Unary plus</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>- 12 Unary minus</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>~ 12 Bitwise complement 
+(integer)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>! 12 Logical not</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>* 11 Multiplication</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>/ 11 Division</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>% 11 Remainder (integer)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>+ 10 Addition</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>- 10 Subtraction</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&lt;&lt; 9 Shift left 
+(integer)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&gt;&gt; 9 Shift right 
+(integer)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&lt; 8 Less Than</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&gt; 8 Greater Than</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&lt;= 8 Less Than or Equal</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>= 8 Greater Than or Equal</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>== 7 Equal</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>!= 7 Not Equal</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&amp; 6 Bitwise And, or String 
+Concatenation</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>^ 5 Bitwise Exclusive-Or 
+(integer)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>| 4 Bitwise Or</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&amp;&amp; 3 Logical And</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>|| 2 Logical Or</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>?: 1 Conditional</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In formulas with more than one operator, Objective Grid 
+evaluates operators in the order of precedence presented above, with highest 
+precedence first. That is, AND/OR/NOT operators are evaluated after inequality 
+operators in a logical expression, and multiplication/division operations are 
+performed before subtraction/addition operations in an arithmetic expression. 
+Operators at the same precedence level are evaluated from left to right. The 
+precedence of operators can be overridden by using parentheses to explicitly 
+specify the order of evaluation.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Here are some special notes about Objective Grid 
+operators:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>The operators marked ``(integer)"" 
+on the table above automatically convert their operands to integers.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>The &amp; operator performs double 
+duty: as a bit-wise ``and"" if the operands are numbers or as a string 
+concatenation operator joining two strings together if the operands are 
+text.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>The % operator also performs 
+double duty: as the ``percent"" operator when appended to a number or numeric 
+expression, or as the C-style ``modulus"" operator when applied between two 
+integer expressions.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Operators that define 
+equality/inequality relationships (such as == and &lt; ) can be used to compare 
+text strings lexically (alphabetically). In comparing mixed strings lexically, 
+Objective Grid considers string operands to be lower than numeric operands.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>The conditional operator returns 
+its second operand if its first operand evaluates True (non-zero) and returns 
+its third operand if it evaluates False, (zero).</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>In formulas with conditional 
+operators, the second and third operands may be any type Objective Grid 
+supports, including ranges. For example, the expression =@SUM(A1 ? B1..C20 : 
+C10..D15) returns the sum of B1..C20 if A1 evaluates to non-zero; otherwise it 
+returns the sum of C10..D15.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 42.55pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Objective Grid accepts most 
+arithmetic operators used in other spreadsheets like MS Excel, but there are a 
+few differences in syntax and precedence.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

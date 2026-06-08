@@ -1,0 +1,26 @@
+﻿<FluentStack Wrap="true">
+    <FluentListbox Label="Color"
+                   Items="@Colors"
+                   TOption="string"
+                   TValue="string"
+                   @bind-SelectedItems="@SelectedItems"
+                   Multiple="true" />
+
+    <FluentListbox Label="Color Darker"
+                   Appearance="ListAppearance.FilledDarker"
+                   Items="@Colors"
+                   TOption="string"
+                   TValue="string"
+                   @bind-SelectedItems="@SelectedItems"
+                   Multiple="true" />
+
+</FluentStack>
+
+<div>
+    Selected items: <b>@(string.Join(", ", SelectedItems))</b>
+</div>
+
+@code {
+    string[] Colors = ["Red", "Green", "Blue"];
+    IEnumerable<string> SelectedItems = new[] { "Green" };
+}

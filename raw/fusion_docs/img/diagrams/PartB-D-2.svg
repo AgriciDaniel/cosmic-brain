@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 860" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+
+    <!-- State/Object Node Gradient (Blue) -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+
+    <!-- Action/Process Node Gradient (Amber) -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <!-- Decision Node Gradient (Purple) -->
+    <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0e8fc"/>
+      <stop offset="100%" stop-color="#ddd0f0"/>
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- ==================== EDGES (PATHS) ==================== -->
+  <g fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Parent -> SetParams -->
+    <path d="M 400,70 L 400,108" marker-end="url(#arrow)"/>
+    
+    <!-- SetParams -> Check -->
+    <path d="M 400,150 L 400,188" marker-end="url(#arrow)"/>
+    
+    <!-- Check -> Standard -->
+    <path d="M 320,250 C 320,285 150,285 150,318" marker-end="url(#arrow)"/>
+    
+    <!-- Check -> Custom -->
+    <path d="M 480,250 C 480,285 600,285 600,318" marker-end="url(#arrow)"/>
+    
+    <!-- Standard -> Process -->
+    <path d="M 150,360 L 150,748" marker-end="url(#arrow)"/>
+    
+    <!-- Custom -> ShouldSet -->
+    <path d="M 600,360 L 600,408" marker-end="url(#arrow)"/>
+    
+    <!-- ShouldSet -> Compare -->
+    <path d="M 600,450 L 600,498" marker-end="url(#arrow)"/>
+    
+    <!-- Compare -> AllSame -->
+    <path d="M 640,600 C 640,630 700,630 700,658" marker-end="url(#arrow)"/>
+    
+    <!-- Compare -> Changed -->
+    <path d="M 560,600 C 560,630 500,630 500,658" marker-end="url(#arrow)"/>
+    
+    <!-- AllSame -> Skip -->
+    <path d="M 700,700 L 700,758" marker-end="url(#arrow)"/>
+    
+    <!-- Changed -> Process -->
+    <path d="M 500,700 C 500,725 250,725 250,748" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ==================== NODES ==================== -->
+  
+  <!-- Parent Component Renders (Action) -->
+  <rect x="280" y="30" width="240" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="400" y="54" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Parent Component Renders</text>
+
+  <!-- SetParametersAsync() called on child (Action) -->
+  <rect x="240" y="110" width="320" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="400" y="134" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">SetParametersAsync() called on child</text>
+
+  <!-- Check ParameterComparisonMode (Decision) -->
+  <polygon points="400,190 560,230 400,270 240,230" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="400" y="234" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Check ParameterComparisonMode</text>
+
+  <!-- Standard (State) -->
+  <rect x="80" y="320" width="140" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="150" y="344" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Standard</text>
+
+  <!-- Custom (State) -->
+  <rect x="530" y="320" width="140" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="600" y="344" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Custom</text>
+
+  <!-- ComponentInfo.ShouldSetParameters() (Action) -->
+  <rect x="440" y="410" width="320" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="600" y="434" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ComponentInfo.ShouldSetParameters()</text>
+
+  <!-- Compare Parameters Block (Action) -->
+  <rect x="430" y="500" width="340" height="100" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="460" y="525" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">For each parameter:</text>
+  <text x="460" y="545" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">1. Get ParameterComparer for param</text>
+  <text x="460" y="565" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">2. Compare old value vs new value</text>
+  <text x="460" y="585" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e">3. If ANY changed → return true</text>
+
+  <!-- All Same (State) -->
+  <rect x="640" y="660" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="700" y="684" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">All Same</text>
+
+  <!-- Something Changed (State) -->
+  <rect x="420" y="660" width="160" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+  <text x="500" y="684" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Something Changed</text>
+
+  <!-- SKIP - No render (Action) -->
+  <rect x="620" y="760" width="160" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="700" y="784" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">SKIP - No render</text>
+
+  <!-- Process Parameters (Action) -->
+  <rect x="80" y="750" width="240" height="60" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+  <text x="200" y="775" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Process Parameters</text>
+  <text x="200" y="795" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">(standard Blazor)</text>
+
+</svg>

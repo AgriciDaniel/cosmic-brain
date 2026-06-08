@@ -169,7 +169,7 @@
 		{
 			"id": "cta-start",
 			"type": "text",
-			"text": "## 👉 Start here\n\n1. Read [[getting-started]] for a quick walkthrough\n2. Run `/wiki` in Claude Code to scaffold your vault\n3. Drop your first source into `.raw/` and say `ingest [filename]`",
+			"text": "## 👉 Start here\n\n1. Read [[getting-started]] for a quick walkthrough\n2. Run `/wiki` in Claude Code to scaffold your vault\n3. Drop your first source into `raw/` and say `ingest [filename]`",
 			"x": -140,
 			"y": 267,
 			"width": 560,

@@ -1,0 +1,1961 @@
+[
+  {
+    "path": "README.md",
+    "title": "Introducing Elsa Workflows 3",
+    "frontmatter": {
+      "description": "Introducing Elsa Workflows 3"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Workflows 3"
+      },
+      {
+        "level": 2,
+        "text": "Defining Workflows"
+      },
+      {
+        "level": 2,
+        "text": "Use Cases"
+      },
+      {
+        "level": 2,
+        "text": "Key Features"
+      },
+      {
+        "level": 2,
+        "text": "Known Limitations"
+      }
+    ]
+  },
+  {
+    "path": "SUMMARY.md",
+    "title": "Table of contents",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Table of contents"
+      },
+      {
+        "level": 2,
+        "text": "Getting Started"
+      },
+      {
+        "level": 2,
+        "text": "Application Types"
+      },
+      {
+        "level": 2,
+        "text": "Guides"
+      },
+      {
+        "level": 2,
+        "text": "Activities"
+      },
+      {
+        "level": 2,
+        "text": "Expressions"
+      },
+      {
+        "level": 2,
+        "text": "Extensibility"
+      },
+      {
+        "level": 2,
+        "text": "Multitenancy"
+      },
+      {
+        "level": 2,
+        "text": "Operate"
+      },
+      {
+        "level": 2,
+        "text": "Optimize"
+      },
+      {
+        "level": 2,
+        "text": "Hosting"
+      },
+      {
+        "level": 2,
+        "text": "Studio"
+      },
+      {
+        "level": 2,
+        "text": "Authentication"
+      },
+      {
+        "level": 2,
+        "text": "Features"
+      }
+    ]
+  },
+  {
+    "path": "activities/common-properties.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Common Properties"
+      },
+      {
+        "level": 3,
+        "text": "Name <a href=\"#name\" id=\"name\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Display Name <a href=\"#display-name\" id=\"display-name\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Description <a href=\"#description\" id=\"description\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Load Workflow Context <a href=\"#load-workflow-context\" id=\"load-workflow-context\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Save Workflow Context <a href=\"#save-workflow-context\" id=\"save-workflow-context\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Save Workflow Instance <a href=\"#save-workflow-instance\" id=\"save-workflow-instance\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Storage <a href=\"#storage\" id=\"storage\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "activities/control-flow/README.md",
+    "title": "This section covers all built-in control flow activities.",
+    "frontmatter": {
+      "description": "This section covers all built-in control flow activities."
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Control Flow"
+      }
+    ]
+  },
+  {
+    "path": "activities/control-flow/decision.md",
+    "title": "Decision",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Decision"
+      },
+      {
+        "level": 2,
+        "text": "Inputs"
+      },
+      {
+        "level": 2,
+        "text": "Outcomes"
+      },
+      {
+        "level": 2,
+        "text": "Usage"
+      }
+    ]
+  },
+  {
+    "path": "activities/diagnostics/README.md",
+    "title": "Covers all activities in the Diagnostics category",
+    "frontmatter": {
+      "description": "Covers all activities in the Diagnostics category"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Diagnostics"
+      }
+    ]
+  },
+  {
+    "path": "activities/diagnostics/log.md",
+    "title": "Emits log entries to a configurable set of log targets called sinks",
+    "frontmatter": {
+      "description": "Emits log entries to a configurable set of log targets called sinks"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Log"
+      },
+      {
+        "level": 2,
+        "text": "Custom Log Sinks"
+      }
+    ]
+  },
+  {
+    "path": "activities/masstransit/README.md",
+    "title": "MassTransit",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "MassTransit"
+      },
+      {
+        "level": 2,
+        "text": "Messages as Activities﻿"
+      }
+    ]
+  },
+  {
+    "path": "activities/masstransit/tutorial.md",
+    "title": "Tutorial",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Tutorial"
+      }
+    ]
+  },
+  {
+    "path": "application-types/elsa-server-+-studio-wasm.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Server + Studio (WASM)"
+      },
+      {
+        "level": 2,
+        "text": "Create Solution <a href=\"#create-solution\" id=\"create-solution\"></a>"
+      },
+      {
+        "level": 1,
+        "text": "Create a new solution"
+      },
+      {
+        "level": 1,
+        "text": "Create the host project"
+      },
+      {
+        "level": 1,
+        "text": "Add the host project to the solution"
+      },
+      {
+        "level": 1,
+        "text": "Create the client project"
+      },
+      {
+        "level": 1,
+        "text": "Add the client project to the solution"
+      },
+      {
+        "level": 1,
+        "text": "Navigate to the directory where the host project is located"
+      },
+      {
+        "level": 1,
+        "text": "Add a reference to the client project"
+      },
+      {
+        "level": 2,
+        "text": "Setup Host <a href=\"#setup-host\" id=\"setup-host\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Setup Client <a href=\"#setup-client\" id=\"setup-client\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Launch the Application <a href=\"#run-application\" id=\"run-application\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Source Code <a href=\"#source-code\" id=\"source-code\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "application-types/elsa-server.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Server"
+      },
+      {
+        "level": 2,
+        "text": "Setup﻿ <a href=\"#setup\" id=\"setup\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Launch the Application﻿ <a href=\"#run-application\" id=\"run-application\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Source Code﻿ <a href=\"#source-code\" id=\"source-code\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "application-types/elsa-studio.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Studio"
+      },
+      {
+        "level": 2,
+        "text": "Setup <a href=\"#setup\" id=\"setup\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Launch the Application <a href=\"#run-application\" id=\"run-application\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Source Code <a href=\"#source-code\" id=\"source-code\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "authentication/authentication.md",
+    "title": "Authentication",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Authentication"
+      },
+      {
+        "level": 2,
+        "text": "Configuring Authentication for Elsa HTTP API"
+      },
+      {
+        "level": 3,
+        "text": "Overview"
+      },
+      {
+        "level": 2,
+        "text": "Authentication Modes"
+      },
+      {
+        "level": 3,
+        "text": "No Authentication"
+      },
+      {
+        "level": 3,
+        "text": "Using Elsa.Identity"
+      },
+      {
+        "level": 3,
+        "text": "Using OIDC (OpenID Connect)"
+      }
+    ]
+  },
+  {
+    "path": "expressions/c.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "C\\#"
+      },
+      {
+        "level": 2,
+        "text": "Installing the C# Feature"
+      },
+      {
+        "level": 3,
+        "text": "Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Globals"
+      },
+      {
+        "level": 3,
+        "text": "WorkflowInstanceId"
+      },
+      {
+        "level": 3,
+        "text": "CorrelationId"
+      },
+      {
+        "level": 3,
+        "text": "Variable"
+      },
+      {
+        "level": 3,
+        "text": "Output"
+      },
+      {
+        "level": 3,
+        "text": "Input"
+      },
+      {
+        "level": 2,
+        "text": "Adding Assemblies and Namespaces"
+      }
+    ]
+  },
+  {
+    "path": "expressions/javascript.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "JavaScript"
+      },
+      {
+        "level": 2,
+        "text": "Installing the JavaScript Feature"
+      },
+      {
+        "level": 3,
+        "text": "Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Globals"
+      },
+      {
+        "level": 3,
+        "text": "JSON"
+      },
+      {
+        "level": 3,
+        "text": "variables"
+      },
+      {
+        "level": 3,
+        "text": "getWorkflowDefinitionId"
+      },
+      {
+        "level": 3,
+        "text": "getWorkflowDefinitionVersionId"
+      },
+      {
+        "level": 3,
+        "text": "getWorkflowDefinitionVersion"
+      },
+      {
+        "level": 3,
+        "text": "getWorkflowInstanceId"
+      },
+      {
+        "level": 3,
+        "text": "setCorrelationId"
+      },
+      {
+        "level": 3,
+        "text": "getCorrelationId"
+      },
+      {
+        "level": 3,
+        "text": "setVariable"
+      },
+      {
+        "level": 3,
+        "text": "getVariable"
+      },
+      {
+        "level": 3,
+        "text": "getInput"
+      },
+      {
+        "level": 3,
+        "text": "getOutputFrom"
+      },
+      {
+        "level": 3,
+        "text": "getLastResult"
+      },
+      {
+        "level": 3,
+        "text": "isNullOrWhiteSpace"
+      },
+      {
+        "level": 3,
+        "text": "isNullOrEmpty"
+      },
+      {
+        "level": 3,
+        "text": "parseGuid"
+      },
+      {
+        "level": 3,
+        "text": "newGuid"
+      },
+      {
+        "level": 3,
+        "text": "newGuidString"
+      },
+      {
+        "level": 3,
+        "text": "newShortGuid"
+      },
+      {
+        "level": 3,
+        "text": "bytesToString"
+      },
+      {
+        "level": 3,
+        "text": "bytesFromString"
+      },
+      {
+        "level": 3,
+        "text": "bytesToBase64"
+      },
+      {
+        "level": 3,
+        "text": "bytesFromBase64"
+      },
+      {
+        "level": 3,
+        "text": "stringToBase64"
+      },
+      {
+        "level": 3,
+        "text": "stringFromBase64"
+      },
+      {
+        "level": 3,
+        "text": "streamToBytes"
+      },
+      {
+        "level": 3,
+        "text": "streamToBase64"
+      }
+    ]
+  },
+  {
+    "path": "expressions/liquid.md",
+    "title": "Liquid",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Liquid"
+      },
+      {
+        "level": 2,
+        "text": "Installing the Liquid Feature"
+      },
+      {
+        "level": 3,
+        "text": "Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Filters, Tags and Objects"
+      },
+      {
+        "level": 3,
+        "text": "Filters"
+      },
+      {
+        "level": 3,
+        "text": "Objects"
+      }
+    ]
+  },
+  {
+    "path": "expressions/python.md",
+    "title": "Python",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Python"
+      },
+      {
+        "level": 2,
+        "text": "Installing Python"
+      },
+      {
+        "level": 3,
+        "text": "Windows"
+      },
+      {
+        "level": 3,
+        "text": "MacOS"
+      },
+      {
+        "level": 3,
+        "text": "Configure Environment Variables"
+      },
+      {
+        "level": 2,
+        "text": "Installing the Python Feature"
+      },
+      {
+        "level": 3,
+        "text": "Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Globals"
+      },
+      {
+        "level": 3,
+        "text": "output"
+      },
+      {
+        "level": 1,
+        "text": "Get the output of the specified activity, optionally specifying a specific output."
+      },
+      {
+        "level": 1,
+        "text": "Gets the output of the last executed activity."
+      },
+      {
+        "level": 3,
+        "text": "input"
+      },
+      {
+        "level": 3,
+        "text": "variables"
+      },
+      {
+        "level": 1,
+        "text": "Set the OrderId workflow variable."
+      },
+      {
+        "level": 1,
+        "text": "Get the OrderId workflow variable."
+      },
+      {
+        "level": 1,
+        "text": "Set the OrderId workflow variable using the 'set' method."
+      },
+      {
+        "level": 1,
+        "text": "Get the OrderId workflow variable using the 'get' method."
+      },
+      {
+        "level": 3,
+        "text": "execution\\_context"
+      }
+    ]
+  },
+  {
+    "path": "extensibility/custom-activities.md",
+    "title": "This topic covers extending Elsa with your own custom activities.",
+    "frontmatter": {
+      "description": "This topic covers extending Elsa with your own custom activities."
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Custom Activities"
+      },
+      {
+        "level": 2,
+        "text": "Creating Custom Activities <a href=\"#creating-custom-activities\" id=\"creating-custom-activities\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "**Essential Components**﻿"
+      },
+      {
+        "level": 2,
+        "text": "**Key Operations**﻿"
+      },
+      {
+        "level": 2,
+        "text": "Activity vs CodeActivity <a href=\"#activity-vs-code-activity\" id=\"activity-vs-code-activity\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Metadata <a href=\"#activity-metadata\" id=\"activity-metadata\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Composition <a href=\"#composite-activities\" id=\"composite-activities\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Outcomes <a href=\"#activity-outcomes\" id=\"activity-outcomes\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Input <a href=\"#activity-input\" id=\"activity-input\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "**Metadata**﻿"
+      },
+      {
+        "level": 2,
+        "text": "**Expressions**﻿"
+      },
+      {
+        "level": 2,
+        "text": "Output <a href=\"#activity-output\" id=\"activity-output\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "**Metadata**﻿"
+      },
+      {
+        "level": 3,
+        "text": "**Capture via Variable**﻿"
+      },
+      {
+        "level": 3,
+        "text": "**Direct Access**﻿"
+      },
+      {
+        "level": 2,
+        "text": "Dependency Injection <a href=\"#activity-dependency-injection\" id=\"activity-dependency-injection\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Blocking Activities <a href=\"#blocking-activities\" id=\"blocking-activities\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Triggers <a href=\"#activity-triggers\" id=\"activity-triggers\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Registering Activities <a href=\"#registering-activities\" id=\"registering-activities\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Activity Providers <a href=\"#activity-providers\" id=\"activity-providers\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Summary <a href=\"#summary\" id=\"summary\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "extensibility/reusable-triggers-3.5-preview.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Reusable Triggers (3.5-preview)"
+      },
+      {
+        "level": 3,
+        "text": "Overview"
+      },
+      {
+        "level": 3,
+        "text": "Base Classes for Reusable Triggers"
+      },
+      {
+        "level": 3,
+        "text": "Scheduling Delayed Execution with `DelayFor`"
+      },
+      {
+        "level": 3,
+        "text": "Summary"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/README.md",
+    "title": "Alterations",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Alterations"
+      },
+      {
+        "level": 2,
+        "text": "Alteration Types <a href=\"#alteration-types\" id=\"alteration-types\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/alteration-plans/README.md",
+    "title": "Alteration Plans",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Alteration Plans"
+      },
+      {
+        "level": 3,
+        "text": "Creating Alteration Plans <a href=\"#creating-alteration-plans\" id=\"creating-alteration-plans\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Submitting Alteration Plans <a href=\"#submitting-alteration-plans\" id=\"submitting-alteration-plans\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/alteration-plans/rest-api.md",
+    "title": "REST API",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "REST API"
+      },
+      {
+        "level": 2,
+        "text": "Immediate Alterations <a href=\"#immediate-alterations\" id=\"immediate-alterations\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Extensibility <a href=\"#extensibility\" id=\"extensibility\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Example <a href=\"#example\" id=\"example\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/applying-alterations/README.md",
+    "title": "Applying Alterations",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Applying Alterations"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/applying-alterations/extensibility.md",
+    "title": "Extensibility",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Extensibility"
+      },
+      {
+        "level": 2,
+        "text": "Example <a href=\"#example\" id=\"example\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "features/alterations/applying-alterations/rest-api.md",
+    "title": "REST API",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "REST API"
+      }
+    ]
+  },
+  {
+    "path": "features/logging-framework.md",
+    "title": "Logging Framework",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Logging Framework"
+      },
+      {
+        "level": 2,
+        "text": "Programmatic Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Configuration via appsettings.json"
+      },
+      {
+        "level": 2,
+        "text": "Log Levels and Categories"
+      },
+      {
+        "level": 2,
+        "text": "Log Activity"
+      },
+      {
+        "level": 2,
+        "text": "Extending with Custom Sinks"
+      },
+      {
+        "level": 2,
+        "text": "References"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/concepts/README.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Concepts"
+      },
+      {
+        "level": 2,
+        "text": "Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Workflow Instance"
+      },
+      {
+        "level": 2,
+        "text": "Activity"
+      },
+      {
+        "level": 2,
+        "text": "Bookmark"
+      },
+      {
+        "level": 2,
+        "text": "Trigger"
+      },
+      {
+        "level": 2,
+        "text": "Blocking Activity"
+      },
+      {
+        "level": 2,
+        "text": "Burst of Execution"
+      },
+      {
+        "level": 2,
+        "text": "Correlation ID"
+      },
+      {
+        "level": 2,
+        "text": "Outcome"
+      },
+      {
+        "level": 2,
+        "text": "Input"
+      },
+      {
+        "level": 3,
+        "text": "Activity Input"
+      },
+      {
+        "level": 3,
+        "text": "Workflow Input"
+      },
+      {
+        "level": 2,
+        "text": "Output"
+      },
+      {
+        "level": 2,
+        "text": "Variable"
+      },
+      {
+        "level": 2,
+        "text": "Incident"
+      },
+      {
+        "level": 2,
+        "text": "Alteration"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/concepts/correlation-id.md",
+    "title": "Correlation ID",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Correlation ID"
+      },
+      {
+        "level": 3,
+        "text": "Overview"
+      },
+      {
+        "level": 3,
+        "text": "How is Correlation ID Used?"
+      },
+      {
+        "level": 3,
+        "text": "When is Correlation ID Assigned?"
+      },
+      {
+        "level": 3,
+        "text": "Correlation with Domain Entities"
+      },
+      {
+        "level": 3,
+        "text": "Restrictions on Correlation ID"
+      },
+      {
+        "level": 3,
+        "text": "Monitoring and Observability"
+      },
+      {
+        "level": 3,
+        "text": "Conclusion"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/concepts/outcomes.md",
+    "title": "Outcomes",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Outcomes"
+      },
+      {
+        "level": 3,
+        "text": "Understanding Outcomes"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/README.md",
+    "title": "Containers",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Containers"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker-compose/README.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Docker Compose"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker-compose/elsa-server-+-studio-single-image.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Server + Studio - Single Image"
+      },
+      {
+        "level": 3,
+        "text": "Docker Compose Configuration﻿ <a href=\"#docker-compose-configuration\" id=\"docker-compose-configuration\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Steps to Set Up﻿ <a href=\"#steps-to-set-up\" id=\"steps-to-set-up\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Accessing Elsa﻿ <a href=\"#accessing-elsa\" id=\"accessing-elsa\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker-compose/elsa-server-+-studio.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Elsa Server + Studio"
+      },
+      {
+        "level": 3,
+        "text": "Docker Compose File Structure﻿ <a href=\"#compose-file-structure\" id=\"compose-file-structure\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Running the Docker Compose File﻿ <a href=\"#running-compose\" id=\"running-compose\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Service Configuration Details﻿ <a href=\"#service-configuration\" id=\"service-configuration\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker-compose/persistent-database.md",
+    "title": "Persistent Database",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Persistent Database"
+      },
+      {
+        "level": 3,
+        "text": "Docker Compose Configuration﻿ <a href=\"#docker-compose-setup\" id=\"docker-compose-setup\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Configuration Details﻿ <a href=\"#configuration-details\" id=\"configuration-details\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Supported Database Providers﻿ <a href=\"#supported-db-providers\" id=\"supported-db-providers\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Running the Services﻿ <a href=\"#running-services\" id=\"running-services\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker-compose/traefik.md",
+    "title": "Traefik",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Traefik"
+      },
+      {
+        "level": 3,
+        "text": "Docker Compose Configuration﻿ <a href=\"#docker-compose-config\" id=\"docker-compose-config\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Setup Instructions﻿ <a href=\"#setup-instructions\" id=\"setup-instructions\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Environment Configuration﻿ <a href=\"#env-configuration\" id=\"env-configuration\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Troubleshooting﻿ <a href=\"#troubleshooting\" id=\"troubleshooting\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/containers/docker.md",
+    "title": "Docker",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Docker"
+      },
+      {
+        "level": 3,
+        "text": "Elsa Server + Studio <a href=\"#elsa-server-and-studio\" id=\"elsa-server-and-studio\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Elsa Server <a href=\"#elsa-server\" id=\"elsa-server\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Elsa Studio <a href=\"#elsa-studio\" id=\"elsa-studio\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/hello-world.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Hello World"
+      },
+      {
+        "level": 2,
+        "text": "Console <a href=\"#setup\" id=\"setup\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "ASP.NET Core"
+      },
+      {
+        "level": 2,
+        "text": "Summary <a href=\"#summary\" id=\"summary\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Source Code"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/packages.md",
+    "title": "Packages",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Packages"
+      },
+      {
+        "level": 2,
+        "text": "**Main Package**"
+      },
+      {
+        "level": 2,
+        "text": "**Package Feeds**"
+      },
+      {
+        "level": 3,
+        "text": "**Releases** <a href=\"#releases\" id=\"releases\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "**Release Candidates (RC)** <a href=\"#release-candidates-rc\" id=\"release-candidates-rc\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "**Previews** <a href=\"#previews\" id=\"previews\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "**Versioning Strategy** <a href=\"#versioning-strategy\" id=\"versioning-strategy\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "getting-started/prerequisites.md",
+    "title": "Prerequisites",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Prerequisites"
+      },
+      {
+        "level": 3,
+        "text": ".NET﻿ <a href=\"#dotnet\" id=\"dotnet\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Docker﻿ <a href=\"#docker\" id=\"docker\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "guides/external-application-interaction.md",
+    "title": "External Application Interaction",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "External Application Interaction"
+      },
+      {
+        "level": 2,
+        "text": "Before you start﻿ <a href=\"#before-you-start\" id=\"before-you-start\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Elsa Server﻿ <a href=\"#elsa-server\" id=\"elsa-server\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Configuring Webhooks﻿ <a href=\"#webhooks\" id=\"webhooks\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Add Webhooks Package"
+      },
+      {
+        "level": 3,
+        "text": "Update Program.cs"
+      },
+      {
+        "level": 3,
+        "text": "Update appsettings.json"
+      },
+      {
+        "level": 2,
+        "text": "Creating the Workflow"
+      },
+      {
+        "level": 3,
+        "text": "Programmatic"
+      },
+      {
+        "level": 3,
+        "text": "Designer"
+      },
+      {
+        "level": 3,
+        "text": "Connect Activities"
+      },
+      {
+        "level": 3,
+        "text": "Publish the Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Creating the Onboarding Application"
+      },
+      {
+        "level": 3,
+        "text": "Create OnboardingTask Entity"
+      },
+      {
+        "level": 3,
+        "text": "Create Migrations"
+      },
+      {
+        "level": 3,
+        "text": "Apply Migrations"
+      },
+      {
+        "level": 2,
+        "text": "Running the Onboarding Process﻿ <a href=\"#running-the-onboarding-process\" id=\"running-the-onboarding-process\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Complete Tasks"
+      },
+      {
+        "level": 3,
+        "text": "Workflow Completed"
+      },
+      {
+        "level": 2,
+        "text": "Summary﻿ <a href=\"#summary\" id=\"summary\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Source Code﻿ <a href=\"#source-code\" id=\"source-code\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "guides/http-workflows/README.md",
+    "title": "HTTP Workflows",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "HTTP Workflows"
+      }
+    ]
+  },
+  {
+    "path": "guides/http-workflows/designer.md",
+    "title": "Designer",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Designer"
+      },
+      {
+        "level": 2,
+        "text": "Before you start <a href=\"#before-you-start\" id=\"before-you-start\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Workflow Overview <a href=\"#workflow-overview\" id=\"workflow-overview\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Designing the Workflow <a href=\"#create-workflow-using-designer\" id=\"create-workflow-using-designer\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Running the Workflow"
+      },
+      {
+        "level": 2,
+        "text": "Summary﻿"
+      }
+    ]
+  },
+  {
+    "path": "guides/http-workflows/programmatic.md",
+    "title": "Programmatic",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Programmatic"
+      },
+      {
+        "level": 2,
+        "text": "Before you start﻿ <a href=\"#before-you-start\" id=\"before-you-start\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Workflow Overview﻿ <a href=\"#workflow-overview\" id=\"workflow-overview\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Create C# Workflow﻿ <a href=\"#create-workflow-using-csharp\" id=\"create-workflow-using-csharp\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Workflow Variables﻿ <a href=\"#workflow-variables\" id=\"workflow-variables\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "HttpEndpoint Activity﻿ <a href=\"#httpendpoint-activity\" id=\"httpendpoint-activity\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "SetVariable Activity﻿ <a href=\"#setvariable-activity\" id=\"setvariable-activity\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "SendHttpRequest Activity﻿ <a href=\"#sendhttprequest-activity\" id=\"sendhttprequest-activity\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Run Workflow﻿ <a href=\"#run-workflow\" id=\"run-workflow\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Summary﻿ <a href=\"#summary\" id=\"summary\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "guides/loading-workflows-from-json.md",
+    "title": "Loading Workflows from JSON",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Loading Workflows from JSON"
+      },
+      {
+        "level": 2,
+        "text": "Console application <a href=\"#console-application\" id=\"console-application\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Elsa Server"
+      },
+      {
+        "level": 2,
+        "text": "Summary <a href=\"#summary\" id=\"summary\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "guides/running-workflows/README.md",
+    "title": "Running Workflows",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Running Workflows"
+      },
+      {
+        "level": 2,
+        "text": "Before you start﻿ <a href=\"#before-you-start\" id=\"before-you-start\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "guides/running-workflows/dispatch-workflow-activity.md",
+    "title": "Dispatch Workflow Activity",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Dispatch Workflow Activity"
+      },
+      {
+        "level": 2,
+        "text": "Using Code"
+      },
+      {
+        "level": 2,
+        "text": "Using Elsa Studio"
+      }
+    ]
+  },
+  {
+    "path": "guides/running-workflows/using-a-trigger.md",
+    "title": "Using a Trigger",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Using a Trigger"
+      },
+      {
+        "level": 2,
+        "text": "Using Code"
+      },
+      {
+        "level": 2,
+        "text": "Using Elsa Studio"
+      }
+    ]
+  },
+  {
+    "path": "guides/running-workflows/using-elsa-studio.md",
+    "title": "Using Elsa Studio",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Using Elsa Studio"
+      }
+    ]
+  },
+  {
+    "path": "hosting/distributed-hosting.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Distributed Hosting"
+      },
+      {
+        "level": 3,
+        "text": "1. Distributed Runtime"
+      },
+      {
+        "level": 3,
+        "text": "2. Distributed Locking"
+      },
+      {
+        "level": 3,
+        "text": "3. Distributed Caching"
+      },
+      {
+        "level": 3,
+        "text": "4. Quartz.NET Clustered Mode"
+      },
+      {
+        "level": 3,
+        "text": "Conclusion"
+      }
+    ]
+  },
+  {
+    "path": "multitenancy/introduction.md",
+    "title": "Introduction",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Introduction"
+      },
+      {
+        "level": 2,
+        "text": "Multitenancy Levels"
+      },
+      {
+        "level": 3,
+        "text": "Shared Database"
+      },
+      {
+        "level": 3,
+        "text": "Separate Database"
+      },
+      {
+        "level": 2,
+        "text": "Tenant"
+      },
+      {
+        "level": 2,
+        "text": "Tenant Resolution Pipeline"
+      },
+      {
+        "level": 2,
+        "text": "Tenants Provider"
+      }
+    ]
+  },
+  {
+    "path": "multitenancy/setup.md",
+    "title": "Setup",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Setup"
+      },
+      {
+        "level": 2,
+        "text": "Configuration"
+      }
+    ]
+  },
+  {
+    "path": "operate/incidents/README.md",
+    "title": "Incidents",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Incidents"
+      }
+    ]
+  },
+  {
+    "path": "operate/incidents/configuration.md",
+    "title": "Configuration",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Configuration"
+      },
+      {
+        "level": 2,
+        "text": "Global <a href=\"#global\" id=\"global\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Workflow Specific <a href=\"#workflow-specific\" id=\"workflow-specific\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "operate/incidents/strategies.md",
+    "title": "Strategies",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Strategies"
+      }
+    ]
+  },
+  {
+    "path": "operate/workflow-activation-strategies.md",
+    "title": "Workflow Activation Strategies",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Workflow Activation Strategies"
+      }
+    ]
+  },
+  {
+    "path": "operate/workflow-instance-variables.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Workflow Instance Variables"
+      },
+      {
+        "level": 2,
+        "text": "Programmatic Access﻿ <a href=\"#programmatic-access\" id=\"programmatic-access\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Listing﻿ <a href=\"#list-variables\" id=\"list-variables\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Updating﻿ <a href=\"#update-variables\" id=\"update-variables\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "API Access﻿ <a href=\"#api-access\" id=\"api-access\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Listing﻿ <a href=\"#api-list-variables\" id=\"api-list-variables\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Updating﻿ <a href=\"#api-update-variables\" id=\"api-update-variables\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "optimize/log-persistence.md",
+    "title": "Log Persistence",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Log Persistence"
+      },
+      {
+        "level": 2,
+        "text": "Log Persistence Scope﻿ <a href=\"#log-persistence-scope\" id=\"log-persistence-scope\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Application-wide﻿ <a href=\"#application-wide\" id=\"application-wide\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Workflow-wide﻿ <a href=\"#workflow-wide\" id=\"workflow-wide\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Activity-wide﻿ <a href=\"#activity-wide\" id=\"activity-wide\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Per Input/Output﻿ <a href=\"#per-input-output\" id=\"per-input-output\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Summary <a href=\"#conclusion\" id=\"conclusion\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "optimize/retention.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Retention"
+      },
+      {
+        "level": 2,
+        "text": "Configuration <a href=\"#configuration\" id=\"configuration\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Example <a href=\"#example\" id=\"example\"></a>"
+      },
+      {
+        "level": 2,
+        "text": "Extending <a href=\"#extending\" id=\"extending\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Extra Entities <a href=\"#extra-entities\" id=\"extra-entities\"></a>"
+      },
+      {
+        "level": 3,
+        "text": "Different Cleanup Strategies <a href=\"#different-cleanup-strategies\" id=\"different-cleanup-strategies\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "optimize/workers.md",
+    "title": ">-",
+    "frontmatter": {
+      "description": ">-"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Worker count"
+      },
+      {
+        "level": 2,
+        "text": "Configuration <a href=\"#configuration\" id=\"configuration\"></a>"
+      }
+    ]
+  },
+  {
+    "path": "studio/design/README.md",
+    "title": "This section displays the available customization options for Elsa Studio.",
+    "frontmatter": {
+      "description": "This section displays the available customization options for Elsa Studio."
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Design"
+      }
+    ]
+  },
+  {
+    "path": "studio/design/activity-pickers-3.7-preview.md",
+    "title": "Activity Pickers (3.7-preview)",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Activity Pickers (3.7-preview)"
+      },
+      {
+        "level": 2,
+        "text": "Overview"
+      },
+      {
+        "level": 2,
+        "text": "Accordion"
+      },
+      {
+        "level": 2,
+        "text": "Treeview"
+      }
+    ]
+  },
+  {
+    "path": "studio/design/workflow-editor-3.5-preview.md",
+    "title": "Workflow Editor (3.5-preview)",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Workflow Editor (3.5-preview)"
+      }
+    ]
+  },
+  {
+    "path": "studio/localization.md",
+    "title": "Localization",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Localization"
+      },
+      {
+        "level": 2,
+        "text": "Elsa Studio Localization"
+      },
+      {
+        "level": 2,
+        "text": "Steps to Enable Localization"
+      },
+      {
+        "level": 3,
+        "text": "For Blazor Server"
+      },
+      {
+        "level": 3,
+        "text": "For Blazor WebAssembly"
+      }
+    ]
+  },
+  {
+    "path": "studio/workflow-editor/README.md",
+    "title": "This section shows the various Elsa Studio customisation options available",
+    "frontmatter": {
+      "description": "This section shows the various Elsa Studio customisation options available"
+    },
+    "headings": [
+      {
+        "level": 1,
+        "text": "Workflow Editor"
+      }
+    ]
+  },
+  {
+    "path": "studio/workflow-editor/content-visualisers-3.6-preview.md",
+    "title": "Content Visualizers (3.6-preview)",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Content Visualizers (3.6-preview)"
+      },
+      {
+        "level": 2,
+        "text": "Overview"
+      },
+      {
+        "level": 2,
+        "text": "Custom visualizers"
+      }
+    ]
+  },
+  {
+    "path": "studio/workflow-editor/field-extensions.md",
+    "title": "Field Extensions",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "Field Extensions"
+      },
+      {
+        "level": 2,
+        "text": "Overview"
+      },
+      {
+        "level": 2,
+        "text": "Example"
+      },
+      {
+        "level": 2,
+        "text": "Creating a field extension"
+      }
+    ]
+  },
+  {
+    "path": "studio/workflow-editor/ui-hints.md",
+    "title": "UI Hints",
+    "frontmatter": {},
+    "headings": [
+      {
+        "level": 1,
+        "text": "UI Hints"
+      },
+      {
+        "level": 2,
+        "text": "Using UI Hints"
+      },
+      {
+        "level": 2,
+        "text": "Examples"
+      },
+      {
+        "level": 3,
+        "text": "Checkbox"
+      },
+      {
+        "level": 3,
+        "text": "Checklist"
+      }
+    ]
+  }
+]

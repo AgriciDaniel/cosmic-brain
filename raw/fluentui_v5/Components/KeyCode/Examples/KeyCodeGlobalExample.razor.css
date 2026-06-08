@@ -1,0 +1,32 @@
+/* Basic keyboard key style */
+.key {
+    display: inline-block;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 4px;
+    margin: 4px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+    .key[type="keyup"] {
+        color: red;
+    }
+
+    /* Hover effect */
+    .key:hover {
+        background-color: #e0e0e0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Active (pressed) effect */
+    .key:active {
+        background-color: #d0d0d0;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }

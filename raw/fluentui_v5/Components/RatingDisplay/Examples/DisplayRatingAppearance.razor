@@ -1,0 +1,22 @@
+﻿<FluentStack HorizontalGap="12px"
+             Style="margin-bottom:15px;"
+             VerticalAlignment="VerticalAlignment.Bottom"
+             Orientation="Orientation.Horizontal">
+
+    <FluentSelect Label="Size"
+                  Items="@(Enum.GetValues<RatingSize>())"
+                  @bind-Value="@size" />
+
+    <FluentSelect Label="Color"
+                  Items="@(Enum.GetValues<RatingDisplayColor>())"
+                  @bind-Value="@color" />
+</FluentStack>
+
+<FluentRatingDisplay Size="@size" Color="@color" Value="3.7">
+</FluentRatingDisplay>
+
+@code
+{
+    RatingSize size = RatingSize.Medium;
+    RatingDisplayColor color = RatingDisplayColor.Neutral;
+}

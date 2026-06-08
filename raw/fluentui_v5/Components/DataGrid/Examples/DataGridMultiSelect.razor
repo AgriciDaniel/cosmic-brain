@@ -1,0 +1,90 @@
+﻿<FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalGap="5">
+    <FluentSelect Items="@(Enum.GetValues<DataGridSelectMode>())"
+                  @bind-Value="@Mode" />
+    <FluentCheckbox @bind-Value="@UseSelectedItems"
+                    @bind-Value:after="@(() => ResetSelectItems())"
+                    Label="Use `SelectedItems` property" />
+    <FluentCheckbox @bind-Value="@SelectFromEntireRow"
+                    @bind-Value:after="@(() => ResetSelectItems())"
+                    Label="Use `SelectFromEntireRow` property" />
+    <FluentCheckbox @bind-Value="@SelectableBefore2000"
+                    @bind-Value:after="@(() => ResetSelectItems())"
+                    Label="Use `Selectable` property" />
+</FluentStack>
+
+@if (UseSelectedItems)
+{
+    @* Sample using SelectedItems  *@
+    <div>Using SelectedItems</div>
+
+    <FluentDataGrid Items="@People" ShowHover="@SelectFromEntireRow" TGridItem="Person">
+        <SelectColumn TGridItem="Person"
+                      SelectMode="@Mode"
+                      SelectFromEntireRow="@SelectFromEntireRow"
+                      Selectable="@(e => !SelectableBefore2000 || e.BirthDate.Year >= 2000)"
+                      @bind-SelectedItems="@SelectedItems" />
+        <PropertyColumn Width="100px" Property="@(p => p.PersonId)" Title="ID" />
+        <PropertyColumn Width="300px" Property="@(p => p.Name)" />
+        <PropertyColumn Width="150px" Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+    </FluentDataGrid>
+
+    <div style="margin-top: 1rem;">
+        <b>SelectedItems:</b>
+        @String.Join("; ", SelectedItems.Select(p => p.Name))
+    </div>
+}
+else
+{
+    @* Sample using Property and OnSelect  *@
+    <div>Using Property and OnSelect</div>
+
+    <FluentDataGrid Items="@People" ShowHover="@SelectFromEntireRow" TGridItem="Person">
+        <SelectColumn TGridItem="Person"
+                      SelectMode="@Mode"
+                      SelectFromEntireRow="@SelectFromEntireRow"
+                      Selectable="@(e => !SelectableBefore2000 || e.BirthDate.Year >= 2000)"
+                      Property="@(e => e.Selected)"
+                      OnSelect="@(e => e.Item.Selected = e.Selected)"
+                      SelectAll="@(People.All(p => p.Selected))"
+                      SelectAllChanged="@(all => People.ToList().ForEach(p => p.Selected = (all == true)))" />
+        <PropertyColumn Width="100px" Property="@(p => p.PersonId)" Title="ID" />
+        <PropertyColumn Width="300px" Property="@(p => p.Name)" />
+        <PropertyColumn Width="150px" Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true" />
+    </FluentDataGrid>
+
+    <div style="margin-top: 1rem;">
+        <b>Persons:</b>
+        @String.Join("; ", People.Where(p => p.Selected).Select(p => p.Name))
+    </div>
+}
+
+@code {
+    bool UseSelectedItems = true;
+    bool SelectFromEntireRow = true;
+    bool SelectableBefore2000 = false;
+    DataGridSelectMode Mode = DataGridSelectMode.Single;
+
+    IEnumerable<Person> SelectedItems = People.Where(p => p.Selected);
+
+    record Person(int PersonId, string Name, DateOnly BirthDate)
+    {
+        public bool Selected { get; set; }
+    };
+
+    static IQueryable<Person> People = new[]
+    {
+        new Person(10895, "Jean Martin", new DateOnly(1985, 3, 16)) { Selected = true },
+        new Person(10944, "António Langa", new DateOnly(1991, 12, 1)),
+        new Person(11203, "Julie Smith", new DateOnly(1958, 10, 10)),
+        new Person(11205, "Nur Sari", new DateOnly(1922, 4, 27)),
+        new Person(11898, "Jose Hernandez", new DateOnly(2011, 5, 3)),
+        new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9)),
+    }.AsQueryable();
+
+    private void ResetSelectItems()
+    {
+        People.ToList().ForEach(i => i.Selected = false);
+        People.First().Selected = true;
+        SelectedItems = People.Where(p => p.Selected);
+    }
+}

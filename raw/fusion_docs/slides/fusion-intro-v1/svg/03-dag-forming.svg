@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a03" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+  </defs>
+
+  <line x1="380" y1="100" x2="170" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a03)"/>
+  <line x1="395" y1="100" x2="340" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a03)"/>
+  <line x1="405" y1="100" x2="490" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a03)"/>
+  <line x1="420" y1="100" x2="640" y2="225" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a03)"/>
+
+  <rect x="320" y="50" width="160" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="400" y="82" text-anchor="middle" fill="#41d1ff" font-size="16" font-weight="600"
+        font-family="ui-monospace, Menlo, Monaco, Consolas, monospace">GetTotal(cart)</text>
+
+  <rect x="80" y="230" width="160" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="160" y="262" text-anchor="middle" fill="#41d1ff" font-size="15" font-weight="600"
+        font-family="ui-monospace, Menlo, Monaco, Consolas, monospace">ListItems(cart)</text>
+
+  <rect x="280" y="230" width="120" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="340" y="262" text-anchor="middle" fill="#41d1ff" font-size="15" font-weight="600"
+        font-family="ui-monospace, Menlo, Monaco, Consolas, monospace">GetPrice(p1)</text>
+
+  <rect x="430" y="230" width="120" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="490" y="262" text-anchor="middle" fill="#41d1ff" font-size="15" font-weight="600"
+        font-family="ui-monospace, Menlo, Monaco, Consolas, monospace">GetPrice(p2)</text>
+
+  <rect x="580" y="230" width="120" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="640" y="262" text-anchor="middle" fill="#41d1ff" font-size="15" font-weight="600"
+        font-family="ui-monospace, Menlo, Monaco, Consolas, monospace">GetPrice(p3)</text>
+
+  <text x="400" y="340" text-anchor="middle" fill="#7e7e87" font-size="13">edges captured automatically as the method runs</text>
+</svg>

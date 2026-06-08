@@ -1,0 +1,20 @@
+﻿<FluentCombobox Label="Countries"
+                Placeholder="Select your countries"
+                Multiple="true"
+                OptionText="@(i => i?.Name)"
+                OptionValue="@(i => i?.Code)"
+                Items="@Countries"
+                @bind-SelectedItems="@SelectedCountries">
+                <FreeOption>
+                    Search for '<FreeOptionOutput />'
+                </FreeOption>
+            </FluentCombobox>
+
+<div>
+    Selected: @string.Join(',', SelectedCountries.Select(i => i.Code))
+</div>
+
+@code {
+    IEnumerable<SampleData.Olympics2024.Country> Countries = SampleData.Olympics2024.Countries;
+    IEnumerable<SampleData.Olympics2024.Country> SelectedCountries = [];
+}

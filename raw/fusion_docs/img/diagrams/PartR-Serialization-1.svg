@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 440" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 Z" fill="#8b90a8" stroke="none" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect x="0" y="0" width="700" height="440" rx="10" fill="url(#bg-grad)" />
+
+    <!-- Lifelines -->
+    <line x1="120" y1="60" x2="120" y2="415" stroke="#bcc8da" stroke-width="1.5" stroke-dasharray="6,4" />
+    <line x1="580" y1="60" x2="580" y2="415" stroke="#bcc8da" stroke-width="1.5" stroke-dasharray="6,4" />
+
+    <!-- Client Header -->
+    <rect x="60" y="25" width="120" height="34" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="120" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600">CLIENT</text>
+
+    <!-- Server Header -->
+    <rect x="520" y="25" width="120" height="34" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="580" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600">SERVER</text>
+
+    <!-- 1. Client -> Server: WebSocket connect -->
+    <text x="350" y="82" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">WebSocket connect: <tspan font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" font-style="normal">/rpc/ws?f=msgpack6&amp;clientId=abc</tspan></text>
+    <line x1="120" y1="95" x2="574" y2="95" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- 2. Server -> Client: accepts if supported (label on arrow) -->
+    <text x="350" y="130" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">accepts if supported</text>
+    <line x1="580" y1="142" x2="126" y2="142" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+
+    <!-- 3. Note: messages use msgpack6 format -->
+    <rect x="195" y="165" width="310" height="34" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="186" text-anchor="middle" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">messages use <tspan font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" font-style="normal">msgpack6</tspan> format</text>
+
+    <!-- 4. Simultaneous RpcHandshake exchange (crossing arrows) -->
+    <text x="220" y="225" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">RpcHandshake</text>
+    <line x1="120" y1="240" x2="574" y2="310" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <text x="480" y="225" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">RpcHandshake</text>
+    <line x1="580" y1="240" x2="126" y2="310" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- 5. Connected state box -->
+    <rect x="260" y="345" width="180" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="350" y="370" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" font-weight="bold">Connected</text>
+</svg>

@@ -1,0 +1,26 @@
+﻿@using FluentUI.Demo.SampleData
+<FluentGrid Justify="JustifyContent.FlexStart" Spacing="3">
+    <FluentGridItem xs="12" sm="6">
+        <FluentSortableList @bind-Items="items" OnUpdate="@HandleOnUpdate">
+            <ItemTemplate>@context.FirstName @context.LastName</ItemTemplate>
+        </FluentSortableList>
+    </FluentGridItem>
+	<FluentGridItem xs="12" sm="6">
+		<p>Bound List:</p>
+		@foreach (var item in items)
+		{
+			<div>@item</div>
+		}
+	</FluentGridItem>
+</FluentGrid>
+
+
+@code {
+
+    IEnumerable<People.Person> items = People.GeneratePersons(10);
+
+    void HandleOnUpdate(FluentSortableListEventArgs args)
+    {
+        Console.WriteLine($"Item moved in list '{args.FromListId}' from index {args.OldIndex} to index {args.NewIndex}");
+    }
+}

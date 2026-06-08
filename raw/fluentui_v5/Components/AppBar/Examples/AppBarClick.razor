@@ -1,0 +1,71 @@
+﻿@inject IDialogService DialogService
+
+<FluentStack Orientation="Orientation.Vertical" Style="height: 330px;">
+    <div style="background-color: var(--colorNeutralBackground5); overflow: hidden; resize: vertical; height: 320px; width: 86px; padding: 10px;">
+        <FluentAppBar Style="height: 100%;">
+            <FluentAppBarItem Href="/"
+                              Match="NavLinkMatch.All"
+                              IconRest="HomeIcon()"
+                              IconActive="HomeIcon(active: true)"
+                              Text="Home"
+                              OnClick="HandleOnClick" />
+            <FluentAppBarItem Href="/AppBar"
+                              IconRest="AppBarIcon()"
+                              IconActive="AppBarIcon(active: true)"
+                              Text="AppBar"
+                              OnClick="HandleOnClick" />
+            <FluentAppBarItem IconRest="WhatsNewIcon()"
+                              IconActive="WhatsNewIcon(active: true)"
+                              Text="What's New"
+                              OnClick="ShowSuccessAsync" />
+            <FluentAppBarItem Href="@(null)"
+                              IconRest="IconsIcon()"
+                              IconActive="IconsIcon(active: true)"
+                              Text="Icons"
+                              OnClick="HandleOnClick" />
+            <FluentAppBarItem Href="/Dialog"
+                              IconRest="DialogIcon()"
+                              IconActive="DialogIcon(active: true)"
+                              Text="Dialog"
+                              OnClick="HandleOnClick" />
+        </FluentAppBar>
+    </div>
+</FluentStack>
+
+@code {
+    private static Icon HomeIcon(bool active = false) =>
+        active ? new Icons.Filled.Size24.Home()
+               : new Icons.Regular.Size24.Home();
+
+    private static Icon AppBarIcon(bool active = false) =>
+        active ? new Icons.Filled.Size24.AppsList()
+               : new Icons.Regular.Size24.AppsList();
+
+    private static Icon WhatsNewIcon(bool active = false) =>
+        active ? new Icons.Filled.Size24.Info()
+               : new Icons.Regular.Size24.Info();
+
+    private static Icon IconsIcon(bool active = false) =>
+        active ? new Icons.Filled.Size24.Symbols()
+               : new Icons.Regular.Size24.Symbols();
+
+    private static Icon DialogIcon(bool active = false) =>
+        active ? new Icons.Filled.Size24.AppGeneric()
+               : new Icons.Regular.Size24.AppGeneric();
+
+
+    private void HandleOnClick(IAppBarItem item)
+    {
+        Console.WriteLine($"Clicked {item.Text}!");
+    }
+
+    private async Task ShowSuccessAsync(IAppBarItem item)
+    {
+        var dialog = await DialogService.ShowSuccessAsync($"You clicked {item.Text}");
+    }
+
+    private async Task ShowWarningAsync(IAppBarItem item)
+    {
+        var dialog = await DialogService.ShowWarningAsync($"Are you sure? {item.Text}");
+    }
+}

@@ -1,0 +1,177 @@
+﻿@page "/Lists/Autocomplete/Debug"
+
+@using static FluentUI.Demo.SampleData.Olympics2024
+
+<div style="margin: 24px;">
+
+    <div>Selected items: <b>@string.Join("; ", SelectedCountries.Select(c => c.Name))</b></div>
+    <div>Selected item: <b>@SelectedCountry?.Name</b></div>
+    <div>Search Text: <b>@SearchText</b></div>
+
+    <FluentAutocomplete TOption="Country"
+                        TValue="string"
+                        Width="100%"
+                        Label="Select countries"
+                        Placeholder="Type to search..."
+                        ShowProgressIndicator="@ShowProgressIndicator"
+                        MaxAutoHeight="@((MaxAutoHeight) ? "unset" : null)"
+                        OnOptionsSearch="@OnSearchAsync"
+                        Items="@Countries"
+                        OptionText="@(item => item.Name)"
+                        MaxSelectedWidth="@(MaxSelectedWidth ? "40px" : null)"
+                        ShowDismiss="@ShowDismiss"
+                        Multiple="@Multiple"
+                        MaximumSelectedOptions="@(SetMaximumSelectedOptions ? 4 : (int?)null)"
+                        @bind-Value="@SearchText"
+                        @bind-SelectedItem="@SelectedCountry"
+                        @bind-SelectedItems="@SelectedCountries">
+
+        @* Drop-down item template *@
+        <OptionTemplate>
+            <FluentStack Style="pointer-events: none;"
+                         VerticalAlignment="VerticalAlignment.Center">
+                <FluentAvatar Image="@context.Flag()"
+                              Name="@context.Name"
+                              Size="AvatarSize.Size20" />
+                <FluentText Margin="@Margin.Left4">
+                    @context.Name
+                </FluentText>
+            </FluentStack>
+        </OptionTemplate>
+
+        @* Content displayed at the top of the drop-down list *@
+        <HeaderContent>
+            <FluentText Size="TextSize.Size200"
+                        Color="Color.Primary"
+                        Align="TextAlign.Center">
+                Suggested contacts
+            </FluentText>
+            <FluentProgressBar Thickness="ProgressThickness.Large"
+                               Visible="@context.InProgress" />
+        </HeaderContent>
+
+        @* Content displayed at the bottom of the drop-down list *@
+        <FooterContent>
+            @if (!context.Items.Any())
+            {
+                <FluentText Size="TextSize.Size200"
+                            Align="TextAlign.Center"
+                            Color="Color.Error"
+                            Style="width: 100%;">
+                    No results found
+                </FluentText>
+            }
+        </FooterContent>
+
+    </FluentAutocomplete>
+
+    <FluentStack Orientation="Orientation.Vertical">
+        <FluentSwitch @bind-Value="@ShowProgressIndicator"
+                      Label="Show progress indicator" />
+        <FluentSwitch @bind-Value="@MaxAutoHeight"
+                      Label="Auto height" />
+        <FluentSwitch @bind-Value="@MaxSelectedWidth"
+                      Label="Set a max selected width (40px)" />
+        <FluentSwitch @bind-Value="@ShowDismiss"
+                      Label="Show search or dismiss button" />
+        <FluentSwitch @bind-Value="@Multiple"
+                      Label="Multiple selection" />
+        <FluentSwitch @bind-Value="@SetMaximumSelectedOptions"
+                      Label="Set MaximumSelectedOptions to 4" />
+        <FluentButton OnClick="@SetSelectedCountriesAsync">
+            Set SelectedCountries to [be, fr]
+        </FluentButton>
+    </FluentStack>
+
+
+    @* Set the Items property *@
+    <FluentAutocomplete TOption="Country"
+                        TValue="string"
+                        Width="100%"
+                        MaximumOptionsSearch="int.MaxValue"
+                        Label="Select countries from Items"
+                        Items="@Countries"
+                        OptionText="@(item => item.Name)"
+                        @bind-SelectedItem="@SelectedCountry"
+                        @bind-SelectedItems="@SelectedCountries" />
+
+    @* Bind to an Int32 *@
+    @* User {int Id, string Name} *@
+    <FluentAutocomplete TOption="User"
+                        TValue="int?"
+                        Width="100%"
+                        Label="@($"Bind to an Int32 (SelectedUserId: {SelectedUserId})")"
+                        Multiple="false"
+                        OnOptionsSearch="@(args => { args.Items = User.GetUsers().Where(u => u.Name.StartsWith(args.Text, StringComparison.OrdinalIgnoreCase)); return Task.CompletedTask; })"
+                        OnSetValue="@(args => args.Item = User.GetUsers().FirstOrDefault(u => u.Id == args.Value))"
+                        OptionText="@(item => item?.Name)"
+                        OptionValue="@(item => item?.Id)"
+                        @bind-Value="@SelectedUserId" />
+    <FluentButton OnClick="@(e => SelectedUserId = 3)">
+        Set SelectedUserId to 3
+    </FluentButton>
+
+</div>
+
+@code
+{
+    bool ShowProgressIndicator { get; set; }
+    bool MaxAutoHeight { get; set; }
+    bool MaxSelectedWidth { get; set; }
+    bool ShowDismiss { get; set; } = true;
+    bool Multiple { get; set; } = true;
+    bool SetMaximumSelectedOptions { get; set; }
+    string? SearchText { get; set; }
+    IEnumerable<Country> SelectedCountries { get; set; } = [];
+    Country? SelectedCountry { get; set; }
+    int? SelectedUserId { get; set; }
+
+    async Task OnSearchAsync(OptionsSearchEventArgs<Country> e)
+    {
+        if (ShowProgressIndicator)
+        {
+            await Task.Delay(500); // Simulate async search
+        }
+
+        e.Items = Countries.Where(i => i.Name.StartsWith(e.Text, StringComparison.OrdinalIgnoreCase))
+                           .OrderBy(i => i.Name);
+    }
+
+    async Task SetSelectedCountriesAsync()
+    {
+        SelectedCountries = Countries.Where(i => i.Code == "be" || i.Code == "fr");
+        await Task.CompletedTask;
+    }
+
+    class User : IEqualityComparer<User>
+    {
+        public static IEnumerable<User> GetUsers() => new List<User>
+        {
+            new User { Id = 1, Name = "Alice" },
+            new User { Id = 2, Name = "Bob" },
+            new User { Id = 3, Name = "Charlie" },
+            new User { Id = 4, Name = "David" },
+            new User { Id = 5, Name = "Eve" }
+        };
+
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+
+        public bool Equals(User? x, User? y)
+        {
+            if (ReferenceEquals(x, y))
+            {
+                return true;
+            }
+
+            if (x is null || y is null)
+            {
+                return false;
+            }
+
+            return x.Id == y.Id;
+        }
+
+        public int GetHashCode(User obj) => obj.Id.GetHashCode();
+    }
+}

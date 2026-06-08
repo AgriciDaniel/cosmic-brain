@@ -1,0 +1,18 @@
+﻿<FluentDragContainer TItem="string"
+                     OnDragEnd="@(e => Console.WriteLine($"{e.Source.Id} drag ended"))"
+					 OnDragEnter="@(e => Console.WriteLine($"{e.Source.Id} is entered in  {e.Target.Id}"))"
+					 OnDragLeave="@(e => Console.WriteLine($"{e.Source.Id} has left {e.Target.Id}"))"
+					 OnDropEnd="@(e => Console.WriteLine($"{e.Source.Id} dropped in {e.Target.Id}"))">
+    <FluentStack>
+        <FluentDropZone Id="Item1" Draggable="true" Droppable="true">
+            <div style="width: 50px; height: 50px; background-color: pink;">
+                Item 1
+            </div>
+        </FluentDropZone>
+        <FluentDropZone Id="Item2" Draggable="true" Droppable="true">
+            <div style="width: 50px; height: 50px; background-color: lightgreen;">
+                Item 2
+            </div>
+        </FluentDropZone>
+    </FluentStack>
+</FluentDragContainer>

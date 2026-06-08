@@ -1,0 +1,20 @@
+﻿<FluentTextInput Label="Example field"
+                 TextInputType="TextInputType.Password"
+                 @bind-Value="@MyValue"
+                 Immediate="true"
+                 MessageCondition="@(i => i.When(() => MyValue.Length < 8)
+                                                .Display("8+ characters", MessageState.Error)
+                                           .When(() => MyValue.Any(char.IsDigit) == false)
+                                                .Display("Using number", MessageState.Error)
+                                           .When(() => MyValue.Any(char.IsUpper) == false)
+                                                .Display("Capital letters", MessageState.Error)
+                                           .When(() => MyValue.Any(char.IsLower) == false)
+                                                .Display("Lowercase letters", MessageState.Error)
+                                           .When(() => MyValue.Length >= 8 && MyValue.Any(char.IsDigit) && MyValue.Any(char.IsUpper) && MyValue.Any(char.IsLower))
+                                                .Display("Valid password", MessageState.Success)
+                                           .Build(options => options.BreakOnFirst = false))" />
+
+@code
+{
+    string MyValue = "";
+}

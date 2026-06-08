@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 420" width="100%">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd"/>
+            <stop offset="50%" stop-color="#eaf1fb"/>
+            <stop offset="100%" stop-color="#e2ebf7"/>
+        </linearGradient>
+        <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc"/>
+            <stop offset="100%" stop-color="#d4e3f7"/>
+        </linearGradient>
+        <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0"/>
+            <stop offset="100%" stop-color="#faecd8"/>
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 2 L 8 5 L 0 8 z" fill="#8b90a8"/>
+        </marker>
+        <style>
+            .code-text { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+            .code-bold { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 15px; fill: #1a1a2e; font-weight: bold; }
+            .label-text { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+            .header-text { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+            .node-box { fill: url(#stateGrad); stroke: #bcc8da; stroke-width: 1.5; }
+            .action-box { fill: url(#actionGrad); stroke: #e0cba8; stroke-width: 1.5; }
+            .subgraph-box { fill: rgba(200,215,240,0.15); stroke: #c0c8d4; stroke-width: 1.5; stroke-dasharray: 6 4; }
+            .arrow-line { fill: none; stroke: #8b90a8; stroke-width: 1.5; stroke-linecap: round; marker-end: url(#arrow); }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="750" height="420" rx="10" fill="url(#bgGrad)"/>
+
+    <!-- Outer Container: RpcHub -->
+    <rect x="20" y="20" width="710" height="380" rx="8" class="subgraph-box"/>
+    <text x="40" y="45" class="code-bold">RpcHub</text>
+    <text x="115" y="44" class="label-text">singleton — manages all peers and service proxies</text>
+
+    <!-- Top Area: GetPeer Action -->
+    <rect x="285" y="57" width="180" height="36" rx="14" class="action-box"/>
+    <text x="375" y="80" class="code-text" text-anchor="middle">GetPeer(RpcPeerRef)</text>
+    <!-- Arrow from GetPeer to Peers Area -->
+    <path d="M375,93 L375,134" class="arrow-line"/>
+
+    <!-- Middle Area: RpcPeerRef and RpcPeer -->
+    <!-- RpcPeerRef Node -->
+    <rect x="65" y="162" width="130" height="46" rx="8" class="node-box"/>
+    <text x="130" y="182" class="code-text" text-anchor="middle">RpcPeerRef</text>
+    <text x="130" y="198" class="label-text" text-anchor="middle">address</text>
+
+    <!-- Arrow from RpcPeerRef to RpcPeer -->
+    <path d="M195,185 L287,185" class="arrow-line"/>
+
+    <!-- RpcPeer Container -->
+    <rect x="290" y="137" width="360" height="96" rx="8" class="subgraph-box"/>
+    <text x="302" y="152" class="header-text">RpcPeer</text>
+
+    <!-- RpcClientPeer Node (Inside RpcPeer) -->
+    <rect x="315" y="167" width="130" height="46" rx="8" class="node-box"/>
+    <text x="380" y="187" class="code-text" text-anchor="middle">RpcClientPeer</text>
+    <text x="380" y="203" class="label-text" text-anchor="middle">outbound</text>
+
+    <!-- RpcServerPeer Node (Inside RpcPeer) -->
+    <rect x="475" y="167" width="130" height="46" rx="8" class="node-box"/>
+    <text x="540" y="187" class="code-text" text-anchor="middle">RpcServerPeer</text>
+    <text x="540" y="203" class="label-text" text-anchor="middle">inbound</text>
+
+    <!-- Bottom Area: RpcConnection -->
+    <rect x="380" y="322" width="160" height="46" rx="8" class="node-box"/>
+    <text x="460" y="342" class="code-text" text-anchor="middle">RpcConnection</text>
+    <text x="460" y="358" class="label-text" text-anchor="middle">channel</text>
+
+    <!-- Arrow from RpcClientPeer to RpcConnection -->
+    <path d="M380,213 C380,265 420,265 420,317" class="arrow-line"/>
+    
+    <!-- Annotation for Left Arrow -->
+    <rect x="200" y="252" width="160" height="26" rx="13" class="action-box"/>
+    <text x="280" y="270" class="code-text" text-anchor="middle">RpcClient.Connect()</text>
+
+    <!-- Arrow from RpcServerPeer to RpcConnection -->
+    <path d="M540,213 C540,265 500,265 500,317" class="arrow-line"/>
+
+    <!-- Annotation for Right Arrow -->
+    <rect x="550" y="247" width="160" height="26" rx="13" class="action-box"/>
+    <text x="630" y="265" class="code-text" text-anchor="middle">SetNextConnection()</text>
+    <text x="630" y="287" class="label-text" text-anchor="middle">called by RpcWebSocketServer</text>
+    <text x="630" y="301" class="label-text" text-anchor="middle">ASP.NET Core endpoint</text>
+</svg>

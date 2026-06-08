@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -50 800 350" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a05" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#a8b1ff"/>
+    </marker>
+  </defs>
+
+  <circle cx="130" cy="150" r="75" fill="rgba(250,204,21,0.08)" stroke="#facc15" stroke-width="2"/>
+  <text x="130" y="155" text-anchor="middle" fill="#fcfcf7" font-size="17" font-weight="500">Computing</text>
+
+  <circle cx="400" cy="150" r="75" fill="rgba(74,222,128,0.08)" stroke="#4ade80" stroke-width="2"/>
+  <text x="400" y="155" text-anchor="middle" fill="#fcfcf7" font-size="17" font-weight="500">Consistent</text>
+
+  <circle cx="670" cy="150" r="75" fill="rgba(255,68,68,0.08)" stroke="#f44" stroke-width="2"/>
+  <text x="670" y="155" text-anchor="middle" fill="#fcfcf7" font-size="17" font-weight="500">Invalidated</text>
+
+  <line x1="210" y1="150" x2="320" y2="150" stroke="#a8b1ff" stroke-width="2" marker-end="url(#a05)"/>
+  <line x1="480" y1="150" x2="590" y2="150" stroke="#a8b1ff" stroke-width="2" marker-end="url(#a05)"/>
+
+  <path d="M 180 85 C 280 -30 520 -30 620 85" stroke="#a8b1ff" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#a05)"/>
+
+  <text x="265" y="138" text-anchor="middle" fill="#a8b1ff" font-size="13">computed</text>
+  <text x="535" y="138" text-anchor="middle" fill="#a8b1ff" font-size="13">invalidate</text>
+  <text x="400" y="-15" text-anchor="middle" fill="#a8b1ff" font-size="13">invalidated while computing</text>
+
+  <text x="670" y="260" text-anchor="middle" fill="#7e7e87" font-size="12">terminal — next call creates a fresh Computed</text>
+</svg>

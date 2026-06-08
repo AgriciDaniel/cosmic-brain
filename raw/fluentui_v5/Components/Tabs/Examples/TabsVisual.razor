@@ -1,0 +1,38 @@
+﻿<FluentSelect Label="Appearance"
+              Items="@(Enum.GetValues<TabsAppearance>())"
+              @bind-Value="@Appearance" />
+
+<FluentSelect Label="Orientation"
+              Items="@(Enum.GetValues<Orientation>())"
+              @bind-Value="@Orientation" />
+
+<FluentSelect Label="Size"
+              Items="@(Enum.GetValues<TabsSize>())"
+              @bind-Value="@Size" />
+
+<FluentSelect Label="Disabled"
+              Items="@([true, false])"
+              @bind-Value="@Disabled" />
+
+<FluentTabs Disabled="@Disabled" Appearance="@Appearance" Orientation="@Orientation" Size="@Size"
+            Style="border: 1px dashed var(--colorNeutralStroke1);">
+    <FluentTab Header="Chat" IconStart="@(new Icons.Regular.Size16.Chat())">
+        Here's some information about the chat.
+    </FluentTab>
+
+    <FluentTab Header="Files" Disabled="true" IconStart="@(new Icons.Regular.Size16.Folder())">
+        Here's the list of all files.
+    </FluentTab>
+
+    <FluentTab Header="Recap" IconStart="@(new Icons.Regular.Size16.List())" IconColor="@Color.Primary">
+        Here's some information about the recap.
+    </FluentTab>
+</FluentTabs>
+
+@code
+{
+    TabsAppearance Appearance;
+    Orientation Orientation;
+    TabsSize Size;
+    bool Disabled;
+}

@@ -1,0 +1,20 @@
+@inherits FluentDialogInstance
+
+<FluentDialogBody FixedHeaderFooter="@ParamFixedHeaderFooter">
+    <!-- Long content -->
+    <div>
+        ParamFixedHeaderFooter: @ParamFixedHeaderFooter
+    </div>
+    @string.Join("", SampleData.Text.LoremIpsum.Select(i => $"{i}{Environment.NewLine}"));
+</FluentDialogBody>
+
+@code
+{
+    [Parameter]
+    public bool ParamFixedHeaderFooter { get; set; }
+
+    protected override Task OnActionClickedAsync(bool primary)
+    {
+        return DialogInstance.CloseAsync(primary ? "Yes" : "No");
+    }
+}

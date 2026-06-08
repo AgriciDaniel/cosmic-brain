@@ -1,0 +1,74 @@
+﻿<FluentInputFile @ref="@MyFileByBuffer"
+                 AnchorId="MyUploadBuffer"
+                 DragDropZoneVisible="false"
+                 Mode="InputFileMode.Buffer"
+                 Multiple="true"
+                 MaximumFileSize="@FileSizeConverter.FromMegaBytes(100)"
+                 Accept=".mp4, .mov, .avi"
+                 OnProgressChange="@OnProgressChangeAsync"
+                 OnCompleted="@OnCompleted" />
+
+<FluentProgressBar Visible="@(ProgressPercent > 0)" Min="0" Max="100" Value="@ProgressPercent" />
+<FluentDivider>@ProgressTitle</FluentDivider>
+
+<FluentButton Appearance="ButtonAppearance.Primary" Id="MyUploadBuffer">
+    Upload files
+</FluentButton>
+
+<FluentButton @onclick="@((e) => IsCanceled = true)">
+    Cancel
+</FluentButton>
+
+@if (Files.Any())
+{
+    <h4>File(s) uploaded:</h4>
+    <ul>
+        @foreach (var file in Files)
+        {
+            <li>
+                @file.Value
+            </li>
+        }
+    </ul>
+}
+
+@code
+{
+    FluentInputFile? MyFileByBuffer;
+    int? ProgressPercent;
+    string? ProgressTitle;
+    bool IsCanceled;
+
+    Dictionary<int, string> Files = new();
+
+    async Task OnProgressChangeAsync(FluentInputFileEventArgs file)
+    {
+        ProgressPercent = file.ProgressPercent;
+        ProgressTitle = file.ProgressTitle;
+
+        // To cancel?
+        file.IsCancelled = IsCanceled;
+
+        // New file
+        if (!Files.ContainsKey(file.Index))
+        {
+            var localFile = Path.GetTempFileName() + file.Name;
+            Files.Add(file.Index, localFile);
+        }
+
+        // Write to the FileStream
+        await file.Buffer.AppendToFileAsync(Files[file.Index]);
+    }
+
+    void OnCompleted(IEnumerable<FluentInputFileEventArgs> files)
+    {
+        ProgressPercent = MyFileByBuffer?.ProgressPercent;
+        ProgressTitle = MyFileByBuffer?.ProgressTitle;
+
+        // For the demo, delete these files.
+        foreach (var file in Files)
+        {
+            File.Delete(file.Value);
+        }
+    }
+}

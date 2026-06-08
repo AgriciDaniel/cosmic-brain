@@ -1,0 +1,140 @@
+@using System.ComponentModel.DataAnnotations
+
+@inject IDialogService DialogService
+
+<FluentWizard StepperPosition="StepperPosition.Left"
+              StepSequence="@WizardStepSequence.Visited"
+              DisplayStepNumber="@(WizardStepStatus.Current | WizardStepStatus.Next)"
+              Border="WizardBorder.Outside"
+              StepTitleHiddenWhen="@GridItemHidden.XsAndDown"
+              Height="auto"
+              Style="min-height: 300px;"
+              OnFinish="@OnFinishedAsync">
+    <Steps>
+        <FluentWizardStep Label="Personal Info"
+                          OnChange="@OnStepChange">
+            <EditForm Model="_formData1" FormName="personalInfo" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
+                <DataAnnotationsValidator />
+                <FluentWizardStepValidator />
+                <FluentStack Orientation="Orientation.Vertical">
+                    <FluentTextInput Placeholder="First Name" @bind-Value="_formData1.FirstName" />
+                    <FluentTextInput Placeholder="Last Name" @bind-Value="_formData1.LastName" />
+                </FluentStack>
+                <FluentValidationSummary style="color:darkred" />
+            </EditForm>
+        </FluentWizardStep>
+        <FluentWizardStep Label="Address Info"
+                          OnChange="@OnStepChange">
+            <EditForm Model="_formData2" FormName="addressInfo" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
+                <DataAnnotationsValidator />
+                <FluentWizardStepValidator />
+                <FluentStack Orientation="Orientation.Vertical">
+                    <FluentTextInput Placeholder="Address Line 1" @bind-Value="_formData2.AddressLine1" />
+                    <FluentTextInput Placeholder="Address Line 2" @bind-Value="_formData2.AddressLine2" />
+                    <FluentTextInput Placeholder="City" @bind-Value="_formData2.City" />
+                    <FluentTextInput Placeholder="State or Province" @bind-Value="_formData2.StateOrProvince" />
+                    <FluentTextInput Placeholder="Country" @bind-Value="_formData2.Country" />
+                    <FluentTextInput Placeholder="Postal Code" @bind-Value="_formData2.PostalCode" />
+                </FluentStack>
+                <FluentValidationSummary style="color:darkred" />
+            </EditForm>
+        </FluentWizardStep>
+        <FluentWizardStep Label="Set budget"
+                          Summary="Identify the best price"
+                          IconPrevious="@(new Icons.Filled.Size20.Star())"
+                          IconCurrent="@(new Icons.Filled.Size20.StarEmphasis())"
+                          IconNext="@(new Icons.Regular.Size20.Star())"
+                          DisplayStepNumber="false"
+                          OnChange="@OnStepChange">
+            Phasellus quis augue convallis, congue velit ac, aliquam ex. In egestas porttitor massa
+            aliquet porttitor. Donec bibendum faucibus urna vitae elementum. Phasellus vitae efficitur
+            turpis, eget molestie ipsum.
+        </FluentWizardStep>
+        <FluentWizardStep Label="Finish">
+            <EditForm Model="_finishFormData" FormName="finishForm" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInvalidSubmit">
+                <DataAnnotationsValidator />
+                <FluentWizardStepValidator />
+                <FluentStack Orientation="Orientation.Vertical">
+                    <FluentTextInput Label="Signature" Placeholder="Type your signature" @bind-Value="_finishFormData.Signature" />
+                </FluentStack>
+                <FluentValidationSummary style="color:darkred" />
+            </EditForm>
+        </FluentWizardStep>
+    </Steps>
+</FluentWizard>
+
+@if (_overlayIsVisible)
+{
+    <FluentOverlay @bind-Visible=@_overlayIsVisible
+                   Opacity="40"
+                   Alignment="Align.Center"
+                   Justification="@JustifyContent.Center">
+        <FluentSpinner />
+    </FluentOverlay>
+}
+
+@code
+{
+    private FormData1 _formData1 = new FormData1();
+    private FormData2 _formData2 = new FormData2();
+    private FinishFormData _finishFormData = new FinishFormData();
+    private bool _overlayIsVisible = false;
+
+    void OnStepChange(FluentWizardStepChangeEventArgs e)
+    {
+    }
+
+    async Task OnFinishedAsync()
+    {
+        await DialogService.ShowInfoAsync("Wizard completed");
+    }
+
+    async Task OnValidSubmit()
+    {
+        _overlayIsVisible = true;
+        await Task.Delay(2000);
+        _overlayIsVisible = false;
+    }
+
+    void OnInvalidSubmit()
+    {
+    }
+
+    private class FormData1
+    {
+        [Required]
+        [MaxLength(3)]
+        public string? FirstName { get; set; }
+
+        [Required]
+        [MinLength(10)]
+        public string? LastName { get; set; }
+    }
+
+    private class FormData2
+    {
+        [Required]
+        public string? AddressLine1 { get; set; }
+
+        public string? AddressLine2 { get; set; }
+
+        [Required]
+        public string? City { get; set; }
+
+        [Required]
+        public string? StateOrProvince { get; set; }
+
+        [Required]
+        public string? Country { get; set; }
+
+        [Required]
+        public string? PostalCode { get; set; }
+    }
+
+    private class FinishFormData
+    {
+        [Required]
+        [MinLength(5)]
+        public string? Signature { get; set; }
+    }
+}

@@ -57,10 +57,14 @@ else
   echo "--  .vault-meta/tiling-thresholds.json already present (not overwritten)"
 fi
 
-# ── 3. Provision .raw/.manifest.json (if absent) ──────────────────────────────
-mkdir -p .raw
-if [ ! -f .raw/.manifest.json ]; then
-  cat > .raw/.manifest.json <<'JSON'
+# ── 3. Provision raw/.manifest.json (if absent) ───────────────────────────────
+# Migrate legacy .raw/ → raw/ first (idempotent, no-op if already migrated).
+if [ -f "$SCRIPT_DIR/migrate-raw-folder.sh" ]; then
+  bash "$SCRIPT_DIR/migrate-raw-folder.sh" "$VAULT"
+fi
+mkdir -p raw
+if [ ! -f raw/.manifest.json ]; then
+  cat > raw/.manifest.json <<'JSON'
 {
   "version": 1,
   "created": "DRAGONSCALE_SETUP",
@@ -71,11 +75,11 @@ if [ ! -f .raw/.manifest.json ]; then
 JSON
   # Replace placeholder with today's date
   DATE=$(date +%Y-%m-%d)
-  sed -i.bak "s/DRAGONSCALE_SETUP/$DATE/" .raw/.manifest.json
-  rm -f .raw/.manifest.json.bak
-  echo "OK  .raw/.manifest.json initialized (empty sources + address_map)"
+  sed -i.bak "s/DRAGONSCALE_SETUP/$DATE/" raw/.manifest.json
+  rm -f raw/.manifest.json.bak
+  echo "OK  raw/.manifest.json initialized (empty sources + address_map)"
 else
-  echo "--  .raw/.manifest.json already present (not overwritten)"
+  echo "--  raw/.manifest.json already present (not overwritten)"
 fi
 
 # ── 4. Rollout-baseline marker in legacy-pages.txt ────────────────────────────

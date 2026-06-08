@@ -1,0 +1,29 @@
+﻿﻿@using System.Globalization
+
+<FluentStack Wrap="true" HorizontalGap="64px">
+
+    <div style="width: 100%;">
+        <FluentSelect Label="Select Culture"
+                      Items="@AllCultures"
+                      OptionText="@(item => $"{item.DisplayName} [{item.Name}]")"
+                      @bind-Value="@SelectedCulture" />
+    </div>
+
+    <FluentTimePicker Label="@($"Culture {SelectedCulture.DisplayName}")"
+                      Culture="@SelectedCulture"
+                      @bind-Value="@SelectedValue" />
+
+	<FluentTimePicker Label="Current culture"
+                      @bind-Value="@SelectedValue" />  
+</FluentStack>
+
+@code
+{
+    private DateTime? SelectedValue = null;
+    private CultureInfo[] AllCultures = CultureInfo.GetCultures(CultureTypes.AllCultures)
+                                                   .Where(i => i.IsNeutralCulture)
+                                                   .OrderBy(i => i.DisplayName)
+                                                   .ToArray();
+    private CultureInfo SelectedCulture = new CultureInfo("fa");
+}
+

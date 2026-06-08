@@ -1,0 +1,17 @@
+﻿<FluentSelect TOption="string"
+              TValue="string"
+              Label="RGB Color"
+              Placeholder="Select a color"
+              @bind-Value="@Value">
+    <FluentOptionString Value="ff0000">Red</FluentOptionString>
+    <FluentOptionString Value="00ff00">Green</FluentOptionString>
+    <FluentOptionString Value="0000ff">Blue</FluentOptionString>
+</FluentSelect>
+
+<div>
+    Selected: @Value
+</div>
+
+@code {
+    string? Value;
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Vorlagen des Typs "Bewegungsdaten - Produktionsauftrag"</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt"><A name=_Ref108601716>Vorlagen des Typs 
+"Bewegungsdaten - Produktionsauftrag"</A></H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Grundsätzlich unterscheidet sich die Anlage von Vorlagen des 
+Typs "Produktionsauftrag" nicht von der Anlage anderer Typen. Aus diesem Grund 
+werden in diesem Kapitel nur die Spezial- bzw. Sonderfunktionen beschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabelle "Datenfelder der Vorlage"</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1034.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Felder aus 
+dem Bereich "Lagerort - Stamm"</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1035.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Für die Angabe eines Lagerorts stehen die Felder "Nummer" 
+(Lagerort-ID), "EAN-Code", "RFID" und die sechs Ebenen (Lagerort 1 bis 6) zur 
+Verfügung. Die Lagerorte werden hierbei in der folgenden Reihenfolge gesucht 
+bzw. ermittelt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Nummer<BR>Existiert das Feld 
+"Nummer" und beinhaltet einen numerischen Wert, so wird nach der Lagerort-ID 
+gesucht. Ist der Inhalt wiederum alphanumerisch, so geht die WinLine davon aus, 
+dass es sich um einen Lagerortnamen handelt und sucht nach genau diesem Lagerort 
+(wenn dieser mehrfach vorkommt gibt es eine Warnung/Hinweis). Das Verhalten ist 
+hierdurch identisch zu jenem der Lagerbuchhaltung (Ausnahme: beim Export wird 
+die Lagerort-ID / Name vorbelegt). Sobald das Feld "Nummer" im Aufbau der 
+Vorlage existiert und mit einem Inhalt versehen ist werden die weiteren 
+möglichen Lagerortfelder nicht berücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>EAN-Code<BR>Sollte das Feld 
+"Nummer" nicht vorhanden oder befüllt sein (d.h. leer/0) sein, so wird das Feld 
+"EAN-Code" bei Vorhandensein geprüft. Die weiteren Felder werden dann wiederum 
+außer Acht gelassen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>RFID<BR>Als nächstes würde der 
+Inhalt der Felds "RFID" kontrolliert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lagerort 1 bis 6<BR>Zum Schluss 
+wird nach allen Lagerotnamen gesucht.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Voraussetzung beim Verwenden des Lagermanagements ist das 
+Feld "Produktionsflag". Das Feld für Lagermanagementzeilen muss auf den Wert "L" 
+gesetzt werden, sofern mehrere Aufteilungen zu einer Artikelzeile durchgeführt 
+werden sollen. Zusätzlich muss gewährleistet sein, dass beim Importieren zuerst 
+die Zeilen des Lagermanagements kommen und im Anschluss die Prod.Auftragszeile. 
+Dies wird über das Feld "Sortierung" gesteuert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Felder aus 
+dem Bereich "Produktionslauf"</P>
+<P class=MsoNormal>In dem Bereich gibt es mehrere Felder für die Mengen. Beim 
+Importieren einer Materialentnahme werden die Felder für die Menge in der 
+Reihenfolge geprüft:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>MengeVomLager (T342.C008)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>MengeZuProduzieren (T342.C009)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Materialmenge (T342.C013)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Dabei müssen nicht alle Felder belegt sein, es reicht aus, 
+dass ein Feld mit den Mengen befüllt ist. D.h. die entnommene Menge muss nicht 
+mehr in der Spalte Materialmenge (T342.C013) stehen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1034.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ersatzauftragsnummer / Flag</P>
+<P class=MsoNormal>Über das Feld kann die Hinterlegung aus den PPS-Parametern 
+bzgl. der Abbuchungen beim Druck des Materialentnahmescheins übersteuert 
+werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>In den Applikationsparametern kann eingestellt werden, ob die 
+Materialentnahme beim Druck des Materialentnahmescheins erfolgen soll oder erst 
+bei der Endmeldung. Diese Einstellung kann über das ExIm der übersteuert werden. 
+Dazu muss in den Vorlagen das Feld "Ersatzauftragsnummer / Flag" enthalten sein. 
+Bei der Vorlage steht der Matchcode zur Verfügung bzw. die folgenden Optionen 
+stehen zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - Produktionsendmeldung nur mit 
+IST-Werten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - Endmeldung nur mit entnommenen 
+Mengen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Ist das Feld in der Vorlage nicht enthalten gelten die 
+Einstellungen aus den Applikationsparametern; ist es enthalten muss ein Wert 
+hinterlegt sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sortierung</P>
+<P class=MsoNormal>Das Feld wird beim Importieren von Artikeln mit Lagerorten 
+benötigt, sofern die Aufteilung auf mehrere Lagerorte vorgenommen wird. Dabei 
+muss die Hauptzeile des Artikels den höchsten Wert haben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>ProduktionFlag</P>
+<P class=MsoNormal>Das Feld kann die Werte 0, X oder L beinhalten.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0<BR>Es handelt sich um Zeilen vom 
+Hauptartikel.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>L<BR>Dieses Kennzeichen wird 
+benötigt, sofern mehrere Lagerorte in der Importdatei für ein Artikel angegeben 
+werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>X<BR>Es handelt sich um 
+Aufteilungszeilen bzw. die direkten Buchungszeilen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Das Feld für Lagermanagementzeilen muss auf den Wert "L" 
+gesetzt werden, sofern mehrere Aufteilungen zu einer Artikelzeile durchgeführt 
+werden sollen. Zusätzlich muss gewährleistet sein, dass beim Importieren zuerst 
+die Zeilen des Lagermanagements kommen und im Anschluss die 
+Prod.Auftragszeile.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Journalzeile</P>
+<P class=MsoNormal>Wird benötigt, wenn in dem Produktionsauftrag Hauptartikel 
+mit Ausprägungen enthalten sind. Innerhalb des Produktionsauftrags noch nicht 
+ausgeprägt wurde. Dann muss exakt die Journalzeile des Hauptartikels aus dem 
+PPS-Auftrag für die Ausprägungen verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 1</P>
+<P class=MsoNormal>Materialentnahme eines Hauptartikels ohne Ausprägungen mit 
+Lagermanagement (Aufteilung auf einen Lagerort)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In dem Produktionsauftrag "Lager5013" gibt es den Artikel 
+"100 - Stahl", welcher Lagerorte verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1036.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Importdatei wird die Lagerort ID angegeben, sowie ein 
+Eintrag bei der ErsatzauftragsnummerFlag. Das Produktionsflag beinhaltet den 
+Wert "X" oder es kann die Zeile den Wert "L" haben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1037.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1038.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Anschließend erfolgt der Import mit Hilfe der Aktion "6 - 
+Materialentnahmeschein drucken".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1039.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Das Material wird hierdurch abgebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1040.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 2</P>
+<P class=MsoNormal>Materialentnahme eines Hauptartikel ohne Ausprägungen mit 
+Lagermanagement (Aufteilung auf mehre Lagerorte)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Für den Produktionsauftrag "P50015" soll der Artikel von zwei 
+Lagerorten entnommen werden. Hierfür muss es in der Importdatei 3 Zeilen geben. 
+Dabei gibt es eine Zeile mit dem Produktionsflag "0" wo die Gesamtsumme der 
+Entnahmemenge steht und die beiden Lagerortzeilen mit dem Wert "L".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1041.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1042.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 3</P>
+<P class=MsoNormal>Materialentnahme eine Artikel mit Ausprägung, Charge und 
+Lagermanagement</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Es gibt den Produktionsauftrag "Lager5016". Dort wird der 
+Artikel "K800" mit der Menge 5 Stück benötigt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Importdatei muss keine Zeile für den Hauptartikel 
+"K800" enthalten sein. In dem Fall wo die gleiche Charge von verschiedenen 
+Lagerorten entnommen werden soll muss es eine Zeile mit dem Produktionsflag "X" 
+geben und bei der Sortierung muss diese Zeile gegenüber den Lagerort Zeilen 
+einen höheren Wert haben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1043.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Beim Import wird die Option gesetzt, dass die Ausprägung 
+angelegt werden soll, wenn sie nicht vorhanden ist. Es kann sonst bei dem Feld 
+"Artikelnummer" direkt die vorhandene Ausprägung verwendet werden oder wie in 
+diesem Beispiel wird die vorhandene Ausprägung herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1044.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1045.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1046.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 4</P>
+<P class=MsoNormal>Endmeldung eines Produktionsartikels, welcher Ausprägungen, 
+Seriennummern und Lagermanagement verwendet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In dem Produktionsauftrag "Lager5006" wird der Artikel "800" 
+über 1 Stück endgemeldet. Beim Import wird die Option gesetzt, dass die 
+Ausprägungen angelegt werden sollen, wenn sie nicht vorhanden sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1047.png">&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1048.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Importdatei muss es bei der Endmeldung die 
+Hauptartikelzeile geben, damit bei einer Teilendmeldung die Restmengen korrekt 
+berechnet werden können. Die Journalzeile muss korrekt sein. Diese kann man sich 
+sonst am einfachsten über einen Export des Produktionsauftrag ermitteln.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Beim Löschen von Produktionsaufträgen muss nicht der 
+Arbeitsschritt in der Vorlage enthalten sein. Für das Löschen kann der Ebenenkey 
+(C001) und/oder die Zeilennummer (C060) verwendet werden. Der Ebenenkey ist ein 
+Pflichtfeld, wenn in der Importdatei für die Spalte kein Wert (leer) enthalten 
+ist, dann wird die Zeilennummer herangezogen und müsste befüllt sein oder der 
+Arbeitsschritt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

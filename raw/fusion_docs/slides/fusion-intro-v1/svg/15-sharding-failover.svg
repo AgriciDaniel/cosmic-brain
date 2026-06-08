@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a15" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#facc15"/>
+    </marker>
+  </defs>
+
+  <text x="120" y="40" text-anchor="middle" fill="#a8b1ff" font-size="14" font-weight="600">BEFORE</text>
+
+  <rect x="40" y="60" width="80" height="70" rx="8" fill="rgba(74,222,128,0.10)" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="80" y="95" text-anchor="middle" fill="#fcfcf7" font-size="13" font-weight="600">Host A</text>
+  <text x="80" y="113" text-anchor="middle" fill="#4ade80" font-size="10">shards 0, 1, 9</text>
+
+  <rect x="130" y="60" width="80" height="70" rx="8" fill="rgba(74,222,128,0.10)" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="170" y="95" text-anchor="middle" fill="#fcfcf7" font-size="13" font-weight="600">Host B</text>
+  <text x="170" y="113" text-anchor="middle" fill="#4ade80" font-size="10">shards 3, 6, 10</text>
+
+  <rect x="220" y="60" width="80" height="70" rx="8" fill="rgba(74,222,128,0.10)" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="260" y="95" text-anchor="middle" fill="#fcfcf7" font-size="13" font-weight="600">Host C</text>
+  <text x="260" y="113" text-anchor="middle" fill="#4ade80" font-size="10">shards 4, 7, 11</text>
+
+  <text x="40" y="170" fill="#7e7e87" font-size="11">call with key 42 → shard 42 % 12 = 6 → Host B</text>
+
+  <rect x="40" y="180" width="280" height="40" rx="6" fill="rgba(250,204,21,0.08)" stroke="#facc15" stroke-width="1.5"/>
+  <text x="180" y="205" text-anchor="middle" fill="#fcfcf7" font-size="12">GetX(42)  →  Host B</text>
+
+  <text x="600" y="40" text-anchor="middle" fill="#a8b1ff" font-size="14" font-weight="600">AFTER  (Host B fails)</text>
+
+  <rect x="520" y="60" width="80" height="70" rx="8" fill="rgba(74,222,128,0.10)" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="560" y="95" text-anchor="middle" fill="#fcfcf7" font-size="13" font-weight="600">Host A</text>
+  <text x="560" y="113" text-anchor="middle" fill="#4ade80" font-size="10">0, 1, 6, 9</text>
+
+  <rect x="610" y="60" width="80" height="70" rx="8" fill="rgba(255,68,68,0.10)" stroke="#f44" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="650" y="95" text-anchor="middle" fill="#f44" font-size="13" font-weight="600">Host B</text>
+  <text x="650" y="113" text-anchor="middle" fill="#f44" font-size="10">— gone —</text>
+
+  <rect x="700" y="60" width="80" height="70" rx="8" fill="rgba(74,222,128,0.10)" stroke="#4ade80" stroke-width="1.5"/>
+  <text x="740" y="95" text-anchor="middle" fill="#fcfcf7" font-size="13" font-weight="600">Host C</text>
+  <text x="740" y="113" text-anchor="middle" fill="#4ade80" font-size="10">3, 4, 7, 10, 11</text>
+
+  <text x="520" y="170" fill="#7e7e87" font-size="11">shards 3, 6, 10 relocate via Maglev; same call routes to A.</text>
+
+  <rect x="520" y="180" width="260" height="40" rx="6" fill="rgba(250,204,21,0.08)" stroke="#facc15" stroke-width="1.5"/>
+  <text x="650" y="205" text-anchor="middle" fill="#fcfcf7" font-size="12">GetX(42)  →  Host A</text>
+
+  <text x="400" y="290" text-anchor="middle" fill="#a8b1ff" font-size="13" font-weight="600">In-flight calls re-route automatically</text>
+
+  <text x="400" y="320" text-anchor="middle" fill="#7e7e87" font-size="12">When the routing table changes, the proxy throws RpcRerouteException and the call retries on the new host.</text>
+  <text x="400" y="345" text-anchor="middle" fill="#7e7e87" font-size="12">Application code never sees it.</text>
+</svg>

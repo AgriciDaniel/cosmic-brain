@@ -1,0 +1,10 @@
+classDiagram
+  class IComputed {
+    +TOut Value
+    +Exception? Error
+    +event~Action~ Invalidated
+
+    +IsConsistent() bool
+    +Invalidate() void
+    +UpdateAsync() ValueTask~IComputed~
+  }

@@ -3,7 +3,7 @@ type: entity
 title: "FluentUI Blazor"
 address: c-000006
 created: 2026-05-23
-updated: 2026-05-23
+updated: 2026-05-24
 status: developing
 tags:
   - entity
@@ -12,13 +12,17 @@ tags:
   - microsoft
   - ui
 related:
+  - "[[Fluent 2 Design System]]"
+  - "[[Fluent 2 Design Principles]]"
   - "[[FluentUI Blazor Badge]]"
+  - "[[FluentUI Blazor Styles]]"
   - "[[fluent-ui-blazor-badge-components]]"
+  - "[[fluent-ui-blazor-styles]]"
 ---
 
 # FluentUI Blazor
 
-A Microsoft component library for Blazor that implements the Fluent Design System. Provides accessible, design-system-consistent UI components for .NET Blazor applications.
+A Microsoft component library for Blazor that implements the [[Fluent 2 Design System]]. Provides accessible, design-system-consistent UI components for .NET Blazor applications.
 
 ## Key Facts
 
@@ -33,6 +37,7 @@ A Microsoft component library for Blazor that implements the Fluent Design Syste
 | Area | Pages |
 |------|-------|
 | Badge | [[FluentUI Blazor Badge]] |
+| Styles & design tokens | [[FluentUI Blazor Styles]] |
 
 ## Notes
 

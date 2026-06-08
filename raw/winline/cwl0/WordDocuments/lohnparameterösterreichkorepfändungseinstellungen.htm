@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>LOHN-Parameter Österreich - Kore/Pfändungs Einstellungen</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">LOHN-Parameter Österreich - 
+Kore/Pfändungs Einstellungen</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_692.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Kostenart für Kostenrechnung aus</P>
+<P class=MsoNormal>Mit dieser Einstellung kann gesteuert werden, woher die 
+Kostenarten für die Erfassungszeilen genommen werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Fibu-Konto</P>
+<P class=MsoNormal>Wird diese Option gewählt, wird die Kostenart aus den 
+FIBU-Konten ausgelesen, dass in den Lohngruppen hinterlegt wurde. Ist bei beiden 
+Konten eine Kostenart eingetragen, wird keine Kostenart verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vorteil:<BR>Da die Kostenart beim 
+FIBU-Konto hinterlegt werden muss, kann es nicht vorkommen, dass z.B. eine nicht 
+existierende Kostenart hinterlegt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Nachteil:<BR>Wenn die 
+Kostenrechnung extern geführt wird, müssen die gewünschten Kostenarten trotzdem 
+in der WinLine KORE angelegt werden (z.B. als Demo-Benutzer).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lohngruppenstamm</P>
+<P class=MsoNormal>Wird diese Option gewählt, wird die Kostenart aus der 
+entsprechenden Spalte der Lohngruppen geholt, die hinterlegten Konten werden 
+nicht geprüft.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ermittlung der Periode für die Kostenrechnungsübergabe 
+erfolgt per</P>
+<P class=MsoNormal>Hier kann eingestellt werden, wie die Buchungsperiode für die 
+Kostenrechnungsübergabe berechnet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Dabei gibt es zwei Optionen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Letzten der 
+Abrechnungsperiode<BR>Standardeinstellung. Es wird immer der letzte der 
+Abrechnungsperiode genommen, danach wird festgestellt, in welcher 
+Buchungsperiode sich das Datum befindet, und in diese Periode wird dann 
+gebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Buchungsdatum<BR>Bei der 
+Kostenrechnungsübergabe kann ein Buchungsdatum eingegeben werden. Anhand dieses 
+Buchungsdatums wird dann die Buchungsperiode festgestellt.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Die Perioden in der WinLine FIBU sind so eingestellt, dass 
+eine Periode jeweils vom 26. bis zum 25. des Folgemonats reicht (amerikanisches 
+System) (Periode 1 = 26.1. bis 25.2, Periode 2 = 26.2 bis 25.3. etc.).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit der Option "letzten der Abrechnungsperiode" würden nun 
+die Kostenrechnungszeilen des Februars in die Buchungsperiode 2 gebucht 
+werden.</P>
+<P class=MsoNormal>Mit der Option "Buchungsdatum" werden - wenn z.B. der 24.2. 
+als Buchungsdatum eingegeben wird - die Kostenrechnungszeilen des Februars in 
+die Buchungsperiode 1 gebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Kostenträger für Lohnnebenkosten</P>
+<P class=MsoNormal>Mit dieser Option kann eingestellt werden, ob für die 
+Übergabe der Lohndaten in die Kostenrechnung der Kostenträger berücksichtigt 
+werden soll. Dabei gibt es 2 Optionen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nicht verwenden<BR>Wenn diese 
+Option eingestellt ist, dann werden die Lohnnebenkosten ohne Kostenträger in die 
+Kostenrechnung übergeben.</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: -42.55pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>aus Arbeitnehmerstamm<BR>Bei 
+Verwendung dieser Option wird der Kostenträger aus dem AN-Stamm für die Übergabe 
+der Lohnnebenkosten herangezogen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Diese Einstellung gilt nur für die Lohnnebenkosten. Für die 
+Erfassungszeile wird nach wie vor der Kostenträger aus der Erfassungszeile 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Die Buchung der Kore erfolgt</P>
+<P class=MsoNormal>In diesem Bereich kann eingestellt werden, wie die 
+Kostenrechnungsdaten vom WinLine LOHN gebucht werden sollen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>direkt in das Kore-Journal<BR>Bei 
+dieser Option wird die KORE-Übergabe über einen eigenen Menüpunkt im WinLine 
+LOHN durchgeführt und es gibt keinen Zusammenhang zwischen KORE- und 
+FIBU-Buchungen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 42.55pt">Vorteil</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">Der Vorteil beim direkten 
+Schreiben der KORE-Daten liegt darin, dass die Übergabe jederzeit wiederholt 
+werden kann, wobei die "alten" Daten gelöscht werden, d.h. die Werte sind dann 
+trotzdem nicht doppelt vorhanden. </P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 42.55pt">Nachteil</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">Es gibt keinen Zusammenhang zu 
+FIBU-Buchungen, wodurch eine FIBU/KORE-Verprobung nicht möglich ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>über die FIBU-Buchung<BR>Bei 
+dieser Option werden die KORE-Buchungen im Zuge des FIBU-Stapels erstellt. D.h. 
+bei der FIBU-Buchung gibt es auch eine entsprechende 
+KORE-Aufteilungsbuchung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 42.55pt">Vorteil</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">Mit dieser Variante ist auch 
+eine FIBU/KORE-Verprobung möglich.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 42.55pt">Nachteil</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">Wenn nachträgliche Änderungen 
+durchzuführen sind, müssen auch die Buchungen, wo die Kostenrechnungs-Infos 
+dranhängen, entsprechend geändert bzw. berücksichtigt werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn die Option "über die FIBU-Buchung" eingestellt ist, dann 
+kann im WinLine LOHN der Menüpunkt</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Abschluss</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Kore 
+Buchungen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>nicht mehr angewählt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wenn die Option "über die FIBU-Buchungen" aktiviert ist, 
+können noch zusätzliche Optionen eingestellt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Profit Center 
+Aufteilung nach Kostenträger</P>
+<P class=MsoNormal>Wenn diese Option aktiviert wird, dann kann die Profit Center 
+Aufteilung nicht nur nach Kostenstellen, sondern auch nach Kostenträgern 
+erfolgen, wobei diese Aufteilung sowohl für die Bezüge als auch für die 
+Lohnnebenkosten gültig sind. D.h. innerhalb der Kostenstelle gibt es dann auch 
+die Möglichkeit, eine Aufteilung nach Kostenträgern vorzunehmen. Wenn diese 
+Option aktiviert ist, dann wird im AN-Stamm die Profit Center Erfassung um eine 
+Tabelle (für die Kostenträger) erweitert.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Wenn eine Aufteilung nach Kostenträger durchgeführt werden 
+soll, dann ist darauf zu achten, dass die verwendeten Kostenarten nicht als 
+"Gemeinkostenart" definiert ist!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE pro 
+Arbeitnehmer</P>
+<P class=MsoNormal>Durch Aktivieren dieser Option wird die 
+Kostenrechnungsübergabe pro AN durchgeführt, d.h. die Kosteninformationen werden 
+nicht auf KSt/KoArt/KTr komprimiert, sondern es werden alle Datensätze pro AN 
+erstellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE pro 
+Personenkonto</P>
+<P class=MsoNormal>Durch Aktivieren dieser Option wird für die 
+Kostenrechnungsübergabe auch das Personenkonto der Erfassungszeile mit 
+übergeben</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE 
+Buchungstext</P>
+<P class=MsoNormal>In diesem Feld kann ein frei definierbarer Buchungstext für 
+die Kostenrechnungsübergabe hinterlegt werden, wobei der Text sowohl fixe als 
+auch variable Teile beinhalten kann. Über die Matchcode-Funktion (F9-Taste) 
+können Variablen aus dem Bereich "Lohngruppen - Kontierungen", AN-Stamm und 
+Abrechnung ausgewählt und übernommen werden. Diese Variablen werden in der Form 
+z.B. "&lt;VAR:420/1&gt;" dargestellt (420 steht in diesem Beispiel für die 
+Tabelle und 1 für die Variable, in dem Fall bedeutet die Variable die 
+AN-Nummer).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Der Buchungstext ist 50 Stellen lang.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE 
+Buchungsnotiz</P>
+<P class=MsoNormal>In diesem Feld kann eine frei definierbare Buchungsnotiz 
+(zusätzlich zum Buchungstext) für die Kostenrechnungsübergabe hinterlegt werden, 
+wobei der Text sowohl fixe als auch variable Teile beinhalten kann. Über die 
+Matchcode-Funktion (F9-Taste) können Variablen aus dem Bereich "Lohngruppen - 
+Kontierungen", AN-Stamm und Abrechnung ausgewählt und übernommen werden. Diese 
+Variablen werden in der Form z.B. "&lt;VAR:420/1&gt;" dargestellt (420 steht in 
+diesem Beispiel für die Tabelle und 1 für die Variable, in dem Fall bedeutet die 
+Variable die AN-Nummer).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ausgabe des Pfändungsberechnungsblattes</P>
+<P class=MsoNormal>Durch Aktivieren der Option</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>bei der 
+Abrechnung</P>
+<P class=MsoNormal>wird - sofern eine Pfändung vorhanden ist - bei der 
+Abrechnung das Pfändungsberechungsblatt mit ausgegeben und auch gleich 
+automatisch archiviert. Damit ist es möglich, errechneten und einbehaltenen 
+Pfändungsbetrag jederzeit nachvollziehen zu können.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

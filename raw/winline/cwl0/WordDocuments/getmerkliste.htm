@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>GETMERKLISTE</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Ref202178472></A>GETMERKLISTE</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion können die Daten (Stammdatenobjekte) 
+einer Merkliste auf Grundlage eines Namens ausgegeben werden</P>
+<P class=BeispielAchtung>Hinweise</P>
+<P class=MsoNormal>Bei Nutzung der Funktion ist folgendes zu beachten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die GETMERKLISTE-Funktion 
+reserviert sich auf Grundlage des darzustellenden Merklisteninhalts automatisch 
+einen Darstellungsbereich. Sollten Zellen innerhalb dieses Bereichs bereits in 
+Verwendung sein, so führt dieses zu der Meldung "#SPILL!".</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Da die angezeigten Daten dynamisch 
+ermittelt werden, ist ein Formatieren innerhalb des Darstellungsbereichs nicht 
+vorgesehen (u.a. <A href="JavaScript:TL_461249.HHClick()">Datenformat</A> und <A 
+href="JavaScript:TL_461250.HHClick()">Textformat</A>).</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Soll mit den Informationen der 
+Funktion gearbeitet werden (z.B. Ermittlung der Bezeichnung oder Ausgabe von 
+statistischen Werten), so müssen die Daten zuvor <A 
+href="JavaScript:TL_461251.HHClick()">festgeschrieben</A> werden!</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Sollte die Anzahl der Zeilen bzw. 
+Spalten für eine Anzeige im CalcSheet nicht ausreichen, so wird auf dieses 
+hingewiesen. Sobald ausreichend Platz zur Verfügung steht, erfolgt die 
+Anzeige.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=GETMERKLISTE (Merkliste, Anzahl Datensätze, Objekt, 
+Objekt-Typ anzeigen [optional])</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Merkliste 
+(Eingabe in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf den Namen jener Merkliste, 
+deren Daten ausgegeben werden sollen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzahl 
+Datensätze (Zahl)</P>
+<P class=MsoNormal>Hier kann die maximale Anzahl der Datensätze hinterlegt 
+werden, welche im CalcSheet dargestellt werden sollen.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Sollte die Anzahl der Zeilen bzw. Spalten für eine Anzeige im 
+CalcSheet nicht ausreichen, so wird auf dieses entsprechend hingewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Objekt (0 / 1 
+/ 2 / 3…)</P>
+<P class=MsoNormal>Angabe, welche Stammdatenobjekte ausgegeben werden 
+sollen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - alle Objekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Personenkonto</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - Interessent</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - Ansprechpartner</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>4</B> - Kontakt</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>5</B> - Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>7</B> - 
+Arbeitnehmer/Mitarbeiter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>8</B> - Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>9</B> - Projekt</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>10</B> - CRM</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>11</B> - Sonstige Konten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>12</B> - Benutzer</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Objekt-Typ 
+anzeigen (0 / 1 / 2) [optional]</P>
+<P class=MsoNormal>Optionale Angabe, ob der Typ des Objekts ausgewiesen werden 
+soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - keine Anzeige 
+(Standard)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Nummer anzeigen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - Bezeichnung 
+anzeigen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETMERKLISTE 
+("<U>Präsentation</U>", <U>50</U>, <U>3</U>)<BR>Die Funktion gibt die ersten 
+<B>50</B> Datenätze der Merkliste "<B>Präsentation</B>" aus, wobei nur 
+Ansprechpartner (<B>3</B>) berücksichtigt werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETMERKLISTE ("<U>Kunden</U>", 
+<U>25</U>, <U>0</U>, <U>2</U>)<BR>Die Funktion gibt die ersten <B>25</B> 
+Datenätze der Merkliste "<B>Kunden</B>" aus, wobei alle Objekte (<B>0</B>) 
+berücksichtigt werden sollen. Zur Kontrolle wird hierbei auch der Objekt-Typ als 
+Klartext (<B>2</B>) ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_461249 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/datenformat.htm"></OBJECT>
+<OBJECT id=TL_461250 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/textformat.htm"></OBJECT>
+<OBJECT id=TL_461251 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/winlinefunktionen.htm"></OBJECT></DIV></BODY></HTML>

@@ -1,0 +1,113 @@
+<style>
+    #customized-wizard li[status="current"] > div {
+        font-weight: bold;
+    }
+
+    #customized-wizard li[disabled] > div {
+        color: var(--colorNeutralForeground2);
+        opacity: 0.4;
+    }
+</style>
+
+<FluentWizard @ref="@MyWizard"
+              Id="customized-wizard"
+              @bind-Value="@Value"
+              StepTitleHiddenWhen="@GridItemHidden.XsAndDown"
+              OnFinish="OnFinish"
+              Height="300px">
+    <Steps>
+        <FluentWizardStep OnChange="@OnStepChange">
+            <StepTemplate>
+                <div active="@context.Active">
+                    Intro
+                </div>
+            </StepTemplate>
+            <ChildContent>
+                <h5>Introduction</h5>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nisi eget dolor semper
+                luctus vitae a nulla. Cras semper eros sed lacinia tincidunt. Mauris dignissim ullamcorper dolor,
+                ut blandit dui ullamcorper faucibus. Interdum et malesuada fames ac ante ipsum.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep OnChange="@OnStepChange">
+            <StepTemplate>
+                <div active="@context.Active">
+                    Get Started
+                </div>
+            </StepTemplate>
+            <ChildContent>
+                <h5>Get Started</h5>
+                Maecenas sed justo ac sapien venenatis ullamcorper. Sed maximus nunc non venenatis euismod.
+                Fusce vel porta ex, imperdiet molestie nisl. Vestibulum eu ultricies mauris, eget aliquam quam.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep OnChange="@OnStepChange">
+            <StepTemplate>
+                <div active="@context.Active">
+                    Set budget
+                </div>
+            </StepTemplate>
+            <ChildContent>
+                <h5>Set budget</h5>
+                Phasellus quis augue convallis, congue velit ac, aliquam ex. In egestas porttitor massa
+                aliquet porttitor. Donec bibendum faucibus urna vitae elementum. Phasellus vitae efficitur
+                turpis, eget molestie ipsum.
+            </ChildContent>
+        </FluentWizardStep>
+        <FluentWizardStep OnChange="@OnStepChange">
+            <StepTemplate>
+                <div active="@context.Active">
+                    Summary
+                </div>
+            </StepTemplate>
+            <ChildContent>
+                <h5>Summary</h5>
+                Ut iaculis sed magna efficitur tempor. Vestibulum est erat, imperdiet in diam ac,
+                aliquam tempus sapien. Nam rutrum mi at enim mattis, non mollis diam molestie.
+                Cras sodales dui libero, sit amet cursus sapien elementum ac. Nulla euismod nisi sem.
+            </ChildContent>
+        </FluentWizardStep>
+    </Steps>
+
+    <ButtonTemplate>
+        @{
+            var index = context;
+            var lastStepIndex = 3;
+
+            <div>
+                @if (index > 0)
+                {
+                    <FluentButton OnClick="@(() => MyWizard.GoToStepAsync(0))">Go to first page</FluentButton>
+                    <FluentButton OnClick="@(() => MyWizard.GoToStepAsync(Value - 1))">Previous</FluentButton>
+                }
+            </div>
+            <FluentSpacer />
+            <div>
+                @if (index != lastStepIndex)
+                {
+                    <FluentButton OnClick="@(() => MyWizard.GoToStepAsync(Value + 1))" Appearance="ButtonAppearance.Primary">Next</FluentButton>
+                    <FluentButton OnClick="@(() => MyWizard.GoToStepAsync(lastStepIndex))" Appearance="ButtonAppearance.Primary">Go to last page</FluentButton>
+                }
+                else
+                {
+                    <FluentButton OnClick="@(() => MyWizard.FinishAsync())" Appearance="ButtonAppearance.Primary">Finish</FluentButton>
+                }
+            </div>
+        }
+    </ButtonTemplate>
+</FluentWizard>
+
+@code
+{
+    FluentWizard MyWizard = default!;
+    int Value = 0;
+
+    void OnStepChange(FluentWizardStepChangeEventArgs e)
+    {
+    }
+
+    async Task OnFinish()
+    {
+        await Task.CompletedTask;
+    }
+}

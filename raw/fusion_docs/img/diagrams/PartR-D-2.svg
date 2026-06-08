@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+    </marker>
+    <style>
+      .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+      .code-bold { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; font-weight: bold; }
+      .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+      .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <path d="M 450 130 C 375 130, 375 160, 306 160" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 450 297.5 C 375 297.5, 375 270, 306 270" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <g transform="translate(40, 90)">
+    <rect width="260" height="240" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="130" y="22" class="header" text-anchor="middle">&lt;&lt;abstract&gt;&gt;</text>
+    <text x="130" y="40" class="code-bold" text-anchor="middle">RpcPeer</text>
+    <line x1="0" y1="52" x2="260" y2="52" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="15" y="76" class="code">+Hub: RpcHub</text>
+    <text x="15" y="98" class="code">+Ref: RpcPeerRef</text>
+    <text x="15" y="120" class="code">+ConnectionState</text>
+    <text x="15" y="142" class="code">+InboundCalls</text>
+    <text x="15" y="164" class="code">+OutboundCalls</text>
+    <text x="15" y="186" class="code">+Send()</text>
+    <text x="15" y="208" class="code">+WhenConnected()</text>
+    <text x="15" y="230" class="code">+Disconnect()</text>
+  </g>
+
+  <g transform="translate(450, 60)">
+    <rect width="280" height="140" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="140" y="26" class="code-bold" text-anchor="middle">RpcClientPeer</text>
+    <line x1="0" y1="40" x2="280" y2="40" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="15" y="64" class="code">+ClientId: string</text>
+    <text x="15" y="86" class="code">+ReconnectsAt: AsyncState</text>
+    <text x="15" y="110" class="label">Initiates connections</text>
+    <text x="15" y="126" class="label">Handles reconnection</text>
+  </g>
+
+  <g transform="translate(450, 240)">
+    <rect width="280" height="115" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="140" y="26" class="code-bold" text-anchor="middle">RpcServerPeer</text>
+    <line x1="0" y1="40" x2="280" y2="40" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="15" y="64" class="code">+SetNextConnection()</text>
+    <text x="15" y="88" class="label">Waits for connections</text>
+    <text x="15" y="104" class="label">from server framework</text>
+  </g>
+</svg>

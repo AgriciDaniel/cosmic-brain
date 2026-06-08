@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 690" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- Action/Process Node Gradient -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Nodes -->
+  <!-- Node A -->
+  <rect x="100" y="50" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="79" text-anchor="middle">
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">RouteState.MarkChanged()</tspan>
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e"> called</tspan>
+  </text>
+
+  <!-- Node B -->
+  <rect x="100" y="140" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="169" text-anchor="middle">
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e">Active calls receive </tspan>
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">RpcRerouteException</tspan>
+  </text>
+
+  <!-- Node C -->
+  <rect x="100" y="230" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="259" text-anchor="middle">
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">RpcInterceptor</tspan>
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e"> catches exception</tspan>
+  </text>
+
+  <!-- Node D -->
+  <rect x="100" y="320" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="349" text-anchor="middle">
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e">Wait for </tspan>
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">ReroutingDelays[rerouteCount]</tspan>
+  </text>
+
+  <!-- Node E -->
+  <rect x="100" y="410" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="439" text-anchor="middle">
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e">Call </tspan>
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">RouterFactory</tspan>
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e"> again with same arguments</tspan>
+  </text>
+
+  <!-- Node F -->
+  <rect x="100" y="500" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="529" text-anchor="middle">
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e">Get new </tspan>
+    <tspan font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13px" fill="#1a1a2e">RpcPeerRef</tspan>
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e"> (possibly different peer)</tspan>
+  </text>
+
+  <!-- Node G -->
+  <rect x="100" y="590" width="400" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="619" text-anchor="middle">
+    <tspan font-family="Inter, -apple-system, sans-serif" font-size="13px" fill="#1a1a2e">Retry call on new peer</tspan>
+  </text>
+
+  <!-- Edges -->
+  <!-- A to B -->
+  <path d="M 300 100 C 300 120, 300 120, 300 138.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- B to C -->
+  <path d="M 300 190 C 300 210, 300 210, 300 228.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- C to D -->
+  <path d="M 300 280 C 300 300, 300 300, 300 318.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- D to E -->
+  <path d="M 300 370 C 300 390, 300 390, 300 408.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- E to F -->
+  <path d="M 300 460 C 300 480, 300 480, 300 498.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- F to G -->
+  <path d="M 300 550 C 300 570, 300 570, 300 588.5" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+</svg>

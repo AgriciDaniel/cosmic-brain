@@ -1,0 +1,22 @@
+sequenceDiagram
+  autonumber
+  User Code->>+GreetingServiceProxy: GreetUserAsync(1)
+  GreetingServiceProxy->>+ComputedRegistry: Is consistent IComputed for 'this.GreetUserAsync(1)' key available?
+  ComputedRegistry-->>-GreetingServiceProxy: No
+  GreetingServiceProxy->>+AsyncLock: Lock 'this.GreetUserAsync(1)' key
+  AsyncLock-->>-GreetingServiceProxy: Lock granted
+  rect rgb(230, 230, 230) 
+    Note right of GreetingServiceProxy: The code in this block never runs concurrently for the same key
+    GreetingServiceProxy->>+ComputedRegistry: Is consistent IComputed for 'this.GreetUserAsync(1)' key available?
+    ComputedRegistry-->>-GreetingServiceProxy: No
+    GreetingServiceProxy->>+GreetingService: Compute 'this.GreetUserAsync(1)'
+    GreetingService-->>-GreetingServiceProxy: Ok, here is your new IComputed
+    GreetingServiceProxy->>+"Outer" IComputed: Register this IComputed as your dependency
+    "Outer" IComputed-->>-GreetingServiceProxy: Ok
+    GreetingServiceProxy->>+ComputedRegistry: Store new IComputed for 'this.GreetUserAsync(1)' key
+    ComputedRegistry-->>-GreetingServiceProxy: Ok
+  end
+  GreetingServiceProxy->>+AsyncLock: Release the lock for 'this.GreetUserAsync(1)' key
+  AsyncLock-->>-GreetingServiceProxy: Lock released
+  GreetingServiceProxy-->>-User Code: Return IComputed.Value
+					

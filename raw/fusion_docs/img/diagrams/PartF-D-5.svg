@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <marker id="inherit" viewBox="0 0 12 12" refX="12" refY="6" markerWidth="12" markerHeight="12" orient="auto">
+      <polygon points="0,0 12,6 0,12" fill="#f4f8fd" stroke="#8b90a8" stroke-width="1.5" stroke-linejoin="round" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Diagram Header -->
+  <text x="50" y="40" font-family="Inter, sans-serif" font-size="11px" font-weight="600" fill="#8b90a8" text-transform="uppercase">State&lt;T&gt; Inheritance Hierarchy</text>
+
+  <!-- Inheritance Arrows (Derived to Base) -->
+  <path d="M 310 180 L 230 180" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#inherit)" />
+  <path d="M 570 100 C 530 100, 530 170, 490 170" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#inherit)" />
+  <path d="M 570 260 C 530 260, 530 190, 490 190" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#inherit)" />
+
+  <!-- IState<T> Interface -->
+  <g>
+    <rect x="50" y="145" width="180" height="70" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <line x1="50" y1="195" x2="230" y2="195" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="140" y="165" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="140" y="183" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e" text-anchor="middle">IState&lt;T&gt;</text>
+  </g>
+
+  <!-- State<T> Base Class -->
+  <g>
+    <rect x="310" y="145" width="180" height="70" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <line x1="310" y1="190" x2="490" y2="190" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="400" y="175" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e" text-anchor="middle">State&lt;T&gt;</text>
+  </g>
+
+  <!-- MutableState<T> Derived Class -->
+  <g>
+    <rect x="570" y="60" width="220" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <line x1="570" y1="102" x2="790" y2="102" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="680" y="88" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e" text-anchor="middle">MutableState&lt;T&gt;</text>
+    <text x="585" y="126" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">+Set(value)</text>
+  </g>
+
+  <!-- ComputedState<T> Derived Class -->
+  <g>
+    <rect x="570" y="220" width="220" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <line x1="570" y1="262" x2="790" y2="262" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="680" y="248" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e" text-anchor="middle">ComputedState&lt;T&gt;</text>
+    <text x="585" y="286" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">Auto-update on invalidation</text>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+﻿@page "/basicform-fluentui-components"
+@using FluentUI.Demo.SampleData
+@using static FluentUI.Demo.SampleData.Olympics2024
+
+
+
+<PageTitle>@App.PageTitle("Basic Form FluentUI")</PageTitle>
+
+<h1>Starfleet Starship Database</h1>
+<p>
+    This form uses the Fluent UI input components. It uses a `DataAnnotationsValidator` and `FluentValidationSummary`.
+
+	On the `EditForm` component, the `novalidate="true"` attribute is set to disable the browser's native validation UI, allowing the Fluent UI components to handle validation feedback.
+</p>
+
+<h2>New Ship Entry Form</h2>
+
+<EditForm Model="@starship" OnValidSubmit="@HandleValidSubmit" novalidate="true">
+    <DataAnnotationsValidator />
+    <FluentValidationSummary />
+
+
+    <FluentStack Orientation="Orientation.Vertical">
+        <div>
+            <FluentTextInput Name="identifier" @bind-Value="starship.Identifier" Label="Identifier" Required="true" />
+        </div>
+        <div>
+            <FluentTextArea Name="description" @bind-Value="starship.Description" Label="Description (min. 10 characters)" Required="true" />
+        </div>
+        <div>
+            <FluentSelect Name="class" Id="classification" @bind-Value="starship.Classification" TOption="string" TValue="string" Required="true" Label="Primary Classification">
+                <FluentOptionString Value="">Select classification ...</FluentOptionString>
+                <FluentOptionString Value="Exploration">Exploration</FluentOptionString>
+                <FluentOptionString Value="Diplomacy">Diplomacy</FluentOptionString>
+                <FluentOptionString Value="Defense">Defense</FluentOptionString>
+            </FluentSelect>
+        </div>
+        <div>
+            <FluentTextInput TextInputType="TextInputType.Number" Name="accommodation" @bind-Value="starship.MaximumAccommodation" Label="Maximum Accommodation" Required="true" />
+        </div>
+        <div>
+            <FluentCheckbox Name="approved" @bind-Value="starship.IsValidatedDesign" Required="true" Label="Engineering approval" />
+        </div>
+        <div>
+            <FluentDatePicker Name="production_date" Id="proddate" @bind-Value="starship.ProductionDate" Label="Production Date" Required="true" />
+        </div>
+        <div>
+            <FluentSwitch Name="teleporter" @bind-Value="starship.HasTeleporter" Label="Has a Teleporter" />
+        </div>
+        <FluentButton Type="ButtonType.Submit" Appearance="ButtonAppearance.Primary">Submit</FluentButton>
+    </FluentStack>
+</EditForm>
+
+<div style="margin-top: 3rem;"><a href="http://www.startrek.com/">Star Trek</a>, ©1966-2023 CBS Studios, Inc. and <a href="https://www.paramount.com">Paramount Pictures</a></div>
+

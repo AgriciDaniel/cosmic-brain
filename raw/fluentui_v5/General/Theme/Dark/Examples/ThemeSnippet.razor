@@ -1,0 +1,40 @@
+﻿@inject IThemeService ThemeService
+
+<FluentStack Style="background-color: var(--colorBrandBackgroundHover);"
+             HorizontalGap="24px"
+             HorizontalAlignment="HorizontalAlignment.Right">
+
+    @* ************************ *@
+    @* Option 1: Sun/Moon icons *@
+    @* ************************ *@
+    <FluentButton Appearance="ButtonAppearance.Transparent"
+                  IconOnly="true"
+                  Class="fluent-header-hover"
+                  Title="Switch to Light/Dark theme"
+                  OnClick="@(async e => await ThemeService.SwitchThemeAsync())">
+        @* Dark icon *@
+        <FluentIcon Class="hidden-if-light"
+                    Value="@(new Icons.Filled.Size20.WeatherSunny().WithColor(SystemColors.Neutral.ForegroundOnBrand))" />
+        @* Light icon *@
+        <FluentIcon Class="hidden-if-dark"
+                    Value="@(new Icons.Filled.Size20.WeatherMoon().WithColor(SystemColors.Neutral.ForegroundOnBrand))" />
+    </FluentButton>
+
+    @* ************************* *@
+    @* Option 2: Dark theme icon *@
+    @* ************************* *@
+    <FluentButton Appearance="ButtonAppearance.Transparent"
+                  IconOnly="true"
+                  Class="fluent-header-hover"
+                  Title="Switch to Light/Dark theme"
+                  OnClick="@(async e => await ThemeService.SwitchThemeAsync())">
+        @* Dark icon *@
+        <FluentIcon Class="hidden-if-light"
+                    Value="@(new Icons.Filled.Size20.DarkTheme().WithColor(SystemColors.Neutral.ForegroundOnBrand))" />
+        @* Light icon *@
+        <FluentIcon Class="hidden-if-dark"
+                    Style="transform: rotate(180deg);"
+                    Value="@(new Icons.Filled.Size20.DarkTheme().WithColor(SystemColors.Neutral.ForegroundOnBrand))" />
+    </FluentButton>
+
+</FluentStack>

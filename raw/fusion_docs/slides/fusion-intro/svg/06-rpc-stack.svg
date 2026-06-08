@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a06" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#41d1ff"/>
+    </marker>
+    <marker id="a06b" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,-5L10,0L0,5" fill="#41d1ff"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="28" text-anchor="middle" fill="#a8b1ff" font-size="16" font-weight="600">CLIENT</text>
+  <text x="600" y="28" text-anchor="middle" fill="#a8b1ff" font-size="16" font-weight="600">SERVER</text>
+
+  <rect x="80" y="45" width="240" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="200" y="76" text-anchor="middle" fill="#fcfcf7" font-size="14">UI / app code</text>
+
+  <rect x="80" y="105" width="240" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="200" y="136" text-anchor="middle" fill="#fcfcf7" font-size="14">UI Compute Services</text>
+
+  <text x="200" y="183" text-anchor="middle" fill="#7e7e87" font-size="22" font-weight="600">⋮</text>
+
+  <rect x="80" y="195" width="240" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="200" y="226" text-anchor="middle" fill="#fcfcf7" font-size="14">Compute Service Clients</text>
+
+  <rect x="80" y="255" width="240" height="50" rx="8" fill="rgba(65,209,255,0.10)" stroke="#41d1ff" stroke-width="1.5"/>
+  <text x="200" y="286" text-anchor="middle" fill="#fcfcf7" font-size="14">ActualLab.Rpc</text>
+
+  <rect x="480" y="45" width="240" height="50" rx="8" fill="rgba(126,126,135,0.10)" stroke="#7e7e87" stroke-width="1.5"/>
+  <text x="600" y="76" text-anchor="middle" fill="#fcfcf7" font-size="14">Database / external</text>
+
+  <rect x="480" y="105" width="240" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="600" y="136" text-anchor="middle" fill="#fcfcf7" font-size="14">Backend Compute Services</text>
+
+  <text x="600" y="183" text-anchor="middle" fill="#7e7e87" font-size="22" font-weight="600">⋮</text>
+
+  <rect x="480" y="195" width="240" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="600" y="226" text-anchor="middle" fill="#fcfcf7" font-size="14">API Compute Services</text>
+
+  <rect x="480" y="255" width="240" height="50" rx="8" fill="rgba(65,209,255,0.10)" stroke="#41d1ff" stroke-width="1.5"/>
+  <text x="600" y="286" text-anchor="middle" fill="#fcfcf7" font-size="14">ActualLab.Rpc</text>
+
+  <line x1="320" y1="280" x2="480" y2="280" stroke="#41d1ff" stroke-width="2" marker-start="url(#a06b)" marker-end="url(#a06)"/>
+  <text x="400" y="272" text-anchor="middle" fill="#41d1ff" font-size="13">WebSocket / TCP</text>
+
+  <text x="400" y="375" text-anchor="middle" fill="#7e7e87" font-size="13">Compute services chain on both sides — the ⋮ stands in for any number of intermediates.</text>
+</svg>

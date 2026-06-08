@@ -1,0 +1,787 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SimulateItem</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="currentlineprintablefalse.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="convertrtftotext.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><SPAN 
+class=d2h_breadcrumbsContentsOnly>WinLine Formular Editor</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Tipps und Tricks</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="spezialfunktionendervbscriptformel.htm">Spezialfunktionen der 
+VBScript-Formel</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>SimulateItem</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc200977281>SimulateItem</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion kann man mit Hilfe einer VB-Script-Formel 
+Elemente verbinden und das Ergebnis in einem beliebigen Format ausgeben. Zum 
+Beispiel können damit XML Elemente als Multiline Elemente dargestellt werden, 
+obwohl es diese Formatierungsmöglichkeit bei XML-Elementen sonst nicht geben 
+würde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>"Simulation" bedeutet in diesem Zusammenhang, dass innerhalb 
+der Formel das gewünschte Element (z.B. eine Lookup-Var wie die Bezeichnung der 
+Steuerzeile) mit einem im Aufruf festgelegten Format für eine im Aufruf 
+angegebene Variable (z.B. der Key der Steuerzeile) ausgewertet wird und das 
+Ergebnis in der Formel weiterverarbeitet werden kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Syntax</P>
+<P class=MsoNormal>SimulateItem asc("T"), Y, Z, "Funktion"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>T</P>
+<P class=MsoNormal>Dieser Wert gibt an, um welchen Typ von Element es sich 
+handelt. Folgende Typen von Elementen können "simuliert" werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>B - Prozent Balken</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>G - Bild</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>L - Linie</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>M - Multiline-Textausgabe</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>O - Objekte (z.B. Externes Objekt 
+(OIF) und QR Code)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>P - Eigenschaft</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>R - Rechteck und Fläche</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>S - Steuerelement (z.B. AUX 
+PRINTER, AUX MAIL, AUX SUBPDB oder SQL)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>U - Lookup Element</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>X - XML Element</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Y, Z,</P>
+<P class=MsoNormal>In Abhängigkeit vom Typ des Elements werden diese Werte 
+gefüllt oder verbleiben auf 0.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>B - Definition der Variable (View 
+= Y, Variable = Z), die Angedruckt werden soll</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>G - Wenn eine Grafik aus einer 
+Variable abgefragt wird, dann wird hier die Variable angegeben</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>L - Der Wert Y gibt die Länge der 
+Linie an, der Wert Z bleibt auf 0</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>M - Definition der Variable (View 
+= Y, Variable = Z), die Angedruckt werden soll</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>O - Definition der Variable (View 
+= Y, Variable = Z), welche für die Simulation des Objekts genutzt werden 
+soll</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>P - Definition der Basisvariable 
+(View = Y, Variable = Z), anhand derer dann die Eigenschaft abgerufen wird</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>R - Der Wert Y gibt die Breite, 
+der Wert Z die Höhe des Rahmens bzw. der Fläche an</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>S - Ist immer 0</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>U - Definition der Variable (View 
+= Y, Variable = Z), welche angedruckt werden soll</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>X - Definition der Variable (View 
+= Y, Variable = Z), wo die XML-Datei angehängt ist</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Funktion</P>
+<P class=MsoNormal>In diesem Teil wird die Funktion angegeben, welche 
+"simuliert" werden soll. Normalerweise kann dazu das Feld "Inhalte" im 
+Formulareditor verwendet werden. D.h. im Feld "Inhalte" wird die jeweilige 
+Funktion angezeigt, welche dann für die Funktion in der VB-Formel genutzt werden 
+kann, z.B.:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>B - 
+L0.000000H100.000000W10V1<BR>Die Funktion gibt den niedrigsten und den höchsten 
+Wert an, sowie die Breite und die Höhe der Darstellung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>G - 
+GRAFIK.JPG.FROMDB,6,26{AUTOFIT}<BR>Die Funktion holt die Datei "Grafik.JPG" aus 
+der Datenbank und druckt sie mit der Option "Proportional anpassen" auf 6 Zeilen 
+x 26 Spalten an.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>L - -E 2<BR>Die Funktion druckt 
+eine horizontale (-), nicht zentrierte Linie (E) in der Stärke 2 (2) an.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>O - 
+W:87;H:16;T:4;I:1;S:4;F:2;M:0;TITLE: Kontakt;TEXT:{5 <IMG 
+src="../ImagesExt/image873_368.png">P99WBASECONTACT<IMG 
+src="../ImagesExt/image873_368.png"><IMG 
+src="../ImagesExt/image873_368.png"><IMG 
+src="../ImagesExt/image873_368.png">0};<BR>Diese Funktion gibt ein externes 
+Objekt mit dem Typ "Objekt" in der Breite 87 und Höhe 16 aus (Überschrift lautet 
+"&nbsp; Kontakt"). Das Objekt selber ist hierbei auf "Ansprechpartner" gestellt 
+mit dem Formular "P99WBASECONTACT".</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Das Element "FF" (FormFeed) wird 
+je nach Windows-Umgebung unterschiedlich dargestellt. Sollte die Funktion selber 
+geschrieben werden, muss jeweils "chr(12)" anstelle des "FF" platziert 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>M - %s,30<BR>Die Funktion druckt 
+die angegebene Variable in Multilineformat mit 30 Zeichen pro Zeile an.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>P - 
+{OBJ:3}{GROUP:1001}{PROP:1005}{TYPE:7}{NAME:RB}{FORMAT:%s}<BR>Mit Hilfe dieser 
+Funktion wird die Eigenschaft 1005 mit dem Namen RB aus der Gruppe 1001 mit dem 
+Typ 7 (fix) für ein Personenkonto abgefragt und als Text (%s) angedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>R - FC&nbsp; {GRADIENT=255 255 
+000,255 000 000,3}<BR>Durch die Funktion wird eine Fläche mit zentrierten Linien 
+und einem Verlauf von Gelb nach Rot mit 135 Grad angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>S -: AUX 
+ON;LIEFERUNG&lt;VAR:25/21&gt;.txt{REPLACE}<BR>Durch diese Funktion wird eine 
+Druckumleitung in die Datei "LIEFERUNG&lt;Kundennummer&gt;.TXT" durchgeführt, 
+wobei die Datei immer überschrieben wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>U - %s{VIEW10;VAR9}<BR>Mit Hilfe 
+der Funktion wird als Ergebnis die Variable 9 aus der Tabelle 10 als Text (%s) 
+angedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>X - 
+{XML:belegkopf/auftraggeber/name}{TEMPLATE:Belegkopf}{TYPE:1}<BR>Die Funktion 
+druckt das Tag "Belegkopf/Auftraggeber/Name" aus der Vorlage "Belegkopf" an, 
+wobei es sich um eine Beleg-XML-Erweiterung handelt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 1 - Prozent Balken "B"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Der Balken für den Rohertragsprozentsatz soll in der 
+Kundenstatistik abhängig vom Rohertrag angezeigt werden - liegt der 
+Rohertragsprozent unter 50 %, soll der Balken rot, bei über 50 % soll der Balken 
+grün dargestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es werden in das Formular "P02W61A1" (Flag "1") 2 Formeln 
+eingebaut, die folgenden Inhalt haben und die übereinander positioniert 
+werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel 1 (das Element wird in 
+grüner Schrift dargestellt)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (0,132) &gt;= 50 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn Rohertragsprozentsatz größer 
+50</SPAN> </P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("B"), 
+0,132, "L0.000000H100.000000W10V1"</I> <SPAN style="COLOR: #00b050">'dann wird 
+der Balken angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel 2 (das Element wird in 
+roter Schrift dargestellt)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (0,132) &lt; 50 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn der Rohertragsprozentsatz kleiner 
+50</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("B"), 
+0,132, "L0.000000H100.000000W10V1"</I> <SPAN style="COLOR: #00b050">'dann rd der 
+Balken angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><B><U><SPAN 
+style="TEXT-DECORATION: none"></SPAN></U></B>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis in der Statistikauswertung</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_369.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 2 - Bild "G"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Im Auditprotokoll Funktionen sollen bestimmte Fehlermeldungen 
+mit einem Warnsymbol versehen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Im Formular "P00W37" wird folgende Formel eingebaut:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(0,38) = 9198 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Aktion 9198 lautet</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("G"), 0, 
+0, "LIST:5,124"</I> <SPAN style="COLOR: #00b050">'dann wird die Grafik 124 aus 
+der Grafikleiste 5 gedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><B><U><SPAN 
+style="TEXT-DECORATION: none"></SPAN></U></B>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis im Auditprotokoll Funktionen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_370.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 3 - Linie "L"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn ein Summenrabatt im Angebot gewährt wird, dann soll 
+unter dem ausgewiesenen Summenrabatt eine Linie zur Nettosumme angedruckt 
+werden. Wenn der Summenrabatt 0 ist, soll auch keine Linie erscheinen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Im Formular "P02W41" (Flag "C") wird folgende Formel 
+eingebaut:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(0,272) &lt;&gt; 0 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn der Summenrabatt ungleich 0 
+ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("L"), 27, 
+0, "-C 1</I>" <SPAN style="COLOR: #00b050">'dann wird eine zentrierte Linie mit 
+Breite 27 und Höhe 1 angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis im Angebot ohne Summenrabatt</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_371.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis im Angebot mit Summenrabatt</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_372.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 4 - Multiline Textausgabe "M"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Auf der Rechnung soll die interne Belegmemo im 
+Multilineformat (mit 25 Zeichen pro Zeile) gedruckt werden, wenn die Belegart 
+"1" verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Hierzu muss im Formular "P02W44" (Flag "A") folgende Formel 
+hinterlegt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (0,113) = "1" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Belegart "1" verwendet 
+wird</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = SimulateItem 
+(asc("M"), 0 , 130, "%, 25")</I> <SPAN style="COLOR: #00b050">'dann soll die 
+interne Belegmemo im Multilineformat mit 25 Zeichen pro Zeile gedruckt 
+werden</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis in der Faktura bei Verwendung der Belegart 
+1</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_373.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 5.1 - Objekt "O" (Externes Objekt)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn lt. Standardeinstellungen die Rechnungs- und 
+Lieferadresse voneinander abweichend ist (Hauptkonto für den Beleg ist der 
+Rechnungsempfänger), dann soll in der Beleginfo die Anschrift der Lieferadresse 
+in Form eines OIF-Elements dargestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung 1:</P>
+<P class=MsoNormal>Es wird das OIF-Element in das Formular "P02W249" eingebaut, 
+der Inhalt (die Funktion) in eine Formel kopiert und dann mit einer If / 
+Then-Anweisung versehen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (Funktion kopiert)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (0,348) &lt;&gt; 
+Value (0,32) Then</I> <SPAN style="COLOR: #00b050">'Wenn Rechnungs- und 
+Lieferadresse abweichend voneinander sind</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = SimulateItem 
+(asc("O"), 0, 32, "W:87;H:14;T:4;I:1;S:4;F:0;M:0;TITLE: Lieferadresse;TEXT:{0 
+</I><I><IMG src="../ImagesExt/image873_368.png">P99WBASEACCOUNT </I><I><IMG 
+src="../ImagesExt/image873_368.png"><IMG 
+src="../ImagesExt/image873_368.png"><IMG 
+src="../ImagesExt/image873_368.png">0};")</I> <SPAN style="COLOR: #00b050">'dann 
+wird ein OIF-Element mit den Daten der Lieferadresse ausgegeben</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung 2:</P>
+<P class=MsoNormal>Die Funktion für das SimulateItem wird selber geschrieben. 
+Hierbei ist darauf zu achten, dass die&nbsp; "FF" (FormFeed)-Elemente jeweils 
+durch "chr(12)" ersetzt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (Funktion selber 
+geschrieben)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>befehl = 
+"W:87;H:14;T:4;I:1;S:4;F:0;M:0;"</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>befehl = befehl &amp; "TITLE: 
+Lieferadresse;TEXT:"</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>befehl = befehl &amp; "{0" 
+&amp; chr(12) &amp; "P99WBASEACCOUNT" &amp; chr(12) &amp; chr(12) &amp; chr(12) 
+&amp; "0};" </I><SPAN style="COLOR: #00b050">'Die Funktion für das SimulateItem 
+wird über die Variable "befehl" gebildet</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (0,348) &lt;&gt; 
+Value (0,32) Then</I> <SPAN style="COLOR: #00b050">'Wenn Rechnungs- und 
+Lieferadresse abweichend voneinander sind</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = SimulateItem 
+(asc ("O"), 0, 32, befehl)</I> <SPAN style="COLOR: #00b050">'dann wird ein 
+OIF-Element mit den Daten der Lieferadresse ausgegeben</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis bei abweichender Lieferadresse</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_374.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 5.2 - Objekt "O" (QR Code)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn die Artikelgruppe des Artikels "6" lautet, dann soll auf 
+dem Beleg ein QR-Code ausgegeben werden. Im QR Code selber wird die 
+Artikelnummer abgestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es wird der QR Code in das Rechnungsformular eingebaut, der 
+Inhalt (die Funktion) in eine Formel kopiert und dann mit einer If / 
+Then-Anweisung versehen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (21,5) = 6 Then</I> 
+<SPAN style="COLOR: #00b050">'Wenn die Artikelgruppe des Artikels "6" 
+lautet</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 35.4pt"><I>QR = 
+"W:17;H:8;T:6;I:0;F:0;" </I><SPAN style="COLOR: #00b050">'dann wird die Funktion 
+des QR Code erzeugt (Breite 17, Höhe 8)</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 35.4pt"><I>ResultValue = SimulateItem 
+(asc ("O"), 21, 2, QR) </I><SPAN style="COLOR: #00b050">'und der QR Code 
+ausgegeben mit dem Inhalt der Artikelnummer</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 6 - Eigenschaft "P"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Im Personenkontenstamm gibt es eine Eigenschaft "Newsletter". 
+Wenn diese Eigenschaft gesetzt ist, dann soll auf der Rechnung der Text 
+"Versäumen Sie nicht unsere Newsletteraktion!" angedruckt werden. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Dazu muss im Formular "P02W44" (Flag "C") eine Formel 
+hinterlegt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>EigAbfrage = SimulateItem 
+(asc("P"), 25, 21, 
+"{OBJ:3}{GROUP:1002}{PROP:1008}{TYPE:9}{NAME:Newsletter}")</I> <SPAN 
+style="COLOR: #00b050">'In die Variable "EigAbfrage" wird die Eigenschaft 
+"Newsletter" des ausgewählten Kontos gestellt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If EigAbfrage = "Ja" Then</I> 
+<SPAN style="COLOR: #00b050">'Wenn die Eigenschaft gesetzt ist (aktiv =&gt; 
+Ja)</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = "Versäumen 
+Sie nicht unsere Newsletteraktion!"</I> <SPAN style="COLOR: #00b050">'dann wird 
+der Text angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>Else</I></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'sonst bleibt der Text leer</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis in der Faktura, wenn die Eigenschaft aktiviert 
+wurde</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_375.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 7 - Rahmen "R"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn die UID-Nummer des Kunden vorhanden ist, dann soll diese 
+in einem eigenen Rahmen unter dem Bereich der Rechnungsnummer angedruckt werden. 
+Wenn keine UID-Nummer eingetragen ist, soll weder der Rahmen, noch die 
+UID-Nummer angezeigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Dazu müssen im Formular "P02W44" (Flag "A") 2 Formeln 
+eingebaut werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel 1 (für den Rahmen)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(50,22) &lt;&gt; "" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die UID-Nummer gefüllt 
+ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>imulateItem asc("R"), 32, 
+3, "RC 1"</I> <SPAN style="COLOR: #00b050">'dann wird eine Fläche mit Breite 32 
+und Höhe 3 und zentrierter Linie in der Stärke 1 angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel 2 (für die UID-Nummer)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(50,22) &lt;&gt; "" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die UID-Nummer gefüllt 
+ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = "Ihre 
+UID-Nummer: " &amp; Value(50,22)</I> <SPAN style="COLOR: #00b050">'wird der Text 
+"Ihre UID-Nummer" und die UID-Nummer selbst angedruckt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>Else</I></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'sonst bleibt der Andruck leer</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis in der Faktura, wenn keine UID-Nummer 
+vorhanden ist</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_376.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis in der Faktura, wenn eine UID-Nummer vorhanden 
+ist</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_377.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.1 - Steuerelement "S" (AUX ON)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn im Zusatzfeld 22 eines Personenkontos der Wert "Datei" 
+enthalten ist, dann sollen bestimmte Werte in die Datei 
+"LieferungKundennummerLieferscheinnummer.TXT" geschrieben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es werden 2 Formeln in das Formular eingebaut. Durch die 
+erste Formel wird das "AUX ON" gestartet und durch die zweite Formel die Ausgabe 
+beendet. Zwischen den beiden Formeln werden dann die auszugebenden Variablen 
+platziert (ggfs. auch per SimulateItem).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei der Platzierung der Formeln muss auf die Reihenfolge 
+geachtet werden (AUX ON - Variablen - AUF OFF).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (AUX ON)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (50,222)&nbsp; = 
+"Datei" Then</I> <SPAN style="COLOR: #00b050">'Wenn im Zusatzfeld 22 des 
+Personenkontos der Wert "Datei" enthalten ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX ON;Lieferung&lt;VAR:25/21&gt;&lt;VAR:25/45&gt;.TXT"</I> <SPAN 
+style="COLOR: #00b050">'dann wird eine Druckumleitung auf die Datei 
+LieferungKundennummerLieferscheinnummer.TXT durchgeführt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (AUX OFF)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (50,222)&nbsp; = 
+"Datei" Then</I> <SPAN style="COLOR: #00b050">'Wenn im Zusatzfeld 22 des 
+Personenkontos der Wert "Datei" enthalten ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX OFF;"</I> <SPAN style="COLOR: #00b050">'dann wird die gestartete 
+Druckumleitung beendet</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.2 - Steuerelement "S" (AUX PRINTER)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Abhängig von der Kundengruppe (1 oder 3) sollen beim 
+Belegdruck unterschiedliche Drucker verwendet werden. Des Weiteren sollen nur 
+die Belege der Kundengruppe "1" ins Archiv abgelegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>In den Belegformularen (z.B. "P02W44") wird im Kopfbereich 
+folgende Formel implementiert:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(50,72) = "1" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Kundengruppe des Kontos "1" 
+lautet</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = SimulateItem 
+asc("S"), 0, 0, "</I> <I>AUX PRINTER1;ARCHIVE"</I> <SPAN 
+style="COLOR: #00b050">'dann wird der Beleg auf den Drucker 1 ausgegeben und der 
+Beleg ins Archiv abgestellt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(50,72) = "3" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Kundengruppe des Kontos "3" 
+lautet</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>ResultValue = SimulateItem 
+asc("S"), 0, 0, "</I> <I>AUX PRINTER2"</I> <SPAN style="COLOR: #00b050">'dann 
+wird der Beleg auf den Drucker 2 ausgegeben</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Das Ergebnis der Formel muss in eine SQL-Variable übergeben 
+werden, da die Anweisung vom Formular ansonsten nicht ausgeführt werden kann. 
+Die SQL-Variable selber muss aber nicht in das Formular eingebaut werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.3 - Steuerelement "S" (AUX SQL)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>In der Produktionsinformations-Liste soll der Name des 
+jeweiligen Personenkontos angezeigt werden (auftragsbezogene Produktion). Da der 
+Name nicht über die bereitgestellten Variablen zur Verfügung steht, muss dieser 
+per SQL-Statement herangezogen werden.</P>
+<P class=MsoNormal>Aus Gründen der Performance soll diese SQL-Abfrage nur 
+ausgeführt werden, wenn die Produktionsebene 0 ausgegeben wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es werden 2 Formeln in das Formular "P20W72" eingebaut. Durch 
+die erste Formel wird das "AUX SQL" gestartet und durch die zweite Formel der 
+erste Datensatz ausgelesen. Im Anschluss daran kann das Ergebnis über die 
+Variable 500/100 angedruckt werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei der Platzierung der Formeln muss auf die Reihenfolge 
+geachtet werden (AUX SQL - AUX SQLNEXT - Variable 500/100).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (AUX SQL)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (324,3) = 0 Then</I> 
+<SPAN style="COLOR: #00b050">'Wenn die Produktionsebene "0" ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX SQL;select C003 from T055 where C002 = '&lt;VAR:324/23&gt;' and mesocomp 
+='~~~~' and mesoyear = yyyy"</I> <SPAN style="COLOR: #00b050">'dann wird per 
+SQL-Statement der Name des Personenkontos aus der Tabelle 55 gehol</SPAN>t</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (AUX SQLNEXT)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (324,3)&nbsp; = 0 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Produktionsebene "0" 
+ist</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX SQLNEXT;"</I> <SPAN style="COLOR: #00b050">'dann wird der erste 
+Datensatz aus dem SQL-Statement herangezogen</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = ""</I> <SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.4 - Steuerelement "S" (AUX MAIL)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Wenn der Rechnungsempfänger dem Konto "230A001" entspricht, 
+dann sollte die Rechnung per Mail als PDF-Datei an die Mailadresse 
+"anna@sportwelt.at" gesandt werden. Als Betreffzeile im Mail sollte der Eintrag 
+"Rechnung Rechnungsnummer" verwendet werden und als Mailtext "Anbei die Rechnung 
+lt. Lieferscheinen".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Im Rechnungsformular "P02W44" wird im Kopfbereich folgende 
+Formel implementiert:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value(0,30) = "230A001" 
+Then</I> <SPAN style="COLOR: #00b050">'Wenn die Kontonummer des 
+Rechnungsempfängers "230A001" lautet</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>FormTitle = "Rechnung " 
+&amp; Value(0,37)</I> <SPAN style="COLOR: #00b050">'dann lautet der Formularname 
+"Rechnung Rechnungsnummer"</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX MAIL;{FORMAT=PDF}anna" &amp; chr(64) &amp; "sportwelt.at{Rechnung 
+&lt;VAR:0/37&gt;"&amp; chr(13) &amp; chr(10) &amp; "Anbei die Rechnung lt. 
+Lieferscheinen}"</I> <SPAN style="COLOR: #00b050">'und es wird die Rechnung als 
+PDF-Datei mit den vorgegebenen Texten an die feste Mailadresse 
+"anna@sportwelt.at" gesendet</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: justify; MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal 
+style="TEXT-ALIGN: justify; MARGIN-LEFT: 42.55pt"><I>ResultValue = "" </I><SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN><I></I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.5 - Steuerelement "S" (AUX KEYWORDS)</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Es soll zu einer PDF-Datei Schlüsselwörter mitgegeben werden. 
+Diese Schlüsselwörter werden in der PDF-Datei als "Stichwörter" angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Da Schlüsselworte noch nicht per Mesonic Formular Editor 
+zugewiesen werden können, wird dieses per SimulateItem-VB-Formel durchgeführt. 
+Hier wird das Schlüsselwort1 und 2 dem Pdf mitgegeben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (feste Stichwörter)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = SimulateItem 
+(asc("S"), 0, 0, "AUX KEYWORDS;Schlüsselwort1;Schlüsselwort2")</I> <SPAN 
+style="COLOR: #00b050">'Es werden in die PDF-Datei 2 Stichwörter mit der 
+Bezeichnung "Schlüsselwort1" und "Schlüsselwort2" hinterlegt</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel (variable Stichwörter)</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>Stichwort = "AUX KEYWORDS;" 
+&amp; Value (0,39) &amp; ";"</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>Stichwort = Stichwort &amp; 
+Value (0,50)</I> <SPAN style="COLOR: #00b050">'Es wird zunächst über die 
+Variable "Stichwort" die Funktion mit Variablen Schlüsselwörtern 
+zusammengesetzt</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt">&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = SimulateItem 
+(asc("S"), 0, 0, Stichwort)</I> <SPAN style="COLOR: #00b050">'und dieses dann 
+für die PDF-Datei bereitgestellt</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Ergebnis im Acrobat Reader (variable Stichwörter)</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_378.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 8.6 - Steuerelement "S" (AUX SUBPDB)</P>
+<P class=MsoNormal>Anforderung: Es sollen lediglich Artikeletiketten mit einer 
+Artikelnummer größer 10002 gedruckt warden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Das SUBPDB der Artikeletiketten "P02WAE" wird nur aufgerufen, 
+wenn die Artikelnummer größer 10002 ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>If Value (26,3) &gt; 10002 
+Then</I> <SPAN style="COLOR: #00b050">'Prüfung Artikelnummer größer 
+10002</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: 28.25pt"><I>SimulateItem asc("S"), 0, 
+0, "AUX SUBPDB;P02WAE"</I> <SPAN style="COLOR: #00b050">'Aufruf 
+SUBPDB</SPAN></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>End If</I></P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I></I>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = "" </I><SPAN 
+style="COLOR: #00b050">'ResultValue wird auf "Leer" gestellt, damit nichts 
+gedruckt wird (wenn das SimulateItem keinen Wert zurückbringt)</SPAN><I></I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 9 - LookUp Element "U"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Im Buchungsjournal soll die Bezeichnung der jeweils 
+verwendeten Steuerzeile zur Verfügung gestellt werden. Anschließend soll mit 
+dieser Bezeichnung weiter gearbeitet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es wird in das Formular "P01W52" eine VB-Formel 
+implementiert, welche als Ergebnis (ResultValue) die Kurzbezeichnung der 
+Steuerzeile zur Verfügung stellt. Anstatt das Ergebnis zu drucken, wird es über 
+die Formel an eine "SQL Var." (mit welcher weitergearbeitet wird) 
+weitergereicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = SimulateItem 
+(asc("U"), 28, 7, "%s{VIEW10;VAR9}") </I><SPAN style="COLOR: #00b050">'Es wird 
+ein Lookup für die Variable 28/7 durchgeführt und in der Tabelle 10 nach der 
+passenden Bezeichnung (Spalte 9) gesucht</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 10 - XML-Element "X"</P>
+<P class=MsoNormal>Anforderung:</P>
+<P class=MsoNormal>Für eine detaillierte Formatierung soll das Bearbeitungsdatum 
+aus einem Belegzeilen-XML-Element ausgegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Lösung:</P>
+<P class=MsoNormal>Es wird in das entsprechende Belegformular (Flag "N") eine 
+VB-Formel implementiert, welche als Ergebnis (ResultValue) den Inhalt des 
+XML-Datums ausgibt. Anstatt das Ergebnis zu drucken, wird es über die Formel an 
+eine "SQL Var." weitergereicht. Diese kann dann entsprechend den Anforderungen 
+gedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Formel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 42.55pt"><I>ResultValue = SimulateItem 
+(asc ("X"), 26, 0, "{XML:schema/berarbeitung}{TEMPLATE:Artikeldaten im 
+Beleg}{TYPE:2}")</I> <SPAN style="COLOR: #00b050">'Der Inhalt des Tags 
+"schema/bearbeitung" aus der Vorlage "Artikelsdaten im Beleg" wird 
+bereitgestellt, wobei als Key die Value(26,0) dient</SPAN></P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

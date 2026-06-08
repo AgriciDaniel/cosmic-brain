@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+    </marker>
+    <style>
+      .code-text { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+      .label-text { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+      .header-text { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Lifelines -->
+  <line x1="150" y1="80" x2="150" y2="730" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="350" y1="80" x2="350" y2="730" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="550" y1="80" x2="550" y2="730" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <line x1="750" y1="80" x2="750" y2="730" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- Activation Boxes -->
+  <rect x="142" y="80" width="16" height="470" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="4"/>
+  <rect x="342" y="345" width="16" height="30" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="4"/>
+  <rect x="342" y="510" width="16" height="75" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="4"/>
+  <rect x="542" y="395" width="16" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="4"/>
+  <rect x="742" y="445" width="16" height="280" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="4"/>
+
+  <!-- Headers -->
+  <rect x="70" y="40" width="160" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="150" y="60" class="header-text" text-anchor="middle" dominant-baseline="middle">Host A (Originator)</text>
+
+  <rect x="270" y="40" width="160" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="350" y="60" class="header-text" text-anchor="middle" dominant-baseline="middle">Database</text>
+
+  <rect x="470" y="40" width="160" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="550" y="60" class="header-text" text-anchor="middle" dominant-baseline="middle">Pub/Sub (Redis/PG/FS)</text>
+
+  <rect x="670" y="40" width="160" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="750" y="60" class="header-text" text-anchor="middle" dominant-baseline="middle">Host B (Peer)</text>
+
+  <!-- Action 1 -->
+  <rect x="60" y="110" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="150" y="125" class="code-text" text-anchor="middle" dominant-baseline="middle">1. Execute Command</text>
+
+  <!-- Action 2 -->
+  <rect x="60" y="170" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="150" y="185" class="code-text" text-anchor="middle" dominant-baseline="middle">2. BEGIN TRANSACTION</text>
+
+  <!-- Action 3 -->
+  <rect x="60" y="230" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="150" y="245" class="code-text" text-anchor="middle" dominant-baseline="middle">3. Business Logic</text>
+
+  <!-- Action 4 -->
+  <rect x="60" y="290" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="150" y="305" class="code-text" text-anchor="middle" dominant-baseline="middle">4. Store Operation</text>
+
+  <!-- Arrow 5: COMMIT -->
+  <path d="M 158 360 Q 250 370 342 360" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="250" y="352" class="label-text" text-anchor="middle">5. COMMIT</text>
+
+  <!-- Arrow 6: Notify -->
+  <path d="M 158 410 Q 350 425 542 410" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="350" y="402" class="label-text" text-anchor="middle">6. Notify</text>
+
+  <!-- Arrow 7: Notification -->
+  <path d="M 558 460 Q 650 470 742 460" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="650" y="452" class="label-text" text-anchor="middle">Notification</text>
+
+  <!-- Action 7: Local Invalidation -->
+  <rect x="60" y="510" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="150" y="525" class="code-text" text-anchor="middle" dominant-baseline="middle">7. Local Invalidation</text>
+
+  <!-- Arrow 8: Read Operation Log -->
+  <path d="M 742 525 Q 550 535 358 525" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="550" y="517" class="label-text" text-anchor="middle">8. Read Operation Log</text>
+
+  <!-- Arrow 10: Operation data -->
+  <path d="M 358 570 Q 550 580 742 570" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <text x="550" y="562" class="label-text" text-anchor="middle">Operation data</text>
+
+  <!-- Action 9: Completion Notifier -->
+  <rect x="660" y="620" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="750" y="635" class="code-text" text-anchor="middle" dominant-baseline="middle">9. Completion Notifier</text>
+
+  <!-- Action 10: Run Invalidation -->
+  <rect x="660" y="680" width="180" height="30" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="750" y="695" class="code-text" text-anchor="middle" dominant-baseline="middle">10. Run Invalidation</text>
+
+</svg>

@@ -1,0 +1,40 @@
+﻿<FluentGrid>
+    <!-- Three state = true -->
+    <FluentGridItem Xs="4">
+        <FluentCheckbox @bind-CheckState="state1"
+                        @bind-Value="value1"
+                        ThreeState="true"
+                        Label="Three state = true" />
+    </FluentGridItem>
+    <FluentGridItem Xs="8">
+        Value = @value1 - CheckState is @(state1 is null ? "(null indeterminate)" : state1.Value.ToString())
+    </FluentGridItem>
+
+    <!-- Three state = false -->
+    <FluentGridItem Xs="4">
+        <FluentCheckbox @bind-Value="value2"
+                        ThreeState="false"
+                        Label="Three state = false" />
+    </FluentGridItem>
+    <FluentGridItem Xs="8">
+        Value = @value2
+    </FluentGridItem>
+
+    <!-- ShowIndeterminate = false -->
+    <FluentGridItem Xs="4">
+        <FluentCheckbox @bind-CheckState="state3"
+                        @bind-Value="value3"
+                        ThreeState="true"
+                        ShowIndeterminate="false"
+                        Label="ShowIndeterminate = false" />
+    </FluentGridItem>
+    <FluentGridItem Xs="8">
+        Value = @value3 - CheckState is @(state3 is null ? "(null indeterminate)" : state3.Value.ToString())
+    </FluentGridItem>
+
+</FluentGrid>
+
+@code {
+    bool value1, value2, value3;
+    bool? state1 = false, state3 = null;
+}

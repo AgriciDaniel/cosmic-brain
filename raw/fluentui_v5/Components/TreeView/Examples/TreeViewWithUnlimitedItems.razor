@@ -1,0 +1,49 @@
+﻿<div class="my-2">
+    <b>Selected item:</b> @SelectedItem?.Text
+</div>
+
+<FluentTreeView Items="@Items"
+                LazyLoadItems="true"
+                @bind-SelectedItem="@SelectedItem" />
+
+@code
+{
+    private ITreeViewItem? SelectedItem;
+    private IEnumerable<ITreeViewItem>? Items = new List<ITreeViewItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Items = await GetItemsAsync();
+    }
+
+    // Generate a random number of items
+    // Including a "Fake" sub-item to simulate the [+]
+    private async Task<IEnumerable<ITreeViewItem>> GetItemsAsync()
+    {
+        await Task.Delay(300); // Simulate a delay for loading items
+
+        var nbItems = Random.Shared.Next(3, 9);
+
+        return Enumerable.Range(1, nbItems)
+                         .Select(i => new TreeViewItem()
+        {
+            Text = $"Item {Random.Shared.Next(1, 9999)}",
+            OnExpandedAsync = OnExpandedAsync,
+            Items = TreeViewItem.LoadingTreeViewItems("Loading..."), // "Fake" sub-item to simulate the [+]
+        }).ToArray();
+    }
+
+    // Handle the expanded event to load items
+    private async Task OnExpandedAsync(TreeViewItemExpandedEventArgs e)
+    {
+        if (e.Expanded)
+        {
+            e.CurrentItem.Items = await GetItemsAsync();
+        }
+        else
+        {
+            // Remove sub-items and add a "Fake" item to simulate the [+]
+            e.CurrentItem.Items = TreeViewItem.LoadingTreeViewItems("Loading...");
+        }
+    }
+}

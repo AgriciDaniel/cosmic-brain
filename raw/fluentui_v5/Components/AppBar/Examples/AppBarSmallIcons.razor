@@ -1,0 +1,117 @@
+﻿<style>
+    .fluent-appbar.smallicons {
+		--appbar-item-size: 58px;
+    }
+</style>
+@{
+	string stylevalue = $"background-color: var(--colorNeutralBackground5); overflow: hidden; resize: {(_vertical ? "vertical; width: 78px; height: 270px;" : "horizontal; width: 380px; height: 68px;")}  padding: 10px;";
+}
+<FluentStack Orientation="Orientation.Vertical" Style="height: 100%;">
+    <FluentStack Orientation="Orientation.Horizontal" HorizontalGap="10">
+		<FluentSwitch @bind-Value="_showSearch" Label="Show search in popover" />
+		<FluentSwitch @bind-Value="_vertical" @bind-Value:after="@HandleOrientationChanged" Label="@($"Show {(_vertical ? "Vertical" : "Horizontal")}")" />
+	</FluentStack>
+    <div class="smallicons" style="@stylevalue">
+        <FluentAppBar Orientation="@(_vertical ? Orientation.Vertical : Orientation.Horizontal)" Class="smallicons" PopoverVisibilityChanged="HandlePopover" PopoverShowSearch="@_showSearch">
+
+            <FluentAppBarItem Href="/AppBarDefault"
+                                Match="NavLinkMatch.All"
+                                IconRest="ResourcesIcon()"
+                                IconActive="ResourcesIcon(active: true)"
+                                Text="Resources" />
+            <FluentAppBarItem Href="/AppBar"
+                                IconRest="ConsoleLogsIcon()"
+                                IconActive="ConsoleLogsIcon(active: true)"
+                                Text="Console Logs" />
+
+            <FluentAppBarItem Href="/StructuredLogs"
+                                IconRest="StructuredLogsIcon()"
+                                IconActive="StructuredLogsIcon(active: true)"
+                                Text="Logs"
+                                Tooltip="Structured Logs"/>
+            <FluentAppBarItem Href="/Traces"
+                                IconRest="TracesIcon()"
+                                IconActive="TracesIcon(active: true)"
+                                Text="Traces" />
+            <FluentAppBarItem Href="/Metrics"
+                                IconRest="MetricsIcon()"
+                                IconActive="MetricsIcon(active: true)"
+                                Text="Metrics" />
+            <FluentAppBarItem Href="/AppBarPage"
+                                IconRest="ResourcesIcon()"
+                                IconActive="ResourcesIcon(active: true)"
+                                Text="Resources 2" />
+            <FluentAppBarItem Href="/AppBar"
+                                IconRest="ConsoleLogsIcon()"
+                                IconActive="ConsoleLogsIcon(active: true)"
+                                Text="Console Logs 2" />
+
+            <FluentAppBarItem Href="/StructuredLogs"
+                                IconRest="StructuredLogsIcon()"
+                                IconActive="StructuredLogsIcon(active: true)"
+                                Text="Structured Logs 2" />
+            <FluentAppBarItem Href="/Traces"
+                                IconRest="TracesIcon()"
+                                IconActive="TracesIcon(active: true)"
+                                Text="Traces 2" />
+            <FluentAppBarItem Href="/Metrics"
+                                IconRest="MetricsIcon()"
+                                IconActive="MetricsIcon(active: true)"
+                                Text="Metrics 2" />
+            <FluentAppBarItem Href="/AppBarPage"
+                                IconRest="ResourcesIcon()"
+                                IconActive="ResourcesIcon(active: true)"
+                                Text="Resources 3" />
+            <FluentAppBarItem Href="/AppBar"
+                                IconRest="ConsoleLogsIcon()"
+                                IconActive="ConsoleLogsIcon(active: true)"
+                                Text="Console Logs 3" />
+
+            <FluentAppBarItem Href="/StructuredLogs"
+                                IconRest="StructuredLogsIcon()"
+                                IconActive="StructuredLogsIcon(active: true)"
+                                Text="Structured Logs 3" />
+            <FluentAppBarItem Href="/Traces"
+                                IconRest="TracesIcon()"
+                                IconActive="TracesIcon(active: true)"
+                                Text="Traces 3" />
+            <FluentAppBarItem Href="/Metrics"
+                                IconRest="MetricsIcon()"
+                                IconActive="MetricsIcon(active: true)"
+                                Text="Metrics 3" />
+        </FluentAppBar>
+    </div>
+</FluentStack>
+
+
+@code {
+    private bool _vertical = true;
+    private bool _showSearch = true;
+
+    private static Icon ResourcesIcon(bool active = false) =>
+        active ? new Icons.Filled.Size16.AppFolder()
+               : new Icons.Regular.Size16.AppFolder();
+
+    private static Icon ConsoleLogsIcon(bool active = false) =>
+        active ? new Icons.Filled.Size16.SlideText()
+               : new Icons.Regular.Size16.SlideText();
+
+    private static Icon StructuredLogsIcon(bool active = false) =>
+        active ? new Icons.Filled.Size16.SlideTextSparkle()
+               : new Icons.Regular.Size16.SlideTextSparkle();
+
+    private static Icon TracesIcon(bool active = false) =>
+        active ? new Icons.Filled.Size16.GanttChart()
+               : new Icons.Regular.Size16.GanttChart();
+
+    private static Icon MetricsIcon(bool active = false) =>
+        active ? new Icons.Filled.Size16.ChartMultiple()
+               : new Icons.Regular.Size16.ChartMultiple();
+
+    private void HandlePopover(bool visible) => Console.WriteLine($"Popover visibility changed to {visible}");
+
+	private void HandleOrientationChanged()
+	{
+		Console.WriteLine($"Orientation changed to {(_vertical ? "vertical" : "horizontal")}");
+	}
+}

@@ -86,7 +86,7 @@ Type `/wiki` in Claude Code. Claude will:
 
 ### 2. Drop your first source
 
-Put any document into `.raw/`:
+Put any document into `raw/`:
 - PDFs, markdown files, transcripts, articles, URLs
 
 Tell Claude: `ingest [filename]`

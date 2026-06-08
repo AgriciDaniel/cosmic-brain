@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Einsatz eines WinLine System Servers</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">Einsatz eines WinLine System 
+Servers</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird ein WinLine System Server verwendet, so kann sich dieser 
+merken, welche der Verbindungen MesoCloud-Verbindungen (Sessions) sind. In 
+Kombination damit wird der WinLine System Server von jedem WinLine Server alle 
+30 Sekunden nach der Anzahl der gestarteten MesoCloud-Sessions befragt. Der 
+Systemserver startet neue Sessions, falls die ursprüngliche Anzahl 
+konfigurierter Sessions kleiner ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Daraus ergibt sich, dass beim Ausfall eines dezidierten 
+WinLine System Servers (bei dem alle Benutzer-Sessions automatisch beendet 
+werden) nach dem Neustart des System Servers auch die MesoCloud-Sessions wieder 
+automatisch neu gestartet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Folgende Einstellung müssen im Register "WinLine 
+Server" getätigt werden:</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Mit MesoCloud 
+verbinden</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">Nur wenn "1" 
+eingetragen ist, wirkt der zuvor beschriebene Mechanismus. Beim automatischen 
+Start (Wert "0") wird nur einmal gestartet.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Benutzername 
+für WebService Aufrufe aus der MesoCloud</P>
+<P class=MsoNormal>Ist hier nichts eingetragen, dann wird der automatisch 
+erzeugte "FLPCloudUser" verwendet.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzahl 
+gleichzeitig gestarteter MesoCloud Verbindungen</P>
+<P class=MsoNormal>Es handelt sich dabei um die Anzahl der Sessions, die 
+automatisch gestartet werden. MesoCloud-Sessions werden (wie die Action Server 
+Sessions) im Protokoll des Action Servers angezeigt und können dort (in der 
+CWL-Sitzung) via Entf-Taste entfernt werden - werden dann aber vom Server nach 
+kurzer Zeit wieder automatisch neu gestartet.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt"><IMG 
+src="../ImagesExt/image862_805.png"></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt"><IMG 
+src="../ImagesExt/image862_806.png"></P>
+<P class=BeispielAchtung><SPAN style="TEXT-DECORATION: none"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zusätzliche 
+MesoCloud-Sitzungen starten</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_807.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der WinLine mobile gibt es im Fenster "System Info" den 
+"MesoCloud"-Button. Dieser ist nicht ausgegraut, wenn die MesoCloud-Sitzungen in 
+den Einstellungen eingeschaltet sind und der Benutzer zusätzlich Administrator 
+ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>So können (über die konfigurierte Anzahl hinaus) weitere 
+MesoCloud-Sitzungen gestartet werden. In der darunter liegenden Tabelle wird bei 
+"MesoCloud" der Status der Sessions angezeigt (entweder mit Angabe eines 
+Fehlers, oder mit Angabe der Anzahl der aktuell laufenden Sitzungen).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_808.png"></P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

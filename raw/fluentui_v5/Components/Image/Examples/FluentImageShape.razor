@@ -1,0 +1,8 @@
+﻿<FluentSelect Items="@(Enum.GetValues<ImageShape>())" @bind-Value="@_selectedShape" />
+<div style="width: auto; height: 300px; margin-top: 10px">
+    <FluentImage Shape="@_selectedShape" Source="/big-heart.jpg" AlternateText="Placeholder Image" />
+</div>
+
+@code{
+    ImageShape _selectedShape;
+}

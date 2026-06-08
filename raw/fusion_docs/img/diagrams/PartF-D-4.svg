@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f0e8fc" />
+            <stop offset="100%" stop-color="#ddd0f0" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 2 L 10 5 L 0 8 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Subgraph Box -->
+    <rect x="170" y="40" width="670" height="230" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-dasharray="6 4" rx="8" />
+    <text x="185" y="60" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">Cache Resolution Subsystem</text>
+
+    <!-- Edges (Arrows) -->
+    <!-- Start to N1 -->
+    <line x1="21" y1="100" x2="45" y2="100" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    
+    <!-- N1 to N2 -->
+    <line x1="155" y1="100" x2="200" y2="100" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    
+    <!-- N2 to N3 (No) -->
+    <line x1="300" y1="100" x2="350" y2="100" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    <text x="325" y="92" font-family="Inter, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">No</text>
+    
+    <!-- N2 to N6 (Yes) -->
+    <line x1="250" y1="130" x2="250" y2="210" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    <text x="260" y="170" font-family="Inter, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Yes</text>
+    
+    <!-- N3 to N4 -->
+    <line x1="510" y1="100" x2="560" y2="100" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    
+    <!-- N4 to N5 (No) -->
+    <line x1="660" y1="100" x2="695" y2="100" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    <text x="677.5" y="92" font-family="Inter, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">No</text>
+    
+    <!-- N4 to N6 (Yes) -->
+    <path d="M 610 130 C 610 190, 520 230, 315 230" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" stroke-linecap="round" />
+    <text x="460" y="222" font-family="Inter, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Yes</text>
+
+    <!-- Nodes -->
+    <!-- Start Circle -->
+    <circle cx="15" cy="100" r="6" fill="#8b90a8" />
+
+    <!-- N1: Call: Get('a') -->
+    <rect x="45" y="80" width="110" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="100" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Call: Get('a')</text>
+
+    <!-- N2: Is cached? 1 -->
+    <polygon points="250,70 300,100 250,130 200,100" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="250" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Is cached?</text>
+
+    <!-- N3: Acquire async lock -->
+    <rect x="350" y="80" width="160" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="430" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Acquire async lock</text>
+
+    <!-- N4: Is cached? 2 -->
+    <polygon points="610,70 660,100 610,130 560,100" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="610" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Is cached?</text>
+
+    <!-- N5: Execute & cache -->
+    <rect x="695" y="80" width="130" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="760" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Execute &amp; cache</text>
+
+    <!-- N6: Return cached -->
+    <rect x="185" y="210" width="130" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="250" y="234" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Return cached</text>
+</svg>

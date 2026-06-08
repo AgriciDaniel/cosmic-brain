@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 940" width="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    
+    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <marker id="arrowhead" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="10" />
+
+  <!-- Edges (Arrows) -->
+  <path d="M 400 90 L 400 135" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 400 220 L 400 275" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 400 360 L 400 415" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 400 500 C 400 535, 250 535, 250 565" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 400 500 C 400 535, 550 535, 550 565" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 550 630 L 550 685" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 550 750 C 550 785, 400 785, 400 815" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+
+  <!-- Edge Labels -->
+  <text x="410" y="252" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Async (background)</text>
+
+  <!-- Nodes -->
+  <!-- Handler (Component -> State/Object) -->
+  <rect x="170" y="30" width="460" height="60" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="400" y="52" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">COMMAND HANDLER</text>
+  <text x="400" y="72" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">context.Operation.AddEvent(new OrderCreatedEvent(id))</text>
+
+  <!-- Commit (Operation -> Action/Process) -->
+  <rect x="170" y="140" width="460" height="80" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="400" y="162" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">COMMIT TRANSACTION</text>
+  <text x="400" y="182" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">_Operations: { Command, Items, Events[] }</text>
+  <text x="400" y="202" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">_Events: { Uuid, Value, State: New }</text>
+
+  <!-- Reader (Component -> State/Object) -->
+  <rect x="230" y="280" width="340" height="80" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="400" y="302" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">DBEVENTLOGREADER</text>
+  <text x="400" y="322" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">SELECT * FROM _Events</text>
+  <text x="400" y="342" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">WHERE State = 'New'</text>
+
+  <!-- Processor (Component -> State/Object) -->
+  <rect x="230" y="420" width="340" height="80" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="400" y="442" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">DBEVENTPROCESSOR</text>
+  <text x="400" y="462" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">if (event.Value is ICommand)</text>
+  <text x="400" y="482" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">await Commander.Call(command)</text>
+
+  <!-- Success (State -> State/Object) -->
+  <rect x="150" y="570" width="200" height="60" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="250" y="592" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">SUCCESS</text>
+  <text x="250" y="612" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">State = Processed</text>
+
+  <!-- Failure (State -> State/Object) -->
+  <rect x="450" y="570" width="200" height="60" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="550" y="592" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">FAILURE</text>
+  <text x="550" y="612" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Retry (up to 5x)</text>
+
+  <!-- Discarded (State -> State/Object) -->
+  <rect x="450" y="690" width="200" height="60" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="550" y="712" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">If exhausted:</text>
+  <text x="550" y="732" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">State = Discarded</text>
+
+  <!-- Trimmer (Component -> State/Object) -->
+  <rect x="230" y="820" width="340" height="80" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="400" y="842" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">DBEVENTLOGTRIMMER</text>
+  <text x="400" y="862" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">DELETE FROM _Events</text>
+  <text x="400" y="882" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">WHERE State != 'New'</text>
+
+</svg>

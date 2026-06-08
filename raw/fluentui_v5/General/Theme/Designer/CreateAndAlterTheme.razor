@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Components;
+@using Microsoft.FluentUI.AspNetCore.Components;
+@inject IThemeService ThemeService
+
+<FluentStack Margin="@Margin.Bottom4" HorizontalGap="8px">
+    <FluentButton Appearance="ButtonAppearance.Primary"
+                  OnClick="@ApplyCustomThemeAsync">
+        Customize theme
+    </FluentButton>
+    <FluentButton Appearance="ButtonAppearance.Default"
+                  OnClick="@ResetThemeAsync">
+        Reset
+    </FluentButton>
+</FluentStack>
+
+<div @ref="@_exampleBlocks"
+     style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+    <FluentButton Appearance="ButtonAppearance.Primary">Primary</FluentButton>
+    <FluentButton Appearance="ButtonAppearance.Outline">Outline</FluentButton>
+    <FluentTextInput Placeholder="Type here" />
+    <FluentCheckbox Value="true" />
+</div>
+
+@code
+{
+   
+}

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Title -->
+  <text x="40" y="40" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Connection State Machine</text>
+
+  <!-- Edges (Paths) -->
+  <!-- [*] -> Disconnected -->
+  <path d="M 68 250 Q 100 250 132 250" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  
+  <!-- Disconnected -> Connecting : GetConnection() -->
+  <path d="M 280 240 Q 356 232 432 240" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  
+  <!-- Connecting -> Disconnected : Error -->
+  <path d="M 440 260 Q 364 268 288 260" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  
+  <!-- Connecting -> Connected : Handshake OK -->
+  <path d="M 580 250 Q 656 242 732 250" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  
+  <!-- Connected -> Disconnected : Connection lost -->
+  <path d="M 810 230 C 810 80, 210 80, 210 222" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  
+  <!-- Disconnected -> Connecting : Reconnect (backoff) -->
+  <path d="M 210 270 C 210 380, 510 380, 510 278" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+
+  <!-- Edge Labels -->
+  <text x="356" y="226" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">GetConnection()</text>
+  <text x="364" y="284" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Error</text>
+  <text x="656" y="236" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Handshake OK</text>
+  <text x="510" y="105" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Connection lost</text>
+  <text x="360" y="370" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Reconnect (backoff)</text>
+
+  <!-- Nodes -->
+  <!-- Start Node [*] -->
+  <circle cx="60" cy="250" r="8" fill="#8b90a8" />
+
+  <!-- Disconnected State -->
+  <rect x="140" y="230" width="140" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="210" y="254" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Disconnected</text>
+
+  <!-- Connecting State -->
+  <rect x="440" y="230" width="140" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="510" y="254" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Connecting</text>
+
+  <!-- Connected State -->
+  <rect x="740" y="230" width="140" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="810" y="254" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Connected</text>
+
+</svg>

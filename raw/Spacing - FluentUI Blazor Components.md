@@ -3,7 +3,7 @@ title: "Spacing - FluentUI Blazor Components"
 source: "https://fluentui-blazor-v5.azurewebsites.net/Spacing"
 author:
 published:
-created: 2026-05-23
+created: 2026-05-25
 description:
 tags:
   - "clippings"

@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Vorlagen des Typs "Bewegungsdaten - Lagerbuchung"</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt"><A name=_Ref108601710>Vorlagen des Typs 
+"Bewegungsdaten - Lagerbuchung"</A></H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Grundsätzlich unterscheidet sich die Anlage von Vorlagen des 
+Typs "Lagerbuchung" nicht von der Anlage anderer Typen. Aus diesem Grund werden 
+in diesem Kapitel nur die Spezial- bzw. Sonderfunktionen beschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1031.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Optionen - Lagerorte</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1032.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>nur 
+Lagerort-Buchung</P>
+<P class=MsoNormal>Mit Hilfe dieser Option wird definiert, ob Buchungen für den 
+Bereich "Lagerbuchhaltung" oder "Lagerort-Buchung" durchgeführt werden 
+sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist deaktiviert<BR>Es 
+werden Buchungen für den Bereich der "Lagerbuchhaltung" durchgeführt 
+(SQL-Tabelle T083). D.h. es werden beim Export all jene Buchungen 
+berücksichtigt, die im Artikeljournal vorhanden sind. Bei einem Import werden 
+die Buchungen wiederum ins Artikeljournal abgestellt und verändern somit z.B. 
+den Lagerstand oder den Einstandspreis des Artikels (je nach Inhalt der 
+Buchung).</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Wurde dem Artikel der Buchung 
+eine Lagerortstruktur zugewiesen, so kann bei einem Import auch der jeweilige 
+Lagerort angegeben werden (SQL-Tabelle T343). Bei einem Export wird die 
+Lagerortinformation ebenfalls exportiert, wenn die damalige Erfassung auf einen 
+explizierten Ort stattgefunden hatte.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist aktiviert<BR>Es werden 
+Buchungen für den Bereich der "Lagerort-Buchung" durchgeführt (SQL-Tabelle 
+T343). D.h. es werden bei einem Export all jene Buchungen berücksichtigt, welche 
+über das Programm "Lagerorte - Umbuchung" oder einem Import getätigt wurden. Bei 
+einem Import werden die Buchungen wiederum ins Lagerortjournal abgestellt und 
+verändern somit "nur" den Bestand des Lagerorts. Grundvoraussetzung hierbei ist 
+die Hinterlegung einer Lagerortstruktur im Artikel.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Handelt es sich um eine 
+klassische Lagerort-Umbuchung, so wird beim Export die Buchung des 
+"Von-Lagerorts" und des "Auf-Lagerorts" in zwei separate Buchungszeilen 
+aufgeteilt (mit entsprechender - und + Menge). Bei einem Import kann eine 
+Umbuchung über eine oder zwei getrennte Buchungszeilen stattfinden. Wenn alle 
+Daten in einer Importzeile angegeben werden sollen, so müssen neben dem "Ziel" 
+auch die "Quelle" angegeben werden.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die Option hat eine direkte Auswirkung auf die Tabelle 
+"Datenfelder der Vorlage":</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Pflichtfelder - allgemein<BR>Wird 
+die Option aktiviert, so sind die Felder "Einzelpreis" und "Buchungsart" keine 
+Pflichtfelder und werden aus dem Aufbau der Vorlage entfernt. Bei einer 
+Deaktivierung der Option werden die Felder entsprechend wieder in den Aufbau 
+eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Pflichtfelder - 
+Lagerort-Buchung<BR>Wird die Option aktiviert, d.h. es sollen Buchungen des 
+Bereichs "Lagerort-Buchungen" ex- oder importiert werden, so muss ein Feld des 
+Typs "Ziel-Lagerort" im Aufbau der Vorlage vorhanden sind! Herauf wird beim 
+Speichern der Vorlage auch hingewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Normale Felder<BR>Handelt es sich 
+um eine Vorlage für den Bereich "Lagerort-Buchung" (d.h. Option ist aktiviert), 
+so werden die Felder "Einzelpreis" und "Gesamtpreis" bei dem EXIM-Vorgang nicht 
+unterstützt und somit bei einem Import ignoriert (vergleichbar mit einem 
+Platzhalter-Feld).<BR>Sollte es sich hingegen um eine Vorlage für den Bereich 
+"Lagerbuchhaltung" handeln (d.h. Option ist deaktiviert), so werden die 
+Lagerort-Quell-Felder beim EXIM nicht unterstützt und beim Import 
+ignoriert.<BR>Auf alle nicht unterstützten Felder wird beim Speichern der 
+Vorlage entsprechend hingewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Spalte "Tabelle" / 
+"Tabellenspalte"<BR>Wird die Option aktiviert, so werden die 
+Tabellen-Informationen aus den Spalten entfernt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabelle "Datenfelder der Vorlage"</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1033.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Definition der Felder erfolgt wie bei allen anderen 
+Vorlagen auch. Allerdings stehen diverse Sonderfelder und -funktionen zur 
+Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Menge 2</P>
+<P class=MsoNormal>Wenn der Artikel der Buchung in 2 Mengen geführt wird, so 
+kann mit Hilfe dieses Felds die 2. Menge angegeben werden. Ist das Feld nicht im 
+Aufbau der Vorlage enthalten, so wird beim Import die Menge2 automatisch auf 
+Grundlage des Umrechnungsfaktors von der WinLine berechnet und in die 
+entstehende Buchung übergeben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Mit Hilfe des folgenden mesonic.ini-Eintrags kann die 
+automatische Berechnung der Menge2 deaktiviert werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>[lagerextern]</P>
+<P class=MsoNormal>CalcAmount2=0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamtpreis</P>
+<P class=MsoNormal>Mit Hilfe dieses Felds kann der Gesamtpreis einer 
+Lagerbuchung angegeben werden. Befindet sich das Feld nicht im Aufbau der 
+verwendeten Vorlage, so wird der Gesamtpreis automatisch über eine 
+Multiplikation von "Einzelpreis * Menge" gebildet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungsart</P>
+<P class=MsoNormal>Handelt es sich um eine Vorlage des Bereichs 
+"Lagerort-Buchung" (d.h. Option "nur Lagerort-Buchung" ist aktiviert), so ist 
+das Feld "Buchungsart" kein Pflichtfeld! Wird das Feld trotzdem verwendet, so 
+werden bei einem Import ausschließlich die Umbuchungsart und der Nummernkreis in 
+das Lagerortjournal geschrieben. Alle in der Umbuchungsart hinterlegbaren 
+Prüfmechanismen werden beim Import nicht berücksichtigt. Des Weiteren werden 
+beim Vorhandensein mehrerer Buchungsarten immer die Buchungen mit derselben 
+Buchungsart nacheinander importiert.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel "A1", Lagerort "1", 
+Buchungsart "&lt;leer&gt;"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel "A2", Lagerort "2", 
+Buchungsart "UM"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel "A3", Lagerort "3", 
+Buchungsart "&lt;leer&gt;"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel "A4", Lagerort "4", 
+Buchungsart "UM"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel "A5", Lagerort "5", 
+Buchungsart "&lt;leer&gt;"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In solch einem Fall werden zuerst die Artikel "A1", "A3" und 
+"A5" importiert und danach die Artikel "A2" und "A4".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ausprägungen</P>
+<P class=MsoNormal>Mit Hilfe der folgenden Felder können im Zuge eines Imports 
+Ausprägungsartikel "gesucht" oder "angelegt" werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Hauptartikelnummer (Anlage und 
+Suchen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Charge-/Identnummer (Anlage und 
+Suchen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ausprägung1 (Anlage und 
+Suchen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ausprägung2 (Anlage und 
+Suchen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ablaufdatum (Anlage)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Herstelldatum (Anlage)</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Das genaue Programmverhalten kann mit Hilfe der Option 
+"Ausprägungen anlegen" des Fensters "Lagerbuchungs-EXIM" definiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Bereich 
+"Lagerorte - Stamm"</P>
+<P class=MsoNormal>Mit Hilfe der Felder aus dem Bereich "Lagerorte - Stamm" kann 
+der Lagerort für die Buchung angegeben werden. Hierbei werden die 
+Lagerort-Spalten in der folgenden Reihenfolge auf Inhalt kontrolliert:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lagerortkennung (höchste 
+Priorität)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lagerort-Id</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>EAN-Code</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>RFID</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lagerort 1 bis 6</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Die Spalten "Lagerort 1" bis 
+"Lagerort 6" sind als ein Zuweisungselement zu verstehen. D.h. wenn ein Import 
+auf die 2 Hierarchie-Ebene erfolgen soll, so muss auch die Ebene 1 angegeben 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Des Weiteren werden die Felder nach dem Typ "Ziel" und 
+"Quelle" unterschieden, wobei der Vermerk "Ziel" nur erscheint, wenn die Option 
+"nur Lagerort-Buchung" aktiviert wurde. Die Quelle-Felder werden hierbei nur 
+unter folgenden Umständen benötigt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Es sollen Umbuchungen für den 
+Bereich der "Lagerort-Buchung" importiert werden (Option "nur Lagerort-Buchung" 
+ist aktiviert).</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Alle Informationen für die 
+Umbuchung sollen in Form einer Buchungszeile übergeben werden. Die angegebene 
+Menge wird hierbei vom Quell-Lagerort abgebucht und dem Ziel-Lagerort 
+zugebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lagerortkennung</P>
+<P class=MsoNormal>Mit Hilfe dieses Felds kann ein Lagerort vorgegeben werden. 
+Bei einem Export wird immer der gesamte Aufbau des Lagerorts geschrieben, d.h. 
+"Lagerortfunktion" + / + Lagerortnamen (einzelne Hierarchie-Ebenen wiederum per 
+"/" getrennt). Bei einem Import sind wiederum folgende Angaben möglich:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>ID<BR>Handelt es sich um 
+numerischen Inhalt, dann versucht die WinLine einen Ort mit passender ID zu 
+finden und für den Import zu verwenden. Wurde keine passende ID gefunden, so 
+wird mit einer Suche in der Bezeichnung fortgesetzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bezeichnung (kurz)<BR>Wenn in dem 
+Importfeld kein "/" vorkommt, so erfolgt eine Suche in dem Feld "Bezeichnung" 
+der Lagerorte. Wird ein passender Ort erkannt, so wird dieser für den Import 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bezeichnung (lang)<BR>Sollten 
+Lagerortbezeichnungen doppelt vorhanden sein, so sollte für den Import der 
+eindeutige Lagerort angegeben werden. Ist dieses via ID nicht möglich, so kann 
+die Lagerortbezeichnung inklusive Hierarchie angegeben werden.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Beispiel</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Die Ware soll aus dem "Regal 2" 
+genommen werden, wobei es diese Bezeichnung in den Bereichen "Halle Nord" und 
+"Halle Süd" gibt (Lagerortstruktur "Standard"). Da die Angabe "Regal 2" somit 
+nicht eindeutig ist (es ist das Regal in der Süd-Halle gemeint), muss der Import 
+mit Hierarchie erfolgen (2 Varianten sind möglich):</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Standard / Halle Süd/ Regal 2</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Halle Süd / Regal 2</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Sollte ein nicht eindeutiger Lagerort importiert werden (z.B. 
+kommt der Lagerortname mehrfach vor), so ordnet die WinLine automatisch den 
+zuerst gefundenen Ort zu.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Spalten 
+"Vorbelegen" / "Vorbelegung"</P>
+<P class=MsoNormal>Eine Vorbelegung beim Import wird nur unterstützt, wenn auch 
+die "Anzeige" des Datenfelds aktiviert wurde!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Spalten 
+"Tabelle" / "Tabellenspalte"</P>
+<P class=MsoNormal>Wird die Option "nur Lagerort-Buchungen" aktiviert, so werden 
+die Tabellen-Informationen aus den Spalten entfernt.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>
