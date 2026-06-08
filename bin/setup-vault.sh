@@ -14,9 +14,9 @@ echo "Setting up claude-obsidian vault at: $VAULT"
 
 # ── 1. Create directories ─────────────────────────────────────────────────────
 mkdir -p "$OBSIDIAN/snippets"
-mkdir -p "$VAULT/raw"
+mkdir -p "$VAULT/.raw"
 
-# ── 1a. Migrate legacy .raw/ → raw/ if needed (idempotent) ───────────────────
+# ── 1a. Migrate legacy raw/ → .raw/ if needed (idempotent) ────────────────────
 if [ -f "$SCRIPT_DIR/migrate-raw-folder.sh" ]; then
   bash "$SCRIPT_DIR/migrate-raw-folder.sh" "$VAULT"
 fi

@@ -12,7 +12,7 @@ tags:
   - data
   - ui-component
 source_url: https://docs.devexpress.com/Blazor/403143/components/grid
-source_file: raw/Blazor Grid  Blazor.md
+source_file: .raw/Blazor Grid  Blazor.md
 related:
   - "[[DevExpress Blazor]]"
   - "[[DevExpress Blazor DxToolbar]]"

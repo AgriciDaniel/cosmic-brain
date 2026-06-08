@@ -3,7 +3,7 @@ type: source
 title: "Fluent 2 Design Principles"
 address: c-000009
 source_url: "https://fluent2.microsoft.design/design-principles"
-raw_file: "raw/articles/design-principles-2026-05-24.md"
+raw_file: ".raw/articles/design-principles-2026-05-24.md"
 created: 2026-05-24
 ingested: 2026-05-24
 status: ingested

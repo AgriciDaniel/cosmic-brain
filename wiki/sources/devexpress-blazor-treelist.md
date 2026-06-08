@@ -6,7 +6,7 @@ address: c-000047
 status: developing
 tags: [blazor, devexpress, treelist, source]
 source_url: https://docs.devexpress.com/Blazor/404942/components/treelist
-source_file: raw/Blazor TreeList  Blazor.md
+source_file: .raw/Blazor TreeList  Blazor.md
 related:
   - "[[DevExpress Blazor DxTreeList]]"
 ---

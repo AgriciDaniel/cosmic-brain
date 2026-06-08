@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Typography"
 address: c-000019
 source_url: "https://fluent2.microsoft.design/typography"
-raw_file: "raw/articles/typography-2026-05-24.md"
+raw_file: ".raw/articles/typography-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing
@@ -43,7 +43,7 @@ Caption R 12/16 · Body R/SB 14/20 · Body large R 18/24 · Subtitle SB 20/28 ·
 
 ## macOS / iOS (San Francisco Pro) / Android (Roboto)
 
-Same name structure (Caption/Body/Title/Large Title/Display) with platform-specific sizing in pt or sp. See `raw/articles/typography-2026-05-24.md` for full per-platform tables.
+Same name structure (Caption/Body/Title/Large Title/Display) with platform-specific sizing in pt or sp. See `.raw/articles/typography-2026-05-24.md` for full per-platform tables.
 
 ## Styling Rules
 

@@ -20,7 +20,7 @@ related:
   - "[[WinLine ADMIN]]"
   - "[[WinLine Settings]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine Mandant

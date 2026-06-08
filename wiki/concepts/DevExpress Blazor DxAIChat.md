@@ -12,7 +12,7 @@ tags:
   - chat
   - ui-component
 source_url: https://docs.devexpress.com/Blazor/DevExpress.AIIntegration.Blazor.Chat.DxAIChat
-source_file: raw/DxAIChat Class  Blazor.md
+source_file: .raw/DxAIChat Class  Blazor.md
 related:
   - "[[DevExpress Blazor AI Extensions]]"
   - "[[DevExpress Blazor]]"

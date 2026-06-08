@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Iconography"
 address: c-000014
 source_url: "https://fluent2.microsoft.design/iconography"
-raw_file: "raw/articles/iconography-2026-05-24.md"
+raw_file: ".raw/articles/iconography-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

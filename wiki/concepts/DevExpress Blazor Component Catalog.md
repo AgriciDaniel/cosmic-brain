@@ -20,7 +20,7 @@ related:
 
 # DevExpress Blazor Component Catalog
 
-Complete catalog of DevExpress Blazor components (v25.2). All API reference pages sourced from `raw/` (clippings from docs.devexpress.com). Assembly: `DevExpress.Blazor.v25.2.dll`.
+Complete catalog of DevExpress Blazor components (v25.2). All API reference pages sourced from `.raw/` (clippings from docs.devexpress.com). Assembly: `DevExpress.Blazor.v25.2.dll`.
 
 ## Data Editors (17)
 

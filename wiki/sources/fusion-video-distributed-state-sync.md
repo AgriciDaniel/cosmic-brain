@@ -1,7 +1,7 @@
 ---
 type: source
 title: "Video: ActualLab.Fusion — the distributed state sync monster"
-source_file: "raw/fusion_docs/video/actuallab-fusion-distributed-state-sync-monster.md"
+source_file: ".raw/fusion_docs/video/actuallab-fusion-distributed-state-sync-monster.md"
 source_type: video
 fetched: 2026-05-25
 tags:

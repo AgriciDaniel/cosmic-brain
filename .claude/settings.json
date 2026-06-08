@@ -4,8 +4,5 @@
     "allow": [
       "WebFetch(domain:fluent2.microsoft.design)"
     ]
-  },
-  "env": {
-    "ANTHROPIC_BASE_URL": "http://192.168.170.251:8975"
   }
 }

@@ -226,5 +226,5 @@ git rebase origin/apphost
 
 ---
 
-**Source**: raw/framas/architects/architecture-guide.md (Vietnamese original)  
+**Source**: .raw/framas/architects/architecture-guide.md (Vietnamese original)  
 **Language**: Original in Vietnamese; translated for broader team access

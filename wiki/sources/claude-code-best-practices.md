@@ -12,7 +12,7 @@ tags:
   - workflow
   - anthropic
 source_url: https://code.claude.com/docs/en/best-practices
-source_file: raw/Best practices for Claude Code.md
+source_file: .raw/Best practices for Claude Code.md
 related:
   - "[[Claude Code Best Practices]]"
   - "[[Claude Code Context Management]]"

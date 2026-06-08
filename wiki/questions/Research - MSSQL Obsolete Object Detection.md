@@ -21,7 +21,7 @@ sources:
 
 # Research: MSSQL Obsolete Object Detection
 
-How to identify and safely remove obsolete stored procedures, views, and tables from a SQL Server database. Research conducted 2026-06-05 from the raw file `raw/mssql/mssql-obsolete-objects.md` and web sources.
+How to identify and safely remove obsolete stored procedures, views, and tables from a SQL Server database. Research conducted 2026-06-05 from the raw file `.raw/mssql/mssql-obsolete-objects.md` and web sources.
 
 ## Overview
 

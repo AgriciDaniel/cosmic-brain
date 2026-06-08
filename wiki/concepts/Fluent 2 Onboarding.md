@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Onboarding"
 address: c-000025
 source_url: "https://fluent2.microsoft.design/onboarding"
-raw_file: "raw/articles/onboarding-2026-05-24.md"
+raw_file: ".raw/articles/onboarding-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

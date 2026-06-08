@@ -34,7 +34,7 @@ key_claims:
 
 # HYDRA 8 Documentation (October 2020)
 
-**Source:** `raw/hydra/HYDRA_8_Documentation Oct 2020/`
+**Source:** `.raw/hydra/HYDRA_8_Documentation Oct 2020/`
 **Version:** 1.18 (last change 2020-07-20)
 **Files:** 1,556 PDFs + 1 .doc = 1,557 total
 **Master document:** HYDRA_8-Documentation.pdf (46 pages)

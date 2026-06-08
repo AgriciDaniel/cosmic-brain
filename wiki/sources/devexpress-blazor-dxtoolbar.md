@@ -12,7 +12,7 @@ tags:
   - api-reference
   - navigation
 source_url: https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxToolbar
-source_file: raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md
+source_file: .raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md
 related:
   - "[[DevExpress Blazor]]"
   - "[[DevExpress Blazor DxToolbar]]"

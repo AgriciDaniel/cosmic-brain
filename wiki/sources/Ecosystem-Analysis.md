@@ -223,5 +223,5 @@ Ar9av supports screenshots, whiteboards, PDFs. Requires vision model.
 
 ## Source
 
-Original research: `raw/claude-obsidian-ecosystem-research.md` (2026-04-08)  
+Original research: `.raw/claude-obsidian-ecosystem-research.md` (2026-04-08)  
 Analyzed: 2026-05-25

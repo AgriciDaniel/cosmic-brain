@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Color System"
 address: c-000012
 source_url: "https://fluent2.microsoft.design/color"
-raw_file: "raw/articles/color-2026-05-24.md"
+raw_file: ".raw/articles/color-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

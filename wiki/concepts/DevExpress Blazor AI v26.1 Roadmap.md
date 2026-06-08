@@ -12,7 +12,7 @@ tags:
   - roadmap
   - v26.1
 source_url: https://community.devexpress.com/Blogs/aspnet/archive/2026/05/22/devexpress-blazor-ai-chat-multi-model-support-mcp-server-integration-and-a-look-at-what-39-s-coming-next.aspx
-source_file: raw/DevExpress Blazor AI Chat — Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md
+source_file: .raw/DevExpress Blazor AI Chat — Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md
 related:
   - "[[DevExpress Blazor DxAIChat]]"
   - "[[DevExpress Blazor AI Extensions]]"

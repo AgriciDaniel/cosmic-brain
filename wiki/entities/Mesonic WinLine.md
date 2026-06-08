@@ -22,7 +22,7 @@ related:
   - "[[Framas WL Schema]]"
   - "[[WinLine LIST]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # Mesonic WinLine

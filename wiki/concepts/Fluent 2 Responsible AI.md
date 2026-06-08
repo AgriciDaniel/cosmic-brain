@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Responsible AI"
 address: c-000028
 source_url: "https://fluent2.microsoft.design/responsible-AI"
-raw_file: "raw/articles/responsible-ai-2026-05-24.md"
+raw_file: ".raw/articles/responsible-ai-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

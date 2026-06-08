@@ -43,11 +43,11 @@ bash bin/setup-multi-agent.sh
 
 ## Vault Conventions
 
-- `raw/`: source documents, immutable (never modify)
+- `.raw/`: source documents, immutable (never modify)
 - `wiki/`: agent-generated knowledge (you own this)
 - `wiki/hot.md`: recent context cache (~500 tokens), read first at session start
 - `wiki/index.md`: master catalog
-- `raw/.manifest.json`: delta tracking for ingest
+- `.raw/.manifest.json`: delta tracking for ingest
 
 ## Bootstrap
 

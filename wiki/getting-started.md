@@ -26,7 +26,7 @@ Every source you add gets processed into 8–15 cross-referenced wiki pages. Eve
 
 ### 1. Drop a source
 
-Put any document into the `raw/` folder:
+Put any document into the `.raw/` folder:
 - PDFs, markdown files, transcripts, articles
 - Or paste a URL and ask Claude to fetch it
 
@@ -62,7 +62,7 @@ Update it manually at any time: `update hot cache`
 
 ## Your First Ingest — Walkthrough
 
-1. Create a file in `raw/` — copy a transcript, paste an article, or save a PDF
+1. Create a file in `.raw/` — copy a transcript, paste an article, or save a PDF
 2. Open Claude Code in this vault folder
 3. Type: `ingest [your-filename]`
 4. Watch the wiki grow — Claude will report which pages it created

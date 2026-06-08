@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Types of AI Harm"
 address: c-000029
 source_url: "https://fluent2.microsoft.design/ai-harm"
-raw_file: "raw/articles/ai-harm-2026-05-24.md"
+raw_file: ".raw/articles/ai-harm-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

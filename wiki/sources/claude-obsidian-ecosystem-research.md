@@ -12,7 +12,7 @@ related:
   - "[[claude-obsidian-ecosystem]]"
   - "[[cherry-picks]]"
   - "[[LLM Wiki Pattern]]"
-raw_file: "raw/claude-obsidian-ecosystem-research.md"
+raw_file: ".raw/claude-obsidian-ecosystem-research.md"
 ---
 
 # Source: Claude + Obsidian Ecosystem Research
@@ -50,4 +50,4 @@ Comprehensive internet sweep of all Claude + Obsidian projects. Found 16+ active
 
 ## Raw File
 
-`raw/claude-obsidian-ecosystem-research.md` — full notes with all sources
+`.raw/claude-obsidian-ecosystem-research.md` — full notes with all sources

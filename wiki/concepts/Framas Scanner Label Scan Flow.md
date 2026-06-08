@@ -29,7 +29,7 @@ sp_FramasScanner_CheckLabel_Mode_<MODE>    -- validation phase
 sp_FramasScanner_PostSingle_Mode_<MODE>    -- commit phase
 ```
 
-Stored under `raw/framas/app/framas_scanner/tenants/<tenant>/`. Documented mode: `HANGING_HC_BAG` (Heelcounter compound/material lot), tenant `fGE`.
+Stored under `.raw/framas/app/framas_scanner/tenants/<tenant>/`. Documented mode: `HANGING_HC_BAG` (Heelcounter compound/material lot), tenant `fGE`.
 
 ## Phase 1 — CheckLabel (validate)
 

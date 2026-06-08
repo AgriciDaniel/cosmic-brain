@@ -20,7 +20,7 @@ related:
   - "[[WinLine FIBU]]"
   - "[[WinLine Wirtschaftsjahr]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine Jahresabschluss
@@ -40,4 +40,4 @@ Year-end close / **Wirtschaftsjahreswechsel** in [[WinLine FIBU]]. Rolls the boo
 Because [[WinLine Wirtschaftsjahr]] is stored as a relative index, after the close the "current year" pointer advances automatically and existing [[WinLine LIST]] formulas re-target the new current year without edits.
 
 > [!note] Seed page
-> Detail on the close wizard steps was not deep-ingested. Expand from `raw/winline/cwl0/WordDocuments/ebbuchung.htm` and neighbours when needed.
+> Detail on the close wizard steps was not deep-ingested. Expand from `.raw/winline/cwl0/WordDocuments/ebbuchung.htm` and neighbours when needed.

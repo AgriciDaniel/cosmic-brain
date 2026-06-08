@@ -1,5 +1,5 @@
 #!/bin/bash
-# Move clippings from Clippings/ folder to raw/ and ingest them
+# Move clippings from Clippings/ folder to .raw/ and ingest them
 
 set -e
 
@@ -27,7 +27,7 @@ while IFS= read -r file; do
   FILES_TO_INGEST+=("$(basename "$file")")
 done < <(find "$CLIPPINGS_DIR" -maxdepth 1 -name "*.md")
 
-echo "✓ Moved $COUNT file(s) from Clippings/ to raw/"
+echo "✓ Moved $COUNT file(s) from Clippings/ to .raw/"
 echo ""
 echo "Files ready to ingest:"
 printf '%s\n' "${FILES_TO_INGEST[@]}" | sed 's|^|  - |'

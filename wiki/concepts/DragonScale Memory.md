@@ -114,7 +114,7 @@ Format: `c-<6-digit-counter>`. `c-` means "creation-order counter." Zero-padded.
 
 **Implementation** (Phase 2, shipped):
 - `scripts/allocate-address.sh`: flock-guarded atomic allocator. All counter reads/writes go through this script; direct Write/Edit on `.vault-meta/address-counter.txt` is prohibited (would fire PostToolUse hook).
-- `skills/wiki-ingest/SKILL.md` → Address Assignment section: opt-in feature detection; delegates allocation to the helper; records path-to-address mapping in `raw/.manifest.json` `address_map` for re-ingest stability.
+- `skills/wiki-ingest/SKILL.md` → Address Assignment section: opt-in feature detection; delegates allocation to the helper; records path-to-address mapping in `.raw/.manifest.json` `address_map` for re-ingest stability.
 - `skills/wiki-lint/SKILL.md` → Address Validation section: format check, uniqueness check, counter-drift check, address-map consistency check.
 
 **Lint severity model** (matches `skills/wiki-lint/SKILL.md` Address Validation behavior):

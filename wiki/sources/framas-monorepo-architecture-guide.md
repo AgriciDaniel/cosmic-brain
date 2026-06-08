@@ -28,12 +28,12 @@ related:
   - "[[Git Bare Worktree Pattern]]"
   - "[[Framas]]"
 sources:
-  - "[[raw/framas/architects/architecture-guide.md]]"
+  - "[[.raw/framas/architects/architecture-guide.md]]"
 ---
 
 # Framas Monorepo Architecture Guide
 
-Source: `raw/framas/architects/architecture-guide.md`
+Source: `.raw/framas/architects/architecture-guide.md`
 
 Internal architecture guide (Vietnamese) for Framas's .NET 10 Blazor InteractiveServer application. Documents the Monorepo + Git Bare + Worktree approach adopted for a 10-person team where each developer owns one or more features.
 

@@ -130,7 +130,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[WinLine ADMIN]] — ADMN: users/permissions/2FA, backup/restore, DMS archive, MSM + WinLine Server, SQL tools (status: developing)
 - [[WinLine Settings]] — START → Parameter: per-module Applikations-Parameter + per-workstation Einstellungen (status: developing)
 - Concepts: [[WinLine Mandant]], [[WinLine Wirtschaftsjahr]], [[WinLine Jahresabschluss]], [[WinLine Offene Posten (OP)]], [[Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA)]], [[WinLine Benutzer- und Berechtigungsverwaltung]]
-- Source: [[raw/winline/cwl0/cwl0.chm]] — 2026-06-08 | German CHM, ~2900 topics, 6 modules ingested
+- Source: [[.raw/winline/cwl0/cwl0.chm]] — 2026-06-08 | German CHM, ~2900 topics, 6 modules ingested
 
 ---
 
@@ -182,7 +182,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[claude-code-best-practices]] — 2026-05-25 | Anthropic official docs | Claude Code best practices, context management, failure patterns
 - [[fluent-ui-blazor-styles]] — 2026-05-24 | FluentUI Blazor v5 official docs | default-fuib.css + reboot.css layers, full design-token CSS variables
 - [[fluent-2-design-principles]] — 2026-05-24 | fluent2.microsoft.design | four Fluent 2 design principles paired as functional + emotional aspects
-- 18 additional Fluent 2 sub-pages ingested 2026-05-24 — color, color-tokens, design-tokens, elevation, iconography, layout, material, motion, shapes, typography, accessibility, content-design, handoffs, onboarding, wait-ux, content-engineering, responsible-AI, ai-harm. Each is filed as a concept page (`[[Fluent 2 ...]]`) under [[Fluent 2 Design System]]. Raw fetches under `raw/articles/<topic>-2026-05-24.md`.
+- 18 additional Fluent 2 sub-pages ingested 2026-05-24 — color, color-tokens, design-tokens, elevation, iconography, layout, material, motion, shapes, typography, accessibility, content-design, handoffs, onboarding, wait-ux, content-engineering, responsible-AI, ai-harm. Each is filed as a concept page (`[[Fluent 2 ...]]`) under [[Fluent 2 Design System]]. Raw fetches under `.raw/articles/<topic>-2026-05-24.md`.
 - [[fusion-docs-overview]] — 2026-05-25 | ActualLab.Fusion official docs | complete VitePress documentation set (125 files): 17 concept pages, 5 reference pages, 2 video transcripts
 - [[fusion-video-distributed-state-sync]] — 2026-05-25 | 2h video transcript | Fusion architecture, perf vs Redis, Voxt demo, dependency graphs
 - [[fusion-video-fastest-rpc]] — 2026-05-25 | 1h video transcript | RPC design, benchmarks vs gRPC/SignalR, mesh demo

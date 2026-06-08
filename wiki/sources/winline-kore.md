@@ -14,7 +14,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "KORE (cost accounting) is never stand-alone — it requires at least one other mesonic module and receives data from FIBU, FAKT, ANBU, LOHN and PROD."
   - "Its three master-data axes are Kostenstellen (cost centers), Kostenarten (cost types) and Kostenträger/Projekt (cost objects/projects), all groupable."
@@ -26,7 +26,7 @@ related:
   - "[[WinLine LIST]]"
   - "[[WinLine Wirtschaftsjahr]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine KORE

@@ -20,7 +20,7 @@ related:
   - "[[WinLine FIBU]]"
   - "[[Mesonic WinLine]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine Offene Posten (OP)

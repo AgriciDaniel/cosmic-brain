@@ -144,5 +144,5 @@ Varies by tenant; see specific tenant pages.
 
 ---
 
-**Source**: raw/framas/tenants/DOGE_WH.md  
+**Source**: .raw/framas/tenants/DOGE_WH.md  
 **Related**: [[framas/databases|Database Architecture Overview]]

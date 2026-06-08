@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Layout"
 address: c-000015
 source_url: "https://fluent2.microsoft.design/layout"
-raw_file: "raw/articles/layout-2026-05-24.md"
+raw_file: ".raw/articles/layout-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

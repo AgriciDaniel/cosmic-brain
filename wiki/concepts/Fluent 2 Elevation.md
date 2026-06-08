@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Elevation"
 address: c-000013
 source_url: "https://fluent2.microsoft.design/elevation"
-raw_file: "raw/articles/elevation-2026-05-24.md"
+raw_file: ".raw/articles/elevation-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

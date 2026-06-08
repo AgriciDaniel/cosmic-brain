@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Content Design"
 address: c-000021
 source_url: "https://fluent2.microsoft.design/content-design"
-raw_file: "raw/articles/content-design-2026-05-24.md"
+raw_file: ".raw/articles/content-design-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

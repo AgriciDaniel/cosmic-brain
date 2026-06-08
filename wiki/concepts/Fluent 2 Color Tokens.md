@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Color Tokens"
 address: c-000023
 source_url: "https://fluent2.microsoft.design/color-tokens"
-raw_file: "raw/articles/color-tokens-2026-05-24.md"
+raw_file: ".raw/articles/color-tokens-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

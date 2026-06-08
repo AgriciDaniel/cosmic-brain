@@ -14,7 +14,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "FIBU is the core of WinLine; it integrates data from FAKT, ANBU and LOHN and hands data to KORE."
   - "Accounts split into Sachkonten (G/L) and Personenkonten (Debitoren/Kreditoren); balance structure is driven by BKZ and BWA keys."
@@ -28,7 +28,7 @@ related:
   - "[[WinLine Wirtschaftsjahr]]"
   - "[[WinLine Jahresabschluss]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine FIBU

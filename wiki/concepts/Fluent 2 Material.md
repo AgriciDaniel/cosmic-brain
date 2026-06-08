@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Material"
 address: c-000016
 source_url: "https://fluent2.microsoft.design/material"
-raw_file: "raw/articles/material-2026-05-24.md"
+raw_file: ".raw/articles/material-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

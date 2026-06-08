@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Design Tokens"
 address: c-000022
 source_url: "https://fluent2.microsoft.design/design-tokens"
-raw_file: "raw/articles/design-tokens-2026-05-24.md"
+raw_file: ".raw/articles/design-tokens-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

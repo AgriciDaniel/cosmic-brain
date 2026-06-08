@@ -46,7 +46,7 @@
     {
       "id": "text-layers-1744041608",
       "type": "text",
-      "text": "## Three Layers\n\n```\nraw/      Layer 1 — immutable sources\nwiki/      Layer 2 — LLM knowledge base\nCLAUDE.md  Layer 3 — maintenance schema\n```\n\nThe LLM owns Layer 2 entirely. It creates pages, updates them, maintains cross-references, and keeps everything consistent.",
+      "text": "## Three Layers\n\n```\n.raw/      Layer 1 — immutable sources\nwiki/      Layer 2 — LLM knowledge base\nCLAUDE.md  Layer 3 — maintenance schema\n```\n\nThe LLM owns Layer 2 entirely. It creates pages, updates them, maintains cross-references, and keeps everything consistent.",
       "x": -400, "y": -3090, "width": 460, "height": 200, "color": "5"
     },
     {
@@ -113,7 +113,7 @@
     {
       "id": "text-ingest-desc-1744041619",
       "type": "text",
-      "text": "**WIKI INGEST**\nDrop a source in `raw/`, Claude reads it, extracts entities + concepts, updates 8–15 wiki pages, logs the ingest.",
+      "text": "**WIKI INGEST**\nDrop a source in `.raw/`, Claude reads it, extracts entities + concepts, updates 8–15 wiki pages, logs the ingest.",
       "x": -960, "y": -2255, "width": 400, "height": 100
     },
     {

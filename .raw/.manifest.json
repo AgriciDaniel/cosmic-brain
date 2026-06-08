@@ -3,7 +3,7 @@
   "created": "2026-04-23",
   "description": "Ingest delta tracker and address map for the claude-obsidian vault. Do not hand-edit; wiki-ingest maintains this.",
   "sources": {
-    "raw/Badge components - FluentUI Blazor Components.md": {
+    ".raw/Badge components - FluentUI Blazor Components.md": {
       "hash": "4b35bb05e1b9c9fd973fe346e8d86dab",
       "ingested_at": "2026-05-23",
       "pages_created": [
@@ -17,7 +17,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/Styles - FluentUI Blazor Components.md": {
+    ".raw/Styles - FluentUI Blazor Components.md": {
       "hash": "2ef221cd39c53226791c49a7bdf2abba",
       "ingested_at": "2026-05-24",
       "pages_created": [
@@ -32,7 +32,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/design-principles-2026-05-24.md": {
+    ".raw/articles/design-principles-2026-05-24.md": {
       "hash": "abbf6b2fbd59561a8756e0fd48315fab",
       "source_url": "https://fluent2.microsoft.design/design-principles",
       "ingested_at": "2026-05-24",
@@ -50,7 +50,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/color-2026-05-24.md": {
+    ".raw/articles/color-2026-05-24.md": {
       "hash": "c33d6643e5ec1b735efeff3da9e797dc",
       "source_url": "https://fluent2.microsoft.design/color",
       "ingested_at": "2026-05-24",
@@ -65,7 +65,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/elevation-2026-05-24.md": {
+    ".raw/articles/elevation-2026-05-24.md": {
       "hash": "344473b8874587bde73de696f2f44d86",
       "source_url": "https://fluent2.microsoft.design/elevation",
       "ingested_at": "2026-05-24",
@@ -80,7 +80,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/iconography-2026-05-24.md": {
+    ".raw/articles/iconography-2026-05-24.md": {
       "hash": "043016f105da93fc231dda5fde6825f7",
       "source_url": "https://fluent2.microsoft.design/iconography",
       "ingested_at": "2026-05-24",
@@ -95,7 +95,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/layout-2026-05-24.md": {
+    ".raw/articles/layout-2026-05-24.md": {
       "hash": "ac07e011442b4cf73fc005e77539b449",
       "source_url": "https://fluent2.microsoft.design/layout",
       "ingested_at": "2026-05-24",
@@ -110,7 +110,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/material-2026-05-24.md": {
+    ".raw/articles/material-2026-05-24.md": {
       "hash": "73a5f8cdf1ddf0c49b65469574fa5c31",
       "source_url": "https://fluent2.microsoft.design/material",
       "ingested_at": "2026-05-24",
@@ -125,7 +125,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/motion-2026-05-24.md": {
+    ".raw/articles/motion-2026-05-24.md": {
       "hash": "76c840ece978e1738cc60104bc2b8362",
       "source_url": "https://fluent2.microsoft.design/motion",
       "ingested_at": "2026-05-24",
@@ -140,7 +140,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/shapes-2026-05-24.md": {
+    ".raw/articles/shapes-2026-05-24.md": {
       "hash": "9f72930da0d6ec61def4bdb3552dbeb8",
       "source_url": "https://fluent2.microsoft.design/shapes",
       "ingested_at": "2026-05-24",
@@ -155,7 +155,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/typography-2026-05-24.md": {
+    ".raw/articles/typography-2026-05-24.md": {
       "hash": "51c516ebf1da9fcf4f6090cd4b42ea16",
       "source_url": "https://fluent2.microsoft.design/typography",
       "ingested_at": "2026-05-24",
@@ -170,7 +170,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/accessibility-2026-05-24.md": {
+    ".raw/articles/accessibility-2026-05-24.md": {
       "hash": "3994a6e6273071ce20b0abcf1dbf2f87",
       "source_url": "https://fluent2.microsoft.design/accessibility",
       "ingested_at": "2026-05-24",
@@ -185,7 +185,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/content-design-2026-05-24.md": {
+    ".raw/articles/content-design-2026-05-24.md": {
       "hash": "34a2ab3ee609474caef2c7cf35cfdded",
       "source_url": "https://fluent2.microsoft.design/content-design",
       "ingested_at": "2026-05-24",
@@ -200,7 +200,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/design-tokens-2026-05-24.md": {
+    ".raw/articles/design-tokens-2026-05-24.md": {
       "hash": "8caa5bca1d8073c21049ae2c09d93caf",
       "source_url": "https://fluent2.microsoft.design/design-tokens",
       "ingested_at": "2026-05-24",
@@ -215,7 +215,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/color-tokens-2026-05-24.md": {
+    ".raw/articles/color-tokens-2026-05-24.md": {
       "hash": "f58fa75d70932e7bdba67d8ccb5de7f6",
       "source_url": "https://fluent2.microsoft.design/color-tokens",
       "ingested_at": "2026-05-24",
@@ -230,7 +230,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/handoffs-2026-05-24.md": {
+    ".raw/articles/handoffs-2026-05-24.md": {
       "hash": "76be1916641cbaf67d654a3173f37b65",
       "source_url": "https://fluent2.microsoft.design/handoffs",
       "ingested_at": "2026-05-24",
@@ -245,7 +245,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/onboarding-2026-05-24.md": {
+    ".raw/articles/onboarding-2026-05-24.md": {
       "hash": "9ce3dad8827d23c5411f2bf5acdcfa47",
       "source_url": "https://fluent2.microsoft.design/onboarding",
       "ingested_at": "2026-05-24",
@@ -260,7 +260,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/wait-ux-2026-05-24.md": {
+    ".raw/articles/wait-ux-2026-05-24.md": {
       "hash": "c273469ab2570e7fcbf894b4c5a08442",
       "source_url": "https://fluent2.microsoft.design/wait-ux",
       "ingested_at": "2026-05-24",
@@ -275,7 +275,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/content-engineering-2026-05-24.md": {
+    ".raw/articles/content-engineering-2026-05-24.md": {
       "hash": "464f08de893bf9a995bd5659f5d82a84",
       "source_url": "https://fluent2.microsoft.design/content-engineering",
       "ingested_at": "2026-05-24",
@@ -290,7 +290,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/responsible-ai-2026-05-24.md": {
+    ".raw/articles/responsible-ai-2026-05-24.md": {
       "hash": "a7048ff2d85ac733e6a4adfc2ddcc131",
       "source_url": "https://fluent2.microsoft.design/responsible-AI",
       "ingested_at": "2026-05-24",
@@ -305,7 +305,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/ai-harm-2026-05-24.md": {
+    ".raw/articles/ai-harm-2026-05-24.md": {
       "hash": "a6368c15843aa148a27f2bda87c1248e",
       "source_url": "https://fluent2.microsoft.design/ai-harm",
       "ingested_at": "2026-05-24",
@@ -320,7 +320,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/Best practices for Claude Code.md": {
+    ".raw/Best practices for Claude Code.md": {
       "hash": "0160c3b2ee7b8574b056c060e721d883",
       "source_url": "https://code.claude.com/docs/en/best-practices",
       "ingested_at": "2026-05-25",
@@ -336,7 +336,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/DevExpress AI-powered Extensions for Blazor  Blazor.md": {
+    ".raw/DevExpress AI-powered Extensions for Blazor  Blazor.md": {
       "hash": "1a492af74c00bda96a057e4f25eca367",
       "source_url": "https://docs.devexpress.com/Blazor/405228/ai-powered-extensions",
       "ingested_at": "2026-05-25",
@@ -352,7 +352,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/DxAIChat Class  Blazor.md": {
+    ".raw/DxAIChat Class  Blazor.md": {
       "hash": "61d1037d063445e5c1814a670c086d52",
       "source_url": "https://docs.devexpress.com/Blazor/DevExpress.AIIntegration.Blazor.Chat.DxAIChat",
       "ingested_at": "2026-05-25",
@@ -368,7 +368,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/DevExpress Blazor AI Chat â€” Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md": {
+    ".raw/DevExpress Blazor AI Chat â€” Multi-Model Support, MCP Server Integration, and a Look at What's Coming Next.md": {
       "hash": "27cdf4e4d66e25572aefc4d45f5349c2",
       "source_url": "https://community.devexpress.com/Blogs/aspnet/archive/2026/05/22/devexpress-blazor-ai-chat-multi-model-support-mcp-server-integration-and-a-look-at-what-39-s-coming-next.aspx",
       "ingested_at": "2026-05-25",
@@ -381,7 +381,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/Blazor Grid  Blazor.md": {
+    ".raw/Blazor Grid  Blazor.md": {
       "hash": "clippings-move-2026-05-25-grid",
       "source_url": "https://docs.devexpress.com/Blazor/403143/components/grid",
       "ingested_at": "2026-05-25",
@@ -397,7 +397,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/Blazor TreeList  Blazor.md": {
+    ".raw/Blazor TreeList  Blazor.md": {
       "hash": "clippings-move-2026-05-25-treelist",
       "source_url": "https://docs.devexpress.com/Blazor/404942/components/treelist",
       "ingested_at": "2026-05-25",
@@ -413,7 +413,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/DxFilterBuilder Class  Blazor.md": {
+    ".raw/DxFilterBuilder Class  Blazor.md": {
       "hash": "clippings-move-2026-05-25-filterbuilder",
       "source_url": "https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxFilterBuilder",
       "ingested_at": "2026-05-25",
@@ -429,7 +429,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/Data Editors  Blazor.md": {
+    ".raw/Data Editors  Blazor.md": {
       "hash": "clippings-move-2026-05-25-editors",
       "source_url": "https://docs.devexpress.com/Blazor/401156/components/data-editors",
       "ingested_at": "2026-05-25",
@@ -445,7 +445,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/__clippings-batch-60-files__": {
+    ".raw/__clippings-batch-60-files__": {
       "hash": "batch-move-2026-05-25",
       "ingested_at": "2026-05-25",
       "file_count": 60,
@@ -460,7 +460,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/devexpress-blazor-dxaichat-2026-05-25.md": {
+    ".raw/articles/devexpress-blazor-dxaichat-2026-05-25.md": {
       "hash": "web-search-2026-05-25-dxaichat",
       "source_url": "https://docs.devexpress.com/Blazor/405290/components/ai-chat",
       "ingested_at": "2026-05-25",
@@ -475,7 +475,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md": {
+    ".raw/articles/devexpress-blazor-dxtoolbar-2026-05-25.md": {
       "hash": "web-search-2026-05-25",
       "source_url": "https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxToolbar",
       "ingested_at": "2026-05-25",
@@ -492,7 +492,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/elsa/ (batch, ~150 files)": {
+    ".raw/elsa/ (batch, ~150 files)": {
       "hash": "batch-2026-05-25",
       "ingested_at": "2026-05-25",
       "pages_created": [
@@ -553,7 +553,7 @@
         "wiki/log.md"
       ]
     },
-    "raw/fluentui_v5/ (batch, ~556 files)": {
+    ".raw/fluentui_v5/ (batch, ~556 files)": {
       "hash": "batch-2026-05-25-fluentui-v5",
       "ingested_at": "2026-05-25",
       "pages_created": [
@@ -621,7 +621,7 @@
         "wiki/log.md"
       ]
     },
-    "raw/database/Database Indexing & Những Điều Developer Cần Biết.md": {
+    ".raw/database/Database Indexing & Những Điều Developer Cần Biết.md": {
       "hash": "29f316b766343f6cd9bcfb54bc74085a",
       "ingested_at": "2026-05-26",
       "pages_created": [
@@ -639,7 +639,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/hydra/CUT-HDB_DataModel_2021.pdf": {
+    ".raw/hydra/CUT-HDB_DataModel_2021.pdf": {
       "hash": "044313db949a71fd0f0cbe77671ed558",
       "ingested_at": "2026-05-27",
       "pages_created": [
@@ -668,7 +668,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/hydra/HYDRA_8_Documentation Oct 2020/": {
+    ".raw/hydra/HYDRA_8_Documentation Oct 2020/": {
       "hash": "batch-2026-05-27-hydra8-docs",
       "ingested_at": "2026-05-27",
       "file_count": 1557,
@@ -688,7 +688,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP-CAQ.pdf + AIP2-CAQ.pdf + MBL_Archiving_CAQ.pdf + MOC_OrderTypeCAQAssignment.pdf": {
+    ".raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP-CAQ.pdf + AIP2-CAQ.pdf + MBL_Archiving_CAQ.pdf + MOC_OrderTypeCAQAssignment.pdf": {
       "hash": "pdf-extract-2026-06-05-caq-aip",
       "ingested_at": "2026-06-05",
       "file_count": 4,
@@ -700,7 +700,7 @@
       ],
       "pages_updated": []
     },
-    "raw/framas/architects/architecture-guide.md": {
+    ".raw/framas/architects/architecture-guide.md": {
       "hash": "82690564493a77f44815e15ba757b6d9",
       "ingested_at": "2026-06-05",
       "pages_created": [
@@ -716,7 +716,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/articles/framas-db-schema-management-2026-06-05.md": {
+    ".raw/articles/framas-db-schema-management-2026-06-05.md": {
       "hash": "05b4b5cb3679af88cb33ee5cbaff4d49",
       "ingested_at": "2026-06-05",
       "pages_created": [
@@ -733,7 +733,7 @@
         "wiki/entities/_index.md"
       ]
     },
-    "raw/mssql/mssql-obsolete-objects.md": {
+    ".raw/mssql/mssql-obsolete-objects.md": {
       "hash": "facfedb0b1d677946ea1ff9b6b1f2e1c",
       "ingested_at": "2026-06-05",
       "pages_created": [],
@@ -745,7 +745,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/framas/app/framas_scanner/tenants/fGE/": {
+    ".raw/framas/app/framas_scanner/tenants/fGE/": {
       "hash": "41990b7469ee0567b15851fb92a6f322+aaf428eeeac646d8e68662f1fd31a917",
       "ingested_at": "2026-06-08",
       "file_count": 2,
@@ -765,7 +765,7 @@
         "wiki/hot.md"
       ]
     },
-    "raw/winline/cwl0": {
+    ".raw/winline/cwl0": {
       "hash": "b4680c811f7c2c55ca8e03bad55a0f93",
       "ingested_at": "2026-06-08",
       "scope": "6 modules: FIBU(ACC1), KORE(ACC2), PPS(PROD), LIST, ADMIN(ADMN), Settings",
@@ -793,10 +793,10 @@
         "wiki/entities/_index.md",
         "wiki/concepts/_index.md"
       ],
-      "source_chm": "raw/winline/cwl0.chm",
-      "decompiled_dir": "raw/winline/cwl0/"
+      "source_chm": ".raw/winline/cwl0.chm",
+      "decompiled_dir": ".raw/winline/cwl0/"
     },
-    "raw/framas/app/framas_scanner/tenants/fGE/v_OMS_WHInfo.sql": {
+    ".raw/framas/app/framas_scanner/tenants/fGE/v_OMS_WHInfo.sql": {
       "hash": "1a8b7fdd30f29c231e70ade8b00588cf",
       "ingested_at": "2026-06-08",
       "pages_created": [

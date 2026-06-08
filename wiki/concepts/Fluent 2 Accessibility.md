@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Accessibility"
 address: c-000020
 source_url: "https://fluent2.microsoft.design/accessibility"
-raw_file: "raw/articles/accessibility-2026-05-24.md"
+raw_file: ".raw/articles/accessibility-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

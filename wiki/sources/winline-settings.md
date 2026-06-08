@@ -14,7 +14,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "Configuration lives under START → Parameter: Applikations-Parameter (per-module FIBU/FAKT/KORE/PPS/ANBU/CRM) and Einstellungen (per-workstation)."
   - "Applikations-Parameter open in read mode by default; they hold the main parameters of each module and persist with the Mandant."
@@ -26,7 +26,7 @@ related:
   - "[[WinLine PPS]]"
   - "[[WinLine Mandant]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine Settings

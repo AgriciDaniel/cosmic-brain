@@ -26,7 +26,7 @@ key_claims:
 
 # HYDRA CUT-HDB Data Model (2021)
 
-**Document:** `raw/hydra/CUT-HDB_DataModel_2021.pdf`
+**Document:** `.raw/hydra/CUT-HDB_DataModel_2021.pdf`
 **Source:** MPDV Mikrolab GmbH
 **Date:** 2021-02-10
 **Pages:** 846

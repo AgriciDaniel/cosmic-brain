@@ -22,7 +22,7 @@ related:
   - "[[WinLine LIST]]"
   - "[[Mesonic WinLine]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ / BWA)

@@ -12,7 +12,7 @@ tags:
   - microsoft-extensions-ai
   - icchatclient
 source_url: https://docs.devexpress.com/Blazor/405228/ai-powered-extensions
-source_file: raw/DevExpress AI-powered Extensions for Blazor  Blazor.md
+source_file: .raw/DevExpress AI-powered Extensions for Blazor  Blazor.md
 related:
   - "[[DevExpress Blazor AI Extensions]]"
   - "[[DevExpress Blazor]]"

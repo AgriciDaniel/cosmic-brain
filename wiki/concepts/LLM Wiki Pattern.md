@@ -43,7 +43,7 @@ The wiki pattern is different. When a new source arrives, the LLM reads it, extr
 ## Three Layers
 
 ```
-raw/       Layer 1 — immutable source documents
+.raw/       Layer 1 — immutable source documents
 wiki/       Layer 2 — LLM-generated knowledge base
 CLAUDE.md   Layer 3 — schema that tells the LLM how to maintain it
 ```
@@ -54,7 +54,7 @@ The LLM owns Layer 2 entirely. It creates pages, updates them when new sources a
 
 ## Operations
 
-**Ingest** — drop a source into `raw/`, tell the LLM to process it. The LLM reads the source, discusses key takeaways, writes a summary page, updates entity and concept pages, and logs the operation. One source typically touches 8-15 wiki pages.
+**Ingest** — drop a source into `.raw/`, tell the LLM to process it. The LLM reads the source, discusses key takeaways, writes a summary page, updates entity and concept pages, and logs the operation. One source typically touches 8-15 wiki pages.
 
 **Query** — ask a question. The LLM reads the index to find relevant pages, synthesizes an answer with citations. Good answers get filed back into the wiki.
 

@@ -11,7 +11,7 @@ tags:
   - sql-server
   - stored-procedure
 status: current
-source_path: "raw/framas/app/framas_scanner/tenants/fGE/"
+source_path: ".raw/framas/app/framas_scanner/tenants/fGE/"
 related:
   - "[[FramasScanner]]"
   - "[[Framas Scanner Label Scan Flow]]"
@@ -23,9 +23,9 @@ related:
 
 Two SQL Server stored procedures from the [[FramasScanner]] app, tenant `fGE`, implementing the `HANGING_HC_BAG` scan mode for Heelcounter (HC) compound/material lot labels.
 
-- `raw/framas/app/framas_scanner/tenants/fGE/sp_FramasScanner_CheckLabel_Mode_HANGING_HC_BAG.sql`
-- `raw/framas/app/framas_scanner/tenants/fGE/sp_FramasScanner_PostSingle_Mode_HANGING_HC_BAG.sql`
-- App context: `raw/framas/app/framas_scanner/framas_scanner.md`
+- `.raw/framas/app/framas_scanner/tenants/fGE/sp_FramasScanner_CheckLabel_Mode_HANGING_HC_BAG.sql`
+- `.raw/framas/app/framas_scanner/tenants/fGE/sp_FramasScanner_PostSingle_Mode_HANGING_HC_BAG.sql`
+- App context: `.raw/framas/app/framas_scanner/framas_scanner.md`
 
 Author: congdat.nguyen@framas.com. Create date: 2026-06-08.
 

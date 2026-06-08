@@ -3,7 +3,7 @@ type: source
 title: "Styles - FluentUI Blazor Components"
 address: c-000007
 source_url: "https://fluentui-blazor-v5.azurewebsites.net/Styles"
-raw_file: "raw/Styles - FluentUI Blazor Components.md"
+raw_file: ".raw/Styles - FluentUI Blazor Components.md"
 created: 2026-05-23
 ingested: 2026-05-24
 status: ingested

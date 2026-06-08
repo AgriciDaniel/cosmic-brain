@@ -52,4 +52,4 @@ Helper: `sp_FramasScanner_GetLocalizeText` localizes message templates (culture-
 ## Sources
 
 - [[framas-scanner-hc-bag-procs]] — the `fGE` `HANGING_HC_BAG` CheckLabel + PostSingle procs.
-- `raw/framas/app/framas_scanner/framas_scanner.md` — app description.
+- `.raw/framas/app/framas_scanner/framas_scanner.md` — app description.

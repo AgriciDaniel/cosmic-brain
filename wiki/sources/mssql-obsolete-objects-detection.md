@@ -10,7 +10,7 @@ sources:
   - "https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-expression-dependencies-transact-sql"
   - "https://www.sqlshack.com/cleaning-up-old-code-and-unused-objects-in-sql-server/"
   - "https://www.sqlservercentral.com/blogs/tracking-table-usage-and-identifying-unused-objects"
-  - "raw/mssql/mssql-obsolete-objects.md"
+  - ".raw/mssql/mssql-obsolete-objects.md"
 confidence: high
 tags:
   - mssql

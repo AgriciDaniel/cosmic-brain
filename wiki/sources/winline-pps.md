@@ -14,7 +14,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "PPS (Corporate WinLine Produktion) covers manufacturing: resources, activities, BOMs (Stücklisten), order planning, and automatic stock postings."
   - "A Produktionsauftrag flows Vorbereitung → Simulation → Zuordnung → Einplanung → Materialentnahme/Arbeitsschein → Produktionsendmeldung."
@@ -24,7 +24,7 @@ related:
   - "[[WinLine KORE]]"
   - "[[Mesonic WinLine]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine PPS

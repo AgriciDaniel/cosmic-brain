@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Content Engineering"
 address: c-000027
 source_url: "https://fluent2.microsoft.design/content-engineering"
-raw_file: "raw/articles/content-engineering-2026-05-24.md"
+raw_file: ".raw/articles/content-engineering-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

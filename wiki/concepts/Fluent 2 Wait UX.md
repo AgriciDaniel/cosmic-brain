@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Wait UX"
 address: c-000026
 source_url: "https://fluent2.microsoft.design/wait-ux"
-raw_file: "raw/articles/wait-ux-2026-05-24.md"
+raw_file: ".raw/articles/wait-ux-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

@@ -13,7 +13,7 @@ This vault demonstrates the LLM Wiki pattern — a persistent, compounding knowl
 ## Vault Structure
 
 ```
-raw/           source documents — immutable, Claude reads but never modifies
+.raw/           source documents — immutable, Claude reads but never modifies
 wiki/           Claude-generated knowledge base
 _templates/     Obsidian Templater templates
 _attachments/   images and PDFs referenced by wiki pages
@@ -21,7 +21,7 @@ _attachments/   images and PDFs referenced by wiki pages
 
 ## How to Use
 
-Drop a source file into `raw/`, then tell Claude: "ingest [filename]".
+Drop a source file into `.raw/`, then tell Claude: "ingest [filename]".
 
 Ask any question. Claude reads the index first, then drills into relevant pages.
 

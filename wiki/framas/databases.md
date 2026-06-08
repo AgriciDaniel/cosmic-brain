@@ -63,4 +63,4 @@ When setting up [[framas/tenants/DOGE_WH|DOGE_WH]] for a tenant:
 
 ---
 
-**Source**: raw/framas/tenants/*.md
+**Source**: .raw/framas/tenants/*.md

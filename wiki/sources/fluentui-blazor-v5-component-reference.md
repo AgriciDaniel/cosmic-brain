@@ -25,7 +25,7 @@ Complete FluentUI Blazor v5 component documentation set. 179 `.md` files + 362 `
 - Preprocessed with `{{ }}` template expansion — 317 razor code examples embedded into wiki pages
 - 55 concept pages created covering all components and general documentation
 - Pages include key code examples from the original `.razor` files
-- Source: `raw/fluentui_v5/`
+- Source: `.raw/fluentui_v5/`
 
 ## Component Coverage
 

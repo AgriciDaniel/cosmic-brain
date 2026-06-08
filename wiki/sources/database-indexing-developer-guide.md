@@ -14,7 +14,7 @@ related:
   - "[[Database Schema and Performance]]"
   - "[[Nguyễn Thế Huy]]"
 sources:
-  - "[[raw/database/Database Indexing & Những Điều Developer Cần Biết]]"
+  - "[[.raw/database/Database Indexing & Những Điều Developer Cần Biết]]"
 source_type: ebook
 author: "Nguyễn Thế Huy"
 date_published: unknown

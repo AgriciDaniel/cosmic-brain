@@ -32,16 +32,16 @@ defuddle https://example.com/article
 ```
 Outputs clean markdown to stdout.
 
-### Save to raw/
+### Save to .raw/
 ```bash
-defuddle https://example.com/article > raw/articles/article-slug-$(date +%Y-%m-%d).md
+defuddle https://example.com/article > .raw/articles/article-slug-$(date +%Y-%m-%d).md
 ```
 
 ### Add frontmatter header after saving
 After running defuddle, prepend the source URL and fetch date:
 ```bash
 SLUG="article-slug-$(date +%Y-%m-%d)"
-{ echo "---"; echo "source_url: https://example.com/article"; echo "fetched: $(date +%Y-%m-%d)"; echo "---"; echo ""; defuddle https://example.com/article; } > raw/articles/$SLUG.md
+{ echo "---"; echo "source_url: https://example.com/article"; echo "fetched: $(date +%Y-%m-%d)"; echo "---"; echo ""; defuddle https://example.com/article; } > .raw/articles/$SLUG.md
 ```
 
 ### Clean a local HTML file

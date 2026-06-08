@@ -4,10 +4,10 @@ description: "Extracted content from AIP-CAQ.pdf, AIP2-CAQ.pdf, MBL_Archiving_CA
 metadata:
   type: source
   sourceFiles:
-    - "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP-CAQ.pdf (v1.15.20405, 89 pages)"
-    - "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP2-CAQ.pdf (v1.8.20694, 91 pages)"
-    - "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/MBL/MBL_Archiving_CAQ.pdf (v1.4.16740, 9 pages)"
-    - "raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/MOC/MOC_OrderTypeCAQAssignment.pdf (v1.3.23364, 4 pages)"
+    - ".raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP-CAQ.pdf (v1.15.20405, 89 pages)"
+    - ".raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/AIP/AIP2-CAQ.pdf (v1.8.20694, 91 pages)"
+    - ".raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/MBL/MBL_Archiving_CAQ.pdf (v1.4.16740, 9 pages)"
+    - ".raw/hydra/HYDRA_8_Documentation Oct 2020/Functions/MOC/MOC_OrderTypeCAQAssignment.pdf (v1.3.23364, 4 pages)"
   extractedDate: 2026-06-05
 ---
 

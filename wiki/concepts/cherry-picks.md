@@ -27,9 +27,9 @@ sources:
 
 ### 1. URL Ingestion in /wiki-ingest
 **Source**: ekadetov/llm-wiki, Ar9av/obsidian-wiki
-**What it is**: Pass a URL directly to ingest instead of a file path. Agent fetches the page, cleans it, saves to `raw/`, then ingests.
+**What it is**: Pass a URL directly to ingest instead of a file path. Agent fetches the page, cleans it, saves to `.raw/`, then ingests.
 **Current state**: Users must manually copy-paste web content.
-**How to add**: Detect `https://` prefix in ingest skill → WebFetch → save to `raw/articles/` → proceed with normal ingest.
+**How to add**: Detect `https://` prefix in ingest skill → WebFetch → save to `.raw/articles/` → proceed with normal ingest.
 **Bonus**: Pair with **defuddle** (kepano's web cleaner) for clean token-efficient extraction.
 
 ### 2. Auto-Commit PostToolUse Hook
@@ -50,7 +50,7 @@ sources:
 
 ### 4. Delta Tracking Manifest
 **Source**: Ar9av/obsidian-wiki
-**What it is**: `raw/.manifest.json` tracking every ingested source — path, hash, timestamp, which wiki pages it produced. Re-ingest only processes new/changed files.
+**What it is**: `.raw/.manifest.json` tracking every ingested source — path, hash, timestamp, which wiki pages it produced. Re-ingest only processes new/changed files.
 **Current state**: Every `/wiki-ingest` call re-processes everything.
 **How to add**:
   - On ingest: compute MD5 hash of source → check manifest → skip if unchanged

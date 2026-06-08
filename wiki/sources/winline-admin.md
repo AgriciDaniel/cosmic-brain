@@ -13,7 +13,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "WinLine ADMIN is the administration program: users, permissions, databases, backups, network installs."
   - "User permissions are modeled bidirectionally (Benutzer→Mandant and Mandant→Benutzer), with Benutzergruppen, Berechtigungsprofile and 2FA."
@@ -24,7 +24,7 @@ related:
   - "[[WinLine Mandant]]"
   - "[[WinLine Settings]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine ADMIN

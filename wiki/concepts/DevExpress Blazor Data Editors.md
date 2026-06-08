@@ -12,7 +12,7 @@ tags:
   - data-entry
   - ui-components
 source_url: https://docs.devexpress.com/Blazor/401156/components/data-editors
-source_file: raw/Data Editors  Blazor.md
+source_file: .raw/Data Editors  Blazor.md
 related:
   - "[[DevExpress Blazor]]"
   - "[[DevExpress Blazor DxGrid]]"

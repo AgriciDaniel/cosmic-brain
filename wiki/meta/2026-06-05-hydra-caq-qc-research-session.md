@@ -25,7 +25,7 @@ Find HYDRA wiki content supporting QC/QA work, identify API functions for Inspec
 
 ## Phase 1 — Wiki Search for HYDRA QC/QA
 
-Searched `wiki/` and `raw/` for QC/QA, inspection, CAQ keywords.
+Searched `wiki/` and `.raw/` for QC/QA, inspection, CAQ keywords.
 
 **Primary hit:** [wiki/concepts/HYDRA CAQ Module.md](../concepts/HYDRA%20CAQ%20Module.md) (c-000165)
 - 82 tables, pages 178–323 of CUT-HDB data model

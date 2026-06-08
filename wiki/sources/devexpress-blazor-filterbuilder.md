@@ -6,7 +6,7 @@ address: c-000048
 status: developing
 tags: [blazor, devexpress, filterbuilder, source]
 source_url: https://docs.devexpress.com/Blazor/DevExpress.Blazor.DxFilterBuilder
-source_file: raw/DxFilterBuilder Class  Blazor.md
+source_file: .raw/DxFilterBuilder Class  Blazor.md
 related:
   - "[[DevExpress Blazor DxFilterBuilder]]"
 ---

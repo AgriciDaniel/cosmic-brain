@@ -66,5 +66,5 @@ SELECT * FROM wl.T_ORDER  -- Access via synonym in DOGE_WH
 
 ---
 
-**Source**: raw/framas/overview.md  
+**Source**: .raw/framas/overview.md  
 **Related**: [[framas/databases|Database Architecture]], [[framas/company-profile|Company Profile]]

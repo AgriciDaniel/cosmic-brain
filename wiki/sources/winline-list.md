@@ -13,7 +13,7 @@ tags:
 source_type: data
 author: "mesonic"
 confidence: high
-source_file: raw/winline/cwl0/cwl0.chm
+source_file: .raw/winline/cwl0/cwl0.chm
 key_claims:
   - "WinLine LIST builds reports via an assistant — no SQL/ODBC knowledge needed; the user just picks variables."
   - "A list's data scope is fixed by its Listentyp (00 Kontenstamm, 01 Debitoren, 02 Kreditoren, 16-18 CRM, 27 Zeitauswertung, 29 Datenquellen, ...)."
@@ -24,7 +24,7 @@ related:
   - "[[Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA)]]"
   - "[[WinLine Wirtschaftsjahr]]"
 sources:
-  - "[[raw/winline/cwl0/cwl0.chm]]"
+  - "[[.raw/winline/cwl0/cwl0.chm]]"
 ---
 
 # WinLine LIST

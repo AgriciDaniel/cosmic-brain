@@ -1,7 +1,7 @@
 ---
 type: source
 title: "Video: ActualLab.Rpc — the fastest RPC protocol on .NET"
-source_file: "raw/fusion_docs/video/actuallab-rpc-fastest-rpc-protocol-on-net.md"
+source_file: ".raw/fusion_docs/video/actuallab-rpc-fastest-rpc-protocol-on-net.md"
 source_type: video
 fetched: 2026-05-25
 tags:

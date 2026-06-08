@@ -3,7 +3,7 @@ type: concept
 title: "Fluent 2 Handoffs"
 address: c-000024
 source_url: "https://fluent2.microsoft.design/handoffs"
-raw_file: "raw/articles/handoffs-2026-05-24.md"
+raw_file: ".raw/articles/handoffs-2026-05-24.md"
 created: 2026-05-24
 updated: 2026-05-24
 status: developing

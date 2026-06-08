@@ -3,7 +3,7 @@ type: source
 title: "Badge components - FluentUI Blazor Components"
 address: c-000004
 source_url: "https://fluentui-blazor-v5.azurewebsites.net/Badges"
-raw_file: "raw/Badge components - FluentUI Blazor Components.md"
+raw_file: ".raw/Badge components - FluentUI Blazor Components.md"
 created: 2026-05-23
 ingested: 2026-05-23
 status: ingested

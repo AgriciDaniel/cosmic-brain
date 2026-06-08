@@ -69,5 +69,5 @@ These procedures handle label validation and data posting for specific scanning 
 
 ---
 
-**Source**: raw/framas/app/framas_scanner/framas_scanner.md  
+**Source**: .raw/framas/app/framas_scanner/framas_scanner.md  
 **Related**: [[framas/architecture|Application Architecture]]

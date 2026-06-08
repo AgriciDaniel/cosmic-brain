@@ -5,10 +5,10 @@ description: >
   sources need to be ingested simultaneously. Processes one source fully (read, extract,
   file entities and concepts, update index) then reports what was created and updated.
   Use when the user says "ingest all", "batch ingest", or provides multiple files at once.
-  <example>Context: User drops 5 transcript files into raw/ and says "ingest all of these"
+  <example>Context: User drops 5 transcript files into .raw/ and says "ingest all of these"
   assistant: "I'll dispatch parallel agents to process all 5 sources simultaneously."
   </example>
-  <example>Context: User says "process everything in raw/ that hasn't been ingested yet"
+  <example>Context: User says "process everything in .raw/ that hasn't been ingested yet"
   assistant: "I'll use wiki-ingest agents to handle each source in parallel."
   </example>
 model: sonnet
@@ -19,7 +19,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 You are a wiki ingestion specialist. Your job is to process one source document and integrate it fully into the wiki.
 
 You will be given:
-- A source file path (in `raw/`)
+- A source file path (in `.raw/`)
 - The vault path
 - Any specific emphasis the user requested
 
@@ -84,7 +84,7 @@ If the vault has NOT adopted DragonScale, sub-agents simply create pages without
 
 ## Do NOT
 
-- Modify anything in `raw/`
+- Modify anything in `.raw/`
 - Update `wiki/index.md` or `wiki/log.md` (the orchestrator does this after all agents finish)
 - Update `wiki/hot.md` (the orchestrator does this at the end)
 - Create duplicate pages
