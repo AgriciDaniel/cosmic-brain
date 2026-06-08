@@ -1,7 +1,7 @@
 {
   "name": "claude-obsidian",
-  "version": "1.6.0",
-  "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault. Covers memory management, session notetaking, knowledge organization, and agent context across projects. Based on Andrej Karpathy's LLM Wiki pattern. Optional DragonScale Memory extension adds hierarchical log folds, deterministic page addresses, embedding-based semantic tiling lint, and boundary-first autoresearch topic selection.",
+  "version": "1.9.2",
+  "description": "Claude + Obsidian knowledge companion. Sets up a persistent, compounding wiki vault (Karpathy's LLM Wiki pattern). v1.7 \"Compound Vault\" + v1.8 methodology modes close 5 of 5 priority gaps from the May 2026 compass artifact. Ships: substrate alignment with kepano/obsidian-skills, default Obsidian CLI transport, hybrid retrieval (contextual prefix + BM25 + cosine rerank per Anthropic's Sept 2024 research), per-file advisory locking for multi-writer safety, pre-commit verifier agent, AND methodology modes (LYT / PARA / Zettelkasten / Generic) for first-class organizational support no other Claude+Obsidian competitor offers. v1.7.x audit closure: every BLOCKER + HIGH + MEDIUM + LOW finding from the v1.7.0 audit is CLOSED or DEFERRED-with-rationale. Optional DragonScale Memory extension (log folds, deterministic addresses, semantic tiling lint, boundary-first autoresearch).",
   "author": {
     "name": "AgriciDaniel",
     "url": "https://github.com/AgriciDaniel"

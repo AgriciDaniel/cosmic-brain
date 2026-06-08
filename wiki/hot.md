@@ -92,13 +92,14 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Plugin State
 
-- **Version**: 1.6.0 (Phase 4 shipped; plugin.json + marketplace.json synced; 1.5.1 was the Phase 3.6 hardening point release)
-- **Install ID**: `claude-obsidian@claude-obsidian-marketplace`
-- **Skills**: 11 (wiki, wiki-ingest, wiki-query, wiki-lint, wiki-fold, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown)
-- **Scripts**: `scripts/allocate-address.sh`, `scripts/tiling-check.py`, `scripts/boundary-score.py` (all opt-in; feature-detected by skills)
-- **Setup**: `bin/setup-vault.sh` (base vault), `bin/setup-dragonscale.sh` (opt-in DragonScale), `bin/setup-multi-agent.sh` (multi-agent bootstrap)
-- **Tests**: `make test` runs `tests/test_allocate_address.sh`, `tests/test_tiling_check.py`, `tests/test_boundary_score.py`. Zero ollama dependency for core tests.
-- **Hooks**: 4 (SessionStart, PostCompact, PostToolUse [stages wiki/, raw/, .vault-meta/], Stop)
+- **Version**: 1.7.1 (audit-driven patch on top of Compound Vault; plugin.json + marketplace.json synced; local-only branch `v1.7.0-compound-vault`, no push, no tag)
+- **Install ID**: `claude-obsidian@ai-marketing-hub-claude-obsidian`
+- **Skills**: 13 (wiki, wiki-ingest, wiki-query, wiki-lint, wiki-fold, save, autoresearch, canvas, defuddle, obsidian-bases, obsidian-markdown, **wiki-cli (v1.7)**, **wiki-retrieve (v1.7, opt-in)**)
+- **Scripts (v1.6)**: `scripts/allocate-address.sh`, `scripts/tiling-check.py`, `scripts/boundary-score.py` (DragonScale; opt-in; feature-detected by skills)
+- **Scripts (v1.7 — new)**: `scripts/detect-transport.sh`, `scripts/contextual-prefix.py`, `scripts/bm25-index.py`, `scripts/rerank.py`, `scripts/retrieve.py`, `scripts/wiki-lock.sh`
+- **Setup**: `bin/setup-vault.sh` (base vault), `bin/setup-dragonscale.sh` (opt-in DragonScale), `bin/setup-multi-agent.sh` (multi-agent bootstrap), `bin/setup-retrieve.sh` (opt-in v1.7 hybrid retrieval)
+- **Tests**: `make test` runs 7 suites — `test_allocate_address.sh`, `test_tiling_check.py`, `test_boundary_score.py`, **`test_bm25_index.py`**, **`test_retrieve.py`**, **`test_wiki_lock.sh`**, **`test_concurrent_write.sh`**. Zero ollama and zero network dependency for all core tests.
+- **Hooks**: 4 (SessionStart, PostCompact, PostToolUse [stages wiki/, .raw/, .vault-meta/; **v1.7: defers `git add` if wiki-lock locks held**], Stop)
 
 ## DragonScale Mechanisms
 
@@ -130,4 +131,4 @@ Navigation: [[index]] | [[log]] | [[overview]]
 ## Repo Locations
 
 - Working: `~/Desktop/claude-obsidian/`
-- Public: https://github.com/AgriciDaniel/claude-obsidian
+- Public: https://github.com/AI-Marketing-Hub/claude-obsidian
