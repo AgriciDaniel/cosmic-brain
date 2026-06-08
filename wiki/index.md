@@ -69,6 +69,21 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Framas
 
+### Core
+- [[framas/_index|Framas Wiki Index]] — company, architecture, databases, operations (status: current)
+- [[framas/company-profile|Framas Company Profile]] — Frantz Martz & Sons; 1948-founded German footwear manufacturer; 3,600+ employees; 9 global regions; 150+ customers (status: current)
+- [[framas/architecture|Monorepo Architecture]] — .NET 10 Blazor: Git Bare + Worktree, per-feature branches, per-dev .sln, apphost write-protection, port conventions (status: current)
+- [[framas/databases|Database Architecture]] — Multi-tenant DOGE_WH + Winline via SYNONYM schema linking (wl, hy, re) per location (status: current)
+- [[framas/framas-scanner|FramasScanner]] — in-house mobile app: scan FGs/raw-material QR labels for WH movement tracking (status: current)
+
+### Tenants & Locations
+- [[framas/tenants/DOGE_WH|DOGE_WH]] — main OMS database; setup with Winline/Hydra/RecycledApp synonym schemas (status: current)
+- [[framas/tenants/fGE|fGE (Germany)]] — Pirmasens HQ; MESOCOMP 01FG; CWL database (status: current)
+- [[framas/tenants/fVN|fVN (Vietnam)]] — Đồng Nai; MESOCOMP VNT1; VNT86 database (status: current)
+- [[framas/tenants/fFT|fFT (Vietnam FT)]] — Nhơn Trạch II; MESOCOMP FTT1; FTT2021/FTL2021 databases (status: current)
+- [[framas/tenants/fIN|fIN (Indonesia)]] — 3 facilities; MESOCOMP 05FI; CWLDATA database (status: current)
+
+### Legacy References
 - [[Framas]] — manufacturing company; DOGE_WH SQL Server database; [[Mesonic WinLine]] ERP (wl schema, 330 tbl) + HYDRA MES + custom OMS/T3PO (dbo schema, 62 tbl + 4 views) (status: developing)
 - [[DOGE WH Database Schema]] — SQL Server database architecture, two schemas (dbo + wl), integration flows, dbdocs publishing pipeline (status: developing)
 - [[Framas DBO Schema]] — OMS/T3PO tables (order mgmt, label/QC, ETC calc, HYDRA bridge, PO material mgmt, plastic box mgmt) (status: developing)
@@ -78,6 +93,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[FramasScanner]] — in-house mobile app: scan FGs/raw-material QR labels to track WH movement; SQL Server proc backend per scan mode + tenant (status: developing)
 - [[Framas Scanner Label Scan Flow]] — two-phase scan pattern: CheckLabel (validate, lock) → PostSingle (commit); `lmpScannerClient_ScanningLabel`/`ScannedLabel` table pair (status: developing)
 - Source: [[framas-scanner-hc-bag-procs]] — 2026-06-08 | fGE HANGING_HC_BAG CheckLabel + PostSingle stored procs
+- Source: [[sources/framas-v-oms-whinfo|framas-v-oms-whinfo]] (c-000235) — 2026-06-08 | `dbo.v_OMS_WHInfo` view: warehouse master list (identity, physical specs, location, scanner flags)
 
 ---
 

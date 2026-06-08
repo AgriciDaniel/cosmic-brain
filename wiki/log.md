@@ -23,6 +23,13 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
+## [2026-06-08] ingest | v_OMS_WHInfo — DOGE_WH warehouse info view (fGE)
+- Source: `raw/framas/app/framas_scanner/tenants/fGE/v_OMS_WHInfo.sql`
+- Summary: [[sources/framas-v-oms-whinfo]]
+- Pages created: [[sources/framas-v-oms-whinfo]] (c-000235)
+- Pages updated: [[framas/tenants/DOGE_WH]] (added Views section), [[framas/framas-scanner]] (added Warehouse Configuration section), [[index]], [[hot]]
+- Key insight: `v_OMS_WHInfo` is scoped to current company year via `ST045_CurrentCompYear`; scanner flags default to 0 via `ISNULL` when a WH has no `lmpScannerClient_Warehouse` row; `ActualPostWHNo` returns NULL on fGE/fKV/fFT because `T335.U003` not yet provisioned on those tenants.
+
 ## [2026-06-08] batch-ingest | Mesonic WinLine help (6 modules from cwl0.chm)
 - Source: `raw/winline/cwl0/cwl0.chm` (decompiled German CHM, ~2900 topics; 6 modules selected: ACC1/ACC2/PROD/LIST/ADMN/Settings)
 - Summary pages: [[WinLine FIBU]], [[WinLine KORE]], [[WinLine PPS]], [[WinLine LIST]], [[WinLine ADMIN]], [[WinLine Settings]]

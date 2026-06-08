@@ -795,6 +795,20 @@
       ],
       "source_chm": "raw/winline/cwl0.chm",
       "decompiled_dir": "raw/winline/cwl0/"
+    },
+    "raw/framas/app/framas_scanner/tenants/fGE/v_OMS_WHInfo.sql": {
+      "hash": "1a8b7fdd30f29c231e70ade8b00588cf",
+      "ingested_at": "2026-06-08",
+      "pages_created": [
+        "wiki/sources/framas-v-oms-whinfo.md"
+      ],
+      "pages_updated": [
+        "wiki/framas/tenants/DOGE_WH.md",
+        "wiki/framas/framas-scanner.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
     }
   },
   "address_map": {
@@ -900,6 +914,7 @@
     "wiki/sources/winline-pps.md": "c-000231",
     "wiki/sources/winline-admin.md": "c-000232",
     "wiki/concepts/WinLine Benutzer- und Berechtigungsverwaltung.md": "c-000233",
-    "wiki/sources/winline-settings.md": "c-000234"
+    "wiki/sources/winline-settings.md": "c-000234",
+    "wiki/sources/framas-v-oms-whinfo.md": "c-000235"
   }
 }
