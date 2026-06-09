@@ -35,4 +35,3 @@ AS
 	left join wl.T311 (NOLOCK) on T311.mesoyear = T335.mesoyear and T311.C000 = T335.C001
 	left join lmpScannerClient_Warehouse (NOLOCK) wh on T335.C000 = wh.Id
 	left join ST049_FactoryCode f on f.Id = T335.C009;
-
