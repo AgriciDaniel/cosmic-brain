@@ -7,6 +7,11 @@ implementation record for older releases.
 
 ## [Unreleased]
 
+### Added
+
+- ZCode host adapter (`--host zcode`) for portable, user-level skill discovery
+  into `~/.zcode/skills/`, with a `ZCODE.md` instruction pointer.
+
 ### Fixed
 
 - `stop_status` now reads transaction journals up to the package's existing
