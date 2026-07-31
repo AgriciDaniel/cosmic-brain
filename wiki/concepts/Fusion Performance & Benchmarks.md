@@ -75,7 +75,7 @@ Task<ExpensiveData> GetExpensive();
 
 When a computed value is invalidated, it's removed from `ComputedRegistry` and eventually garbage collected. This keeps memory bounded — old invalidated values don't accumulate.
 
-### Production Numbers (Voxt.ai)
+### Production Numbers ([[Voxt.ai]])
 
 | Metric | Value |
 |--------|-------|

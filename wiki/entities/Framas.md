@@ -18,6 +18,9 @@ related:
   - "[[framas-db-schema-management]]"
   - "[[Framas Monorepo Architecture]]"
   - "[[FramasScanner]]"
+  - "[[SOFTAGE]]"
+  - "[[Framas HYDRA EIS-DBI Interface]]"
+  - "[[Framas Delivery Date Calculation]]"
 ---
 
 # Framas
@@ -53,3 +56,12 @@ Manufacturing company. Owner of the `DOGE_WH` SQL Server database documented in 
 ## Software Development Architecture
 
 10-person team. Uses [[Framas Monorepo Architecture]]: Git Bare Repo + Worktree, one folder per feature branch, per-dev `.sln` files, `.NET 10 Blazor InteractiveServer`. See [[Git Bare Worktree Pattern]] for the reusable Git pattern.
+
+## HYDRA MES Integration (WinLine ↔ HYDRA)
+
+Two documented integration approaches for bridging WinLine PPS to HYDRA MES production orders exist in this wiki, from different eras:
+
+- **EIS-DBI staging-table bridge** — [[Framas HYDRA EIS-DBI Interface]] + [[Framas Delivery Date Calculation]]. Scoped 2019 by MPDV Mikrolab ([[Framas HYDRA Interface Concept (2019, MPDV)]]), built 2019-2021 by implementation partner [[SOFTAGE]] ([[Framas WinLine-HYDRA Schnittstelle Konzept (SOFTAGE)]]). SOFTAGE-built .NET/COM app writes/reads HYDRA's `HYSAP_*` SQL staging tables directly (EIS-DBI license), bypassing WinLine's own application layer.
+- **WinLine WebServices bridge** — [[WinLine WebServices Integration]] (Type 40/42 REST endpoints, documented 2026-06-22). Goes through WinLine's own EWL service layer instead.
+
+Unclear from current sources which is the live production mechanism, or whether the WebServices path superseded the EIS-DBI concept. Flagged on both pages pending confirmation.

@@ -61,3 +61,7 @@ All packages available on [NuGet](https://www.nuget.org/packages?q=tags%3A%22act
 
 ### Optional
 - **ActualLab.Serialization.NerdbankMessagePack** — Nerdbank.MessagePack serialization support
+
+## Target Framework
+
+As of mid-2026, `Directory.Build.props` in the Fusion repo targets **net10.0** — the project actively tracks the latest .NET runtime rather than staying on an older LTS. (Source: [[Research: ActualLab.Fusion Recent Developments & Community Reception]])

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Concepts Index"
-updated: 2026-05-27
+updated: 2026-07-03
 tags:
   - meta
   - index
@@ -55,6 +55,28 @@ All concept pages — ideas, patterns, and frameworks extracted from sources.
 - [[DevExpress Blazor DxFilterBuilder]] — standalone filter UI with flat/hierarchical/collection fields, customizable editors, CriteriaOperator two-way binding to Grid/TreeList/PivotTable (status: developing)
 - [[DevExpress Blazor Data Editors]] — 17 editor components (Calendar through TimeEdit): standalone or in-grid, AI smart autocomplete in DxMemo, masks, validation (status: developing)
 - [[DevExpress Blazor Component Catalog]] — complete v25.2 catalog: 65+ components across 12 categories (editors, buttons, navigation, layout, overlays, charts, rich content, scheduling, loading, AI) (status: developing)
+
+---
+
+## .NET / EF Core
+
+- [[EF Core Spatial Data]] — storing/querying geographic data (Point/LineString/Polygon) via NetTopologySuite; SRID 4326, `IsWithinDistance()` proximity queries, `Contains()` geofencing/polygon containment (status: developing)
+- [[EF Core Keyless Entity Types]] — `.HasNoKey()` entities for mapping database views, stored procedures, and raw SQL results; read-only, no change tracking, must be explicitly configured (status: developing)
+- [[EF Core Reverse Engineering]] — database-first scaffolding: generate DbContext + entity classes from existing schema; `efcpt` CLI vs. `dotnet ef dbcontext scaffold`; exclusion wildcards, config persistence (status: developing)
+- [[DGML Model Visualization]] — Directed Graph Markup Language graphs for DbContext models via `AsDgml()` extension; entity nodes, navigation edges, Visual Studio DGML viewer (status: developing)
+- [[EF Core Power Tools Configuration]] — complete `efcpt-config.json` + `efcpt.renaming.json` reference; all code-generation, file-layout, type-mapping, replacement options (status: developing)
+- [[EF Core Power Tools T4 Templates]] — T4 template customization: EntityType.t4, DbContext.t4, EntityTypeConfiguration.t4, POCO, Handlebars; enum generation, INotifyPropertyChanged, collection types, obsolete injection (status: developing)
+- [[EF Core Power Tools CLI (efcpt)]] — cross-platform dotnet global tool; install, command syntax, provider abbreviations, `--input`/`--verbose` flags, dacpac support, CI/CD integration, VS extension differences, multi-DbContext workflow (status: developing)
+- [[EF Core Power Tools Stored Procedure Mapping]] — result set discovery methods (FMTONLY, sp_describe_first_result_set, multi-resultset preview), temp table workarounds, mapped-type for existing classes, sync/async signatures (status: developing)
+- [[EF Core Power Tools Dacpac and Database Projects]] — offline reverse engineering from .dacpac/.sqlproj, computed column workarounds, merge-dacpacs, round-trip DbContext→DDL→.sqlproj, CI/CD pipeline (status: developing)
+- [[EFCorePowerTools Reverse Engineering Guide]] — synthesis guide: key takeaways, step-by-step GUI + CLI workflows, essential config settings, T4 customization patterns, multi-DbContext strategies, sproc mapping workflow, best practices (12), pitfalls (8), version matrix (status: developing)
+
+---
+
+## Documentation & Knowledge Management
+
+- [[Business Process Documentation]] — step-by-step writing methodology: recipe metaphor, naming conventions (How-to format), standard template sections, visuals after writing, user testing (status: evergreen)
+- [[Documentation Culture]] — organizational layer: documentation as deliverable, crowdsourced ownership, stewards, living docs, anti-patterns like knowledge hoarding and perfection paralysis (status: evergreen)
 
 ---
 
@@ -238,6 +260,12 @@ AI-era UX:
 - [[HYDRA 8 Client Types]] — 9 client interface types: AIP, CT5, HWEB, MBL, MOC, MESC, MTS, SMA, SystemFunctions (status: developing)
 - [[HYDRA 8 Configuration Procedures]] — 124 how-to procedures catalog: SAP integration, DMC, MDS, module config, setup guides, connectors (status: developing)
 - [[HYDRA 8 Release Notes]] — ~515 release note PDFs organized by module and version across v8.1, v8.2, v8.3 (status: developing)
+- [[Framas HYDRA EIS-DBI Interface]] — real-world EIS-DBI deployment: WinLine↔HYDRA production-order bridge via `HYSAP_*` SQL staging tables; MES-Auftragsnummer encoding; BOM-to-parallel-sequence derivation (status: current)
+- [[Framas Delivery Date Calculation]] — Priority Matrix + RTD/RTC/LTD/LTC/LTDF/LTDB/CSD/ETD/ETC field chain; two-pass calc (order entry vs. HYDRA feedback) (status: current)
+- [[Framas ExportOrder Implementation]] — framLib.dll decompilation of `ExportOrder`: HY72 DTO tree, `HY72_Segment` FileHelpers serialization, 66-field USRFLD container (1 used), `auftrags_bestand` mapping (status: current)
+
+> [!note] Concepts index gap
+> [[HYDRA EIS Module]] and 12 other HYDRA modules ingested 2026-06-09 (TRT/DNC/EMG/PZW/FEP/WEP/REK/PMV/QMS/AIP/SIS/SCS) are missing from this index — pre-existing gap, out of scope for this ingest. See [[wiki/index]] HYDRA MES section for the full module list.
 
 ---
 
@@ -250,15 +278,20 @@ AI-era UX:
 ---
 ## WinLine ERP (Mesonic)
 
+- [[WinLine WebServices API]] — MDP-WebServices HTTP layer: 10 endpoints (Login/Reports/Export/Import/Macro/LIST/POSTING/Voucherdownload), 25 Export/Import type codes, XML format, session management (status: current)
+- [[WinLine WebServices Integration]] — practical integration guide: prerequisites, Vorlage setup, auth flow, export/import patterns for Belege/Buchungsstapel/Produktionsauftrag/IST-Zeiten/Inventur, error handling (status: current)
 - [[Bilanz- und Betriebswirtschaftliche Kennzahlen (BKZ BWA)]] — two account-classification keys in FIBU: BKZ (9-digit balance-structure key, 3 groups) and BWA (operating figures, up to 3 per account) (status: developing)
 - [[WinLine Wirtschaftsjahr]] — fiscal year stored as a relative index, not the literal year; LIST/KORE formulas auto-retarget after year-end close (status: developing)
 - [[WinLine Jahresabschluss]] — year-end close / Wirtschaftsjahreswechsel: EB-Buchung (opening entries), Umbuchung Jahressalden (status: seed)
 - [[WinLine Offene Posten (OP)]] — open items lifecycle: Faktura → Zahlung → Ausgleich; OP-Parameter tolerances; Mahnung dunning (status: developing)
 - [[WinLine Mandant]] — a client/company within an installation; all modules operate on the current Mandant + data stand (status: seed)
 - [[WinLine Benutzer- und Berechtigungsverwaltung]] — ADMIN user model: bidirectional permissions (Benutzer↔Mandant), groups, profiles, 2FA (status: developing)
-
----
-## Add new concepts here as they are extracted from sources.
+- [[WinLine Makros]] — record/replay automation via VBScript; CWLMacro object; 40+ methods for field/grid/window/print control; 5 launch paths (Ribbon, Favoriten, command-line, external apps, Cockpit) (status: current)
+- [[WinLine VBScript Engine]] — embedded VBScript runtime used in FIBU/FAKT/LOHN/ANBU (formula languages) and Makros (record/replay); two extra contexts (System/Fenster Skripten) require MDP license (status: current)
+- [[WinLine FAKT Formeln]] — FAKT formula system: four types (Zeilenformel, Belegformel, Belegkopfformel Laden/Speichern), Value() exchange-rate access, T025 user column write-back (status: developing)
+- [[WinLine CWL Object Model]] — CWL VBScript API: object hierarchy (CWLStart→CWLCompany→CWLDbConnection, CwlWindow→CwlFgControl→CWLGrid), script types, constants, SQL placeholders; synthesizes EN v10.5 + DE v12.24 (status: current)
+- [[WinLine CWLCurrentWindow]] — event interface for CTK window scripts: 22 events (14 in v10.5 + 8 in v12.24), bResult cancellation pattern, ScreenContents vs Contents, window-to-window communication via SendWindowEvent/OnUserEvent (status: current)
+- [[WinLine CWL MacroCommands]] — universal macro processing object (CWLMacro/FormDriver): all script types incl. Macro Recorder, parameter passing (index 20+ offset), external COM access, OnContextmenu menu IDs (status: current)
 
 ---
 ## Database
@@ -266,6 +299,24 @@ AI-era UX:
 - [[Database Indexing]] — B+Tree mental model, Heap Table vs Clustered Index, four golden rules, SQL operations with indexes, cost model and EXPLAIN debugging (status: developing)
 - [[Database Index Advanced Techniques]] — expression indexes, partial indexes, index-only queries, JSON indexing, spatial/trigram/hash indexes, ghost conditions, range-to-equality transformation (status: developing)
 - [[Database Schema and Performance]] — UUID vs auto-increment PK, denormalization, constraints and exclusion constraints, partitioning, pre-aggregation, keyset pagination, CTEs, data manipulation techniques (status: developing)
+- [[SQL Query Optimization]] — umbrella taxonomy over 18 techniques (indexing, projection, filtering, JOINs, EXISTS vs subqueries, N+1 avoidance, UNION ALL vs UNION, execution plan review, platform acceleration); links out to the deep-dive pages (status: developing)
+- [[N+1 Query Problem]] — query-in-a-loop anti-pattern: 1+N round-trips instead of a set-based fetch; fixes via batch IN, JOIN, or ORM eager loading (status: developing)
+- [[SQL Server Performance Monitoring Tools]] — diagnostic toolkit: SET STATISTICS TIME/IO, sp_whoisactive, Extended Events, Query Store, tracking new optimizer features (Adaptive Joins, PSP Optimization, Batch Mode) (status: developing)
+- [[First Responder Kit]] — free open-source SQL Server diagnostic toolkit by Brent Ozar Unlimited; sp_Blitz, sp_BlitzIndex, sp_BlitzCache, sp_BlitzFirst, sp_BlitzWho, sp_BlitzQueryStore, sp_BlitzLock (status: seed)
+- [[sp_BlitzIndex]] — index health analysis: missing indexes, unused indexes, psychological diagnoses (Multiple Personalities, Hoarder, Workaholic, Kleptomaniac), CREATE TSQL output (status: seed)
+- [[sp_BlitzCache]] — plan cache analysis: "sucker board" of worst queries, parameter sniffing victim detection, surgical single-plan removal (status: seed)
+- [[sp_BlitzFirst]] — real-time wait-statistics triage: identifies IO/CPU/lock/parallelism bottlenecks via sys.dm_os_waiting_tasks (status: seed)
+- [[SQL Server Wait Statistics]] — wait-type framework: PAGEIOLATCH, LCK, CXPACKET, SOS_SCHEDULER_YIELD, WRITELOG; diagnostic method via sp_BlitzFirst (status: seed)
+- [[Parameter Sniffing]] — plan reuse across different data distributions: stored procedure first-compile determines cached plan; emergency response via sp_BlitzCache; long-term fixes (RECOMPILE, OPTIMIZE FOR, branching, covering indexes) (status: seed)
+- [[Query Execution Plan]] — Estimated vs Actual plan types, top-to-bottom/right-to-left reading convention, estimated-vs-actual row count gap as a stale-statistics signal (status: developing)
+- [[Query Optimizer Join Order Complexity]] — join order/type combinatorics (left-deep vs bushy tree, n! vs (2n-2)!/(n-1)! candidate plans); more tables raises risk of a suboptimal plan slipping the optimizer's time budget (status: developing)
+- [[SQL OR Predicate Anti-Pattern]] — OR across columns/tables forces per-branch evaluation instead of a single index seek; decompose into UNION for exponential read reduction (status: developing)
+- [[SQL Server Query Hints]] — explicit directives (NOLOCK, RECOMPILE, join/OPTIMIZE FOR) that bypass optimizer decisions; fix symptoms not causes, risk staleness (status: developing)
+- [[SQL Server Wildcard Search Optimization]] — leading `%LIKE%` defeats B-Tree seeks both directions; ranked fixes from requirement removal to Full-Text Indexing/n-grams (status: developing)
+- [[SQL Server Large Write Operation Contention]] — unbatched bulk INSERT/UPDATE/DELETE causes lock-duration contention + transaction log growth; no universal safe row-count threshold, must test (status: developing)
+- [[SQL Server Statistics and Cardinality Estimation]] — DBCC SHOW_STATISTICS histograms (201 buckets), sampling, sargability, multi-tenant blind spot; drives the Tipping Point and Estimated Subtree Cost in [[Query Execution Plan]] (status: developing)
+- [[SQL Server Locking, Blocking, and Concurrency Control]] — blocking (no default timeout) vs deadlocks (auto-resolved ~5s); lock escalation at ~5,000 rows; pessimistic default vs RCSI/Snapshot Isolation optimistic alternatives (status: developing)
+- [[SQL Server Query Tuning Methodology]] — B.E. C.R.E.E.P.I. step-by-step process; estimates-vs-actuals 10x rule; logical reads over wall-clock time; the 30-minute hourglass technique; common anti-patterns (status: developing)
 
 ---
 

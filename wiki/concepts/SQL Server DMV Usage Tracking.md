@@ -14,6 +14,7 @@ related:
   - "[[SQL Server Object Deprecation Workflow]]"
   - "[[DOGE WH Database Schema]]"
   - "[[Database Schema and Performance]]"
+  - "[[SQL Server Performance Monitoring Tools]]"
 sources:
   - "[[mssql-obsolete-objects-detection]]"
 ---
@@ -119,6 +120,8 @@ For granular per-execution tracking (including parameters), use Extended Events:
 - Event: `sqlserver.module_end` (any module completion)
 - Event: `rpc_starting` (stored procs via RPC, captures parameters)
 - Filter on `object_name` to limit overhead
+
+See [[SQL Server Performance Monitoring Tools]] for the broader diagnostic toolkit this sits alongside — `SET STATISTICS TIME/IO`, execution plans, `sp_whoisactive`, and Query Store. That page covers "why is this query slow"; this page covers "is this object used at all."
 
 > [!warning] Do not run unfiltered Extended Events sessions on production during business hours. Always filter by object name or database.
 

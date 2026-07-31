@@ -20,6 +20,19 @@ related:
   - "[[HYDRA BDE Module]]"
   - "[[HYDRA MDE Module]]"
   - "[[HYDRA CAQ Module]]"
+  - "[[HYDRA TRT Module]]"
+  - "[[HYDRA DNC Module]]"
+  - "[[HYDRA EMG Module]]"
+  - "[[HYDRA PZW Module]]"
+  - "[[HYDRA FEP Module]]"
+  - "[[HYDRA WEP Module]]"
+  - "[[HYDRA REK Module]]"
+  - "[[HYDRA PMV Module]]"
+  - "[[HYDRA QMS Module]]"
+  - "[[HYDRA AIP Module]]"
+  - "[[HYDRA SIS Module]]"
+  - "[[HYDRA EIS Module]]"
+  - "[[HYDRA SCS Module]]"
 sources:
   - "[[hydra-cuthdb-data-model]]"
   - "[[hydra-8-documentation]]"
@@ -65,6 +78,30 @@ HYDRA is organized into 14 product groups, each a functional module with its own
 - [[HYDRA MLE Module|MLE]] (11 tables) — SAP integration (Manufacturing Logistics Execution): distribution models, IDoc inbound/outbound, logical systems
 - [[HYDRA WRM Module|WRM]] (21 tables) — Tool and resource management (Werkzeug-/Ressourcenmanagement): resources, maintenance, BOMs, status booking
 - [[HYDRA ZKS Module|ZKS]] (91 tables) — Access control (Zutrittskontrollsystem): badges, zones, calendars, access groups, time zones
+- [[HYDRA SIS Module|SIS]] (v3.0) — System integration services: escalation framework, SSO, electronic signatures, labor/shop floor reconciliation
+- [[HYDRA EIS Module|EIS]] (v3.0) — Enterprise integration: SAP HR/PP/PM/PS/MM/CO/QM interfaces (14 SAP connectors)
+- [[HYDRA SCS Module|SCS]] — Shop floor connectivity: OPC server, file interface, Modbus/Siemens PLC adapters
+
+### Quality Management
+- [[HYDRA CAQ Module|CAQ]] (82 tables) — Computer-Aided Quality: master data for quality characteristics, FMEA, control plans, dynamic sampling, SPC
+- [[HYDRA FEP Module|FEP]] — In-production inspection: SPC data capture at operations, control charts, initial sample inspections
+- [[HYDRA WEP Module|WEP]] — Goods receipt inspection: incoming quality with dynamic modification (AQL skip-lot)
+- [[HYDRA REK Module|REK]] — Complaint management: 8D-style workflow, root cause analysis, complaint cost tracking
+- [[HYDRA PMV Module|PMV]] — Gage/test equipment management: calibration planning and tracking (ISO 10012)
+- [[HYDRA QMS Module|QMS]] — Quality management sub-system to SAP QM (QM-IDI interface)
+
+### Tracking & Logistics
+- [[HYDRA TRT Module|TRT]] — Tracking/Tracing: batch genealogy, forward/backward traceability, palletizing, serial numbers
+- [[HYDRA DNC Module|DNC]] — NC program management: version control, download/upload to CNC machines
+
+### Energy & NC
+- [[HYDRA EMG Module|EMG]] — Energy management: consumption recording per order, KPIs, ISO 50001
+
+### HR & Time
+- [[HYDRA PZW Module|PZW]] — Personnel time management: shift model evaluation, flextime, absence workflows
+
+### Terminal Interface
+- [[HYDRA AIP Module|AIP]] — Acquisition information panel: Windows terminal UI for all shop-floor data entry functions
 
 ## Key Design Decisions
 

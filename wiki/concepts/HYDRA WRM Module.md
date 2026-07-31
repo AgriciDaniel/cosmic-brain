@@ -68,3 +68,21 @@ WRM manages tools, resources, and maintenance on the shop floor. It tracks resou
 
 ### Machine DNC Integration
 - **res_masch_dncfam** — Machine DNC (Direct Numerical Control) family assignments
+
+## Multi-Tool / Multi-Mold Machines (meta-resource pattern)
+
+A machine that physically holds several molds in slots is modeled as a **meta-resource** (the machine) with **subordinate tool resources** (the molds), not as many machines. Key `res_bestand` fields:
+
+| Field (PDM ID) | Purpose |
+|----------------|---------|
+| `meta_res` (`RES.OPT:METARES`) | `J` = meta resource — "has resource list"; the machine carries a list of mounted tools (its slots) |
+| `res_familie` (`RES.RESFAMID`) | resource family — group all molds of a pool under one id |
+| `param_str_02` → `RES.TLGNEST` (**WRM-NEST**) | "Partitioning due to cavities" = cavity/slot management |
+| `mit_anmelden` (`RES.OPT:AUTOANMELD`) | `J` = log resource on/off automatically with the OP (A_AN/A_AB); `N` = never (DNC); `E` = explicit, operator chooses |
+| `mehrfach` (`RES.OPT:MULTIMNR`) | resource "can be logged on several times / simultan" |
+| `leistgrad` (`RES.LEISTGRAD`) | rate of resource utilization in % |
+| `plan_takte` (`RES.SGR:HUB`) | planned cycles within total life time |
+
+Related functions: **WRM-NST** (Cavity Management), **WRM-BRW** (Required Resources/Tools), **HLS-BSR** (Assignment of Secondary Resources), **BDE-NBT** (Changed Partitioning Based on Cavities). The order↔tool occupancy lives in **`res_ress_belegung`** (`belegungsart`: `A`=order, `S`=lock, `W`=maintenance).
+
+**Required resource (mold pool):** configured under *WRM → Master data → Required resources* — one logical resource standing for N actual molds; HYDRA picks an actual mold at logon. A tool's **partitioning = number of cavities** (Original/Current partitioning; option "Partitioning due to cavities" auto-calcs from cavity management). Full click-path: [[HYDRA Multi-Tool Resource Configuration]]. Q&A walkthrough: [[hydra-multi-mold-machine]].

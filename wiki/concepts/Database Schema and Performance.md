@@ -13,8 +13,11 @@ status: developing
 related:
   - "[[Database Indexing]]"
   - "[[Database Index Advanced Techniques]]"
+  - "[[SQL Query Optimization]]"
 sources:
   - "[[database-indexing-developer-guide]]"
+  - "[[sql-query-optimization-18-techniques]]"
+  - "[[sql-query-performance-tuning-tips]]"
 complexity: intermediate
 domain: database
 aliases:
@@ -27,6 +30,8 @@ address: c-000160
 # Database Schema and Performance
 
 Schema design and data manipulation techniques that complement indexing for overall database performance.
+
+> See also [[SQL Query Optimization]] for the broader taxonomy (projection, filtering, JOINs, N+1 avoidance, execution plan review, `UNION ALL` vs `UNION`, etc.) and [[N+1 Query Problem]] for the query-in-a-loop anti-pattern.
 
 ## Denormalization: When Indexes Can't Help
 
@@ -319,3 +324,6 @@ FROM orders
 WHERE EXTRACT(YEAR FROM created_at) = 2024
 ORDER BY customer_id ASC, price DESC;
 ```
+
+> [!contradiction] "Avoid SELECT DISTINCT" advice is too blunt
+> [[sql-query-performance-tuning-tips]] recommends eliminating `SELECT DISTINCT` entirely by widening the SELECT column list, framing DISTINCT as slow and even "inaccurate." That advice conflates two different things: `DISTINCT` is exact (not approximate) — its cost is the sort/hash step needed to find duplicates across the selected columns, not a correctness problem. `DISTINCT ON (col)` above (and the `ROW_NUMBER() OVER (PARTITION BY ...) ... WHERE rownum = 1` dedup pattern) are precise, intentional tools for "one row per group" — not something to avoid on sight. Widening the SELECT list to dodge DISTINCT changes result granularity (previously-collapsed duplicate rows reappear) rather than fixing anything; that's a semantic change, not a pure performance win.

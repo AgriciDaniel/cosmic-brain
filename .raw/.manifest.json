@@ -700,6 +700,33 @@
       ],
       "pages_updated": []
     },
+    ".raw/hydra/md/": {
+      "hash": "batch-2026-06-09-hydra-md-strategic",
+      "ingested_at": "2026-06-09",
+      "file_count": 1557,
+      "note": "Markdown-converted versions of all HYDRA docs. Strategic ingest: added 13 missing module concept pages not covered by prior PDF ingests.",
+      "pages_created": [
+        "wiki/concepts/HYDRA TRT Module.md",
+        "wiki/concepts/HYDRA DNC Module.md",
+        "wiki/concepts/HYDRA EMG Module.md",
+        "wiki/concepts/HYDRA PZW Module.md",
+        "wiki/concepts/HYDRA FEP Module.md",
+        "wiki/concepts/HYDRA WEP Module.md",
+        "wiki/concepts/HYDRA REK Module.md",
+        "wiki/concepts/HYDRA PMV Module.md",
+        "wiki/concepts/HYDRA QMS Module.md",
+        "wiki/concepts/HYDRA AIP Module.md",
+        "wiki/concepts/HYDRA SIS Module.md",
+        "wiki/concepts/HYDRA EIS Module.md",
+        "wiki/concepts/HYDRA SCS Module.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/MPDV HYDRA.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
     ".raw/framas/architects/architecture-guide.md": {
       "hash": "82690564493a77f44815e15ba757b6d9",
       "ingested_at": "2026-06-05",
@@ -809,9 +836,603 @@
         "wiki/hot.md",
         "wiki/log.md"
       ]
+    },
+    ".raw/winline/cwl0 (FAKT)": {
+      "hash": "fakt-module-2026-06-09",
+      "ingested_at": "2026-06-09",
+      "pages_created": [
+        "wiki/sources/winline-fakt.md",
+        "wiki/concepts/WinLine FAKT Formeln.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Mesonic WinLine.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    ".raw/winline/docs/md/ExampleDokumentation_MDPWorkshop_Framas_Part1.md": {
+      "hash": "bc1497be7f9d09f904c4fb13a7d20e43",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-mdp-workshop-example-docs.md"
+      ],
+      "pages_updated": []
+    },
+    ".raw/winline/docs/md/ExampleDokumentation_MDPWorkshop_Framas_Part2.md": {
+      "hash": "59cfd4d7e264df6596a7d9bc51922a2a",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-example-docs.md"
+      ]
+    },
+    ".raw/winline/docs/md/ExampleDokumentation_MDPWorkshop_Framas_Part3.md": {
+      "hash": "37d99b916a82deb3e523cdb9c55174a4",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-example-docs.md"
+      ]
+    },
+    ".raw/winline/docs/md/ExampleDokumentation_MDPWorkshop_Framas_Part4.md": {
+      "hash": "a62eb85c56ea46494903bb426ec20f5e",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-example-docs.md"
+      ]
+    },
+    ".raw/winline/docs/md/MDP_WorkshopEnglish_Part1.md": {
+      "hash": "1183b691dec7ff7b456f90b85c70070e",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-mdp-workshop-slides.md"
+      ],
+      "pages_updated": []
+    },
+    ".raw/winline/docs/md/MDP_WorkshopEnglish_Part2.md": {
+      "hash": "39485cccbd73453b1ea7e9be6f67d09f",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-slides.md"
+      ]
+    },
+    ".raw/winline/docs/md/MDP_WorkshopEnglish_Part3.md": {
+      "hash": "9e1c8f12d4ddaf6fa66c368ce8e3ddfb",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-slides.md"
+      ]
+    },
+    ".raw/winline/docs/md/MDP_WorkshopEnglish_Part4.md": {
+      "hash": "bf2f726ed615537514f5fc30daff02d1",
+      "ingested_at": "2026-06-22",
+      "pages_created": [],
+      "pages_updated": [
+        "wiki/sources/winline-mdp-workshop-slides.md"
+      ]
+    },
+    ".raw/winline/docs/md/cwlmakro12.md": {
+      "hash": "610b6f27069a800d03bfea64ff13a01c",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-makro12.md",
+        "wiki/concepts/WinLine Makros.md",
+        "wiki/concepts/WinLine VBScript Engine.md"
+      ],
+      "pages_updated": []
+    },
+    ".raw/winline/docs/md/White Paper - WinLine WebServices - 12.md": {
+      "hash": "f4ef86a505b98852591855411698909c",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-webservices.md",
+        "wiki/concepts/WinLine WebServices API.md",
+        "wiki/concepts/WinLine WebServices Integration.md",
+        "wiki/concepts/WinLine WebServices Security Model.md"
+      ],
+      "pages_updated": [
+        "wiki/sources/winline-webservices.md",
+        "wiki/concepts/WinLine WebServices API.md",
+        "wiki/concepts/WinLine WebServices Integration.md"
+      ]
+    },
+    ".raw/winline/docs/md/cwlobject_e_105.md": {
+      "hash": "118ec9267ebab84fb95858b7b9fea3b1",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-cwl-object-model-en.md"
+      ],
+      "pages_updated": []
+    },
+    ".raw/winline/docs/md/cwlobjektdocu.md": {
+      "hash": "a237e259aee9e8d0563c8979191867b5",
+      "ingested_at": "2026-06-22",
+      "pages_created": [
+        "wiki/sources/winline-cwl-object-model-de.md",
+        "wiki/concepts/WinLine CWL Object Model.md",
+        "wiki/concepts/WinLine CWLCurrentWindow.md",
+        "wiki/concepts/WinLine CWL MacroCommands.md"
+      ],
+      "pages_updated": []
+    },
+    ".raw/notes/2026-06-26/Documentation How to write a clear business process anyone can follow.md": {
+      "hash": "72dbc1bd9a7cd55d7731b0d75b1fda3a",
+      "ingested_at": "2026-06-26",
+      "pages_created": [
+        "wiki/sources/documentation-business-process-bergren.md",
+        "wiki/concepts/Business Process Documentation.md",
+        "wiki/concepts/Documentation Culture.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    ".raw/notes/2026-06-26/The Art of Writing Good Documentation.md": {
+      "hash": "64ff829c265d1b25e015e15db821b7bd",
+      "ingested_at": "2026-06-26",
+      "pages_created": [
+        "wiki/sources/art-of-writing-good-documentation.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/Business Process Documentation.md",
+        "wiki/concepts/Documentation Culture.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    ".raw/notes/2026-06-26/The Ultimate Guide to Process Documentation.md": {
+      "hash": "c3bdaeb0724a77eaf5a6ae44eca3d142",
+      "ingested_at": "2026-06-26",
+      "pages_created": [
+        "wiki/sources/atlassian-process-documentation-guide.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/Business Process Documentation.md",
+        "wiki/concepts/Documentation Culture.md",
+        "wiki/concepts/_index.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Blocking and Locking How to Find and Fight Concurrency Problems.md": {
+      "hash": "cce6e534aec61e5c6692bf27de9e6975",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/blocking-and-locking-how-to-find-and-fight-concurrency-problems.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the Engine Part 1.md": {
+      "hash": "36341b29d3775ef4c97b0686ad00ba0f",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-engine-part-1.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the Engine Part 2.md": {
+      "hash": "2c2aba816e54fb685d8ef0b7db879301",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-engine-part-2.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the Engine Part 3.md": {
+      "hash": "0221a8e5520058680acca562ffb9209b",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-engine-part-3.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the Engine Part 4.md": {
+      "hash": "e3c6656105f48d79d811da3dc2574aea",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-engine-part-4.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the SQL Server All-Demo Edition.md": {
+      "hash": "137820b637c9aa20ba885f07912e5203",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-sql-server-all-demo-edition.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the SQL Server Engine Part 2.md": {
+      "hash": "a8839d459de2a2f8e9a3f9ed563b3ed9",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-sql-server-engine-part-2.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the SQL Server Engine Part 3.md": {
+      "hash": "5547e5048421578acbfaf7432e29e5b4",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-sql-server-engine-part-3.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the SQL Server Engine, Part 1 The Clustered Index.md": {
+      "hash": "27ada33cf439420f02d1edb10692a868",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-sql-server-engine-part-1-clustered-index.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Think Like the SQL Server Engine, Part 3 Statistics and Memory Grants.md": {
+      "hash": "e2902689ebd7eebea8be78405c542035",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-think-like-the-sql-server-engine-part-3-statistics-memory-grants.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Tune Indexes Fast.md": {
+      "hash": "5b950f5c655d47abb7f955630bd157be",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-tune-indexes-fast.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Tune Queries Fast.md": {
+      "hash": "b708916fa9239ffa0580f68e474b702b",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-tune-queries-fast.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Use sp_BlitzCache.md": {
+      "hash": "43df9322cfd47834b4986258b69cc12a",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-use-sp-blitzcache.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Use sp_BlitzFirst.md": {
+      "hash": "a414430df69a5b95358304f67c48c6e3",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/how-to-use-sp-blitzfirst.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/How to Use sp_BlitzIndex.md": {
+      "hash": "7b9026ae21523cc4f18e39003d4cb119",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/How-to-Use-sp_BlitzIndex.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Identifying and Fixing Parameter Sniffing Issues.md": {
+      "hash": "5f953a97693cdf6a290cbc0de35f2e44",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/Identifying-and-Fixing-Parameter-Sniffing-Issues.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Microsoft SQL Server Performance Tuning, Live.md": {
+      "hash": "eb51ca7cad2e749d41225d25342062f8",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/brent-ozar-mssql-performance-tuning-live.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Office Hours Microsoft Database Q&A.md": {
+      "hash": "6f88010189038c568dc9f199e30d3f27",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/brent-ozar-office-hours-database-qa.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/SQL Query Optimization. Why is it so hard to get right.md": {
+      "hash": "c2a752606515f2d9456575170dbcab15",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/sql-query-optimization-why-is-it-so-hard-to-get-right.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Watch Brent Tune Queries - SQLSaturday Oslo.md": {
+      "hash": "1aa14c32544e5e6d6f9bae8b167fff31",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/watch-brent-tune-queries-sqlsaturday-oslo.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Watch Brent Tune Queries 2020.md": {
+      "hash": "213bb8192ee4bb1e479329ccc1a7c296",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/watch-brent-tune-queries-2020.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/7 SQL Query Performance Tuning Tips - Optimize Database Queries.md": {
+      "hash": "880b5f8a31815ba5e8771a09c24134f4",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/sql-query-performance-tuning-tips.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/Query optimization techniques in SQL Server tips and tricks.md": {
+      "hash": "f996199095be4d9582dad512bf0aa5fb",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/sqlshack-query-optimization-tips-and-tricks.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/SQL Performance Tuning tips for newbies.md": {
+      "hash": "60a51dd99e63e67f86a50e6c88925d9e",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/sql-performance-tuning-tips-for-newbies.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/notes/2026-07-02/SQL Query Optimization 18 Proven Techniques and Tips.md": {
+      "hash": "76cf328c9b3a855ec368869d29d53ee5",
+      "ingested_at": "2026-07-02",
+      "pages_created": [
+        "wiki/sources/sql-query-optimization-18-techniques.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/articles/efcore-power-tools-2026-07-03.md": {
+      "hash": "eb6d6217a4b81b030cdb9cd6f267058a",
+      "source_url": "https://github.com/ErikEJ/EFCorePowerTools",
+      "ingested_at": "2026-07-03",
+      "pages_created": [
+        "wiki/sources/EFCorePowerTools.md",
+        "wiki/entities/ErikEJ.md",
+        "wiki/concepts/EF Core Reverse Engineering.md",
+        "wiki/concepts/DGML Model Visualization.md",
+        "wiki/concepts/EF Core Power Tools Configuration.md",
+        "wiki/concepts/EF Core Power Tools T4 Templates.md",
+        "wiki/concepts/EF Core Power Tools CLI (efcpt).md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Entity Framework Core.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/sources/_index.md",
+        "wiki/concepts/EF Core Reverse Engineering.md",
+        "wiki/sources/EFCorePowerTools.md",
+        "wiki/concepts/_index.md",
+        "wiki/sources/EFCorePowerTools.md"
+      ]
+    },
+    ".raw/articles/efcore-power-tools-reverse-engineering-wiki-2026-07-03.md": {
+      "hash": "NEW",
+      "source_url": "https://github.com/ErikEJ/EFCorePowerTools/wiki/Reverse-Engineering",
+      "ingested_at": "2026-07-03",
+      "pages_created": [
+        "wiki/concepts/EF Core Power Tools Stored Procedure Mapping.md",
+        "wiki/concepts/EF Core Power Tools Dacpac and Database Projects.md"
+      ],
+      "pages_updated": [
+        "wiki/concepts/EF Core Power Tools T4 Templates.md",
+        "wiki/sources/EFCorePowerTools.md",
+        "wiki/index.md",
+        "wiki/log.md",
+        "wiki/hot.md",
+        "wiki/concepts/_index.md"
+      ]
+    },
+    ".raw/articles/efcore-power-tools-quick-start-wiki-2026-07-03.md": {
+      "hash": "NEW",
+      "source_url": "https://github.com/ErikEJ/EFCorePowerTools/wiki/Reverse-Engineering-Quick-Start",
+      "ingested_at": "2026-07-03",
+      "pages_created": [],
+      "pages_updated": []
+    },
+    ".raw/softage/md/20190521_FRAM_GK_INTERFACES.md": {
+      "hash": "f3922ba31684504c23a8cfbac82eb4a5",
+      "ingested_at": "2026-07-13",
+      "pages_created": [
+        "wiki/sources/framas-hydra-interface-concept-2019.md"
+      ],
+      "pages_updated": [
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    ".raw/softage/md/Konzept_HYDRA_MES_Schnittstelle_V108.md": {
+      "hash": "7a9bd423c50a1fc242365f66044db1ce",
+      "ingested_at": "2026-07-13",
+      "pages_created": [
+        "wiki/sources/framas-winline-hydra-schnittstelle-konzept.md",
+        "wiki/concepts/Framas HYDRA EIS-DBI Interface.md",
+        "wiki/concepts/Framas Delivery Date Calculation.md",
+        "wiki/entities/SOFTAGE.md"
+      ],
+      "pages_updated": [
+        "wiki/entities/Framas.md",
+        "wiki/concepts/HYDRA EIS Module.md",
+        "wiki/concepts/WinLine WebServices Integration.md",
+        "wiki/entities/Mesonic WinLine.md",
+        "wiki/index.md",
+        "wiki/concepts/_index.md",
+        "wiki/entities/_index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
+    },
+    ".raw/hydra/md/HYDRA_8_Documentation Oct 2020/Products/SCS_81/SCS-SIF_81.md": {
+      "hash": "1c4f22bbb09fab673676a247141b840d",
+      "ingested_at": "2026-07-14",
+      "pages_created": [
+        "wiki/sources/hydra-service-interface-sif.md",
+        "wiki/concepts/HYDRA Service Interface (SIF).md",
+        "wiki/concepts/HYDRA SIF DLG Service Catalog.md"
+      ],
+      "pages_updated": [
+        "wiki/sources/hydra-8-documentation.md",
+        "wiki/concepts/HYDRA SCS Module.md",
+        "wiki/index.md",
+        "wiki/hot.md",
+        "wiki/log.md"
+      ]
     }
   },
   "address_map": {
+    "wiki/concepts/WinLine WebServices Security Model.md": "c-000346",
     "wiki/concepts/DragonScale Memory.md": "c-000001",
     "wiki/sources/fluent-ui-blazor-badge-components.md": "c-000004",
     "wiki/concepts/FluentUI Blazor Badge.md": "c-000005",
@@ -915,6 +1536,61 @@
     "wiki/sources/winline-admin.md": "c-000232",
     "wiki/concepts/WinLine Benutzer- und Berechtigungsverwaltung.md": "c-000233",
     "wiki/sources/winline-settings.md": "c-000234",
-    "wiki/sources/framas-v-oms-whinfo.md": "c-000235"
+    "wiki/sources/framas-v-oms-whinfo.md": "c-000235",
+    "wiki/concepts/HYDRA TRT Module.md": "c-000236",
+    "wiki/concepts/HYDRA DNC Module.md": "c-000237",
+    "wiki/concepts/HYDRA EMG Module.md": "c-000238",
+    "wiki/concepts/HYDRA PZW Module.md": "c-000239",
+    "wiki/concepts/HYDRA FEP Module.md": "c-000240",
+    "wiki/concepts/HYDRA WEP Module.md": "c-000241",
+    "wiki/concepts/HYDRA REK Module.md": "c-000242",
+    "wiki/concepts/HYDRA PMV Module.md": "c-000243",
+    "wiki/concepts/HYDRA QMS Module.md": "c-000244",
+    "wiki/concepts/HYDRA AIP Module.md": "c-000245",
+    "wiki/concepts/HYDRA SIS Module.md": "c-000246",
+    "wiki/concepts/HYDRA EIS Module.md": "c-000247",
+    "wiki/concepts/HYDRA SCS Module.md": "c-000248",
+    "wiki/sources/winline-fakt.md": "c-000249",
+    "wiki/concepts/WinLine FAKT Formeln.md": "c-000250",
+    "wiki/sources/winline-mdp-workshop-example-docs.md": "c-000253",
+    "wiki/sources/winline-mdp-workshop-slides.md": "c-000254",
+    "wiki/concepts/WinLine MDP Module.md": "c-000255",
+    "wiki/concepts/WinLine CWLCTK.md": "c-000256",
+    "wiki/concepts/WinLine User-Defined Windows.md": "c-000257",
+    "wiki/concepts/WinLine MDP Database Extensions.md": "c-000258",
+    "wiki/sources/winline-makro12.md": "c-000259",
+    "wiki/concepts/WinLine Makros.md": "c-000260",
+    "wiki/concepts/WinLine VBScript Engine.md": "c-000261",
+    "wiki/sources/winline-webservices.md": "c-000262",
+    "wiki/concepts/WinLine WebServices API.md": "c-000263",
+    "wiki/concepts/WinLine WebServices Integration.md": "c-000264",
+    "wiki/sources/winline-cwl-object-model-en.md": "c-000265",
+    "wiki/sources/winline-cwl-object-model-de.md": "c-000266",
+    "wiki/concepts/WinLine CWL Object Model.md": "c-000267",
+    "wiki/concepts/WinLine CWLCurrentWindow.md": "c-000268",
+    "wiki/concepts/WinLine CWL MacroCommands.md": "c-000269",
+    "wiki/sources/documentation-business-process-bergren.md": "c-000271",
+    "wiki/sources/art-of-writing-good-documentation.md": "c-000272",
+    "wiki/sources/atlassian-process-documentation-guide.md": "c-000273",
+    "wiki/concepts/Business Process Documentation.md": "c-000274",
+    "wiki/concepts/Documentation Culture.md": "c-000275",
+    "wiki/sources/EFCorePowerTools.md": "c-000328",
+    "wiki/entities/ErikEJ.md": "c-000329",
+    "wiki/concepts/EF Core Reverse Engineering.md": "c-000330",
+    "wiki/concepts/DGML Model Visualization.md": "c-000331",
+    "wiki/concepts/EF Core Power Tools Configuration.md": "c-000332",
+    "wiki/concepts/EF Core Power Tools T4 Templates.md": "c-000333",
+    "wiki/concepts/EF Core Power Tools CLI (efcpt).md": "c-000334",
+    "wiki/concepts/EF Core Power Tools Stored Procedure Mapping.md": "c-000335",
+    "wiki/concepts/EF Core Power Tools Dacpac and Database Projects.md": "c-000336",
+    "wiki/concepts/EFCorePowerTools Reverse Engineering Guide.md": "c-000337",
+    "wiki/sources/framas-hydra-interface-concept-2019.md": "c-000340",
+    "wiki/sources/framas-winline-hydra-schnittstelle-konzept.md": "c-000341",
+    "wiki/concepts/Framas HYDRA EIS-DBI Interface.md": "c-000342",
+    "wiki/concepts/Framas Delivery Date Calculation.md": "c-000343",
+    "wiki/entities/SOFTAGE.md": "c-000344",
+    "wiki/sources/hydra-service-interface-sif.md": "c-000347",
+    "wiki/concepts/HYDRA Service Interface (SIF).md": "c-000348",
+    "wiki/concepts/HYDRA SIF DLG Service Catalog.md": "c-000349"
   }
 }

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-06-05
+updated: 2026-07-14
 tags:
   - meta
   - log
@@ -13,15 +13,172 @@ related:
   - "[[sources/_index]]"
 ---
 
+## [2026-07-23] wiki-query (deep) | HYDRA SIF RET error codes
+- Question: "find all RET code of SCS-SIF hydra"
+- Method: full sweep of `.raw/hydra/md/HYDRA_8_Documentation Oct 2020/Products/SCS_81/SCS-SIF_81.md` (22,361 lines) — every `| NNN | description |` row in ~30 "Error codes" tables (ch.9-19) plus every inline `RET=NNN` prose mention; cross-checked tutorial doc (no extra codes there)
+- First pass (table-only regex) found 92 codes; user asked "is that all?" — second pass caught 2 more: code 1700 (prose-only, PNR.LOCK example) and code 410 (table row present but description cell blank in source)
+- Page created: [[HYDRA SIF RET Error Codes]] (94 distinct codes, with gaps/caveats section for conditional-flag rows and scan-scope limits)
+- Pages updated: [[HYDRA SIF DLG Service Catalog]] (cross-link both directions), [[index]]
+- Gap flagged: scan scoped to SCS-SIF_81.md only — sibling product docs under `Products/` may define their own RET codes not cross-checked
+
+## [2026-07-14] autoresearch (gap-fill) | ActualLab.Fusion Recent Developments & Community Reception
+- Rounds: 1 (targeted gap search, not full 3-round loop — target README already batch-ingested 2026-05-25)
+- Sources found: 3 (GitHub repo/commit metadata via WebSearch, Voxt.ai product pages via WebSearch, Yakunin Fusion-vs-SignalR Medium article)
+- Pages created: [[Voxt.ai]], [[yakunin-fusion-vs-signalr]], [[Research - ActualLab.Fusion Recent Developments & Community Reception]]
+- Pages updated: [[Fusion Performance & Benchmarks]] (Voxt.ai wikilink), [[Fusion NuGet Packages]] (net10.0 target framework), [[index]]
+- Synthesis: [[Research - ActualLab.Fusion Recent Developments & Community Reception]]
+- Key finding: Voxt.ai (the benchmark app) is a rebrand of Actual Chat; Fusion repo targets net10.0; no independent (non-creator-authored) Fusion reviews/comparisons found — only Yakunin's own 2019 SignalR comparison exists.
+
+## [2026-07-14] deep ingest | SOP: Multi-Slot Mold Machine as Meta-Resource (re-verified rewrite)
+- Source: `presentations/sop_hydra-multi-mold-machine.md`
+- Summary: [[sop-hydra-multi-mold-machine]] (c-000350)
+- Pages created: [[sop-hydra-multi-mold-machine]]
+- Pages updated: [[HYDRA Multi-Tool Resource Configuration]], [[hydra-multi-mold-machine]], [[HYDRA SIF DLG Service Catalog]], [[index]]
+- Key insight: this SOP is a stricter re-verification of the earlier `presentations/hydra-multi-mold-machine.md`, so ~90% overlaps content already ingested 2026-06-30. What's new: (1) expanded resource-type codes `PAC`/`ENT`/`PRU` from a second predefined-type table; (2) `res_ress_belegung`'s write-trigger sourced to dialog `RES_STATUS` in `SCS-PDM_81.pdf`/`SCS-SIF_81.pdf`, now cross-linked from [[HYDRA SIF DLG Service Catalog]] — first bridge between the SIF ingest and the mold-machine ingest; (3) a new open-gap section on one-order/multiple-molds-simultaneously (N Required resources, one per slot — inferred, unvalidated); (4) a **contradiction**: [[hydra-multi-mold-machine]] states HLS-MFB/HLS-AGS/BDE-APF/BDE-SSG as settled fact for the N-machines-in-parallel case, but this stricter-verified source flags all four as unread/unconfirmed — flagged on both pages rather than silently resolved either way.
+- Note: `scripts/allocate-address.sh` still broken on this platform (`flock: command not found`). Counter file manually bumped 350→351 after assigning c-000350 to the new source page, consistent with the workaround used in the prior SIF ingest.
+
+## [2026-07-14] deep ingest | HYDRA Service Interface (SCS-SIF 8.1)
+- Source: `.raw/hydra/md/HYDRA_8_Documentation Oct 2020/Products/SCS_81/SCS-SIF_81.md` (535 pages / 22,361 lines)
+- Summary: [[hydra-service-interface-sif]] (c-000347)
+- Pages created: [[HYDRA Service Interface (SIF)]] (c-000348), [[HYDRA SIF DLG Service Catalog]] (c-000349)
+- Pages updated: [[hydra-8-documentation]], [[HYDRA SCS Module]]
+- Key insight: despite being filed under `Products/SCS_81/` next to the OPC/hardware-connectivity SCS module, SIF is a completely different, much bigger concept — the general-purpose HTTP/REST service-call API (AccessId + session auth, a bidirectional Repository metamodel that drives both server-side interpretation and client-side GUI generation, and a `/dlg/command` bridge that carries the entire legacy PDM dialog-string protocol) spanning the whole HYDRA suite (BDE/MDE/HLS/PZE/PZW/WRM/HR/MPL/PDV/CAQ). `Wrapper`/`InterpretedWrapper` services are structurally incapable of dynamic Where clauses — a type-system-level echo of WinLine WebServices' `AllowWhereStatementInWebService` flag-gated raw-SQL restriction, logged as a cross-product convergent pattern on [[WinLine WebServices Security Model]].
+- Note: the ingesting subagent produced the three pages and the two page cross-references but stopped before completing bookkeeping (no `address:` frontmatter, no manifest entry, no log/hot/index update) — likely hit its step budget. `scripts/allocate-address.sh` also failed outright (`flock: command not found`, consistent with the pre-existing "wiki-lock inoperative on Windows git-bash" finding). Addresses (c-000347/348/349) assigned manually by scanning the vault for the true max existing address (346) rather than trusting the stale counter file, which is why WinLine's c-000346 doesn't collide with the previous already-live counter value.
+
+## [2026-07-13] deep re-ingest | WinLine WebServices White Paper (Version 12)
+- Source: `.raw/winline/docs/md/White Paper - WinLine WebServices - 12.md`
+- Summary: [[WinLine WebServices White Paper (Version 12)]]
+- Pages created: [[WinLine WebServices Security Model]] (c-000346)
+- Pages updated: [[WinLine WebServices API]], [[WinLine WebServices Integration]], [[WinLine WebServices White Paper (Version 12)]], [[index]]
+- Key insight: The two security-relevant facts (WHERE-clause SQL gate, POSTING batch-origin restriction) existed piecemeal in the original ingest but were never synthesized as a security boundary until this pass.
+
+## [2026-07-13] ingest | Framas WinLine-HYDRA EIS-DBI Interface (2 sources, batch)
+- Sources: `.raw/softage/md/20190521_FRAM_GK_INTERFACES.md`, `.raw/softage/md/Konzept_HYDRA_MES_Schnittstelle_V108.md`
+- Summaries: [[Framas HYDRA Interface Concept (2019, MPDV)]] (c-000340), [[Framas WinLine-HYDRA Schnittstelle Konzept (SOFTAGE)]] (c-000341)
+- Pages created: [[Framas HYDRA EIS-DBI Interface]] (c-000342), [[Framas Delivery Date Calculation]] (c-000343), [[SOFTAGE]] (c-000344)
+- Pages updated: [[Framas]], [[HYDRA EIS Module]], [[WinLine WebServices Integration]], [[Mesonic WinLine]], [[index]], [[concepts/_index]], [[entities/_index]]
+- Key insight: EIS-DBI SQL-staging-table bridge (2019-2021, SOFTAGE-built) is a *second*, earlier-documented WinLine↔HYDRA integration path distinct from the Type 40/42 WebServices bridge already in the wiki — cross-referenced as an open question (which is live) rather than a hard contradiction.
+
+## [2026-07-13] query-deep | EIS-DBI dig-in → Framas ExportOrder Implementation filed
+- Query: "what is EIS DBI hydra" (quick) → "please digging in" (deep, filed back)
+- Pages created: [[Framas ExportOrder Implementation]] (c-000345) — framLib.dll/MESHYDRALib.dll decompilation, filed from prior-session memory observations (569-577) that were never written to the vault
+- Pages updated: [[Framas HYDRA EIS-DBI Interface]] (related + See also), [[index]], [[concepts/_index]]
+- Key insight: `HY72_AU_USRFLD_001` is a fully generic 66-field container but Framas `ExportOrder` writes exactly 1 slot (FU_1, LTD date). `auftrags_bestand` confirmed as a HYDRA DB table (not a .NET model), populated via `HY72_TO_DBI.CreateHysapHY72InboundData`. WinLine "Bestand" (warehouse inventory, `SOFTAGE.XPO.Mesonic.dll`) is unrelated to HYDRA's `auftrags_bestand` despite the shared word — no code path links them.
+
+## [2026-07-13] follow-up | HY72_* segment-to-Hydra-table gap closed for auftrags_bestand
+- Query: "draw relation between HY72_* classes, how it map into Hydra" → "check and close the gap, prefer md over pdf"
+- Sources read (md, no pdf touched): `.raw/hydra/md/.../Products/EIS_30/EIS-DBI_30.md`, `.raw/hydra/md/.../Procedures/EIS-DBI_Customizing_HYDRA/EIS-DBI_Customizing_HYDRA.md`, `.raw/hydra/md/.../Objects/MES-Order/OBJECT_MES-Operation_TI_SeqList.md`
+- Pages updated: [[Framas ExportOrder Implementation]] — added `auftrags_bestand` field source (`ANR.DATB/ZEIB` → `erranf_dat/zeit`, filling the previously blank cell), corrected segment attribution from `HY72_AU_HD_001` to `HY72_AG_HD_001` (ANR is operation-keyed, one `auftrags_bestand` row per operation not per order), added "What EIS-DBI_30.md rules out" section
+- Key insight: EIS-DBI is explicitly generic/business-data-agnostic per vendor spec — segment↔table mapping for everything except the one narrowly-published `MES-Operation` BAPI object lives inside HYDRA's internal Dispatcher routines, not in any customer-facing doc in this corpus. `HY72_AU_USRFLD_001`/`HY72_AG_KOMPL_002`/`HY72_AFOLG_001` target tables remain genuinely undocumented, not just unresearched — gap reclassified from "open" to "structurally closed" (no more doc to find).
+
+## 2026-07-08 | query | MOC resource type WZ / res_familie setup
+
+- Page updated: [[hydra-multi-mold-machine]] — merged in new "res_familie is just a label" clarification section (originally filed as a separate page c-000338, merged into this page per user request instead).
+- Question: user re-read `presentations/hydra-multi-mold-machine.md` and asked how to configure a resource type `WZ` with `res_familie = MOLDPOOL` in the MOC app.
+- Answer cited from existing wiki content, no new ingest needed: [[HYDRA Multi-Tool Resource Configuration]] (resource types + Required-resource mechanism), plus exact line citations back to the source presentation (lines 105-113, 128-143, 233-244).
+- Key clarification: `res_familie`/`MOLDPOOL` is just a label the user picks — the actual pooling mechanism is the **Required resource** assignment under WRM → Master data, not the family field alone.
+
+## 2026-07-03 | save | EFCorePowerTools Reverse Engineering Guide (synthesis)
+
+- Page created: [[EFCorePowerTools Reverse Engineering Guide]] (c-000337) in `wiki/concepts/`
+- Synthesis of full-session EFCorePowerTools deep-dive: key takeaways (6), step-by-step GUI + CLI + dacpac workflows, essential config settings decision guide (10 scenarios), T4 customization patterns (5 common), multi-DbContext strategies (3), sproc mapping workflow, 12 best practices, 8 pitfalls with fixes, version compatibility matrix, quick-reference command sheet
+
+## 2026-07-03 | ingest | EF Core Power Tools — Reverse Engineering wiki + Quick Start
+
+- Sources: `.raw/articles/efcore-power-tools-reverse-engineering-wiki-2026-07-03.md`, `.raw/articles/efcore-power-tools-quick-start-wiki-2026-07-03.md`
+- Summary: Full Reverse Engineering wiki page + Quick Start walkthrough
+- Pages created: [[EF Core Power Tools Stored Procedure Mapping]] (c-000335), [[EF Core Power Tools Dacpac and Database Projects]] (c-000336)
+- Pages updated: [[EFCorePowerTools]] (c-000328), [[EF Core Power Tools T4 Templates]] (c-000333), [[index]], [[hot]], [[concepts/_index]]
+- Key insight: (1) Sproc result discovery has 3-tier fallback: FMTONLY → sp_describe_first_result_set → fallback. Temp table workaround: expose shape via `IF (1=0) SELECT ...`. (2) Dacpac round-trip: Code-first → DDL SQL → .sqlproj → dacpac → reverse-engineer back. Computed columns in nested views are the main limitation. (3) Handlebars templates use `.hbs` files with `Partials/Properties.hbs` for nav property control; supply custom via `CodeTemplates.zip`. (4) DDEX providers required for PostgreSQL/SQLite in VS; custom connections stored in Windows Credential Manager.
+
+## 2026-07-03 | ingest | EF Core Power Tools CLI (`efcpt`)
+
+- Sources: NuGet package page, ErikEJ blog post (2023-08-31), GitHub issues #1751/#2579/#3214, web search
+- Pages created: [[EF Core Power Tools CLI (efcpt)]] (c-000334)
+- Pages updated: [[EFCorePowerTools]] (c-000328), [[index]], [[hot]], [[concepts/_index]]
+- Key insight: efcpt is the cross-platform entry point — same reverse-engineering engine as VS extension but terminal-only, with `--input` for custom config paths, `--verbose` for debug output, auto-provider-resolution from connection strings, and dacpac support. Key differences: no DGML (use Mermaid instead), no GUI object selector (use wildcards), renaming file lookup bug (#2579) requiring separate folders for multi-DbContext
+
+## 2026-07-03 | deep-dive | EF Core Power Tools — config, T4, multi-DbContext
+
+- Sources: GitHub wiki (Reverse Engineering page), issue #1499 (T4 tips), issue #2579 (renaming multi-context), sample `efcpt-config.json`
+- Pages created: [[EF Core Power Tools Configuration]] (c-000332), [[EF Core Power Tools T4 Templates]] (c-000333)
+- Pages updated: [[EFCorePowerTools]] (c-000328), [[EF Core Reverse Engineering]] (c-000330), [[index]], [[hot]], [[concepts/_index]]
+- Key insight: EFCorePowerTools' full power is in the config + T4 combo — `efcpt-config.json` has 18 code-generation keys, `efcpt.renaming.json` has 4-layer rename pipeline, T4 templates enable enum generation/INPC/Obsolete injection/collection type control, and 3 multi-DbContext strategies cover single-project multi-database scenarios
+
+## 2026-07-03 | ingest | EF Core Power Tools
+
+- Source: `.raw/articles/efcore-power-tools-2026-07-03.md` (https://github.com/ErikEJ/EFCorePowerTools)
+- Summary: [[EFCorePowerTools]]
+- Pages created: [[EFCorePowerTools]], [[ErikEJ]], [[EF Core Reverse Engineering]], [[DGML Model Visualization]]
+- Pages updated: [[Entity Framework Core]], [[index]], [[hot]], [[concepts/_index]], [[entities/_index]], [[sources/_index]]
+- Key insight: EFCorePowerTools fills the reverse-engineering + model-visualization gap in EF Core's native tooling — `dotnet ef dbcontext scaffold` has no GUI, no config persistence, and no graph output. The `efcpt` CLI + `efcpt-config.json` + DGML builder form a complete database-first workflow that `dotnet ef` alone cannot match.
+
+## 2026-07-03 | clip-ingest | EF Core Performance Series (24 Chris Woodruff articles → 30+ pages)
+
+- Source: `.raw/notes/2026-07-03/` — 24 articles from woodruff.dev, migrated from Clippings/
+- Entity pages: [[Chris Woodruff]], [[Entity Framework Core]] (created/updated)
+- Sources (24): [[30-ef-core-interview-questions]], [[5-ef-core-performance-anti-patterns-efe-eliminates]], [[bulksynchronize-ef-core-woodruff]], [[compiled-models-ef-core-performance]], [[cracking-the-code-decoding-query-plans-woodruff]], [[dbcontext-pooling-chris-woodruff]], [[debugging-efcore-8-query-anti-patterns]], [[ef-core-event-counters-woodruff]], [[ef-core-execute-update-delete-woodruff]], [[ef-core-idbcontextfactory-batching]], [[ef-core-mapping-dark-magic]], [[ef-core-savechanges-interception-auditing-woodruff]], [[fromsql-writing-sql-like-a-boss-in-ef-core]], [[global-query-filters-ef-core-woodruff]], [[grouping-smarter-linq-groupby-ef-core]], [[keyless-entity-types-ef-core-woodruff]], [[many-to-many-ef-core-woodruff]], [[mapping-the-world-with-ef-core-spatial-data]], [[no-tracking-queries-ef-core-woodruff]], [[pagination-ef-core-htmx-sortable-grids]], [[query-tags-debugging-ef-core]], [[split-queries-stop-the-data-traffic-jam-in-ef-core]], [[temporal-tables-ef-core-woodruff]], [[transactional-savepoints-in-ef-core-rollback-just-what-you-need]]
+- Concepts (12 new): [[EF Core Bulk Synchronization]], [[EF Core Query Anti-Patterns]], [[EF Core Pagination Strategies]], [[EF Core Batch Updates]], [[EF Core Transactional Savepoints]], [[EF Core Audit Log]], [[EF Core SaveChanges Interception]], [[EF Core Temporal Tables]], [[EF Core IDbContextFactory]], [[DbContext Pooling]], [[EF Core Keyless Entity Types]], [[EF Core Spatial Data]]
+- Concepts (5 updated): [[EF Core DbContext Lifetime and Configuration]], [[EF Core Loading Strategies]], [[EF Core Querying and LINQ Translation]], [[FluentUI Blazor Paginator]], [[EF Core DbContext Pooling]]
+- Address counter: 294 → 327 (33 pages backfilled)
+- Notes: Parallel ingest via 25 wiki-ingest subagents; 13 completed in prior session (2026-07-03), 11 processed inline after API "Connection closed mid-response" failures. flock unavailable on Windows git-bash — wiki-lock concurrency guard inoperative. One near-duplicate transactional savepoints clip skipped. One duplicate source/concept pair (bulksynchronize) from resumed agent removed by orchestrator.
+
+## 2026-07-02 | batch-ingest | SQL Server Performance Tuning (25 sources → 30+ pages)
+- Source: `.raw/notes/2026-07-02/` — 21 Brent Ozar Unlimited sources + 4 third-party optimization articles
+- Sources (21 Brent Ozar): [[blocking-and-locking-how-to-find-and-fight-concurrency-problems]], [[how-to-think-like-the-engine-part-1]], [[how-to-think-like-the-engine-part-2]], [[how-to-think-like-the-engine-part-3]], [[how-to-think-like-the-engine-part-4]], [[how-to-think-like-the-sql-server-all-demo-edition]], [[how-to-think-like-the-sql-server-engine-part-1-clustered-index]], [[how-to-think-like-the-sql-server-engine-part-2]], [[how-to-think-like-the-sql-server-engine-part-3]], [[how-to-think-like-the-sql-server-engine-part-3-statistics-memory-grants]], [[how-to-tune-indexes-fast]], [[how-to-tune-queries-fast]], [[how-to-use-sp-blitzcache]], [[how-to-use-sp-blitzfirst]], [[How-to-Use-sp_BlitzIndex]], [[Identifying-and-Fixing-Parameter-Sniffing-Issues]], [[brent-ozar-mssql-performance-tuning-live]], [[brent-ozar-office-hours-database-qa]], [[sql-query-optimization-why-is-it-so-hard-to-get-right]], [[watch-brent-tune-queries-sqlsaturday-oslo]], [[watch-brent-tune-queries-2020]]
+- Sources (4 third-party): [[sql-query-performance-tuning-tips]], [[sqlshack-query-optimization-tips-and-tricks]], [[sql-performance-tuning-tips-for-newbies]], [[sql-query-optimization-18-techniques]]
+- Entity created/updated: [[Brent Ozar Unlimited]]
+- Concepts created (17): [[SQL Server Query Tuning Methodology]], [[SQL Server Wait Statistics]], [[SQL Server Locking, Blocking, and Concurrency Control]], [[SQL Server Statistics and Cardinality Estimation]], [[Parameter Sniffing]], [[SQL Server Performance Monitoring Tools]], [[First Responder Kit]], [[sp_BlitzIndex]], [[sp_BlitzCache]], [[sp_BlitzFirst]], [[SQL OR Predicate Anti-Pattern]], [[SQL Server Large Write Operation Contention]], [[SQL Server Wildcard Search Optimization]], [[SQL Server Query Hints]], [[Query Execution Plan]], [[Query Optimizer Join Order Complexity]], [[SQL Query Optimization]]
+- Pages updated: [[index]], [[hot]], [[concepts/_index]], [[.raw/.manifest.json]]
+- Key insight: B.E. C.R.E.E.P.I. methodology structures query tuning into a repeatable process. sp_Blitz* "sucker board" surfaces the worst-performing queries in seconds. Parameter sniffing is the #1 hidden perf killer — fix hierarchy: emergency kill → medium-term hints → permanent covering indexes. Wait stats triage via sp_BlitzFirst identifies the bottleneck class (IO vs CPU vs lock vs parallelism vs log). Lock escalation at ~5,000 rows; blocking has no timeout but deadlocks auto-resolve ~5s.
+
+## 2026-06-26 | batch ingest | Process Documentation (3 sources)
+- Sources: `.raw/notes/2026-06-26/` — 3 articles on business process documentation
+- Summaries: [[documentation-business-process-bergren]] (c-000271), [[art-of-writing-good-documentation]] (c-000272), [[atlassian-process-documentation-guide]] (c-000273)
+- Pages created: [[Business Process Documentation]] (c-000274), [[Documentation Culture]] (c-000275)
+- Pages updated: `wiki/concepts/_index.md`, `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`
+- Key insight: All three sources converge — documentation fails as a culture problem before a tooling problem. Core fix: treat documentation as a deliverable ("definition of done"), not an afterthought. Atlassian 12-step framework is the most complete methodology; Bergren's "How to"/"recipe" naming and template structure is the most practical starting point.
+
 # Operation Log
 
 Navigation: [[index]] | [[hot]] | [[overview]]
+
+## 2026-06-22 | batch-ingest | WinLine MDP / Makros / CWL Object Model / WebServices (12 sources → 17 pages)
+- Sources: `.raw/winline/docs/md/` — ExampleDokumentation Parts 1-4, MDP_WorkshopEnglish Parts 1-4, cwlmakro12.md, White Paper WinLine WebServices, cwlobject_e_105.md, cwlobjektdocu.md
+- Pages created (17): [[winline-mdp-workshop-example-docs]] (c-000253), [[winline-mdp-workshop-slides]] (c-000254), [[WinLine MDP Module]] (c-000255), [[WinLine CWLCTK]] (c-000256), [[WinLine User-Defined Windows]] (c-000257), [[WinLine MDP Database Extensions]] (c-000258), [[winline-makro12]] (c-000259), [[WinLine Makros]] (c-000260), [[WinLine VBScript Engine]] (c-000261), [[winline-webservices]] (c-000262), [[WinLine WebServices API]] (c-000263), [[WinLine WebServices Integration]] (c-000264), [[winline-cwl-object-model-en]] (c-000265), [[winline-cwl-object-model-de]] (c-000266), [[WinLine CWL Object Model]] (c-000267), [[WinLine CWLCurrentWindow]] (c-000268), [[WinLine CWL MacroCommands]] (c-000269)
+- Pages updated: [[Mesonic WinLine]] (entity — added MDP/scripting/integration sections), [[index]], [[hot]]
+- Key insight: WebServices Type 40/42 is the WinLine PPS ↔ HYDRA MES bridge for Framas production orders — connects two previously separate wiki domains.
+
+## 2026-06-11 | save | HYDRA Running and Scheduled Orders Query
+- Type: synthesis
+- Location: wiki/questions/HYDRA Running and Scheduled Orders Query.md
+- From: conversation on listing currently running HYDRA orders and orders scheduled in the next week
+- Pages created: [[HYDRA Running and Scheduled Orders Query]] (c-000252)
+- Pages updated: [[index]] (total 252→253), [[hot]]
+
+## 2026-06-09 | save | WinLine FAKT voucher scripting session note
+- Pages created: [[WinLine FAKT - Voucher Save Hook va Exchange Rate]] (c-000251) — synthesis note in `wiki/questions/`
+- Pages updated: [[index]] (total 251→252), [[hot]]
+
+## 2026-06-09 | ingest | WinLine FAKT module (voucher scripting + exchange rate)
+- Source: `.raw/winline/cwl0/cwl0.chm` (WordDocuments — Belegerfassung, Formelstamm, Tabellen erweitern sections)
+- Summary: [[WinLine FAKT]]
+- Pages created: [[WinLine FAKT]] (c-000249), [[WinLine FAKT Formeln]] (c-000250)
+- Pages updated: [[Mesonic WinLine]] (Modules Ingested), [[index]] (total + new entries), [[hot]]
+- Key insight: Belegkopfformel (Speichern) is the save-time hook for vouchers; exchange rate = `Value(0,618)`; user columns on T025 named U000… but adding them disables Belege parken.
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
 Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
+
+## [2026-06-09] batch-ingest | HYDRA markdown sources — 13 missing module concept pages
+- Source: `.raw/hydra/md/` (1,557 markdown-converted HYDRA docs: `CUT-HDB_DataModel_2021.md` + `HYDRA_8_Documentation Oct 2020/`)
+- Strategy: strategic ingest — prior ingests (2026-05-26/27) already covered 14 core modules; this pass adds 13 missing module concept pages
+- Pages created (c-000236 to c-000248): [[HYDRA TRT Module]] — [[HYDRA DNC Module]] — [[HYDRA EMG Module]] — [[HYDRA PZW Module]] — [[HYDRA FEP Module]] — [[HYDRA WEP Module]] — [[HYDRA REK Module]] — [[HYDRA PMV Module]] — [[HYDRA QMS Module]] — [[HYDRA AIP Module]] — [[HYDRA SIS Module]] — [[HYDRA EIS Module]] — [[HYDRA SCS Module]]
+- Pages updated: [[MPDV HYDRA]] (added 21 related links + full module architecture including new categories), [[index]], [[hot]]
+- Key insight: Prior HYDRA ingest captured DB-schema modules (those with `xxx_*` table prefixes in CUT-HDB). Missing modules (TRT, DNC, EMG, PZW, FEP, WEP, REK, PMV, QMS, AIP, SIS, EIS, SCS) have no dedicated DB schema section in the data model but are fully documented in the function docs — they rely on shared CAQ/BDE tables or are pure-logic layers.
 
 ## [2026-06-08] ingest | v_OMS_WHInfo — DOGE_WH warehouse info view (fGE)
 - Source: `.raw/framas/app/framas_scanner/tenants/fGE/v_OMS_WHInfo.sql`
@@ -392,3 +549,22 @@ Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 - Plugin: claude-obsidian v1.1.0
 - Structure: seed files + first ingest complete
 - Skills: wiki, wiki-ingest, wiki-query, wiki-lint, save, autoresearch
+
+## 2026-06-30 — HYDRA multi-mold machine (Q&A + presentation)
+- Created [[hydra-multi-mold-machine]] (c-000276) — question page: one machine, N mold slots = meta-resource pattern (HLS-BSR + WRM-NST). Backed by CUT-HDB data model: `res_bestand.meta_res/res_familie/param_str_02(RES.TLGNEST)/mit_anmelden/mehrfach`, `res_bedarfszuord` (RES:M/:T), `res_ress_belegung` (belegungsart A/S/W), BDE-NBT cavity partitioning, AIP-NES per-nest QC.
+- Enriched [[HYDRA WRM Module]] with the meta-resource / multi-mold field table.
+- Created `presentations/hydra-multi-mold-machine.md` — Marp deck (ideas + step-by-step implementation + rollout checklist).
+- Address counter 275 → 276.
+
+## 2026-06-30 — HYDRA multi-mold: gap closed (config click-path ingested)
+- Ingested MOC_ResourceConfiguration + AIP_M_TLG_NEST + Setup_AIP_QM_Cavity from [[hydra-8-documentation]].
+- Created [[HYDRA Multi-Tool Resource Configuration]] (c-000277) — full click-path: resource types, Required resource (mold pool via WRM Master data), cavity partitioning (Original/Current, "Partitioning due to cavities"), Log on with OP (None/Implicit/Explicit), parallel OPs (Logon of several OPs Y/N/1-9 + Available capacity N×1000 per mill), AIP_M_TLG_NEST cavity change recording, AIP-QM cavity dialog setup.
+- Updated [[hydra-multi-mold-machine]] (replaced Gap section with resolved config) + [[HYDRA WRM Module]] (required-resource/partitioning note) + presentation deck (config slide).
+- Address counter 276 → 277.
+
+## 2026-06-30 — HYDRA multi-mold: real PU case (3-tier + slot-pool)
+- Reality confirmed: 1 PU machine runs many orders (each=product), each product mounts variable molds, machine slots fixed.
+- Verdict: fits — TWO independent capacity caps. (1) parallel orders = Available capacity N_orders×1000; (2) parallel molds/slots = anonymous slot-pool resource Quantity=N (HLS capacity-checks tools on the OP, not just machine — licensed). Corrected earlier over-caution: auto-planning (graptsbap) DOES multi-assign once capacity raised; only default-1000 blocks it. Variable molds → Log on with OP=Explicit.
+- Ingested MOC_SchedulingAndAllocation + MOC_ResourceAllocation.
+- Updated [[HYDRA Multi-Tool Resource Configuration]] (new "Real-world tier" section + checklist) + [[hydra-multi-mold-machine]] (real PU section).
+- Regenerated presentation deck (4 new slides), canvas (new zone "3 · Real PU Case" + slot-pool step; 24 nodes), and both PDFs.

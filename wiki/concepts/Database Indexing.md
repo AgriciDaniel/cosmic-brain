@@ -2,7 +2,7 @@
 type: concept
 title: "Database Indexing"
 created: 2026-05-26
-updated: 2026-05-26
+updated: 2026-07-02
 tags:
   - database
   - concept
@@ -12,8 +12,19 @@ status: developing
 related:
   - "[[Database Index Advanced Techniques]]"
   - "[[Database Schema and Performance]]"
+  - "[[SQL Query Optimization]]"
+  - "[[SQL Server Wildcard Search Optimization]]"
+  - "[[SQL OR Predicate Anti-Pattern]]"
+  - "[[Query Optimizer Join Order Complexity]]"
+  - "[[SQL Server Large Write Operation Contention]]"
+  - "[[Query Execution Plan]]"
+  - "[[Brent Ozar Unlimited]]"
 sources:
   - "[[database-indexing-developer-guide]]"
+  - "[[sql-query-optimization-18-techniques]]"
+  - "[[sqlshack-query-optimization-tips-and-tricks]]"
+  - "[[how-to-think-like-the-engine-part-1]]"
+  - "[[how-to-think-like-the-engine-part-2]]"
 complexity: intermediate
 domain: database
 aliases:
@@ -27,6 +38,8 @@ address: c-000158
 # Database Indexing
 
 Indexes are the single most impactful performance tool in relational databases. This page covers the fundamentals: how indexes work, the two storage models, the four golden rules, and how indexes interact with common SQL operations.
+
+> See also [[SQL Query Optimization]] for the broader taxonomy this page sits under (projection, filtering, JOINs, N+1 avoidance, execution plan review, etc.) — this page owns the indexing-specific depth.
 
 ## B+Tree: The Mental Model
 
@@ -233,6 +246,43 @@ When column is VARCHAR and comparison value is numeric, MySQL casts the **column
 -- WRONG: WHERE payment_id = 57013925718  → CAST(payment_id AS UNSIGNED) = ...
 -- RIGHT: WHERE payment_id = '57013925718'
 ```
+
+## SQL Server: Clustered vs. Non-Clustered Index Model
+
+SQL Server's storage model is a distinct third variant alongside the Heap Table and MySQL/InnoDB Clustered Index models described above — and nearly every SQL Server table gets a clustered index (usually via the primary key), so this model is the practical default ([[how-to-think-like-the-engine-part-1]], [[how-to-think-like-the-sql-server-all-demo-edition]]):
+
+- **The clustered index IS the table.** Row data lives in the clustered index's leaf nodes, sorted by the clustering key, and contains every column (except off-row LOB data for large `NVARCHAR(MAX)`-style columns).
+- **A non-clustered index is a narrower, sorted "copy"/replica** of the table on different column(s) — not a separate pointer structure. It always implicitly includes the clustering key, so a matched row can be traced back to the full row in the clustered index.
+- All the 8KB-page mental model from the section above applies directly: an index (clustered or not) is fundamentally a sorted sequence of 8KB pages plus a hierarchical jump structure over them.
+
+### Key Lookup and Covering Indexes
+
+When a non-clustered index lacks a column the query needs, SQL Server performs a **Key Lookup** back into the clustered index — critically, once **per matching row**, not once total (see [[Query Execution Plan]] for the full cost-model treatment and the related **Tipping Point** concept). A **covering index** includes every column the query needs (via key columns or `INCLUDE`), eliminating the Key Lookup.
+
+### INCLUDE vs. KEY Columns
+
+For most practical purposes the two are near-equivalent — both are stored on the same 8KB index pages. The real difference is sort order: `INCLUDE` columns are *not* part of the sort key, so they don't affect how the index narrows a search, only what data is available at the leaf without a lookup.
+
+- **Column order matters enormously for the first 1-2 key columns** — they must be selective and actually filtered/searched on.
+- Column order matters much less for later columns and for `INCLUDE` columns.
+- **Missing Index Recommendations ("Clippy")** — SQL Server's suggested column lists are *not* presented in an optimal order; verify and test different orderings manually rather than accepting the suggested order verbatim (see next section).
+
+### How Many Indexes? The "5 and 5" Starting Point
+
+"5 indexes per table, 5 columns per index" is offered as a rule-of-thumb *starting point*, explicitly not a hard rule — Stack Overflow itself runs 30-40 indexes on some of its own tables given sufficient hardware to absorb the write cost. Treat it as a sanity-check default before deviating with evidence (query patterns, `sp_BlitzIndex` usage data, write-volume tolerance), not a ceiling.
+
+## SQL Server: Missing-Index Recommendations Aren't a Mandate
+
+SQL Server surfaces missing-index suggestions via Management Studio's GUI, the execution plan XML, and the missing-index DMVs. Treat these as a lead to investigate, not an instruction to follow verbatim ([[sqlshack-query-optimization-tips-and-tricks]]):
+
+- Check whether an **existing index is already close enough** to be modified instead of adding a new one.
+- Question every suggested `INCLUDE` column — would a narrower, non-covering index be good enough, saving the storage/write cost of the extras?
+- Weigh the reported **percent improvement against query frequency**. A 93%-improvement suggestion on a frequently-run, unindexed-column query is an easy win; a 19%-improvement suggestion may not be worth the added write overhead. A 20% gain on a query executed a million times a day, however, can still be worth it — frequency changes the calculus, not just the percentage.
+- Confirm the suggested index doesn't **already exist** under a different name/shape that the optimizer is simply declining to use (a symptom of stale statistics or a plan-cache issue, not a genuine index gap).
+
+Two related anti-patterns to watch for while addressing missing-index gaps:
+- **Over-indexing**: every additional index adds write cost (every INSERT/UPDATE/DELETE touching an indexed column updates that index too) plus storage and backup overhead.
+- **Under-indexing / no clustered index or primary key**: a table with few or no non-clustered indexes serves reads poorly; a table with no clustered index/primary key is a top-priority fix — clustered indexes outperform heaps, and a primary key gives the optimizer information it needs to make good plan choices.
 
 ## Debugging with EXPLAIN
 

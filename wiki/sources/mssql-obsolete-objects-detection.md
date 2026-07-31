@@ -1,16 +1,16 @@
 ---
 type: source
-title: "MSSQL Obsolete Object Detection"
+title: MSSQL Obsolete Object Detection
 created: 2026-06-05
 updated: 2026-06-05
 hash: facfedb0b1d677946ea1ff9b6b1f2e1c
 source_type: composite
 sources:
-  - "https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql"
-  - "https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-expression-dependencies-transact-sql"
-  - "https://www.sqlshack.com/cleaning-up-old-code-and-unused-objects-in-sql-server/"
-  - "https://www.sqlservercentral.com/blogs/tracking-table-usage-and-identifying-unused-objects"
-  - ".raw/mssql/mssql-obsolete-objects.md"
+  - https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql
+  - https://learn.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sql-expression-dependencies-transact-sql
+  - https://www.sqlshack.com/cleaning-up-old-code-and-unused-objects-in-sql-server/
+  - https://www.sqlservercentral.com/blogs/tracking-table-usage-and-identifying-unused-objects
+  - .raw/mssql/mssql-obsolete-objects.md
 confidence: high
 tags:
   - mssql

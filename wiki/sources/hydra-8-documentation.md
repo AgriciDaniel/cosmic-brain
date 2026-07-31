@@ -18,6 +18,8 @@ related:
   - "[[HYDRA 8 Configuration Procedures]]"
   - "[[HYDRA 8 Release Notes]]"
   - "[[HYDRA 8 Client Types]]"
+  - "[[hydra-service-interface-sif]]"
+  - "[[HYDRA Service Interface (SIF)]]"
 sources:
   - "[[hydra-cuthdb-data-model]]"
 source_type: data
@@ -118,6 +120,9 @@ HYDRA_8_Documentation Oct 2020/
 | **SIS** | 3.0 | 13 functions | System Integration Services (SSO, escalation, messaging, signatures) |
 | **EIS** | 3.0 | 20 functions | Enterprise Integration Services (12 SAP interfaces + ERP/materials/CAQ) |
 | **SCS** | 8.1 | 6 functions | Shop Floor Connectivity Services (OPC, Modbus, Siemens, PDM) |
+
+> [!note] SCS row is hardware connectivity only
+> One of the SCS product folder's own 6 documents — `SCS-SIF_81` — is **not** part of the OPC/Modbus/Siemens hardware-connectivity function set despite sharing the "SCS" product-family prefix and folder. It is the general-purpose HTTP/REST **Service Interface** (SIF) used to call any HYDRA service or PDM dialog from external clients, spanning the whole product suite (BDE/MDE/HLS/PZE/PZW/WRM/HR/MPL/PDV/CAQ...), not just SCS's own hardware layer. See [[HYDRA Service Interface (SIF)]] (architecture) and [[hydra-service-interface-sif]] (source, 535 pages) — deep-ingested 2026-07-14. [[HYDRA SCS Module]] remains accurate for the actual OPC/PCC hardware functions (PCC-OPC, PCC-DIF, SCS-IMM, OPC-SMB, OPC-SSS).
 
 ## Client Types
 
