@@ -2311,11 +2311,21 @@ def _remove_pinned_runtime_tree_at(
         )
     if remaining is None:
         remaining = [MAX_TRANSACTION_RUNTIME_TREE_ENTRIES]
-    child_names = _bounded_runtime_names(
-        directory_fd,
-        limit=remaining[0],
-        label=f"transaction runtime {component}",
-    )
+    scan_fd = _open_runtime_directory_at(parent_fd, component, create=False)
+    try:
+        pinned = os.fstat(directory_fd)
+        scanned = os.fstat(scan_fd)
+        if (pinned.st_dev, pinned.st_ino) != (scanned.st_dev, scanned.st_ino):
+            raise _LockIdentityChanged(
+                f"runtime directory changed before enumeration: {component}"
+            )
+        child_names = _bounded_runtime_names(
+            scan_fd,
+            limit=remaining[0],
+            label=f"transaction runtime {component}",
+        )
+    finally:
+        os.close(scan_fd)
     remaining[0] -= len(child_names)
     for child_name in child_names:
         metadata = os.stat(child_name, dir_fd=directory_fd, follow_symlinks=False)

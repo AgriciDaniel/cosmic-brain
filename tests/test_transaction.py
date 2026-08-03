@@ -2206,6 +2206,39 @@ def test_runtime_directory_cardinality_and_removal_are_bounded() -> None:
             transaction_module.MAX_TRANSACTION_RUNTIME_TREE_ENTRIES = original_tree
 
 
+def test_runtime_removal_enumerates_through_a_fresh_descriptor() -> None:
+    if not transaction_module._supports_confined_dirfd():
+        return
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        transactions = vault / ".vault-meta/transactions"
+        operation = transactions / "cursor-at-end"
+        backups = operation / "backups"
+        backups.mkdir(parents=True)
+        (operation / "bundle.json").write_text("{}\n", encoding="utf-8")
+        (backups / "original.bin").write_bytes(b"original\n")
+
+        parent_fd = os.open(
+            transactions,
+            os.O_RDONLY | os.O_DIRECTORY | getattr(os, "O_CLOEXEC", 0),
+        )
+        operation_fd = transaction_module._open_runtime_directory_at(
+            parent_fd, "cursor-at-end", create=False
+        )
+        try:
+            try:
+                os.lseek(operation_fd, 0, os.SEEK_END)
+            except OSError:
+                return
+            transaction_module._remove_pinned_runtime_tree_at(
+                parent_fd, "cursor-at-end", operation_fd
+            )
+        finally:
+            os.close(operation_fd)
+            os.close(parent_fd)
+        assert not operation.exists()
+
+
 def test_mutation_and_runtime_descriptors_do_not_leak() -> None:
     descriptor_directory = next(
         (path for path in (Path("/proc/self/fd"), Path("/dev/fd")) if path.is_dir()),
@@ -2579,6 +2612,7 @@ def main() -> None:
     test_meta_managed_targets_rollback_inside_pinned_namespace()
     test_recovery_never_reads_a_replaced_external_operation()
     test_runtime_directory_cardinality_and_removal_are_bounded()
+    test_runtime_removal_enumerates_through_a_fresh_descriptor()
     test_mutation_and_runtime_descriptors_do_not_leak()
     test_recover_interrupted_journal()
     test_recovery_rejects_unbound_or_indirect_backups_before_any_write()
