@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 created: 2026-04-23
-updated: 2026-07-24
+updated: 2026-08-08
 tags:
   - meta
   - hot-cache
@@ -17,7 +17,7 @@ related:
 
 ## Last Updated
 
-2026-07-24. Multi-agent environment alignment. Verified and symlinked 225/206 Hermes skills into Claude Code and OpenCode local installations for native agentic discovery. Ingested UK Tech Ecosystem strategic analysis 2025-2026.
+2026-08-08. FlowLens strategy verdict is MODIFY: own Process Assurance Platform, starting with the UK MSP onboarding/offboarding wedge. The truthful private-pilot launch foundation is in place; PILOT_NOTIFICATION_TO is still required for live pilot notifications.
 
 ## Key Recent Facts
 
@@ -30,6 +30,7 @@ related:
 - Legacy JobFilter vault material is preserved under `Archive/Legacy JobFilter Vault/`.
 - Compatibility junctions preserve old general-vault paths without duplicating physical knowledge.
 - Zawiya remains separate due its private spiritual-content boundary.
+- FlowLens is positioned as a Process Assurance Platform: evidence-linked Processes that can be reviewed, run, and improved, with current public UX clearly separating implemented, preview, and planned capabilities.
 - [[Full-Walkthrough-Workflow-for-AI-Coding]] was ingested with its original English automatic-caption transcript and source hash.
 - [[AI Engineering Delivery Loop]] captures the reusable workflow: align first, slice vertically, implement with fast feedback, review from fresh context, and keep humans at the quality boundary.
 - [[2026-07-20-live-agent-bridge]] defines Agent Nudge v0.3 around check-in, task intent, expiring claims, deterministic fact fan-out, sync cursors, acknowledgement, and HOLD-to-CLEAR proof.
@@ -55,3 +56,4 @@ related:
 - JobFilter `/whats-new` is live with five evidence-backed customer updates; the next entry should record this release now that it has shipped.
 - JobFilter's next commercial proof is source coverage: configure the remaining providers and turn the structurally valid 42-scan audit from 0 sellable results into evidence-backed opportunities.
 - Four unique vault PRs remain labelled for human review; JobFilter PR #376 and FlipSignal PR #5 remain active code reviews.
+- FlowLens production launch is pending the final audit/deploy gate, including configuring PILOT_NOTIFICATION_TO; Vercel preview verification is complete.
