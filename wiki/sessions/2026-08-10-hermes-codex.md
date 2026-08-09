@@ -15,6 +15,7 @@ status: completed
 - Researched MCP consolidation and added a safe lean-Codex launcher to the local AI performance repository.
 - Re-measured 39.86 GB total RAM: 19.68 GB used and 20.18 GB free; no Ollama model loaded.
 - Closed both user-approved Windows Terminal Codex process trees, including their owned MCP children. Node fell from 46 processes / 5.29 GB to 28 processes / 3.23 GB.
+- Corrected the stale Hermes profile name from `gemma3-heretic-local` to `qwen3-hermes-local`, reinstalled its login launcher, and verified Telegram reconnected with `qwen3-hermes:latest` through Ollama.
 
 ## Files changed
 
