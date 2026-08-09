@@ -42,3 +42,12 @@ status: completed
 - Update the RZ09-0328x BIOS from 1.02 to Razer's 1.06 and update Intel ME using Razer's official packages, with backup and AC power.
 - Benchmark CPU stock behavior after a full ThrottleStop reset/test before deciding on turbo, undervolt, or PL1/PL2 tuning.
 - Consider replacing the 8 GB DIMM with a matching 32 GB module for 64 GB dual-channel memory; Razer officially supports this configuration.
+
+## CPU/GPU tuning research plan
+
+- ThrottleStop 9.7.3 is running with a legacy edited INI. The active profile caps all turbo ratios at approximately 41x, stores likely 60 W/80 W turbo power requests, enables MSR lock state and Sync MMIO, and has monitoring disabled. Historical telemetry nevertheless showed PL1 near 31-32 W, indicating a lower firmware, EC, MMIO, or Intel Dynamic Tuning limit is likely winning.
+- VBS is active. ThrottleStop's bundled readme and its author state that VBS blocks direct FIVR voltage-register access, although Speed Shift and turbo power controls can still work. Saved undervolt values therefore must not be assumed active.
+- BIOS 1.06 should not precede the reversible stock-vs-ThrottleStop test: Intel's Plundervolt mitigation can permanently lock software voltage control, so current FIVR status and stock behavior need to be captured first.
+- Planned CPU sequence: capture GUI panels and sensor baseline; back up the INI; exit ThrottleStop, remove it from the test boot and fully power down; measure stock clocks/limits; update BIOS/ME only after the comparison; then build a clean profile without lock bits or undervolting. Consider a separate VBS-off AI boot entry and a small incremental undervolt only if FIVR remains unlocked.
+- Planned GPU sequence: install official HWiNFO/OCCT/MSI Afterburner only after approval; establish three-run Ollama and 10-minute thermal baselines; tune one voltage/frequency bin at a time at the fixed 80 W ceiling, then test small memory offsets. Keep only gains above run-to-run noise with zero errors, WHEA events, driver resets, or model-output corruption.
+- Conservative expectations: restoring CPU turbo can improve CPU-bound work by roughly 15-35% but fully GPU-offloaded 4B decode by only 0-3%; GTX 1660 Ti efficiency plus memory tuning is expected to improve 8K Qwen generation by roughly 3-8%, from 64-65 tok/s to about 66-70 tok/s. Hermes context reduction remains the only measured multi-fold improvement.
