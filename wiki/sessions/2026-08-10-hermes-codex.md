@@ -14,6 +14,7 @@ status: completed
 - Diagnosed the MAZos dashboard startup: it was not running and its local `hermes-agent/web` install cannot currently resolve Vite. No MAZos files or startup entries were changed.
 - Researched MCP consolidation and added a safe lean-Codex launcher to the local AI performance repository.
 - Re-measured 39.86 GB total RAM: 19.68 GB used and 20.18 GB free; no Ollama model loaded.
+- Closed both user-approved Windows Terminal Codex process trees, including their owned MCP children. Node fell from 46 processes / 5.29 GB to 28 processes / 3.23 GB.
 
 ## Files changed
 
@@ -29,6 +30,7 @@ status: completed
 - Preserve the current Codex desktop helpers, the delegated Claude SSH agent, and 9router.
 - Reclaim memory only by closing an unused parent Codex/Claude session or stopping the Khutba dev stack; do not kill MCP child processes individually.
 - Keep one knowledge-enabled agent session and use lean extra sessions without OpenWiki/SwarmVault, avoiding roughly 400 MB per lean session.
+- Preserve the current Codex desktop session, Claude, 9router, and MAZos while removing only the two explicitly approved terminal sessions.
 - Do not add a shared MCP proxy yet: both installed servers are stdio-only and have not been validated for shared concurrent access.
 
 ## Next steps
