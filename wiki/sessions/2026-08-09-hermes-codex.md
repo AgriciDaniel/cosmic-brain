@@ -75,3 +75,12 @@ status: completed
 
 - Batch 1 should recover capacity and isolate causes without compounding variables: baseline; Intel-GPU app routing and monitor test; 5% minimum processor state; safe startup/storage cleanup; and a controlled ThrottleStop-on versus clean-boot-off comparison. It ends with evidence and makes no driver, firmware, Hermes, Ollama, model, voltage, or clock changes.
 - Batch 2 applies measured fixes one at a time: correct the proven CPU limiter and update drivers/firmware only where justified; repair Hermes context compatibility; tune Ollama residency; benchmark/select the strongest fully offloaded model; validate Telegram and WhisperX handoff; optionally tune GPU efficiency; and produce the final before/after matrix.
+
+## Execution checkpoint
+
+- Created and merged the private `manazoid4/local-ai-performance` tracker with reproducible baseline and Ollama benchmark scripts, action/rollback documentation, and an experiment ledger.
+- Changed AC minimum processor state from 100% to 5%; Qwen 8K remained within noise at 65.98 versus 66.12 tok/s.
+- Configured Chrome, Firefox, ChatGPT/Codex, WhatsApp, Edge WebView, and Twinkle Tray to prefer Intel graphics; measurement awaits application restart.
+- Measured Qwen contexts: 16K 65.83 tok/s fully GPU, 24K 65.38 fully GPU, and 32K 45.37 with 12% CPU spill. Selected 24K as the technical target.
+- Tested and reverted a plain Hermes `ollama_num_ctx: 24576` override because Hermes v0.20 has a second runtime 64K guard. Verified the restored live profile with a successful 64K `OK` response.
+- Opened tracker issue #2 for a narrow per-profile local-context compatibility mode. An isolated implementation attempt changed no files because the Codex Probity hook requires a newer Codex app/CLI; the clean temporary worktree was removed.
