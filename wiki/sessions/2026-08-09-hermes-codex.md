@@ -65,3 +65,8 @@ status: completed
 
 - Batch 1 can be delegated: preserve baseline, move non-AI GUI apps to Intel graphics, test the external-monitor VRAM effect, set minimum CPU state to 5%, trim only confirmed-unneeded startup entries, reclaim SSD space without deleting models, and report before/after VRAM, RAM, disk, and Qwen 8K throughput. No ThrottleStop, firmware, Ollama, Hermes, pagefile, Defender, or model changes.
 - Batch 2 remains with Codex: reset and benchmark ThrottleStop versus stock, update drivers/firmware one at a time, tune Ollama residency and Hermes context compatibility, conservatively tune the GPU, then run the final model benchmark matrix.
+
+## Revised two-batch split
+
+- Batch 1 is now an outcome-based platform repair owned by the other agent: establish rollback and baseline; reclaim dGPU VRAM; perform the controlled stock-versus-ThrottleStop shutdown test and correct the 2.6 GHz CPU cap only when proven; trim startup and safe storage clutter; update the NVIDIA driver separately; then provide before/after resource and benchmark evidence. It must not touch Hermes, Ollama configuration/models, BIOS/ME, Defender, pagefile, undervolting, or GPU overclocking.
+- Batch 2 is the AI-stack optimization owned by Codex: use the newly measured VRAM ceiling to resolve Hermes' 64K validator/config conflict; sweep fully offloaded contexts; configure Ollama residency and WhisperX handoff; benchmark and select the strongest tool/thinking model; validate Telegram end-to-end; then optionally tune GPU efficiency against the chosen workload.
