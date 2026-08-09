@@ -19,3 +19,7 @@ tags: [projects, flowlens, github]
 - Inspect the repo worktree and project notes before making edits.
 - [[2026-08-08-process-assurance-strategy]] — decisive category, wedge, falsification gates and implementation direction.
 - [[2026-07-11-financial-model]] — pre-strategy 24-month model; retain as historical context, but its broad pricing assumptions are superseded pending paid MSP pilots.
+
+## Current status
+
+- [[2026-08-09-minimal-friction-quickstart]] — shipped minimal-friction quickstart: rough notes become a reviewable process with gaps and Markdown/JSON export. Live at https://web-chi-nine-65.vercel.app/try; PR #5 merged as `8fb124a`.
