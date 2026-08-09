@@ -16,6 +16,7 @@ status: completed
 - Re-measured 39.86 GB total RAM: 19.68 GB used and 20.18 GB free; no Ollama model loaded.
 - Closed both user-approved Windows Terminal Codex process trees, including their owned MCP children. Node fell from 46 processes / 5.29 GB to 28 processes / 3.23 GB.
 - Corrected the stale Hermes profile name from `gemma3-heretic-local` to `qwen3-hermes-local`, reinstalled its login launcher, and verified Telegram reconnected with `qwen3-hermes:latest` through Ollama.
+- Switched Hermes Telegram to the installed `llama3.1:8b` model at 4096 context and renamed its profile/startup entry to `llama3-1-8b-local`. Verified Telegram reconnected and Ollama loaded 5.2 GB at 80% GPU / 20% CPU; a four-token smoke test produced 28.04 tok/s.
 
 ## Files changed
 
