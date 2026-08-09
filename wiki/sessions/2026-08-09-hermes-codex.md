@@ -60,3 +60,8 @@ status: completed
 - Rejected a blind 24K Hermes context change: current Hermes validation previously rejected contexts below 64K. A 16K/24K/32K sweep requires an integration fix or compatible Hermes version and must be benchmarked.
 - Rejected shrinking the pagefile as an optimization while 122 GB in Downloads and 17 GB in Docker data are better cleanup targets. The system-managed pagefile protects large AI jobs and crash diagnostics.
 - Rejected deleting Gemma/custom models based only on architecture similarity. Consumers and Modelfiles must be audited before any destructive removal.
+
+## Two-batch execution split
+
+- Batch 1 can be delegated: preserve baseline, move non-AI GUI apps to Intel graphics, test the external-monitor VRAM effect, set minimum CPU state to 5%, trim only confirmed-unneeded startup entries, reclaim SSD space without deleting models, and report before/after VRAM, RAM, disk, and Qwen 8K throughput. No ThrottleStop, firmware, Ollama, Hermes, pagefile, Defender, or model changes.
+- Batch 2 remains with Codex: reset and benchmark ThrottleStop versus stock, update drivers/firmware one at a time, tune Ollama residency and Hermes context compatibility, conservatively tune the GPU, then run the final model benchmark matrix.
