@@ -29,6 +29,9 @@ status: completed
 - Downloaded and verified `qwen3.5:4b-q4_K_M` (3.4 GB, reported 4.7B parameters) and ran strict speed, accuracy, thinking, VRAM and tool-call tests.
 - Rejected Qwen3.5 for the Telegram hot path: it was 6.1% slower in the same-session generation test, scored 4/6 versus 5/6, and exhausted 1200 thinking tokens without returning a final answer on a simple logic prompt.
 - Kept Qwen3.5 installed for later testing, left Hermes configured for `qwen3-hermes-8k:latest`, and pre-warmed the current model at 3.3 GB / 100% GPU / 8192 context.
+- Added the official OptiLLM checkout at `C:\Users\manaz\optillm` with an isolated proxy-only virtual environment and tested its Ollama-compatible `re2` path.
+- Compared direct Hermes against OptiLLM: arithmetic and concise diagnosis were 8-19% slower through the proxy, correctness did not improve, and a long diagnosis failed on an intermediate truncation.
+- Added an opt-in launcher and evidence report; stopped the proxy and left Telegram on direct Ollama.
 - Attempted the larger 15.95 GB hibernation cleanup, but the non-elevated shell was rejected; no hibernation setting changed.
 
 ## Files changed
@@ -53,6 +56,7 @@ status: completed
 - Do not tune ThrottleStop for Ollama yet: the measured Qwen workload is GPU power-capped rather than thermally throttled, so expected benefit is only 0-5% with added stability risk.
 - Preserve the verified browser iGPU preference, which recovered 408 MiB of idle NVIDIA VRAM.
 - Keep Qwen3.5 installed but off Telegram until a newer Ollama/model build fixes its poor thinking termination and it wins a repeat A/B.
+- Keep OptiLLM available for deliberate non-Telegram experiments only; it is not a persistent performance improvement for this GPU-bound workload.
 
 ## Next steps
 
