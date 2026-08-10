@@ -18,6 +18,8 @@ status: completed
 - Corrected the stale Hermes profile name from `gemma3-heretic-local` to `qwen3-hermes-local`, reinstalled its login launcher, and verified Telegram reconnected with `qwen3-hermes:latest` through Ollama.
 - Switched Hermes Telegram to the installed `llama3.1:8b` model at 4096 context and renamed its profile/startup entry to `llama3-1-8b-local`. Verified Telegram reconnected and Ollama loaded 5.2 GB at 80% GPU / 20% CPU; a four-token smoke test produced 28.04 tok/s.
 - Diagnosed the Telegram "unexpected error" as Hermes' enforced 64K agent-context preflight. Set the profile's declared and Ollama context values to 65536, restarted, and verified a real Hermes CLI request succeeded in 26.4 seconds. Ollama continued to report the efficient 4096 physical allocation.
+- Ran a controlled Llama 3.1 8B versus Qwen3 Hermes A/B. Qwen scored 10/14 versus 7/14, generated at 65.00 versus 18.59 tok/s, and completed a real two-turn Hermes terminal workflow.
+- Created `qwen3-hermes-8k:latest` from the existing Qwen weights with only `num_ctx 8192` overridden, restored Telegram to it, and verified 3.3 GB / 100% GPU placement plus Telegram polling health.
 
 ## Files changed
 
@@ -34,6 +36,7 @@ status: completed
 - Reclaim memory only by closing an unused parent Codex/Claude session or stopping the Khutba dev stack; do not kill MCP child processes individually.
 - Keep one knowledge-enabled agent session and use lean extra sessions without OpenWiki/SwarmVault, avoiding roughly 400 MB per lean session.
 - Preserve the current Codex desktop session, Claude, 9router, and MAZos while removing only the two explicitly approved terminal sessions.
+- Use `qwen3-hermes-8k:latest` as the measured Hermes winner; keep Llama installed but off the Telegram hot path.
 - Do not add a shared MCP proxy yet: both installed servers are stdio-only and have not been validated for shared concurrent access.
 
 ## Next steps
