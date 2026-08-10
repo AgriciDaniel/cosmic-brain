@@ -18,3 +18,4 @@ status: completed
 ## Next steps
 - Run a multi-run, identical-settings llama.cpp-vs-Ollama benchmark and test gateway compatibility.
 - Researched five additional candidates: ExLlamaV3, LlamaStation, LocalAI, Atomic Chat, and TextGen. Added `local-ai-performance/docs/ADDITIONAL-REDDIT-TOOLS-2026-08-10.md` and pushed commit `67e984f`.
+- Switched the active Telegram Hermes profile to the locally derived `lfm2.5-8b-a1b-gpu` model with embedded `num_gpu 99` and 65,536 context; restarted and verified Telegram connected. Pushed commit `9699884`.
