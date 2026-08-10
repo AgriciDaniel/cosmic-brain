@@ -4,63 +4,16 @@ project: hermes
 agent: codex
 status: completed
 ---
-
 ## What I did
-
-- Audited every live Node process by command, parent agent, process tree, RAM, listening port, and short CPU activity sample.
-- Identified the large Node footprint as per-session MCP duplication rather than unidentified compute workloads.
-- Stopped the confirmed Khutba Vite frontend and API process trees; ports 5173 and 3001 are closed.
-- Preserved 9router on port 20128.
-- Diagnosed the MAZos dashboard startup: it was not running and its local `hermes-agent/web` install cannot currently resolve Vite. No MAZos files or startup entries were changed.
-- Researched MCP consolidation and added a safe lean-Codex launcher to the local AI performance repository.
-- Re-measured 39.86 GB total RAM: 19.68 GB used and 20.18 GB free; no Ollama model loaded.
-- Closed both user-approved Windows Terminal Codex process trees, including their owned MCP children. Node fell from 46 processes / 5.29 GB to 28 processes / 3.23 GB.
-- Corrected the stale Hermes profile name from `gemma3-heretic-local` to `qwen3-hermes-local`, reinstalled its login launcher, and verified Telegram reconnected with `qwen3-hermes:latest` through Ollama.
-- Switched Hermes Telegram to the installed `llama3.1:8b` model at 4096 context and renamed its profile/startup entry to `llama3-1-8b-local`. Verified Telegram reconnected and Ollama loaded 5.2 GB at 80% GPU / 20% CPU; a four-token smoke test produced 28.04 tok/s.
-- Diagnosed the Telegram "unexpected error" as Hermes' enforced 64K agent-context preflight. Set the profile's declared and Ollama context values to 65536, restarted, and verified a real Hermes CLI request succeeded in 26.4 seconds. Ollama continued to report the efficient 4096 physical allocation.
-- Ran a controlled Llama 3.1 8B versus Qwen3 Hermes A/B. Qwen scored 10/14 versus 7/14, generated at 65.00 versus 18.59 tok/s, and completed a real two-turn Hermes terminal workflow.
-- Created `qwen3-hermes-8k:latest` from the existing Qwen weights with only `num_ctx 8192` overridden, restored Telegram to it, and verified 3.3 GB / 100% GPU placement plus Telegram polling health.
-- Researched current tool-and-thinking models from primary sources. Identified `qwen3.5:4b-q4_K_M` as the strongest fitting challenger; no model was downloaded.
-- Ran a sustained 1,400-token Hermes load: 61.45 tok/s, 59.6 C average / 64 C peak, 79.5 W average, power-capped throughout, and zero thermal-throttle samples.
-- Benchmarked installed Phi-4 Mini as a no-download control: 64.87 tok/s at 8K and full 2.86 GB VRAM offload, but it is not a useful upgrade because it lacks the required native thinking mode.
-- Reclaimed 4.78 GB with the supported npm cache cleanup, taking C: free space from 58.02 GB to 62.80 GB without removing models or Downloads.
-- Set Chrome and Firefox to the Windows power-saving/iGPU preference for their next launch, so browser rendering can release GTX 1660 Ti VRAM.
-- Restarted Chrome and Firefox from the CLI and verified idle NVIDIA VRAM fell from 1058 MiB to 650 MiB, recovering 408 MiB; both browsers relaunched successfully.
-- Downloaded and verified `qwen3.5:4b-q4_K_M` (3.4 GB, reported 4.7B parameters) and ran strict speed, accuracy, thinking, VRAM and tool-call tests.
-- Rejected Qwen3.5 for the Telegram hot path: it was 6.1% slower in the same-session generation test, scored 4/6 versus 5/6, and exhausted 1200 thinking tokens without returning a final answer on a simple logic prompt.
-- Kept Qwen3.5 installed for later testing, left Hermes configured for `qwen3-hermes-8k:latest`, and pre-warmed the current model at 3.3 GB / 100% GPU / 8192 context.
-- Added the official OptiLLM checkout at `C:\Users\manaz\optillm` with an isolated proxy-only virtual environment and tested its Ollama-compatible `re2` path.
-- Compared direct Hermes against OptiLLM: arithmetic and concise diagnosis were 8-19% slower through the proxy, correctness did not improve, and a long diagnosis failed on an intermediate truncation.
-- Added an opt-in launcher and evidence report; stopped the proxy and left Telegram on direct Ollama.
-- Attempted the larger 15.95 GB hibernation cleanup, but the non-elevated shell was rejected; no hibernation setting changed.
-
+- Searched recent Reddit discussions for local inference performance tools.
+- Cloned six candidate repositories into `C:\Users\manaz\reddit-inference-repos`.
+- Smoke-tested llama.cpp, ik_llama.cpp, llama-swap, KoboldCpp, vLLM, and SGLang.
+- Ran a direct CUDA llama.cpp benchmark against the current Hermes GGUF: 66.2 t/s generation, all layers on CUDA, about 4.14 GB peak VRAM.
+- Wrote the comparison to `local-ai-performance/docs/REDDIT-INFERENCE-REPOS-2026-08-10.md` and pushed commit `d560872`.
 ## Files changed
-
-- `wiki/sessions/2026-08-09-hermes-codex.md`
-- `wiki/sessions/2026-08-10-hermes-codex.md`
-- `local-ai-performance/docs/MCP-CONSOLIDATION-RESEARCH.md`
-- `local-ai-performance/scripts/start-codex-lean.ps1`
-- `local-ai-performance/docs/MODEL-AND-THROTTLESTOP-RESEARCH-2026-08-10.md`
-- `local-ai-performance/docs/QWEN35-AB-2026-08-10.md`
-- GitHub tracker issue `manazoid4/local-ai-performance#4`
-- GitHub pull request `manazoid4/local-ai-performance#5`
-
+- `local-ai-performance/docs/REDDIT-INFERENCE-REPOS-2026-08-10.md`
 ## Decisions made
-
-- Preserve the current Codex desktop helpers, the delegated Claude SSH agent, and 9router.
-- Reclaim memory only by closing an unused parent Codex/Claude session or stopping the Khutba dev stack; do not kill MCP child processes individually.
-- Keep one knowledge-enabled agent session and use lean extra sessions without OpenWiki/SwarmVault, avoiding roughly 400 MB per lean session.
-- Preserve the current Codex desktop session, Claude, 9router, and MAZos while removing only the two explicitly approved terminal sessions.
-- Use `qwen3-hermes-8k:latest` as the measured Hermes winner; keep Llama installed but off the Telegram hot path.
-- Do not add a shared MCP proxy yet: both installed servers are stdio-only and have not been validated for shared concurrent access.
-- Do not tune ThrottleStop for Ollama yet: the measured Qwen workload is GPU power-capped rather than thermally throttled, so expected benefit is only 0-5% with added stability risk.
-- Preserve the verified browser iGPU preference, which recovered 408 MiB of idle NVIDIA VRAM.
-- Keep Qwen3.5 installed but off Telegram until a newer Ollama/model build fixes its poor thinking termination and it wins a repeat A/B.
-- Keep OptiLLM available for deliberate non-Telegram experiments only; it is not a persistent performance improvement for this GPU-bound workload.
-
+- Keep Ollama/Hermes unchanged until a controlled gateway A/B test.
+- Prioritize llama.cpp; defer vLLM/SGLang and treat llama-swap as orchestration only.
 ## Next steps
-
-- Close stale parent Codex/Claude sessions normally when they are no longer needed, then re-measure RAM.
-- Repair the MAZos dashboard dependencies separately after SSD space is reclaimed.
-- Merge local-ai-performance pull request 5 after review.
-- With approval, pull and A/B `qwen3.5:4b-q4_K_M` against the current Hermes model using identical speed, quality, and real tool-call tests.
+- Run a multi-run, identical-settings llama.cpp-vs-Ollama benchmark and test gateway compatibility.
