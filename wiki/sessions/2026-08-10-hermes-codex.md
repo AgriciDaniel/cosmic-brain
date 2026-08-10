@@ -23,6 +23,9 @@ status: completed
 - Researched current tool-and-thinking models from primary sources. Identified `qwen3.5:4b-q4_K_M` as the strongest fitting challenger; no model was downloaded.
 - Ran a sustained 1,400-token Hermes load: 61.45 tok/s, 59.6 C average / 64 C peak, 79.5 W average, power-capped throughout, and zero thermal-throttle samples.
 - Benchmarked installed Phi-4 Mini as a no-download control: 64.87 tok/s at 8K and full 2.86 GB VRAM offload, but it is not a useful upgrade because it lacks the required native thinking mode.
+- Reclaimed 4.78 GB with the supported npm cache cleanup, taking C: free space from 58.02 GB to 62.80 GB without removing models or Downloads.
+- Set Chrome and Firefox to the Windows power-saving/iGPU preference for their next launch, so browser rendering can release GTX 1660 Ti VRAM.
+- Attempted the larger 15.95 GB hibernation cleanup, but the non-elevated shell was rejected; no hibernation setting changed.
 
 ## Files changed
 
@@ -43,6 +46,7 @@ status: completed
 - Use `qwen3-hermes-8k:latest` as the measured Hermes winner; keep Llama installed but off the Telegram hot path.
 - Do not add a shared MCP proxy yet: both installed servers are stdio-only and have not been validated for shared concurrent access.
 - Do not tune ThrottleStop for Ollama yet: the measured Qwen workload is GPU power-capped rather than thermally throttled, so expected benefit is only 0-5% with added stability risk.
+- Preserve the browser iGPU preference and verify the actual idle VRAM reduction after Chrome and Firefox restart.
 
 ## Next steps
 
