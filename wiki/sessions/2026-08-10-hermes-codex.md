@@ -25,6 +25,7 @@ status: completed
 - Benchmarked installed Phi-4 Mini as a no-download control: 64.87 tok/s at 8K and full 2.86 GB VRAM offload, but it is not a useful upgrade because it lacks the required native thinking mode.
 - Reclaimed 4.78 GB with the supported npm cache cleanup, taking C: free space from 58.02 GB to 62.80 GB without removing models or Downloads.
 - Set Chrome and Firefox to the Windows power-saving/iGPU preference for their next launch, so browser rendering can release GTX 1660 Ti VRAM.
+- Restarted Chrome and Firefox from the CLI and verified idle NVIDIA VRAM fell from 1058 MiB to 650 MiB, recovering 408 MiB; both browsers relaunched successfully.
 - Attempted the larger 15.95 GB hibernation cleanup, but the non-elevated shell was rejected; no hibernation setting changed.
 
 ## Files changed
@@ -46,7 +47,7 @@ status: completed
 - Use `qwen3-hermes-8k:latest` as the measured Hermes winner; keep Llama installed but off the Telegram hot path.
 - Do not add a shared MCP proxy yet: both installed servers are stdio-only and have not been validated for shared concurrent access.
 - Do not tune ThrottleStop for Ollama yet: the measured Qwen workload is GPU power-capped rather than thermally throttled, so expected benefit is only 0-5% with added stability risk.
-- Preserve the browser iGPU preference and verify the actual idle VRAM reduction after Chrome and Firefox restart.
+- Preserve the verified browser iGPU preference, which recovered 408 MiB of idle NVIDIA VRAM.
 
 ## Next steps
 
