@@ -17,3 +17,4 @@ status: completed
 - Prioritize llama.cpp; defer vLLM/SGLang and treat llama-swap as orchestration only.
 ## Next steps
 - Run a multi-run, identical-settings llama.cpp-vs-Ollama benchmark and test gateway compatibility.
+- Researched five additional candidates: ExLlamaV3, LlamaStation, LocalAI, Atomic Chat, and TextGen. Added `local-ai-performance/docs/ADDITIONAL-REDDIT-TOOLS-2026-08-10.md` and pushed commit `67e984f`.
