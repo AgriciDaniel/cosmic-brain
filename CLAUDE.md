@@ -1,13 +1,16 @@
-# claude-obsidian — Claude + Obsidian Wiki Vault
+# Maz Works Knowledge Vault — Claude + Obsidian
 
 ## Canonical Location
 
 The unified vault lives at `C:\Users\manaz\Desktop\Obsidian Main Vault`.
 
+Its canonical name is **Maz Works Knowledge Vault**. It is the umbrella knowledge system for all Maz Works software, products, experiments, clients, and operating work. JobFilter is one project within that system. The physical folder name, plugin name, and legacy `JobFilter-Obsidian-Vault` repository references do not narrow its scope.
+
 - `Personal/`: notes merged from the previous main Obsidian vault.
 - `wiki/`: shared compounding wiki and agent memory.
 - `Local Knowledge/`: SwarmVault ingestion, graph, retrieval, inbox, and generated digest.
-- `Projects/JobFilter/`: current JobFilter vault material.
+- `Projects/`: current Maz Works project material.
+- `Projects/JobFilter/`: the JobFilter project's material.
 - `Archive/Legacy JobFilter Vault/`: older JobFilter vault snapshot retained to avoid data loss.
 
 All agents must use this vault. Do not create another general vault.

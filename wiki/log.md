@@ -1,5 +1,17 @@
 # Wiki Log
 
+## [2026-08-13] save | Maz Works Quiet Framework Delivery
+
+- Type: session
+- Location: `wiki/sessions/2026-08-13-maz-works-codex.md`
+- From: complete site refinement, founder-led peer research, browser verification, PR #9 publishing, and cross-project vault identity update.
+
+## [2026-08-13] save | Maz Works Knowledge Vault Identity
+
+- Type: decision
+- Location: `wiki/meta/maz-works-knowledge-vault-identity.md`
+- From: canonical naming and scope decision made during the Maz Works Quiet Framework delivery.
+
 ## [2026-07-21] save | GitHub History Hygiene Cleanup
 
 - Type: session

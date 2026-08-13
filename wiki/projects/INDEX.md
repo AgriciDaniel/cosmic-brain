@@ -1,7 +1,7 @@
 ---
 title: Projects Index
 created: 2026-07-05
-updated: 2026-08-08
+updated: 2026-08-13
 type: summary
 tags: [projects, index]
 ---
@@ -10,7 +10,8 @@ tags: [projects, index]
 
 | Project | Local path | GitHub | Stack | Status | Notes |
 |---|---|---|---|---|---|
-| [[wiki/projects/jobfilter/INDEX|JobFilter]] | `C:\Users\manaz\JobFilterV1` | `manazoid4/JobFilterV1` | React/Vite, Express, Firebase, Stripe | active/pre-launch; verify worktree before edits | lead scoring + trades SaaS |
+| [[wiki/projects/maz-works/STATUS|Maz Works]] | `C:\Users\manaz\mazos-site` | `manazoid4/mazos-site` | Next.js 16, React 19, static export | Quiet Framework live; independent post-merge review requested | umbrella identity and evidence-led portfolio |
+| [[wiki/projects/jobfilter/INDEX|JobFilter]] | `C:\Users\manaz\JobFilterV1` | `manazoid4/JobFilterV1` | React/Vite, Express, Firebase, Stripe | active/pre-launch; verify worktree before edits | one Maz Works product; lead scoring + trades SaaS |
 | [[wiki/projects/inkweave/INDEX|InkWeave]] | `C:\Users\manaz\Desktop\inkweave` | `manazoid4/inkweave` | Next.js 16, React 19 | product site; core types only | AI book generation |
 | [[wiki/projects/flowlens/INDEX|FlowLens]] | `C:\Users\manaz\flowlens` | `manazoid4/flowlens` | TBD | active candidate; inspect before edits | SaaS/repository mentioned in Claude plan |
 | [[wiki/projects/openflowkit/INDEX|OpenFlowKit]] | `C:\Users\manaz\openflowkit` | `manazoid4/openflowkit` | Vite, React, TypeScript, Vitest | browser MVP + bridge | OSS voice dictation kit |

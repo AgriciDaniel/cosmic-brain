@@ -3,37 +3,70 @@ date: 2026-08-13
 project: maz-works
 agent: codex
 status: completed
+type: session
+title: "Maz Works Quiet Framework Delivery"
+tags:
+  - maz-works
+  - portfolio
+  - frontend
+  - delivery
+related:
+  - "[[wiki/projects/maz-works/STATUS]]"
+  - "[[wiki/meta/maz-works-knowledge-vault-identity]]"
 ---
+
+# Maz Works Quiet Framework Delivery
+
 ## What I did
 
-Recovered the clean mazos-site state and transformed the existing portfolio into Maz Works. Implemented the FRAMEWORK design system, structured project hierarchy and data, evidence-led case studies, bounded free-demo route, £75 + £75 founding implementation offer, scope protection, Maz Works metadata/social identity, responsive/accessibility fixes, and durable project handoff documents. Opened PR #8; GitHub and Vercel checks pass.
+- Recovered the merged Maz Works foundation and created `agents/maz-works-quiet-framework` without discarding local work.
+- Rebuilt the homepage into a calm, proof-first Quiet Framework hierarchy with Manazir Hussain named early.
+- Made JobFilter and Scrap Finance Partners the two image-led flagships; retained Agent Nudge and OpenFlowKit in proportion after auditing current repository evidence.
+- Captured the live Scrap Finance Partners site at desktop/mobile and shipped optimized evidence assets.
+- Added reusable typed JobFilter and Scrap Finance Partners case-study routes, metadata, sitemap entries, and expanded tests.
+- Preserved the bounded free demo, £150 total, £75 + £75 split, scope protection, client ownership, and handoff.
+- Benchmarked ten current founder-led software/automation peers from first-party sites and applied work-before-services, founder visibility, selective proof, bounded contact, and client handoff patterns.
+- Completed clean-install, build, test, smoke, security, link, responsive, keyboard, image, and console verification.
+- Published [mazos-site PR #9](https://github.com/manazoid4/mazos-site/pull/9); it was merged by `manazoid4` at `c10dc7b`, and main GitHub/Vercel checks pass.
+- Verified production at 390px and 1440px across the homepage, both flagship case studies, `/mazos`, robots, and sitemap; routes returned 200 with correct responsive media and no overflow or console errors.
+- Opened [documentation handoff PR #10](https://github.com/manazoid4/mazos-site/pull/10) from the actual merged main state; its checks pass.
+- Updated the GitHub repository description to the canonical Maz Works positioning.
+- Canonicalized the cross-project knowledge system as **Maz Works Knowledge Vault**. JobFilter is one project inside it; legacy JobFilter vault names are historical provenance only.
 
 ## Files changed
 
-- `DESIGN.md`
-- `app/page.tsx`, `app/projects.ts`, `app/globals.css`
-- `app/layout.tsx`, `app/mazos/page.tsx`, `app/icon.svg`, `app/sitemap.ts`
-- `public/social-card.svg`, `public/social-card.png`
-- `tests/static-export.test.mjs`, `package-lock.json`, `README.md`
-- `docs/maz-works/{PROGRESS,HANDOFF,PLAN,NEXT-STEPS}.md`
-- `docs/maz-works/review-*.png`
+- Site: `app/page.tsx`, `app/globals.css`, `app/projects.ts`, shared site/chrome/media modules, and `app/work/[slug]/page.tsx`.
+- Discovery/quality: layout metadata, robots, sitemap, static server, and `tests/static-export.test.mjs`.
+- Evidence: optimized Scrap Finance Partners WebP assets and final Quiet Framework review captures.
+- Repository memory: `README.md`, `DESIGN.md`, `docs/maz-works/*`, and `tasks/*`.
+- Vault identity/status: `HOME.md`, `CLAUDE.md`, `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`, `wiki/projects/INDEX.md`, `wiki/projects/maz-works/STATUS.md`, and `wiki/meta/maz-works-knowledge-vault-identity.md`.
 
 ## Decisions made
 
-- JobFilter and Scrap Finance Partners are flagships; Agent Nudge and OpenFlowKit are featured.
-- Maz Works remains explicitly Manazir Hussain, not a pretend agency.
-- Client acquisition leads with a bounded free tailored demo and protected founding scope.
-- Scrap Finance Partners claims remain limited to shipped, inspectable work; no financial outcomes are asserted.
+- Quiet Framework is the shipped direction: ivory/charcoal, thin dividers, large evidence, restrained signal yellow, and minimal motion.
+- Work precedes services and pricing; Manazir remains visibly one accountable builder.
+- JobFilter and Scrap Finance Partners remain flagships; weaker or prototype-only candidates stay hidden until evidence improves.
+- Maz Works Knowledge Vault is the canonical umbrella for all project knowledge. The physical Obsidian path and legacy repository names remain transport/provenance details.
+- The next agent performs a bounded independent review rather than reopening settled identity, hierarchy, or commercial choices.
 
 ## Next steps
 
-Claude reviews PR #8 and the browser captures. Add a real Scrap Finance Partners screenshot through a different capture method. Manazir confirms the final domain and LinkedIn URL before metadata is updated for launch.
-## Planning follow-up
+- Next agent reads `docs/maz-works/HANDOFF.md` and `PEER-BENCHMARK.md`, then reviews current `main` and production across the recorded nine perspectives.
+- Open a follow-up `agents/` branch only for a reproduced P0/P1 issue; otherwise record a clean release review and stop.
+- Manazir later confirms the final domain and exact LinkedIn URL or deliberately keeps them deferred.
 
-Expanded the GitHub handoff in commit `87f8fbd` and pushed it to PR #8. Added `tasks/plan.md` with ten bounded tasks, acceptance criteria, dependencies, verification, risks, human gates, and three checkpoints; added `tasks/todo.md` as the execution checklist. The plan now covers Claude review, Scrap visual evidence, keyboard/accessibility verification, truth/link audit, atomic domain/social migration, dependency reconciliation, merge/production gates, LinkedIn preparation, and maintenance. Exact next action is Claude Task 1: review PR #8, preview, diff, and browser captures and record reproducible P0/P1 findings.
+## Earlier baseline and planning record
 
-## Strategic refinement follow-up
+This note already tracked the first Maz Works transformation before the Quiet Framework completion. That earlier work recovered the clean `mazos-site` state, implemented the initial FRAMEWORK design system, structured project hierarchy/data, evidence-led homepage cases, bounded free-demo route, £75 + £75 founding offer, scope protection, metadata/social identity, responsive/accessibility fixes, and durable handoff documents. It opened PR #8 with green GitHub/Vercel checks.
 
-Manazir asked to replace the launch-only emphasis with a stronger multi-perspective creative plan. Reviewed the existing desktop/mobile captures through employer, client, collaborator, LinkedIn, editorial, conversion, accessibility, performance, and maintenance lenses. Researched restrained architectural/editorial references, compared Quiet Framework, Evidence Index, and Builder's Journal, and selected Quiet Framework.
+Earlier changed areas included `DESIGN.md`, the homepage/project/CSS modules, layout and `/mazos`, icon/sitemap/social assets, static-export tests, lockfile/README, the four `docs/maz-works/` memory files, and the initial `review-*.png` captures.
 
-Updated `DESIGN.md`, all four `docs/maz-works/` memory files, `tasks/plan.md`, and `tasks/todo.md`; committed and pushed `f4b06a1` to PR #8. The PR now states that the current preview is a baseline, not the final visual milestone. The next agent should implement only the homepage information-architecture checkpoint: less repetition and yellow, more real project imagery, shorter mobile hero/header, quieter pricing after client proof, then verify and stop for visual review.
+The earlier decisions established JobFilter and Scrap Finance Partners as flagships, Agent Nudge and OpenFlowKit as featured work, Manazir as one identifiable builder, the bounded client acquisition route, and strict Scrap Finance Partners truth limits.
+
+### Planning follow-up
+
+Commit `87f8fbd` expanded the PR #8 handoff and added `tasks/plan.md` plus `tasks/todo.md` with bounded tasks, acceptance criteria, dependencies, verification, risks, human gates, and checkpoints. That plan covered independent review, Scrap visual evidence, keyboard/accessibility verification, truth/link audit, atomic domain/social migration, dependency reconciliation, merge/production gates, LinkedIn preparation, and maintenance.
+
+### Strategic refinement follow-up
+
+Commit `f4b06a1` replaced the launch-only emphasis with a multi-perspective creative plan. It reviewed the original desktop/mobile captures through employer, client, collaborator, LinkedIn, editorial, conversion, accessibility, performance, and maintenance lenses; compared Quiet Framework, Evidence Index, and Builder's Journal; and selected Quiet Framework. The implementation completed later in this note fulfills that plan rather than discarding it.

@@ -2,7 +2,7 @@
 type: meta
 title: "Hot Cache"
 created: 2026-04-23
-updated: 2026-08-08
+updated: 2026-08-13
 tags:
   - meta
   - hot-cache
@@ -17,16 +17,17 @@ related:
 
 ## Last Updated
 
-2026-08-08. FlowLens strategy verdict is MODIFY: own Process Assurance Platform, starting with the UK MSP onboarding/offboarding wedge. The truthful private-pilot launch foundation is in place; PILOT_NOTIFICATION_TO is still required for live pilot notifications.
+2026-08-13. Maz Works Quiet Framework PR #9 is merged and live in production with main GitHub/Vercel checks and production browser verification passing. Documentation handoff PR #10 is open with green checks. The shared vault's canonical identity is Maz Works Knowledge Vault.
 
 ## Key Recent Facts
 
 - Obsidian now registers only the unified Desktop vault.
+- The canonical cross-project identity is **Maz Works Knowledge Vault**. It covers all Maz Works software, products, experiments, client work, and operations.
 - Claude, Codex, and OpenCode use the same vault and the same `local-knowledge` MCP server.
 - The former Documents vault is under `Personal/`.
 - The compounding agent wiki remains under `wiki/`.
 - SwarmVault ingestion, graph, retrieval, inbox, and digest live under `Local Knowledge/`.
-- Current JobFilter vault material is under `Projects/JobFilter/`.
+- Current JobFilter project material is under `Projects/JobFilter/`; JobFilter is one project inside Maz Works Knowledge Vault.
 - Legacy JobFilter vault material is preserved under `Archive/Legacy JobFilter Vault/`.
 - Compatibility junctions preserve old general-vault paths without duplicating physical knowledge.
 - Zawiya remains separate due its private spiritual-content boundary.
@@ -50,6 +51,7 @@ related:
 
 ## Active Threads
 
+- Maz Works needs one independent post-merge multi-perspective review of current `main` and production; a follow-up branch is justified only for a reproducible P0/P1 issue.
 - Email digest delivery still needs one-time recipient and SMTP credential configuration from the Local Knowledge Agent menu.
 - Historical orphan pages and metadata gaps are recorded in the lint report for gradual review.
 - Agent Nudge's next reliability gap is crash/stale-lock recovery and a single-writer daemon boundary before cloud sync.

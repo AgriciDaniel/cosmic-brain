@@ -1,9 +1,12 @@
 # Wiki Index
 
-> Project and engineering knowledge index. Last updated: 2026-07-21.
+> Project and engineering knowledge index for the Maz Works Knowledge Vault. Last updated: 2026-08-13.
 
 ## Projects
 
+- [[2026-08-13-maz-works-codex]] — Quiet Framework delivery, peer benchmark, browser evidence, PR #9, and canonical Maz Works Knowledge Vault identity.
+- [[wiki/projects/maz-works/STATUS]] — Maz Works umbrella identity, portfolio delivery state, and current review gate.
+- [[wiki/meta/maz-works-knowledge-vault-identity]] — canonical vault identity and scope; JobFilter is one project inside it.
 - [[2026-07-20-jobfilter-codex]] — JobFilter flagship hardening, public-repository cleanup, GitHub hygiene, and portfolio redesign.
 - [[2026-07-20-jobfilter-whats-new-codex]] — verified JobFilter product updates system and Agent Nudge v0.4 Windows release.
 - [[wiki/projects/INDEX]] — table of active repos, paths, stack, status.
