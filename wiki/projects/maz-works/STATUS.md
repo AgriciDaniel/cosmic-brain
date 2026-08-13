@@ -14,7 +14,7 @@ Maz Works is Manazir Hussain's umbrella identity for useful software, AI tools, 
 - Branch: `agents/maz-works-framework`
 - Commit: `87f8fbd`
 - PR: [mazos-site #8](https://github.com/manazoid4/mazos-site/pull/8)
-- CI: GitHub verify and Vercel preview pass on the build commit; documentation-update checks are running
+- CI: GitHub verify and Vercel preview pass on commit `87f8fbd`
 - Visual direction: FRAMEWORK — warm ivory canvas, near-black structural frames, crisp dividers, signal-yellow accents
 - Flagships: JobFilter; Scrap Finance Partners
 - Featured: Agent Nudge; OpenFlowKit
