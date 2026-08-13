@@ -31,3 +31,9 @@ Claude reviews PR #8 and the browser captures. Add a real Scrap Finance Partners
 ## Planning follow-up
 
 Expanded the GitHub handoff in commit `87f8fbd` and pushed it to PR #8. Added `tasks/plan.md` with ten bounded tasks, acceptance criteria, dependencies, verification, risks, human gates, and three checkpoints; added `tasks/todo.md` as the execution checklist. The plan now covers Claude review, Scrap visual evidence, keyboard/accessibility verification, truth/link audit, atomic domain/social migration, dependency reconciliation, merge/production gates, LinkedIn preparation, and maintenance. Exact next action is Claude Task 1: review PR #8, preview, diff, and browser captures and record reproducible P0/P1 findings.
+
+## Strategic refinement follow-up
+
+Manazir asked to replace the launch-only emphasis with a stronger multi-perspective creative plan. Reviewed the existing desktop/mobile captures through employer, client, collaborator, LinkedIn, editorial, conversion, accessibility, performance, and maintenance lenses. Researched restrained architectural/editorial references, compared Quiet Framework, Evidence Index, and Builder's Journal, and selected Quiet Framework.
+
+Updated `DESIGN.md`, all four `docs/maz-works/` memory files, `tasks/plan.md`, and `tasks/todo.md`; committed and pushed `f4b06a1` to PR #8. The PR now states that the current preview is a baseline, not the final visual milestone. The next agent should implement only the homepage information-architecture checkpoint: less repetition and yellow, more real project imagery, shorter mobile hero/header, quieter pricing after client proof, then verify and stop for visual review.
