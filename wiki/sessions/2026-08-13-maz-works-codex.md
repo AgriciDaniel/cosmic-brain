@@ -28,3 +28,6 @@ Recovered the clean mazos-site state and transformed the existing portfolio into
 ## Next steps
 
 Claude reviews PR #8 and the browser captures. Add a real Scrap Finance Partners screenshot through a different capture method. Manazir confirms the final domain and LinkedIn URL before metadata is updated for launch.
+## Planning follow-up
+
+Expanded the GitHub handoff in commit `87f8fbd` and pushed it to PR #8. Added `tasks/plan.md` with ten bounded tasks, acceptance criteria, dependencies, verification, risks, human gates, and three checkpoints; added `tasks/todo.md` as the execution checklist. The plan now covers Claude review, Scrap visual evidence, keyboard/accessibility verification, truth/link audit, atomic domain/social migration, dependency reconciliation, merge/production gates, LinkedIn preparation, and maintenance. Exact next action is Claude Task 1: review PR #8, preview, diff, and browser captures and record reproducible P0/P1 findings.
