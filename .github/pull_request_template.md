@@ -20,13 +20,17 @@ List the files and surfaces touched:
 - `scripts/<name>.py` — what changed
 - ...
 
-## Six-cut self-review
+## Safety self-review
 - [ ] Read every file before changing it
 - [ ] New identifiers named for the next reader
 - [ ] Smallest unit that works (no speculative abstraction)
 - [ ] Deletions kept up with additions where applicable
 - [ ] New behavior has hermetic test coverage
 - [ ] New failure modes have explicit handling + undo plan
+- [ ] Product code and mutable user-vault state remain separate
+- [ ] Knowledge writes use one recoverable transaction; workers only draft
+- [ ] Network/destructive/external actions have explicit consent
+- [ ] Claims and capability maturity are evidence-backed
 
 ## Testing
 ```
@@ -39,7 +43,7 @@ All tests passed.
 ```
 
 ## Verifier
-For non-trivial changes, dispatch `agents/verifier.md` on the staged diff and paste its verdict:
+For non-trivial changes, dispatch `agents/verifier.md` on the declared worktree or path scope and paste its verdict:
 
 - Verdict: SHIP / HOLD-FIX-FIRST / NEEDS-REWORK
 - BLOCKER: N / HIGH: N / MEDIUM: N / LOW: N

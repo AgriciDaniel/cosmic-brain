@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-labelledby="title description">
+  <title id="title">The claude-obsidian product and user-vault boundary</title>
+  <desc id="description">The portable product prepares one reviewed operation, which is applied once to a separately selected, user-owned vault.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6eadd"/>
+      <stop offset=".55" stop-color="#fbf4ec"/>
+      <stop offset="1" stop-color="#fff9f2"/>
+    </linearGradient>
+    <linearGradient id="flowGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e9823c"/>
+      <stop offset="1" stop-color="#6630b8"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0 0 9 4.5 0 9Z" fill="#6630b8"/>
+    </marker>
+    <filter id="cardShadow" x="-12%" y="-18%" width="124%" height="146%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#4d372b" flood-opacity=".1"/>
+    </filter>
+  </defs>
+  <style>
+    text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .row { animation: rise .9s cubic-bezier(.2,.75,.25,1) both; transform-box: fill-box; transform-origin: center; }
+    .operation { animation-delay: .16s; }
+    .vault { animation-delay: .32s; }
+    .flow { stroke-dasharray: 7 10; animation: travel 10.5s linear infinite; }
+    .step-dot { animation: pulse 4.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .step-2 { animation-delay: .7s; }
+    .step-3 { animation-delay: 1.4s; }
+    .constellation { animation: drift 9s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes rise { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes travel { to { stroke-dashoffset: -68; } }
+    @keyframes pulse { 0%, 100% { opacity: .68; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    @media (prefers-reduced-motion: reduce) { .row, .flow, .step-dot, .constellation { animation: none; } }
+  </style>
+
+  <rect width="900" height="680" rx="24" fill="url(#background)"/>
+  <g class="constellation" fill="none" stroke="#dfc8b4" stroke-width="1.2" opacity=".62">
+    <path d="M731 44L772 25 819 54 856 29"/>
+    <circle cx="731" cy="44" r="4" fill="#ee975a" stroke="none"/>
+    <circle cx="772" cy="25" r="3.5" fill="#f5caa8" stroke="none"/>
+    <circle cx="819" cy="54" r="4" fill="#d9a2f4" stroke="none"/>
+    <circle cx="856" cy="29" r="3" fill="#883aee" stroke="none"/>
+  </g>
+  <text x="42" y="44" fill="#a94f1b" font-size="14" font-weight="750" letter-spacing="2.2">THE TRUST BOUNDARY</text>
+  <text x="42" y="82" fill="#403b48" font-size="29" font-weight="720">Portable product. User-owned knowledge.</text>
+  <text x="42" y="112" fill="#6f6873" font-size="17">Code and templates stay separate from mutable vault state.</text>
+
+  <g class="row product">
+    <rect x="42" y="140" width="816" height="132" rx="18" fill="#fff7ef" stroke="#e8c2a4" filter="url(#cardShadow)"/>
+    <rect x="42" y="140" width="6" height="132" rx="3" fill="#e9823c"/>
+    <text x="66" y="177" fill="#a94f1b" font-size="14" font-weight="750" letter-spacing="1.4">PRODUCT PACKAGE</text>
+    <text x="66" y="210" fill="#403b48" font-size="21" font-weight="700">Portable and read-only at runtime</text>
+    <text x="66" y="242" fill="#6f6873" font-size="16">One audited package across supported hosts.</text>
+    <rect x="505" y="160" width="158" height="40" rx="13" fill="#fff1e7" stroke="#e8c2a4"/>
+    <circle cx="526" cy="180" r="4" fill="#e9823c"/>
+    <text x="540" y="186" fill="#6b4939" font-size="16" font-weight="620">15 Agent Skills</text>
+    <rect x="677" y="160" width="156" height="40" rx="13" fill="#fff1e7" stroke="#e8c2a4"/>
+    <circle cx="698" cy="180" r="4" fill="#ee975a"/>
+    <text x="712" y="186" fill="#6b4939" font-size="16" font-weight="620">Python core</text>
+    <rect x="505" y="213" width="158" height="40" rx="13" fill="#fff1e7" stroke="#e8c2a4"/>
+    <circle cx="526" cy="233" r="4" fill="#e9823c"/>
+    <text x="540" y="239" fill="#6b4939" font-size="16" font-weight="620">Vault templates</text>
+    <rect x="677" y="213" width="156" height="40" rx="13" fill="#fff1e7" stroke="#e8c2a4"/>
+    <circle cx="698" cy="233" r="4" fill="#ee975a"/>
+    <text x="712" y="239" fill="#6b4939" font-size="16" font-weight="620">Host adapters</text>
+  </g>
+
+  <path d="M450 272V310" fill="none" stroke="url(#flowGradient)" stroke-width="2.4" marker-end="url(#arrow)" class="flow"/>
+
+  <g class="row operation">
+    <rect x="42" y="310" width="816" height="164" rx="18" fill="#fffaf6" stroke="#dfc8b4" filter="url(#cardShadow)"/>
+    <rect x="42" y="310" width="6" height="164" rx="3" fill="#883aee"/>
+    <text x="66" y="347" fill="#6630b8" font-size="14" font-weight="750" letter-spacing="1.4">ONE REVIEWED OPERATION</text>
+    <text x="66" y="380" fill="#403b48" font-size="21" font-weight="700">One recoverable transaction</text>
+    <text x="66" y="412" fill="#6f6873" font-size="16">Draft first. Inspect conflicts. Apply once.</text>
+
+    <rect x="446" y="336" width="116" height="112" rx="15" fill="#f3eaff" stroke="#d4b7f2"/>
+    <circle class="step-dot" cx="471" cy="367" r="11" fill="#e9823c" opacity=".9"/>
+    <text x="471" y="372" fill="#fffaf4" font-size="13" font-weight="800" text-anchor="middle">1</text>
+    <text x="492" y="373" fill="#403b48" font-size="17" font-weight="700">DRAFT</text>
+    <text x="464" y="407" fill="#6f6873" font-size="14.5">Prepare edits</text>
+    <text x="464" y="431" fill="#6f6873" font-size="14.5">with evidence</text>
+    <path d="M562 392H584" fill="none" stroke="#6630b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="584" y="336" width="116" height="112" rx="15" fill="#f3eaff" stroke="#d4b7f2"/>
+    <circle class="step-dot step-2" cx="609" cy="367" r="11" fill="#6630b8" opacity=".9"/>
+    <text x="609" y="372" fill="#fffaf4" font-size="13" font-weight="800" text-anchor="middle">2</text>
+    <text x="630" y="373" fill="#403b48" font-size="17" font-weight="700">INSPECT</text>
+    <text x="602" y="407" fill="#6f6873" font-size="14.5">Review bundle</text>
+    <text x="602" y="431" fill="#6f6873" font-size="14.5">and conflicts</text>
+    <path d="M700 392H722" fill="none" stroke="#6630b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="722" y="336" width="111" height="112" rx="15" fill="#f3eaff" stroke="#d4b7f2"/>
+    <circle class="step-dot step-3" cx="747" cy="367" r="11" fill="#6630b8" opacity=".9"/>
+    <text x="747" y="372" fill="#fffaf4" font-size="13" font-weight="800" text-anchor="middle">3</text>
+    <text x="768" y="373" fill="#403b48" font-size="17" font-weight="700">APPLY</text>
+    <text x="740" y="407" fill="#6f6873" font-size="14.5">Write once</text>
+    <text x="740" y="431" fill="#6f6873" font-size="14.5">or recover</text>
+  </g>
+
+  <path d="M450 474V512" fill="none" stroke="url(#flowGradient)" stroke-width="2.4" marker-end="url(#arrow)" class="flow"/>
+
+  <g class="row vault">
+    <rect x="42" y="512" width="816" height="112" rx="18" fill="#fbf7ff" stroke="#d4b7f2" filter="url(#cardShadow)"/>
+    <rect x="42" y="512" width="6" height="112" rx="3" fill="#6630b8"/>
+    <text x="66" y="548" fill="#6630b8" font-size="14" font-weight="750" letter-spacing="1.4">SELECTED USER VAULT</text>
+    <text x="66" y="581" fill="#403b48" font-size="21" font-weight="700">Mutable state stays with the user</text>
+    <text x="66" y="607" fill="#6f6873" font-size="16">Explicit selection · local-first · no automatic egress</text>
+    <rect x="470" y="535" width="78" height="38" rx="12" fill="#f3eaff" stroke="#d4b7f2"/>
+    <text x="509" y="560" fill="#5c2ead" font-size="16" font-weight="650" text-anchor="middle">inbox/</text>
+    <rect x="558" y="535" width="78" height="38" rx="12" fill="#f3eaff" stroke="#d4b7f2"/>
+    <text x="597" y="560" fill="#5c2ead" font-size="16" font-weight="650" text-anchor="middle">.raw/</text>
+    <rect x="646" y="535" width="78" height="38" rx="12" fill="#f3eaff" stroke="#d4b7f2"/>
+    <text x="685" y="560" fill="#5c2ead" font-size="16" font-weight="650" text-anchor="middle">wiki/</text>
+    <rect x="734" y="535" width="99" height="38" rx="12" fill="#f3eaff" stroke="#d4b7f2"/>
+    <text x="783.5" y="559" fill="#5c2ead" font-size="14" font-weight="650" text-anchor="middle">.vault-meta/</text>
+    <rect x="593" y="584" width="240" height="27" rx="13.5" fill="#fbf7ff" stroke="#d4b7f2"/>
+    <circle cx="612" cy="597.5" r="4" fill="#6630b8"/>
+    <text x="626" y="603" fill="#5c2ead" font-size="14">never sourced from the plugin cache</text>
+  </g>
+
+  <g fill="#6f6873" font-size="13" font-weight="600">
+    <text x="42" y="658">EXPLICIT VAULT SELECTION</text>
+    <circle cx="232" cy="653" r="3" fill="#e9823c"/>
+    <text x="249" y="658">CONFLICT-CHECKED WRITES</text>
+    <circle cx="438" cy="653" r="3" fill="#6630b8"/>
+    <text x="455" y="658">CRASH-RECOVERABLE APPLY</text>
+    <circle cx="655" cy="653" r="3" fill="#6630b8"/>
+    <text x="672" y="658">NO AUTO EGRESS OR GIT COMMIT</text>
+  </g>
+</svg>

@@ -27,6 +27,7 @@ enough to pipe directly (`./scripts/boundary-score.py --json | jq ...`)
 and keeping it read-only removes a write-path attack surface.
 
 Usage:
+  boundary-score.py --vault PATH            # select a vault explicitly
   boundary-score.py                         # top-10 frontier, text
   boundary-score.py --top N                 # top N frontier
   boundary-score.py --json                  # JSON output
@@ -46,7 +47,15 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VAULT_ROOT = Path(__file__).resolve().parent.parent
+sys.dont_write_bytecode = True
+
+PLUGIN_ROOT = Path(__file__).resolve().parent.parent
+if str(PLUGIN_ROOT) not in sys.path:
+    sys.path.insert(0, str(PLUGIN_ROOT))
+
+from claude_obsidian.paths import VaultSelectionError, assert_within, resolve_vault_root
+
+VAULT_ROOT = Path.cwd().resolve()
 WIKI_DIR = VAULT_ROOT / "wiki"
 
 EXCLUDE_TYPES = {"meta", "fold"}
@@ -79,6 +88,27 @@ WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]")
 
 EXIT_OK = 0
 EXIT_USAGE = 2
+
+
+def configure_vault(explicit=None):
+    global VAULT_ROOT, WIKI_DIR
+    try:
+        selected = resolve_vault_root(
+            explicit,
+            start=Path.cwd(),
+            plugin_root=PLUGIN_ROOT,
+        )
+    except VaultSelectionError as exc:
+        log(f"ERR {exc.code}: {exc}")
+        return False
+    VAULT_ROOT = selected.root
+    WIKI_DIR = VAULT_ROOT / "wiki"
+    try:
+        assert_within(VAULT_ROOT, WIKI_DIR)
+    except VaultSelectionError as exc:
+        log(f"ERR {exc.code}: {exc}")
+        return False
+    return True
 
 
 def log(msg: str) -> None:
@@ -193,6 +223,12 @@ def collect_pages() -> dict[str, dict]:
     if not WIKI_DIR.is_dir():
         return pages
     for md in sorted(WIKI_DIR.rglob("*.md")):
+        if md.is_symlink():
+            continue
+        try:
+            md.resolve(strict=True).relative_to(WIKI_DIR.resolve())
+        except (OSError, ValueError):
+            continue
         try:
             text = md.read_text(encoding="utf-8")
         except (OSError, UnicodeDecodeError):
@@ -296,12 +332,15 @@ def run(top: int, want_json: bool, include_zero: bool, page_filter: str | None) 
 
 def main(argv: list[str]) -> int:
     p = argparse.ArgumentParser()
+    p.add_argument("--vault", help="Explicit vault root")
     p.add_argument("--top", type=int, default=DEFAULT_TOP)
     p.add_argument("--json", action="store_true")
     p.add_argument("--include-score-zero", action="store_true",
                    help="Include pages whose score is zero or negative in the output")
     p.add_argument("--page", default=None, help="Score a single page by path or stem")
     args = p.parse_args(argv)
+    if not configure_vault(args.vault):
+        return EXIT_USAGE
     if args.top < 1:
         log("ERR: --top must be >= 1")
         return EXIT_USAGE

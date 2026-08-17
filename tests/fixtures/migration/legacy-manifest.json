@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "sources": {
+    ".raw/legacy.md": {
+      "hash": "975c85ff2a6149ef82c8c8ec75039da1899785771fbf73afaa48f3297fd96e00",
+      "ingested_at": "2026-01-02",
+      "pages_created": [
+        "wiki/sources/Example Source.md"
+      ]
+    }
+  },
+  "address_map": {}
+}

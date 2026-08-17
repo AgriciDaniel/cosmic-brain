@@ -1,11 +1,12 @@
 ---
 type: resource
 title: "{{title}}"
+status: seed
 topic: "{{topic}}"
-created: "{{date}}"
+created: {{date}}
+updated: {{date}}
 tags:
   - resource
-sources: []
 ---
 
 # {{title}}

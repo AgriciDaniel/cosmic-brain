@@ -1,21 +1,18 @@
-# Fold Page Template
+# Fold page template
 
-Canonical output format for `wiki-fold`. Every fold page uses this layout exactly.
-
----
+Every fold is extractive, deterministic, and uses flat Obsidian properties.
 
 ## Frontmatter
 
 ```yaml
 ---
 type: fold
-title: "Fold k{K} — {EARLIEST-DATE} to {LATEST-DATE} — n{COUNT}"
+title: "Fold k{K} from {EARLIEST-DATE} to {LATEST-DATE}, n={COUNT}"
 fold_id: "fold-k{K}-from-{EARLIEST-DATE}-to-{LATEST-DATE}-n{COUNT}"
 batch_exponent: {K}
 entry_count: {COUNT}
-entry_range:
-  from: "{EARLIEST-CHILD-DATE}"
-  to: "{LATEST-CHILD-DATE}"
+range_from: "{EARLIEST-CHILD-DATE}"
+range_to: "{LATEST-CHILD-DATE}"
 created: "{YYYY-MM-DD}"
 updated: "{YYYY-MM-DD}"
 tags:
@@ -23,111 +20,103 @@ tags:
   - fold
   - "fold/k{K}"
 status: mature
-children:
-  - date: "{YYYY-MM-DD}"
-    op: "{save|ingest|fold|session|setup|decision}"
-    title: "{log entry title verbatim}"
-    page: "[[{canonical page wikilink}]]"
-    page_missing: false
-  # ... one record per log entry. No dedupe by page.
+child_keys:
+  - "log-{YYYYMMDD}-001"
+  - "log-{YYYYMMDD}-002"
 related:
-  - "[[DragonScale Memory]]"
   - "[[log]]"
   - "[[index]]"
 ---
 ```
 
-All fields are required. Missing any field is a dry-run failure. `title` does not contain the current date. `fold_id` is deterministic and matches the filename.
+Generate each `child_key` from the entry date plus its one-based position in the
+selected oldest-to-newest range. The same key appears in exactly one body row.
+This avoids nested YAML objects while preserving a frontmatter/table bijection.
+The deterministic `fold_id` matches the filename. Missing any required property
+is a dry-run failure.
 
----
+## Body
 
-## Body Sections (in order, all required)
+Use these sections in order.
 
-### 1. Scope (one paragraph)
+### Scope
+
+One paragraph stating the level, exact count, date range, and only those themes
+supported by at least two child entries.
 
 ```markdown
-Level-{K} fold of {COUNT} log entries spanning {FROM} to {TO}. Dominant themes: {THEME-1}, {THEME-2}, {THEME-3}.
+Level-{K} fold of {COUNT} log entries spanning {FROM} through {TO}.
 ```
 
-### 2. Child Entries
+### Child Entries
 
-One row per log entry. Row count must equal `entry_count` in frontmatter and the length of `children:`.
+One row per child key and log entry. Preserve entries even when multiple rows
+refer to the same page.
 
 ```markdown
 ## Child Entries
 
-| Date | Op | Title | Page | Summary (extractive) |
-|---|---|---|---|---|
-| 2026-04-23 | save | DragonScale Memory v0.2 — post-adversarial-review | [[DragonScale Memory]] | Adversarial-review rewrite; 7/7 critiques accepted after one surgical fix. |
-| 2026-04-15 | save | Claude SEO v1.9.0 Slides and GitHub Release | [[2026-04-15-slides-and-release-session]] | 15-slide HTML deck, v1.9.0 tagged, GitHub release with PDF asset. |
-<!-- one row per log entry; no dedupe by page -->
+| Child key | Date | Op | Title | Page | Page state | Extractive summary |
+|---|---|---|---|---|---|---|
+| log-20260701-001 | 2026-07-01 | ingest | Example source filed | [[Example Source]] | present | Added one source-backed example page. |
+| log-20260702-002 | 2026-07-02 | save | Example decision recorded | [[Example Decision]] | missing | Source page is missing; summary is limited to the log entry. |
 ```
 
-The Summary column is extractive: one sentence paraphrased from the log entry's bullets. If the source is ambiguous, write "ambiguous in source" rather than guessing.
+The summary is one sentence supported by the log entry. Use `ambiguous in
+source` or `source missing` instead of guessing.
 
-### 3. Key Outcomes (3-7 bullets, extractive)
+### Key Outcomes
 
-Every bullet must cite the specific child entry (by date) it draws from. Every numeric value must be grep-verifiable against that child entry. Count-check before emitting.
+Include three to seven extractive bullets when supported. Cite the child key for
+every bullet and verify each number against the source entry.
 
 ```markdown
 ## Key Outcomes
 
-- {CONCRETE CHANGE 1, quoting or paraphrasing a child entry} (from 2026-04-14 session entry)
-- {CONCRETE CHANGE 2, with numeric grep-verified against source} (from 2026-04-10 session entry)
-<!-- max 7 bullets. Each bullet names a concrete artifact or decision AND cites its source entry. -->
+- Added one source-backed example page. (child: log-20260701-001)
 ```
 
-### 4. Cross-entry Themes (0-4 bullets, must name contributing entries)
+If no outcome is supported, state that explicitly.
 
-Themes are optional. If a theme cannot be supported by naming at least two child entries that contribute to it, do not write it.
+### Cross-entry Themes
+
+Include zero to four bullets. Each theme names at least two child keys. If no
+pattern is supported, write:
 
 ```markdown
 ## Cross-entry Themes
 
-- {THEME: describes a pattern supported by multiple entries} (supported by: 2026-04-14, 2026-04-15, 2026-04-23 entries)
+No cross-entry themes identified; the entries are independent within this range.
 ```
 
-Do not invent a theme to justify the fold. If no cross-entry patterns are present, write "No cross-entry themes identified; entries are independent within this range."
+### Contradictions or Corrections
 
-### 5. Contradictions or Corrections
+Preserve disagreements and their status. Use `None detected` only after checking
+all selected entries.
 
-```markdown
-## Contradictions or Corrections
+### Child Pages
 
-- None detected.
-```
-
-Or, if present:
-
-```markdown
-## Contradictions or Corrections
-
-- [[Earlier Entry]] claimed X; [[Later Entry]] corrected to Y. Resolution: {STATUS}.
-```
-
-### 6. Links
-
-The `Child Pages` section is **deduped by page**: one wikilink per unique target page, even if multiple log entries point at it. This is the graph-connection section, different from frontmatter `children:` which is **per log entry** (no dedupe).
+List each unique present target page once. This section is deduplicated by page;
+the Child Entries table is not.
 
 ```markdown
 ## Child Pages
 
-- [[{UNIQUE-PAGE-1}]]
-- [[{UNIQUE-PAGE-2}]]
-<!-- dedupe by page; see frontmatter `children:` for per-entry records -->
+- [[Example Source]]
 
 ## Related
 
-- [[DragonScale Memory]] - fold-operator spec
 - [[log]] - source entries
 - [[index]] - vault catalog
 ```
 
----
+## Validation
 
-## Notes
-
-- No hot-cache update: that is the save/ingest skill's responsibility.
-- No edits to child pages. Folds are strictly read-only with respect to children.
-- If a child entry's referenced pages are missing, note "source missing" in the Summary column rather than fabricating content.
-- The body is terse. A fold is a rollup, not a retelling. Target 200-400 lines total for a k=4 fold.
+- `entry_count`, `child_keys`, and table rows have equal counts.
+- Every child key is unique and appears exactly twice: frontmatter and one row.
+- Every numeric statement is traceable to its cited child.
+- Every theme cites at least two children.
+- Missing pages remain explicit.
+- No child page or selected log entry is changed.
+- The fold body is a rollup, not a retelling; split an unusually large fold
+  instead of imposing an arbitrary line target.

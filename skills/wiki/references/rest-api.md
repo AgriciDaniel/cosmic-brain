@@ -1,124 +1,31 @@
-# REST API Quick Reference
+# REST adapter safety contract
 
-Use these commands when MCP tools are not available. Requires the Local REST API plugin running in Obsidian (port 27124).
+The Local REST API is an optional third-party Obsidian plugin. claude-obsidian
+does not install it, require it, or use it as a mutation transport.
 
-Set your key before running any command:
-```bash
-API="https://127.0.0.1:27124"
-KEY="your-api-key-here"
-```
+## Before use
 
----
+- Confirm the user installed and enabled the plugin intentionally.
+- Read the plugin's current primary documentation and verify the exact API
+  version and endpoints instead of relying on remembered examples.
+- Keep the listener on loopback by default and store its credential in a
+  protected environment or secret manager.
+- Never print the credential, embed it in a note, commit it, or place it in a
+  reusable command transcript.
+- Require normal TLS verification. Do not use `curl -k`,
+  `NODE_TLS_REJECT_UNAUTHORIZED=0`, or another process-wide bypass.
 
-## Read a file
+## Allowed role
 
-```bash
-curl -sk \
-  -H "Authorization: Bearer $KEY" \
-  "$API/vault/wiki/index.md"
-```
+Use a configured REST adapter only for read and search operations that the user
+has placed in scope. Validate returned paths and reject traversal or symlink
+escapes. A successful HTTP response proves transport behavior, not the truth of
+the returned content.
 
----
+Create, replace, append, patch, move, and delete requests are outside this
+adapter contract. Express every vault change as one inspected
+`claude-obsidian.transaction.v1` operation so expected hashes, provenance,
+journaling, and recovery remain enforced.
 
-## Create or replace a file
-
-```bash
-curl -sk -X PUT \
-  -H "Authorization: Bearer $KEY" \
-  -H "Content-Type: text/markdown" \
-  --data-binary @local-file.md \
-  "$API/vault/wiki/entities/Name.md"
-```
-
-Or with inline content:
-```bash
-curl -sk -X PUT \
-  -H "Authorization: Bearer $KEY" \
-  -H "Content-Type: text/markdown" \
-  --data "# Page Title
-
-Content here." \
-  "$API/vault/wiki/concepts/Name.md"
-```
-
----
-
-## Append to a file
-
-```bash
-curl -sk -X POST \
-  -H "Authorization: Bearer $KEY" \
-  -H "Content-Type: text/markdown" \
-  --data "- New log entry" \
-  "$API/vault/wiki/log.md"
-```
-
----
-
-## Patch a frontmatter field
-
-```bash
-curl -sk -X PATCH \
-  -H "Authorization: Bearer $KEY" \
-  -H "Operation: replace" \
-  -H "Target-Type: frontmatter" \
-  -H "Target: status" \
-  -H "Content-Type: application/json" \
-  --data '"mature"' \
-  "$API/vault/wiki/concepts/Name.md"
-```
-
----
-
-## Append content under a heading
-
-```bash
-curl -sk -X PATCH \
-  -H "Authorization: Bearer $KEY" \
-  -H "Operation: append" \
-  -H "Target-Type: heading" \
-  -H "Target: Connections" \
-  -H "Content-Type: text/markdown" \
-  --data "- [[New Page]]" \
-  "$API/vault/wiki/entities/Name.md"
-```
-
----
-
-## Search
-
-Simple keyword search:
-```bash
-curl -sk -X POST \
-  -H "Authorization: Bearer $KEY" \
-  "$API/search/simple/?query=machine+learning"
-```
-
-Dataview query:
-```bash
-curl -sk -X POST \
-  -H "Authorization: Bearer $KEY" \
-  -H "Content-Type: application/vnd.olrapi.dataview.dql+txt" \
-  --data 'TABLE status FROM "wiki" WHERE status = "seed"' \
-  "$API/search/"
-```
-
----
-
-## List all tags
-
-```bash
-curl -sk \
-  -H "Authorization: Bearer $KEY" \
-  "$API/tags/"
-```
-
----
-
-## List files in a folder
-
-```bash
-curl -sk \
-  -H "Authorization: Bearer $KEY" \
-  "$API/vault/wiki/entities/"
-```
+If secure TLS or least-privilege access cannot be configured, use direct
+filesystem reads or the verified official CLI read surface instead.

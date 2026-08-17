@@ -5,7 +5,12 @@ Obsidian reads and writes them as UTF-8 JSON files with `.canvas` extension.
 
 This reference aligns with the [JSON Canvas 1.0 open specification](https://jsoncanvas.org/spec/1.0/). All structures support arbitrary additional fields (`[key: string]: any`) for forward compatibility. Obsidian will preserve unknown fields when reading and writing canvas files.
 
-**ID format**: The JSON Canvas 1.0 spec recommends 16-character lowercase hexadecimal IDs (e.g., `"a1b2c3d4e5f67890"`). Obsidian itself generates IDs in this format. The descriptive ID examples in this reference (`"text-title-4821"`, `"img-cover-7823"`) are an alternative naming convention that this plugin uses for human readability. Both are valid JSON Canvas. Use whichever fits your workflow.
+**ID format**: JSON Canvas 1.0 requires each node and edge ID to be a unique
+string; it does not prescribe a length or character set. As a product
+convention, new mutations from this skill prefer random 16-character lowercase
+hexadecimal IDs (for example, `"a1b2c3d4e5f67890"`) and verify uniqueness.
+Descriptive IDs in the longer examples below are readability labels only, not
+the generation rule.
 
 ---
 
@@ -74,7 +79,8 @@ Renders an image, PDF, markdown note, or other vault file inline.
 - Supported: `.png` `.jpg` `.webp` `.gif` `.pdf` `.md` `.canvas`
 - For `.md` files: renders as a preview card.
 - For `.pdf` files: renders the first page as preview.
-- No `color` field for file nodes: color is ignored.
+- Like every generic node, a file node may include the optional `color` field.
+  Omit it for the default appearance.
 
 ---
 
@@ -127,6 +133,9 @@ Renders a web URL as an embedded preview card.
 
 - `url`: must be a valid `https://` URL.
 - Obsidian fetches the Open Graph preview (title, description, thumbnail).
+- Writing the node itself performs no fetch. Opening or rendering it in
+  Obsidian may contact the URL's host, so disclose that egress first and use a
+  text node when preview fetching is not acceptable.
 
 ---
 
@@ -285,7 +294,7 @@ function place_node(canvas, zone_label, new_w, new_h):
 
 ## Common Mistakes
 
-- **Wrong path format**: use `_attachments/images/file.png` not `/home/user/...` or `~/...`
+- **Wrong path format**: use `_attachments/images/file.png`, not an absolute host path
 - **ID collision**: always read existing IDs before generating a new one
 - **Negative y confusion**: `y: -2400` is ABOVE `y: -1000` (more negative = higher up)
 - **Group does not clip**: placing a node "inside" a group is just positioning it within the group's bounding box: there is no parent-child relationship in the JSON

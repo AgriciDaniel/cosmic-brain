@@ -1,0 +1,86 @@
+{
+  "approved_private_url_disclosures": [
+    "ATTRIBUTION.md"
+  ],
+  "archive_overlays": {
+    ".claude-plugin/marketplace.json": "config/public-marketplace.json"
+  },
+  "archive_format": "zip",
+  "compression": "stored",
+  "exclude_globs": [
+    "**/*.pyc",
+    "**/*workspace*.json",
+    "**/.DS_Store",
+    "**/.env",
+    "**/.env.*",
+    "**/__pycache__/**",
+    ".git/**",
+    ".obsidian/workspace*.json",
+    ".raw/**",
+    ".vault-meta/**",
+    "docs/**/*.pdf",
+    "docs/audits/**",
+    "docs/releases/**",
+    "scripts/baseline-v16.py",
+    "scripts/benchmark-runner.py",
+    "tests/fixtures/release/adversarial/**",
+    "wiki/hot.md",
+    "wiki/log.md",
+    "wiki/meta/**"
+  ],
+  "include_files": [
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "ATTRIBUTION.md",
+    "CHANGELOG.md",
+    "CITATION.cff",
+    "CODEOWNERS",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "GEMINI.md",
+    "LICENSE",
+    "Makefile",
+    "PRIVACY.md",
+    "README.md",
+    "SECURITY.md",
+    "WIKI.md"
+  ],
+  "include_globs": [
+    ".github/*.md",
+    ".github/*.yml",
+    ".github/ISSUE_TEMPLATE/*.md",
+    ".github/workflows/*.yml"
+  ],
+  "include_roots": [
+    ".claude-plugin",
+    ".cursor",
+    ".windsurf",
+    "agents",
+    "assets",
+    "bin",
+    "claude_obsidian",
+    "config",
+    "docs",
+    "examples",
+    "hooks",
+    "scripts",
+    "skills",
+    "templates",
+    "tests"
+  ],
+  "limits": {
+    "max_archive_bytes": 104857600,
+    "max_compression_ratio": 20,
+    "max_file_bytes": 10485760,
+    "max_files": 5000,
+    "max_total_bytes": 52428800
+  },
+  "reviewed_binaries": {
+    "assets/cover.png": "7921a6494df958c9bf236cbaa141fc23641efc2ca16f2775be9913ce91724197",
+    "assets/screenshots/graph-view.png": "9faa4a414ccfa2618ab849519ca81a66fe5eb096c90491fc9fe650099f3002cc",
+    "assets/screenshots/wiki-map-view.png": "76d5e1ce23d4a76bca4c09e737fb3ac494e787556fcb385d6acc2af66235be89",
+    "tests/fixtures/capture/sample.pdf": "b6a48cb88c70887bd99c9120292e72764d368433655388783b7fc77578b23a35"
+  },
+  "schema_version": 1
+}

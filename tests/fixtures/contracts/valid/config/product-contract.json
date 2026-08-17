@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "product": {
+    "id": "example-product",
+    "name": "Example Product",
+    "promise": "Provide a deterministic contract fixture.",
+    "non_promises": [
+      "Automatic remote egress"
+    ]
+  },
+  "supported_hosts": [
+    {
+      "id": "test-host",
+      "support_level": "compatible",
+      "implementation_paths": [
+        "skills"
+      ]
+    }
+  ],
+  "installation_modes": [
+    {
+      "id": "test-install",
+      "host": "test-host",
+      "implementation_paths": [
+        "skills"
+      ]
+    }
+  ],
+  "privacy_defaults": {
+    "local_first": true,
+    "telemetry": "disabled",
+    "remote_egress": "explicit_consent",
+    "transcript_capture": "disabled",
+    "source_payloads": "create_only_immutable",
+    "destructive_repairs": "explicit_consent"
+  },
+  "compatibility": {
+    "minimum_python": "3.11",
+    "vault_layout": "v1",
+    "legacy_scripts": "supported_through_v1",
+    "migration": "explicit_dry_run_first",
+    "filesystem_fallback": true,
+    "new_configuration_optional": true
+  },
+  "release_gates": [
+    {
+      "id": "fixture-review",
+      "required": true,
+      "verification": {
+        "type": "manual",
+        "evidence": "The fixture was reviewed."
+      }
+    }
+  ]
+}

@@ -21,13 +21,19 @@ claude-obsidian is an original work. The following third-party patterns, tools, 
 - `.obsidian/snippets/ITS-Dataview-Cards.css`
 - `.obsidian/snippets/ITS-Image-Adjustments.css`
 
-These snippets are distributed under the GPL-2.0 license. Per GPL-2.0 terms, any modifications to these files must also be released under GPL-2.0.
+These snippets exist only in the private contributor-vault state. They are not
+selected into the deterministic public product artifact and are not installed
+by the vault template. The project-owned `templates/vault/.obsidian/snippets/vault-colors.css`
+is the only snippet distributed by claude-obsidian.
 
 ---
 
-## Obsidian Plugins (pre-installed)
+## Historical contributor-vault plugins
 
-The following Obsidian community plugins ship with this vault as pre-installed binaries. They are the property of their respective authors and are distributed here solely to reduce setup friction. Users should verify license terms via each plugin's repository.
+The source repository has contained the following Obsidian community plugins in
+its contributor-vault state. They are not included in the deterministic public
+product artifact or installed by the vault template. Install and review them
+through Obsidian under their respective licenses.
 
 | Plugin | Author | Repository |
 |--------|--------|-----------|
@@ -36,7 +42,8 @@ The following Obsidian community plugins ship with this vault as pre-installed b
 | Obsidian Excalidraw | Zsolt Viczian | https://github.com/zsviczian/obsidian-excalidraw-plugin |
 | Obsidian Banners | Danny Hernandez | https://github.com/noatpad/obsidian-banners |
 
-`obsidian-excalidraw-plugin/main.js` is **not** included in this repository. It is downloaded automatically by `bin/setup-vault.sh` from the plugin's official GitHub releases.
+`bin/setup-vault.sh` does not download unverified plugin binaries. It prints
+manual installation guidance instead.
 
 ---
 

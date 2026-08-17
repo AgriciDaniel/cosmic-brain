@@ -26,7 +26,7 @@ LOCK_SH="$ROOT/scripts/wiki-lock.sh"
 WORKERS=10
 TARGET_FILE_REL="wiki/concepts/Stress.md"
 
-SANDBOX=$(mktemp -d /tmp/concurrent-write-test-XXXXXX)
+SANDBOX=$(mktemp -d "${TMPDIR:-/tmp}/concurrent-write-test.XXXXXX")
 trap 'rm -rf "$SANDBOX"' EXIT
 mkdir -p "$SANDBOX/.vault-meta/locks" "$SANDBOX/wiki/concepts"
 TARGET_ABS="$SANDBOX/$TARGET_FILE_REL"
@@ -59,7 +59,8 @@ worker() {
   local attempts=0
   local max_attempts=50
   # Random jitter so workers don't all hit at the same instant
-  local jitter=$(awk -v id="$id" 'BEGIN { srand(id); print int(rand()*100) }')
+  local jitter
+  jitter=$(awk -v id="$id" 'BEGIN { srand(id); print int(rand()*100) }')
   # POSIX-portable sub-second sleep via sleep(1) with fractional seconds (GNU/macOS supports it)
   sleep "0.0${jitter}" 2>/dev/null || sleep 1
 
@@ -79,9 +80,11 @@ worker() {
 
 # ── Spawn workers in parallel ───────────────────────────────────────────────
 PIDS=()
-for i in $(seq 1 $WORKERS); do
+i=1
+while [ "$i" -le "$WORKERS" ]; do
   worker "$i" &
   PIDS+=("$!")
+  i=$((i + 1))
 done
 
 # Wait for all workers
@@ -95,22 +98,24 @@ done
 assert_eq "all workers completed (no give-ups)" "0" "$FAILED_WORKERS"
 
 # ── Verify: file has seed + exactly N tagged lines ──────────────────────────
-TOTAL_LINES=$(wc -l < "$TARGET_ABS")
+TOTAL_LINES=$(awk 'END { print NR + 0 }' "$TARGET_ABS")
 assert_eq "total line count (seed + workers)" "$((WORKERS + 1))" "$TOTAL_LINES"
 
 # Every worker tag must appear exactly once
-for i in $(seq 1 $WORKERS); do
-  COUNT=$(grep -c "^worker-$i-tag$" "$TARGET_ABS" || echo 0)
+i=1
+while [ "$i" -le "$WORKERS" ]; do
+  COUNT=$(grep -c "^worker-$i-tag$" "$TARGET_ABS" || true)
   if [ "$COUNT" != "1" ]; then
     echo "FAIL worker-$i tag count: expected 1, got $COUNT"
     FAIL=$((FAIL + 1))
   fi
+  i=$((i + 1))
 done
 echo "OK   every worker tag appears exactly once"
 PASS=$((PASS + 1))
 
 # ── Verify: no orphaned lockfiles ───────────────────────────────────────────
-LIVE_LOCKS=$(bash "$LOCK_SH" list | wc -l)
+LIVE_LOCKS=$(bash "$LOCK_SH" list | awk 'END { print NR + 0 }')
 assert_eq "no live lockfiles after workers exited" "0" "$LIVE_LOCKS"
 
 # ── Verify: clear-stale reports 0 (nothing to reap) ─────────────────────────
@@ -118,7 +123,7 @@ REAPED=$(bash "$LOCK_SH" clear-stale --max-age 0)
 assert_eq "clear-stale reaped count" "0" "$REAPED"
 
 # ── Verify: file content sanity (no truncated/garbled lines) ────────────────
-GARBLED=$(awk 'length > 100' "$TARGET_ABS" | wc -l)
+GARBLED=$(awk 'length > 100 { count += 1 } END { print count + 0 }' "$TARGET_ABS")
 assert_eq "no garbled (overlong) lines" "0" "$GARBLED"
 
 echo ""

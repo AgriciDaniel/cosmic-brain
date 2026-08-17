@@ -2,10 +2,12 @@
 type: zettel
 id: "{{id}}"
 title: "{{title}}"
-created: "{{date}}"
+status: seed
+created: {{date}}
+updated: {{date}}
 parent_id: ""
-child_ids: []
-tags: []
+tags:
+  - zettel
 ---
 
 # {{id}} — {{title}}

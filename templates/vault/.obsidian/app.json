@@ -1,0 +1,6 @@
+{
+  "userIgnoreFilters": [
+    ".raw/",
+    ".vault-meta/"
+  ]
+}

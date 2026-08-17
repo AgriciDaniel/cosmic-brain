@@ -11,6 +11,12 @@ This project adopts the [Contributor Covenant v2.1](https://www.contributor-cove
 
 ## Reporting
 
-Concerns about conduct can be reported privately to the maintainer at **agricidaniel@gmail.com**. Reports are confidential. Response within a reasonable timeframe.
+Report conduct concerns through the community's existing private moderation
+channel. If that channel is unavailable, contact a repository or community
+maintainer privately and request a moderation handoff before sharing details.
+For abusive content hosted on GitHub, its built-in report-content or abuse
+controls are also available. Do not include report details in a public issue.
+Maintainers will handle reports confidentially and respond within a reasonable
+timeframe.
 
 For the full standard text (including specific examples of acceptable and unacceptable behavior, enforcement guidelines, and attribution), see the [Contributor Covenant homepage](https://www.contributor-covenant.org/).

@@ -1,4 +1,4 @@
-name: Tests
+name: Hermetic verification
 
 on:
   push:
@@ -7,118 +7,124 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
-    name: Hermetic test suite
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.11', '3.12', '3.13', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python }}
 
-      - name: Verify Python version
-        run: python3 --version
+      - name: Show runtime versions
+        run: |
+          python3 --version
+          bash --version | head -1
 
-      - name: Verify Bash + GNU coreutils
-        run: bash --version && date --version | head -1
-
-      - name: Make scripts executable
-        run: chmod +x scripts/*.sh scripts/*.py bin/*.sh tests/*.sh 2>/dev/null || true
-
-      - name: Run hermetic test suite
+      - name: Run hermetic suite and executable contracts
         run: make test
 
-      - name: Verify wiki-mode CLI surfaces
+      - name: Prove tests did not mutate or create product files
         run: |
-          python3 scripts/wiki-mode.py get
-          python3 scripts/wiki-mode.py config | python3 -m json.tool > /dev/null
-          python3 scripts/wiki-mode.py id
-          python3 scripts/wiki-mode.py templates
+          git diff --exit-code
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
 
-      - name: Verify transport detection
-        run: bash scripts/detect-transport.sh --peek | python3 -m json.tool > /dev/null
+  windows-smoke:
+    # The full suite exercises dirfd confinement, symlinks, fcntl, and bash —
+    # deliberately unsupported on native Windows.  This job runs the portable
+    # surface (schema/package/contract validation plus the Windows
+    # compatibility suite) as an explicit allowlist so a skip can never be
+    # mistaken for a pass.
+    name: windows-latest / Python 3.12 (portable surface)
+    runs-on: windows-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    defaults:
+      run:
+        shell: bash
 
-  lint-skills:
-    name: Skill frontmatter validation
+    steps:
+      - name: Disable line-ending translation before checkout
+        # The runner image ships autocrlf=true globally; frontmatter parsing
+        # and content hashing require byte-exact LF checkouts.  Must run
+        # before actions/checkout writes any file.
+        run: git config --global core.autocrlf false
+
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.12'
+
+      - name: Show runtime versions
+        run: python --version
+
+      - name: Run portable-surface tests
+        run: |
+          set -eu
+          for test_file in \
+            tests/test_package_validation.py \
+            tests/test_knowledge_contracts.py \
+            tests/test_contracts.py \
+            tests/test_benchmark_tools.py \
+            tests/test_windows_compat.py; do
+            echo "=== $test_file ==="
+            python "$test_file"
+          done
+
+      - name: Run portable validators
+        run: |
+          python scripts/claude-obsidian.py package validate
+          python scripts/claude-obsidian.py contracts --check-only
+
+      - name: Prove tests did not mutate or create product files
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain=v1 --untracked-files=all)"
+
+  release-safety:
+    name: Reproducible release artifact
     runs-on: ubuntu-latest
-    timeout-minutes: 2
+    timeout-minutes: 8
+    needs: test
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version: '3.11'
 
-      - name: Install PyYAML
-        run: pip install pyyaml
-
-      - name: Validate every SKILL.md has valid YAML frontmatter
+      - name: Build and audit the public artifact twice
         run: |
-          python3 <<'PYEOF'
-          import os, sys, yaml
-          errors = []
-          for root, dirs, files in os.walk('skills'):
-              for f in files:
-                  if f == 'SKILL.md':
-                      path = os.path.join(root, f)
-                      with open(path) as fh:
-                          content = fh.read()
-                      if not content.startswith('---'):
-                          errors.append(f"{path}: missing frontmatter")
-                          continue
-                      try:
-                          end = content.index('\n---', 4)
-                          frontmatter = yaml.safe_load(content[4:end])
-                          if not frontmatter.get('name'):
-                              errors.append(f"{path}: missing 'name' in frontmatter")
-                          if not frontmatter.get('description'):
-                              errors.append(f"{path}: missing 'description' in frontmatter")
-                      except Exception as e:
-                          errors.append(f"{path}: frontmatter parse error: {e}")
-          if errors:
-              print("\n".join(errors))
-              sys.exit(1)
-          print("All SKILL.md files have valid frontmatter.")
-          PYEOF
-
-      - name: Validate every agent has tools declared
-        run: |
-          python3 <<'PYEOF'
-          import os, sys, yaml
-          errors = []
-          for f in os.listdir('agents'):
-              if f.endswith('.md'):
-                  path = os.path.join('agents', f)
-                  with open(path) as fh:
-                      content = fh.read()
-                  if not content.startswith('---'):
-                      errors.append(f"{path}: missing frontmatter")
-                      continue
-                  try:
-                      end = content.index('\n---', 4)
-                      frontmatter = yaml.safe_load(content[4:end])
-                      if not frontmatter.get('tools'):
-                          errors.append(f"{path}: missing 'tools' in frontmatter")
-                  except Exception as e:
-                      errors.append(f"{path}: frontmatter parse error: {e}")
-          if errors:
-              print("\n".join(errors))
-              sys.exit(1)
-          print("All agents have tools declared.")
-          PYEOF
-
-      - name: Validate plugin.json + marketplace.json
-        run: |
-          python3 -c "import json; json.load(open('.claude-plugin/plugin.json'))"
-          python3 -c "import json; json.load(open('.claude-plugin/marketplace.json'))"
-          python3 -c "import json; json.load(open('hooks/hooks.json'))"
-          echo "All plugin manifests are valid JSON."
+          python3 scripts/claude-obsidian.py release build --output "$RUNNER_TEMP/first.zip"
+          python3 scripts/claude-obsidian.py release build --output "$RUNNER_TEMP/second.zip"
+          cmp "$RUNNER_TEMP/first.zip" "$RUNNER_TEMP/second.zip"
+          python3 scripts/claude-obsidian.py release audit "$RUNNER_TEMP/first.zip"

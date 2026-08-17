@@ -1,0 +1,5 @@
+{
+  "userIgnoreFilters": ["my-private-folder/"],
+  "alwaysUpdateLinks": false,
+  "fixture": "preserve me"
+}

@@ -1,11 +1,12 @@
 ---
 type: area
 title: "{{title}}"
-created: "{{date}}"
+status: active
+created: {{date}}
+updated: {{date}}
 review_cadence: weekly
 tags:
   - area
-related_projects: []
 ---
 
 # {{title}}

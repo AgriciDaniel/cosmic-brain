@@ -1,44 +1,77 @@
 ---
 name: obsidian-bases
-description: "Create and edit Obsidian Bases (.base files): Obsidian's native database layer for dynamic tables, card views, list views, filters, formulas, and summaries over vault notes. Triggers on: create a base, add a base file, obsidian bases, base view, filter notes, formula, database view, dynamic table, task tracker base, reading list base."
-allowed-tools: Read Write
+description: Explain, draft, and validate Obsidian Bases .base files with filters, formulas, properties, summaries, and table, card, or list views. Use for Obsidian Bases, database-like vault views, dynamic tables, reading lists, task trackers, filters, formulas, summaries, and .base file edits.
 ---
 
-# obsidian-bases: Obsidian's Database Layer
+# Obsidian Bases
 
-Obsidian Bases (launched 2025) turns vault notes into queryable, dynamic views. Tables, cards, lists, maps. Defined in `.base` files. No plugin required; it is a core Obsidian feature.
+Use this as a compact workflow and fallback syntax reference. Prefer a
+separately installed `kepano/obsidian-skills` `obsidian-bases` skill, then the
+current [official Bases syntax](https://help.obsidian.md/bases/syntax), for
+detailed or version-sensitive fields and functions.
 
-**Substrate preference (v1.7+)**: This skill is a self-contained fallback. **Prefer `kepano/obsidian-skills`** as the authoritative substrate — its `obsidian-bases` skill is the canonical reference for Bases YAML, formulas, and view definitions. If you see an `obsidian-bases` skill available without the `claude-obsidian:` namespace, that is kepano's version: use it. The reference below is provided so the plugin remains functional when kepano's marketplace is not installed. Install: `claude plugin marketplace add kepano/obsidian-skills`. Official Bases docs: https://help.obsidian.md/bases/syntax
+Answer design and syntax questions read-only. For a requested `.base` edit,
+resolve the user vault and use one inspected transaction; never write the file
+directly.
 
----
+Resolve the installed product root from this skill's own location, not from the
+vault or current working directory:
 
-## File Format
+```bash
+PRODUCT_ROOT=/absolute/path/to/installed/claude-obsidian
+CORE="$PRODUCT_ROOT/scripts/claude-obsidian.py"
+test -f "$CORE"
+```
 
-`.base` files contain valid YAML. The root keys are `filters`, `formulas`, `properties`, `summaries`, and `views`.
+## Workflow
+
+1. Inspect representative note properties and any existing `.base` file.
+2. Define the smallest filter that selects the intended notes.
+3. Add formulas only for values that must be computed.
+4. Choose views and display order. Do not assume a view type or option is
+   supported by the user's Obsidian version or installed plugins.
+5. Validate YAML, expression quoting, property names, formula references, and
+   null handling.
+6. Preview the complete file and expected result set before a mutation.
+7. If an edit was requested, read
+   [operation-transactions.md](../wiki/references/operation-transactions.md),
+   keep the `.base` file under `wiki/`, and build one
+   `claude-obsidian.transaction.v1` bundle with `operation_type: base`. Inspect
+   it, then set `APPROVAL_SHA256` to the returned `approval_sha256` only after
+   review and apply once:
+
+   ```bash
+   python3 "$CORE" transaction inspect "$BUNDLE" --vault "$VAULT"
+   python3 "$CORE" transaction apply "$BUNDLE" --vault "$VAULT" \
+     --approved-plan-sha256 "$APPROVAL_SHA256"
+   ```
+8. Ask the user to render the Base in Obsidian when application-level behavior
+   cannot be verified locally.
+
+## Compact schema
+
+`.base` files are YAML. Common top-level keys are `filters`, `formulas`,
+`properties`, `summaries`, and `views`.
 
 ```yaml
-# Global filters: apply to ALL views
 filters:
   and:
-    - file.hasTag("wiki")
+    - file.inFolder("wiki")
     - 'status != "archived"'
 
-# Computed properties
 formulas:
-  age_days: '(now() - file.ctime).days.round(0)'
-  status_icon: 'if(status == "mature", "✅", "🔄")'
+  age_days: '((now() - file.ctime) / 86400000).round(0)'
+  status_label: 'if(status == "mature", "Ready", "Review")'
 
-# Display name overrides for properties panel
 properties:
   status:
     displayName: "Status"
   formula.age_days:
     displayName: "Age (days)"
 
-# One or more views
 views:
   - type: table
-    name: "All Pages"
+    name: "Wiki pages"
     order:
       - file.name
       - type
@@ -47,266 +80,63 @@ views:
       - formula.age_days
 ```
 
----
-
-## Filters
-
-Filters select which notes appear. Applied globally or per-view.
+Global filters apply to every view. A view may also define its own `filters`.
+Recursive filter objects use one of `and`, `or`, or `not` at each level.
 
 ```yaml
-# Single string filter
-filters: 'status == "current"'
-
-# AND: all must be true
-filters:
-  and:
-    - 'status != "archived"'
-    - file.hasTag("wiki")
-
-# OR: any can be true
 filters:
   or:
     - file.hasTag("concept")
-    - file.hasTag("entity")
-
-# NOT: exclude matches
-filters:
-  not:
-    - file.inFolder("wiki/meta")
-
-# Nested
-filters:
-  and:
-    - file.inFolder("wiki/")
-    - or:
-        - 'type == "concept"'
-        - 'type == "entity"'
+    - and:
+        - file.hasTag("source")
+        - 'status == "active"'
 ```
 
-### Filter operators
+Use note properties by name, file metadata as `file.name`, `file.path`,
+`file.folder`, `file.ext`, `file.ctime`, `file.mtime`, or `file.tags`, and
+computed properties as `formula.<name>`.
 
-`==` `!=` `>` `<` `>=` `<=`
+## Formula and YAML rules
 
-### Useful filter functions
-
-| Function | Example |
-|----------|---------|
-| `file.hasTag("x")` | Notes with tag `x` |
-| `file.inFolder("path/")` | Notes in folder |
-| `file.hasLink("Note")` | Notes linking to Note |
-
----
-
-## Properties
-
-Three types:
-- **Note properties**: from frontmatter: `status`, `type`, `updated`
-- **File properties**: metadata: `file.name`, `file.mtime`, `file.size`, `file.ctime`, `file.tags`, `file.folder`
-- **Formula properties**: computed: `formula.age_days`
-
----
-
-## Formulas
-
-Defined in `formulas:`. Referenced as `formula.name` in `order:` and `properties:`.
+- Quote expressions that contain operators, colons, or nested string quotes.
+- Guard nullable properties with `if()`.
+- Subtracting two dates returns a millisecond number. Divide by `86400000`
+  before rounding when a whole-day count is intended.
+- Define every `formula.<name>` before referencing it in a view or property
+  display configuration.
+- Do not transplant Dataview-only keys such as `from` or `where` into a Base.
+- Do not invent properties absent from the selected notes without explaining
+  that the resulting column will be empty.
 
 ```yaml
 formulas:
-  # Days since created
-  age_days: '(now() - file.ctime).days.round(0)'
-
-  # Days until a date property
-  days_until: 'if(due_date, (date(due_date) - today()).days, "")'
-
-  # Conditional label
-  status_icon: 'if(status == "mature", "✅", if(status == "developing", "🔄", "🌱"))'
-
-  # Word count estimate
-  word_est: '(file.size / 5).round(0)'
+  days_until: 'if(due_date, ((date(due_date) - today()) / 86400000).round(0), "")'
 ```
 
-**Key rule**: Subtracting two dates returns a `Duration`. Not a number. Always access `.days` first:
-```yaml
-# CORRECT
-age: '(now() - file.ctime).days'
+Table, cards, and list views are common:
 
-# WRONG: crashes
-age: '(now() - file.ctime).round(0)'
-```
-
-**Always guard nullable properties with `if()`**:
-```yaml
-# CORRECT
-days_left: 'if(due_date, (date(due_date) - today()).days, "")'
-```
-
----
-
-## View Types
-
-### Table
-```yaml
-views:
-  - type: table
-    name: "Wiki Index"
-    limit: 100
-    order:
-      - file.name
-      - type
-      - status
-      - updated
-    groupBy:
-      property: type
-      direction: ASC
-```
-
-### Cards
 ```yaml
 views:
   - type: cards
-    name: "Gallery"
+    name: "Reading list"
     order:
       - file.name
-      - tags
+      - author
       - status
-```
-
-### List
-```yaml
-views:
   - type: list
-    name: "Quick List"
+    name: "Quick list"
     order:
       - file.name
       - status
 ```
 
----
-
-## Wiki Vault Templates
-
-### Wiki content dashboard (all non-meta pages)
-
-```yaml
-filters:
-  and:
-    - file.inFolder("wiki/")
-    - not:
-        - file.inFolder("wiki/meta")
-
-formulas:
-  age: '(now() - file.ctime).days.round(0)'
-
-properties:
-  formula.age:
-    displayName: "Age (days)"
-
-views:
-  - type: table
-    name: "All Wiki Pages"
-    order:
-      - file.name
-      - type
-      - status
-      - updated
-      - formula.age
-    groupBy:
-      property: type
-      direction: ASC
-```
-
-### Entity index (people, orgs, repos)
-
-```yaml
-filters:
-  and:
-    - file.inFolder("wiki/entities/")
-    - 'file.ext == "md"'
-
-views:
-  - type: table
-    name: "Entities"
-    order:
-      - file.name
-      - entity_type
-      - status
-      - updated
-    groupBy:
-      property: entity_type
-      direction: ASC
-```
-
-### Recent ingests
-
-```yaml
-filters:
-  and:
-    - file.inFolder("wiki/sources/")
-
-views:
-  - type: table
-    name: "Sources"
-    order:
-      - file.name
-      - source_type
-      - created
-      - status
-    groupBy:
-      property: source_type
-      direction: ASC
-```
-
----
-
-## Embedding in Notes
+Embed a Base or one named view in a Markdown note:
 
 ```markdown
-![[MyBase.base]]
-
-![[MyBase.base#View Name]]
+![[Dashboard.base]]
+![[Dashboard.base#Wiki pages]]
 ```
 
----
-
-## Where to Save
-
-Store `.base` files in `wiki/meta/` for vault dashboards:
-- `wiki/meta/dashboard.base`: main content view
-- `wiki/meta/entities.base`: entity tracker
-- `wiki/meta/sources.base`: ingestion log
-
----
-
-## YAML Quoting Rules
-
-- Formulas with double quotes → wrap in single quotes: `'if(done, "Yes", "No")'`
-- Strings with colons or special chars → wrap in double quotes: `"Status: Active"`
-- Unquoted strings with `:` break YAML parsing
-
----
-
-## What Not to Do
-
-- Do not use `from:` or `where:`: those are Dataview syntax, not Obsidian Bases
-- Do not use `sort:` at the root level: sorting is per-view via `order:` and `groupBy:`
-- Do not put `.base` files outside the vault: they only render inside Obsidian
-- Do not reference `formula.X` in `order:` without defining `X` in `formulas:`
-
----
-
-## How to think (10-principle mapping)
-
-When working on this skill, apply the 10-principle loop. See [`skills/think/SKILL.md`](../think/SKILL.md) for the canonical framework.
-
-| # | Principle | Application here |
-|---|-----------|-------------------|
-| 1 | OBSERVE (ext) | The `.base` YAML the user is composing — read it carefully before suggesting changes. |
-| 2 | OBSERVE (int) | Am I documenting yesterday's spec or today's? Bases evolves fast post-GA. |
-| 3 | LISTEN | The user's specific Bases use-case (dashboard, filter chain, computed property). |
-| 4 | THINK | Which filter operators, formula syntax, view types apply? Validate against the current spec. |
-| 5 | CONNECT (lat) | How do Bases relate to Dataview queries? Properties? Canvas overlays? Map the deltas. |
-| 6 | CONNECT (sys) | Obsidian Bases is post-1.10 GA; substrate-defer to kepano/obsidian-skills when present. |
-| 7 | FEEL | Examples that actually parse and render. Pseudo-syntax wastes the user. |
-| 8 | ACCEPT | Bases spec evolves; some features in this doc may have changed. Keep the version note current. |
-| 9 | CREATE | Schema docs + worked examples that render in the user's actual Obsidian version. |
-| 10 | GROW | As Bases features ship, refresh the reference. Track upstream releases. |
+After an applied edit, report the operation ID, exact changed path, validation
+performed, and anything that still requires rendering in Obsidian. Do not
+commit Git.

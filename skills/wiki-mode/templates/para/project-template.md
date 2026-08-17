@@ -2,12 +2,12 @@
 type: project
 title: "{{title}}"
 status: active
-created: "{{date}}"
+created: {{date}}
+updated: {{date}}
 deadline: ""
 outcome: ""
 tags:
   - project
-related_areas: []
 ---
 
 # {{title}}

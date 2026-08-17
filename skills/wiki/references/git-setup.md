@@ -1,58 +1,66 @@
-# Git Setup
+# Optional Git history
 
-Initialize git in the vault to get full history and protect against bad writes.
+Git is optional. Vault correctness comes from operation transactions, expected
+hashes, recovery journals, and deterministic validation, not from background
+commits.
 
----
+## Initialize only with approval
 
-## Initialize
+Do not initialize a repository, add a remote, stage files, commit, or push merely
+because a vault was scaffolded. If the user requests local history, first show
+the selected vault and planned action, then initialize Git in that vault. Keep
+workspace state, caches, secrets, and trash excluded.
 
-```bash
-cd "$VAULT_PATH"
-git init
-git add -A
-git commit -m "Initial vault scaffold"
-```
+A typical user-vault ignore policy includes:
 
----
-
-## .gitignore
-
-The root `.gitignore` in this repo already covers the right exclusions:
-
-```
+```gitignore
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-.smart-connections/
-.obsidian-git-data
 .trash/
 .DS_Store
+.vault-meta/
 ```
 
-`workspace.json` changes constantly as you move panes around. Excluding it keeps the diff clean.
+Transaction bundles, recovery journals, queues, and derived chunks may contain
+note text, local paths, or source URLs, so keep all `.vault-meta/` ignored by
+default. If the user deliberately wants to version a stable configuration file
+from that directory, add the narrowest reviewed exception while leaving runtime
+subtrees ignored. Adjust the remaining entries to actual plugins and privacy
+needs. Do not copy the product repository's ignore file blindly.
 
----
-
-## Obsidian Git Plugin
-
-After installing the plugin (see `plugins.md`):
-
-Settings > Obsidian Git:
-- Auto backup interval: **15 minutes**
-- Auto backup after file change: on
-- Push on backup: on (if you have a remote)
-- Commit message: `vault: auto backup {{date}}`
-
-This runs silently in the background. You get a full history of every note without thinking about it.
-
----
-
-## Remote (Optional)
-
-To back up to GitHub:
+`checkpoint` commits exactly one completed operation and therefore requires an
+existing parent commit. After `git init`, create a separate reviewed baseline
+before running any operation you intend to checkpoint:
 
 ```bash
-git remote add origin https://github.com/yourname/your-vault
-git push -u origin main
+git status --short
+git add -- <reviewed-baseline-paths>
+git diff --cached --stat
+git diff --cached
+git commit -m "vault: reviewed baseline"
 ```
 
-Keep the repo private if the vault contains personal notes.
+Select baseline paths deliberately; do not stage ignored runtime state, secrets,
+or raw payloads merely to make the repository non-empty. The checkpoint command
+never creates this baseline or silently folds pre-existing files into an
+operation commit.
+
+## Exact-operation checkpoints
+
+After a successful claude-obsidian transaction, an explicitly requested
+checkpoint is:
+
+```bash
+python3 "$CORE" checkpoint OPERATION_ID --vault "$VAULT"
+```
+
+The command verifies recorded hashes, refuses any pre-existing staged state,
+runs deterministic lint by default, and excludes raw source payloads unless the
+user opts in. It builds and verifies the commit through a temporary index, then
+advances the ref by compare-and-swap. A durable pending record makes an
+interrupted finalization retry-safe. Review the returned commit with `git show`.
+Pushing or adding a remote is a separate external action that requires explicit
+user authorization.
+
+Avoid automatic-commit plugins during agent operations because they can capture
+partial or unrelated state and invalidate exact-operation history.

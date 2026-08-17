@@ -1,254 +1,267 @@
-# claude-obsidian: Install Guide
+# Install claude-obsidian
 
-**Claude + Obsidian Knowledge Companion**
-Version 1.9.2 · public canonical: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) · community early-access mirror (Pro): [AI Marketing Hub org](https://github.com/AI-Marketing-Hub)
+claude-obsidian has two independent parts:
 
-> ℹ️ The install commands below use the **public open-source** URLs (`AgriciDaniel/claude-obsidian`), recommended for everyone and requiring no membership. [AI Marketing Hub Pro](https://www.skool.com/ai-marketing-hub-pro) members who want early access to in-development features can swap every `AgriciDaniel/claude-obsidian` for `AI-Marketing-Hub/claude-obsidian` and the plugin slug `claude-obsidian@agricidaniel-claude-obsidian` for `claude-obsidian@ai-marketing-hub-claude-obsidian`.
+1. the product package—skills, portable core, Claude adapter, and templates;
+2. a user-owned Obsidian vault containing mutable knowledge.
 
-> **Optional: DragonScale Memory extension.** If you want flat extractive log folds, deterministic page addresses, semantic tiling lint, and boundary-first autoresearch topic selection, run `bash bin/setup-dragonscale.sh` after the base install. Extra prerequisites beyond the base: `flock` (standard on Linux; available via `util-linux` on macOS) and `python3` (for the tiling and boundary helpers). Optional: `ollama` with `nomic-embed-text` pulled if you want the semantic tiling lint (Mechanism 3 only; it no-ops gracefully when ollama or the model is unavailable). The boundary-first scorer (Mechanism 4) needs only `python3`, no ollama. See [`docs/dragonscale-guide.md`](./dragonscale-guide.md) for the user-facing guide, `wiki/concepts/DragonScale Memory.md` for the full spec, and `CHANGELOG.md` for what shipped in 1.6.0.
+Do not use an installed plugin cache as the vault. A source clone is suitable
+for development, but a normal user vault should be a separate directory.
 
----
+## Requirements
 
-## What is claude-obsidian?
+- Python 3.11 or newer
+- an Agent Skills compatible host, or Claude Code for the plugin adapter
+- Obsidian when you want its visual editor
+- Bash for installer and optional legacy-extension scripts
+- Git only for source development, release builds, or explicit checkpoints
+- On Windows: WSL for vault writes; native Windows supports read-only
+  inspection and dry-runs — see the [Windows and WSL guide](windows-wsl.md)
 
-claude-obsidian is a Claude Code plugin + Obsidian vault that builds and maintains a persistent, compounding knowledge base. Every source you add gets processed into cross-referenced wiki pages. Every question you ask pulls from everything that has been read. Knowledge compounds like interest.
+## Claude Code marketplace
 
-Built on Andrej Karpathy's LLM Wiki pattern.
-
----
-
-## Prerequisites
-
-| Tool | How to get it | Notes |
-|------|--------------|-------|
-| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | Free tier available |
-| **Obsidian** | [obsidian.md](https://obsidian.md) | Free |
-| **Git** | Pre-installed on most systems | For Option 1 |
-
----
-
-## Installation
-
-### Option 1: Clone as vault (recommended)
-
-Full setup in under 2 minutes.
+Add the artifact-clean public catalog and install the namespaced plugin:
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-obsidian
-cd claude-obsidian
-bash bin/setup-vault.sh
-```
-
-Then in Obsidian: **Manage Vaults → Open folder as vault → select `claude-obsidian/`**
-
-Open Claude Code in the same folder and type `/wiki`.
-
-### Option 2: Install as Claude Code plugin
-
-Plugin installation in Claude Code is a two-step process. First add the marketplace catalog, then install the plugin from it.
-
-```bash
-# Step 1: add the marketplace
 claude plugin marketplace add AgriciDaniel/claude-obsidian
-
-# Step 2: install the plugin
 claude plugin install claude-obsidian@agricidaniel-claude-obsidian
-```
-
-Verify the install:
-```bash
 claude plugin list
 ```
 
-In any Claude Code session: type `/wiki` and Claude walks you through vault setup.
+The private development tree deliberately has no
+`.claude-plugin/marketplace.json`; it can contain contributor-vault state and
+must not be added as a marketplace. The deterministic release builder injects
+that manifest only into its audited output. The public default branch must be
+promoted from the extracted audited artifact before these marketplace commands
+are advertised for a new version.
 
-### Option 3: Add to an existing vault
+Invoke skills as `/claude-obsidian:wiki`,
+`/claude-obsidian:wiki-ingest`, and `/claude-obsidian:save`.
 
-Copy `WIKI.md` from this repo into your vault root. Then paste into Claude:
+The plugin cache contains read-only product assets. Run Claude from the user
+vault, set `CLAUDE_OBSIDIAN_VAULT`, or pass `--vault` to portable commands.
 
-```
-Read WIKI.md in this project. Then:
-1. Check if Obsidian is installed. If not, install it.
-2. Check if the Local REST API plugin is running on port 27124.
-3. Configure the MCP server.
-4. Ask me ONE question: "What is this vault for?"
-Then scaffold the full wiki structure.
-```
+## Local Claude plugin development
 
----
-
-## First Steps
-
-### 1. Scaffold the vault
-
-Type `/wiki` in Claude Code. Claude will:
-- Detect your vault mode (website, GitHub, business, personal, research, or book/course)
-- Create the folder structure and core wiki pages
-- Set up `wiki/index.md`, `wiki/hot.md`, `wiki/log.md`, and `wiki/overview.md`
-
-### 2. Drop your first source
-
-Put any document into `.raw/`:
-- PDFs, markdown files, transcripts, articles, URLs
-
-Tell Claude: `ingest [filename]`
-
-Claude reads the source and creates 8–15 cross-referenced wiki pages.
-
-### 3. Ask questions
-
-```
-what do you know about [topic]?
-```
-
-Claude reads the hot cache, scans the index, drills into relevant pages, and gives a synthesized answer, citing specific wiki pages, not training data.
-
----
-
-## Commands Reference
-
-| Command | What Claude does |
-|---------|-----------------|
-| `/wiki` | Setup check, scaffold, or continue where you left off |
-| `ingest [file]` | Read source, create 8–15 wiki pages, update index and log |
-| `ingest all of these` | Batch process multiple sources, then cross-reference |
-| `what do you know about X?` | Read index → relevant pages → synthesize answer |
-| `/save` | File the current conversation as a wiki note |
-| `/save [name]` | Save with a specific title |
-| `/autoresearch [topic]` | Autonomous research loop: search, fetch, synthesize, file |
-| `/canvas` | Open or create a visual canvas |
-| `/canvas add image [path]` | Add an image to the canvas |
-| `/canvas add text [content]` | Add a markdown text card |
-| `/canvas add pdf [path]` | Add a PDF document |
-| `/canvas add note [page]` | Pin a wiki page as a linked card |
-| `lint the wiki` | Health check: orphans, dead links, gaps |
-| `update hot cache` | Refresh `hot.md` with latest context summary |
-
----
-
-## Plugins (pre-installed)
-
-Enable in **Settings → Community Plugins**:
-
-| Plugin | Purpose |
-|--------|---------|
-| **Calendar** | Right-sidebar calendar with word count and task dots |
-| **Thino** | Quick memo capture panel |
-| **Excalidraw** | Freehand drawing, image annotation |
-| **Banners** | Header images via `banner:` frontmatter |
-
-Also install from Community Plugins:
-
-| Plugin | Purpose |
-|--------|---------|
-| **Dataview** | Powers the dashboard queries |
-| **Templater** | Auto-fills frontmatter from templates |
-| **Obsidian Git** | Auto-commits vault every 15 minutes |
-
----
-
-## CSS Snippets
-
-Three snippets are auto-enabled by `setup-vault.sh`:
-
-| Snippet | Effect |
-|---------|--------|
-| `vault-colors` | Color-codes wiki folders in the file explorer |
-| `ITS-Dataview-Cards` | Turns Dataview queries into visual card grids |
-| `ITS-Image-Adjustments` | Fine-grained image sizing; append `\|100` to embeds |
-
----
-
-## Six Wiki Modes
-
-| Mode | Use when |
-|------|---------|
-| **A: Website** | Sitemap, content audit, SEO wiki |
-| **B: GitHub** | Codebase map, architecture wiki |
-| **C: Business** | Project wiki, competitive intelligence |
-| **D: Personal** | Second brain, goals, journal synthesis |
-| **E: Research** | Papers, concepts, thesis |
-| **F: Book/Course** | Chapter tracker, course notes |
-
-Modes can be combined.
-
----
-
-## MCP Setup (Optional)
-
-MCP lets Claude read and write vault notes directly without copy-paste.
-
-**Option A: REST API**
-
-1. Install the **Local REST API** plugin in Obsidian
-2. Copy your API key
-3. Run:
+From a product clone:
 
 ```bash
-claude mcp add-json obsidian-vault '{
-  "type": "stdio",
-  "command": "uvx",
-  "args": ["mcp-obsidian"],
-  "env": {
-    "OBSIDIAN_API_KEY": "your-key",
-    "OBSIDIAN_HOST": "127.0.0.1",
-    "OBSIDIAN_PORT": "27124",
-    "NODE_TLS_REJECT_UNAUTHORIZED": "0"
-  }
-}' --scope user
+claude --plugin-dir <product-repository>
 ```
 
-**Option B: Filesystem (no plugin needed)**
+This mode is for testing uninstalled changes. Skills remain namespaced. It does
+not convert the product repository into a user vault.
+
+## Portable Agent Skills hosts
+
+The installer defaults to a no-write preview for Codex, OpenCode, and Gemini:
 
 ```bash
-claude mcp add-json obsidian-vault '{
-  "type": "stdio",
-  "command": "npx",
-  "args": ["-y", "@bitbonsai/mcpvault@latest", "/path/to/your/vault"]
-}' --scope user
+bash bin/setup-multi-agent.sh
+bash bin/setup-multi-agent.sh --apply
 ```
 
----
+It links each canonical `skills/<name>/` directory into the host's direct
+`<skill-root>/<name>/SKILL.md` discovery layout. Destinations are created only
+when absent; an existing skill or link is never replaced. Check readiness
+without writing:
+
+```bash
+bash bin/setup-multi-agent.sh --check
+```
+
+Cursor and Windsurf use workspace-local discovery and require an explicit
+workspace:
+
+```bash
+bash bin/setup-multi-agent.sh --host cursor --host windsurf \
+  --workspace <workspace> --apply
+```
+
+You can also create equivalent per-skill links manually. For each `<name>` under
+the product's `skills/` directory, link that directory at:
+
+```text
+Codex:     ~/.agents/skills/<name>          -> <product-repository>/skills/<name>
+OpenCode:  ~/.config/opencode/skills/<name> -> <product-repository>/skills/<name>
+Gemini:    ~/.gemini/skills/<name>          -> <product-repository>/skills/<name>
+Cursor:    <workspace>/.cursor/skills/<name>   -> <product-repository>/skills/<name>
+Windsurf:  <workspace>/.windsurf/skills/<name> -> <product-repository>/skills/<name>
+```
+
+## Create a new vault
+
+Review the initialization plan first:
+
+```bash
+python3 scripts/claude-obsidian.py init <new-vault> \
+  --generated-at <ISO-UTC> --operation-id init-reviewed
+```
+
+Apply the same operation only after the destination and changed paths look
+correct:
+
+```bash
+python3 scripts/claude-obsidian.py init <new-vault> \
+  --generated-at <ISO-UTC> --operation-id init-reviewed \
+  --approved-plan-sha256 <reviewed-sha256> --apply
+```
+
+The generated vault contains:
+
+- `.gitignore`—privacy-safe defaults excluding `.vault-meta/` runtime state,
+  Obsidian workspace state, and live `.mcp.json` launch configuration;
+- `.claude-obsidian.json`—workspace identity and vault selection;
+- `inbox/`—visible source intake;
+- `.raw/`—immutable source payloads and legacy delta manifest;
+- `wiki/`—index, log, hot cache, overview, and generated notes;
+- `.obsidian/`—minimal non-destructive Obsidian defaults;
+- `.vault-meta/`—ignored runtime state created when needed.
+
+Initialization does not add an upstream Git remote or install community
+plugins. Open the new directory through Obsidian's vault picker.
+
+## Adopt an existing vault
+
+Adoption scans an existing Obsidian directory and proposes only missing product
+metadata and foundation files:
+
+```bash
+python3 scripts/claude-obsidian.py adopt <existing-vault> \
+  --generated-at <ISO-UTC> --operation-id adopt-reviewed
+python3 scripts/claude-obsidian.py adopt <existing-vault> \
+  --generated-at <ISO-UTC> --operation-id adopt-reviewed \
+  --approved-plan-sha256 <reviewed-sha256> --apply
+```
+
+It preserves existing notes and Obsidian JSON. `--force` is intentionally
+separate and should be used only after inspecting replacement targets.
+
+For older claude-obsidian layouts, add provenance ledgers and workspace config
+with an additive migration:
+
+```bash
+python3 scripts/claude-obsidian.py migrate --vault <existing-vault> \
+  --generated-at <ISO-UTC> --operation-id migrate-reviewed
+python3 scripts/claude-obsidian.py migrate --vault <existing-vault> \
+  --generated-at <ISO-UTC> --operation-id migrate-reviewed \
+  --approved-plan-sha256 <reviewed-sha256> --apply
+```
+
+Migration is idempotent, does not infer claims from prose, and leaves the
+legacy `.raw/.manifest.json` byte-for-byte unchanged.
+
+## Vault selection
+
+Mutable commands use this precedence:
+
+1. `--vault <path>`
+2. `CLAUDE_OBSIDIAN_VAULT`
+3. nearest `.claude-obsidian.json`
+4. nearest unambiguous initialized vault from the current directory
+
+If selection fails, the command exits without mutation. The product/plugin root
+is rejected as an implicit vault.
+
+Verify a selected vault:
+
+```bash
+python3 scripts/claude-obsidian.py doctor --vault <vault>
+python3 scripts/claude-obsidian.py contracts --verify --vault <vault>
+```
+
+## Optional configuration
+
+The portable filesystem transport always remains available. Detect an active,
+supported Obsidian CLI without persisting a snapshot:
+
+```bash
+bash scripts/detect-transport.sh --peek --vault <vault>
+```
+
+Optional extensions are explicit and vault-scoped:
+
+```bash
+bash bin/setup-mode.sh --vault <vault>
+bash bin/setup-retrieve.sh --vault <vault>
+bash bin/setup-dragonscale.sh --vault <vault>
+```
+
+Read each script's preview before applying. Retrieval may use local BM25 alone;
+model-based contextual prefixes or remote endpoints require explicit egress
+consent. Optional tools such as Ollama and defuddle are capability-detected.
+
+## First operation
+
+Place a source in `inbox/`. Inspect the byte-capture plan:
+
+```bash
+python3 scripts/claude-obsidian.py capture plan --vault <vault>
+```
+
+Create immutable content-addressed copies only when the plan is correct:
+
+```bash
+python3 scripts/claude-obsidian.py capture apply --vault <vault> \
+  --generated-at <ISO-UTC> --operation-id capture-reviewed
+python3 scripts/claude-obsidian.py capture apply --vault <vault> \
+  --generated-at <ISO-UTC> --operation-id capture-reviewed \
+  --approved-plan-sha256 <reviewed-sha256> --apply
+```
+
+Then invoke the host's `wiki-ingest` skill. Image, PDF, and EPUB semantic
+extraction is not built into the core; those formats currently receive bounded
+metadata unless a separately configured adapter is explicitly approved.
+
+## Upgrade and rollback
+
+Upgrade product code independently from the user vault. Before a migration or
+large ingest, make a normal backup or snapshot. Knowledge writes are journaled;
+run recovery after an interrupted operation:
+
+```bash
+python3 scripts/claude-obsidian.py transaction recover --vault <vault>
+```
+
+Recovery conservatively preserves stale or foreign lock identities. Only after
+confirming no writer is active may an operator add `--force-stale-lock`.
+
+Git history is optional and never automatic. To checkpoint exactly one
+completed transaction:
+
+```bash
+python3 scripts/claude-obsidian.py checkpoint <operation-id> --vault <vault> \
+  --as-of YYYY-MM-DD
+```
+
+Checkpointing uses a temporary index, verifies exact Git blob bytes, refuses
+pre-existing staged state, and resumes an interrupted ref/index finalization
+from its vault-local pending record.
+
+## Uninstall
+
+Remove the host integration, not the vault:
+
+```bash
+claude plugin uninstall claude-obsidian@agricidaniel-claude-obsidian
+claude plugin marketplace remove agricidaniel-claude-obsidian
+```
+
+For portable hosts, remove only the per-skill links that the installer reported.
+User notes, sources, ledgers, and Obsidian settings remain untouched.
 
 ## Troubleshooting
 
-| Problem | Fix |
-|---------|-----|
-| `/wiki` says "not found" | Make sure `claude-obsidian` plugin is enabled: `claude plugin list` |
-| Graph colors reset after closing Obsidian | Open Graph view → gear → Color groups → re-add once. Permanent after that. |
-| Excalidraw not loading | Run `bash bin/setup-vault.sh` to download `main.js` (8MB, not in git) |
-| Dashboard shows no results | Install the **Dataview** plugin from Community Plugins |
-| Hot cache not loading at session start | Check hooks: `claude hooks list`; SessionStart hook should be present |
+| Symptom | Check |
+|---|---|
+| Skill is not discovered | Confirm `<host-skill-root>/<name>/SKILL.md` resolves to the matching product skill; rerun installer `--check`. |
+| Command says no vault selected | Run from the vault, pass `--vault`, or set `CLAUDE_OBSIDIAN_VAULT`. |
+| Plugin-root refusal | Select a separate user vault; plugin cache writes are unsupported. |
+| Transaction conflict / exit 75 | Another operation is active or a target changed; reread, rebuild, and inspect a new bundle. |
+| Obsidian CLI is unavailable | Use filesystem reads; start/update Obsidian before retrying CLI transport. |
+| Capture adapter is not implemented | Inspect `capture adapters`; configure a separate runner only with explicit consent. |
+| Writes refused with `UNSUPPORTED_PLATFORM` on Windows | Vault mutation requires WSL; see the [Windows and WSL guide](windows-wsl.md). |
+| WSL installed but `wsl --status` hangs | Virtualization conflict class; work through the checklist in the [Windows and WSL guide](windows-wsl.md#wsl-troubleshooting). |
+| Native dry-run approval fails in WSL with `PLAN_CHANGED` | Approval hashes bind the reviewing environment; redo the dry-run inside WSL ([details](windows-wsl.md#wsl-troubleshooting)). |
 
----
-
-## Cross-Project Power Move
-
-Point any Claude Code project at this vault. Add to that project's `CLAUDE.md`:
-
-```markdown
-## Wiki Knowledge Base
-Path: ~/path/to/claude-obsidian
-
-When you need context not in this project:
-1. Read wiki/hot.md first (recent context cache)
-2. If not enough, read wiki/index.md
-3. If you need domain details, read the relevant wiki page
-
-Do NOT read the wiki for general coding questions.
-```
-
-Your executive assistant, coding projects, and content workflows all draw from the same knowledge base.
-
----
-
-## Support
-
-- **GitHub (public canonical)**: [github.com/AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian)
-- **Issues**: [github.com/AgriciDaniel/claude-obsidian/issues](https://github.com/AgriciDaniel/claude-obsidian/issues)
-- **Community early-access (Pro)**: [AI Marketing Hub org](https://github.com/AI-Marketing-Hub) · [Skool community](https://www.skool.com/ai-marketing-hub-pro)
-
----
-
-*Built by [AgriciDaniel](https://github.com/AgriciDaniel) / AI Marketing Hub*
-*Based on Andrej Karpathy's LLM Wiki pattern*
+Run `make test` in the product repository when developing or packaging changes.

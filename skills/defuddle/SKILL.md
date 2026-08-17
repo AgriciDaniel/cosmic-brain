@@ -1,105 +1,104 @@
 ---
 name: defuddle
-description: "Strip clutter from web pages before ingesting into the wiki. Removes ads, navigation, headers, footers, and boilerplate: leaving clean readable markdown that saves 40-60% tokens. Triggers on: defuddle, clean this page, strip this url, fetch and clean, clean web content before ingesting, strip ads, remove clutter, clean URL content, readable markdown from URL."
-allowed-tools: Read Bash
+description: Plan and, with explicit network consent, use an optional external Defuddle cleaner to extract article-like HTTPS pages as Markdown. Use for defuddle, clean this URL, strip page clutter, readable Markdown from a web page, or preparing a web source for later wiki ingestion.
 ---
 
-# defuddle: Web Page Cleaner
+# Defuddle
 
-Defuddle extracts the meaningful content from a web page and drops everything else: ads, cookie banners, nav bars, related articles, footers, social sharing buttons. What remains is the article body as clean markdown.
+Treat Defuddle as an optional external extractor, not an internal capability.
+Cleaning, raw capture, and wiki ingestion are separate operations.
 
-Use this before any URL ingestion. It is optional but strongly recommended. It cuts token usage by 40-60% on typical web articles and produces cleaner wiki pages.
-
-**Substrate note (v1.7+)**: Unlike `obsidian-markdown` / `obsidian-bases` / `json-canvas` (where we defer to kepano/obsidian-skills as upstream), the `defuddle` skill is original to claude-obsidian — kepano's marketplace does not ship a defuddle skill. This is the canonical version. The underlying `defuddle-cli` is independent of either marketplace and lives at [github.com/kepano/defuddle](https://github.com/kepano/defuddle).
-
----
-
-## Install
+Resolve the installed product root from this skill's own location, never from
+the selected vault or process working directory:
 
 ```bash
-npm install -g defuddle-cli
+PRODUCT_ROOT=/absolute/path/to/installed/claude-obsidian
+CORE="$PRODUCT_ROOT/scripts/claude-obsidian.py"
+test -f "$CORE"
 ```
 
-Verify: `defuddle --version`
+If a separately installed `kepano/obsidian-skills` `defuddle` skill is
+available, prefer it for current CLI flags. Retain the privacy, consent, and
+transaction rules in this skill.
 
----
+## Safety contract
 
-## Usage
+- Accept remote inputs only as HTTPS URLs.
+- Reject credentials in URLs, fragments, private or local hosts, non-public IP
+  addresses, control characters, and sensitive query parameters.
+- Never interpolate a URL into a shell string. Pass it as one argv element.
+- Treat redirects to a different host as denied until that host is explicitly
+  approved.
+- State that the URL and request metadata will leave the machine. Network
+  access requires explicit consent in the current request or a separate
+  confirmation.
+- Do not install a cleaner, execute a placeholder runner, or silently switch to
+  another network fetcher.
+- Do not claim a fixed token reduction or extraction quality. Inspect the
+  actual output.
 
-### Clean a URL directly
-```bash
-defuddle https://example.com/article
-```
-Outputs clean markdown to stdout.
+## Plan first
 
-### Save to .raw/
-```bash
-defuddle https://example.com/article > .raw/articles/article-slug-$(date +%Y-%m-%d).md
-```
-
-### Add frontmatter header after saving
-After running defuddle, prepend the source URL and fetch date:
-```bash
-SLUG="article-slug-$(date +%Y-%m-%d)"
-{ echo "---"; echo "source_url: https://example.com/article"; echo "fetched: $(date +%Y-%m-%d)"; echo "---"; echo ""; defuddle https://example.com/article; } > .raw/articles/$SLUG.md
-```
-
-### Clean a local HTML file
-```bash
-defuddle page.html
-```
-
----
-
-## When to Use
-
-**Use defuddle when:**
-- Ingesting a news article, blog post, or documentation page from a URL
-- The page has a lot of surrounding content (most web pages do)
-- You want to stay within token budget on a long article
-
-**Skip defuddle when:**
-- The source is already a clean markdown or PDF file
-- The page is a dashboard, app, or structured data (defuddle expects article-style content)
-- defuddle is not installed and the article is short enough to process raw
-
----
-
-## Fallback
-
-If defuddle is not installed, check:
+Create an inert URL plan. This validates the URL and executes no network call:
 
 ```bash
-which defuddle 2>/dev/null || echo "not installed"
+python3 "$CORE" capture external-plan url "HTTPS_URL"
 ```
 
-If not installed: use WebFetch directly. The content will be less clean but still workable.
+Report the normalized host, network egress, redirect policy, optional external
+dependency, and `execute: false`. Then inspect whether this package can find a
+configured Defuddle executable:
 
----
+```bash
+python3 "$CORE" contracts --verify --capability defuddle --vault VAULT
+```
 
-## Integration with /wiki-ingest
+An `available` state means no executable was found; stop with the inert plan.
+A `configured` state means the executable was discovered, but this package has
+no bundled behavioral verifier for it. Show that state and reason, identify the
+resolved executable path, and require manual review of its provenance, version,
+and exact argv before execution. Never relabel `configured` as `verified`.
 
-The `/wiki-ingest` skill checks for defuddle automatically when a URL is passed. You do not need to run defuddle manually before ingesting a URL. The ingest skill will call it if available.
+When unavailable or when manual review is declined, offer these honest
+fallbacks: let the user install/configure an external runner, accept a local
+HTML or Markdown file in `inbox/`, or leave the URL queued for later. Do not
+claim that content was cleaned, captured, or ingested.
 
-To manually clean a page and save before ingesting:
-1. Run the save command above
-2. Then: `ingest .raw/articles/[slug].md`
+## Execute after consent
 
----
+After network consent, configured-state detection, and manual executable
+review, invoke the approved executable with an argv equivalent to:
 
-## How to think (10-principle mapping)
+```text
+defuddle parse HTTPS_URL --md
+```
 
-When working on this skill, apply the 10-principle loop. See [`skills/think/SKILL.md`](../think/SKILL.md) for the canonical framework.
+Capture bounded stdout in a temporary draft outside shared vault state. Fail
+closed on a non-zero exit, empty output, unexpected binary output, an
+unapproved redirect, or a response that is clearly an authentication/error
+page. Preserve headings, links, code fences, tables, quotations, and source
+wording; do not invent missing content.
 
-| # | Principle | Application here |
-|---|-----------|-------------------|
-| 1 | OBSERVE (ext) | Which URL? What's actually on the page? Don't assume the title matches the content. |
-| 2 | OBSERVE (int) | Am I assuming the page has the content the user expects? Verify before extracting. |
-| 3 | LISTEN | Did the user say "the article" (main content only) or "the link" (everything visible)? |
-| 4 | THINK | Strip boilerplate, preserve structure, capture metadata. Quote URLs in shell to avoid injection. |
-| 5 | CONNECT (lat) | How does this domain typically render? Some sites mangle defuddle's heuristics; track those. |
-| 6 | CONNECT (sys) | Shells out to defuddle-cli (kepano); output lands in `.raw/` for wiki-ingest pickup. |
-| 7 | FEEL | Clean markdown that reads like the original, not boilerplate residue. |
-| 8 | ACCEPT | Some pages don't extract well. Flag and move on; don't force when the heuristic loses. |
-| 9 | CREATE | Markdown to stdout, redirected to `.raw/articles/<slug>-<date>.md`. |
-| 10 | GROW | Extraction failures suggest defuddle-cli upgrade or alternative extractor — track them as backlog. |
+Preview the cleaned Markdown and report extraction limitations. If the user
+asked only to read or analyze it, keep the result transient.
+
+## Optional raw capture
+
+When the user asks to retain the cleaned source:
+
+1. Resolve the user vault.
+2. Hash the exact cleaned bytes with SHA-256.
+3. Draft a new immutable payload such as
+   `.raw/captured/<sha256>.md` and, when provenance metadata is needed, a new
+   create-only sidecar with the normalized URL, retrieval date, extractor name
+   and version, and content hash.
+4. Use `expected_hashes: null` and `mode: create`. If that content-addressed
+   payload already exists with the same bytes, report a no-op; never overwrite
+   it.
+5. Build, inspect, and apply one `claude-obsidian.transaction.v1` capture
+   bundle as described in
+   [operation-transactions.md](../wiki/references/operation-transactions.md).
+
+Do not create wiki pages, update indexes, assess claims, or mark the source as
+ingested. Invoke `wiki-ingest` as a distinct requested operation if the user
+wants the captured payload incorporated into the knowledge base.

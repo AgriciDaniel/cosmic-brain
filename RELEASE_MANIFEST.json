@@ -1,0 +1,1210 @@
+{
+  "artifact_format": "zip",
+  "files": [
+    {
+      "mode": "0644",
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "43af05abd417b29546718cf5bc34a7d1ad61e315e720ba333bb58fac1d661d67",
+      "size": 841
+    },
+    {
+      "mode": "0644",
+      "path": ".claude-plugin/plugin.json",
+      "sha256": "06fdf354d12f118596281ed47c72a9200c16e42a5125b985f87733d1870105ce",
+      "size": 970
+    },
+    {
+      "mode": "0644",
+      "path": ".cursor/rules/claude-obsidian.mdc",
+      "sha256": "e3e3f92ee043547cbb830d071247fde2def3b270545e230ec480d6397e01d416",
+      "size": 1154
+    },
+    {
+      "mode": "0644",
+      "path": ".gitattributes",
+      "sha256": "45b7bfba1c24110c17ee3f2b937dc45ef810828a0dd5565e172b2b2911bd6d85",
+      "size": 236
+    },
+    {
+      "mode": "0644",
+      "path": ".github/FUNDING.yml",
+      "sha256": "a108353ea90417f4a66aabeead564df231b23d480392c0ce7ff491160d15e5f4",
+      "size": 55
+    },
+    {
+      "mode": "0644",
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "sha256": "684f9b248960b51bed7089c02ab30d9be9a25caa70f2c4f3efbc9f6489602d39",
+      "size": 1269
+    },
+    {
+      "mode": "0644",
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "sha256": "7c4f9ec6e92bc4bd631ee37b83ff50723162cddacb8003e9cc5c5f8d38b22ea3",
+      "size": 1201
+    },
+    {
+      "mode": "0644",
+      "path": ".github/copilot-instructions.md",
+      "sha256": "35abbef26c548e01f75bf3fc3f5a2f6e2beba595968e5a63491d4947afaca948",
+      "size": 898
+    },
+    {
+      "mode": "0644",
+      "path": ".github/pull_request_template.md",
+      "sha256": "d8ecdfe054b7974e335ad7f928d34c2b60a3a7e9a95e037219ebaa9038cd2c2d",
+      "size": 1702
+    },
+    {
+      "mode": "0644",
+      "path": ".github/workflows/test.yml",
+      "sha256": "306ca52be462f6a3f52b9da3792801cf9cc8e5ea82abc71596346112110c5c17",
+      "size": 4067
+    },
+    {
+      "mode": "0644",
+      "path": ".gitignore",
+      "sha256": "c9d9bb4a1bd450480412ec3c36cb7d963f66c36b24d678c5caa4146c95ac4d84",
+      "size": 3715
+    },
+    {
+      "mode": "0644",
+      "path": ".windsurf/rules/claude-obsidian.md",
+      "sha256": "3b125876870d16942b5c9497e74e0d80da9e44d0b4a0f70bccf110ddbac99630",
+      "size": 768
+    },
+    {
+      "mode": "0644",
+      "path": "AGENTS.md",
+      "sha256": "f12fe295445b942a38c82e07f486428f548df32f9ca9ca2302b58ace8c68cf99",
+      "size": 4775
+    },
+    {
+      "mode": "0644",
+      "path": "ATTRIBUTION.md",
+      "sha256": "8c24b56cea5e32d640edb0ac3919b0cd240505f5c5980fb8cc4cc59078363f8c",
+      "size": 2188
+    },
+    {
+      "mode": "0644",
+      "path": "CHANGELOG.md",
+      "sha256": "66b126f697df926ea2dc6ccf6bc8a54e0b04559caa9705cc5711893626578afb",
+      "size": 11551
+    },
+    {
+      "mode": "0644",
+      "path": "CITATION.cff",
+      "sha256": "0517421d7145d38ced6467639f6723623aa302de83f756e56d64e1a3d81d7f43",
+      "size": 468
+    },
+    {
+      "mode": "0644",
+      "path": "CODEOWNERS",
+      "sha256": "b47b715103bc8cefe7badafb5622793ac912480a3515ac5491fa99e87dea73dc",
+      "size": 47
+    },
+    {
+      "mode": "0644",
+      "path": "CODE_OF_CONDUCT.md",
+      "sha256": "ecaa67da0c9e18408f6d016a5a41e2dbcb83265d25e091550a71da0aa364930b",
+      "size": 1081
+    },
+    {
+      "mode": "0644",
+      "path": "CONTRIBUTING.md",
+      "sha256": "c296ae13ad8df5099bd276aaeaa7b5f66224f0e9f757e4f00030386f9f74a927",
+      "size": 2744
+    },
+    {
+      "mode": "0644",
+      "path": "GEMINI.md",
+      "sha256": "267b205d74e9afcb23297c9acd32dee77094f21b21d99cbc4c32ad9635572a07",
+      "size": 964
+    },
+    {
+      "mode": "0644",
+      "path": "LICENSE",
+      "sha256": "1c5915b8cde3e16949e40961353e483d44a65f90fae72405465dcff60118e57f",
+      "size": 1088
+    },
+    {
+      "mode": "0644",
+      "path": "Makefile",
+      "sha256": "8dcba333e4abc60a1cd70c869ec39fa5e6e780135d76520cb20c39a6ebe761be",
+      "size": 2551
+    },
+    {
+      "mode": "0644",
+      "path": "PRIVACY.md",
+      "sha256": "0d7ca4c0c293413115d7db08eed97cf318cdf1a322c1d12bebb1a38ec8747f99",
+      "size": 2588
+    },
+    {
+      "mode": "0644",
+      "path": "README.md",
+      "sha256": "9f9c35874975b07f4d3c15ece2c17f6697067d50dba26e24e5e4b0babccfa8ef",
+      "size": 16692
+    },
+    {
+      "mode": "0644",
+      "path": "SECURITY.md",
+      "sha256": "ca911a8388ec1e326d3f18837b02566d5e85b8944e55f6c12fa339a3ca6c37dc",
+      "size": 3584
+    },
+    {
+      "mode": "0644",
+      "path": "WIKI.md",
+      "sha256": "cac08db66f6c15cf137aa50cc18538aed595a2f76c4fe7873b5204fd6853640a",
+      "size": 9409
+    },
+    {
+      "mode": "0644",
+      "path": "agents/verifier.md",
+      "sha256": "90976a00b4ba4fb078d1c857ffa78d4f17452459e73d155351780f14756c1b5a",
+      "size": 4978
+    },
+    {
+      "mode": "0644",
+      "path": "agents/wiki-ingest.md",
+      "sha256": "e055b30af416695cdd69ecfaa5221fc16158eb25414593266db347b7bc3f2fe9",
+      "size": 4918
+    },
+    {
+      "mode": "0644",
+      "path": "agents/wiki-lint.md",
+      "sha256": "00dbca675b5f9ecc76ba92e8d2bef3c9283760f8cda2e5c90a28169abde0495c",
+      "size": 3008
+    },
+    {
+      "mode": "0644",
+      "path": "assets/cover.png",
+      "sha256": "7921a6494df958c9bf236cbaa141fc23641efc2ca16f2775be9913ce91724197",
+      "size": 511009
+    },
+    {
+      "mode": "0644",
+      "path": "assets/diagrams/knowledge-loop.svg",
+      "sha256": "c528d080711f53ae0afcb4dc3271ebe8b98f1e75b5e0330b1e91fa99588989e1",
+      "size": 7794
+    },
+    {
+      "mode": "0644",
+      "path": "assets/diagrams/product-vault-boundary.svg",
+      "sha256": "8b7a65d6a9cb2e438d77091ac1835f71935467537af208061f552260eb714d91",
+      "size": 9378
+    },
+    {
+      "mode": "0644",
+      "path": "assets/screenshots/graph-view.png",
+      "sha256": "9faa4a414ccfa2618ab849519ca81a66fe5eb096c90491fc9fe650099f3002cc",
+      "size": 361974
+    },
+    {
+      "mode": "0644",
+      "path": "assets/screenshots/wiki-map-view.png",
+      "sha256": "76d5e1ce23d4a76bca4c09e737fb3ac494e787556fcb385d6acc2af66235be89",
+      "size": 218000
+    },
+    {
+      "mode": "0755",
+      "path": "bin/setup-dragonscale.sh",
+      "sha256": "91e3f5f652447ff40ff8a9f3f7f89273734e96cf7dd4dd345a7327acf0ce2647",
+      "size": 2185
+    },
+    {
+      "mode": "0755",
+      "path": "bin/setup-mode.sh",
+      "sha256": "98564f4de5ec27cb0f892546491c0d735d49504b1a7f06ce4299396dc633bec5",
+      "size": 2286
+    },
+    {
+      "mode": "0755",
+      "path": "bin/setup-multi-agent.sh",
+      "sha256": "57e0015784b70fb2331b188c24ddd15ed090e877fc899b843b8a3239ac99da4c",
+      "size": 5062
+    },
+    {
+      "mode": "0755",
+      "path": "bin/setup-retrieve.sh",
+      "sha256": "adf3783152dc72d162e7046774cc52d5336f0ceaaf9b7a8689c17b64db675d14",
+      "size": 3133
+    },
+    {
+      "mode": "0755",
+      "path": "bin/setup-vault.sh",
+      "sha256": "6ae0dedbdcbc8687697b18414b17fe3884e0e4c59e39b30fd803201072c8850f",
+      "size": 5314
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/__init__.py",
+      "sha256": "04085f7c054ce338249708fc8230d8da510250ddc04e3b3baef17293d1205d67",
+      "size": 296
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/__main__.py",
+      "sha256": "9573278a10fd58f03b8d2480311533fb9d8ceec8e0ec13ce414b811d27c78c04",
+      "size": 85
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/capture.py",
+      "sha256": "9fded207710e1e9b2fb60c6616b0675338b5eeaa1959f4ad972faec3c1ebd891",
+      "size": 83828
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/checkpoint.py",
+      "sha256": "12fb1522321cddc72e2fe2123f56010a1c81ff0a0ec91b8659c2451a566a3e85",
+      "size": 50166
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/cli.py",
+      "sha256": "38703e6db742f1c76ba6f8cce797b8ecf69a7cdf2ff1f9c739df60acab7e973a",
+      "size": 44772
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/contracts.py",
+      "sha256": "995baf1ce86fc2b2ad426523bd142ef0853f6a41841dcd0e557c463cc8e9025c",
+      "size": 49622
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/extensions.py",
+      "sha256": "846ef977af9d8029fdde3c7024159b3e8c35e3bd6c5fba020173726009bb5ee9",
+      "size": 2679
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/gates.py",
+      "sha256": "d36cf301e5c4bbd40e5f225abd9cfa8f2071e59ef918a8a9d119ad4a8932b974",
+      "size": 5014
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/hook_adapter.py",
+      "sha256": "79a3824641fd146a8960b57ca74bc4cd7fa29688f8928cdcd0e6ecbce5b35743",
+      "size": 11886
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/json_utils.py",
+      "sha256": "31143eebb4e9d22de3159753a368a71ef2a15f3c84177e0507a29885ac1d31f1",
+      "size": 1105
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/ledgers.py",
+      "sha256": "32cec2e5cc9846badbc4749e1e088988291c5d3a9db9abd2648de15213d4a038",
+      "size": 52285
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/legacy_lock.py",
+      "sha256": "6edd094debd30ac3550974a624e37bc13d1902a355888009778cad812ebe5d18",
+      "size": 24317
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/lint_engine.py",
+      "sha256": "775cecd84170774fc3bf2f95a61c8b68df30e870baf863b4ac054b08587b94c3",
+      "size": 44602
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/mode_config.py",
+      "sha256": "0dfa01bfcf52e55bcc50f5f7bbc4b2c2cc945f333cb5847b933da9c2a2579cbb",
+      "size": 2800
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/package_validation.py",
+      "sha256": "963a54659a961de4e9791dd9abaffa9ede7a9e490a48bccadb5f4122cdd731ef",
+      "size": 20819
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/paths.py",
+      "sha256": "970e7ba997d9a7666d99c24562881a3ea677053d77fe8fd3c689fd3b7988bbf6",
+      "size": 14533
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/release.py",
+      "sha256": "a99e4f09821caba7ccfd1f4cc564d7270447db47d3d1938f0d725786f1f49f87",
+      "size": 90792
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/transaction.py",
+      "sha256": "822adf6104b0206b83483ecf3c605692bfa6607353f8dad2f94cf4f8256d5377",
+      "size": 176021
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/url_safety.py",
+      "sha256": "d32b74164daa1bc735cc9a96b2cce07a5e3aa08209e4bdd2328dc6b8ef761d6b",
+      "size": 2402
+    },
+    {
+      "mode": "0644",
+      "path": "claude_obsidian/vault_ops.py",
+      "sha256": "ced9fc0cffb5f24a7772ec649cc09aaeca693725e17e2b66345572a1769e4ec9",
+      "size": 4812
+    },
+    {
+      "mode": "0644",
+      "path": "config/adapters.json",
+      "sha256": "edbaa57d35216b18ed33b6f1ded542cef851bac6271af5e58779a4f62df67af9",
+      "size": 2803
+    },
+    {
+      "mode": "0644",
+      "path": "config/capabilities.json",
+      "sha256": "9a372c18db93608f7112e8956f8dbb520c266e537b3794dee14b7436de3bc246",
+      "size": 17496
+    },
+    {
+      "mode": "0644",
+      "path": "config/product-contract.json",
+      "sha256": "b4455ef26fb0b8a1c327220d4156a13afe0dd3aa619d98ff2ed4eda44eae5ccd",
+      "size": 6716
+    },
+    {
+      "mode": "0644",
+      "path": "config/public-marketplace.json",
+      "sha256": "43af05abd417b29546718cf5bc34a7d1ad61e315e720ba333bb58fac1d661d67",
+      "size": 841
+    },
+    {
+      "mode": "0644",
+      "path": "config/release-allowlist.json",
+      "sha256": "2f09ac8a89734c39c0023ce5b09bb028a3f46cdc97f49af99bcd0af6749ff88c",
+      "size": 2054
+    },
+    {
+      "mode": "0644",
+      "path": "docs/compound-vault-guide.md",
+      "sha256": "acb59b1872295a40868c0ba395eef84855d9d64d5cc4cd1fe882379545b43ce3",
+      "size": 9458
+    },
+    {
+      "mode": "0644",
+      "path": "docs/dragonscale-guide.md",
+      "sha256": "f52eb7da023d165d61cbf2e9a64682b6152376fb36aa784b4752f383c95205e3",
+      "size": 3731
+    },
+    {
+      "mode": "0644",
+      "path": "docs/install-guide.md",
+      "sha256": "b4491a9119a2b7e970e26570095d3b07336adefa9fac359563c35eea4f585c41",
+      "size": 9318
+    },
+    {
+      "mode": "0644",
+      "path": "docs/methodology-modes-guide.md",
+      "sha256": "034369dfca27c5d81c60bc8e406ef58353e24848b69c3242378f3e54e2008c19",
+      "size": 4122
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/.claude-obsidian.json",
+      "sha256": "5701c6910dcdb39cd0494769e6e8e2814cbb01cf2bc5c29d2b40fcf5094e1453",
+      "size": 133
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/.gitignore",
+      "sha256": "0d62dd96ce7a511d2f0154b6373b7a0bfc74b7985c2342af9357751b9fba42dd",
+      "size": 351
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/.obsidian/app.json",
+      "sha256": "b8c736f8900e4d28ead438125440572f32f5a475dd094ba7155b0879dc253c4b",
+      "size": 65
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/.raw/.manifest.json",
+      "sha256": "fe97dd8d2e839ae642d1e4829ed278b9922d5594012623bb677121591b841807",
+      "size": 133
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/inbox/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/concepts/Source-grounded notes.md",
+      "sha256": "be7a6427dcc1f3789a9c77b361ff17f06474836e4d6d71201504f80998fc6dee",
+      "size": 376
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/entities/Example Maintainer.md",
+      "sha256": "48805779d316881bd97b95502348bcf663622c0bc190b6b56869f92597f2ec09",
+      "size": 311
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/hot.md",
+      "sha256": "4c74f91b799c624fc6c209f4148f1d1344454b22bf7b2ef7a817a584b1742e51",
+      "size": 236
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/index.md",
+      "sha256": "3ef4c2b655da5ef136d01bcb2aa2ec232b6a616c0528440673a3e78079b17436",
+      "size": 409
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/log.md",
+      "sha256": "d8615027ba0a974a2bfc61f851c18c24e8f079c034e4abbc8cb466c13c305259",
+      "size": 227
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/overview.md",
+      "sha256": "780b571e489b9a5ae07fc2da8d8c507453b780da535d1a3bf4ac021e19af0118",
+      "size": 303
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/questions/What supports source-grounded notes.md",
+      "sha256": "e7fe1477aa998aa127863ef9cee3748c552daa381d4913359d717f6e431d8816",
+      "size": 386
+    },
+    {
+      "mode": "0644",
+      "path": "examples/sample-vault/wiki/sources/Example Source.md",
+      "sha256": "f6123181a64375182a61cfb7dab6c1dffe209d7166c21852d9e18e5fd78af764",
+      "size": 382
+    },
+    {
+      "mode": "0644",
+      "path": "hooks/README.md",
+      "sha256": "ab529c807de8733f92958815c4206aa47eb664f26417eb04eaa274cc8ce3ccf8",
+      "size": 1393
+    },
+    {
+      "mode": "0644",
+      "path": "hooks/hooks.json",
+      "sha256": "e3c3469bfc6f8f0de380a4616f6e0e5733278fac3ad4ed43958cb6055bf855d1",
+      "size": 740
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/allocate-address.sh",
+      "sha256": "999ffab114d8584bacde49d36c10858a4e86784f84952e3056a150835618f03c",
+      "size": 3139
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/bm25-index.py",
+      "sha256": "6d9a2d9fc6b9dd08061ed6606b7dbff60715de5e128e987581a722293bb61289",
+      "size": 31693
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/boundary-score.py",
+      "sha256": "b1537782b93bc1a3dac64e8a097e786abd01b752af173a26acabdc7975edcd3c",
+      "size": 12627
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/claude-obsidian.py",
+      "sha256": "34f3030da4a0ebc223a5dfba7f7180638d08dffa3d044be33fa72234866900c2",
+      "size": 357
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/contextual-prefix.py",
+      "sha256": "2c0244bbe0a33f694f47c7e97933e285c2e3ed97001a7ae95eff5e3b27872f65",
+      "size": 37586
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/detect-transport.sh",
+      "sha256": "5cee4d29099701a081d262f90de0c0c68e57b2fbbb058a47527e09a92293e663",
+      "size": 17194
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/rerank.py",
+      "sha256": "744043d5a3b975237181e3c7273e733b42a3f82774f7f2e3f05ece6a5cc4beaf",
+      "size": 19960
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/retrieve.py",
+      "sha256": "4ff0584c351239c63da5eb8324ac81279b5d90471629a5a77b4f5f4cfb4251fd",
+      "size": 13936
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/tiling-check.py",
+      "sha256": "8f184015be341950e989df6f149513a67a844996eefad0e8083ebe33ca57ceec",
+      "size": 20328
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/wiki-lock.sh",
+      "sha256": "3bfc9bd31dea36e60855877de12fcbd7a20ac79ea229a5d6a4fd1a681f840d02",
+      "size": 793
+    },
+    {
+      "mode": "0755",
+      "path": "scripts/wiki-mode.py",
+      "sha256": "f3c990d4ea2a8bec9752ed1474903532eac4a662af7c6e9f16927260596e12a5",
+      "size": 14345
+    },
+    {
+      "mode": "0644",
+      "path": "skills/autoresearch/SKILL.md",
+      "sha256": "e369ab3e1181ddebd70fd61eeb623edc7eab7d123ea32ff4e6ac75ec315db0ce",
+      "size": 6202
+    },
+    {
+      "mode": "0644",
+      "path": "skills/autoresearch/references/program.md",
+      "sha256": "d4ac8ac443461723069cad0e4eacf7d303c1bed644bcf76dda24649ec97991c8",
+      "size": 3480
+    },
+    {
+      "mode": "0644",
+      "path": "skills/canvas/SKILL.md",
+      "sha256": "cc2eea755757765f512b1604dde8444ef0c5836a7ea3baa3df927e13db947ab6",
+      "size": 5250
+    },
+    {
+      "mode": "0644",
+      "path": "skills/canvas/references/canvas-spec.md",
+      "sha256": "de66f7d6473e5d4fecee221f5d52c06e7bf63e6130fe57c6c2446f79ddfbe1d1",
+      "size": 9002
+    },
+    {
+      "mode": "0644",
+      "path": "skills/defuddle/SKILL.md",
+      "sha256": "458b6a3fbd2051ce908790983f091e424af09ee680adf6b72495be4a40318c7a",
+      "size": 4387
+    },
+    {
+      "mode": "0644",
+      "path": "skills/obsidian-bases/SKILL.md",
+      "sha256": "58828855d8b4f58c6d0dbe8ec56c1675e44464f92ca414f902744cbd8221b878",
+      "size": 4485
+    },
+    {
+      "mode": "0644",
+      "path": "skills/obsidian-markdown/SKILL.md",
+      "sha256": "b56603d91740117460ecc3bbf30f7ce1e83ae184e4af5be955e8b1a7b04fb63c",
+      "size": 4303
+    },
+    {
+      "mode": "0644",
+      "path": "skills/save/SKILL.md",
+      "sha256": "b98a175ed02f00f73c19fe386379f3a45d2d7c86e1936d47bc8d981c1171be4c",
+      "size": 4995
+    },
+    {
+      "mode": "0644",
+      "path": "skills/think/SKILL.md",
+      "sha256": "3a50f23f31b6aca41fae5d76017dace73191bbdde0cfb4c9515d069a9005644a",
+      "size": 4666
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-cli/SKILL.md",
+      "sha256": "2885621fc55c1edd0954f86089f2258618ac38c92f329cae19cfdca8334145ec",
+      "size": 2855
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-fold/SKILL.md",
+      "sha256": "a887e48737eab42303e584085cbcb18a679af8a0181c84d2c4035345d66080cb",
+      "size": 4423
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-fold/references/fold-template.md",
+      "sha256": "9542a4a5c9b34f54458d01ac542039e2d893da03dbac061ff99f06d2b13b1111",
+      "size": 3312
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-ingest/SKILL.md",
+      "sha256": "3fb3bc9b9b6dafe988cd71883fced9820af60f8ca8ba1278d6d74a15b0e8bffa",
+      "size": 7562
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-lint/SKILL.md",
+      "sha256": "e268098bb634c979cb288a560e230d4d4bab776b42320551157c21b7edf61f9c",
+      "size": 3029
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/SKILL.md",
+      "sha256": "13800d7af8548db487475f5a7249a620febb584d0b9ce39338bc91756d70ae1d",
+      "size": 3992
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/lyt/atomic-template.md",
+      "sha256": "015b912ff18a2f7c7cf00aaaf72894a2c36c1d44130b9201501491c364d55d40",
+      "size": 374
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/lyt/moc-template.md",
+      "sha256": "a282349f22a11b04e42a23740ed8044c6027ea2c9b39feea0a0b880eab103029",
+      "size": 736
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/para/area-template.md",
+      "sha256": "358f21f12d094fff96eb630094879ea9e66d7394e72a7db6abb15c6c9ae4f2ad",
+      "size": 516
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/para/project-template.md",
+      "sha256": "82b92d9b91db4295e0f69710f8641e7d69af6654e561210b425b1c7d504a0cb5",
+      "size": 458
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/para/resource-template.md",
+      "sha256": "07ac35a2247032da7fd1b82af1e0489b158d9924af23e7c8f4f51736e78a2f9f",
+      "size": 472
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-mode/templates/zettel/atomic-template.md",
+      "sha256": "3d59bbba5940a3ab7f0a58234a43426268c11c2f1abfa8b707147b46a2a01547",
+      "size": 671
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-query/SKILL.md",
+      "sha256": "21f6c4f2e9dbcf583c4867765c1b3b19c8849e0815197fc6b7e49c2fea17b892",
+      "size": 4497
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki-retrieve/SKILL.md",
+      "sha256": "1e7735d493e9f9943e079cfec0d28d8db76821b1f50e0f569dea8e115a8b67b6",
+      "size": 5585
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/SKILL.md",
+      "sha256": "965568b92479236bb48eed617901f2d786405384a0f328f22454960e058c3492",
+      "size": 5387
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/css-snippets.md",
+      "sha256": "1b493d6b601a2ebc8ace6db75acfa84663ecfb8633f2a1b93da874793615f625",
+      "size": 4399
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/frontmatter.md",
+      "sha256": "8c2adb0feeaddfe13d6fcc05ba0daa477ca129eade00f24d7c63d96dc9765eaf",
+      "size": 2322
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/git-setup.md",
+      "sha256": "932c92d490ac7f998065d9188d47b571578cb8ba60258cf5e401602cc77c0714",
+      "size": 2577
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/install-modes.md",
+      "sha256": "1ae30c16ed0d205a70b10926a1c11667cc690a223a170478e63b4f047266f69f",
+      "size": 1922
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/mcp-setup.md",
+      "sha256": "56353117c309c6d7ea65128a66885d29a3a34c96b2c974c9f4e8785b255a718a",
+      "size": 1900
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/modes.md",
+      "sha256": "affecc6cc55d8344593d846ef94a72baec4faacdb654c0d31721176779926eca",
+      "size": 3127
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/operation-transactions.md",
+      "sha256": "522f64f19c04a2cac86309bb3bc86ec715171ff07833cd35f5791a5e43e5d90a",
+      "size": 6104
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/plugins.md",
+      "sha256": "696f9d3a44c76e4817e0b8698f0d7e8def098cabcb4086f067696d3288c05dc4",
+      "size": 2140
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/provenance.md",
+      "sha256": "df8f40d1213a557ee70cc55a18a0fa333b3f24090e6c6a492688baa0668b5567",
+      "size": 2581
+    },
+    {
+      "mode": "0644",
+      "path": "skills/wiki/references/rest-api.md",
+      "sha256": "79179ede8e8b8279ac0ec9982c616b86b548428edf14175e86c0dd02e5932ffb",
+      "size": 1428
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.gitignore",
+      "sha256": "0d62dd96ce7a511d2f0154b6373b7a0bfc74b7985c2342af9357751b9fba42dd",
+      "size": 351
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.obsidian/app.json",
+      "sha256": "b8c736f8900e4d28ead438125440572f32f5a475dd094ba7155b0879dc253c4b",
+      "size": 65
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.obsidian/appearance.json",
+      "sha256": "d0bd766999b3bb8d45bdb5997916d82c51123c295599ff6a5db39ba40618bd7a",
+      "size": 53
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.obsidian/graph.json",
+      "sha256": "574d00b8e5c2e16724678023c50a85e727af9067839f8612c55958e525f90c99",
+      "size": 101
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.obsidian/snippets/vault-colors.css",
+      "sha256": "908fd97fabd94e989cc979605bb7b17b4da33c409e4846fd701780aea53107fd",
+      "size": 620
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/.raw/.manifest.json",
+      "sha256": "3061feca9f7973930654de66ebf3bb0959e23783f0129ce899634c91e2c050fb",
+      "size": 132
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/inbox/.gitkeep",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "size": 1
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/wiki/hot.md",
+      "sha256": "111cfcce3e5f72d9475cf675528112741703ee82d7f8508ec520f38f5ea2378d",
+      "size": 398
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/wiki/index.md",
+      "sha256": "cf768cf5e8af8118c2e3b4ab1ec3e8466b6c4a12a8800ec8bc5649f45ef634b6",
+      "size": 374
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/wiki/log.md",
+      "sha256": "1f8415ce27cf5320306aebe19eba0810503270187841d2b287a802d80eb429e6",
+      "size": 187
+    },
+    {
+      "mode": "0644",
+      "path": "templates/vault/wiki/overview.md",
+      "sha256": "f6d4c76ec687b0124397280089d004226c530a127f33de31c77feb1d2c784b23",
+      "size": 226
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/capture/sample.md",
+      "sha256": "975c85ff2a6149ef82c8c8ec75039da1899785771fbf73afaa48f3297fd96e00",
+      "size": 117
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/capture/sample.pdf",
+      "sha256": "b6a48cb88c70887bd99c9120292e72764d368433655388783b7fc77578b23a35",
+      "size": 67
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/contracts/valid/config/capabilities.json",
+      "sha256": "8ee550b88970c539e5fcf4ced67e83cb38d6991ce64fef335681bdc5df6a57b4",
+      "size": 1036
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/contracts/valid/config/product-contract.json",
+      "sha256": "8515b5e23cd9365115f6f4246a1520177f1521a7ccfcc7953a0e7eebf86a76c2",
+      "size": 1237
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/contracts/valid/skills/example/SKILL.md",
+      "sha256": "8e4040fed59249a1629989b2c7d9adc0b7f460d8ab1fd69bee5b945516a60437",
+      "size": 136
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/forward/ingest-source.md",
+      "sha256": "f8b902f02235cfcfeff5a06a12a96f4dfd39d8d010ec209bbf9741260941f500",
+      "size": 627
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/forward/query-evidence.md",
+      "sha256": "c8ad7d5452ba8b172c1bf1437e98306ce49f48d963b7fa5aa0e1830489b6f9b6",
+      "size": 602
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/forward/query-index.md",
+      "sha256": "35c89c8f1f97836adff2f80b729343f0bb73b18ee411df5b6568e023965ad154",
+      "size": 434
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/forward/scenarios.json",
+      "sha256": "212ed7ac6e1d022b5fde3e31b744299ea6d2f5f9ca4d592160c71338b140f214",
+      "size": 1845
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/.vault-meta/lint-allowlist.json",
+      "sha256": "4bfe652a3747c7382fcad972e87317262de142ce0775ca5df4623926483e10ad",
+      "size": 52
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/assets/picture.txt",
+      "sha256": "4f48615a15a2a72318673a0edd730a6089c3843353b2b8f079ec711ac80c24ea",
+      "size": 33
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Alpha.md",
+      "sha256": "fec495d0c5a220ea0d145b4b8d00127a5054c09b36185c3aadc65960d847713c",
+      "size": 324
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Beta.md",
+      "sha256": "9484ec5305ab76fb5ac8652ec684f5541d4a1e6162badd5c9e8232abb50ee04a",
+      "size": 251
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Empty Section Page.md",
+      "sha256": "b75d3446af879f718b1b0b55d06cc86741485667b608b6eb4af638f61570e0e8",
+      "size": 393
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Missing Frontmatter.md",
+      "sha256": "fc186e6b29c178cc7ba9077b9e1d24e123682a9f42c8d73020aa8c7d2907ae25",
+      "size": 72
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Orphan.md",
+      "sha256": "4f4ea42c9864ebbd3dd6b46b5b335545e3ec4496b6c2b4fef1dbde57f284465d",
+      "size": 147
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/concepts/Shared.md",
+      "sha256": "e285571e3a10770f6ae8c8fe0ef023b8de82ca175b003a9995c8a0eef1cf3858",
+      "size": 186
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/entities/Shared.md",
+      "sha256": "8e5d30926c6cf137fc9cc244605bc2f6f0b80a00bfb7df5ba736df84b2f41eaa",
+      "size": 182
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/lint/vault/wiki/index.md",
+      "sha256": "bf69bc94267653c49a88366a467462a33f6678c36a1b3fdc97a7cd83a84e2387",
+      "size": 451
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/migration/legacy-manifest.json",
+      "sha256": "e1ec732ab2d93a794168a420c8cc9efcd2f0d9f2ae03f5abc4cf5d61fac6e720",
+      "size": 281
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/release/public/README.md",
+      "sha256": "b8f0119f15d73313015d86580666b3bca153393a15851036c1283a2d470efc06",
+      "size": 74
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/setup/custom-app.json",
+      "sha256": "5b2290e67124654d7d2d1eeebcb565f6eb2d314b4651fc00308a2349a13006bd",
+      "size": 108
+    },
+    {
+      "mode": "0644",
+      "path": "tests/fixtures/setup/excalidraw-manifest.json",
+      "sha256": "17876ef4484669dce79909f10e6c972bd084dc912574151fd0182d38c37a10cb",
+      "size": 117
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_allocate_address.sh",
+      "sha256": "bb55bb7acebdc9ba4b6f70a953886194e44a5381d32843bfc54973b468d6ea74",
+      "size": 840
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_benchmark_tools.py",
+      "sha256": "98603059f7c1390a6168c9c44a56f5f5d68cfd23c197894060a04b666653d9d2",
+      "size": 6199
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_bm25_index.py",
+      "sha256": "4f2d7368d73cc94e7fa4799637043ca727528a240072c97f71dc68f2bd0c4aff",
+      "size": 38184
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_boundary_score.py",
+      "sha256": "11264ef2cbaa51eb57d4709e580cdd943291a4cb0e248abc9b35232d644240a5",
+      "size": 11517
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_capture.py",
+      "sha256": "af75f0d7c4ad50266cc04170bed462229a320a6a7bc5d4e25d74a990328c97c2",
+      "size": 44833
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_checkpoint.py",
+      "sha256": "c8c730685f06dc24f3c549ef3bf4dfef4b0efa5b7a408263a148a758e7ae8f8b",
+      "size": 20280
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_cli_approval.py",
+      "sha256": "b18ba6035cff0d0548aebb2ded8c575d41de1268dee815a43bee8335ab207aff",
+      "size": 13076
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_cli_mode.py",
+      "sha256": "51014c5cfb6da7e26f0c38176bac02d28682c449a55fc5e1a70cfaecea34c6ad",
+      "size": 8419
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_concurrent_write.sh",
+      "sha256": "58c950ee30c83b816fa3566c0aa3ce63bb8e6f829eeecfaf2175a8862011717f",
+      "size": 4598
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_contextual_prefix.py",
+      "sha256": "7bb992b4285b76eb77e6237f45c21a1517f1afc4c10e734543dd329f52f8d6d3",
+      "size": 25723
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_contracts.py",
+      "sha256": "11329e5d5d10b68439ccb585af66c538166f9121d34c90e20424fde023814162",
+      "size": 18264
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_detect_transport.py",
+      "sha256": "8b9b89d1253b203acf38abb2c5869383d2daed582b0b1296fbc73b4e3fa89a85",
+      "size": 18790
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_distribution_vaults.py",
+      "sha256": "d30c9049b57e16ff38235fbe41b3918bf1c6c26cde844a6d20a6af281550ffc4",
+      "size": 2514
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_extensions.py",
+      "sha256": "9c7e5ea0ae44be1e67baf3c652986a13aba7c4eaff200049ecd044edbcbab9c9",
+      "size": 2340
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_gates.py",
+      "sha256": "3e41eb235439603cc1ad84688bdb60fa74b5c45d6ef72cc488cd0e2416db49d5",
+      "size": 1739
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_hooks.py",
+      "sha256": "98064cbed515efbe786dccc246940288e40ad37ed267d6e1a7bc87a93ad9c5ed",
+      "size": 9701
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_installed_tree_boundary.py",
+      "sha256": "a3dc89337bb48f75641834617f07d635fb620762eebb028873cdc93b5f700a80",
+      "size": 10317
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_knowledge_contracts.py",
+      "sha256": "b52a89e7c454aae499b604870df7261883de7ce7ea8ec06d621fe13d31689362",
+      "size": 11177
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_ledgers.py",
+      "sha256": "1403d9a16131be6c521586f75f54baa54e4b6e4425adae8c79908ff65f09469c",
+      "size": 46988
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_legacy_lock.py",
+      "sha256": "caea67d63c1e54d81479096cc0999c55d77070a52d676344e0cef198662c8b7b",
+      "size": 7439
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_lint_engine.py",
+      "sha256": "594c5017abe07d807121267f5cfde1047a7df16447f373bb31a154753f8b96ed",
+      "size": 29070
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_package_validation.py",
+      "sha256": "2e48dbc38a0d889c5bfa4ffe34b44c5223d61e0d002d96aaad6795202f180e1c",
+      "size": 13378
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_paths.py",
+      "sha256": "1a5c4c4915fefac5ca2ea4569bc909b5fddf63347ad8e6259a6b5e61d20a35d9",
+      "size": 10424
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_release.py",
+      "sha256": "a1953341b61b90c8980e0d49b0af72ce54ab9698dfc108855b045a63e6667e87",
+      "size": 36089
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_retrieve.py",
+      "sha256": "0220c4b1e8e19dfc66555a41729ad9095c3f300cab2f8336806b116558c142cc",
+      "size": 47364
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_setup_multi_agent.py",
+      "sha256": "61a29b59601baa318729271b532b55f4bb13459b93c16cfac386495dbb58d2d0",
+      "size": 5667
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_setup_retrieve.py",
+      "sha256": "b0f714dfd23b239f8da44e67fd78857486b56a0d376bc694bdd605cf56158c50",
+      "size": 2696
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_setup_vault.py",
+      "sha256": "f8fd563ac33d0660b5852b9d52bf6554ac315cad4674235dad300e65a646566c",
+      "size": 13936
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_setup_wrappers.py",
+      "sha256": "2f83412d4dd808648f5b0370e67e59b86acb381534acb2e620ba7cbc8844c13d",
+      "size": 7952
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_tiling_check.py",
+      "sha256": "d66e6bf482b16ed108cd0ef02a8f0315a853c5486d3a751eabfbbbf9187ef7c4",
+      "size": 8169
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_transaction.py",
+      "sha256": "0a65f6d053f026a1487af3d7296233f81b81be84a246b15bc725a3841c7e6ff7",
+      "size": 101499
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_vault_ops.py",
+      "sha256": "9f5ac6452ee5422742d20dda0d5e4e6b0f295927dc545cae64500b468dbe6c5b",
+      "size": 3879
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_vault_root_separation.py",
+      "sha256": "182c907b1d8f5e8fa160bed9da8edd33716898f9caaa00a57155e185c2daddac",
+      "size": 17279
+    },
+    {
+      "mode": "0755",
+      "path": "tests/test_wiki_lock.sh",
+      "sha256": "8e05bdfa9ef177a109453b17894748b75498b303311fb1b4709ce3f379bbafbd",
+      "size": 16939
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_wiki_mode.py",
+      "sha256": "036219c9f047af36f3182be2a8457a838e0296fd78340c4cbc96774cacad5353",
+      "size": 23545
+    },
+    {
+      "mode": "0644",
+      "path": "tests/test_windows_compat.py",
+      "sha256": "b14a2591cc9b871cd79015f0aa7dff83af06f45d40be37d5febafb6c769da7da",
+      "size": 19371
+    }
+  ],
+  "policy": {
+    "approved_private_url_disclosures": [
+      "ATTRIBUTION.md"
+    ],
+    "archive_overlays": {
+      ".claude-plugin/marketplace.json": "config/public-marketplace.json"
+    },
+    "reviewed_binaries": {
+      "assets/cover.png": "7921a6494df958c9bf236cbaa141fc23641efc2ca16f2775be9913ce91724197",
+      "assets/screenshots/graph-view.png": "9faa4a414ccfa2618ab849519ca81a66fe5eb096c90491fc9fe650099f3002cc",
+      "assets/screenshots/wiki-map-view.png": "76d5e1ce23d4a76bca4c09e737fb3ac494e787556fcb385d6acc2af66235be89",
+      "tests/fixtures/capture/sample.pdf": "b6a48cb88c70887bd99c9120292e72764d368433655388783b7fc77578b23a35"
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "68ab552d40dfc1cc5a154f2c3a0d02d9c21b0cb1",
+  "source_date_epoch": 1785518782
+}

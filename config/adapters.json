@@ -1,0 +1,107 @@
+{
+  "schema": "claude-obsidian.capture-adapters.v1",
+  "privacy_default": "offline",
+  "maturity_states": {
+    "implemented": "Runs deterministically in the portable stdlib core.",
+    "metadata-only": "The core can identify and describe the input but does not extract its contents.",
+    "external-runner-required": "Execution is a consent-gated plan for a separately configured runner."
+  },
+  "adapters": [
+    {
+      "id": "filesystem",
+      "maturity": "implemented",
+      "input": "local-file",
+      "execution": "internal",
+      "network": false,
+      "llm": false,
+      "destructive": false,
+      "extensions": [
+        ".md",
+        ".markdown",
+        ".txt",
+        ".json",
+        ".csv",
+        ".yaml",
+        ".yml",
+        ".html",
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".gif",
+        ".webp",
+        ".pdf",
+        ".epub",
+        ".mp3",
+        ".wav",
+        ".m4a",
+        ".mp4",
+        ".mov",
+        ".webm"
+      ]
+    },
+    {
+      "id": "url",
+      "maturity": "external-runner-required",
+      "input": "https-url",
+      "execution": "planned-command",
+      "network": true,
+      "llm": false,
+      "destructive": false,
+      "runner_capability": "fetch-https-with-pinned-dns-and-redirect-policy"
+    },
+    {
+      "id": "image",
+      "maturity": "metadata-only",
+      "input": "local-file",
+      "execution": "planned-command",
+      "network": false,
+      "llm": false,
+      "destructive": false,
+      "extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp"],
+      "runner_capability": "extract-image-content"
+    },
+    {
+      "id": "pdf",
+      "maturity": "metadata-only",
+      "input": "local-file",
+      "execution": "planned-command",
+      "network": false,
+      "llm": false,
+      "destructive": false,
+      "extensions": [".pdf"],
+      "runner_capability": "extract-pdf-content"
+    },
+    {
+      "id": "youtube",
+      "maturity": "external-runner-required",
+      "input": "https-url",
+      "execution": "planned-command",
+      "network": true,
+      "llm": false,
+      "destructive": false,
+      "approved_hosts": ["youtube.com", "www.youtube.com", "youtu.be"],
+      "runner_capability": "fetch-youtube-metadata-and-transcript"
+    },
+    {
+      "id": "epub",
+      "maturity": "metadata-only",
+      "input": "local-file",
+      "execution": "planned-command",
+      "network": false,
+      "llm": false,
+      "destructive": false,
+      "extensions": [".epub"],
+      "runner_capability": "extract-epub-content"
+    },
+    {
+      "id": "ocr",
+      "maturity": "external-runner-required",
+      "input": "local-file",
+      "execution": "planned-command",
+      "network": false,
+      "llm": false,
+      "destructive": false,
+      "runner_capability": "ocr-local-file"
+    }
+  ]
+}

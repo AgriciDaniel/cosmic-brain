@@ -18,11 +18,12 @@ What you expected to happen instead.
 3. ...
 
 ## Environment
-- Plugin version: (e.g. v1.9.0)
+- Product version: (run `python3 scripts/claude-obsidian.py --version`)
 - Claude Code version: (run `claude --version`)
 - OS: (e.g. macOS 14.5, Pop!_OS 24.04, Windows 11)
 - Obsidian version: (if relevant)
-- Transport selected: (filesystem / obsidian-cli / mcp-obsidian — see `.vault-meta/transport.json`)
+- Vault selection source: (`doctor --vault <vault>` output, with private paths redacted)
+- Transport state: (`bash scripts/detect-transport.sh --peek --vault <vault>` output)
 
 ## Skill / agent / script involved
 Which surface is affected? (e.g. `/wiki-ingest`, `scripts/wiki-mode.py`, `agents/verifier.md`)
@@ -33,7 +34,8 @@ Paste relevant terminal output or error messages here.
 ```
 
 ## What you tried
-- [ ] Ran `make test` — all 8 suites green? Yes / No
+- [ ] Ran the relevant regression test or `make test` — Yes / No
+- [ ] Confirmed the product repository and user vault are separate — Yes / No
 - [ ] Checked CHANGELOG for known issues at your version
 - [ ] Searched existing issues for similar reports
 

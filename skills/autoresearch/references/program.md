@@ -1,75 +1,81 @@
-# Research Program
+# Default research program
 
-This file configures the autoresearch loop. Edit it to match your domain and research style. The autoresearch skill reads it before every run.
+This is the bounded default for `autoresearch`. User-supplied limits may make it
+stricter. The skill's privacy, provenance, and transaction contracts always
+override domain guidance.
 
----
+## Objectives
 
-## Search Objectives
+- Answer a precise research question rather than collecting a topic indiscriminately.
+- Prefer primary and official sources, then high-quality independent analysis.
+- Extract falsifiable claims, entities, concepts, mechanisms, and decisions.
+- Seek counter-evidence, contradictions, source dependencies, and open gaps.
+- Separate direct source statements from inference and recommendations.
+- Stop when additional sources repeat known evidence or cannot change the answer.
 
-Default objectives for every research session:
+## Default budget
 
-- Find authoritative sources (prefer: .edu, peer-reviewed papers, official documentation, primary sources, established publications)
-- Extract key entities (people, organizations, products, tools)
-- Extract key concepts and frameworks
-- Note contradictions between sources
-- Identify open questions and research gaps
-- Prefer sources from the last 2 years unless the topic is foundational
+- Search rounds: at most 3
+- Fetched sources per round: at most 5
+- Drafted pages: at most 15
+- Parallel workers: at most the host's available safe concurrency
 
----
+Before egress, also agree on elapsed-time, cost, domain, and privacy limits.
+Report budget use after each round. Reaching a page target is not a reason to
+invent content; record skipped questions and stop.
 
-## Confidence Scoring
+## Evidence assessment
 
-Label every claim with confidence when filing:
+Use the source and claim ledgers, not a prose confidence label alone.
 
-- **high**: multiple independent authoritative sources agree
-- **medium**: single good source, or sources partially agree
-- **low**: speculation, opinion pieces, single informal source, or claim not verified
+- `accepted`: supported by at least one fresh, active, non-synthetic source.
+- High-risk accepted claims: supported by two independent sources.
+- `provisional`: useful but incomplete support.
+- `contested`: credible evidence disagrees.
+- `unsupported`: no adequate evidence.
+- `deprecated`: superseded and retained for history.
 
-Always note the source date for factual claims. Mark claims from sources older than 3 years as potentially stale.
+Freshness is domain- and claim-specific. Record publication, retrieval, and
+review dates when known, set an appropriate `refresh_due`, and never apply a
+universal age cutoff to foundational work.
 
----
+## Output style
 
-## Loop Constraints
+- Use direct language while preserving necessary uncertainty.
+- Cite each material non-obvious claim to a source record and locator.
+- Use short, focused pages; split by concept when that improves retrieval.
+- State `unknown`, `unsupported`, or `contested` instead of filling gaps.
+- Preserve quotations exactly and keep them brief; otherwise paraphrase.
+- Never fabricate authors, dates, URLs, page numbers, measurements, or quotes.
 
-- Max search rounds per topic: **3**
-- Max wiki pages created per session: **15**
-- Max sources fetched per round: **5**
-- If max pages is reached before the loop completes: file what you have, note what was skipped in Open Questions
+## Source selection
 
----
+Authority depends on the question:
 
-## Output Style
+- Software and products: current official documentation, source repositories,
+  specifications, and reproducible tests.
+- Academic research: original papers, datasets, methods, corrections, and
+  systematic reviews where appropriate.
+- Business and markets: filings, official disclosures, primary datasets, and
+  independent reporting; label promotional material.
+- Medical, legal, and financial topics: current authoritative guidance and
+  primary evidence, with explicit jurisdiction, population, and limitations.
 
-- Declarative, present tense
-- Cite every non-obvious claim: `(Source: [[Page]])`
-- Short pages: under 200 lines. Split if longer.
-- No hedging language ("it seems", "perhaps", "might be")
-- Flag uncertainty explicitly: `> [!gap] This claim needs verification.`
+Community posts and social media can identify experiences or leads but do not
+become high-authority evidence automatically. Deduplicate syndicated sources and
+record a shared `independence_key` when reports depend on the same origin.
 
----
+## Stop conditions
 
-## Domain Notes
+Stop and report the boundary when any of these occurs:
 
-[Add domain-specific instructions here. Examples:]
+- the agreed question is adequately supported;
+- a budget is exhausted;
+- the user stops or narrows the work;
+- remaining results repeat dependent evidence;
+- egress would exceed approved domains or expose private context;
+- a key claim cannot be verified;
+- sources require access or rights the user has not supplied.
 
-For AI/tech research:
-- Prefer: arXiv, official GitHub repos, official product documentation, Hacker News discussions with high karma
-- Note: LLM benchmarks are often gamed: treat leaderboard claims as low confidence unless independently verified
-
-For business/market research:
-- Prefer: company filings, Crunchbase, Bloomberg, verified industry reports
-- Flag: press releases as low confidence without independent verification
-
-For medical/health research:
-- Prefer: PubMed, Cochrane reviews, peer-reviewed clinical trials
-- Always note: sample size, study type (RCT vs observational), and recency
-
----
-
-## Exclusions
-
-Do not cite as high-confidence sources:
-- Reddit posts or forums (use as pointers to primary sources only)
-- Social media posts
-- Undated web pages
-- Sources that don't cite their own claims
+Research output remains a reviewable dossier. Merging it into canonical pages is
+a separate approved transaction.

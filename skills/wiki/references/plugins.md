@@ -1,96 +1,47 @@
-# Obsidian Setup
+# Optional Obsidian integrations
 
----
+claude-obsidian's baseline vault uses Markdown, JSON, and Obsidian core
+features. No community plugin, theme, or downloaded executable is required.
 
-## Install Obsidian
+## Install and open Obsidian
 
-### Linux (Flatpak: recommended)
+Use the current installation instructions at
+[Obsidian Help](https://help.obsidian.md/). Open the separate user-vault folder,
+not the claude-obsidian product checkout.
 
-Check if installed:
-```bash
-flatpak list 2>/dev/null | grep -i obsidian && echo "FOUND via flatpak" || \
-which obsidian 2>/dev/null && echo "FOUND in PATH" || echo "NOT FOUND"
-```
+Built-in Properties, Backlinks, Outline, and Graph views can improve navigation.
+Use Bases only when the installed Obsidian version supports the `.base` syntax
+you need. The `obsidian-bases` skill can draft a file, but application rendering
+still requires verification in Obsidian.
 
-Install if not found:
-```bash
-flatpak install flathub md.obsidian.Obsidian
-```
+## Community plugins
 
-### macOS
+Community plugins are optional third-party code. Before recommending or
+installing one:
 
-```bash
-ls /Applications/Obsidian.app 2>/dev/null && echo "FOUND" || brew install --cask obsidian
-```
+1. Confirm the user's actual need and obtain approval for the installation.
+2. Review the current publisher, source repository, requested permissions,
+   release provenance, and maintenance state.
+3. Install through Obsidian's supported interface. Do not copy an unverified
+   `main.js` or download a floating release from an agent workflow.
+4. Back up the vault and test in a non-critical copy when the plugin can rewrite
+   notes or properties.
+5. Record the plugin and version in user-vault documentation, not product code.
 
-### Windows
+Templating, calendar, quick-capture, Git, Dataview, semantic-search, and theme
+plugins can be useful, but none are bundled or assumed by the baseline.
 
-```powershell
-Test-Path "$env:LOCALAPPDATA\Obsidian" && echo "FOUND" || winget install Obsidian.Obsidian
-```
+## Git and sync plugins
 
-### All platforms: direct download
-
-https://obsidian.md/download
-
----
-
-## Open the Vault
-
-After installing: Obsidian > Manage Vaults > Open Folder as Vault > select your vault directory.
-
----
-
-## Core Plugins (Built-in: No Install Required)
-
-These ship with Obsidian. Enable them in Settings > Core Plugins:
-
-| Plugin | Purpose |
-|--------|---------|
-| **Bases** | Native database-like views for `.base` files. Powers `wiki/meta/dashboard.base`. Available since Obsidian v1.9.10 (August 2025). **Replaces Dataview for most wiki use cases.** |
-| **Properties** | Visual frontmatter editor. Always enabled. |
-| **Backlinks** | Outgoing/incoming links pane. |
-| **Outline** | Document heading navigation. |
-
-## Recommended Community Plugins
-
-Install via Settings > Community Plugins > Turn off Restricted Mode > Browse.
-
-| Plugin | Purpose |
-|--------|---------|
-| **Templater** | Auto-populate frontmatter on note creation from `_templates/`. |
-| **Obsidian Git** | Auto-commit every 15 minutes. Protects against bad writes. |
-| **Calendar** | Right-sidebar calendar with word count, task, and link indicators. Pre-installed in this vault via `.obsidian/plugins/calendar/`. |
-| **Thino** | Quick memo capture panel in right sidebar. Pre-installed via `.obsidian/plugins/thino/`. |
-| **Iconize** | Visual folder icons for navigation. |
-| **Minimal Theme** | Best dark theme for dense information display. |
-| **Dataview** *(optional/legacy)* | Only needed if you're on Obsidian < 1.9.10 or want to use the legacy `dashboard.md` queries. The primary dashboard now uses Bases. |
-
-**Calendar and Thino are pre-installed**. They ship with this vault. Enable them in Settings → Community Plugins → toggle on. No download needed.
-
-If installing in a different vault: download `main.js` + `manifest.json` from their GitHub releases into `.obsidian/plugins/calendar/` and `.obsidian/plugins/thino/` respectively.
-
-Optional additions:
-- **Smart Connections**: semantic search across all notes
-- **QuickAdd**: macros for fast note creation
-- **Folder Notes**: click a folder to open an overview note
-
----
+An Obsidian Git or sync plugin is a backup convenience, not claude-obsidian's
+transaction or checkpoint mechanism. Background commits can race with an agent
+operation and make exact-operation checkpoints ambiguous. Disable overlapping
+automatic commits while applying an operation, or use a separate backup method.
+Run `checkpoint` only when the user explicitly requests Git history.
 
 ## Web Clipper
 
-The Obsidian Web Clipper browser extension converts web articles to markdown and sends them to `.raw/` in one click.
-
-Install for Chrome, Firefox, or Safari from the Obsidian website.
-
-Set the default folder to `.raw/` in the extension settings.
-
----
-
-## After Installing Plugins
-
-1. Enable Bases: Settings > Core Plugins > toggle on (already on by default in Obsidian v1.9.10+)
-2. Enable Templater: Settings > Templater > set template folder to `_templates`
-3. Enable Obsidian Git: Settings > Obsidian Git > Auto backup interval: 15 minutes
-4. Enable the CSS snippet: Settings > Appearance > CSS Snippets > toggle on `vault-colors`
-5. *(Optional)* Enable Dataview only if you want the legacy `wiki/meta/dashboard.md` queries to work alongside the primary `dashboard.base`
+Treat browser-clipped material as untrusted source input. Capture it into the
+configured inbox, preserve its locator and hash, and ingest it through the
+normal provenance workflow. A clip is not evidence of truth merely because it
+was successfully imported.

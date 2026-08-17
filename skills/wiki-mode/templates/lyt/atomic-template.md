@@ -1,11 +1,13 @@
 ---
 type: note
 title: "{{title}}"
-created: "{{date}}"
-tags: []
+status: seed
+created: {{date}}
+updated: {{date}}
+tags:
+  - note
 mocs:
   - "[[{{primary-moc}}]]"
-related: []
 ---
 
 # {{title}}

@@ -15,19 +15,20 @@ model is not pulled, so the calling skill can no-op gracefully. Exits 0
 on success. Exit 3 on cache corruption. Exit 2 on usage error.
 
 Concurrency:
-- Locks `.vault-meta/.tiling.lock` (flock exclusive) around cache I/O.
-- Per-PID temp file to avoid shared-tempfile races.
+- Embedding work runs without holding the vault-wide mutation lock.
+- The derived cache is published in one short canonical mutation through
+  pinned vault-root and `.vault-meta` descriptors.
 
 Usage:
+  tiling-check.py --vault PATH           # select a vault explicitly
   tiling-check.py                      # run; exit 10/11 if ollama/model missing
-  tiling-check.py --report PATH        # also write report to PATH
+  tiling-check.py                      # report is stdout-only
   tiling-check.py --rebuild-cache      # ignore cached embeddings
   tiling-check.py --peek               # structured diagnostics; no compute
   tiling-check.py --allow-remote-ollama # accept non-localhost OLLAMA_URL
 """
 
 import argparse
-import fcntl
 import hashlib
 import json
 import math
@@ -39,6 +40,9 @@ import urllib.parse
 import urllib.request
 from datetime import datetime
 from pathlib import Path
+from typing import Any
+
+sys.dont_write_bytecode = True
 
 DEFAULT_OLLAMA_URL = "http://127.0.0.1:11434"
 DEFAULT_MODEL = "nomic-embed-text"
@@ -46,7 +50,19 @@ OLLAMA_TIMEOUT_SEC = 3
 EMBED_TIMEOUT_SEC = 30
 MAX_RESPONSE_BYTES = 4 * 1024 * 1024  # 4 MB; embeddings can be ~10 KB each
 
-VAULT_ROOT = Path(__file__).resolve().parent.parent
+PLUGIN_ROOT = Path(__file__).resolve().parent.parent
+if str(PLUGIN_ROOT) not in sys.path:
+    sys.path.insert(0, str(PLUGIN_ROOT))
+
+from claude_obsidian.paths import VaultSelectionError, resolve_vault_root
+from claude_obsidian.transaction import (
+    MutationLock,
+    TransactionError,
+    _atomic_vault_write,
+    _safe_vault_path,
+)
+
+VAULT_ROOT = Path.cwd().resolve()
 WIKI_DIR = VAULT_ROOT / "wiki"
 META_DIR = VAULT_ROOT / ".vault-meta"
 CACHE_PATH = META_DIR / "tiling-cache.json"
@@ -74,20 +90,74 @@ FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 TYPE_RE = re.compile(r"^type:\s*(\S+)", re.MULTILINE)
 
 
+def configure_vault(explicit=None):
+    global VAULT_ROOT, WIKI_DIR, META_DIR, CACHE_PATH, CACHE_LOCK, THRESHOLDS_PATH
+    try:
+        selected = resolve_vault_root(
+            explicit,
+            start=Path.cwd(),
+            plugin_root=PLUGIN_ROOT,
+        )
+    except VaultSelectionError as exc:
+        log(f"ERR {exc.code}: {exc}")
+        return False
+    VAULT_ROOT = selected.root
+    WIKI_DIR = VAULT_ROOT / "wiki"
+    META_DIR = VAULT_ROOT / ".vault-meta"
+    CACHE_PATH = META_DIR / "tiling-cache.json"
+    CACHE_LOCK = META_DIR / ".tiling.lock"
+    THRESHOLDS_PATH = META_DIR / "tiling-thresholds.json"
+    try:
+        for relative in (
+            "wiki",
+            ".vault-meta",
+            ".vault-meta/tiling-cache.json",
+            ".vault-meta/.tiling.lock",
+            ".vault-meta/tiling-thresholds.json",
+        ):
+            _safe_vault_path(VAULT_ROOT, relative)
+    except (VaultSelectionError, TransactionError) as exc:
+        log(f"ERR {exc.code}: {exc}")
+        return False
+    return True
+
+
 def log(msg: str) -> None:
     print(msg, file=sys.stderr)
 
 
 def _is_local_url(url: str) -> bool:
+    parsed = _validate_ollama_base_url(url)
+    return parsed is not None and (parsed.hostname or "") in (
+        "127.0.0.1",
+        "localhost",
+        "::1",
+    )
+
+
+def _validate_ollama_base_url(url: str) -> urllib.parse.ParseResult | None:
     try:
-        host = urllib.parse.urlparse(url).hostname or ""
+        parsed = urllib.parse.urlparse(url)
+        _ = parsed.port
     except ValueError:
-        return False
-    return host in ("127.0.0.1", "localhost", "::1")
+        return None
+    if (
+        parsed.scheme not in {"http", "https"}
+        or not parsed.hostname
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.query
+        or parsed.fragment
+    ):
+        return None
+    return parsed
 
 
 def _http_get_json(url: str, timeout: float) -> dict:
-    with urllib.request.urlopen(url, timeout=timeout) as resp:
+    if _validate_ollama_base_url(url.rsplit("/api/", 1)[0]) is None:
+        raise ValueError("invalid Ollama HTTP(S) URL")
+    # `url` passed the credential-free HTTP(S) validator above.
+    with urllib.request.urlopen(url, timeout=timeout) as resp:  # nosec B310
         raw = resp.read(MAX_RESPONSE_BYTES + 1)
     if len(raw) > MAX_RESPONSE_BYTES:
         raise RuntimeError("response exceeded size limit")
@@ -95,9 +165,12 @@ def _http_get_json(url: str, timeout: float) -> dict:
 
 
 def _http_post_json(url: str, payload: dict, timeout: float) -> dict:
+    if _validate_ollama_base_url(url.rsplit("/api/", 1)[0]) is None:
+        raise ValueError("invalid Ollama HTTP(S) URL")
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
+    # `url` passed the credential-free HTTP(S) validator above.
+    with urllib.request.urlopen(req, timeout=timeout) as resp:  # nosec B310
         raw = resp.read(MAX_RESPONSE_BYTES + 1)
     if len(raw) > MAX_RESPONSE_BYTES:
         raise RuntimeError("response exceeded size limit")
@@ -160,29 +233,11 @@ def cosine(a: list[float], b: list[float]) -> float:
     return dot / (na * nb)
 
 
-def _lock_cache():
-    META_DIR.mkdir(exist_ok=True)
-    fd = os.open(str(CACHE_LOCK), os.O_CREAT | os.O_RDWR, 0o644)
-    try:
-        fcntl.flock(fd, fcntl.LOCK_EX)
-    except OSError:
-        os.close(fd)
-        raise
-    return fd
-
-
-def _unlock_cache(fd: int) -> None:
-    try:
-        fcntl.flock(fd, fcntl.LOCK_UN)
-    finally:
-        os.close(fd)
-
-
 def load_cache(current_model: str) -> dict:
     if not CACHE_PATH.exists():
         return {"version": 1, "model": current_model, "embeddings": {}}
     try:
-        with CACHE_PATH.open() as f:
+        with CACHE_PATH.open(encoding="utf-8") as f:
             data = json.load(f)
     except (OSError, json.JSONDecodeError) as exc:
         log(f"ERR: cache read failed: {exc}")
@@ -201,11 +256,28 @@ def load_cache(current_model: str) -> dict:
 
 
 def save_cache(cache: dict) -> None:
-    META_DIR.mkdir(exist_ok=True)
-    tmp = CACHE_PATH.with_name(f"{CACHE_PATH.stem}.{os.getpid()}.tmp")
-    with tmp.open("w") as f:
-        json.dump(cache, f, indent=2)
-    tmp.replace(CACHE_PATH)
+    """Publish the derived cache without following replaced vault aliases."""
+
+    payload = (json.dumps(cache, indent=2) + "\n").encode("utf-8")
+    root_fd = -1
+    meta_fd = -1
+    try:
+        with MutationLock(VAULT_ROOT) as mutation_lock:
+            root_fd = mutation_lock.duplicate_root_fd()
+            meta_fd = mutation_lock.duplicate_parent_fd()
+            _atomic_vault_write(
+                VAULT_ROOT,
+                ".vault-meta/tiling-cache.json",
+                payload,
+                mode=0o600,
+                root_fd=root_fd,
+                meta_fd=meta_fd,
+            )
+    finally:
+        if meta_fd >= 0:
+            os.close(meta_fd)
+        if root_fd >= 0:
+            os.close(root_fd)
 
 
 def load_thresholds() -> dict:
@@ -215,7 +287,7 @@ def load_thresholds() -> dict:
             "bands": {"error": 0.90, "review": 0.80},
             "calibrated": False, "calibration_pairs_labeled": 0,
         }
-    with THRESHOLDS_PATH.open() as f:
+    with THRESHOLDS_PATH.open(encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -259,6 +331,12 @@ def run_check(
     ollama_url: str,
     model: str,
 ) -> int:
+    if report_path is not None:
+        log(
+            "ERR: --report is disabled; capture stdout for review, then use a "
+            "claude-obsidian transaction to file a canonical report"
+        )
+        return EXIT_USAGE
     if not detect_ollama(ollama_url):
         log(f"ollama not reachable at {ollama_url}; skipping tiling check")
         return EXIT_NO_OLLAMA
@@ -268,83 +346,86 @@ def run_check(
 
     thresholds = load_thresholds()
 
-    lock_fd = _lock_cache()
+    cache: dict[str, Any] = (
+        load_cache(model)
+        if not rebuild
+        else {"version": 1, "model": model, "embeddings": {}}
+    )
+
+    pages: list[tuple[str, list[float]]] = []
+    scanned = 0
+    computed = 0
+    cached_hits = 0
+    skipped_counts: dict[str, int] = {}
+    live_paths: set[str] = set()
+
+    candidates = sorted(WIKI_DIR.rglob("*.md"))
+    scale_n = len(candidates)
+    if scale_n > SCALE_HARD_FAIL_PAGES:
+        log(f"ERR: {scale_n} pages exceed hard-fail limit {SCALE_HARD_FAIL_PAGES}")
+        return EXIT_SCALE_EXCEEDED
+    if scale_n > SCALE_WARN_PAGES:
+        log(f"WARN: {scale_n} pages; cold-cache embed will issue ~{scale_n} POSTs to ollama")
+
+    for md in candidates:
+        scanned += 1
+        # Symlink and vault-root guards must run BEFORE read_text so a
+        # hostile symlink cannot cause off-vault content to be read and
+        # POSTed to the embedding endpoint.
+        if md.is_symlink():
+            skipped_counts["symlink"] = skipped_counts.get("symlink", 0) + 1
+            continue
+        try:
+            resolved = md.resolve(strict=True)
+            resolved.relative_to(VAULT_ROOT.resolve())
+        except (OSError, ValueError):
+            skipped_counts["escapes vault"] = skipped_counts.get("escapes vault", 0) + 1
+            continue
+        try:
+            text = md.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            skipped_counts["read_error"] = skipped_counts.get("read_error", 0) + 1
+            continue
+        if len(text.encode("utf-8")) > MAX_BODY_BYTES:
+            skipped_counts["too_large"] = skipped_counts.get("too_large", 0) + 1
+            continue
+        fm, body = parse_frontmatter(text)
+        ok, reason = included(md, fm)
+        if not ok:
+            skipped_counts[reason] = skipped_counts.get(reason, 0) + 1
+            continue
+        rel = md.relative_to(VAULT_ROOT).as_posix()
+        live_paths.add(rel)
+        h = body_hash(body, model)
+        entry = cache["embeddings"].get(rel)
+        if entry and entry.get("hash") == h:
+            pages.append((rel, entry["embedding"]))
+            cached_hits += 1
+            continue
+        try:
+            emb = embed(body, model, ollama_url)
+        except Exception as exc:
+            log(f"ERR embedding {rel}: {exc}")
+            skipped_counts["embed_error"] = skipped_counts.get("embed_error", 0) + 1
+            continue
+        cache["embeddings"][rel] = {
+            "hash": h,
+            "embedding": emb,
+            "computed_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        }
+        pages.append((rel, emb))
+        computed += 1
+
+    # Orphan GC: drop cache entries for paths that no longer exist.
+    orphans = [k for k in cache["embeddings"] if k not in live_paths]
+    for k in orphans:
+        del cache["embeddings"][k]
+
     try:
-        cache = (load_cache(model) if not rebuild
-                 else {"version": 1, "model": model, "embeddings": {}})
-
-        pages: list[tuple[str, list[float]]] = []
-        scanned = 0
-        computed = 0
-        cached_hits = 0
-        skipped_counts: dict[str, int] = {}
-        live_paths: set[str] = set()
-
-        candidates = sorted(WIKI_DIR.rglob("*.md"))
-        scale_n = len(candidates)
-        if scale_n > SCALE_HARD_FAIL_PAGES:
-            log(f"ERR: {scale_n} pages exceed hard-fail limit {SCALE_HARD_FAIL_PAGES}")
-            return EXIT_SCALE_EXCEEDED
-        if scale_n > SCALE_WARN_PAGES:
-            log(f"WARN: {scale_n} pages; cold-cache embed will issue ~{scale_n} POSTs to ollama")
-
-        for md in candidates:
-            scanned += 1
-            # Symlink and vault-root guards must run BEFORE read_text so a
-            # hostile symlink cannot cause off-vault content to be read and
-            # POSTed to the embedding endpoint.
-            if md.is_symlink():
-                skipped_counts["symlink"] = skipped_counts.get("symlink", 0) + 1
-                continue
-            try:
-                resolved = md.resolve(strict=True)
-                resolved.relative_to(VAULT_ROOT.resolve())
-            except (OSError, ValueError):
-                skipped_counts["escapes vault"] = skipped_counts.get("escapes vault", 0) + 1
-                continue
-            try:
-                text = md.read_text(encoding="utf-8")
-            except (OSError, UnicodeDecodeError):
-                skipped_counts["read_error"] = skipped_counts.get("read_error", 0) + 1
-                continue
-            if len(text.encode("utf-8")) > MAX_BODY_BYTES:
-                skipped_counts["too_large"] = skipped_counts.get("too_large", 0) + 1
-                continue
-            fm, body = parse_frontmatter(text)
-            ok, reason = included(md, fm)
-            if not ok:
-                skipped_counts[reason] = skipped_counts.get(reason, 0) + 1
-                continue
-            rel = md.relative_to(VAULT_ROOT).as_posix()
-            live_paths.add(rel)
-            h = body_hash(body, model)
-            entry = cache["embeddings"].get(rel)
-            if entry and entry.get("hash") == h:
-                pages.append((rel, entry["embedding"]))
-                cached_hits += 1
-                continue
-            try:
-                emb = embed(body, model, ollama_url)
-            except Exception as exc:
-                log(f"ERR embedding {rel}: {exc}")
-                skipped_counts["embed_error"] = skipped_counts.get("embed_error", 0) + 1
-                continue
-            cache["embeddings"][rel] = {
-                "hash": h,
-                "embedding": emb,
-                "computed_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
-            }
-            pages.append((rel, emb))
-            computed += 1
-
-        # Orphan GC: drop cache entries for paths that no longer exist.
-        orphans = [k for k in cache["embeddings"] if k not in live_paths]
-        for k in orphans:
-            del cache["embeddings"][k]
-
         save_cache(cache)
-    finally:
-        _unlock_cache(lock_fd)
+    except (OSError, TransactionError) as exc:
+        log(f"ERR: cache write failed: {exc}")
+        return EXIT_CACHE_CORRUPT
 
     review = thresholds["bands"]["review"]
     error_ = thresholds["bands"]["error"]
@@ -397,21 +478,6 @@ def run_check(
     report = "\n".join(out_lines) + "\n"
 
     print(report)
-    if report_path is not None:
-        # Confine report writes to VAULT_ROOT. A path that resolves outside
-        # the vault is refused (prevents `--report /etc/passwd` style
-        # accidents or hostile args from writing outside the repo).
-        try:
-            resolved_report = (
-                report_path if report_path.is_absolute() else (Path.cwd() / report_path)
-            ).resolve()
-            resolved_report.relative_to(VAULT_ROOT.resolve())
-        except ValueError:
-            log(f"ERR: --report path '{report_path}' escapes vault root {VAULT_ROOT}")
-            return EXIT_USAGE
-        resolved_report.parent.mkdir(parents=True, exist_ok=True)
-        resolved_report.write_text(report, encoding="utf-8")
-        log(f"report written: {resolved_report}")
 
     return EXIT_OK
 
@@ -434,7 +500,7 @@ def cmd_peek(ollama_url: str, model: str) -> int:
     diag["cache_model"] = None
     if diag["cache_present"]:
         try:
-            with CACHE_PATH.open() as f:
+            with CACHE_PATH.open(encoding="utf-8") as f:
                 c = json.load(f)
             diag["cache_readable"] = (c.get("version") == 1
                                       and isinstance(c.get("embeddings"), dict))
@@ -447,7 +513,7 @@ def cmd_peek(ollama_url: str, model: str) -> int:
     diag["thresholds_readable"] = False
     if diag["thresholds_present"]:
         try:
-            with THRESHOLDS_PATH.open() as f:
+            with THRESHOLDS_PATH.open(encoding="utf-8") as f:
                 t = json.load(f)
             diag["thresholds_readable"] = True
             diag["thresholds_calibrated"] = bool(t.get("calibrated", False))
@@ -466,16 +532,30 @@ def cmd_peek(ollama_url: str, model: str) -> int:
 
 def main(argv: list[str]) -> int:
     p = argparse.ArgumentParser()
-    p.add_argument("--report", type=Path, default=None)
+    p.add_argument("--vault", help="Explicit vault root")
+    p.add_argument(
+        "--report",
+        type=Path,
+        default=None,
+        help="deprecated and rejected; reports are stdout-only",
+    )
     p.add_argument("--rebuild-cache", action="store_true")
     p.add_argument("--peek", action="store_true")
     p.add_argument("--allow-remote-ollama", action="store_true",
                    help="allow OLLAMA_URL env override pointing outside localhost")
     p.add_argument("--model", default=DEFAULT_MODEL)
     args = p.parse_args(argv)
+    if not configure_vault(args.vault):
+        return EXIT_USAGE
 
     env_url = os.environ.get("OLLAMA_URL")
     ollama_url = env_url or DEFAULT_OLLAMA_URL
+    if _validate_ollama_base_url(ollama_url) is None:
+        log(
+            "ERR: OLLAMA_URL must be a credential-free http(s) base URL "
+            "without a query or fragment."
+        )
+        return EXIT_USAGE
     if env_url and not _is_local_url(ollama_url) and not args.allow_remote_ollama:
         log(f"ERR: OLLAMA_URL={ollama_url!r} is not localhost. "
             f"Vault content would be POSTed to a non-local host. "

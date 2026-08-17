@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "verification_timeout_seconds": 30,
+  "capabilities": [
+    {
+      "id": "autoresearch",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/autoresearch/SKILL.md",
+        "scripts/boundary-score.py",
+        "scripts/wiki-mode.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.raw/**",
+        "vault:.vault-meta/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        },
+        {
+          "pattern": "vault:.raw/.manifest.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/**",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "autoresearch",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated end-to-end behavioral verifier is implemented for the autoresearch workflow"
+    },
+    {
+      "id": "canvas",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/canvas/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:wiki/canvases/**",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": false,
+        "network": false
+      },
+      "transaction_type": "canvas",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated behavioral verifier is implemented for JSON Canvas authoring"
+    },
+    {
+      "id": "defuddle",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/defuddle/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.raw/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "capture",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": [
+          "defuddle"
+        ]
+      },
+      "verification_command": [],
+      "verification_reason": "the external defuddle adapter has no bundled behavioral verifier"
+    },
+    {
+      "id": "obsidian-bases",
+      "tier": "reference",
+      "implementation_paths": [
+        "skills/obsidian-bases/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:wiki/*.base",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/**/*.base",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": false,
+        "network": false
+      },
+      "transaction_type": "base",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated behavioral verifier is implemented for Obsidian Bases authoring"
+    },
+    {
+      "id": "obsidian-markdown",
+      "tier": "reference",
+      "implementation_paths": [
+        "skills/obsidian-markdown/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:wiki/**",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": false,
+        "network": false
+      },
+      "transaction_type": "markdown",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated behavioral verifier is implemented for the Obsidian Markdown reference workflow"
+    },
+    {
+      "id": "save",
+      "tier": "core",
+      "implementation_paths": [
+        "skills/save/SKILL.md",
+        "scripts/wiki-mode.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.vault-meta/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:wiki/**",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "save",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated end-to-end behavioral verifier is implemented for conversation-to-note save operations"
+    },
+    {
+      "id": "think",
+      "tier": "reference",
+      "implementation_paths": [
+        "skills/think/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:agents/**",
+        "plugin:skills/**",
+        "vault:**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "the thinking methodology is guidance and has no automated behavioral verifier"
+    },
+    {
+      "id": "wiki",
+      "tier": "core",
+      "implementation_paths": [
+        "skills/wiki/SKILL.md",
+        "bin/setup-vault.sh"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.claude-obsidian.json",
+        "vault:.gitignore",
+        "vault:.obsidian/**",
+        "vault:.raw/**",
+        "vault:.vault-meta/**",
+        "vault:inbox/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.claude-obsidian.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.gitignore",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.obsidian/app.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.obsidian/appearance.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.obsidian/graph.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.obsidian/snippets/vault-colors.css",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.raw/.manifest.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.vault-meta/address-counter.txt",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.vault-meta/legacy-pages.txt",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:.vault-meta/tiling-thresholds.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:inbox/.gitkeep",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/hot.md",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/index.md",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/log.md",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/meta/ledgers/claim-ledger.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/meta/ledgers/source-ledger.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/overview.md",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "setup",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "tests/test_vault_ops.py"
+      ]
+    },
+    {
+      "id": "wiki-cli",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/wiki-cli/SKILL.md",
+        "scripts/detect-transport.sh"
+      ],
+      "read_scope": [
+        "plugin:scripts/detect-transport.sh",
+        "plugin:skills/wiki-cli/**",
+        "plugin:skills/wiki/references/operation-transactions.md",
+        "vault:.vault-meta",
+        "vault:.vault-meta/transport.json",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.vault-meta",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/.transport.json.tmp.*",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/transport.json",
+          "access": "runtime"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "transport",
+      "confirmation": {
+        "mutation": "delegated",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "tests/test_detect_transport.py"
+      ]
+    },
+    {
+      "id": "wiki-fold",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/wiki-fold/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:wiki/folds/*.md",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/index.md",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/log.md",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "fold",
+      "confirmation": {
+        "mutation": "explicit",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated end-to-end behavioral verifier is implemented for extractive fold operations"
+    },
+    {
+      "id": "wiki-ingest",
+      "tier": "core",
+      "implementation_paths": [
+        "skills/wiki-ingest/SKILL.md",
+        "scripts/detect-transport.sh",
+        "scripts/wiki-mode.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.raw/**",
+        "vault:.vault-meta/**",
+        "vault:inbox/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        },
+        {
+          "pattern": "vault:.raw/.manifest.json",
+          "access": "transactional"
+        },
+        {
+          "pattern": "vault:wiki/**",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "ingest",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated end-to-end behavioral verifier is implemented for source ingestion"
+    },
+    {
+      "id": "wiki-lint",
+      "tier": "core",
+      "implementation_paths": [
+        "claude_obsidian/lint_engine.py",
+        "skills/wiki-lint/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/wiki-lint/**",
+        "plugin:skills/wiki/references/operation-transactions.md",
+        "vault:.vault-meta/lint-allowlist.json",
+        "vault:.vault-meta/lint-allowlist.txt",
+        "vault:.vault-meta/lint.json",
+        "vault:.vault-meta/wiki-lint.json",
+        "vault:wiki/**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "tests/test_lint_engine.py"
+      ]
+    },
+    {
+      "id": "wiki-mode",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/wiki-mode/SKILL.md",
+        "bin/setup-mode.sh",
+        "scripts/wiki-mode.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.vault-meta/mode.json",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.vault-meta/mode.json",
+          "access": "transactional"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "configuration",
+      "confirmation": {
+        "mutation": "explicit",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "tests/test_wiki_mode.py"
+      ]
+    },
+    {
+      "id": "wiki-query",
+      "tier": "core",
+      "implementation_paths": [
+        "skills/wiki-query/SKILL.md",
+        "scripts/retrieve.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.vault-meta/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": true,
+        "network": false
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": []
+      },
+      "verification_command": [],
+      "verification_reason": "no automated end-to-end behavioral verifier is implemented for read-only evidence retrieval and answer synthesis"
+    },
+    {
+      "id": "wiki-retrieve",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/wiki-retrieve/SKILL.md",
+        "bin/setup-retrieve.sh",
+        "scripts/bm25-index.py",
+        "scripts/contextual-prefix.py",
+        "scripts/rerank.py",
+        "scripts/retrieve.py"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.vault-meta/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:.vault-meta/mutation.lock/**",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/.embed-cache.lock",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/bm25/**",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/chunks/**",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/embed-cache.json",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/embed-cache.*.tmp",
+          "access": "runtime"
+        },
+        {
+          "pattern": "vault:.vault-meta/hook.log",
+          "access": "runtime"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "runtime_cache",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [
+          {
+            "pattern": "vault:.vault-meta/bm25/index.json",
+            "kind": "file"
+          },
+          {
+            "pattern": "vault:.vault-meta/chunks",
+            "kind": "directory"
+          }
+        ],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "tests/test_retrieve.py"
+      ]
+    }
+  ]
+}

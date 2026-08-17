@@ -9,6 +9,7 @@ exit 10/11.
 Usage:
   python3 tests/test_tiling_check.py
 """
+
 import importlib.util
 import json
 import os
@@ -19,6 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 HELPER = ROOT / "scripts" / "tiling-check.py"
+os.environ["CLAUDE_OBSIDIAN_VAULT"] = str(ROOT)
 
 spec = importlib.util.spec_from_file_location("tc", HELPER)
 tc = importlib.util.module_from_spec(spec)
@@ -73,25 +75,25 @@ def test_body_hash_model_scoped():
 
 def test_included_basic():
     cases = [
-        (ROOT / "wiki/concepts/Foo.md",         {"type": "concept"}, True,  "included"),
-        (ROOT / "wiki/index.md",                {"type": "meta"},    False, "excluded filename"),
-        (ROOT / "wiki/folds/fold-1.md",         {"type": "fold"},    False, "under wiki/folds/"),
-        (ROOT / "wiki/meta/session.md",         {"type": "session"}, False, "under wiki/meta/"),
-        (ROOT / "wiki/entities/Person.md",      {"type": "entity"},  True,  "included"),
+        (ROOT / "wiki/concepts/Foo.md", {"type": "concept"}, True, "included"),
+        (ROOT / "wiki/index.md", {"type": "meta"}, False, "excluded filename"),
+        (ROOT / "wiki/folds/fold-1.md", {"type": "fold"}, False, "under wiki/folds/"),
+        (ROOT / "wiki/meta/session.md", {"type": "session"}, False, "under wiki/meta/"),
+        (ROOT / "wiki/entities/Person.md", {"type": "entity"}, True, "included"),
     ]
     for path, fm, expected_ok, expected_reason in cases:
         ok, reason = tc.included(path, fm)
         label = f"included({path.relative_to(ROOT)}, {fm.get('type')})"
-        assert_eq(label + ".ok",     expected_ok,     ok)
+        assert_eq(label + ".ok", expected_ok, ok)
         assert_eq(label + ".reason", expected_reason, reason)
 
 
 def test_is_local_url():
     assert_true("127.0.0.1 is local", tc._is_local_url("http://127.0.0.1:11434"))
     assert_true("localhost is local", tc._is_local_url("http://localhost:11434"))
-    assert_true("::1 is local",       tc._is_local_url("http://[::1]:11434"))
-    assert_true("example.com NOT local",   not tc._is_local_url("http://example.com"))
-    assert_true("1.2.3.4 NOT local",       not tc._is_local_url("http://1.2.3.4"))
+    assert_true("::1 is local", tc._is_local_url("http://[::1]:11434"))
+    assert_true("example.com NOT local", not tc._is_local_url("http://example.com"))
+    assert_true("1.2.3.4 NOT local", not tc._is_local_url("http://1.2.3.4"))
 
 
 def test_cache_schema():
@@ -106,7 +108,15 @@ def test_cache_schema():
             assert_eq("empty cache -> version 1", 1, c["version"])
             assert_eq("empty cache -> empty embeddings", {}, c["embeddings"])
 
-            tc.CACHE_PATH.write_text(json.dumps({"version": 1, "model": "m1", "embeddings": {"a.md": {"hash": "h", "embedding": [1.0]}}}))
+            tc.CACHE_PATH.write_text(
+                json.dumps(
+                    {
+                        "version": 1,
+                        "model": "m1",
+                        "embeddings": {"a.md": {"hash": "h", "embedding": [1.0]}},
+                    }
+                )
+            )
             c = tc.load_cache("m1")
             assert_eq("valid cache loads", 1, len(c["embeddings"]))
 
@@ -133,14 +143,80 @@ def test_cache_schema():
 
 
 def test_url_guard_via_subprocess():
-    env = os.environ.copy()
-    env["OLLAMA_URL"] = "http://example.com:11434"
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "--peek"],
-        env=env, capture_output=True, text=True, timeout=10,
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        env = os.environ.copy()
+        env["OLLAMA_URL"] = "http://example.com:11434"
+        result = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "--peek"],
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        assert_eq("remote URL without flag exit", 2, result.returncode)
+        assert_true("remote URL error message", "not localhost" in result.stderr)
+
+        for invalid in ("file:///etc/passwd", "http://user:secret@localhost:11434"):
+            env["OLLAMA_URL"] = invalid
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(HELPER),
+                    "--vault",
+                    str(vault),
+                    "--peek",
+                    "--allow-remote-ollama",
+                ],
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=10,
+            )
+            assert_eq("invalid URL rejected with remote opt-in", 2, result.returncode)
+            assert_true(
+                "invalid URL error message", "credential-free http(s)" in result.stderr
+            )
+
+
+def test_report_path_cannot_overwrite_vault_content():
+    original = (
+        tc.VAULT_ROOT,
+        tc.WIKI_DIR,
+        tc.META_DIR,
+        tc.CACHE_PATH,
+        tc.CACHE_LOCK,
+        tc.THRESHOLDS_PATH,
     )
-    assert_eq("remote URL without flag exit", 2, result.returncode)
-    assert_true("remote URL error message", "not localhost" in result.stderr)
+    try:
+        with tempfile.TemporaryDirectory() as directory:
+            vault = Path(directory)
+            (vault / "wiki").mkdir()
+            raw = vault / ".raw"
+            raw.mkdir()
+            precious = raw / "precious.pdf"
+            precious.write_bytes(b"immutable source bytes")
+            assert_true("temporary vault config", tc.configure_vault(str(vault)))
+            result = tc.run_check(
+                rebuild=False,
+                report_path=precious,
+                ollama_url="http://127.0.0.1:11434",
+                model="unused",
+            )
+            assert_eq("--report rejected", tc.EXIT_USAGE, result)
+            assert_eq(
+                "raw source preserved", b"immutable source bytes", precious.read_bytes()
+            )
+    finally:
+        (
+            tc.VAULT_ROOT,
+            tc.WIKI_DIR,
+            tc.META_DIR,
+            tc.CACHE_PATH,
+            tc.CACHE_LOCK,
+            tc.THRESHOLDS_PATH,
+        ) = original
 
 
 if __name__ == "__main__":
@@ -152,6 +228,7 @@ if __name__ == "__main__":
         test_is_local_url()
         test_cache_schema()
         test_url_guard_via_subprocess()
+        test_report_path_cannot_overwrite_vault_content()
     except Fail as exc:
         print(exc, file=sys.stderr)
         sys.exit(1)

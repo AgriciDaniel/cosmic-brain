@@ -1,10 +1,11 @@
 ---
 type: moc
 title: "{{title}}"
-created: "{{date}}"
+status: seed
+created: {{date}}
+updated: {{date}}
 tags:
   - moc
-related: []
 ---
 
 # {{title}} — Map of Content

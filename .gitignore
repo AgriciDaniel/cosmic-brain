@@ -7,7 +7,7 @@
 !.obsidian/plugins/calendar/data.json
 !.obsidian/plugins/thino/data.json
 
-# Excalidraw main.js is 8MB — downloaded by setup-vault.sh, not tracked in git
+# Excalidraw runtime bundle is user-installed through Obsidian, never by setup
 .obsidian/plugins/obsidian-excalidraw-plugin/main.js
 
 # Large binary assets — add your own images to _attachments/images/
@@ -107,17 +107,28 @@ claude-canvas/
 # Codex CLI sentinel marker (0-byte read-only file created by `codex` runs)
 .codex
 
+# Workspace-local Agent Skills links created by setup-multi-agent.sh
+.cursor/skills/
+.windsurf/skills/
+
 # User-specific attachments
 _attachments/
 
 # DragonScale runtime lockfiles and local caches (flock + embedding cache; state files like counter.txt and thresholds.json ARE tracked)
 .vault-meta/.address.lock
+.vault-meta/.address.lock.d/
+.vault-meta/.address.lock.d.reaper/
+.vault-meta/.address.lock.d.reaping-*/
 .vault-meta/.tiling.lock
 .vault-meta/tiling-cache.json
 .vault-meta/tiling-cache.*.tmp
 
 # v1.7 Compound Vault runtime artifacts (regenerable; host-specific)
 .vault-meta/.wiki-lock.meta
+.vault-meta/.wiki-lock.meta.d/
+.vault-meta/.wiki-lock.meta.d.reaper/
+.vault-meta/.wiki-lock.meta.d.reaping-*/
+# Legacy v1.7 lock path retained only so upgraded vaults never track it.
 .vault-meta/.bm25.lock
 .vault-meta/.embed-cache.lock
 .vault-meta/locks/*
@@ -129,6 +140,14 @@ _attachments/
 .vault-meta/transport.json
 .vault-meta/transport.*.tmp
 .vault-meta/hook.log
+
+# v1.10 operation/runtime state (recoverable but host/vault-instance specific)
+.vault-meta/mutation.lock/
+.vault-meta/mutation.lock.reaping-*/
+.vault-meta/transactions/
+.vault-meta/orchestration/
+.vault-meta/capture/
+.vault-meta/capabilities.json
 # v1.8 methodology mode (host-specific by default; `git add -f` to commit if desired)
 .vault-meta/mode.json
 .vault-meta/mode.*.tmp

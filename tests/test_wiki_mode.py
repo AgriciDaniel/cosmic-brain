@@ -8,17 +8,21 @@ absent. No network, no LLM, no ollama. Pure stdlib + subprocess.
 Usage:
   python3 tests/test_wiki_mode.py
 """
+
 import importlib.util
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 HELPER = ROOT / "scripts" / "wiki-mode.py"
+os.environ["CLAUDE_OBSIDIAN_VAULT"] = str(ROOT)
 
 spec = importlib.util.spec_from_file_location("wiki_mode", HELPER)
 wm = importlib.util.module_from_spec(spec)
@@ -44,56 +48,95 @@ def assert_true(label, cond, hint=""):
 # ─── Default-to-generic when no config file ──────────────────────────────────
 def test_load_config_defaults_to_generic_when_absent():
     with tempfile.TemporaryDirectory() as tmp:
-        with mock.patch.object(wm, "MODE_PATH", Path(tmp) / "nonexistent.json"):
+        root = Path(tmp)
+        with (
+            mock.patch.object(wm, "VAULT_ROOT", root),
+            mock.patch.object(wm, "MODE_PATH", root / ".vault-meta/mode.json"),
+        ):
             cfg = wm.load_config()
             assert_eq("absent config → mode=generic", "generic", cfg["mode"])
             assert_eq("schema_version present", 1, cfg["schema_version"])
-            assert_true("all 4 mode configs present",
-                        set(cfg["config"].keys()) == {"lyt", "para", "zettelkasten", "generic"})
+            assert_true(
+                "all 4 mode configs present",
+                set(cfg["config"].keys()) == {"lyt", "para", "zettelkasten", "generic"},
+            )
 
 
-# ─── Config save → load round-trip ───────────────────────────────────────────
-def test_save_load_roundtrip():
+# ─── Existing config load ────────────────────────────────────────────────────
+def test_load_existing_config():
     with tempfile.TemporaryDirectory() as tmp:
-        mode_path = Path(tmp) / "mode.json"
-        with mock.patch.object(wm, "MODE_PATH", mode_path), \
-             mock.patch.object(wm, "META_DIR", Path(tmp)):
-            cfg = wm.load_config()
-            cfg["mode"] = "lyt"
-            cfg["configured_at"] = "2026-05-17T00:00:00Z"
-            wm.save_config(cfg)
-            assert_true("mode.json written", mode_path.is_file())
+        root = Path(tmp)
+        mode_path = root / ".vault-meta/mode.json"
+        mode_path.parent.mkdir()
+        mode_path.write_text(
+            json.dumps(
+                {
+                    "mode": "lyt",
+                    "configured_at": "2026-05-17T00:00:00Z",
+                    "config": {"zettelkasten": {"id_format": "YYYYMMDDHHMMSSffffff"}},
+                }
+            ),
+            encoding="utf-8",
+        )
+        with (
+            mock.patch.object(wm, "VAULT_ROOT", root),
+            mock.patch.object(wm, "MODE_PATH", mode_path),
+        ):
             cfg2 = wm.load_config()
-            assert_eq("round-trip mode", "lyt", cfg2["mode"])
-            assert_eq("round-trip configured_at", "2026-05-17T00:00:00Z", cfg2["configured_at"])
+            assert_eq("existing mode", "lyt", cfg2["mode"])
+            assert_eq(
+                "existing configured_at", "2026-05-17T00:00:00Z", cfg2["configured_at"]
+            )
+            assert_eq(
+                "legacy zettel format reports the effective allocator",
+                wm.ZETTEL_ID_FORMAT,
+                cfg2["config"]["zettelkasten"]["id_format"],
+            )
 
 
-# ─── Corrupted mode.json falls back to generic with warning ──────────────────
-def test_corrupted_config_falls_back_to_generic():
+# ─── Existing corrupt mode.json fails closed ────────────────────────────────
+def test_corrupted_config_fails_closed():
     with tempfile.TemporaryDirectory() as tmp:
-        mode_path = Path(tmp) / "mode.json"
+        root = Path(tmp)
+        mode_path = root / ".vault-meta/mode.json"
+        mode_path.parent.mkdir()
         mode_path.write_text("{ this is not valid json", encoding="utf-8")
-        with mock.patch.object(wm, "MODE_PATH", mode_path):
-            cfg = wm.load_config()
-            assert_eq("corrupted config → mode=generic", "generic", cfg["mode"])
+        with (
+            mock.patch.object(wm, "VAULT_ROOT", root),
+            mock.patch.object(wm, "MODE_PATH", mode_path),
+        ):
+            try:
+                wm.load_config()
+            except SystemExit as exc:
+                assert_eq("corrupted config → exit 5", 5, exc.code)
+            else:
+                raise Fail("FAIL corrupt existing config must not select generic")
 
 
 # ─── Mode=generic routing matches v1.7 conventions ──────────────────────────
 def test_generic_routing():
     cfg = dict(wm.DEFAULT_CONFIG)
     cfg["mode"] = "generic"
-    assert_eq("generic source",
-              "wiki/sources/Karpathy-2025-essay.md",
-              wm.route_path("generic", "source", "Karpathy 2025 essay", cfg))
-    assert_eq("generic entity preserves case",
-              "wiki/entities/Andrej Karpathy.md",
-              wm.route_path("generic", "entity", "Andrej Karpathy", cfg))
-    assert_eq("generic concept",
-              "wiki/concepts/Compounding Vault.md",
-              wm.route_path("generic", "concept", "Compounding Vault", cfg))
-    assert_eq("generic session",
-              "wiki/sessions/v1-8-launch-prep.md",
-              wm.route_path("generic", "session", "v1.8 launch prep", cfg))
+    assert_eq(
+        "generic source",
+        "wiki/sources/Karpathy-2025-essay.md",
+        wm.route_path("generic", "source", "Karpathy 2025 essay", cfg),
+    )
+    assert_eq(
+        "generic entity preserves case",
+        "wiki/entities/Andrej Karpathy.md",
+        wm.route_path("generic", "entity", "Andrej Karpathy", cfg),
+    )
+    assert_eq(
+        "generic concept",
+        "wiki/concepts/Compounding Vault.md",
+        wm.route_path("generic", "concept", "Compounding Vault", cfg),
+    )
+    assert_eq(
+        "generic session",
+        "wiki/sessions/v1-8-launch-prep.md",
+        wm.route_path("generic", "session", "v1.8 launch prep", cfg),
+    )
 
 
 # ─── Mode=lyt routing: all atomic notes flat under wiki/notes/ ──────────────
@@ -116,10 +159,26 @@ def test_para_routing():
     ent = wm.route_path("para", "entity", "Andrej Karpathy", cfg)
     sess = wm.route_path("para", "session", "v1.8 prep", cfg)
     res = wm.route_path("para", "research", "compounding-vault", cfg)
-    assert_true("para source → resources/incoming/", src.startswith("wiki/resources/incoming/"), hint=src)
-    assert_true("para entity → resources/people/", ent.startswith("wiki/resources/people/"), hint=ent)
-    assert_true("para session → projects/inbox/", sess.startswith("wiki/projects/inbox/"), hint=sess)
-    assert_true("para research → resources/<topic>/", "wiki/resources/compounding-vault/" in res, hint=res)
+    assert_true(
+        "para source → resources/incoming/",
+        src.startswith("wiki/resources/incoming/"),
+        hint=src,
+    )
+    assert_true(
+        "para entity → resources/people/",
+        ent.startswith("wiki/resources/people/"),
+        hint=ent,
+    )
+    assert_true(
+        "para session → projects/inbox/",
+        sess.startswith("wiki/projects/inbox/"),
+        hint=sess,
+    )
+    assert_true(
+        "para research → resources/<topic>/",
+        "wiki/resources/compounding-vault/" in res,
+        hint=res,
+    )
 
 
 # ─── Mode=zettelkasten routing: flat, timestamp-prefixed ────────────────────
@@ -127,28 +186,45 @@ def test_zettelkasten_routing():
     cfg = dict(wm.DEFAULT_CONFIG)
     cfg["mode"] = "zettelkasten"
     p = wm.route_path("zettelkasten", "source", "Karpathy essay", cfg)
-    # Format: wiki/<20-digit-timestamp-with-microseconds>-<slug>.md
+    # Format: wiki/<20-digit-UTC-timestamp>-<UUIDv4-hex>-<slug>.md
     assert_true("zettel path starts with wiki/", p.startswith("wiki/"), hint=p)
     assert_true("zettel no subfolders", p.count("/") == 1, hint=p)
     fname = p.rsplit("/", 1)[1]
-    parts = fname.split("-", 1)
-    # v1.8.1 fix: IDs are 20 digits (YYYYMMDDHHMMSSffffff) for collision resistance
-    assert_true("zettel ID is 20 digits", parts[0].isdigit() and len(parts[0]) == 20, hint=fname)
+    assert_true(
+        "zettel ID has timestamp and UUIDv4 nonce",
+        re.fullmatch(r"\d{20}-[0-9a-f]{32}-Karpathy-essay\.md", fname) is not None,
+        hint=fname,
+    )
 
 
 # ─── Zettel ID format ───────────────────────────────────────────────────────
 def test_mint_zettel_id_format():
     zid = wm.mint_zettel_id()
-    # 14 (YYYYMMDDHHMMSS) + 6 (microseconds) = 20 digits
-    assert_true("zettel ID is 20-digit string", len(zid) == 20 and zid.isdigit(), hint=zid)
+    assert_true(
+        "zettel ID is timestamp plus UUIDv4 hex",
+        re.fullmatch(r"\d{20}-[0-9a-f]{32}", zid) is not None,
+        hint=zid,
+    )
 
 
 def test_mint_zettel_id_collision_resistance():
-    """v1.8.1 fix: rapid back-to-back mint calls produce DIFFERENT IDs.
-    Microsecond suffix ensures two calls within the same second are distinct.
-    """
-    ids = [wm.mint_zettel_id() for _ in range(10)]
-    assert_eq("zettel IDs all distinct (10 rapid calls)", 10, len(set(ids)))
+    """A repeated wall-clock value must not make batch allocation flaky."""
+    fixed = datetime(2026, 7, 11, 12, 34, 56, 123456, tzinfo=timezone.utc)
+
+    class FrozenDateTime:
+        @classmethod
+        def now(cls, tz=None):
+            assert tz is timezone.utc
+            return fixed
+
+    with mock.patch.object(wm, "datetime", FrozenDateTime):
+        ids = [wm.mint_zettel_id() for _ in range(10_000)]
+
+    assert_eq("zettel IDs all distinct with a frozen clock", 10_000, len(set(ids)))
+    assert_true(
+        "frozen-clock IDs retain one sortable timestamp prefix",
+        all(value.startswith("20260711123456123456-") for value in ids),
+    )
 
 
 def test_slugify_extended_unicode():
@@ -160,8 +236,11 @@ def test_slugify_extended_unicode():
     assert_eq("Cyrillic with space", "Привет-мир", wm.slugify("Привет мир"))
     assert_eq("Mixed scripts", "Hello-мир-café", wm.slugify("Hello мир café"))
     # Emoji is stripped (not in \w); surrounding text joined by single hyphen
-    assert_eq("Emoji becomes single hyphen between words", "Test-emoji",
-              wm.slugify("Test 🎉 emoji"))
+    assert_eq(
+        "Emoji becomes single hyphen between words",
+        "Test-emoji",
+        wm.slugify("Test 🎉 emoji"),
+    )
 
 
 # ─── Slugify handles unicode + special chars ────────────────────────────────
@@ -170,8 +249,63 @@ def test_slugify():
     assert_eq("ascii slug", "Karpathy-2025-essay", wm.slugify("Karpathy 2025 essay"))
     assert_eq("unicode preserved", "café-résumé", wm.slugify("café résumé"))
     # Periods become hyphens (so v1.7 → v1-7, not v17)
-    assert_eq("dots become hyphens", "v1-7-launch-prep", wm.slugify("v1.7 launch! prep?"))
+    assert_eq(
+        "dots become hyphens", "v1-7-launch-prep", wm.slugify("v1.7 launch! prep?")
+    )
     assert_eq("empty → 'untitled'", "untitled", wm.slugify(""))
+
+
+def test_routes_bound_portable_component_bytes():
+    """Long ASCII and Unicode names must remain usable filesystem leaves."""
+    generic = dict(wm.DEFAULT_CONFIG)
+    generic["mode"] = "generic"
+    zettel = dict(wm.DEFAULT_CONFIG)
+    zettel["mode"] = "zettelkasten"
+
+    ascii_a = "a" * 1_000
+    ascii_b = "a" * 999 + "b"
+    generic_a = wm.route_path("generic", "concept", ascii_a, generic)
+    generic_b = wm.route_path("generic", "concept", ascii_b, generic)
+    zettel_path = wm.route_path("zettelkasten", "source", ascii_a, zettel)
+    unicode_path = wm.route_path("generic", "entity", "界" * 1_000, generic)
+
+    paths = (generic_a, generic_b, zettel_path, unicode_path)
+    leaves = [path.rsplit("/", 1)[1] for path in paths]
+    byte_lengths = [len(leaf.encode("utf-8")) for leaf in leaves]
+    assert_true(
+        "all routed leaves fit the 255-byte portability floor",
+        all(length <= 255 for length in byte_lengths),
+        hint=repr(byte_lengths),
+    )
+    assert_true(
+        "long same-prefix names retain distinct hash suffixes", generic_a != generic_b
+    )
+    assert_true(
+        "long routes retain Markdown suffixes",
+        all(leaf.endswith(".md") for leaf in leaves),
+    )
+    reserved_names = (
+        "CON",
+        "CON.txt",
+        "prn.log",
+        "AUX.any",
+        "nul.data",
+        "COM1.txt",
+        "LPT9.log",
+        "COM¹.txt",
+        "LPT³.log",
+        "CONIN$.txt",
+        "CONOUT$.log",
+        "CLOCK$.old",
+    )
+    reserved_paths = [
+        wm.route_path("generic", "concept", name, generic) for name in reserved_names
+    ]
+    assert_true(
+        "Windows reserved device stems and extensions are made portable",
+        all(path.rsplit("/", 1)[1].startswith("_") for path in reserved_paths),
+        hint=repr(reserved_paths),
+    )
 
 
 # ─── Path-traversal hardening (v1.8.2): entity/concept names cannot escape ──
@@ -180,74 +314,163 @@ def test_safe_name_strips_path_separators():
     must not allow path traversal via '../', leading '/', backslashes, NULs,
     or control characters. Spaces and case are still preserved.
     """
-    assert_eq("traversal '../' stripped", "etcpasswd", wm.safe_name("../../../etc/passwd"))
+    assert_eq(
+        "traversal '../' stripped", "etcpasswd", wm.safe_name("../../../etc/passwd")
+    )
     assert_eq("leading '/' stripped", "etcpasswd", wm.safe_name("/etc/passwd"))
     assert_eq("backslash stripped", "etcpasswd", wm.safe_name("..\\..\\etc\\passwd"))
     assert_eq("NUL stripped", "foobar", wm.safe_name("foo\x00bar"))
     assert_eq("control chars stripped", "foobar", wm.safe_name("foo\x01\x02bar"))
-    assert_eq("leading dot stripped (no hidden files)", "hidden", wm.safe_name(".hidden"))
-    assert_eq("leading hyphen stripped (no flag escapes)", "flag", wm.safe_name("-flag"))
-    assert_eq("spaces + case preserved", "Andrej Karpathy", wm.safe_name("Andrej Karpathy"))
+    assert_eq(
+        "leading dot stripped (no hidden files)", "hidden", wm.safe_name(".hidden")
+    )
+    assert_eq(
+        "leading hyphen stripped (no flag escapes)", "flag", wm.safe_name("-flag")
+    )
+    assert_eq(
+        "spaces + case preserved", "Andrej Karpathy", wm.safe_name("Andrej Karpathy")
+    )
     assert_eq("empty after strip → 'untitled'", "untitled", wm.safe_name("/"))
 
 
 def test_route_path_blocks_traversal_for_generic_entity_and_concept():
     """The end-to-end route must not allow the returned path to escape vault root."""
     import os
-    cfg = dict(wm.DEFAULT_CONFIG); cfg["mode"] = "generic"
+
+    cfg = dict(wm.DEFAULT_CONFIG)
+    cfg["mode"] = "generic"
     vault = os.path.abspath(".")
     for content_type, malicious in [
-        ("entity",  "../../../etc/passwd"),
+        ("entity", "../../../etc/passwd"),
         ("concept", "/etc/passwd"),
-        ("entity",  "..\\..\\..\\Windows\\System32"),
-        ("research","../escape"),
+        ("entity", "..\\..\\..\\Windows\\System32"),
+        ("research", "../escape"),
     ]:
         p = wm.route_path("generic", content_type, malicious, cfg)
         abs_p = os.path.abspath(p)
-        assert_true(f"generic {content_type}({malicious!r}) stays inside vault",
-                    abs_p.startswith(vault + os.sep), hint=f"got {abs_p}")
+        assert_true(
+            f"generic {content_type}({malicious!r}) stays inside vault",
+            abs_p.startswith(vault + os.sep),
+            hint=f"got {abs_p}",
+        )
 
 
 def test_route_path_blocks_traversal_for_para_entity_and_concept():
     import os
-    cfg = dict(wm.DEFAULT_CONFIG); cfg["mode"] = "para"
+
+    cfg = dict(wm.DEFAULT_CONFIG)
+    cfg["mode"] = "para"
     vault = os.path.abspath(".")
     for content_type, malicious in [
-        ("entity",  "../../../etc/passwd"),
+        ("entity", "../../../etc/passwd"),
         ("concept", "/etc/shadow"),
     ]:
         p = wm.route_path("para", content_type, malicious, cfg)
         abs_p = os.path.abspath(p)
-        assert_true(f"para {content_type}({malicious!r}) stays inside vault",
-                    abs_p.startswith(vault + os.sep), hint=f"got {abs_p}")
+        assert_true(
+            f"para {content_type}({malicious!r}) stays inside vault",
+            abs_p.startswith(vault + os.sep),
+            hint=f"got {abs_p}",
+        )
+
+
+def test_mode_folder_overrides_and_final_routes_are_confined_to_wiki():
+    unsafe_folders = (
+        "../../outside/",
+        "/absolute/",
+        "wiki/../outside/",
+        "wiki\\outside/",
+        "wiki//outside/",
+        "wiki/outside",
+    )
+    for folder in unsafe_folders:
+        cfg = wm.default_config()
+        cfg["config"]["generic"]["entities_folder"] = folder
+        try:
+            wm.validate_mode_folders(cfg)
+        except ValueError:
+            pass
+        else:
+            raise Fail(f"FAIL unsafe mode folder accepted: {folder!r}")
+        if folder.endswith("/"):
+            try:
+                wm.route_path("generic", "entity", "Escaped", cfg)
+            except ValueError:
+                pass
+            else:
+                raise Fail(f"FAIL unsafe final route accepted: {folder!r}")
+    print("OK   unsafe mode folders and final routes rejected")
 
 
 # ─── CLI --mode preview override (v1.8.2) ───────────────────────────────────
 def test_cli_route_mode_override_previews_without_writing():
     """`route --mode lyt source X` must return an lyt path even when current
     mode is generic, and must NOT modify .vault-meta/mode.json."""
-    before = subprocess.run([sys.executable, str(HELPER), "get"],
-                            capture_output=True, text=True, timeout=5).stdout.strip()
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "route", "--mode", "lyt", "source", "Preview Test"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_eq("cli route --mode rc=0", 0, result.returncode)
-    path = result.stdout.strip()
-    assert_true("preview returns lyt notes/ path",
-                path.startswith("wiki/notes/"), hint=path)
-    after = subprocess.run([sys.executable, str(HELPER), "get"],
-                           capture_output=True, text=True, timeout=5).stdout.strip()
-    assert_eq("current mode unchanged by preview", before, after)
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        (vault / ".raw").mkdir()
+        before = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "get"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        ).stdout.strip()
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(HELPER),
+                "--vault",
+                str(vault),
+                "route",
+                "--mode",
+                "lyt",
+                "source",
+                "Preview Test",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli route --mode rc=0", 0, result.returncode)
+        path = result.stdout.strip()
+        assert_true(
+            "preview returns lyt notes/ path", path.startswith("wiki/notes/"), hint=path
+        )
+        after = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "get"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        ).stdout.strip()
+        assert_eq("current mode unchanged by preview", before, after)
 
 
 def test_cli_route_mode_override_rejects_invalid():
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "route", "--mode", "bogus", "source", "X"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_true("preview rejects bogus mode", result.returncode != 0,
-                hint=f"rc={result.returncode}")
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(HELPER),
+                "--vault",
+                str(vault),
+                "route",
+                "--mode",
+                "bogus",
+                "source",
+                "X",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_true(
+            "preview rejects bogus mode",
+            result.returncode != 0,
+            hint=f"rc={result.returncode}",
+        )
 
 
 # ─── Invalid content type raises ───────────────────────────────────────────
@@ -263,66 +486,129 @@ def test_invalid_content_type_raises():
 # ─── CLI subprocess: `wiki-mode.py get` returns mode string ─────────────────
 def test_cli_get_returns_mode():
     """End-to-end CLI test via subprocess; uses the actual vault's mode (or generic if absent)."""
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "get"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_eq("cli get rc=0", 0, result.returncode)
-    mode = result.stdout.strip()
-    assert_true("cli get returns one of 4 modes",
-                mode in ("generic", "lyt", "para", "zettelkasten"), hint=mode)
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        result = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "get"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli get rc=0", 0, result.returncode)
+        mode = result.stdout.strip()
+        assert_true(
+            "cli get returns one of 4 modes",
+            mode in ("generic", "lyt", "para", "zettelkasten"),
+            hint=mode,
+        )
 
 
-# ─── CLI subprocess: `wiki-mode.py id` returns 14-digit timestamp ───────────
+def test_cli_get_rejects_existing_corrupt_config():
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        mode_path = vault / ".vault-meta/mode.json"
+        mode_path.parent.mkdir()
+        mode_path.write_text("{invalid", encoding="utf-8")
+        result = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "get"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli corrupt config rc=5", 5, result.returncode)
+        assert_eq("cli corrupt config emits no mode", "", result.stdout.strip())
+        assert_true(
+            "cli corrupt config explains fail-closed behavior",
+            "repair it before routing" in result.stderr,
+            hint=result.stderr,
+        )
+
+
+# ─── CLI subprocess: `wiki-mode.py id` returns a sortable nonce ID ───────
 def test_cli_id_returns_timestamp():
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "id"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_eq("cli id rc=0", 0, result.returncode)
-    zid = result.stdout.strip()
-    assert_true("cli id is 20-digit", len(zid) == 20 and zid.isdigit(), hint=zid)
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        result = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "id"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli id rc=0", 0, result.returncode)
+        zid = result.stdout.strip()
+        assert_true(
+            "cli id is timestamp plus UUIDv4 hex",
+            re.fullmatch(r"\d{20}-[0-9a-f]{32}", zid) is not None,
+            hint=zid,
+        )
 
 
 # ─── CLI subprocess: `wiki-mode.py route source NAME` returns a path ────────
 def test_cli_route_returns_path():
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "route", "source", "Test Source"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_eq("cli route rc=0", 0, result.returncode)
-    path = result.stdout.strip()
-    assert_true("cli route returns wiki-rooted path",
-                path.startswith("wiki/"), hint=path)
-    assert_true("cli route returns .md path", path.endswith(".md"), hint=path)
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(HELPER),
+                "--vault",
+                str(vault),
+                "route",
+                "source",
+                "Test Source",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli route rc=0", 0, result.returncode)
+        path = result.stdout.strip()
+        assert_true(
+            "cli route returns wiki-rooted path", path.startswith("wiki/"), hint=path
+        )
+        assert_true("cli route returns .md path", path.endswith(".md"), hint=path)
 
 
 # ─── CLI subprocess: invalid mode rejected ──────────────────────────────────
-def test_cli_set_rejects_invalid_mode():
+def test_cli_set_is_unavailable():
     result = subprocess.run(
         [sys.executable, str(HELPER), "set", "bogus"],
-        capture_output=True, text=True, timeout=5,
+        capture_output=True,
+        text=True,
+        timeout=5,
     )
-    assert_true("cli set rejects invalid mode", result.returncode != 0,
-                hint=f"rc={result.returncode}")
+    assert_true(
+        "legacy cli set is unavailable",
+        result.returncode != 0,
+        hint=f"rc={result.returncode}",
+    )
 
 
 # ─── CLI subprocess: templates listing returns all 6 ───────────────────────
 def test_cli_templates_lists_six():
-    result = subprocess.run(
-        [sys.executable, str(HELPER), "templates"],
-        capture_output=True, text=True, timeout=5,
-    )
-    assert_eq("cli templates rc=0", 0, result.returncode)
-    lines = [l for l in result.stdout.strip().split("\n") if l]
-    assert_eq("cli templates returns 6 paths", 6, len(lines))
+    with tempfile.TemporaryDirectory() as directory:
+        vault = Path(directory)
+        (vault / "wiki").mkdir()
+        result = subprocess.run(
+            [sys.executable, str(HELPER), "--vault", str(vault), "templates"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        assert_eq("cli templates rc=0", 0, result.returncode)
+        lines = [line for line in result.stdout.strip().split("\n") if line]
+        assert_eq("cli templates returns 6 paths", 6, len(lines))
 
 
 def main():
     print("=== test_wiki_mode.py ===")
     test_load_config_defaults_to_generic_when_absent()
-    test_save_load_roundtrip()
-    test_corrupted_config_falls_back_to_generic()
+    test_load_existing_config()
+    test_corrupted_config_fails_closed()
     test_generic_routing()
     test_lyt_routing()
     test_para_routing()
@@ -331,16 +617,19 @@ def main():
     test_mint_zettel_id_collision_resistance()
     test_slugify()
     test_slugify_extended_unicode()
+    test_routes_bound_portable_component_bytes()
     test_safe_name_strips_path_separators()
     test_route_path_blocks_traversal_for_generic_entity_and_concept()
     test_route_path_blocks_traversal_for_para_entity_and_concept()
+    test_mode_folder_overrides_and_final_routes_are_confined_to_wiki()
     test_cli_route_mode_override_previews_without_writing()
     test_cli_route_mode_override_rejects_invalid()
     test_invalid_content_type_raises()
     test_cli_get_returns_mode()
+    test_cli_get_rejects_existing_corrupt_config()
     test_cli_id_returns_timestamp()
     test_cli_route_returns_path()
-    test_cli_set_rejects_invalid_mode()
+    test_cli_set_is_unavailable()
     test_cli_templates_lists_six()
     print("\nAll wiki-mode tests passed.")
 

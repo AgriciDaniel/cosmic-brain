@@ -1,250 +1,141 @@
 ---
 name: obsidian-markdown
-description: "Write correct Obsidian Flavored Markdown: wikilinks, embeds, callouts, properties, tags, highlights, math, and canvas syntax. Reference this when creating or editing any wiki page. Triggers on: write obsidian note, obsidian syntax, wikilink, callout, embed, obsidian markdown, wikilink format, callout syntax, embed syntax, obsidian formatting, how to write obsidian markdown."
-allowed-tools: Read Write Edit
+description: "Explain, draft, or validate Obsidian Flavored Markdown syntax: properties, wikilinks, embeds, callouts, tags, comments, highlights, block references, math, and Mermaid. Use when the user explicitly requests Obsidian note formatting or syntax help, not for general Markdown or broad vault operations."
 ---
 
-# obsidian-markdown: Obsidian Flavored Markdown
+# Obsidian Flavored Markdown
 
-Reference this skill when writing any wiki page. Obsidian extends standard Markdown with wikilinks, embeds, callouts, and properties. Getting syntax wrong causes broken links, invisible callouts, or malformed frontmatter.
+Use this as a compact fallback for Obsidian-specific syntax. Prefer a separately
+installed `kepano/obsidian-skills` `obsidian-markdown` skill when available,
+then current [Obsidian Help](https://help.obsidian.md/), for detailed or
+version-sensitive questions.
 
-**Substrate preference (v1.7+)**: This skill is a self-contained fallback. **Prefer `kepano/obsidian-skills`** (by Steph Ango, Obsidian CEO) as the authoritative substrate — its `obsidian-markdown` skill is the canonical Obsidian syntax reference for any Agent-Skills runtime. If you see an `obsidian-markdown` skill available without the `claude-obsidian:` namespace, that is kepano's version: use it. The reference below is provided so the plugin remains functional when kepano's marketplace is not installed. Install: `claude plugin marketplace add kepano/obsidian-skills`. Repo: [github.com/kepano/obsidian-skills](https://github.com/kepano/obsidian-skills).
+Resolve the installed product root from this skill's own location, not from the
+vault or current working directory:
 
+```bash
+PRODUCT_ROOT=/absolute/path/to/installed/claude-obsidian
+CORE="$PRODUCT_ROOT/scripts/claude-obsidian.py"
+test -f "$CORE"
+```
+
+Answer syntax questions read-only. If the user requests a vault edit, draft the
+complete note, read [operation-transactions.md](../wiki/references/operation-transactions.md),
+and build one `claude-obsidian.transaction.v1` bundle with
+`operation_type: markdown` and only `wiki/` targets. Inspect it, then set
+`APPROVAL_SHA256` to the returned `approval_sha256` after review and apply it
+through the same vault-bound plan. A canonical page create or removal includes
+an active index or MOC update in that bundle; update the overview only when its
+stable high-level synthesis changed:
+
+```bash
+python3 "$CORE" transaction inspect "$BUNDLE" --vault "$VAULT"
+python3 "$CORE" transaction apply "$BUNDLE" --vault "$VAULT" \
+  --approved-plan-sha256 "$APPROVAL_SHA256"
+```
+
+Never write a note directly.
+
+## Properties
+
+Use flat YAML properties and `YYYY-MM-DD` dates. Quote wikilinks inside YAML.
+
+```yaml
 ---
-
-## Wikilinks
-
-Internal links use double brackets. The filename without extension.
-
-| Syntax | What it does |
-|---|---|
-| `[[Note Name]]` | Basic link |
-| `[[Note Name\|Display Text]]` | Aliased link (shows "Display Text") |
-| `[[Note Name#Heading]]` | Link to a specific heading |
-| `[[Note Name#^block-id]]` | Link to a specific block |
-
-Rules:
-- Case-sensitive on some systems. Match the exact filename.
-- No path needed: Obsidian resolves by filename uniqueness.
-- If two files have the same name, use `[[Folder/Note Name]]` to disambiguate.
-
+type: concept
+title: "Contextual Retrieval"
+created: 2026-07-11
+updated: 2026-07-11
+status: developing
+tags:
+  - retrieval
+  - ai/knowledge
+aliases:
+  - Context-aware retrieval
+related:
+  - "[[Retrieval]]"
+sources:
+  - "[[Anthropic Contextual Retrieval]]"
 ---
+```
 
-## Embeds
+Do not nest objects in generated wiki properties. Use block lists rather than
+inline YAML arrays. Quote numeric-only tag values, for example `- "2026"`, so
+YAML parsers preserve them as tags instead of numbers. Keep unknown existing
+properties unless the requested edit changes them.
 
-Embeds use `!` before the wikilink. They display the content inline.
+## Wikilinks and embeds
 
-| Syntax | What it does |
-|---|---|
-| `![[Note Name]]` | Embed a full note |
-| `![[Note Name#Heading]]` | Embed a section |
-| `![[image.png]]` | Embed an image |
-| `![[image.png\|300]]` | Embed image with width 300px |
-| `![[document.pdf]]` | Embed a PDF (Obsidian renders natively) |
-| `![[audio.mp3]]` | Embed audio |
+```markdown
+[[Note Name]]
+[[Note Name|Display text]]
+[[Note Name#Heading]]
+[[Note Name#^block-id]]
+[[Folder/Note Name]]
 
----
+This paragraph is addressable. ^evidence-block
+
+![[Note Name#Summary]]
+![[diagram.png|480]]
+![[paper.pdf#page=3]]
+```
+
+Match the target filename exactly. Use a vault-relative folder path when a
+basename is ambiguous. Use standard Markdown links for external URLs; use
+wikilinks for this vault's notes.
 
 ## Callouts
 
-Callouts are blockquotes with a type keyword. They render as styled alert boxes.
-
 ```markdown
 > [!note]
-> Default informational callout.
+> Supporting context.
 
-> [!note] Custom Title
-> Callout with a custom title.
+> [!warning] Review required
+> This claim has contradictory evidence.
 
-> [!note]- Collapsible (closed by default)
-> Click to expand.
-
-> [!note]+ Collapsible (open by default)
-> Click to collapse.
+> [!question]- Open question
+> What evidence would resolve this?
 ```
 
-### All callout types
+`-` starts collapsed and `+` starts expanded. Common built-in types include
+`note`, `abstract`, `info`, `todo`, `tip`, `success`, `question`, `warning`,
+`failure`, `danger`, `bug`, `example`, and `quote`. Preserve custom vault
+callout types rather than rewriting them.
 
-| Type | Aliases | Use for |
-|------|---------|---------|
-| `note` |: | General notes |
-| `abstract` | `summary`, `tldr` | Summaries |
-| `info` |: | Information |
-| `todo` |: | Action items |
-| `tip` | `hint`, `important` | Tips and highlights |
-| `success` | `check`, `done` | Positive outcomes |
-| `question` | `help`, `faq` | Open questions |
-| `warning` | `caution`, `attention` | Warnings |
-| `failure` | `fail`, `missing` | Errors or failures |
-| `danger` | `error` | Critical issues |
-| `bug` |: | Known bugs |
-| `example` |: | Examples |
-| `quote` | `cite` | Quotations |
-| `contradiction` |: | Conflicting information (wiki convention) |
-
----
-
-## Properties (Frontmatter)
-
-Obsidian renders YAML frontmatter as a Properties panel. Rules:
-
-```yaml
----
-type: concept                    # plain string
-title: "Note Title"              # quoted if it contains special chars
-created: 2026-04-08              # date as YYYY-MM-DD (not ISO datetime)
-updated: 2026-04-08
-tags:
-  - tag-one                      # list items use - format
-  - tag-two
-status: developing
-related:
-  - "[[Other Note]]"             # wikilinks must be quoted in YAML
-sources:
-  - "[[source-page]]"
----
-```
-
-Rules:
-- Flat YAML only. Never nest objects.
-- Dates as `YYYY-MM-DD`, not `2026-04-08T00:00:00`.
-- Lists as `- item`, not inline `[a, b, c]`.
-- Wikilinks in YAML must be quoted: `"[[Page]]"`.
-- `tags` field: Obsidian reads this as the tag list, searchable in vault.
-
----
-
-## Tags
-
-Two valid forms:
-
-```markdown
-#tag-name             : inline tag anywhere in the body
-#parent/child-tag     : nested tag (shows hierarchy in tag pane)
-```
-
-In frontmatter:
-```yaml
-tags:
-  - research
-  - ai/obsidian
-```
-
-Do not use `#` inside frontmatter tag lists. Just the tag name.
-
----
-
-## Text Formatting
-
-Standard Markdown plus Obsidian extensions:
-
-| Syntax | Result |
-|---|---|
-| `**bold**` | Bold |
-| `*italic*` | Italic |
-| `~~strikethrough~~` | Strikethrough |
-| `==highlight==` | Highlighted text (yellow in Obsidian) |
-| `` `inline code` `` | Inline code |
-
----
-
-## Math
-
-Obsidian uses MathJax/KaTeX:
-
-Inline math:
-```markdown
-$E = mc^2$
-```
-
-Block math:
-```markdown
-$$
-\int_0^\infty e^{-x} dx = 1
-$$
-```
-
----
-
-## Code Blocks
-
-Standard fenced code blocks. Obsidian highlights all common languages:
+## Other Obsidian syntax
 
 ````markdown
-```python
-def hello():
-    return "world"
-```
-````
+#inline-tag #nested/tag
 
----
+==Highlighted text==
 
-## Tables
+Visible text %%hidden comment%%
 
-Standard Markdown tables:
+Inline math: $E = mc^2$
 
-```markdown
-| Column A | Column B | Column C |
-|----------|----------|----------|
-| Value    | Value    | Value    |
-| Value    | Value    | Value    |
-```
+$$
+\int_0^1 x^2\,dx = \frac{1}{3}
+$$
 
-Obsidian renders tables natively. No plugin needed.
-
----
-
-## Mermaid Diagrams
-
-Obsidian renders Mermaid natively:
-
-````markdown
 ```mermaid
-graph TD
-    A[Start] --> B{Decision}
-    B -->|Yes| C[End]
-    B -->|No| D[Loop]
-    D --> A
+flowchart LR
+  Source --> Claim
 ```
 ````
 
-Supported: `graph`, `sequenceDiagram`, `gantt`, `classDiagram`, `pie`, `flowchart`.
+Standard CommonMark/GFM headings, lists, tasks, tables, code fences, and
+footnotes remain valid. Avoid HTML when native Markdown is sufficient.
 
----
+## Validate a drafted note
 
-## Footnotes
+- Parse the YAML boundary and keep property types consistent.
+- Verify every internal target, heading, and block reference that can be
+  checked locally; never fabricate a target to make a link look complete.
+- Keep evidence wording distinct from inference and preserve source locators.
+- Ensure code fences and callout quoting are balanced.
+- Run deterministic wiki lint after a requested mutation and report remaining
+  findings without silently repairing them.
 
-```markdown
-This sentence has a footnote.[^1]
-
-[^1]: The footnote text goes here.
-```
-
----
-
-## What NOT to Do
-
-- Do not use `[link text](path/to/note.md)` for internal links: use `[[Note Name]]` instead.
-- Do not use HTML inside callouts: stick to Markdown.
-- Do not use `##` inside a callout body: headings don't render inside callouts.
-- Do not write `tags: [a, b, c]` inline in frontmatter: Obsidian prefers the list format.
-- Do not write ISO datetimes in frontmatter (`2026-04-08T00:00:00Z`): use `2026-04-08`.
-
----
-
-## How to think (10-principle mapping)
-
-When working on this skill, apply the 10-principle loop. See [`skills/think/SKILL.md`](../think/SKILL.md) for the canonical framework.
-
-| # | Principle | Application here |
-|---|-----------|-------------------|
-| 1 | OBSERVE (ext) | Which syntax does the user need? (Wikilinks? Callouts? Embeds? Math? Mermaid?) |
-| 2 | OBSERVE (int) | Am I documenting Obsidian Flavored Markdown as I remember it or as it currently is? Check the spec. |
-| 3 | LISTEN | The user's source-of-confusion — what specific syntax did they get wrong? |
-| 4 | THINK | Minimal correct examples. "What NOT to do" is often as valuable as "what to do." |
-| 5 | CONNECT (lat) | How does OFM differ from CommonMark and GFM? The deltas are where users get confused. |
-| 6 | CONNECT (sys) | Substrate-defer to kepano/obsidian-skills when present — single source of truth, less drift. |
-| 7 | FEEL | A cheat sheet that's scannable in 30 seconds, not a wall of text. |
-| 8 | ACCEPT | Not every wikilink needs an alias; some syntax is genuinely optional. Don't over-prescribe. |
-| 9 | CREATE | Syntax reference, current to Obsidian X.Y. Include the gotchas section. |
-| 10 | GROW | As OFM evolves (newer Mermaid types, callout types, cssclasses, etc.), refresh. |
+For source-cited pages, also follow
+[provenance.md](../wiki/references/provenance.md). Report the transaction
+operation ID and exact changed paths after an applied edit.

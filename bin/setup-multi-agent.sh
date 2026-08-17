@@ -1,87 +1,188 @@
 #!/usr/bin/env bash
-# claude-obsidian: multi-agent skill installer
-# Symlinks the skills/ directory into each AI agent's expected location.
-# Idempotent: safe to run multiple times.
-#
-# Supported agents:
-#   - Claude Code    : auto-discovered via .claude-plugin/ (no symlink needed)
-#   - Codex CLI      : symlink to ~/.codex/skills/claude-obsidian
-#   - OpenCode       : symlink to ~/.opencode/skills/claude-obsidian
-#   - Gemini CLI     : symlink to ~/.gemini/skills/claude-obsidian
-#   - Cursor         : symlink to .cursor/skills (in repo)
-#   - Windsurf       : symlink to .windsurf/skills (in repo)
-#
-# Bootstrap files (AGENTS.md, GEMINI.md, .cursor/rules/, .windsurf/rules/,
-# .github/copilot-instructions.md) are already committed in the repo.
-# This script just wires up the skills directory.
+# Install portable skill links without overwriting existing host configuration.
 
 set -euo pipefail
+export PYTHONDONTWRITEBYTECODE=1
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILLS_DIR="$REPO_ROOT/skills"
+MODE="dry-run"
+WORKSPACE=""
+declare -a HOSTS=()
+HOST_COUNT=0
 
-if [ ! -d "$SKILLS_DIR" ]; then
-  echo "ERROR: $SKILLS_DIR does not exist. Are you running this from the claude-obsidian repo?"
-  exit 1
-fi
+usage() {
+  cat <<'EOF'
+Usage: bin/setup-multi-agent.sh [--check|--dry-run|--apply]
+       [--host codex|opencode|gemini|cursor|windsurf|all] [--workspace PATH]
 
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-GRAY='\033[0;37m'
-NC='\033[0m'
-
-link_if_missing() {
-  local target="$1"
-  local dest="$2"
-  local agent_name="$3"
-
-  mkdir -p "$(dirname "$dest")"
-
-  if [ -L "$dest" ]; then
-    local existing="$(readlink "$dest")"
-    if [ "$existing" = "$target" ]; then
-      echo -e "${GRAY}[$agent_name] already linked: $dest${NC}"
-      return
-    else
-      echo -e "${YELLOW}[$agent_name] symlink exists but points elsewhere: $dest -> $existing (skipping, remove manually if you want to relink)${NC}"
-      return
-    fi
-  fi
-
-  if [ -e "$dest" ]; then
-    echo -e "${YELLOW}[$agent_name] path exists and is not a symlink: $dest (skipping)${NC}"
-    return
-  fi
-
-  ln -s "$target" "$dest"
-  echo -e "${GREEN}[$agent_name] linked: $dest -> $target${NC}"
+Default: dry-run for Codex, OpenCode, and Gemini user-level per-skill links.
+Cursor and Windsurf require an explicit --workspace destination.
+Existing files and links pointing elsewhere are never replaced.
+EOF
 }
 
-echo "claude-obsidian: multi-agent skill installer"
-echo "Repo: $REPO_ROOT"
-echo
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --check) MODE="check" ;;
+    --dry-run) MODE="dry-run" ;;
+    --apply) MODE="apply" ;;
+    --host)
+      [ "$#" -ge 2 ] || { echo "ERROR: --host requires a value" >&2; exit 2; }
+      HOSTS+=("$2")
+      HOST_COUNT=$((HOST_COUNT + 1))
+      shift
+      ;;
+    --workspace)
+      [ "$#" -ge 2 ] || { echo "ERROR: --workspace requires a path" >&2; exit 2; }
+      WORKSPACE="$2"
+      shift
+      ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "ERROR: unknown argument: $1" >&2; usage >&2; exit 2 ;;
+  esac
+  shift
+done
 
-# Codex CLI
-link_if_missing "$SKILLS_DIR" "$HOME/.codex/skills/claude-obsidian" "Codex CLI"
+[ -d "$SKILLS_DIR" ] || { echo "ERROR: missing skills directory: $SKILLS_DIR" >&2; exit 2; }
 
-# OpenCode
-link_if_missing "$SKILLS_DIR" "$HOME/.opencode/skills/claude-obsidian" "OpenCode"
+if [ "$HOST_COUNT" -eq 0 ]; then
+  HOSTS=(codex opencode gemini)
+fi
 
-# Gemini CLI
-link_if_missing "$SKILLS_DIR" "$HOME/.gemini/skills/claude-obsidian" "Gemini CLI"
+expanded=()
+for host in "${HOSTS[@]}"; do
+  case "$host" in
+    all) expanded+=(codex opencode gemini cursor windsurf) ;;
+    codex|opencode|gemini|cursor|windsurf) expanded+=("$host") ;;
+    *) echo "ERROR: unsupported host: $host" >&2; exit 2 ;;
+  esac
+done
 
-# Cursor (workspace-local)
-link_if_missing "$SKILLS_DIR" "$REPO_ROOT/.cursor/skills" "Cursor"
+if [ -n "$WORKSPACE" ]; then
+  WORKSPACE="$(cd "$WORKSPACE" 2>/dev/null && pwd)" || {
+    echo "ERROR: workspace is not an existing directory" >&2
+    exit 2
+  }
+fi
 
-# Windsurf (workspace-local)
-link_if_missing "$SKILLS_DIR" "$REPO_ROOT/.windsurf/skills" "Windsurf"
+status=0
+seen=" "
 
-echo
-echo -e "${GREEN}Done.${NC} Bootstrap files (AGENTS.md, GEMINI.md, .cursor/rules/, .windsurf/rules/, .github/copilot-instructions.md) are already in this repo."
-echo
-echo "To verify each agent picks up the skills:"
-echo "  - Claude Code: open the project, type /wiki"
-echo "  - Codex CLI:   codex --list-skills | grep claude-obsidian"
-echo "  - Cursor:      open the project, ask 'what skills do you have?'"
-echo "  - Windsurf:    open in Cascade, ask the same"
-echo "  - Gemini CLI:  gemini --list-skills (if supported)"
+inspect_link() {
+  local host="$1"
+  local source="$2"
+  local destination="$3"
+  local confinement_root="${4:-}"
+  local parent
+  parent="$(dirname "$destination")"
+
+  if [ -L "$destination" ]; then
+    local existing
+    existing="$(readlink "$destination")"
+    if [ "$existing" = "$source" ]; then
+      echo "READY $host $destination"
+      return
+    fi
+    echo "CONFLICT $host $destination points to $existing" >&2
+    status=2
+    return
+  fi
+  if [ -e "$destination" ]; then
+    echo "CONFLICT $host $destination already exists" >&2
+    status=2
+    return
+  fi
+  if [ -n "$confinement_root" ]; then
+    local relative cursor component
+    case "$parent/" in
+      "$confinement_root/"*) relative="${parent#"$confinement_root"/}" ;;
+      *)
+        echo "CONFLICT $host parent escapes workspace: $parent" >&2
+        status=2
+        return
+        ;;
+    esac
+    cursor="$confinement_root"
+    local -a components=()
+    IFS='/' read -r -a components <<< "$relative"
+    for component in "${components[@]}"; do
+      [ -n "$component" ] || continue
+      cursor="$cursor/$component"
+      if [ -L "$cursor" ]; then
+        echo "CONFLICT $host parent is a symlink: $cursor" >&2
+        status=2
+        return
+      fi
+      if [ -e "$cursor" ]; then
+        if [ ! -d "$cursor" ]; then
+          echo "CONFLICT $host parent is not a directory: $cursor" >&2
+          status=2
+          return
+        fi
+      elif [ "$MODE" = "apply" ]; then
+        if ! mkdir "$cursor"; then
+          echo "CONFLICT $host cannot create confined parent: $cursor" >&2
+          status=2
+          return
+        fi
+      else
+        continue
+      fi
+      if [ -e "$cursor" ]; then
+        if [ -L "$cursor" ] || [ ! -d "$cursor" ]; then
+          echo "CONFLICT $host parent changed during install: $cursor" >&2
+          status=2
+          return
+        fi
+      fi
+    done
+  fi
+  if [ "$MODE" = "apply" ]; then
+    if [ -z "$confinement_root" ]; then
+      mkdir -p "$parent"
+    fi
+    ln -s "$source" "$destination"
+    echo "CREATED $host $destination"
+  else
+    echo "PLANNED $host $destination"
+    if [ "$MODE" = "check" ] && [ "$status" -eq 0 ]; then
+      status=1
+    fi
+  fi
+}
+
+for host in "${expanded[@]}"; do
+  case "$seen" in
+    *" $host "*) continue ;;
+  esac
+  seen="$seen$host "
+  case "$host" in
+    codex) destination_root="$HOME/.agents/skills" ;;
+    opencode) destination_root="$HOME/.config/opencode/skills" ;;
+    gemini) destination_root="$HOME/.gemini/skills" ;;
+    cursor|windsurf)
+      if [ -z "$WORKSPACE" ]; then
+        echo "ERROR: --host $host requires --workspace PATH" >&2
+        status=2
+        continue
+      fi
+      destination_root="$WORKSPACE/.$host/skills"
+      ;;
+  esac
+  for source in "$SKILLS_DIR"/*; do
+    [ -d "$source" ] || continue
+    [ -f "$source/SKILL.md" ] || continue
+    skill_name="$(basename "$source")"
+    confinement_root=""
+    case "$host" in
+      cursor|windsurf) confinement_root="$WORKSPACE" ;;
+    esac
+    inspect_link "$host" "$source" "$destination_root/$skill_name" "$confinement_root"
+  done
+done
+
+if [ "$MODE" = "dry-run" ]; then
+  echo "Dry run only. Repeat with --apply to create the planned links."
+fi
+exit "$status"

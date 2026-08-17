@@ -1,0 +1,24 @@
+/* Minimal, local-only color tokens for the generated vault. */
+:root {
+  --claude-obsidian-knowledge: #4fc1ff;
+  --claude-obsidian-source: #6a9955;
+  --claude-obsidian-entity: #c586c0;
+  --claude-obsidian-meta: #569cd6;
+}
+
+.nav-folder-title[data-path="wiki"],
+.nav-folder-title[data-path^="wiki/meta"] {
+  color: var(--claude-obsidian-meta);
+}
+
+.nav-folder-title[data-path^="wiki/concepts"] {
+  color: var(--claude-obsidian-knowledge);
+}
+
+.nav-folder-title[data-path^="wiki/sources"] {
+  color: var(--claude-obsidian-source);
+}
+
+.nav-folder-title[data-path^="wiki/entities"] {
+  color: var(--claude-obsidian-entity);
+}

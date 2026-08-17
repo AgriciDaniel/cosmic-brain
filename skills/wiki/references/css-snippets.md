@@ -117,6 +117,9 @@ If you don't want custom callouts, replace them with built-ins:
 
 ---
 
-## Minimal Theme (Recommended)
+## Theme compatibility
 
-The color scheme looks best with the Minimal theme. Install via Settings > Appearance > Manage > search "Minimal".
+The snippet uses standard CSS variables and does not require a community theme.
+If the user chooses a theme, verify contrast and selector behavior in the
+installed Obsidian version before recommending it for accessibility-sensitive
+work.

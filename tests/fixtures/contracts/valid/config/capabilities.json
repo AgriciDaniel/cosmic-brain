@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "verification_timeout_seconds": 5,
+  "capabilities": [
+    {
+      "id": "example",
+      "tier": "core",
+      "implementation_paths": [
+        "skills/example/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/example/**",
+        "vault:wiki/**"
+      ],
+      "write_scope": [],
+      "needs": {
+        "shell": false,
+        "network": false
+      },
+      "transaction_type": "none",
+      "confirmation": {
+        "mutation": "not_applicable",
+        "network_egress": "not_applicable",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [
+          {
+            "pattern": "vault:.vault-meta/example/cache",
+            "kind": "directory"
+          },
+          {
+            "pattern": "vault:.vault-meta/example/ready.flag",
+            "kind": "file"
+          }
+        ],
+        "external_commands": []
+      },
+      "verification_command": [
+        "{python}",
+        "-c",
+        "raise SystemExit(0)"
+      ]
+    }
+  ]
+}

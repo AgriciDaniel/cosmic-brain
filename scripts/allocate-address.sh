@@ -1,102 +1,98 @@
 #!/usr/bin/env bash
-# allocate-address.sh — atomic creation-order address allocation for the vault.
+# Read-only compatibility diagnostic for the legacy address allocator.
 #
-# Reserves the next address of the form c-NNNNNN and increments the counter
-# under an exclusive flock. On missing counter file, recovers by scanning the
-# vault for the highest existing c-NNNNNN in page frontmatter and resuming from
-# max+1. Never silently resets to 1 in a non-empty vault.
+# Address reservation now belongs exclusively to a reviewed
+# claude-obsidian.transaction.v1 operation with address_requests. This helper
+# only prints the next observed counter value and never creates locks, counters,
+# directories, or files.
 #
 # Usage:
-#   ./scripts/allocate-address.sh           # prints the reserved address (e.g. c-000042) to stdout
-#   ./scripts/allocate-address.sh --peek    # prints the next value without incrementing
-#   ./scripts/allocate-address.sh --rebuild # recomputes counter from max observed and exits
+#   scripts/allocate-address.sh [--vault PATH] [--peek]
 #
-# Exit codes:
-#   0 — success
-#   1 — lock acquisition failed (another writer is holding the lock)
-#   2 — vault-meta directory missing and cannot be created
-#   3 — counter value corrupt or non-numeric
+# Legacy `allocate` and `--rebuild` modes fail closed with migration guidance.
 
 set -euo pipefail
+export PYTHONDONTWRITEBYTECODE=1
 
-VAULT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-COUNTER_FILE="${VAULT_ROOT}/.vault-meta/address-counter.txt"
-LOCK_FILE="${VAULT_ROOT}/.vault-meta/.address.lock"
-WIKI_DIR="${VAULT_ROOT}/wiki"
+PLUGIN_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+EXPLICIT_VAULT=""
+MODE="peek"
 
-MODE="${1:-allocate}"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --vault)
+      [ "$#" -ge 2 ] || { echo "ERR: --vault requires a path" >&2; exit 2; }
+      EXPLICIT_VAULT="$2"
+      shift
+      ;;
+    --vault=*) EXPLICIT_VAULT="${1#--vault=}" ;;
+    --peek) MODE="peek" ;;
+    allocate|--rebuild) MODE="disabled" ;;
+    -h|--help)
+      sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//'
+      exit 0
+      ;;
+    *) echo "ERR: unknown argument: $1" >&2; exit 2 ;;
+  esac
+  shift
+done
 
-mkdir -p "$(dirname "$COUNTER_FILE")" || {
-  echo "ERR: cannot create .vault-meta/" >&2
+if [ "$MODE" = "disabled" ]; then
+  echo "ERR LEGACY_ALLOCATOR_READ_ONLY: reserve addresses through one reviewed transaction address_requests bundle; direct allocation/rebuild is disabled" >&2
   exit 2
-}
-
-# Acquire exclusive lock with 5-second timeout. Release automatically on scope exit.
-exec 9>"$LOCK_FILE"
-if ! flock -x -w 5 9; then
-  echo "ERR: could not acquire address allocator lock within 5s" >&2
-  exit 1
 fi
 
-scan_max_c_address() {
-  # Emit the largest NNNNNN from "address: c-NNNNNN" lines that appear inside
-  # the FIRST YAML frontmatter block of each wiki .md file. Code-block examples
-  # and body prose are excluded. Returns 0 if none found.
-  if [ ! -d "$WIKI_DIR" ]; then
-    echo 0
-    return
-  fi
-  find "$WIKI_DIR" -type f -name '*.md' -print0 2>/dev/null \
-    | xargs -0 awk '
-        FNR == 1 { state = "pre"; next_is_fm = ($0 == "---") ? 1 : 0 }
-        FNR == 1 && $0 == "---" { state = "fm"; next }
-        state == "fm" && $0 == "---" { state = "body"; nextfile }
-        state == "fm" && match($0, /^address:[[:space:]]+c-[0-9]{6}[[:space:]]*$/) {
-          if (match($0, /c-[0-9]{6}/)) {
-            print substr($0, RSTART, RLENGTH)
-          }
-        }
-      ' 2>/dev/null \
-    | sed 's/^c-0*//;s/^$/0/' \
-    | sort -n \
-    | tail -1 \
-    | awk 'BEGIN{n=0} {n=$0} END{print (n+0)}'
-}
+PYTHONPATH="$PLUGIN_ROOT${PYTHONPATH:+:$PYTHONPATH}" python3 - "$EXPLICIT_VAULT" "$PLUGIN_ROOT" <<'PY'
+import re
+import sys
+from pathlib import Path
 
-read_or_recover_counter() {
-  if [ ! -f "$COUNTER_FILE" ]; then
-    local max_c
-    max_c="$(scan_max_c_address)"
-    echo $((max_c + 1)) > "$COUNTER_FILE"
-    echo "INFO: counter file missing; recovered from vault scan, set to $((max_c + 1))" >&2
-  fi
-  local raw
-  raw="$(cat "$COUNTER_FILE")"
-  if ! [[ "$raw" =~ ^[0-9]+$ ]]; then
-    echo "ERR: counter file content is not a positive integer: $raw" >&2
-    exit 3
-  fi
-  echo "$raw"
-}
+from claude_obsidian.paths import VaultSelectionError, resolve_vault_root
+from claude_obsidian.transaction import TransactionError, read_vault_regular
 
-case "$MODE" in
-  --peek)
-    read_or_recover_counter
-    ;;
-  --rebuild)
-    max_c="$(scan_max_c_address)"
-    echo $((max_c + 1)) > "$COUNTER_FILE"
-    echo "Counter rebuilt: next = $((max_c + 1))"
-    ;;
-  allocate|"")
-    current="$(read_or_recover_counter)"
-    next=$((current + 1))
-    echo "$next" > "$COUNTER_FILE"
-    printf 'c-%06d\n' "$current"
-    ;;
-  *)
-    echo "ERR: unknown mode: $MODE" >&2
-    echo "Usage: $0 [allocate|--peek|--rebuild]" >&2
-    exit 3
-    ;;
-esac
+explicit = sys.argv[1] or None
+plugin_root = Path(sys.argv[2])
+try:
+    root = resolve_vault_root(
+        explicit, start=Path.cwd(), plugin_root=plugin_root
+    ).root
+    raw = read_vault_regular(
+        root, ".vault-meta/address-counter.txt", limit=64 * 1024
+    )
+except (VaultSelectionError, TransactionError) as exc:
+    print(f"ERR {exc.code}: {exc}", file=sys.stderr)
+    raise SystemExit(2)
+
+if raw is not None:
+    try:
+        value = raw.decode("ascii").strip()
+    except UnicodeDecodeError:
+        value = ""
+    if not value.isdigit() or not 1 <= int(value) <= 999999:
+        print("ERR INVALID_ADDRESS_COUNTER: counter must contain 1..999999", file=sys.stderr)
+        raise SystemExit(3)
+    print(int(value))
+    raise SystemExit(0)
+
+highest = 0
+wiki = root / "wiki"
+if wiki.is_dir() and not wiki.is_symlink():
+    for page in sorted(wiki.rglob("*.md")):
+        if page.is_symlink() or not page.is_file():
+            continue
+        try:
+            page.resolve(strict=True).relative_to(wiki.resolve(strict=True))
+            text = page.read_text(encoding="utf-8", errors="replace")
+        except (OSError, ValueError):
+            continue
+        lines = text.splitlines()
+        if not lines or lines[0].strip() != "---":
+            continue
+        for line in lines[1:]:
+            if line.strip() == "---":
+                break
+            match = re.fullmatch(r"address:\s*c-([0-9]{6})\s*", line)
+            if match:
+                highest = max(highest, int(match.group(1)))
+print(highest + 1)
+PY
