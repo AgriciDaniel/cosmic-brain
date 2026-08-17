@@ -1,0 +1,60 @@
+.excalidraw-LatexPrompt {
+  .cm-editor {
+    margin-top: var(--size-4-2);
+    justify-content: center;
+    align-items: center;
+
+    /* this is safe, if unsupported, will be ignored */
+    anchor-name: --latex-editor;
+
+    & > .cm-scroller, & > .cm-announcment {
+      align-self: start;
+      width: 100%
+    }
+
+    /* taken from Obsidian, doesn't apply automatically,
+       because the rule does not have :focus-within */
+    &.cm-focused {
+      border-color: var(--background-modifier-border-focus);
+      transition: box-shadow 0.15s ease-in-out, border 0.15s ease-in-out;
+      box-shadow: 0 0 0 var(--input-border-width-focus) var(--background-modifier-border-focus);
+    }
+
+    /* centering the popup */
+    & .cm-tooltip-cursor.cm-tooltip {
+      left: unset !important;
+
+      & .cm-tooltip-arrow {
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+    }
+
+    [jax="CHTML"][display="true"] {
+      margin: 0;
+    }
+  }
+
+  .cm-content {
+    caret-color: var(--caret-color);
+  }
+}
+
+@supports (anchor-name: --test) {
+  .excalidraw-LatexPrompt .cm-editor .cm-tooltip-cursor.cm-tooltip {
+    position: fixed !important;
+    position-anchor: --latex-editor;
+    top: unset !important;
+    max-width: calc(100vw - var(--size-4-4));
+    margin: var(--size-4-2) 0;
+    overflow-x: clip;
+
+    &.cm-tooltip-above {
+      bottom: anchor(top);
+    }
+
+    &.cm-tooltip-below {
+      top: anchor(bottom) !important;
+    }
+  }
+}

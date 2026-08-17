@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "Chris Woodruff"
             }
+          },
+          {
+            "id": "0299d844a5b3ddb5",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -196,8 +207,16 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9d5b3913ce2e8dd4",
+  "active": "0299d844a5b3ddb5",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-08-13 22.48.52.excalidraw.md",
+    "wiki/entities/MPDV HYDRA.md",
+    "Excalidraw",
+    "Clippings/DESIGN.md",
+    "Clippings/DESIGN.md.tmp.78840.f23a8d7d907b",
+    "wiki/hot.md.tmp.78840.5eee632561cd",
+    "Clippings/Design with AI.md",
+    "Clippings/What is DESIGN.md",
     "presentations/sto_proposal.pdf",
     "presentations/sto_proposal_tmp.html",
     "presentations/sto_proposal.md",
@@ -207,13 +226,9 @@
     "wiki/hot.md.tmp.57752.dfa3b39169e3",
     "wiki/hot.md.tmp.57752.b61291e57123",
     "wiki/index.md.tmp.57752.5b3e956eb278",
-    "wiki/index.md.tmp.57752.f492ac68fb28",
     "wiki/questions/Research - ActualLab.Fusion Recent Developments & Community Reception.md",
-    "wiki/concepts/Fusion Performance & Benchmarks.md.tmp.57752.0bf6a4903ed5",
     "wiki/sources/yakunin-fusion-vs-signalr.md",
     "wiki/entities/Voxt.ai.md",
-    "CLAUDE.md.tmp.59944.9e542a63c4cf",
-    "presentations/sop_hydra-multi-mold-machine_tmp.html",
     "wiki/sources/sop-hydra-multi-mold-machine.md",
     "wiki/concepts/HYDRA SIF DLG Service Catalog.md",
     "wiki/concepts/HYDRA Service Interface (SIF).md",
@@ -230,10 +245,6 @@
     "wiki/sources/EFCorePowerTools.md",
     "wiki/concepts/EF Core Pagination Strategies.md",
     "wiki/sources/pagination-ef-core-htmx-sortable-grids.md",
-    "wiki/concepts/EF Core Query Anti-Patterns.md",
-    "wiki/sources/debugging-efcore-8-query-anti-patterns.md",
-    "wiki/concepts/EF Core Bulk Synchronization.md",
-    "wiki/sources/bulksynchronize-ef-core-woodruff.md",
     "Untitled 3.canvas",
     "Untitled 2.canvas",
     "assets/diagrams/vault-flow.svg",

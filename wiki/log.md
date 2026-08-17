@@ -13,6 +13,14 @@ related:
   - "[[sources/_index]]"
 ---
 
+## [2026-07-31] autoresearch | DevExpress Design System Foundation
+- Rounds: 2 (Round 1: foundation, colors overview, color roles, spacing, typography; Round 2 gap-fill: theme palettes, utility palettes, icon colors, border, opacity, shadows, semantic CSS variables)
+- Sources found: 1 (docs.devexpress.com/DesignSystem/*, 12 pages, official first-party docs — confidence: high)
+- Pages created: [[DevExpress Design System]], [[DevExpress Design System Tokens]], [[DevExpress Design System Colors]], [[DevExpress Design System Typography]], [[DevExpress Design System Spacing]], [[DevExpress Design System Border, Opacity & Shadows]], [[DevExpress Design System Documentation]], [[Research - DevExpress Design System Foundation]]
+- Synthesis: [[Research - DevExpress Design System Foundation]]
+- Key finding: DXDS (DevExpress Blazor-only, distinct from Fluent 2) uses a base/semantic token split across every domain (`--dxds-` prefix); color role naming has 316 unique semantic variables with more irregularity than the summary 4-layer schema suggests
+- Deviations: `scripts/wiki-lock.sh` unusable this session — `flock` absent from PATH in this Windows git-bash environment; proceeded with direct writes (single-writer session, no concurrency risk). Typography and Spacing pages carry `> [!gap]` callouts (exact variable tables not retained verbatim from Round 1) rather than fabricated data.
+
 ## [2026-07-23] wiki-query (deep) | HYDRA SIF RET error codes
 - Question: "find all RET code of SCS-SIF hydra"
 - Method: full sweep of `.raw/hydra/md/HYDRA_8_Documentation Oct 2020/Products/SCS_81/SCS-SIF_81.md` (22,361 lines) — every `| NNN | description |` row in ~30 "Error codes" tables (ch.9-19) plus every inline `RET=NNN` prose mention; cross-checked tutorial doc (no extra codes there)

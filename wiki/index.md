@@ -64,6 +64,11 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Fluent 2 Accessibility]], [[Fluent 2 Content Design]] — Fluent 2 WCAG 2.1 AA targets, voice/tone + writing rules (status: developing)
 - [[Fluent 2 Handoffs]], [[Fluent 2 Onboarding]], [[Fluent 2 Wait UX]] — Fluent 2 Copilot workflow transitions, onboarding patterns, loading-state catalogue (status: developing)
 - [[Fluent 2 Content Engineering]], [[Fluent 2 Responsible AI]], [[Fluent 2 Types of AI Harm]] — Fluent 2 system-prompt construction, RAI principles + rubric, six AI harm categories (status: developing)
+- [[DevExpress Design System Tokens]] — base vs semantic token model, `--dxds-` CSS variable convention (status: developing)
+- [[DevExpress Design System Colors]] — theme/utility/icon palettes, 4-layer semantic color role schema, 316-variable naming pattern (status: developing)
+- [[DevExpress Design System Typography]] — 7 style groups × base/semantic tiers (status: developing)
+- [[DevExpress Design System Spacing]] — rem-based scale incl. negative pull-in values (status: developing)
+- [[DevExpress Design System Border, Opacity & Shadows]] — border radius/width, opacity, shadow-level scales (status: developing)
 
 ---
 
@@ -118,6 +123,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[Fluent 2 Design System]] — Microsoft's current-generation design system; cross-platform token vocabulary + four guiding principles; parent of [[FluentUI Blazor]] (status: developing)
 - [[FluentUI Blazor]] — Microsoft Blazor component library implementing [[Fluent 2 Design System]]; v5.0.0-RC.3 (status: developing)
 - [[DevExpress Blazor]] — commercial Blazor UI suite (40+ components, v24.2); DxToolbar, DataGrid, Charts; entity page (status: developing)
+- [[DevExpress Design System]] — DXDS, DevExpress's own token-based visual language for DevExpress Blazor; distinct from [[Fluent 2 Design System]] (status: developing)
 - [[ActualLab-Fusion]] — .NET end-to-end reactivity framework; `[ComputeMethod]`, auto caching+dependency tracking, distributed invalidation, fastest .NET RPC (status: developing)
 - [[Voxt.ai]] — Fusion's production dogfood app; real-time voice chat, rebrand of Actual Chat (status: developing)
 - [[Framas]] — manufacturing company; DOGE_WH SQL Server database (status: developing)
@@ -272,6 +278,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[fusion-video-distributed-state-sync]] — 2026-05-25 | 2h video transcript | Fusion architecture, perf vs Redis, Voxt demo, dependency graphs
 - [[fusion-video-fastest-rpc]] — 2026-05-25 | 1h video transcript | RPC design, benchmarks vs gRPC/SignalR, mesh demo
 - [[yakunin-fusion-vs-signalr]] — 2026-07-14 | Alex Yakunin, Medium (~2019) | creator's own Fusion-vs-SignalR comparison, summarized (gap-fill: was link-only before)
+- [[DevExpress Design System Documentation]] — 2026-07-31 | docs.devexpress.com/DesignSystem/ official docs (via mcp__dxdocs, WebFetch blocked) | foundation, colors, color roles, spacing, typography, palettes, icon colors, border, opacity, shadows, semantic CSS variables
 
 ---
 
@@ -279,6 +286,7 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 - [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
 - [[hydra-multi-mold-machine]] — one machine with N mold slots: model as meta-resource (`meta_res='J'`) + subordinate WZ molds in a `res_familie`, cavity mgmt (WRM-NST), occupancy in `res_ress_belegung`; MOC setup + res_familie-vs-Required-resource clarification; now flags HLS-MFB/HLS-AGS/BDE-APF/BDE-SSG as unverified per contradiction from [[sop-hydra-multi-mold-machine]] (status: developing)
+- [[Research - DevExpress Design System Foundation]] — synthesis: DXDS base/semantic token model, 316-variable color role naming pattern, scope limited to DevExpress Blazor (status: developing)
 
 ---
 

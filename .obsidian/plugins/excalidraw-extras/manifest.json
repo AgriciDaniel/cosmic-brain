@@ -1,0 +1,10 @@
+{
+  "id": "excalidraw-extras",
+  "name": "Excalidraw Extras",
+  "version": "0.0.15",
+  "minAppVersion": "1.5.7",
+  "description": "Companion plugin for Excalidraw high-privilege and large components.",
+  "author": "Zsolt Viczian",
+  "authorUrl": "https://github.com/zsviczian",
+  "isDesktopOnly": false
+}
