@@ -20,6 +20,16 @@ implementation record for older releases.
 - The `UNSUPPORTED_PLATFORM` refusal message now points to
   `docs/windows-wsl.md` for users whose WSL setup is itself misbehaving.
 
+### Fixed
+
+- `checkpoint` no longer raises an unrecoverable `COMMITTED_MODE_MISMATCH`
+  for vaults whose Git repo has `core.filemode=false` (the default for
+  repos initialized or cloned by native Windows Git, even when mutated
+  through the supported WSL path). Git cannot represent the executable bit
+  in that mode, so the committed tree entry can never match a transaction
+  result that recorded a real filesystem stat; the mode assertion is now
+  skipped when `core.filemode` is explicitly false, comparing content only.
+
 ## [2.1.0] - 2026-07-31
 
 Native Windows compatibility.

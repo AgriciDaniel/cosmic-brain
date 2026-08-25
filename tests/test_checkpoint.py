@@ -239,6 +239,48 @@ def test_executable_mode_drift_is_rejected_before_ref_update() -> None:
         assert note.stat().st_mode & 0o111
 
 
+def test_executable_mode_drift_is_ignored_when_core_filemode_is_false() -> None:
+    # Reproduces a vault whose Git repo was created by native Windows Git
+    # (core.filemode=false) but mutated through the supported WSL path,
+    # where `stat` on a pre-existing executable file is real. The
+    # transaction result then records the true executable mode, while Git
+    # can never stage that bit, so the two must not be compared strictly.
+    with tempfile.TemporaryDirectory() as td:
+        root = make_repo(Path(td) / "vault")
+        # core.filemode must be disabled before the executable file is first
+        # staged, matching a repo Git initialized with the bit already off:
+        # the tree entry is 100644 from the start and never records +x.
+        git(root, "config", "core.filemode", "false")
+        note = root / "wiki/Note.md"
+        original = "---\ntitle: Note\ntype: concept\nstatus: developing\ncreated: 2026-01-01\nupdated: 2026-01-01\ntags: [test]\n---\n# Note\nOriginal.\n"
+        note.write_text(original)
+        note.chmod(0o777)
+        git(root, "add", ".")
+        git(root, "commit", "-qm", "add executable note")
+        assert git(root, "ls-files", "-s", "wiki/Note.md").startswith("100644")
+
+        updated = original.replace("Original.", "Updated.")
+        transaction_result = apply_bundle(
+            root,
+            {
+                "schema": BUNDLE_SCHEMA,
+                "operation_id": "save-two",
+                "operation_type": "save",
+                "expected_hashes": {
+                    "wiki/Note.md": hashlib.sha256(original.encode()).hexdigest()
+                },
+                "writes": [
+                    {"path": "wiki/Note.md", "mode": "replace", "content": updated}
+                ],
+            },
+        )
+        assert transaction_result["modes"]["wiki/Note.md"] & 0o111
+
+        result = checkpoint_operation(root, "save-two", run_lint=False)
+        assert result["paths"] == ["wiki/Note.md"]
+        assert git(root, "rev-list", "--count", "HEAD") == "3"
+
+
 def test_operation_ids_and_transaction_directories_are_confined() -> None:
     with tempfile.TemporaryDirectory() as td:
         base = Path(td)
@@ -529,6 +571,7 @@ def main() -> None:
     test_unrelated_staging_and_drift_are_rejected()
     test_intent_to_add_index_state_is_rejected_and_preserved()
     test_executable_mode_drift_is_rejected_before_ref_update()
+    test_executable_mode_drift_is_ignored_when_core_filemode_is_false()
     test_operation_ids_and_transaction_directories_are_confined()
     test_temporary_index_freezes_verified_bytes()
     test_retry_finalizes_one_commit_after_final_record_failure()

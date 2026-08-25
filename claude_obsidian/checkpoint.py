@@ -799,6 +799,19 @@ def _tree_diff_paths(root: Path, base: str, tree: str) -> set[str]:
     return set(_decode_paths(completed.stdout))
 
 
+def _filemode_is_tracked(root: Path) -> bool:
+    """Return False only when the repo has explicitly disabled core.filemode.
+
+    Git discards the executable bit entirely when core.filemode=false (the
+    default for repos initialized or cloned by native Windows Git), so a
+    committed blob's mode can never reflect it regardless of what the
+    filesystem reports. An absent or true value keeps the strict comparison.
+    """
+
+    completed = _git(root, ["config", "--get", "core.filemode"], check=False)
+    return completed.stdout.strip() != "false"
+
+
 def _verify_tree(
     root: Path,
     *,
@@ -815,13 +828,17 @@ def _verify_tree(
             "COMMITTED_CONTENT_MISMATCH",
             "candidate tree is missing transaction paths: " + ", ".join(missing),
         )
+    check_modes = _filemode_is_tracked(root)
     for relative in paths:
-        expected_git_mode = "100755" if expected_modes[relative] & 0o111 else "100644"
-        if entries[relative][0] != expected_git_mode:
-            raise CheckpointError(
-                "COMMITTED_MODE_MISMATCH",
-                f"Git mode differs from the transaction result for {relative}",
+        if check_modes:
+            expected_git_mode = (
+                "100755" if expected_modes[relative] & 0o111 else "100644"
             )
+            if entries[relative][0] != expected_git_mode:
+                raise CheckpointError(
+                    "COMMITTED_MODE_MISMATCH",
+                    f"Git mode differs from the transaction result for {relative}",
+                )
         blob = _git_bytes(root, ["cat-file", "blob", entries[relative][1]]).stdout
         if hashlib.sha256(blob).hexdigest() != expected_hashes[relative]:
             raise CheckpointError(
