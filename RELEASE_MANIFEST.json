@@ -88,8 +88,8 @@
     {
       "mode": "0644",
       "path": "CHANGELOG.md",
-      "sha256": "0cd8e7cad51446c8e59f05a3cb1239814e1b2d341f65ae24b917ce5d6dd4e8d0",
-      "size": 13020
+      "sha256": "a70fa0d0ed4038d3cbba5a9a25c2e83b8b39a6f5a69663bac5e53fc7574e55d9",
+      "size": 13025
     },
     {
       "mode": "0644",
@@ -1012,8 +1012,8 @@
     {
       "mode": "0644",
       "path": "tests/test_checkpoint.py",
-      "sha256": "c8c730685f06dc24f3c549ef3bf4dfef4b0efa5b7a408263a148a758e7ae8f8b",
-      "size": 20280
+      "sha256": "baa14a92785dde360e40de817db711a4aae3a57d2d4e19f2623297face9668d1",
+      "size": 20485
     },
     {
       "mode": "0644",
@@ -1211,6 +1211,6 @@
     }
   },
   "schema_version": 1,
-  "source_commit": "05e509de93bd7da3e7238dcd9dbcd180f761c9df",
-  "source_date_epoch": 1787697439
+  "source_commit": "d766d115f95ac454dcc948fec0c2a73de212cc0d",
+  "source_date_epoch": 1787698719
 }
