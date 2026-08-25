@@ -150,6 +150,34 @@ def test_expected_hash_conflict_changes_nothing() -> None:
         assert target.read_text() == "current\n"
 
 
+def test_read_preconditions_are_bound_into_plan_approval() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        original = bundle(
+            "read-precondition-approval",
+            [{"path": "wiki/A.md", "mode": "create", "content": "# A\n"}],
+        )
+        reviewed = inspect_bundle(vault, original)
+        with_probe = json.loads(json.dumps(original))
+        with_probe["read_preconditions"] = {".raw/reviewed-input": None}
+        probed = inspect_bundle(vault, with_probe)
+        assert reviewed["changed_paths"] == probed["changed_paths"]
+        assert reviewed["hashes"] == probed["hashes"]
+        assert reviewed["modes"] == probed["modes"]
+        assert reviewed["approval_sha256"] != probed["approval_sha256"]
+        try:
+            apply_bundle(
+                vault,
+                with_probe,
+                approved_plan_sha256=reviewed["approval_sha256"],
+            )
+        except TransactionValidationError as exc:
+            assert exc.code == "PLAN_CHANGED"
+        else:
+            raise AssertionError("read preconditions must be approval-bound")
+        assert not (vault / "wiki/A.md").exists()
+
+
 def test_every_write_requires_a_canonical_precondition() -> None:
     with tempfile.TemporaryDirectory() as td:
         vault = make_vault(Path(td) / "vault")
@@ -2572,6 +2600,7 @@ def main() -> None:
     test_failure_rolls_back_every_write()
     test_rolled_back_operation_can_be_retried()
     test_expected_hash_conflict_changes_nothing()
+    test_read_preconditions_are_bound_into_plan_approval()
     test_every_write_requires_a_canonical_precondition()
     test_paths_require_nfc_and_file_bundles_reject_duplicate_json_keys()
     test_mapping_bundle_is_a_deep_snapshot_before_hash_and_apply()

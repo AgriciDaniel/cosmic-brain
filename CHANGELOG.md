@@ -20,6 +20,14 @@ implementation record for older releases.
 - The `UNSUPPORTED_PLATFORM` refusal message now points to
   `docs/windows-wsl.md` for users whose WSL setup is itself misbehaving.
 
+### Fixed
+
+- Legacy migration and adoption no longer fail when a manifest source key is a
+  valid batch label rather than a file. Unresolved labels are preserved as
+  unreviewed manual sources without inventing payload mappings or hashes.
+  Apply now rejects a reviewed migration if a legacy locator's file state
+  changes or becomes unsafe before the transaction writes.
+
 ## [2.1.0] - 2026-07-31
 
 Native Windows compatibility.

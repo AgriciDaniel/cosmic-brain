@@ -62,4 +62,13 @@ python3 "$CORE" migrate --vault VAULT \
 
 Migration leaves `.raw/.manifest.json` byte-for-byte unchanged, creates missing
 ledgers, defaults unknown evidence fields honestly, and never extracts claims
-from legacy prose automatically.
+from legacy prose automatically. A legacy source key that resolves to a regular
+file remains a file source with its computed SHA-256. A valid key with no file
+is preserved as an unreviewed manual source with unknown authority and no
+verified payload hash. This unresolved record preserves the legacy identity,
+date, and page links; it does not prove a batch-to-file relationship. Migration
+never enumerates raw payloads to invent that relationship or promotes the
+legacy short hash to SHA-256.
+The reviewed migration bundle also pins each legacy locator's observed file
+state. Apply fails if an unresolved label appears, becomes unsafe, cannot be
+inspected, or if a file source changes after review.

@@ -1236,7 +1236,14 @@ def migrate_legacy_manifest(
                 }
             )
             continue
-        source_id = stable_source_id("file", locator, digest)
+        # Some legacy generators used a canonical path-shaped batch label
+        # rather than a file locator.  _safe_hash returns None only when that
+        # safely inspected path is absent; unsafe and non-regular nodes raise.
+        # Preserve an absent legacy identity without inventing a payload or
+        # treating its short legacy hash as SHA-256.
+        origin_kind = "file" if digest is not None else "manual"
+        content_kind = "document" if digest is not None else "other"
+        source_id = stable_source_id(origin_kind, locator, digest)
         if source_id in source_ledger["sources"]:
             migration_errors.append(
                 {
@@ -1274,8 +1281,8 @@ def migrate_legacy_manifest(
             )
             continue
         source_ledger["sources"][source_id] = {
-            "origin": {"kind": "file", "locator": locator},
-            "content_kind": "document",
+            "origin": {"kind": origin_kind, "locator": locator},
+            "content_kind": content_kind,
             "title": Path(locator).stem,
             "authority": "unknown",
             "content_sha256": digest,
@@ -1306,6 +1313,10 @@ def migration_bundle(
 ) -> dict[str, Any]:
     root = canonical(vault_root)
     sources, claims = migrate_legacy_manifest(root, generated_at=generated_at)
+    read_preconditions = {
+        record["origin"]["locator"]: record["content_sha256"]
+        for record in sources["sources"].values()
+    }
     validate_existing_canonical_state(root, fallback_source_ledger=sources)
     writes: list[dict[str, Any]] = []
     expected: dict[str, str | None] = {}
@@ -1342,10 +1353,13 @@ def migration_bundle(
                 + "\n",
             }
         )
-    return {
+    bundle = {
         "schema": BUNDLE_SCHEMA,
         "operation_id": operation_id,
         "operation_type": "migration",
         "expected_hashes": expected,
         "writes": writes,
     }
+    if SOURCE_PATH in expected:
+        bundle["read_preconditions"] = read_preconditions
+    return bundle
