@@ -36,7 +36,7 @@ Legacy migration safety and clearer Windows and WSL support guidance.
 - Migration and adoption keep read-only source observations separate from the
   1,024-write recovery limit, preserving valid legacy manifests with larger
   source sets.
-- Release-test fixture repositories now ignore machine-wide Git hooks and
+- Git-backed release and checkpoint fixtures now ignore machine-wide hooks and
   commit-signing settings, keeping the hermetic suite offline and deterministic.
 
 ## [2.1.0] - 2026-07-31
