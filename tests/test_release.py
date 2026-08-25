@@ -42,6 +42,22 @@ def _write_json(path: Path, value: object) -> None:
     )
 
 
+def _configure_fixture_git(repository: Path, *, name: str, email: str) -> None:
+    no_hooks = repository / ".git" / "no-hooks"
+    no_hooks.mkdir()
+    for key, value in (
+        ("core.hooksPath", ".git/no-hooks"),
+        ("commit.gpgsign", "false"),
+        ("user.email", email),
+        ("user.name", name),
+    ):
+        subprocess.run(
+            ["git", "-C", str(repository), "config", key, value],
+            check=True,
+            timeout=10,
+        )
+
+
 def _codes(report: dict) -> set[str]:
     return {item["code"] for item in report["errors"]}
 
@@ -119,12 +135,11 @@ class ReleaseRepo(unittest.TestCase):
         }
         _write_json(self.repo / "config" / "release-allowlist.json", self.config)
         self.git("init", "-q")
-        # Hermetic fixture repositories must not inherit the developer's
-        # machine-wide hooks (which may quite correctly reject seeded secrets).
-        (self.repo / ".git" / "no-hooks").mkdir()
-        self.git("config", "core.hooksPath", ".git/no-hooks")
-        self.git("config", "user.email", "release-tests@example.invalid")
-        self.git("config", "user.name", "Release Tests")
+        _configure_fixture_git(
+            self.repo,
+            name="Release Tests",
+            email="release-tests@example.invalid",
+        )
         self.commit("fixture")
 
     def tearDown(self) -> None:
@@ -305,29 +320,10 @@ class BuildTests(ReleaseRepo):
             distribution = self.home / "distribution"
             archive.extractall(distribution)
         subprocess.run(["git", "init", "-q", str(distribution)], check=True, timeout=10)
-        subprocess.run(
-            [
-                "git",
-                "-C",
-                str(distribution),
-                "config",
-                "user.email",
-                "dist@example.invalid",
-            ],
-            check=True,
-            timeout=10,
-        )
-        subprocess.run(
-            [
-                "git",
-                "-C",
-                str(distribution),
-                "config",
-                "user.name",
-                "Distribution Test",
-            ],
-            check=True,
-            timeout=10,
+        _configure_fixture_git(
+            distribution,
+            name="Distribution Test",
+            email="dist@example.invalid",
         )
         subprocess.run(
             ["git", "-C", str(distribution), "add", "-f", "-A"], check=True, timeout=10
@@ -506,12 +502,10 @@ class BuildTests(ReleaseRepo):
         other = self.home / "other"
         other.mkdir()
         subprocess.run(["git", "-C", str(other), "init", "-q"], check=True)
-        subprocess.run(
-            ["git", "-C", str(other), "config", "user.email", "other@example.invalid"],
-            check=True,
-        )
-        subprocess.run(
-            ["git", "-C", str(other), "config", "user.name", "Other"], check=True
+        _configure_fixture_git(
+            other,
+            name="Other",
+            email="other@example.invalid",
         )
         (other / "foreign.txt").write_text("foreign\n", encoding="utf-8")
         subprocess.run(["git", "-C", str(other), "add", "foreign.txt"], check=True)

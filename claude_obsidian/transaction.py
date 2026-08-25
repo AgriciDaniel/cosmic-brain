@@ -3534,11 +3534,11 @@ def _assert_read_preconditions(
             "INVALID_READ_PRECONDITIONS",
             "read_preconditions must be an object",
         )
-    if len(raw) > MAX_TRANSACTION_WRITES:
-        raise TransactionValidationError(
-            "TRANSACTION_WRITE_LIMIT",
-            f"read preconditions exceed the {MAX_TRANSACTION_WRITES}-path limit",
-        )
+    # Read preconditions do not create backups or recovery journal entries, so
+    # the write-cardinality limit is not their safety envelope. `_load_bundle`
+    # already bounds the complete canonical bundle bytes, and path validation
+    # bounds every individual key. Reusing the write limit here would reject a
+    # previously valid migration solely because it observes many source files.
     normalized: dict[str, str | None] = {}
     casefolded: dict[str, str] = {}
     for raw_path, digest in raw.items():

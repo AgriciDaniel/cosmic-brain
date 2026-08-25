@@ -39,27 +39,28 @@ roughly in the order worth trying:
 
 | Symptom | Check |
 |---|---|
-| `wsl --install` completed but `wsl --status` or `wsl -l -v` hangs indefinitely | This is usually a virtualization conflict, not a claude-obsidian issue. Work through the virtualization checklist below. |
+| `wsl --install` completed but `wsl --status` or `wsl -l -v` hangs indefinitely | This field-reported hang has no confirmed cause. Follow Microsoft's WSL hang diagnosis and reporting flow below. |
 | `wsl` reports a kernel or version error | Run `wsl --update`, then `wsl --shutdown`, then retry. |
-| WSL worked before and stopped after an update or new security software | Check whether memory integrity / Virtualization-Based Security settings changed; VBS and other hypervisors can conflict with the Hyper-V platform WSL 2 depends on. |
+| WSL worked before and stopped after an update or software change | Do not assume a cause. Update Windows and WSL, then follow Microsoft's WSL troubleshooting flow. |
 | Approval hash from a native dry-run fails inside WSL with `PLAN_CHANGED` | By design: the approval hash binds the reviewing environment's filesystem identity. Run the dry-run review inside WSL when the apply will happen there; a natively produced `approved_plan_sha256` cannot be replayed from WSL. |
 | Writes fail with `UNSAFE_VAULT_IDENTITY` mentioning stable file identity | The vault sits on FAT/exFAT or an unsupported network share. Move it to NTFS, or keep it inside the WSL filesystem. |
 
-Virtualization checklist for the hang class:
+WSL troubleshooting checklist:
 
-1. Confirm virtualization is enabled in BIOS/UEFI (often "Intel VT-x",
-   "AMD-V", or "SVM").
-2. Confirm the Windows features "Virtual Machine Platform" and "Windows
-   Subsystem for Linux" are both enabled, and reboot after enabling them —
-   the reboot is not optional.
-3. Run `wsl --update` from an elevated prompt, then `wsl --shutdown`, then
-   retry `wsl --status`.
-4. Check that the Hyper-V "Host Compute Service" (`vmcompute`) is running;
-   restart it if stopped.
-5. If hangs persist, look for conflicts between Virtualization-Based Security
-   (memory integrity) or third-party hypervisors and the Hyper-V platform —
-   this conflict class is hardware- and configuration-specific and can survive
-   reboots until the conflicting feature is reconfigured.
+1. Start with Microsoft's official
+   [WSL troubleshooting guide](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting).
+2. Confirm virtualization is enabled in BIOS/UEFI and that both "Virtual
+   Machine Platform" and "Windows Subsystem for Linux" are enabled. Reboot
+   after enabling either feature.
+3. Run `wsl --update` from an elevated prompt, then `wsl --shutdown`, and retry
+   `wsl --status`.
+4. Confirm the hypervisor launch setting is enabled. If a third-party
+   hypervisor is installed, use a current version that supports Hyper-V or
+   temporarily turn it off while diagnosing the conflict.
+5. If WSL still hangs, follow Microsoft's
+   [WSL hang data-collection steps](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting-guide#wsl-hangs)
+   and file the resulting report with the WSL project. Do not attribute the
+   hang to a specific cause without supporting diagnostics.
 
 ## Working across the boundary
 

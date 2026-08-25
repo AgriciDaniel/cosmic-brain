@@ -209,6 +209,37 @@ def test_migration_preserves_unresolved_legacy_batch_as_manual_source() -> None:
         assert canonical_path.read_bytes() == canonical_before
 
 
+def test_migration_accepts_more_read_preconditions_than_writes() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        source_count = transaction_module.MAX_TRANSACTION_WRITES + 1
+        legacy_sources: dict[str, dict[str, object]] = {}
+        for index in range(source_count):
+            locator = f".raw/legacy/source-{index:04d}.txt"
+            source = vault / locator
+            source.parent.mkdir(parents=True, exist_ok=True)
+            source.write_text(f"source {index}\n", encoding="utf-8")
+            legacy_sources[locator] = {
+                "ingested_at": "2026-07-17",
+                "pages_created": [],
+            }
+        (vault / ".raw/.manifest.json").write_text(
+            json.dumps({"version": 1, "sources": legacy_sources}, sort_keys=True),
+            encoding="utf-8",
+        )
+
+        operation = migration_bundle(
+            vault,
+            operation_id="migrate-large-read-set",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        assert len(operation["writes"]) == 3
+        assert len(operation["read_preconditions"]) == source_count
+        plan = inspect_bundle(vault, operation)
+        assert plan["valid"] is True
+        assert len(plan["changed_paths"]) == 3
+
+
 def test_migration_plan_changes_if_batch_locator_appears_before_apply() -> None:
     with tempfile.TemporaryDirectory() as td:
         vault = make_vault(Path(td) / "vault")
@@ -1646,6 +1677,7 @@ def main() -> None:
     test_stable_source_ids()
     test_migration_preserves_manifest_and_is_idempotent()
     test_migration_preserves_unresolved_legacy_batch_as_manual_source()
+    test_migration_accepts_more_read_preconditions_than_writes()
     test_migration_plan_changes_if_batch_locator_appears_before_apply()
     test_migration_original_plan_rejects_unsafe_locator_state_changes()
     test_migration_original_plan_rejects_uninspectable_locator()

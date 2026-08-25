@@ -14,8 +14,8 @@ Legacy migration safety and clearer Windows and WSL support guidance.
 ### Added
 
 - `docs/windows-wsl.md`: platform support matrix and WSL troubleshooting for
-  native Windows users, covering the virtualization-conflict hang class
-  (`wsl --status` hanging after install), approval-hash environment binding,
+  native Windows users, covering Microsoft's diagnostic flow for unconfirmed
+  `wsl --status` hangs, approval-hash environment binding,
   and filesystem identity requirements. Linked from the README, install
   guide, compound vault guide, and the wiki skill's transaction reference.
 
@@ -23,6 +23,8 @@ Legacy migration safety and clearer Windows and WSL support guidance.
 
 - The `UNSUPPORTED_PLATFORM` refusal message now points to
   `docs/windows-wsl.md` for users whose WSL setup is itself misbehaving.
+- Windows and WSL troubleshooting now routes unconfirmed hangs through
+  Microsoft's diagnostic flow without asserting an unsupported cause.
 
 ### Fixed
 
@@ -31,6 +33,11 @@ Legacy migration safety and clearer Windows and WSL support guidance.
   unreviewed manual sources without inventing payload mappings or hashes.
   Apply now rejects a reviewed migration if a legacy locator's file state
   changes or becomes unsafe before the transaction writes.
+- Migration and adoption keep read-only source observations separate from the
+  1,024-write recovery limit, preserving valid legacy manifests with larger
+  source sets.
+- Release-test fixture repositories now ignore machine-wide Git hooks and
+  commit-signing settings, keeping the hermetic suite offline and deterministic.
 
 ## [2.1.0] - 2026-07-31
 
