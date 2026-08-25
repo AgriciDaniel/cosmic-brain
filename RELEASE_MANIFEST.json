@@ -4,13 +4,13 @@
     {
       "mode": "0644",
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "43af05abd417b29546718cf5bc34a7d1ad61e315e720ba333bb58fac1d661d67",
+      "sha256": "6984752e225e08e98a49fcaf25e3e6bf518162a576a8b7dfe4a6e35d8dcc8c47",
       "size": 841
     },
     {
       "mode": "0644",
       "path": ".claude-plugin/plugin.json",
-      "sha256": "06fdf354d12f118596281ed47c72a9200c16e42a5125b985f87733d1870105ce",
+      "sha256": "c328cbb63fc0e62efaa61f1072b6780b5d1e8845c1e50bc8827f78eff56a7220",
       "size": 970
     },
     {
@@ -88,13 +88,13 @@
     {
       "mode": "0644",
       "path": "CHANGELOG.md",
-      "sha256": "66b126f697df926ea2dc6ccf6bc8a54e0b04559caa9705cc5711893626578afb",
-      "size": 11551
+      "sha256": "a70fa0d0ed4038d3cbba5a9a25c2e83b8b39a6f5a69663bac5e53fc7574e55d9",
+      "size": 13025
     },
     {
       "mode": "0644",
       "path": "CITATION.cff",
-      "sha256": "0517421d7145d38ced6467639f6723623aa302de83f756e56d64e1a3d81d7f43",
+      "sha256": "0d31fe94bf44b399050b92249e97cfd6a8773ab273a4a7331001029ee49da2be",
       "size": 468
     },
     {
@@ -142,8 +142,8 @@
     {
       "mode": "0644",
       "path": "README.md",
-      "sha256": "9f9c35874975b07f4d3c15ece2c17f6697067d50dba26e24e5e4b0babccfa8ef",
-      "size": 16692
+      "sha256": "b384f942c9c728340f1f9880bf96a43ab18802751c4614e72afbd7d46f747985",
+      "size": 16778
     },
     {
       "mode": "0644",
@@ -238,7 +238,7 @@
     {
       "mode": "0644",
       "path": "claude_obsidian/__init__.py",
-      "sha256": "04085f7c054ce338249708fc8230d8da510250ddc04e3b3baef17293d1205d67",
+      "sha256": "fc9eded2259f55c00e36899e2572a876c110e3c0d6b51084d860aabe2d52be24",
       "size": 296
     },
     {
@@ -298,8 +298,8 @@
     {
       "mode": "0644",
       "path": "claude_obsidian/ledgers.py",
-      "sha256": "32cec2e5cc9846badbc4749e1e088988291c5d3a9db9abd2648de15213d4a038",
-      "size": 52285
+      "sha256": "9751d56272e2256bde643e7d3effd47f4c875ce02422be09a8dc0a148113f2d1",
+      "size": 53046
     },
     {
       "mode": "0644",
@@ -340,8 +340,8 @@
     {
       "mode": "0644",
       "path": "claude_obsidian/transaction.py",
-      "sha256": "822adf6104b0206b83483ecf3c605692bfa6607353f8dad2f94cf4f8256d5377",
-      "size": 176021
+      "sha256": "e007e3b7d08f72eabc4a95c7031fb596c201562432cf37cc649136b02b223de2",
+      "size": 179506
     },
     {
       "mode": "0644",
@@ -352,8 +352,8 @@
     {
       "mode": "0644",
       "path": "claude_obsidian/vault_ops.py",
-      "sha256": "ced9fc0cffb5f24a7772ec649cc09aaeca693725e17e2b66345572a1769e4ec9",
-      "size": 4812
+      "sha256": "baab23cb2fd4936186108cc6fb47d4c5663b4026978fc56c06810489ba833a57",
+      "size": 5131
     },
     {
       "mode": "0644",
@@ -376,7 +376,7 @@
     {
       "mode": "0644",
       "path": "config/public-marketplace.json",
-      "sha256": "43af05abd417b29546718cf5bc34a7d1ad61e315e720ba333bb58fac1d661d67",
+      "sha256": "6984752e225e08e98a49fcaf25e3e6bf518162a576a8b7dfe4a6e35d8dcc8c47",
       "size": 841
     },
     {
@@ -388,8 +388,8 @@
     {
       "mode": "0644",
       "path": "docs/compound-vault-guide.md",
-      "sha256": "acb59b1872295a40868c0ba395eef84855d9d64d5cc4cd1fe882379545b43ce3",
-      "size": 9458
+      "sha256": "3ad7192a28509f88992c5d12b5ec26e7d6810a0f9fe7e51371bf83ce21356b11",
+      "size": 9554
     },
     {
       "mode": "0644",
@@ -400,14 +400,20 @@
     {
       "mode": "0644",
       "path": "docs/install-guide.md",
-      "sha256": "b4491a9119a2b7e970e26570095d3b07336adefa9fac359563c35eea4f585c41",
-      "size": 9318
+      "sha256": "e56a79480e8d34fe2eaff02e531a3fb73641eb6c075f747817bc596c42615cea",
+      "size": 9994
     },
     {
       "mode": "0644",
       "path": "docs/methodology-modes-guide.md",
       "sha256": "034369dfca27c5d81c60bc8e406ef58353e24848b69c3242378f3e54e2008c19",
       "size": 4122
+    },
+    {
+      "mode": "0644",
+      "path": "docs/windows-wsl.md",
+      "sha256": "b37331c18326cb9c362564f96d7d039a49d85071c719fefe7a26e3e9fb56340c",
+      "size": 4306
     },
     {
       "mode": "0644",
@@ -748,8 +754,8 @@
     {
       "mode": "0644",
       "path": "skills/wiki/references/operation-transactions.md",
-      "sha256": "522f64f19c04a2cac86309bb3bc86ec715171ff07833cd35f5791a5e43e5d90a",
-      "size": 6104
+      "sha256": "75a6c01950983c6210647ee11104f3be0c389fd7f81458d9d0f06306401a8f83",
+      "size": 6155
     },
     {
       "mode": "0644",
@@ -760,8 +766,8 @@
     {
       "mode": "0644",
       "path": "skills/wiki/references/provenance.md",
-      "sha256": "df8f40d1213a557ee70cc55a18a0fa333b3f24090e6c6a492688baa0668b5567",
-      "size": 2581
+      "sha256": "8c773a95a36bd23f6482c4595c70b8ba9679122c9e48986d26955bfdc176c418",
+      "size": 3248
     },
     {
       "mode": "0644",
@@ -1006,8 +1012,8 @@
     {
       "mode": "0644",
       "path": "tests/test_checkpoint.py",
-      "sha256": "c8c730685f06dc24f3c549ef3bf4dfef4b0efa5b7a408263a148a758e7ae8f8b",
-      "size": 20280
+      "sha256": "baa14a92785dde360e40de817db711a4aae3a57d2d4e19f2623297face9668d1",
+      "size": 20485
     },
     {
       "mode": "0644",
@@ -1084,8 +1090,8 @@
     {
       "mode": "0644",
       "path": "tests/test_ledgers.py",
-      "sha256": "1403d9a16131be6c521586f75f54baa54e4b6e4425adae8c79908ff65f09469c",
-      "size": 46988
+      "sha256": "698a3bb65efddf685351e2112163e8e46e9d6a0b2926ea19f12f37d784508826",
+      "size": 66263
     },
     {
       "mode": "0644",
@@ -1114,8 +1120,8 @@
     {
       "mode": "0644",
       "path": "tests/test_release.py",
-      "sha256": "a1953341b61b90c8980e0d49b0af72ce54ab9698dfc108855b045a63e6667e87",
-      "size": 36089
+      "sha256": "c6c0bbec621103a3f76ea017935e373f7c22860f8bd9e1b5706e359609737deb",
+      "size": 35761
     },
     {
       "mode": "0755",
@@ -1156,14 +1162,14 @@
     {
       "mode": "0644",
       "path": "tests/test_transaction.py",
-      "sha256": "0a65f6d053f026a1487af3d7296233f81b81be84a246b15bc725a3841c7e6ff7",
-      "size": 101499
+      "sha256": "8ae629551c3cd50255d2f0a23c4c6203599a21f083a2d6a9d6f462897cac516e",
+      "size": 104048
     },
     {
       "mode": "0644",
       "path": "tests/test_vault_ops.py",
-      "sha256": "9f5ac6452ee5422742d20dda0d5e4e6b0f295927dc545cae64500b468dbe6c5b",
-      "size": 3879
+      "sha256": "5df7e6cb3b5b8d749f82eeb3e557b87a4a34f3244b5e6e467b0b8a32719103b0",
+      "size": 9744
     },
     {
       "mode": "0644",
@@ -1186,8 +1192,8 @@
     {
       "mode": "0644",
       "path": "tests/test_windows_compat.py",
-      "sha256": "b14a2591cc9b871cd79015f0aa7dff83af06f45d40be37d5febafb6c769da7da",
-      "size": 19371
+      "sha256": "eefda3c96ff713be9d6998f929c7eb992f29417588123752d457255ecf59ede8",
+      "size": 19455
     }
   ],
   "policy": {
@@ -1205,6 +1211,6 @@
     }
   },
   "schema_version": 1,
-  "source_commit": "68ab552d40dfc1cc5a154f2c3a0d02d9c21b0cb1",
-  "source_date_epoch": 1785518782
+  "source_commit": "d766d115f95ac454dcc948fec0c2a73de212cc0d",
+  "source_date_epoch": 1787698719
 }

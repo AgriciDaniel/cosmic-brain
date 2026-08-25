@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from claude_obsidian.transaction import apply_bundle
+from claude_obsidian.transaction import apply_bundle, inspect_bundle
 import claude_obsidian.transaction as transaction_module
 from claude_obsidian.ledgers import LedgerValidationError, stable_source_id
 from claude_obsidian.vault_ops import (
@@ -214,11 +214,41 @@ def test_adopt_preserves_unresolved_legacy_batch_without_raw_inference() -> None
         assert rerun["writes"] == []
 
 
+def test_adopt_accepts_more_read_preconditions_than_writes() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = Path(td) / "vault"
+        (vault / ".obsidian").mkdir(parents=True)
+        (vault / ".raw").mkdir()
+        source_count = transaction_module.MAX_TRANSACTION_WRITES + 1
+        legacy_sources = {
+            f"sources/legacy/batch-{index:04d}": {
+                "ingested_at": "2026-07-17",
+                "pages_created": [],
+            }
+            for index in range(source_count)
+        }
+        (vault / ".raw/.manifest.json").write_text(
+            json.dumps({"version": 1, "sources": legacy_sources}, sort_keys=True),
+            encoding="utf-8",
+        )
+
+        operation = build_vault_bundle(
+            vault,
+            operation_id="adopt-large-read-set",
+            operation_type="migration",
+            generated_at="2026-07-17T00:00:00Z",
+            adopt=True,
+        )
+        assert len(operation["read_preconditions"]) == source_count
+        assert inspect_bundle(vault, operation)["valid"] is True
+
+
 def main() -> None:
     test_init_and_adopt_are_non_destructive()
     test_init_refuses_existing_content_without_force()
     test_adopt_rejects_invalid_canonical_state_without_replacing_it()
     test_adopt_preserves_unresolved_legacy_batch_without_raw_inference()
+    test_adopt_accepts_more_read_preconditions_than_writes()
     print("All vault operation tests passed.")
 
 

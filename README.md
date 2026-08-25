@@ -13,7 +13,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2563eb.svg" alt="MIT license"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent%20Skills-compatible-2563eb" alt="Agent Skills compatible"></a>
   <a href="https://code.claude.com/docs/en/plugins"><img src="https://img.shields.io/badge/Claude%20Code-plugin-7c3aed" alt="Claude Code plugin"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/release-v2.1.0-d97745" alt="Release v2.1.0"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/release-v2.1.1-d97745" alt="Release v2.1.1"></a>
 </p>
 
 <p align="center">
@@ -351,8 +351,8 @@ surface. On native Windows (including Git Bash), read-only inspection and
 dry-run commands work; vault writes require WSL and fail closed with an
 `UNSUPPORTED_PLATFORM` error otherwise. Approval hashes bind to the reviewing
 environment, so review inside WSL when the apply will happen there. Platform
-details, the support matrix, and WSL troubleshooting (including hangs from
-virtualization conflicts) live in the
+details, the support matrix, and evidence-bounded WSL hang troubleshooting
+live in the
 [Windows and WSL guide](docs/windows-wsl.md). The bash setup scripts and shell
 test suites remain POSIX-only. Optional tools such as Obsidian CLI, Ollama,
 and defuddle are capability-detected and affect only their dependent workflow.

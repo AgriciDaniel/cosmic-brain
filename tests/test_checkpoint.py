@@ -30,6 +30,15 @@ def git_bytes(root: Path, *args: str) -> bytes:
     ).stdout
 
 
+def configure_fixture_git(root: Path) -> None:
+    no_hooks = root / ".git" / "no-hooks"
+    no_hooks.mkdir()
+    git(root, "config", "core.hooksPath", ".git/no-hooks")
+    git(root, "config", "commit.gpgsign", "false")
+    git(root, "config", "user.email", "checkpoint-tests@example.invalid")
+    git(root, "config", "user.name", "Checkpoint Tests")
+
+
 def expect_code(code: str, callback) -> None:
     try:
         callback()
@@ -48,8 +57,7 @@ def make_repo(root: Path) -> Path:
         "---\ntitle: Index\ntype: meta\nstatus: evergreen\ncreated: 2026-01-01\nupdated: 2026-01-01\ntags: [meta]\n---\n# Index\n"
     )
     git(root, "init", "-q")
-    git(root, "config", "user.email", "test@example.com")
-    git(root, "config", "user.name", "Test")
+    configure_fixture_git(root)
     git(root, "add", ".")
     git(root, "commit", "-qm", "initial")
     return root
@@ -435,8 +443,7 @@ def test_nested_vault_cannot_checkpoint_parent_repository() -> None:
         parent = Path(td) / "parent"
         parent.mkdir()
         git(parent, "init", "-q")
-        git(parent, "config", "user.email", "test@example.com")
-        git(parent, "config", "user.name", "Test")
+        configure_fixture_git(parent)
         root = parent / "vault"
         root.mkdir()
         (root / ".obsidian").mkdir()
