@@ -20,6 +20,16 @@ implementation record for older releases.
 - The `UNSUPPORTED_PLATFORM` refusal message now points to
   `docs/windows-wsl.md` for users whose WSL setup is itself misbehaving.
 
+### Fixed
+
+- `stop_status` no longer misreports large, complete transaction journals as
+  unreadable: the probe's read cap now matches
+  `MAX_TRANSACTION_RUNTIME_JSON_BYTES` (8 MiB), the package's own bound for
+  runtime JSON of this kind, instead of an inline 64 KiB limit far below what
+  a sanctioned 1024-write transaction can produce. The "unreadable
+  transaction journal(s)" warning also no longer suggests
+  `transaction recover`, which cannot resolve that state.
+
 ## [2.1.0] - 2026-07-31
 
 Native Windows compatibility.

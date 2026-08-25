@@ -20,6 +20,7 @@ from .paths import (
     is_relative_to,
     resolve_vault_root,
 )
+from .transaction import MAX_TRANSACTION_RUNTIME_JSON_BYTES
 
 
 MAX_CONTEXT_BYTES = 32 * 1024
@@ -273,7 +274,9 @@ def stop_status(
                 break
             journal = directory / "journal.json"
             try:
-                payload = _bounded_regular_bytes(root, journal, 64 * 1024)
+                payload = _bounded_regular_bytes(
+                    root, journal, MAX_TRANSACTION_RUNTIME_JSON_BYTES
+                )
                 if payload is None:
                     if journal.exists() or journal.is_symlink():
                         unsafe_journals += 1
@@ -296,7 +299,8 @@ def stop_status(
             warnings.append(f"{unsafe_journals} unsafe transaction journal(s) detected")
         if unreadable_journals:
             warnings.append(
-                f"{unreadable_journals} unreadable transaction journal(s) detected"
+                f"{unreadable_journals} unreadable transaction journal(s) detected "
+                "(not resolved by `transaction recover`; inspect manually)"
             )
     if not warnings:
         return ""

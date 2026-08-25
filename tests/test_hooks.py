@@ -260,6 +260,37 @@ def test_stop_status_is_bounded_and_emitted_as_supported_json() -> None:
         assert payload == {"systemMessage": status}
 
 
+def test_stop_status_reads_large_complete_journals_within_transaction_bound() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        transactions = vault / ".vault-meta/transactions"
+        directory = transactions / "operation-000"
+        directory.mkdir(parents=True)
+        # A journal well past the old 64 KiB probe cap but still a valid,
+        # complete transaction record (writes legitimately scale to ~400 KB).
+        padding = "x" * (200 * 1024)
+        (directory / "journal.json").write_text(
+            json.dumps({"state": "complete", "padding": padding}),
+            encoding="utf-8",
+        )
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+        assert status == ""
+
+
+def test_stop_status_unreadable_journal_warning_does_not_recommend_recover() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        transactions = vault / ".vault-meta/transactions"
+        directory = transactions / "operation-000"
+        directory.mkdir(parents=True)
+        (directory / "journal.json").write_text("not json", encoding="utf-8")
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+        assert "1 unreadable transaction journal(s) detected" in status
+        assert "not resolved by `transaction recover`" in status
+
+
 def main() -> None:
     test_hook_schema_uses_supported_session_start_shape()
     test_context_is_bounded_and_delimiter_safe()
@@ -269,6 +300,8 @@ def main() -> None:
     test_context_rejects_symlinked_hot_cache_and_parent()
     test_context_parent_swap_reads_only_from_pinned_directory()
     test_stop_status_is_bounded_and_emitted_as_supported_json()
+    test_stop_status_reads_large_complete_journals_within_transaction_bound()
+    test_stop_status_unreadable_journal_warning_does_not_recommend_recover()
     print("All hook tests passed.")
 
 
