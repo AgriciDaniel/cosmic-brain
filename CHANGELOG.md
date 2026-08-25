@@ -7,6 +7,10 @@ implementation record for older releases.
 
 ## [Unreleased]
 
+## [2.1.1] - 2026-08-26
+
+Legacy migration safety and clearer Windows and WSL support guidance.
+
 ### Added
 
 - `docs/windows-wsl.md`: platform support matrix and WSL troubleshooting for
