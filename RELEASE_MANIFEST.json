@@ -88,8 +88,8 @@
     {
       "mode": "0644",
       "path": "CHANGELOG.md",
-      "sha256": "238179b163008ee477feb5155972b8f387943ef73afedfda2eee58391c33c5f9",
-      "size": 12568
+      "sha256": "0cd8e7cad51446c8e59f05a3cb1239814e1b2d341f65ae24b917ce5d6dd4e8d0",
+      "size": 13020
     },
     {
       "mode": "0644",
@@ -142,8 +142,8 @@
     {
       "mode": "0644",
       "path": "README.md",
-      "sha256": "c0e13576d0902603a327b9ff18e7d5132313f6234d201eea3641e0e07099a0e8",
-      "size": 16804
+      "sha256": "b384f942c9c728340f1f9880bf96a43ab18802751c4614e72afbd7d46f747985",
+      "size": 16778
     },
     {
       "mode": "0644",
@@ -340,8 +340,8 @@
     {
       "mode": "0644",
       "path": "claude_obsidian/transaction.py",
-      "sha256": "26e199e9a28f769200ac4f2b4dfc99b5a7763841522fbd2ddf581c13b1b7ae02",
-      "size": 179327
+      "sha256": "e007e3b7d08f72eabc4a95c7031fb596c201562432cf37cc649136b02b223de2",
+      "size": 179506
     },
     {
       "mode": "0644",
@@ -400,8 +400,8 @@
     {
       "mode": "0644",
       "path": "docs/install-guide.md",
-      "sha256": "a0a93b21e0311192ad9b6677a95be19cf708f50ab822f6cefba5c1685931464d",
-      "size": 9963
+      "sha256": "e56a79480e8d34fe2eaff02e531a3fb73641eb6c075f747817bc596c42615cea",
+      "size": 9994
     },
     {
       "mode": "0644",
@@ -412,8 +412,8 @@
     {
       "mode": "0644",
       "path": "docs/windows-wsl.md",
-      "sha256": "52175c72aaedddcf995198c4b4be10948976897813f0419e385e8ead44dbeead",
-      "size": 4262
+      "sha256": "b37331c18326cb9c362564f96d7d039a49d85071c719fefe7a26e3e9fb56340c",
+      "size": 4306
     },
     {
       "mode": "0644",
@@ -1090,8 +1090,8 @@
     {
       "mode": "0644",
       "path": "tests/test_ledgers.py",
-      "sha256": "1f4a444f1bb60ab2d420b8f52a21469324912b8e4470c3d29cdd13fe32d35356",
-      "size": 64909
+      "sha256": "698a3bb65efddf685351e2112163e8e46e9d6a0b2926ea19f12f37d784508826",
+      "size": 66263
     },
     {
       "mode": "0644",
@@ -1120,8 +1120,8 @@
     {
       "mode": "0644",
       "path": "tests/test_release.py",
-      "sha256": "a1953341b61b90c8980e0d49b0af72ce54ab9698dfc108855b045a63e6667e87",
-      "size": 36089
+      "sha256": "c6c0bbec621103a3f76ea017935e373f7c22860f8bd9e1b5706e359609737deb",
+      "size": 35761
     },
     {
       "mode": "0755",
@@ -1168,8 +1168,8 @@
     {
       "mode": "0644",
       "path": "tests/test_vault_ops.py",
-      "sha256": "ece92ed68332195f749981024aba061093cebcc010876e182cb550242c2df8b8",
-      "size": 8593
+      "sha256": "5df7e6cb3b5b8d749f82eeb3e557b87a4a34f3244b5e6e467b0b8a32719103b0",
+      "size": 9744
     },
     {
       "mode": "0644",
@@ -1211,6 +1211,6 @@
     }
   },
   "schema_version": 1,
-  "source_commit": "8eefff6bb1833c371e7bb2681226ee6e01b0babd",
-  "source_date_epoch": 1787696026
+  "source_commit": "05e509de93bd7da3e7238dcd9dbcd180f761c9df",
+  "source_date_epoch": 1787697439
 }
