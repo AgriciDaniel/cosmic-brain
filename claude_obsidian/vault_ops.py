@@ -105,10 +105,15 @@ def build_vault_bundle(
         source_ledger, claim_ledger = migrate_legacy_manifest(
             vault, generated_at=generated_at
         )
+        read_preconditions = {
+            record["origin"]["locator"]: record["content_sha256"]
+            for record in source_ledger["sources"].values()
+        }
         validate_existing_canonical_state(vault, fallback_source_ledger=source_ledger)
     else:
         source_ledger = empty_source_ledger(generated_at=generated_at)
         claim_ledger = empty_claim_ledger(generated_at=generated_at)
+        read_preconditions = {}
     planned[SOURCE_PATH] = (
         json.dumps(
             source_ledger,
@@ -150,10 +155,13 @@ def build_vault_bundle(
                 "sha256": new_hash,
             }
         )
-    return {
+    bundle = {
         "schema": BUNDLE_SCHEMA,
         "operation_id": operation_id,
         "operation_type": operation_type,
         "expected_hashes": expected,
         "writes": writes,
     }
+    if adopt and SOURCE_PATH in expected:
+        bundle["read_preconditions"] = read_preconditions
+    return bundle

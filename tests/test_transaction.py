@@ -150,6 +150,34 @@ def test_expected_hash_conflict_changes_nothing() -> None:
         assert target.read_text() == "current\n"
 
 
+def test_read_preconditions_are_bound_into_plan_approval() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        original = bundle(
+            "read-precondition-approval",
+            [{"path": "wiki/A.md", "mode": "create", "content": "# A\n"}],
+        )
+        reviewed = inspect_bundle(vault, original)
+        with_probe = json.loads(json.dumps(original))
+        with_probe["read_preconditions"] = {".raw/reviewed-input": None}
+        probed = inspect_bundle(vault, with_probe)
+        assert reviewed["changed_paths"] == probed["changed_paths"]
+        assert reviewed["hashes"] == probed["hashes"]
+        assert reviewed["modes"] == probed["modes"]
+        assert reviewed["approval_sha256"] != probed["approval_sha256"]
+        try:
+            apply_bundle(
+                vault,
+                with_probe,
+                approved_plan_sha256=reviewed["approval_sha256"],
+            )
+        except TransactionValidationError as exc:
+            assert exc.code == "PLAN_CHANGED"
+        else:
+            raise AssertionError("read preconditions must be approval-bound")
+        assert not (vault / "wiki/A.md").exists()
+
+
 def test_every_write_requires_a_canonical_precondition() -> None:
     with tempfile.TemporaryDirectory() as td:
         vault = make_vault(Path(td) / "vault")
@@ -2206,6 +2234,39 @@ def test_runtime_directory_cardinality_and_removal_are_bounded() -> None:
             transaction_module.MAX_TRANSACTION_RUNTIME_TREE_ENTRIES = original_tree
 
 
+def test_runtime_removal_enumerates_through_a_fresh_descriptor() -> None:
+    if not transaction_module._supports_confined_dirfd():
+        return
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        transactions = vault / ".vault-meta/transactions"
+        operation = transactions / "cursor-at-end"
+        backups = operation / "backups"
+        backups.mkdir(parents=True)
+        (operation / "bundle.json").write_text("{}\n", encoding="utf-8")
+        (backups / "original.bin").write_bytes(b"original\n")
+
+        parent_fd = os.open(
+            transactions,
+            os.O_RDONLY | os.O_DIRECTORY | getattr(os, "O_CLOEXEC", 0),
+        )
+        operation_fd = transaction_module._open_runtime_directory_at(
+            parent_fd, "cursor-at-end", create=False
+        )
+        try:
+            try:
+                os.lseek(operation_fd, 0, os.SEEK_END)
+            except OSError:
+                return
+            transaction_module._remove_pinned_runtime_tree_at(
+                parent_fd, "cursor-at-end", operation_fd
+            )
+        finally:
+            os.close(operation_fd)
+            os.close(parent_fd)
+        assert not operation.exists()
+
+
 def test_mutation_and_runtime_descriptors_do_not_leak() -> None:
     descriptor_directory = next(
         (path for path in (Path("/proc/self/fd"), Path("/dev/fd")) if path.is_dir()),
@@ -2539,6 +2600,7 @@ def main() -> None:
     test_failure_rolls_back_every_write()
     test_rolled_back_operation_can_be_retried()
     test_expected_hash_conflict_changes_nothing()
+    test_read_preconditions_are_bound_into_plan_approval()
     test_every_write_requires_a_canonical_precondition()
     test_paths_require_nfc_and_file_bundles_reject_duplicate_json_keys()
     test_mapping_bundle_is_a_deep_snapshot_before_hash_and_apply()
@@ -2579,6 +2641,7 @@ def main() -> None:
     test_meta_managed_targets_rollback_inside_pinned_namespace()
     test_recovery_never_reads_a_replaced_external_operation()
     test_runtime_directory_cardinality_and_removal_are_bounded()
+    test_runtime_removal_enumerates_through_a_fresh_descriptor()
     test_mutation_and_runtime_descriptors_do_not_leak()
     test_recover_interrupted_journal()
     test_recovery_rejects_unbound_or_indirect_backups_before_any_write()

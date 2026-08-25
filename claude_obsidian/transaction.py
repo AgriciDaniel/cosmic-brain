@@ -2311,11 +2311,21 @@ def _remove_pinned_runtime_tree_at(
         )
     if remaining is None:
         remaining = [MAX_TRANSACTION_RUNTIME_TREE_ENTRIES]
-    child_names = _bounded_runtime_names(
-        directory_fd,
-        limit=remaining[0],
-        label=f"transaction runtime {component}",
-    )
+    scan_fd = _open_runtime_directory_at(parent_fd, component, create=False)
+    try:
+        pinned = os.fstat(directory_fd)
+        scanned = os.fstat(scan_fd)
+        if (pinned.st_dev, pinned.st_ino) != (scanned.st_dev, scanned.st_ino):
+            raise _LockIdentityChanged(
+                f"runtime directory changed before enumeration: {component}"
+            )
+        child_names = _bounded_runtime_names(
+            scan_fd,
+            limit=remaining[0],
+            label=f"transaction runtime {component}",
+        )
+    finally:
+        os.close(scan_fd)
     remaining[0] -= len(child_names)
     for child_name in child_names:
         metadata = os.stat(child_name, dir_fd=directory_fd, follow_symlinks=False)
@@ -3329,6 +3339,12 @@ def _prepare_writes(
                 f"expected hash for {normalized_path} must be SHA-256 or null",
             )
         normalized_expected[normalized_path] = digest
+    _assert_read_preconditions(
+        vault_root,
+        bundle,
+        root_fd=root_fd,
+        meta_fd=meta_fd,
+    )
     seen: set[str] = set()
     seen_casefold: dict[str, str] = {}
     prepared: list[PreparedWrite] = []
@@ -3501,6 +3517,75 @@ def _prepare_writes(
     _validate_operation_bundle_scope(str(bundle.get("operation_type")), prepared)
     _validate_provenance_writes(vault_root, prepared, root_fd=root_fd, meta_fd=meta_fd)
     return prepared
+
+
+def _assert_read_preconditions(
+    vault_root: Path,
+    bundle: Mapping[str, Any],
+    *,
+    root_fd: int | None = None,
+    meta_fd: int | None = None,
+) -> None:
+    """Require non-write inputs to retain their reviewed file state."""
+
+    raw = bundle.get("read_preconditions", {})
+    if not isinstance(raw, dict):
+        raise TransactionValidationError(
+            "INVALID_READ_PRECONDITIONS",
+            "read_preconditions must be an object",
+        )
+    if len(raw) > MAX_TRANSACTION_WRITES:
+        raise TransactionValidationError(
+            "TRANSACTION_WRITE_LIMIT",
+            f"read preconditions exceed the {MAX_TRANSACTION_WRITES}-path limit",
+        )
+    normalized: dict[str, str | None] = {}
+    casefolded: dict[str, str] = {}
+    for raw_path, digest in raw.items():
+        path = (
+            _normalize_vault_path(raw_path)
+            if root_fd is not None
+            else _safe_vault_path(vault_root, raw_path)[0]
+        )
+        folded = _portable_name_key(path)
+        prior = casefolded.get(folded)
+        if prior is not None and prior != path:
+            raise TransactionValidationError(
+                "CASEFOLD_PATH_COLLISION",
+                f"read preconditions contain case-colliding paths: {prior}, {path}",
+            )
+        casefolded[folded] = path
+        if digest is not None and (
+            not isinstance(digest, str)
+            or len(digest) != 64
+            or digest != digest.lower()
+            or any(character not in "0123456789abcdef" for character in digest)
+        ):
+            raise TransactionValidationError(
+                "INVALID_READ_PRECONDITION",
+                f"read precondition for {path} must be SHA-256 or null",
+            )
+        normalized[path] = digest
+    for path, expected in normalized.items():
+        try:
+            observed = _safe_hash(
+                vault_root,
+                path,
+                root_fd=root_fd,
+                meta_fd=meta_fd,
+            )
+        except TransactionValidationError:
+            raise
+        except OSError as exc:
+            raise TransactionValidationError(
+                "UNSAFE_READ_PRECONDITION",
+                f"cannot inspect read precondition {path}: {exc}",
+            ) from exc
+        if observed != expected:
+            raise TransactionConflict(
+                "READ_PRECONDITION_MISMATCH",
+                f"{path} changed since the operation was drafted",
+            )
 
 
 def _validate_provenance_writes(
@@ -4591,6 +4676,12 @@ def apply_bundle(
                 _assert_transaction_namespaces(mutation_lock, runtime, operation)
 
                 try:
+                    _assert_read_preconditions(
+                        vault,
+                        bundle,
+                        root_fd=runtime.root_fd,
+                        meta_fd=runtime.meta_fd,
+                    )
                     for index, write in enumerate(prepared, start=1):
                         _assert_transaction_namespaces(
                             mutation_lock, runtime, operation

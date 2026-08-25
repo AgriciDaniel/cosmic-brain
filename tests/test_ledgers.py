@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
-import json
 import hashlib
+import json
+import os
+import socket
 import sys
 import tempfile
 from datetime import date, datetime
@@ -26,9 +28,12 @@ from claude_obsidian.ledgers import (
 )
 from claude_obsidian.transaction import (
     BUNDLE_SCHEMA,
+    TransactionConflict,
     TransactionValidationError,
     apply_bundle,
+    inspect_bundle,
 )
+import claude_obsidian.transaction as transaction_module
 
 
 def make_vault(root: Path) -> Path:
@@ -92,6 +97,456 @@ def test_migration_preserves_manifest_and_is_idempotent() -> None:
         )
         assert validate_source_ledger(sources, vault_root=vault) == []
         assert claims["claims"] == {}
+
+
+def test_migration_preserves_unresolved_legacy_batch_as_manual_source() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        batch_locator = "sources/day0/2026-07-16-day0-exports"
+        payload = vault / ".raw/sources/day0/export.json"
+        payload.parent.mkdir(parents=True)
+        payload.write_text('{"source":"real payload"}\n', encoding="utf-8")
+        page = vault / "wiki/sources/Day 0.md"
+        page.parent.mkdir(parents=True)
+        page.write_text("# Day 0\n", encoding="utf-8")
+        manifest = {
+            "version": 1,
+            "sources": {
+                batch_locator: {
+                    "hash": "52ffa724ac942c32",
+                    "ingested_at": "2026-07-16",
+                    "pages_created": ["wiki/sources/Day 0.md"],
+                    "note": "Batch of 4 read-only files",
+                }
+            },
+        }
+        legacy_path = vault / ".raw/.manifest.json"
+        legacy_path.write_text(
+            json.dumps(manifest, indent=2, sort_keys=True), encoding="utf-8"
+        )
+        legacy_before = legacy_path.read_bytes()
+
+        raw_root = vault / ".raw/sources"
+        raw_identities = {
+            (raw_root.stat().st_dev, raw_root.stat().st_ino),
+            (payload.parent.stat().st_dev, payload.parent.stat().st_ino),
+        }
+        real_listdir = os.listdir
+        real_scandir = os.scandir
+
+        def is_raw_payload_directory(value: object) -> bool:
+            try:
+                metadata = (
+                    os.fstat(value)
+                    if isinstance(value, int)
+                    else os.stat(value)  # type: ignore[arg-type]
+                )
+            except (OSError, TypeError, ValueError):
+                return False
+            return (metadata.st_dev, metadata.st_ino) in raw_identities
+
+        def guarded_listdir(path: object = ".") -> list[str]:
+            if is_raw_payload_directory(path):
+                raise AssertionError("migration must not enumerate raw payloads")
+            return real_listdir(path)  # type: ignore[arg-type]
+
+        def guarded_scandir(path: object = ".") -> os.ScandirIterator[str]:
+            if is_raw_payload_directory(path):
+                raise AssertionError("migration must not enumerate raw payloads")
+            return real_scandir(path)  # type: ignore[arg-type]
+
+        transaction_module.os.listdir = guarded_listdir
+        transaction_module.os.scandir = guarded_scandir
+        try:
+            sources, claims = migrate_legacy_manifest(
+                vault, generated_at="2026-07-17T00:00:00Z"
+            )
+        finally:
+            transaction_module.os.listdir = real_listdir
+            transaction_module.os.scandir = real_scandir
+        source_id = stable_source_id("manual", batch_locator, None)
+        assert sources["sources"] == {
+            source_id: {
+                "origin": {"kind": "manual", "locator": batch_locator},
+                "content_kind": "other",
+                "title": "2026-07-16-day0-exports",
+                "authority": "unknown",
+                "content_sha256": None,
+                "ingested_at": "2026-07-16",
+                "retrieved_at": None,
+                "refresh_due": None,
+                "review_status": "unreviewed",
+                "independence_key": None,
+                "pages": ["wiki/sources/Day 0.md"],
+                "supersedes": None,
+            }
+        }
+        assert validate_source_ledger(sources, vault_root=vault) == []
+        assert claims["claims"] == {}
+        assert "52ffa724ac942c32" not in json.dumps(sources)
+        assert ".raw/sources/day0/export.json" not in json.dumps(sources)
+
+        operation = migration_bundle(
+            vault,
+            operation_id="migrate-batch",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        apply_bundle(vault, operation)
+        assert legacy_path.read_bytes() == legacy_before
+        assert payload.read_text(encoding="utf-8") == '{"source":"real payload"}\n'
+        canonical_path = vault / "wiki/meta/ledgers/source-ledger.json"
+        canonical_before = canonical_path.read_bytes()
+
+        file_path = vault / batch_locator
+        file_path.parent.mkdir(parents=True)
+        file_path.write_text("later file\n", encoding="utf-8")
+        rerun = migration_bundle(
+            vault,
+            operation_id="migrate-batch-again",
+            generated_at="2026-07-18T00:00:00Z",
+        )
+        assert rerun["writes"] == []
+        assert canonical_path.read_bytes() == canonical_before
+
+
+def test_migration_plan_changes_if_batch_locator_appears_before_apply() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        locator = "sources/research/2026-07-17-batch"
+        (vault / ".raw/.manifest.json").write_text(
+            json.dumps(
+                {
+                    "sources": {
+                        locator: {
+                            "hash": "163d1efedba075cb",
+                            "ingested_at": "2026-07-17",
+                            "pages_created": [],
+                        }
+                    }
+                }
+            ),
+            encoding="utf-8",
+        )
+        absent = migration_bundle(
+            vault,
+            operation_id="batch-absent",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        reviewed = inspect_bundle(vault, absent)
+        absent_write = next(
+            write
+            for write in absent["writes"]
+            if write["path"] == "wiki/meta/ledgers/source-ledger.json"
+        )
+        absent_sources = json.loads(absent_write["content"])["sources"]
+        assert set(absent_sources) == {stable_source_id("manual", locator, None)}
+        assert absent["read_preconditions"] == {locator: None}
+
+        source_path = vault / locator
+        source_path.parent.mkdir(parents=True)
+        source_path.write_text("now present\n", encoding="utf-8")
+        try:
+            apply_bundle(
+                vault,
+                absent,
+                approved_plan_sha256=reviewed["approval_sha256"],
+            )
+        except TransactionConflict as exc:
+            assert exc.code == "READ_PRECONDITION_MISMATCH"
+        else:
+            raise AssertionError(
+                "the original approved absent-source plan must be rejected"
+            )
+        assert not (vault / "wiki/meta/ledgers/source-ledger.json").exists()
+
+        digest = hashlib.sha256(b"now present\n").hexdigest()
+        present = migration_bundle(
+            vault,
+            operation_id="batch-absent",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        present_write = next(
+            write
+            for write in present["writes"]
+            if write["path"] == "wiki/meta/ledgers/source-ledger.json"
+        )
+        present_sources = json.loads(present_write["content"])["sources"]
+        assert set(present_sources) == {stable_source_id("file", locator, digest)}
+        assert present["read_preconditions"] == {locator: digest}
+        assert present != absent
+        try:
+            apply_bundle(
+                vault,
+                present,
+                approved_plan_sha256=reviewed["approval_sha256"],
+            )
+        except TransactionValidationError as exc:
+            assert exc.code == "PLAN_CHANGED"
+        else:
+            raise AssertionError("stale manual-source approval must be rejected")
+        assert not (vault / "wiki/meta/ledgers/source-ledger.json").exists()
+
+
+def test_migration_original_plan_rejects_unsafe_locator_state_changes() -> None:
+    node_kinds = ["directory", "symlink", "broken_symlink"]
+    if hasattr(socket, "AF_UNIX"):
+        node_kinds.append("socket")
+    for node_kind in node_kinds:
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            vault = make_vault(base / "vault")
+            locator = ".raw/u"
+            (vault / ".raw/.manifest.json").write_text(
+                json.dumps(
+                    {
+                        "sources": {
+                            locator: {
+                                "ingested_at": "2026-07-17",
+                                "pages_created": [],
+                            }
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+            operation = migration_bundle(
+                vault,
+                operation_id=f"stale-{node_kind}",
+                generated_at="2026-07-17T00:00:00Z",
+            )
+            reviewed = inspect_bundle(vault, operation)
+            target = vault / locator
+            target.parent.mkdir(parents=True, exist_ok=True)
+            unix_socket: socket.socket | None = None
+            if node_kind == "directory":
+                target.mkdir()
+            elif node_kind == "symlink":
+                outside = base / "outside.txt"
+                outside.write_text("outside\n", encoding="utf-8")
+                target.symlink_to(outside)
+            elif node_kind == "broken_symlink":
+                target.symlink_to(base / "missing.txt")
+            else:
+                unix_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+                unix_socket.bind(str(target))
+            try:
+                try:
+                    apply_bundle(
+                        vault,
+                        operation,
+                        approved_plan_sha256=reviewed["approval_sha256"],
+                    )
+                except (TransactionConflict, TransactionValidationError) as exc:
+                    assert exc.code in {
+                        "READ_PRECONDITION_MISMATCH",
+                        "SYMLINK_WRITE_PATH",
+                        "UNSAFE_READ_PRECONDITION",
+                        "UNSAFE_VAULT_PATH",
+                    }
+                else:
+                    raise AssertionError(
+                        f"the original plan must reject a new {node_kind} locator"
+                    )
+                assert not (
+                    vault / "wiki/meta/ledgers/source-ledger.json"
+                ).exists()
+            finally:
+                if unix_socket is not None:
+                    unix_socket.close()
+
+
+def test_migration_original_plan_rejects_uninspectable_locator() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        locator = "sources/research/uninspectable-batch"
+        (vault / ".raw/.manifest.json").write_text(
+            json.dumps(
+                {
+                    "sources": {
+                        locator: {
+                            "ingested_at": "2026-07-17",
+                            "pages_created": [],
+                        }
+                    }
+                }
+            ),
+            encoding="utf-8",
+        )
+        operation = migration_bundle(
+            vault,
+            operation_id="uninspectable-after-review",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        reviewed = inspect_bundle(vault, operation)
+        real_safe_hash = transaction_module._safe_hash
+
+        def denied_safe_hash(
+            vault_root: Path,
+            relative: str,
+            *,
+            root_fd: int | None = None,
+            meta_fd: int | None = None,
+        ) -> str | None:
+            if relative == locator:
+                raise PermissionError("synthetic permission denial")
+            return real_safe_hash(
+                vault_root,
+                relative,
+                root_fd=root_fd,
+                meta_fd=meta_fd,
+            )
+
+        transaction_module._safe_hash = denied_safe_hash
+        try:
+            try:
+                apply_bundle(
+                    vault,
+                    operation,
+                    approved_plan_sha256=reviewed["approval_sha256"],
+                )
+            except TransactionValidationError as exc:
+                assert exc.code == "UNSAFE_READ_PRECONDITION"
+            else:
+                raise AssertionError("an uninspectable locator must fail closed")
+        finally:
+            transaction_module._safe_hash = real_safe_hash
+        assert not (vault / "wiki/meta/ledgers/source-ledger.json").exists()
+
+
+def test_migration_locked_recheck_rolls_back_and_allows_clean_retry() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        vault = make_vault(Path(td) / "vault")
+        locator = ".raw/locked-batch"
+        (vault / ".raw/.manifest.json").write_text(
+            json.dumps(
+                {
+                    "sources": {
+                        locator: {
+                            "ingested_at": "2026-07-17",
+                            "pages_created": [],
+                        }
+                    }
+                }
+            ),
+            encoding="utf-8",
+        )
+        operation = migration_bundle(
+            vault,
+            operation_id="locked-read-recheck",
+            generated_at="2026-07-17T00:00:00Z",
+        )
+        reviewed = inspect_bundle(vault, operation)
+        target = vault / locator
+        real_check = transaction_module._assert_read_preconditions
+        checks = 0
+
+        def change_after_locked_prepare(
+            vault_root: Path,
+            bundle: dict[str, object],
+            *,
+            root_fd: int | None = None,
+            meta_fd: int | None = None,
+        ) -> None:
+            nonlocal checks
+            checks += 1
+            if checks == 3:
+                target.write_text("appeared after locked prepare\n", encoding="utf-8")
+            real_check(
+                vault_root,
+                bundle,
+                root_fd=root_fd,
+                meta_fd=meta_fd,
+            )
+
+        transaction_module._assert_read_preconditions = change_after_locked_prepare
+        try:
+            try:
+                apply_bundle(
+                    vault,
+                    operation,
+                    approved_plan_sha256=reviewed["approval_sha256"],
+                )
+            except TransactionConflict as exc:
+                assert exc.code == "READ_PRECONDITION_MISMATCH"
+            else:
+                raise AssertionError("the locked prewrite recheck must reject drift")
+        finally:
+            transaction_module._assert_read_preconditions = real_check
+        assert checks == 3
+        source_path = vault / "wiki/meta/ledgers/source-ledger.json"
+        claim_path = vault / "wiki/meta/ledgers/claim-ledger.json"
+        assert not source_path.exists()
+        assert not claim_path.exists()
+        transaction_path = (
+            vault
+            / ".vault-meta/transactions/locked-read-recheck/journal.json"
+        )
+        journal = json.loads(transaction_path.read_text(encoding="utf-8"))
+        assert journal["state"] == "rolled-back"
+        assert journal["applied"] == []
+
+        target.unlink()
+        result = apply_bundle(
+            vault,
+            operation,
+            approved_plan_sha256=reviewed["approval_sha256"],
+        )
+        assert result["status"] == "complete"
+        assert source_path.is_file()
+        assert claim_path.is_file()
+        retry_journal = json.loads(transaction_path.read_text(encoding="utf-8"))
+        assert retry_journal["state"] == "complete"
+
+
+def test_migration_missing_fallback_never_masks_unsafe_existing_nodes() -> None:
+    node_kinds = ["directory", "symlink", "broken_symlink"]
+    if hasattr(socket, "AF_UNIX"):
+        node_kinds.append("socket")
+    for node_kind in node_kinds:
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            vault = make_vault(base / "vault")
+            locator = ".raw/unsafe-source"
+            target = vault / locator
+            unix_socket: socket.socket | None = None
+            if node_kind == "directory":
+                target.mkdir()
+            elif node_kind == "symlink":
+                outside = base / "outside.txt"
+                outside.write_text("outside\n", encoding="utf-8")
+                target.symlink_to(outside)
+            elif node_kind == "broken_symlink":
+                target.symlink_to(base / "missing.txt")
+            else:
+                unix_socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+                unix_socket.bind(str(target))
+            (vault / ".raw/.manifest.json").write_text(
+                json.dumps(
+                    {
+                        "sources": {
+                            locator: {
+                                "ingested_at": "2026-07-17",
+                                "pages_created": [],
+                            }
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+            try:
+                try:
+                    migrate_legacy_manifest(
+                        vault, generated_at="2026-07-17T00:00:00Z"
+                    )
+                except LedgerValidationError as exc:
+                    assert "cannot inspect source safely" in str(exc)
+                else:
+                    raise AssertionError(
+                        f"{node_kind} source must not become a manual legacy record"
+                    )
+            finally:
+                if unix_socket is not None:
+                    unix_socket.close()
 
 
 def test_migration_rejects_non_nfc_file_aliases_portably() -> None:
@@ -1190,6 +1645,12 @@ def test_datetime_audit_inputs_are_rejected_explicitly() -> None:
 def main() -> None:
     test_stable_source_ids()
     test_migration_preserves_manifest_and_is_idempotent()
+    test_migration_preserves_unresolved_legacy_batch_as_manual_source()
+    test_migration_plan_changes_if_batch_locator_appears_before_apply()
+    test_migration_original_plan_rejects_unsafe_locator_state_changes()
+    test_migration_original_plan_rejects_uninspectable_locator()
+    test_migration_locked_recheck_rolls_back_and_allows_clean_retry()
+    test_migration_missing_fallback_never_masks_unsafe_existing_nodes()
     test_migration_rejects_non_nfc_file_aliases_portably()
     test_migration_never_reads_a_symlinked_legacy_manifest()
     test_migration_rejects_malformed_existing_canonical_ledgers()
