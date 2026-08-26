@@ -407,6 +407,7 @@
       "id": "wiki-fold",
       "tier": "extension",
       "implementation_paths": [
+        "scripts/fold-extract.py",
         "skills/wiki-fold/SKILL.md"
       ],
       "read_scope": [
@@ -429,20 +430,22 @@
       ],
       "needs": {
         "shell": true,
-        "network": false
+        "network": true
       },
       "transaction_type": "fold",
       "confirmation": {
         "mutation": "explicit",
-        "network_egress": "not_applicable",
+        "network_egress": "explicit",
         "destructive": "forbidden"
       },
       "configuration": {
         "path_requirements": [],
         "external_commands": []
       },
-      "verification_command": [],
-      "verification_reason": "no automated end-to-end behavioral verifier is implemented for extractive fold operations"
+      "verification_command": [
+        "{python}",
+        "tests/test_fold_extract.py"
+      ]
     },
     {
       "id": "wiki-ingest",
@@ -667,6 +670,47 @@
         "{python}",
         "tests/test_retrieve.py"
       ]
+    },
+    {
+      "id": "youtube",
+      "tier": "extension",
+      "implementation_paths": [
+        "skills/youtube/SKILL.md"
+      ],
+      "read_scope": [
+        "plugin:skills/**",
+        "vault:.raw/**",
+        "vault:.vault-meta/**",
+        "vault:inbox/**"
+      ],
+      "write_scope": [
+        {
+          "pattern": "vault:inbox/**",
+          "access": "create_only"
+        },
+        {
+          "pattern": "vault:.raw/**",
+          "access": "create_only"
+        }
+      ],
+      "needs": {
+        "shell": true,
+        "network": true
+      },
+      "transaction_type": "capture",
+      "confirmation": {
+        "mutation": "operation_scope",
+        "network_egress": "explicit",
+        "destructive": "forbidden"
+      },
+      "configuration": {
+        "path_requirements": [],
+        "external_commands": [
+          "uvx"
+        ]
+      },
+      "verification_command": [],
+      "verification_reason": "the external YouTube transcript adapter has no bundled behavioral verifier"
     }
   ]
 }

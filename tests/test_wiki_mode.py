@@ -22,11 +22,20 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 HELPER = ROOT / "scripts" / "wiki-mode.py"
+_PREVIOUS_VAULT = os.environ.get("CLAUDE_OBSIDIAN_VAULT")
 os.environ["CLAUDE_OBSIDIAN_VAULT"] = str(ROOT)
 
 spec = importlib.util.spec_from_file_location("wiki_mode", HELPER)
 wm = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(wm)
+
+# The pin exists only so the helper resolves a vault while it imports.  Leaving
+# it set leaks into every later test in the same process (pytest imports all
+# modules up front), which pins unrelated subprocesses to this repository.
+if _PREVIOUS_VAULT is None:
+    os.environ.pop("CLAUDE_OBSIDIAN_VAULT", None)
+else:
+    os.environ["CLAUDE_OBSIDIAN_VAULT"] = _PREVIOUS_VAULT
 
 
 class Fail(SystemExit):

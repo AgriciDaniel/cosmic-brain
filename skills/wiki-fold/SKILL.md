@@ -19,7 +19,10 @@ CORE="$PRODUCT_ROOT/scripts/claude-obsidian.py"
 test -f "$CORE"
 ```
 
-This skill needs no network egress. Do not call external services.
+This skill sends nothing to a remote service. The optional synthesis pass in
+`scripts/fold-extract.py` talks to a local Ollama endpoint and refuses a
+non-localhost `OLLAMA_URL` without `--allow-remote-ollama`; ask before enabling
+it, because log bodies would then leave the machine.
 
 ## Select a bounded range
 
@@ -39,6 +42,28 @@ fold-k{K}-from-{EARLIEST-DATE}-to-{LATEST-DATE}-n{COUNT}
 
 If `wiki/folds/{FOLD_ID}.md` already exists, return a no-op. Replacing it requires
 an explicit force request and a separately reviewed `replace` proposal.
+
+## Parse deterministically
+
+`scripts/fold-extract.py` reads `wiki/log.md` through the selected vault and
+returns the fold id, the entry range, and one child record per entry as JSON. It
+writes nothing.
+
+```bash
+python3 "$PRODUCT_ROOT/scripts/fold-extract.py" --vault /path/to/vault --k 4 --no-model
+```
+
+Use its output for the child list and the Child Entries table: those columns are
+derived by code from the entries themselves, so they cannot drift from the log.
+An entry is one `- **op** | title` bullet with its indented body, not a date
+heading — a single day usually holds several. Exit 5 means the log holds fewer
+than `2^k` entries; report the shortfall instead of folding a partial batch.
+
+Dropping `--no-model` adds one local-model pass that drafts only Key Outcomes and
+Cross-entry Themes, then gates every identifier, quoted span, and (under
+`--strict`) every bare number against the source entries. Exit 4 means the model
+asserted something absent from the log; discard that draft rather than repairing
+it by hand.
 
 ## Draft extractively
 

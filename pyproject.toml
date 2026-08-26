@@ -1,0 +1,22 @@
+[project]
+name = "claude-obsidian"
+version = "2.1.0"
+description = "Claude + Obsidian vault tooling: recoverable operation transactions, provenance ledgers, deterministic lint, hybrid retrieval, transport detection."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+claude-obsidian = "claude_obsidian.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["claude_obsidian"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
