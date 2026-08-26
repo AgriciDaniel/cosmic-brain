@@ -75,6 +75,7 @@ Exit codes:
 
 import argparse
 import hashlib
+import http.client
 import json
 import os
 import re
@@ -119,6 +120,7 @@ CONTEXT_PREFIX_MAX_CHARS = 1000
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 ANTHROPIC_TIMEOUT_SEC = 30
+ANTHROPIC_RESPONSE_MAX_BYTES = 256 * 1024
 CLAUDE_CLI_TIMEOUT_SEC = 60
 
 # Anthropic prompt caching ignores any cached prefix below the model's minimum
@@ -593,21 +595,50 @@ def anthropic_api_prefix(api_key, page_title, page_body, chunk_text):
     try:
         # The request target is the module-level fixed HTTPS Anthropic API URL.
         with urllib.request.urlopen(req, timeout=ANTHROPIC_TIMEOUT_SEC) as resp:  # nosec B310
-            data = json.loads(resp.read().decode("utf-8"))
+            raw = resp.read(ANTHROPIC_RESPONSE_MAX_BYTES + 1)
+            if len(raw) > ANTHROPIC_RESPONSE_MAX_BYTES:
+                log("  anthropic-api response exceeded the safe byte limit")
+                return None
+            data = json.loads(raw.decode("utf-8"))
+            if not isinstance(data, dict):
+                log("  anthropic-api response has an invalid object shape")
+                return None
             # Local cache statistics: integer token counts only, never page content, so
             # the data-egress posture holds. Confirms whether the body cache is
             # actually firing given the Haiku floor (wrote>0 on chunk 0, read>0
             # on later chunks of the same page).
             usage = data.get("usage", {})
+            if not isinstance(usage, dict):
+                usage = {}
             log(
                 f"  cache: wrote={usage.get('cache_creation_input_tokens', 0)} "
                 f"read={usage.get('cache_read_input_tokens', 0)} tok"
             )
-            for block in data.get("content", []):
+            content = data.get("content", [])
+            if not isinstance(content, list):
+                log("  anthropic-api response has an invalid content shape")
+                return None
+            for block in content:
+                if not isinstance(block, dict):
+                    log("  anthropic-api response has an invalid content block")
+                    return None
                 if block.get("type") == "text":
-                    return block["text"].strip().splitlines()[0]
-    except (urllib.error.URLError, json.JSONDecodeError, KeyError) as e:
-        log(f"  anthropic-api call failed: {e}")
+                    text = block.get("text")
+                    if not isinstance(text, str):
+                        log("  anthropic-api response has invalid text content")
+                        return None
+                    lines = text.strip().splitlines()
+                    return lines[0] if lines else None
+    except (
+        http.client.HTTPException,
+        OSError,
+        RecursionError,
+        urllib.error.URLError,
+        UnicodeDecodeError,
+        ValueError,
+        KeyError,
+    ):
+        log("  anthropic-api call failed safely")
         return None
     return None
 

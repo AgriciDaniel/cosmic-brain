@@ -7,6 +7,20 @@ implementation record for older releases.
 
 ## [Unreleased]
 
+### Fixed
+
+- `stop_status` now reads transaction journals up to the package's existing
+  8 MiB runtime JSON bound, so large valid journals are not misreported as
+  unreadable. Unsafe or unreadable journals now require manual inspection, and
+  recovery advice is scoped to journals with a recognized recoverable state.
+- `checkpoint` now honors Git's false values for `core.filemode`. Git ignores
+  working-tree executable-bit differences in that mode, so checkpoint keeps
+  strict content verification while skipping executable-mode comparison.
+- Anthropic contextual-prefix responses now have a 256 KiB read cap in addition
+  to the existing timeout, preventing an oversized response from consuming
+  unbounded memory. Response-body read failures, invalid UTF-8, excessive JSON
+  nesting, and malformed response shapes fail closed.
+
 ## [2.1.1] - 2026-08-26
 
 Legacy migration safety and clearer Windows and WSL support guidance.

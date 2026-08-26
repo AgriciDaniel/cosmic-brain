@@ -251,6 +251,7 @@ def test_stop_status_is_bounded_and_emitted_as_supported_json() -> None:
         status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
         assert 0 < len(status.encode("utf-8")) <= MAX_STATUS_BYTES
         assert "20 transaction journal(s) need recovery (applying=20)" in status
+        assert "transaction recover" in status
         assert "operation-000" not in status
         stream = io.StringIO()
         emit_stop_status(
@@ -258,6 +259,173 @@ def test_stop_status_is_bounded_and_emitted_as_supported_json() -> None:
         )
         payload = json.loads(stream.getvalue())
         assert payload == {"systemMessage": status}
+
+
+def test_stop_status_reads_journals_at_transaction_bound() -> None:
+    for state in ("complete", "applying"):
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            vault = make_vault(base / "vault", "safe\n")
+            transactions = vault / ".vault-meta/transactions"
+            directory = transactions / "operation-000"
+            directory.mkdir(parents=True)
+            prefix = json.dumps({"state": state}).encode("utf-8")
+            (directory / "journal.json").write_bytes(
+                prefix
+                + b" "
+                * (hook_adapter.MAX_TRANSACTION_RUNTIME_JSON_BYTES - len(prefix))
+            )
+
+            status = stop_status(
+                start=vault, environ={}, plugin_root=base / "plugin"
+            )
+
+            if state == "complete":
+                assert status == ""
+            else:
+                assert "1 transaction journal(s) need recovery" in status
+                assert "transaction recover" in status
+
+
+def test_stop_status_rejects_journals_above_transaction_bound() -> None:
+    for state in ("complete", "applying"):
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            vault = make_vault(base / "vault", "safe\n")
+            transactions = vault / ".vault-meta/transactions"
+            directory = transactions / "operation-000"
+            directory.mkdir(parents=True)
+            prefix = json.dumps({"state": state}).encode("utf-8")
+            (directory / "journal.json").write_bytes(
+                prefix
+                + b" "
+                * (hook_adapter.MAX_TRANSACTION_RUNTIME_JSON_BYTES + 1 - len(prefix))
+            )
+
+            status = stop_status(
+                start=vault, environ={}, plugin_root=base / "plugin"
+            )
+
+            assert "1 unsafe or unreadable transaction journal(s) detected" in status
+            assert "transaction recover" not in status
+
+
+def test_stop_status_unreadable_journal_warning_does_not_recommend_recover() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        transactions = vault / ".vault-meta/transactions"
+        directory = transactions / "operation-000"
+        directory.mkdir(parents=True)
+        (directory / "journal.json").write_text("not json", encoding="utf-8")
+
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "transaction recover" not in status
+
+
+def test_stop_status_non_object_journal_requires_manual_inspection() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        journal = vault / ".vault-meta/transactions/operation-000/journal.json"
+        journal.parent.mkdir(parents=True)
+        journal.write_text("[]", encoding="utf-8")
+
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "inspect manually" in status
+        assert "transaction recover" not in status
+
+
+def test_stop_status_journal_recursion_failure_requires_manual_inspection() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        journal = vault / ".vault-meta/transactions/operation-000/journal.json"
+        journal.parent.mkdir(parents=True)
+        journal.write_text("{}", encoding="utf-8")
+        original_loader = hook_adapter.strict_json_loads
+
+        def recursive_loader(_payload):
+            raise RecursionError
+
+        hook_adapter.strict_json_loads = recursive_loader
+        try:
+            status = stop_status(
+                start=vault, environ={}, plugin_root=base / "plugin"
+            )
+        finally:
+            hook_adapter.strict_json_loads = original_loader
+
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "inspect manually" in status
+        assert "transaction recover" not in status
+
+
+def test_stop_status_actual_read_failure_requires_manual_inspection() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        journal = vault / ".vault-meta/transactions/operation-000/journal.json"
+        journal.mkdir(parents=True)
+
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "inspect manually" in status
+        assert "transaction recover" not in status
+
+
+def test_stop_status_regular_journal_read_failure_requires_manual_inspection() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        journal = vault / ".vault-meta/transactions/operation-000/journal.json"
+        journal.parent.mkdir(parents=True)
+        journal.write_text(json.dumps({"state": "complete"}), encoding="utf-8")
+        original_reader = hook_adapter._bounded_regular_bytes
+
+        def failing_reader(root, path, limit):
+            if path == journal:
+                return None
+            return original_reader(root, path, limit)
+
+        hook_adapter._bounded_regular_bytes = failing_reader
+        try:
+            status = stop_status(
+                start=vault, environ={}, plugin_root=base / "plugin"
+            )
+        finally:
+            hook_adapter._bounded_regular_bytes = original_reader
+
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "inspect manually" in status
+        assert "transaction recover" not in status
+
+
+def test_stop_status_scopes_recovery_advice_for_mixed_journals() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        vault = make_vault(base / "vault", "safe\n")
+        transactions = vault / ".vault-meta/transactions"
+        applying = transactions / "operation-applying"
+        malformed = transactions / "operation-malformed"
+        applying.mkdir(parents=True)
+        malformed.mkdir(parents=True)
+        (applying / "journal.json").write_text(
+            json.dumps({"state": "applying"}), encoding="utf-8"
+        )
+        (malformed / "journal.json").write_text("not json", encoding="utf-8")
+
+        status = stop_status(start=vault, environ={}, plugin_root=base / "plugin")
+
+        assert "1 transaction journal(s) need recovery" in status
+        assert "1 unsafe or unreadable transaction journal(s) detected" in status
+        assert "for the recognized recoverable journals" in status
+        assert "inspect manually" in status
 
 
 def main() -> None:
@@ -269,6 +437,14 @@ def main() -> None:
     test_context_rejects_symlinked_hot_cache_and_parent()
     test_context_parent_swap_reads_only_from_pinned_directory()
     test_stop_status_is_bounded_and_emitted_as_supported_json()
+    test_stop_status_reads_journals_at_transaction_bound()
+    test_stop_status_rejects_journals_above_transaction_bound()
+    test_stop_status_unreadable_journal_warning_does_not_recommend_recover()
+    test_stop_status_non_object_journal_requires_manual_inspection()
+    test_stop_status_journal_recursion_failure_requires_manual_inspection()
+    test_stop_status_actual_read_failure_requires_manual_inspection()
+    test_stop_status_regular_journal_read_failure_requires_manual_inspection()
+    test_stop_status_scopes_recovery_advice_for_mixed_journals()
     print("All hook tests passed.")
 
 
