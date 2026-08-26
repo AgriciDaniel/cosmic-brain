@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 720" width="100%">
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        
+        <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        
+        <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+
+        <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" rx="10" fill="url(#bgGrad)" />
+
+    <!-- Subgraphs -->
+    <rect x="100" y="210" width="500" height="170" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="115" y="230" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">SchedulingInterceptor</text>
+
+    <rect x="100" y="430" width="500" height="240" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="115" y="450" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">LoggingInterceptor</text>
+
+    <rect x="700" y="500" width="280" height="100" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="715" y="520" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Target Service</text>
+
+    <!-- Edges -->
+    <path d="M 350 80 L 350 112" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 350 160 L 350 242" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 350 290 L 350 312" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 350 360 L 350 462" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 350 510 L 350 532" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 350 580 L 350 602" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 580 560 L 702 560" fill="none" stroke="#8b90a8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+    <!-- Edge Labels -->
+    <text x="360" y="415" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">NextInterceptor</text>
+    <text x="645" y="550" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">InvokeIntercepted()</text>
+
+    <!-- Nodes -->
+    <!-- Client (State/Object) -->
+    <rect x="290" y="40" width="120" height="40" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="350" y="60" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Client</text>
+
+    <!-- Proxy (State/Object) -->
+    <rect x="290" y="120" width="120" height="40" rx="8" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="350" y="140" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Proxy</text>
+
+    <!-- S1 (Action/Process) -->
+    <rect x="120" y="250" width="460" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="270" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">TaskFactoryResolver -&gt; schedule on specific TaskFactory</text>
+
+    <!-- S2 (Action/Process) -->
+    <rect x="120" y="320" width="460" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="340" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">NextInterceptor -&gt; chain to another interceptor</text>
+
+    <!-- L1 (Action/Process) -->
+    <rect x="120" y="470" width="460" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="490" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Log method entry</text>
+
+    <!-- L2 (Action/Process) -->
+    <rect x="120" y="540" width="460" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="560" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Invoke intercepted method</text>
+
+    <!-- L3 (Action/Process) -->
+    <rect x="120" y="610" width="460" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="350" y="630" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Log method exit or error</text>
+
+    <!-- T1 (Action/Process) -->
+    <rect x="710" y="540" width="260" height="40" rx="14" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" />
+    <text x="840" y="560" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Real implementation executes</text>
+</svg>

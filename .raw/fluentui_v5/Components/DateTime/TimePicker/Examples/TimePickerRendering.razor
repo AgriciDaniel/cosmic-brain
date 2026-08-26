@@ -1,0 +1,12 @@
+﻿﻿<div>
+    <b>Selected Time:</b> @(SelectedValue?.ToString("yyyy-MM-dd HH:mm"))
+</div>
+
+<FluentTimePicker Label="Meeting time"
+                  RenderStyle="DatePickerRenderStyle.Native"
+                  @bind-Value="@SelectedValue" />
+
+@code
+{
+    DateTime? SelectedValue; // = DateTime.Today.AddHours(14);
+}

@@ -1,0 +1,29 @@
+<FluentStack HorizontalGap="24px"
+             VerticalAlignment="VerticalAlignment.Center"
+             Wrap="true">
+
+    <FluentSelect Label="View"
+                  Items="@(Enum.GetValues<ColorPickerView>())"
+                  @bind-Value="SelectedView" />
+
+    <FluentSwitch Label="Hide Text Input"
+                  LabelPosition="@LabelPosition.Above"
+                  @bind-Value="HideTextInput" />
+</FluentStack>
+
+<FluentColorPickerInput @bind-Value="SelectedColor"
+                        Label="Color"
+                        Placeholder="#000000"
+                        View="@SelectedView"
+                        HideTextInput="@HideTextInput" />
+
+<div>
+    <FluentText>Selected Color: @SelectedColor</FluentText>
+</div>
+
+@code
+{
+    string? SelectedColor = "#FF0000";
+    ColorPickerView SelectedView = ColorPickerView.SwatchPalette;
+    bool HideTextInput = false;
+}

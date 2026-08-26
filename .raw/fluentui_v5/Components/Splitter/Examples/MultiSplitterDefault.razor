@@ -1,0 +1,40 @@
+﻿<FluentMultiSplitter OnResize="@OnResizeHandler" Height="150px" Style="border: var(--strokeWidthThin) solid var(--colorNeutralStroke1);">
+
+    <FluentMultiSplitterPane Size="20%" Min="50px" Max="70%">
+        Left Menu
+    </FluentMultiSplitterPane>
+
+    <FluentMultiSplitterPane Size="50%">
+        <FluentMultiSplitter OnResize="@OnResizeHandler"
+                             OnExpand="@OnCollapseExpand"
+                             OnCollapse="@OnCollapseExpand"
+                             Orientation="Orientation.Vertical">
+            <FluentMultiSplitterPane Collapsible="true">
+                Main Content
+            </FluentMultiSplitterPane>
+            <FluentMultiSplitterPane Collapsible="true">
+                Console log
+            </FluentMultiSplitterPane>
+        </FluentMultiSplitter>
+    </FluentMultiSplitterPane>
+
+    <FluentMultiSplitterPane Size="30%">
+        Properties
+    </FluentMultiSplitterPane>
+
+</FluentMultiSplitter>
+
+@code
+{
+    void OnResizeHandler(FluentMultiSplitterResizeEventArgs e)
+    {
+        Console.WriteLine($"Pane {e.PaneIndex} Resize (New size {e.NewSize:0}%)");
+    }
+
+    void OnCollapseExpand(FluentMultiSplitterEventArgs e)
+    {
+        bool willCollapse = !e.Pane.Collapsed;
+        Console.WriteLine($"Pane {e.PaneIndex} {(willCollapse ? "collapsed" : "expanded")}");
+    }
+
+}

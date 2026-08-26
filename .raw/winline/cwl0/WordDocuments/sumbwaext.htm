@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SUMBWAEXT</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707726></A>SUMBWAEXT</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion kann die BWA-Summe eines BWA-Bereichs 
+(BWA-Kennzahl von / bis; inklusive BWA-Nummer) ermittelt und ausgegeben 
+werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Grundlage der Berechnung bilden die Summenspeicher der 
+BWAs. Diese können durch Anwahl des Buttons "Gruppensummen aktualisieren" 
+jederzeit aktualisiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=SUMBWAEXT (BWA-Kennzahl von, BWA-Kennzahl bis, Zeitraum, 
+Wirtschaftsjahr, BWA-Nummer [optional])</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BWA-Kennzahl 
+von (Kennzahl in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende von 
+BWA-Kennzahl</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BWA- Kennzahl 
+bis (Kennzahl in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende bis 
+BWA-Kennzahl</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeitraum (14 
+/ 15 / 99 / 0 bis 13)</P>
+<P class=MsoNormal>Hinterlegung des auszuwertenden Zeitraums:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>14</B> - aktuelle Periode (lt. 
+Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>15</B> - kumuliert bis aktuelle 
+Periode (lt. Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>99</B> - Wirtschaftsjahr 
+kumuliert</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> bis <B>13</B> - gewählte 
+Periode</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Wirtschaftsjahr (0 / 1 / 2 / …)</P>
+<P class=MsoNormal>Angabe des Wirtschaftsjahres:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - aktuelles 
+Wirtschaftsjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - erste Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - zweite Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>...</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BWA-Nummer (1 
+/ 2 / 3) [optional]</P>
+<P class=MsoNormal>Optionale Angabe der BWA-Nummer:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - BWA 1 (Standard)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - BWA 2</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - BWA 3</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SUMBWAEXT ("<U>100</U>", 
+"<U>120</U>", <U>99</U> ,<U>0</U> , <U>1</U>)<BR>Diese Funktion berechnet die 
+BWA-Summe für den BWA-Bereich "<B>100</B>" bis "<B>120</B>" der BWA-Nummer 
+<B>1</B> für das gesamte (<B>99</B>) aktuelle (<B>0</B>) Wirtschaftsjahr.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SUMBWAEXT (<U>A9</U>, <U>B7</U>, 
+<U>6</U>, <U>2</U>)<BR>Diese Funktion berechnet die BWA-Summe für einen 
+variablen BWA-Bereich (von BWA in Zelle <B>A9</B>, bis BWA in Zelle <B>B7</B>) 
+der BWA-Gruppe <B>1</B> (Gruppe nicht angegeben, daher automatisch <B>1</B>) für 
+Periode <B>6</B> aus dem zweiten Vorjahr (<B>2</B>).</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

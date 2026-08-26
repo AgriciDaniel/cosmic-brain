@@ -1,0 +1,8 @@
+stateDiagram
+  Dereferenced: Dereferenced & Collected by GC
+  Computing --> Consistent
+  Computing --> Invalidated
+	Consistent --> Invalidated
+  Consistent --> Dereferenced
+  Invalidated --> Dereferenced
+					

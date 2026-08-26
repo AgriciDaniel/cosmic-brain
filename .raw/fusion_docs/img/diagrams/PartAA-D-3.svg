@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 940" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <linearGradient id="decision-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f0e8fc" />
+            <stop offset="100%" stop-color="#ddd0f0" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges / Arrows -->
+    <path d="M400,80 L400,118" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <path d="M400,160 L400,198" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <path d="M400,240 L400,278" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    
+    <!-- Exists -> Create (No) -->
+    <path d="M310,320 C250,320 250,360 250,398" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <text x="270" y="315" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">No</text>
+    
+    <!-- Exists -> CheckForced (Yes) -->
+    <path d="M490,320 C550,320 550,350 550,378" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <text x="520" y="315" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">Yes</text>
+    
+    <!-- CheckForced -> Create (Yes) -->
+    <path d="M430,420 L342,420" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <text x="390" y="414" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">Yes</text>
+    
+    <!-- CheckForced -> Use (No) -->
+    <path d="M550,460 L550,518" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <text x="560" y="495" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">No</text>
+    
+    <!-- Create -> Tags -->
+    <path d="M250,440 C250,530 300,530 300,618" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    
+    <!-- Use -> Tags -->
+    <path d="M550,560 C550,590 500,590 500,618" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    
+    <path d="M400,660 L400,698" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <path d="M400,740 L400,778" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+    <path d="M400,820 L400,858" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+
+    <!-- Nodes -->
+    
+    <!-- Req (State) -->
+    <rect x="330" y="40" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="400" y="65" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">HTTP Request</text>
+
+    <!-- MW (State) -->
+    <rect x="310" y="120" width="180" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="400" y="145" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">SessionMiddleware</text>
+
+    <!-- Read (Action) -->
+    <rect x="300" y="200" width="200" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="400" y="225" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">1. Read session cookie</text>
+
+    <!-- Exists (Decision) -->
+    <polygon points="400,280 490,320 400,360 310,320" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="400" y="325" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">2. Cookie exists?</text>
+
+    <!-- Create (Action) -->
+    <rect x="160" y="400" width="180" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="250" y="425" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Create new session</text>
+
+    <!-- CheckForced (Decision) -->
+    <polygon points="550,380 670,420 550,460 430,420" fill="url(#decision-grad)" stroke="#baa8d4" stroke-width="1.5" />
+    <text x="550" y="425" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Check IsSignOutForced</text>
+
+    <!-- Use (Action) -->
+    <rect x="460" y="520" width="180" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="550" y="545" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Use existing session</text>
+
+    <!-- Tags (Action) -->
+    <rect x="230" y="620" width="340" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="400" y="645" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">3. Apply tags (if TagProvider configured)</text>
+
+    <!-- Update (Action) -->
+    <rect x="210" y="700" width="380" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="400" y="725" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">4. Update cookie (if AlwaysUpdateCookie = true)</text>
+
+    <!-- Set (Action) -->
+    <rect x="270" y="780" width="260" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="400" y="805" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">5. Set SessionResolver.Session</text>
+
+    <!-- Next (State) -->
+    <rect x="320" y="860" width="160" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="400" y="885" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Next Middleware</text>
+
+</svg>

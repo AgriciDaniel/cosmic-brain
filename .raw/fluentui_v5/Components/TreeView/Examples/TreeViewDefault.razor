@@ -1,0 +1,22 @@
+﻿<p>Current selected tree item is <b>@SelectedId - @SelectedItem?.Text</b></p>
+<p>Most recently expanded/collapsed tree item is <b>@ExpandedItem?.Text</b></p>
+
+<FluentTreeView @bind-SelectedId="@SelectedId"
+                @bind-CurrentSelected="SelectedItem"
+                OnExpandedChanged="@(item => ExpandedItem = item)">
+    <FluentTreeItem Id="Item1" Text="Root item 1">
+        <FluentTreeItem Id="Item11" Text="Flowers" IconStart="@(new Icons.Regular.Size16.LeafOne())">
+            <FluentTreeItem Id="Item111" Text="Daisy" />
+            <FluentTreeItem Id="Item112" Text="Sunflower" />
+            <FluentTreeItem Id="Item113" Text="Rose" />
+        </FluentTreeItem>
+        <FluentTreeItem Id="Item12" Text="Nested item 2" />
+        <FluentTreeItem Id="Item13" Text="Nested item 3" />
+    </FluentTreeItem>
+</FluentTreeView>
+
+@code {
+    string? SelectedId;
+    FluentTreeItem? SelectedItem;
+    FluentTreeItem? ExpandedItem;
+}

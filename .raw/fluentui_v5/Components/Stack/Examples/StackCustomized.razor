@@ -1,0 +1,53 @@
+﻿@namespace FluentUI.Demo.Shared
+
+<p>Alignment of the Stack content elements:</p>
+<FluentStack HorizontalGap="12px" Wrap="true">
+    <FluentSelect Label="Horizontal"
+                  Items="@(Enum.GetValues<HorizontalAlignment>())"
+                  @bind-Value="@Horizontal" />
+    <FluentSelect Label="Vertical"
+                  Items="@(Enum.GetValues<VerticalAlignment>())"
+                  @bind-Value="@Vertical" />
+    <FluentSwitch Label="Reversed"
+                  LabelPosition="LabelPosition.Above"
+                  @bind-Value="@Reversed" />
+</FluentStack>
+
+<p>Result:</p>
+<FluentStack Orientation="Orientation.Vertical"
+             HorizontalAlignment="@Horizontal"
+             VerticalAlignment="@Vertical"
+             VerticalGap="20"
+             Reversed="@Reversed"
+             Style="height: 200px"
+             Class="container">
+    <div class="box">Vertical item 1</div>
+    <div class="box">Vertical item 2</div>
+    <FluentStack Orientation="Orientation.Horizontal"
+                 HorizontalAlignment="@Horizontal"
+                 VerticalAlignment="@Vertical"
+                 HorizontalGap="4"
+                 Reversed="@Reversed"
+                 Class="container">
+        <div class="box" style="width: 150px">Horizontal <br />item 1</div>
+        <div class="box">Horizontal item 2</div>
+    </FluentStack>
+</FluentStack>
+
+@code
+{
+    HorizontalAlignment Horizontal;
+    VerticalAlignment Vertical;
+    bool Reversed;
+}
+
+<style>
+    .container {
+        border: 1px dotted var(--colorBrandForeground1)
+    }
+
+    .box {
+        border: 1px dashed var(--colorBrandForeground1);
+        padding: 5px;
+    }
+</style>

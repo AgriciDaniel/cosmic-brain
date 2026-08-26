@@ -1,0 +1,31 @@
+﻿@using FluentUI.Demo.SampleData
+@using static FluentUI.Demo.SampleData.People
+
+<FluentStack Orientation="Orientation.Vertical" VerticalGap="15">
+	<FluentStack HorizontalGap="5">
+		<FluentButton Appearance="ButtonAppearance.Primary" IconStart="@(ceoItem?.IsCollapsed == true ? new Icons.Regular.Size16.Add() : new Icons.Regular.Size16.Subtract())"
+					  OnClick="@ToggleCEO">
+			@(ceoItem?.IsCollapsed == true ? "Expand" : "Collapse") CEO
+		</FluentButton>
+		<FluentButton Appearance="ButtonAppearance.Default" IconStart="@(new Icons.Regular.Size16.Add())" OnClick="@ExpandAllAsync">
+			Expand all rows
+		</FluentButton>
+		<FluentButton Appearance="ButtonAppearance.Default" IconStart="@(new Icons.Regular.Size16.Subtract())" OnClick="@CollapseAllAsync">
+			Collapse all rows
+		</FluentButton>
+	</FluentStack>
+
+
+	<FluentDataGrid @ref="Grid"
+					Items="@items.Where(i => !i.IsHidden).AsQueryable()"
+					ResizableColumns="true"
+					OnExpandAll="OnExpandAllHandler"
+					OnCollapseAll="OnCollapseAllHandler">
+		<TemplateColumn Title="Name" HierarchicalToggle="true">
+			@(context.Item.FirstName + " " + context.Item.LastName)
+		</TemplateColumn>
+		<PropertyColumn Title="Job Title" Property="@(i => i.Item.JobTitle)" />
+		<PropertyColumn Title="Department" Property="@(i => i.Item.Department)" />
+		<PropertyColumn Title="Location" Property="@(i => i.Item.Location)" />
+	</FluentDataGrid>
+</FluentStack>

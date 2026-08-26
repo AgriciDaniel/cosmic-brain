@@ -1,0 +1,41 @@
+﻿<FluentDataGrid Items="@_gridData" ResizableColumns=true GridTemplateColumns="0.5fr 0.5fr">
+    <PropertyColumn Sortable="true" Property="x => x.Number" Title="Rank" />
+
+    <TemplateColumn Sortable="true" SortBy="groupRank" Title="Group">
+        @context.Group
+    </TemplateColumn>
+
+</FluentDataGrid>
+
+<p>Keep numbers always sorted ascending inside the group when sorting by group</p>
+<FluentDataGrid Items="@_gridData" ResizableColumns=true GridTemplateColumns="0.5fr 0.5fr">
+
+    <PropertyColumn Sortable="true" Property="x => x.Number" Title="Rank" />
+    <PropertyColumn Property="x => x.Group" SortBy="groupRankNumberAlwaysAscending" Title="Group" />
+
+</FluentDataGrid>
+
+
+
+@code {
+    GridSort<GridRow> groupRank = GridSort<GridRow>
+            .ByAscending(x => x.Group)
+            .ThenAscending(x => x.Number);
+
+    GridSort<GridRow> groupRankNumberAlwaysAscending = GridSort<GridRow>
+        .ByAscending(x => x.Group)
+        .ThenAlwaysAscending(x => x.Number);
+
+    private static readonly IQueryable<GridRow> _gridData = new GridRow[] {
+        new(2, "B"),
+        new(1, "A"),
+        new(4, "B"),
+        new(3, "A")
+    }.AsQueryable();
+
+    public class GridRow(int number, string group)
+    {
+        public int Number { get; } = number;
+        public string Group { get; } = group;
+    }
+}

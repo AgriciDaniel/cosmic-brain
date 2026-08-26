@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 660" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Edges -->
+    <path d="M 300 80 C 300 110, 300 110, 300 134" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 300 180 C 300 210, 300 210, 300 234" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 300 320 C 300 350, 300 350, 300 374" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 300 460 C 300 490, 300 490, 300 514" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Nodes -->
+    
+    <!-- Command Execution (Action Node) -->
+    <rect x="210" y="40" width="180" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="65" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Command Execution</text>
+
+    <!-- Operation Scope (State Node) -->
+    <rect x="210" y="140" width="180" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="300" y="165" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Operation Scope</text>
+
+    <!-- OperationCompletionNotifier (State Node) -->
+    <rect x="170" y="240" width="260" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="300" y="265" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">OperationCompletionNotifier</text>
+    <text x="300" y="285" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">• Deduplication</text>
+    <text x="300" y="300" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">• Listener invocation</text>
+
+    <!-- CompletionProducer (State Node) -->
+    <rect x="170" y="380" width="260" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="300" y="405" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">CompletionProducer</text>
+    <text x="300" y="425" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Creates Completion&lt;T&gt;</text>
+    <text x="300" y="440" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">command</text>
+
+    <!-- InvalidatingCommandCompletionHandler (State Node) -->
+    <rect x="140" y="520" width="320" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="300" y="545" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">InvalidatingCommandCompletionHandler</text>
+    <text x="300" y="565" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Runs invalidation mode</text>
+
+</svg>

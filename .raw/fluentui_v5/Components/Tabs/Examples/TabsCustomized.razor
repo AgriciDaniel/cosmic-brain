@@ -1,0 +1,31 @@
+﻿<FluentTabs @bind-ActiveTab="@ActiveTab" Height="100px" Width="400px" Style="border: 1px dashed var(--colorNeutralStroke1);">
+    <FluentTab>
+        <HeaderTemplate>
+            Chat
+        </HeaderTemplate>
+        <ChildContent>
+            Here's some information about the chat.
+        </ChildContent>            
+    </FluentTab>
+
+    <FluentTab>
+        <HeaderTemplate>
+            <FluentCounterBadge Count="@((ushort)NumberOfFiles)" OverflowCount="9">
+                Files
+            </FluentCounterBadge>
+        </HeaderTemplate>
+        <ChildContent>
+            Here's the list of all files.
+        </ChildContent>                    
+    </FluentTab>
+</FluentTabs>
+
+<p>
+    ActiveTab: <b>@(ActiveTab?.HeaderTemplate)</b>
+</p>
+
+@code
+{
+    FluentTab? ActiveTab;
+    int NumberOfFiles = Random.Shared.Next(1, 20);
+}

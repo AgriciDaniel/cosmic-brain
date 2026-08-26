@@ -1,0 +1,599 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Buchen (Splitbuchungen)</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="buchungsstorno.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="buchungenfestschreiben.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Buchen (Splitbuchungen)</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc207273699>Buchen 
+(Splitbuchungen)</A></H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Im Menüpunkt </SPAN></P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Buchen</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Buchen</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Splitbuchung</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">oder 
+Schnellaufruf</SPAN></P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">STRG + 8</SPAN></P>
+<P class=MsoNormal>besteht die Möglichkeit, im Sachkontenbereich Soll- UND 
+Habenbuchungen in EINER Splitbuchung einzugeben. Ein typisches Buchungsbeispiel 
+dafür wäre z.B. die Kontierung der Lohnbuchungen am Monatsende.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In diesem Programmpunkt werden einfach untereinander - in der 
+entsprechenden Soll- oder Habenspalte - die Sachkonten eingegeben, die einander 
+im Split gegenüberstehen sollen. Das Programm setzt die Aufteilung so lange 
+fort, bis die Summe Soll und die Summe Haben gemeinsam wieder den Saldo NULL 
+ergeben. Erst dann kann die Buchung abgesetzt werden.</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Achtung</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">In diesem Programmteil 
+kann keine OP-Verwaltung (außer für Sachkonten) durchgeführt werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_195.png"><SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Das Fenster gliedert 
+sich in 3 Teile:</SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; 
+</SPAN>Grundsätzlicher Informationsteil<SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; 
+</SPAN>Buchungsteil<SPAN style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; </SPAN><SPAN 
+style="LAYOUT-GRID-MODE: line">Kostenrechnungsinformationsteil</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Grundsätzlicher 
+Informationsteil</SPAN></P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Datum/Periode</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Zuerst muss das 
+Buchungsdatum eingegeben werden. Aufgrund des Buchungsdatums wird auch die 
+Buchungsperiode vorgeschlagen, die ggf. manuell überschrieben werden 
+kann.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Buchungsart</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Die Buchungsart ist mit 
+der Standard-Buchungsart (z.B. B) vorbelegt. Es können allerdings a</SPAN><SPAN 
+style="COLOR: black">uch individuelle Buchungsarten verwendet werden. Abhängig 
+von der Periode werden alle angelegten individuellen Buchungsarten mit dem 
+Standard-Buchungsschlüssel B, EB oder AB angezeigt. Auch eine evtl. hinterlegte 
+Nummernkreis aus der Buchungsart wird unterstützt (Mikrostapel-Einstellungen aus 
+der Buchungsart allerdings nicht). </SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">In der Auswahllistbox 
+werden demnach alle Buchungsarten angezeigt, die</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; </SPAN><SPAN 
+style="LAYOUT-GRID-MODE: line">abhängig von der Periode den "richtigen" 
+Buchungsschlüssel haben (0 - EB, 13 - AB, alle anderen - B),</SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; </SPAN><SPAN 
+style="LAYOUT-GRID-MODE: line">kein Mikrostapel sind</SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; </SPAN><SPAN 
+style="LAYOUT-GRID-MODE: line">das Flag "keine Steuer" nicht gesetzt haben 
+und</SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line">ü&nbsp; </SPAN><SPAN 
+style="LAYOUT-GRID-MODE: line">für die der Benutzer die entsprechende 
+Berechtigung hat.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Beleg Nr.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Eingabe der Belegnummer. 
+Die Belegnummer wird automatisch auf alle Splitbuchungszeilen 
+dupliziert.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Batchnr.</P>
+<P class=MsoNormal>In diesem Feld kann eine sogenannte Batchnummer hinterlegt 
+werden, die auch in allen anderen Buchungsprogrammen zur Verfügung steht. 
+Dadurch können Buchungen zu einem "Belegkreis" zusammengefasst werden. Wurde 
+einmal eine Batchnummer eingetragen und damit Buchungen durchgeführt, wird diese 
+Batchnummer benutzerspezifisch und buchungsprogrammunabhängig gespeichert. Ruft 
+also der gleiche Benutzer wieder ein Buchungsprogramm auf, wird die zuletzt 
+hinterlegte Batchnummer vorgeschlagen. Die Batchnummer kann durch Drücken der + 
+- Taste jeweils um 1 hochgezählt werden. In den FIBU-Parametern (WinLine START, 
+Menüpunkt Optionen/FIBU-Parameter) kann gesteuert werden, dass diese Batchnummer 
+automatisch hochgezählt wird.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Erfassungsdatum</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Hier wird das 
+Einstiegsdatum vorgeschlagen. Damit könnten Sie nachvollziehen WANN eine 
+Journalzeile tatsächlich erfasst worden ist. Für die Nachvollziehbarkeit der 
+Erfassungsreihenfolge ist natürlich die vom System automatisch und 
+unbeeinflussbar vergebene Prima Nota Nummer relevant. </SPAN>In WinLine START / 
+Parameter / Applikationsparameter / FIBU-Parameter / Buchen kann für das 
+Erfassungsdatum eingestellt werden, ob das Erfassungsdatum pro Stapel 
+editierbar, pro Buchung editierbar oder nicht editierbar sein soll.<SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Nach Bestätigung des 
+Erfassungsdatums mit der Enter-Taste gelangt man in den Buchungsteil. Hier 
+können folgende Informationen eingegeben werden:</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Soll</SPAN></P>
+<P class=MsoNormal>Eingabe des Soll-Kontos. Durch Drücken der F9-Taste kann nach 
+allen angelegten Konten gesucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Haben</P>
+<P class=MsoNormal>Eingabe des Haben-Kontos. Durch Drücken der F9-Taste kann 
+nach allen angelegten Konten gesucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Text</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Eingabe des 
+Buchungstextes. Der Buchungstext wird automatisch auf alle Splitbuchungszeilen 
+dupliziert. Zusätzlich dazu kann zu jeder Buchungszeile durch Anklicken des 
+Notiz-Buttons ein beliebig langer Buchungstext erfasst werden.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">B/N.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Hier wird hinterlegt, 
+wie der Buchungsbetrag erfasst wird:</SPAN></P>
+<P class=MsoNormal><B><SPAN style="LAYOUT-GRID-MODE: line">B</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> - Brutto: Der Betrag wird inkl. Steuer 
+eingegeben.<BR><B>N</B> - Netto: Der Betrag wird exkl. Steuer 
+eingegeben.<BR><B>FB / FN</B> - Fremdwährung: Der Betrag kann in Fremdwährung 
+erfasst werden und wird in Landeswährung umgerechnet. Voraussetzung dafür ist, 
+dass die entsprechende Lizenz vorhanden ist.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Betrag</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Eingabe des 
+Buchungsbetrages für das eingetragene Konto</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal>Durch Drücken der F9-Taste oder Anklicken des <IMG 
+src="../ImagesExt/image863_196.png">-Buttons wird das Umrechnungsfenster 
+geöffnet, in dem der Betrag auf Basis der im Mandantenstamm hinterlegten 
+Landeswährungen (z.B. EURO) eingegeben werden kann. Zum Buchen wird dann der 
+Betrag in Landeswährung 1 verwendet.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal>Zusätzlich können noch die Felder Steuerzeile und 
+Steuerbetrag bearbeitet werden.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Wurde der 
+Aufteilungsbetrag zur Gänze aufgeteilt, kann die Buchung abgesetzt 
+werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN 
+style="LAYOUT-GRID-MODE: line">Kostenrechnungsinformation</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Wird ein Konto 
+angewählt, bei dem eine Kostenart hinterlegt wurde, wird die 
+Kostenrechnungsinformation angezeigt. Nach Eingabe des Betrages kann durch 
+Drücken der Pfeil-nach-Unten-Taste in die Tabelle für die Kostenerfassung 
+gewechselt werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Dabei können folgende 
+Felder bearbeitet werden:</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>K.Art</P>
+<P class=MsoNormal style="tab-stops: 0pt">Eingabe der Kostenart, max. 20stellig, 
+alphanumerisch. Die Kostenart, die bei dem angesprochenen Sachkonto hinterlegt 
+wurde, wird vorgeschlagen und kann ggf. editiert werden. Wird eine 
+Einzelkostenart angewählt, kann auch ein Kostenträger angesprochen werden. Bei 
+Eingabe einer Gemeinkostenart bleibt das Aufteilungsfeld K.Träger/Proj für die 
+Aufteilung gesperrt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>K.Stelle</P>
+<P class=MsoNormal>Eingabe der Kostenstellennummer, der der Betrag zugeordnet 
+werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>K.Träger</P>
+<P class=MsoNormal>Eingabe der Kostenträgernummer (Achtung: nur bei Einzelkosten 
+möglich).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Nach Eingabe des Kostenträgers wird geprüft, ob das 
+Buchungsdatum auch innerhalb der Laufzeit des Kostenträgers liegt. Ist das nicht 
+der Fall, wird eine entsprechende Meldung ausgegeben, die Buchung kann aber 
+trotzdem weiter erfasst werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_117.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Belegnr</P>
+<P class=MsoNormal style="tab-stops: 0pt">Belegnummer, max. 20stellig, 
+alphanumerisch. Die Belegnummer wird aus der zuvor erfassten Buchungszeile 
+vorgeschlagen und kann ggf. editiert werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum</P>
+<P class=MsoNormal style="tab-stops: 0pt">Eingabe des Buchungsdatums, wird aus 
+der Buchungszeile übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Text</P>
+<P class=MsoNormal style="tab-stops: 0pt">Buchungstext, max. 25stellig, 
+alphanumerisch, wird ebenfalls aus der Buchungszeile übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Betrag</P>
+<P class=MsoNormal>Wenn im Feld % ein Prozentsatz eingegeben wurde, füllt das 
+Programm das Betragsfeld automatisch mit dem errechneten Wert aus. Dieser Betrag 
+kann auch manuell eingegeben werden. Durch Drücken der F3-Taste wird der noch 
+nicht aufgeteilte Betrag automatisch übernommen.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Durch Anklicken des <IMG 
+src="../ImagesExt/image863_197.png">&nbsp;- Buttons wird, sofern der KORE-Betrag 
+nicht zur Gänze aufgeteilt wurde, eine neue KORE-Zeile erstellt, die die 
+gleichen Werte enthält, wie die Zeile, von der aus der Button betätigt 
+wurde.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Das Symbol <IMG 
+src="../ImagesExt/image863_198.png">&nbsp;informiert Sie über eine vorgenommene 
+KORE-Aufteilung. </P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Menge</P>
+<P class=MsoNormal>Eingabe der Anzahl der in der Kostenart hinterlegten 
+Mengeneinheit.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Einheit</P>
+<P class=MsoNormal>Anzeige der im Kostenartenstamm hinterlegten Einheit 
+(Stunden, Kilometer, etc.).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Var.</P>
+<P class=MsoNormal>Der Variator, der in der Kostenart für diese 
+Kostenstellengruppe hinterlegt worden ist, wird automatisch aufgrund der 
+aktuellen Kostenart vorgeschlagen, kann aber manuell übersteuert werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal>In der Tabelle können dann beliebig viele 
+Kostenerfassungszeilen eingegeben werden, wobei der Buchungsbetrag zur Gänze 
+aufgeteilt werden muss.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Sollkonto</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier wird das Sollkonto aus der 
+korrespondierenden Sachbuchungszeile angezeigt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Habenkonto</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier wird das Habenkonto aus der 
+korrespondierenden Sachbuchungszeile angezeigt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>%</P>
+<P class=MsoNormal>Geben Sie ein, welcher Prozent-Anteil des im Feld Betrag 
+eingetragenen Gesamtbetrages dieser Kostenstelle (diesem Kostenträger) 
+zugeordnet werden soll. Das Feld kann auch einfach (mit ENTER) übergangen 
+werden, wenn Sie den Teilbetrag direkt im darauffolgenden Feld eintragen 
+möchten.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal>Solange der Gesamtbetrag nicht zur Gänze aufgeteilt ist, kann 
+die Aufteilung nicht verlassen werden (Meldung: Der Buchungsbetrag wurde nicht 
+zur Gänze aufgeteilt). Im Feld Restbetrag wird der noch aufzuteilende Wert 
+angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Informationsfelder</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>FW</P>
+<P class=MsoNormal style="tab-stops: 0pt">Wurde die Buchung in einer 
+Fremdwährung erfasst, wird hier der verwendete Fremdwährungscode angezeigt. 
+Dieser kann nicht verändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>FW-Betrag</P>
+<P class=MsoNormal>Der Netto-Fremdwährungsbetrag wird angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Kostenart</P>
+<P class=MsoNormal>Auf welche Kostenart erfolgt die Aufteilung, die gerade 
+bearbeitet wird.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Kostenstelle</P>
+<P class=MsoNormal>Auf welche Kostenstelle erfolgt die Aufteilung, die gerade 
+bearbeitet wird.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Kostenträger</P>
+<P class=MsoNormal style="tab-stops: 0pt">Auf welchen Kostenträger erfolgt die 
+Aufteilung, die gerade bearbeitet wird.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Wurde der KORE-Betrag zur Gänze 
+aufgeteilt, kann die KORE-Erfassung durch Drücken der Pfeil-nach-Unten-Taste 
+verlassen werden.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Buttons</SPAN></P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_72.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Buchen</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Durch Anklicken dieses 
+Buttons oder F5 werden alle eingegebenen Informationen gespeichert und 
+verbucht.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ende<SPAN style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Dadurch wird das Fenster 
+geschlossen, alle eingegebenen und nicht verbuchten Informationen gehen 
+verloren.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Abbruch<SPAN style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Dadurch werden alle 
+erfassten Informationen gelöscht, es kann ein neuer Buchungsvorgang erfasst 
+werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Laden</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Lädt einen vorher 
+gespeicherten Stapel.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Speichern</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Speichert einen neu 
+erstellten Stapel.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Kontoblatt</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Dadurch wird ein 
+Kontoblatt aller in den Buchungen vorhandener Konten angezeigt. Dabei werden die 
+erfassten Buchungen und der daraus resultierende Saldo ausgewertet.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Saldenliste</P>
+<P class=MsoNormal>Durch Betätigen des Saldenliste-Buttons wird eine neue Liste 
+geöffnet, in der für die im Stapel verwendeten Konten der alte Saldo, die Summen 
+der Buchungen und der entsprechende neue Saldo angezeigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Journal<SPAN style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Hier werden die 
+erfassten Buchungen mit allen möglichen Ausprägungen (Faktura, 
+Kostenrechnungsinfo) angezeigt.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Konteninfo</P>
+<P class=MsoNormal>Es werden jeweils die im Kontenstamm hinterlegten 
+Informationen (Notiz) zu dem Soll- und dem Haben-Konto angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Freigabe</P>
+<P class=MsoNormal>Durch Drücken dieses Buttons wird das Freigabefenster 
+geöffnet, um den Freigabestatus einer Buchung verändern zu können.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Tabellenbuttons 
+Buchen</SPAN></P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_199.png"><SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Entfernen</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Damit kann die 
+Gegenbuchung gelöscht werden, die gerade aktiv ist (in der Buchungszeile muss 
+der Focus gesetzt sein).</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Notiz</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Durch Anklicken des 
+Notiz-Buttons kann ein beliebig langer Buchungstext erfasst werden. Dieser kann 
+auch bei den diversen Auswertungen angedruckt werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Sachkonten-OP</SPAN></P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Sachk.-OP" kann eine OP-Verwaltung 
+für Sachkonten durchgeführt werden. Voraussetzung dafür ist, dass das Sachkonto 
+entsprechend angelegt wurde.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anlagen 
+erstellen</P>
+<P class=MsoNormal>Sind bei Splitbuchungen Anlagenkonten (bspw. im Soll) 
+betroffen, so kann noch während der Buchung mittels dieses Buttons in den 
+Anlagenstamm gewechselt und der Neuzugang angelegt werden. </P>
+<P class=MsoNormal>Nach Schließen des Anlagenstammfensters gelangt man wieder 
+zum ursprünglichen Buchen-Fenster zurück. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Tabellenbuttons 
+KORE</SPAN></P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_80.png"><SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; LAYOUT-GRID-MODE: line; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN><SPAN style="LAYOUT-GRID-MODE: line">Entfernen</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Damit wird die 
+angewählte KORE-Zeile gelöscht.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE 
+wiederherstellen</P>
+<P class=MsoNormal>Beschreibung zur KORE-Wiederherstellen finden Sie im 
+Abschnitt 3.2 - Buchen (Dialog-Stapel)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Aufteilen</P>
+<P class=MsoNormal>Beschreibung zur KORE-Aufteilen finden Sie im Abschnitt <A 
+href="JavaScript:TL_459839.HHClick()">KORE-Periodenaufteilung</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Verteilungsschlüssel auswählen</P>
+<P class=MsoNormal>Ist eine Kostenart mit einem Verteilungsschlüssel 
+eingetragen, öffnet sich durch einen Doppelklick auf diesen Button das Fenster 
+"Buchen - Auswahl Kostenarten-Verteilungsschlüssel". In diesem Fenster werden 
+die ausgewählte Kostenart mit Nummer und Bezeichnung, sowie die Buchungsnummer 
+und das Buchungsdatum zur Info angezeigt. Über die Combobox 
+"Verteilungsschlüssel" kann ein anderer im Kostenartenstamm zu dieser Kostenart 
+hinterlegter Verteilungsschlüssel oder kein Verteilungsschlüssel ausgewählt 
+werden.</P>
+<P class=MsoNormal>Wird ein anderer Verteilungsschlüssel ausgewählt und mit dem 
+Button OK oder der F5-Taste bestätigt, werden die neuen Verhältniszahlen 
+entsprechend berechnet und die Angaben in der KORE-Tabelle geändert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Excel</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ausgabe Excel" wird der Inhalt der 
+Tabelle nach Microsoft Excel übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_81.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Zusätzliche Optionen</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Prot. 
+drucken</P>
+<P class=MsoNormal>Diese Checkbox hat nur in Zusammenhang mit dem JOURNAL-Button 
+eine Funktion: Ist die Checkbox aktiviert und wird der Journal-Button 
+angeklickt, erfolgt automatisch eine Prüfung aller im Stapel erfasster Buchungen 
+auf ihre Richtigkeit. Sollten Fehler vorhanden sein, werden diese gleich in 
+einem Prüfprotokoll ausgegeben. Dabei wird der gerade eingestellte Drucker 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Konteninfo</P>
+<P class=MsoNormal>Wird dieser Button gedrückt (dieser kann bereits durch die 
+Einstellung aus den Fenstern "Buchen Dialog Stapel", "Buchen 
+Ausgangsrechnungen", "Buchen Zahlungsmittelkonten" oder "Buchen Splitbuchungen" 
+gedrückt sein), werden eigene Fenster für die Konteninfos geöffnet. Dabei gibt 
+es jeweils ein Fenster für das Soll- und ein Fenster für das Habenkonto. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_200.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Welche Informationen angedruckt werden sollen, kann frei 
+definiert werden. (Siehe auch Kapitel <A 
+href="JavaScript:TL_459840.HHClick()">Buchen - Konteninfo Soll</A> bzw. Kapitel 
+<A href="JavaScript:TL_459841.HHClick()">Buchen - Konteninfo Haben</A>.)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Freigabe</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Mit dem Button "Freigabe" kann ein 
+Buchungsstapel freigegeben oder gesperrt werden.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_459839 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/koreperiodenaufteilung.htm"></OBJECT>
+<OBJECT id=TL_459840 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchenkonteninfosoll.htm"></OBJECT>
+<OBJECT id=TL_459841 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchenkonteninfohaben.htm"></OBJECT></DIV></BODY></HTML>

@@ -1,0 +1,15 @@
+﻿<FluentToggleButton Pressed="true" OnClick="@ButtonClick">Default pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" Appearance="ButtonAppearance.Primary">Primary pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" Appearance="ButtonAppearance.Outline">Outline pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" Appearance="ButtonAppearance.Subtle">Subtle pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" Appearance="ButtonAppearance.Transparent">Transparent pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" BackgroundColor="var(--highlight-bg)" Color="var(--presence-busy)">Colored pressed</FluentToggleButton>
+<FluentToggleButton Pressed="true" OnClick="@ButtonClick" Disabled="true">Disabled pressed</FluentToggleButton>
+
+@code
+{
+    void ButtonClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+}

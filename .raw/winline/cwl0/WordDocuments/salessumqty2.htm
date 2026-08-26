@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SALESSUMQTY2</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707740></A>SALESSUMQTY2</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion wird die Gesamtmenge2 aus der Statistik 
+auf Grundlage von Artikel, Personenkonto, etc. berechnet und ausgegeben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Alle Selektions-Parameter sind optional und müssen nicht mit 
+einer Eingabe versehen werden (nicht benötigte Parameter mit "" hinterlegen). 
+Des Weiteren können auch mehrere Parameter gleichzeitig angeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=SALESSUMQTY2 (Artikelnummer, Personenkonto, Zeitraum, 
+Verkauf/Einkauf)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Artikelnummer 
+(Nummer in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende 
+Artikelnummer; wenn keine Artikel-Auswahl gewünscht ist, muss <B>""</B> 
+angegeben werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Personenkonto 
+(Konto in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf das zu berücksichtigende 
+Personenkonto; wenn keine Konten-Auswahl gewünscht ist, muss <B>""</B> angegeben 
+werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeitraum (1 
+bis 12)</P>
+<P class=MsoNormal>Hinterlegung des auszuwertenden Zeitraums; Ermittlung erfolgt 
+anhand des Einlogdatums:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B>- Heute</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - aktuelle Woche</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - letzte 7 Tage</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>4</B> - letzte 14 Tage</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>5</B> - aktueller Monat</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>6</B> - 1. Quartal</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>7</B> - 2. Quartal</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>8</B> - 3. Quartal</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>9</B> - 4. Quartal</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>10</B> - aktuelles Jahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>11</B> - Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>12</B> - Alles</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Verkauf/Einkauf (0 / 1)</P>
+<P class=MsoNormal>Angabe, ob die Verkaufs- oder Einkaufmenge ermittelt werden 
+soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - Verkauf (Standard)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Einkauf</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei Angabe eines Personenkontos wird der Parameter 
+automatisch auf den Typ des Kontos korrigiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SALESSUMQTY2 ("", 
+"<U>230B005</U>", <U>8</U>, <U>0</U>)<BR>Die Funktion ermittelt für das 
+Personenkonto "<B>230B005</B>" die verkaufte (<B>0</B>) 2.Menge des 3. Quartals 
+(<B>8</B>) und gibt diese aus. Eine Selektion nach Artikel (<B>""</B>) findet 
+nicht statt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SALESSUMQTY2 ("<U>10005</U>", 
+"<U>330003</U>", <U>10</U>, <U>1</U>)<BR>Die Funktion ermittelt die 
+Einkaufsmenge2 (<B>1</B>) des aktuellen Jahres (<B>10</B>) für den Artikel 
+"<B>10005</B>" (bezogen auf den Lieferanten "<B>330003</B>").</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

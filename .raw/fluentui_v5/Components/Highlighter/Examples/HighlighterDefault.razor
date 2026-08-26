@@ -1,0 +1,13 @@
+﻿<FluentTextInput @bind-Value="@Highlight" Immediate="true" />
+
+<div style="@CommonStyles.NeutralBorderShadow4" class="@Padding.All2 @Margin.All2">
+    <FluentHighlighter HighlightedText="@Highlight"
+                       Delimiters=" ,;"
+                       Text="@Text" />
+</div>
+
+@code
+{
+    static string Text = SampleData.Text.GenerateLoremIpsum();
+    string Highlight = "Lorem";
+}

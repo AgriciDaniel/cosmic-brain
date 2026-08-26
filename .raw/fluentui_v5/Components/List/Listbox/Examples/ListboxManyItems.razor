@@ -1,0 +1,16 @@
+﻿<FluentListbox Label="500 Names"
+               Items="@Persons"
+               OptionText="@(i => $"{i?.FirstName} {i?.LastName}")"
+               OptionValueToString="@(i => $"{i?.Id}")"
+               Height="200px"
+               Width="300px"
+               @bind-Value="@Selected" />
+
+<div>
+    Selected: @Selected?.FirstName @Selected?.LastName
+</div>
+
+@code {
+    static SampleData.People.Person[] Persons = SampleData.People.GeneratePersons(500).ToArray();
+    SampleData.People.Person? Selected;
+}

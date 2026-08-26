@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Formel</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="steuerzeichen.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="steuerelement.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><SPAN 
+class=d2h_breadcrumbsContentsOnly>WinLine Formular Editor</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="buttonsundfunktionenimdetail.htm">Buttons und Funktionen im 
+Detail</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Formel</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc200977216></A>Formel</H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN><IMG 
+src="../ImagesExt/image873_96.png"> Formel</P>
+<P class=MsoNormal>Mit dem Element "Formel" besteht die Möglichkeit, vorhandene 
+Variablen mittels einer Formel zu verknüpfen und sich auf diese Weise eigene 
+Variablen zu schaffen, um die Aussagefähigkeit des Formulars zu erhöhen. Diese 
+Werte können ggf. auch über das Formular in die benutzerspezifischen Variablen 
+der View 500 summiert werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Beispiele und weiterführende Information zu dem Thema 
+VB-Script-Formeln können Sie dem Kapitel "Tipps und Tricks" - Unterkapitel 
+"Spezialfunktionen der VB-Script-Formeln" entnehmen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Eigenschaftsfenster "Formel"</P>
+<P class=MsoNormal>Über das Eigenschaftsfenster "Formel" können die Formeln 
+definiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_97.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formelsprache</P>
+<P class=MsoNormal>Wenn das Formel-Fenster geöffnet wird, so muss zuerst die 
+Sprache definiert werden, in welcher die Formel erfasst werden soll. Hierbei 
+stehen folgende Möglichkeiten zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Keine Scriptsprache<BR>In diesem 
+Fall wird die mesonic-eigene Formelsprache verwendet. Hierbei können in der 
+Formel nur einfache Rechenoperationen durchgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>VBScript<BR>Damit wird die 
+Formelsprache VB-Script verwendet. Als Ergebnis wird immer der Wert 
+"ResultValue" beschickt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Jscript<BR>Damit wird die 
+Formelsprache Java-Script verwendet. Als Ergebnis wird immer der Wert "return" 
+beschickt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formeleingabe</P>
+<P class=MsoNormal>In das Eingabefeld der Formel wird in Abhängigkeit der 
+Formelsprache der Code hinterlegt. Neben der eigentlichen Sprach-Syntax ist auch 
+auf die unterschiedliche Schreibweise der Variablen zu achten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Keine 
+Scriptsprache:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [21/2]</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>VBScript / 
+JScript:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Value 
+(21,2)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Für Rechenoperationen werden die entsprechenden 
+Operationstasten auf der Tastatur verwendet. Dabei sind folgende Operatoren 
+möglich:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>+ -&gt; Addition</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>-&nbsp; -&gt; Subtraktion</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>*&nbsp; -&gt; Multiplikation</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>/&nbsp; -&gt; Division</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>(&nbsp; -&gt; linke Klammer</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 63.8pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>)&nbsp; -&gt; rechte Klammer</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Prinzipiell gibt es keine Komplexitäts-Beschränkung für 
+Formeln, so dass alle Möglichkeiten des Programms voll ausgenutzt werden 
+können.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Für Rechenoperation ist zu beachten, dass die Regel 
+"Punktrechnung vor Strichrechnung" nicht gilt! Daher müssen entsprechende 
+Klammerungen verwendet werden.</P>
+<P class=BeispielAchtung>Beispiel - Keine Scriptsprache</P>
+<P class=MsoNormal>Es soll die Rechenoperation "Menge geliefert" (T026.C006) * 
+"Faktor 1 nach Formeleigabe" (T026.C018) ausgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_98.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel - VBScript</P>
+<P class=MsoNormal>Es soll die Rechenoperation "Menge geliefert" (T026.C006) * 
+"Faktor 1 nach Formeleigabe" (T026.C018) ausgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_99.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel - JScript</P>
+<P class=MsoNormal>Es soll die Rechenoperation "Menge geliefert" (T026.C006) * 
+"Faktor 1 nach Formeleigabe" (T026.C018) ausgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_100.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>View / 
+Var</P>
+<P class=MsoNormal>Über die Auswahllisten kann die View (d.h. die SQL-Tabelle) 
+und die Variable (d.h. die SQL-Spalte in einer Tabelle) bestimmt werden, welche 
+in die Formel eingetragen / übertragen werden soll. Mit Hilfe des Icons <IMG 
+src="../ImagesExt/image873_67.png">&nbsp;kann das Fenster "Variable suchen" 
+geöffnet werden. In diesem ist es möglich per Volltextsuche nach Variablen zu 
+suchen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Weitere Information entnehmen Sie bitte dem Kapitel <A 
+href="JavaScript:TL_461611.HHClick()">Einfügen von Variablen</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Insert</P>
+<P class=MsoNormal>Mit Hilfe der Buttons "Insert" wird die ausgewählt Variable 
+(siehe "View / Var") in das Eingabefeld der Formel übernommen. Je nachdem, 
+welche Formelsprache gewählt wurde, wird die Variable wie folgt dargestellt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Keine 
+Scriptsprache:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [21/2]</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>VBScript / 
+JScript:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Value 
+(21,2)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ergebnis in 
+die Variable</P>
+<P class=MsoNormal>Mit dieser Option kann der ermittelte Wert einer Formel 
+innerhalb eines Formulars in eine benutzerspezifische Variable (View 500 - User 
+Defined Vars) abgelegt werden. Dadurch wird es z.B. ermöglich Summierungen oder 
+weiterführende Berechnungen durchzuführen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Folgende Variablen stehen in der Auswahlliste zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 bis 99 - Numeric User Var x 
+(Numerische Variablen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>100 bis 354 - SQL Var x 
+(Alphanumerische Variablen)</P>
+<P class=BeispielAchtung>Achtung 1</P>
+<P class=MsoNormal>Das Steuerelement "SQL Ausdruck" nutzt zur temporären Ablage 
+der ermittelten Daten ebenfalls die Variablen ab 100 aufsteigend. D.h. wenn in 
+einem Formular mit SQL-Abfragen und Formeln mit Wertspeicherung (alphanumerisch) 
+gearbeitet wird, dann sollten die Formeln die Ergebnisse in die Variablen 
+500/354 absteigend übergeben, damit es zu keiner Überschneidung kommen kann.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn ein ermittelter Wert direkt ausgegeben wird (d.h. unter 
+"Ergebnis in die Variable" ist "Don´t put into var" eingestellt) dann wird die 
+Formel im Formular Editor in weiß dargestellt, ansonsten in grau.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image873_101.png"> - Ergebnis der Formel wird direkt 
+ausgegeben</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image873_102.png"> - Ergebnis der Formel wird in eine 
+benutzerdefinierte Variable zwischengespeichert</P>
+<P class=BeispielAchtung>Achtung 2</P>
+<P class=MsoNormal>Wird eine Formel in eine benutzerspezifische Variable 
+gerechnet, dann wird das Ergebnis der Formel selber nicht am Formular 
+angedruckt. Soll ein Ausdruck zusätzlich erfolgen, dann muss die 
+benutzerdefinierte Variable über das Element "Text Variable" oder "Numerische 
+Variable" ausgegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>PowerReport 
+Name</P>
+<P class=MsoNormal>An dieser Stelle kann der Name für die Anzeige innerhalb des 
+Power Reports angepasst werden. Im Standard wird der Name der Variable 
+übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>nicht in 
+PowerReport ausgegeben</P>
+<P class=MsoNormal>Mit Hilfe dieser Checkbox definiert werden, ob die Daten der 
+Formel im Power Report zur Verfügung stehen sollen oder nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Aktuell wird das Ergebnis einer Formel nur im Power Report 
+angezeigt, wenn die Ausgabe über eine eigene Variable erfolgt. D.h. das Ergebnis 
+muss in eine Variable abgestellt werden und diese muss dann wiederum als "Text 
+Variable", "Numerische Variable" oder "Datum" ausgegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzeige</P>
+<P class=MsoNormal>Handelt es sich um eine Formel des Formats "VBScript" oder 
+"JScript", so kann im Eingabefeld "Anzeige" eine Betitelung für die Formeln 
+hinterlegt werden. Dieses hat zur Folge, dass im Formular Editor statt des Worts 
+"Formel" der hier eingetragene Text auf dem Bildschirm erscheint.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Der Text wird mit der Syntax "TITLE:xxx" (xxx =&gt; 
+Beschriftung / Betitelung) als auskommentiertes Element innerhalb der Formel 
+gespeichert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Formatdefinition</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_103.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Format 
+&gt;&gt;</P>
+<P class=MsoNormal>Über die Anwahl des Buttons "Format &gt;&gt;" öffnet sich der 
+Bereich der Formatdefinition, in welchem das Formelergebnis formatiert werden 
+kann. Diese Formatierung ist nur bei den Formelsprachen "VBScript " und 
+"JScript" möglich.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Einstellungen im Bereich "Formatdefinition" sind abhängig 
+vom gewählten "Resultattyp".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Resultattyp</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, wie die Formel das 
+Ergebnis interpretieren soll. Hierfür stehen die folgenden Auswahlen zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>&lt;default&gt;<BR>Die Formel 
+interpretiert eigenständig das Ergebnis.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Text<BR>Die Formel interpretiert 
+das Ergebnis als "Text Variable". In dem Feld "Format" wird dementsprechend ein 
+"%s" dargestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Numerisch<BR>Die Formel 
+interpretiert das Ergebnis als "Numerische Variable". In dem Feld "Format" wird 
+die Zahlenformatierung dargestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datum</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Format</P>
+<P class=MsoNormal>Je nach Resultattyp wird hier "%s" (Text), "###,###,###.##" 
+(numerisch) oder "{DATETIME}" (Datum) dargestellt und kann beeinflusst 
+werden.</P>
+<P class=BeispielAchtung>Hinweis zu "numerisch"</P>
+<P class=MsoNormal>Das Format bestimmt das Darstellungsformat der Variable im 
+Ausdruck. Mit den Buttons <IMG src="../ImagesExt/image873_70.png">&nbsp;kann die 
+Position des Trennzeichens (Komma) verändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN># - Raute<BR>Die Raute stellt im 
+Format den Platzhalter für eine Zahl dar. Wenn die auszugebende Zahl größer als 
+das definierte Format ist (Stellen vor dem Dezimalpunkt, d.h. dem Komma) dann 
+werden bei der Ausgabe nur Rauten angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>, - Komma<BR>Das Komma stellt im 
+Format das Formatierungstrennzeichen dar. Bei der Ausgabe eines Formulars wird 
+dieses als "Punkt" dargestellt.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Damit die Formatierung 
+ausgedruckt wird muss die Option "Formatierte Ausgabe" aktiviert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>. - Punkt<BR>Der Punkt stellt im 
+Format das Dezimaltrennzeichen für die Nachkommastellen dar. Bei der Ausgabe 
+eines Formulars wird dieser als "Komma" dargestellt.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Ob die Nachkommastellen gemäß 
+dem Format oder dynamisch ermittelt werden sollen wird in der Option 
+"Dezimalpunkt" definiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Numbers (nur 
+bei Typ "numerisch")</P>
+<P class=MsoNormal>Mit Hilfe der Buttons <IMG 
+src="../ImagesExt/image873_70.png">&nbsp;kann die Anzahl der Stellen (Rauten im 
+Format) definiert werden, welche gedruckt werden sollen. Grundsätzlich ist dabei 
+zu beachten, dass immer die Anzahl der gewünschten Stellen + 1 zusätzliche 
+Stelle vorhanden sein sollte.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Es soll der Summenrabatt angedruckt werden, wobei dieser im 
+Normalfall nur 2 Stellen lang ist. Wenn man aber berücksichtigt, dass noch ein 
+Vorzeichen dazukommt, müssen mindestens 3 Stellen in der Formatierung vorhanden 
+sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Füllzeichen 
+(nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Auswahl eines Füllzeichens für die Ausgabe. Abhängig von der 
+Anzahl der anzudruckenden Zeichen (einzustellen bei der Option "Numbers") und 
+des angedruckten Wertes wird das Feld mit dem hinterlegten Zeichen 
+aufgefüllt.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Für eine Dateiausgabe werden die Zahlen immer mit 10 Zeichen 
+benötigt. Aus diesem Grund wurde das Format auf "##########" gestellt. Durch die 
+Eingabe eines Füllzeichens, z.B. "*", erfolgt die Ausgabe nun immer 10stellig, 
+d.h. aus der Zahl 123456 wird ****123456.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Formatierte 
+Ausgabe (nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Bei aktivierter Option wird das Formelergebnis mit dem im 
+Feld "Format" definierten Formatierungstrennzeichen angedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Nullwerte 
+unterdrücken (nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Bei aktivierter Option wird der Andruck von Null-Werten 
+verhindert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Dezimalpunkt 
+(nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Bei aktivierter Option wird die Variable mit einem 
+Dezimalpunkt (Dezimaltrennzeichen für die Nachkommastellen) angedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Variable 
+Dezimalposition (nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Bei aktivierter Option werden die Nachkommastellen variabel 
+angedruckt. Die Anzahl der Nachkommastellen wird in den Stammdaten 
+(Artikelgruppen - Komma Menge1) festgelegt. D.h. die Funktion ist nur dann 
+sinnvoll, wenn die Formel bezogen für einen Artikel ausgeführt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>In die zweite 
+Währung konvertieren (nur bei Typ "numerisch")</P>
+<P class=MsoNormal>Ist diese Checkbox aktiviert, wird der Wert in die zweite 
+Währung, welche im Mandantenstamm hinterlegt ist (Register "Stamm", Feld 
+"Landeswährung 2"), umgerechnet. Damit können alle Werte in beiden verwendeten 
+Währungen angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_461611 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/einfügenvonvariablen.htm"></OBJECT></DIV></BODY></HTML>

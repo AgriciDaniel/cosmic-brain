@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a02" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+  </defs>
+
+  <line x1="125" y1="100" x2="365" y2="120" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+  <line x1="125" y1="195" x2="365" y2="120" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+  <line x1="125" y1="195" x2="365" y2="260" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+  <line x1="125" y1="290" x2="365" y2="260" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+  <line x1="435" y1="120" x2="635" y2="185" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+  <line x1="435" y1="260" x2="635" y2="195" stroke="#7e7e87" stroke-width="1.5" marker-end="url(#a02)"/>
+
+  <circle cx="90" cy="100" r="32" fill="rgba(250,204,21,0.18)" stroke="#facc15" stroke-width="2"/>
+  <text x="90" y="105" text-anchor="middle" fill="#fcfcf7" font-size="13">input</text>
+  <circle cx="90" cy="195" r="32" fill="rgba(168,177,255,0.06)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="90" y="200" text-anchor="middle" fill="#fcfcf7" font-size="13">input</text>
+  <circle cx="90" cy="290" r="32" fill="rgba(168,177,255,0.06)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="90" y="295" text-anchor="middle" fill="#fcfcf7" font-size="13">input</text>
+
+  <rect x="365" y="100" width="70" height="40" rx="6" fill="rgba(168,177,255,0.06)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="400" y="125" text-anchor="middle" fill="#fcfcf7" font-size="13">step</text>
+  <rect x="365" y="240" width="70" height="40" rx="6" fill="rgba(168,177,255,0.06)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="400" y="265" text-anchor="middle" fill="#fcfcf7" font-size="13">step</text>
+
+  <rect x="635" y="170" width="90" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="680" y="200" text-anchor="middle" fill="#fcfcf7" font-size="13">output</text>
+
+  <text x="90" y="50" text-anchor="middle" fill="#facc15" font-size="13">change here</text>
+  <text x="680" y="245" text-anchor="middle" fill="#bd34fe" font-size="13">recompute here</text>
+</svg>

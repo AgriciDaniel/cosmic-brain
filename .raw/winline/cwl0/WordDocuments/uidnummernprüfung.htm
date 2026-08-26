@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>UID-Nummern-Prüfung</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="gegenkonten.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="abzugsarten.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Stammdaten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>UID-Nummern-Prüfung</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A 
+name=_Toc207273644>UID-Nummern-Prüfung</A></H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Menüpunkt </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Stammdaten</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Konten</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>UID-Prüfung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>kann eine UID-Massenprüfung für Mandanten mit dem 
+Länderkennzeichen A oder D durchgeführt werden. Dabei wird ausschließlich die 
+Prüfung der Stufe 2 durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_24.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Prüfroutine Österreich:</P>
+<P class=MsoNormal>Für die Prüfroutine in Österreich können mit einem Aufruf des 
+FONWebService.exe mehrere UIDs geprüft werden. Die Kommunikation der WinLine 
+erfolgt mit diesem EXE nun mittels Dateien im Programmverzeichnis. Für die 
+Prüfung wird eine Datei geschrieben, die entweder eine UID oder auch mehrere 
+UIDs enthält, im EXE werden mit einem einzigen Login beim WebService alle diese 
+UIDs geprüft und das Ergebnis wiederum in einer Datei an die WinLine 
+zurückgeliefert. Beide Dateien werden nach Auswertung der Ergebnisse wieder 
+gelöscht. </P>
+<P class=MsoNormal>Vor Durchführung der Prüfung wird wie bisher geprüft, ob im 
+Mandantenstamm die Zugangsdaten für das WebService eingetragen sind und ob der 
+Benutzer die Berechtigung hat, die Prüfung durchzuführen.</P>
+<P class=MsoNormal>Bisher wurden nur erfolgreiche Prüfungen protokolliert, jetzt 
+wird jede Prüfung (die nicht wegen eines allgemeinen Fehlers abgebrochen wurde) 
+in das Protokoll geschrieben und verändert damit den aktuellen Prüfstatus des 
+Kontos bzw. der UID.</P>
+<P class=MsoNormal>Die möglichen Prüfungsergebnisse sind "gültig", "nicht 
+gültig" und "ungeprüft".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Prüfroutine Deutschland</P>
+<P class=MsoNormal>Für die Prüfung in Deutschland wird dieselbe Web-Abfrage des 
+Bundeszentralamts für Steuern (BZSt) - Bestätigung von ausländischen 
+Umsatzsteuer-Identifikationsnummern über die XML-RPC-Schnittstelle - verwendet 
+wie bisher. </P>
+<P class=MsoNormal>Bei der Prüfung wurde bisher nur das Ergebnis der Web-Abfrage 
+in einer Meldung dar- und zum Druck zur Verfügung gestellt. Jetzt werden auch 
+hier die Ergebnisse im UID-Protokoll protokolliert und ausgewertet. </P>
+<P class=BeispielAchtung>Hinweis:</P>
+<P class=MsoNormal>In Mandanten mit Länderkennzeichen D werden nur ausländische 
+UID-Nummern geprüft.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Kontenbereich</P>
+<P class=MsoNormal>Auswahl des Kontenbereichs für die UID-Prüfung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Alle Konten und Interessenten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Debitoren</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kreditoren</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Interessenten (Kunden)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Anfragelieferanten</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Inaktive 
+anzeigen</P>
+<P class=MsoNormal>Durch Aktivierung dieser Option werden auch inaktive Konten 
+bzw. Interessenten in der Tabelle angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Konten von / 
+bis</P>
+<P class=MsoNormal>Hier kann eine Einschränkung der Konten vorgenommen werden, 
+die für die UID-Prüfung herangezogen werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>UID-Nummern 
+von / bis</P>
+<P class=MsoNormal>Hier kann eine Einschränkung der UID-Nummern vorgenommen 
+werden, die für die UID-Prüfung herangezogen werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Letzte 
+Prüfung</P>
+<P class=MsoNormal>Die UID-Prüfung kann auf das Ergebnis der letzten Prüfung 
+eingeschränkt werden. Zur Auswahl stehen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>alle Konten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>gültig</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nicht gültig</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>ungeprüft</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum von / 
+bis</P>
+<P class=MsoNormal>Einschränkung auf das Datum der letzten Prüfung. Diese 
+Eingabefelder stehen für "ungeprüft" nicht zur Verfügung und sind dann nicht 
+aktiv.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Prüfergebnis</P>
+<P class=MsoNormal>Mit dem Anzeigen-Button werden die der Selektion 
+entsprechenden Konten in die Tabelle gefüllt, wobei nur Konten berücksichtigt 
+werden, die eine UID-Nummer eingetragen haben, d.h. sowohl Hauptkonten (mit UID 
+im FIBU-Register) und FIBU-Subkonten (mit eigener UID im Adress-Registern), als 
+auch Interessenten (mit UID im FAKT-Register) werden berücksichtigt. Für 
+Mandanten mit Länderkennzeichen D werden Konten mit einer DE-UID nicht 
+berücksichtigt, da diese nicht geprüft werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Tabelle werden folgende Werte angezeigt:</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konto</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bezeichnung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>UID-Nummer</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datum und Uhrzeit der letzten 
+Prüfung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ergebnis der letzten Prüfung 
+(gültig, nicht gültig, ungeprüft)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Meldung der letzten Prüfung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Im Fußteil der Tabelle wird die Anzahl der in der Tabelle 
+enthaltenen Konten angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Prüfungsergebnis in einem Mandanten mit Länderkennzeichen 
+A</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_25.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Prüfungsergebnis in einem Mandanten mit Länderkennzeichen 
+D</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_26.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_27.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OK</P>
+<P class=MsoNormal>Durch Drücken des OK-Buttons oder der F5-Taste wird die 
+UID-Prüfung durchgeführt.</P>
+<P class=MsoNormal>Vorab wird der Mandantenstamm eingelesen und geprüft, ob dort 
+die eigene UID eingetragen ist, andernfalls wird mit einer Fehlermeldung 
+abgebrochen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Prüfung Österreich:</P>
+<P class=MsoNormal>Alle Konten werden gemeinsam an die Prüfroutine übergeben und 
+dort geprüft, erst nach Abschluss der Prüfung werden die Ergebnisse ausgewertet 
+und dargestellt. Ein Abbruch ist hier nicht möglich.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Prüfung Deutschland:</P>
+<P class=MsoNormal>Die Tabelle wird Zeile für Zeile abgearbeitet, die UIDs 
+einzeln geprüft und das Ergebnis jeweils sofort dargestellt und die Zeile 
+entsprechend eingefärbt. Es steht auch ein Abbruch-Button zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Durch Drücken des Ende-Buttons (der ESC-Taste) wird das 
+Fenster geschlossen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzeigen</P>
+<P class=MsoNormal>Mit dem Anzeigen-Button werden die der Selektion 
+entsprechenden Konten in die Tabelle gefüllt, wobei nur Konten berücksichtigt 
+werden, die eine UID-Nummer eingetragen haben, d.h. sowohl Hauptkonten (mit UID 
+im FIBU-Register) und FIBU-Subkonten (mit eigener UID im Adress-Registern), als 
+auch Interessenten (mit UID im FAKT-Register) werden berücksichtigt. Für 
+Mandanten mit Länderkennzeichen D werden Konten mit einer DE-UID nicht 
+berücksichtigt, da diese nicht geprüft werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Liste 
+Prüfungsergebnisse anzeigen</P>
+<P class=MsoNormal>Die Prüfungsergebnisse werden über diesen Button auf den 
+Bildschirm ausgeben. Wenn die Tabelle leer ist, ist dieser Button inaktiv.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Liste 
+Prüfungsergebnisse drucken</P>
+<P class=MsoNormal>Die Prüfungsergebnisse werden über diesen Button auf den 
+Drucker ausgeben. Wenn die Tabelle leer ist, ist dieser Button inaktiv.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Voreinstellung speichern</P>
+<P class=MsoNormal>Durch Anwahl dieses Buttons erfolgt eine benutzerspezifische 
+Speicherung aller im Fenster getätigten Einstellungen. Diese sogenannten 
+"Voreinstellungen" können jederzeit wieder abgerufen werden und ermöglichen 
+dadurch ein schnelleres und zielorientierteres Arbeiten (nähere Informationen 
+entnehmen Sie bitte dem Kapitel "Die Voreinstellungen").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Filter 
+bearbeiten</P>
+<P class=MsoNormal>Durch Anwahl des Filter-Buttons kann eine detailliertere 
+Einschränkung der Konten vorgenommen werden, für die eine UID-Prüfung 
+durchgeführt werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_28.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Kontenstamm 
+öffnen</P>
+<P class=MsoNormal>Über diesen Button wird das ausgewählte Konto im Kontenstamm 
+geladen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>UID-Nummer 
+einzeln prüfen</P>
+<P class=MsoNormal>Hier werden dieselben Prüfungen wie beim OK-Button für das 
+einzelne, aktuell in der Tabelle selektierte Konto durchgeführt, allerdings 
+werden hier vor der Prüfung die (ggf. in der Zwischenzeit im Kontenstamm 
+geänderten) Werte aus dem Konto nochmals neu eingelesen. Auch hier wird vorab 
+die UID aus dem Mandantenstamm geprüft, nach Abschluss der Prüfung des einzelnen 
+Kontos wird sowohl im Erfolgs-, als auch im Fehlerfall eine Meldung 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Prüfergebnis 
+anzeigen</P>
+<P class=MsoNormal>Das aktuelle Prüfergebnis für das ausgewählte Konto wird am 
+Bildschirm angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle 
+Prüfergebnisse anzeigen</P>
+<P class=MsoNormal>Eine Liste aller Prüfergebnisse für das ausgewählte Konto 
+wird am Bildschirm angezeigt. Hier werden alle Prüfungen für die Kontonummer 
+berücksichtigt, auch wenn zum Zeitpunkt der Prüfung eine andere UID eingetragen 
+war.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Erfolgreich 
+geprüfte Konten ausblenden</P>
+<P class=MsoNormal>Alle erfolgreich geprüften Zeilen werden aus der Tabelle 
+entfernt, die Anzahl der Konten im Fußteil der Tabelle wird aktualisiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Excel</P>
+<P class=MsoNormal>Der Inhalt der Tabelle kann in eine Excel-Tabelle ausgegeben 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

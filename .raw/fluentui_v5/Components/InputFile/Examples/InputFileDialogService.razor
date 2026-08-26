@@ -1,0 +1,50 @@
+﻿@inject IDialogService DialogService
+@implements IAsyncDisposable
+
+<FluentButton Id="OpenInputFile" Appearance="ButtonAppearance.Primary" Margin="@Margin.Vertical3">
+    Upload files
+</FluentButton>
+
+<FluentProgressBar Value="@LoadingPercentage" />
+
+<FluentLabel Weight="LabelWeight.Semibold">Files uploaded:</FluentLabel>
+<FluentLabel>@(string.Join("; ", Files.Select(i => i.Name)))</FluentLabel>
+
+@code
+{
+    int LoadingPercentage = 0;
+    FluentInputFileEventArgs[] Files = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Register the input file dialog with a button click.
+        await DialogService.RegisterInputFileAsync("OpenInputFile", OnCompletedAsync, options =>
+        {
+            options.Multiple = true;
+            options.OnFileErrorAsync = (e) => DialogService.ShowErrorAsync(e.ErrorMessage);
+            options.OnProgressChangeAsync = (e) =>
+            {
+                LoadingPercentage = e.ProgressPercent;
+                StateHasChanged();
+                return Task.CompletedTask;
+            };
+        });
+    }
+
+    private Task OnCompletedAsync(IEnumerable<FluentInputFileEventArgs> files)
+    {
+        Files = files.Where(i => !i.IsCancelled).ToArray();
+
+        // For the demo, delete these files.
+        Files.ToList().ForEach(file => file.LocalFile?.Delete());
+
+        // Show the files in UI.
+        LoadingPercentage = 100;
+        StateHasChanged();
+
+        return Task.CompletedTask;
+    }
+
+    // Unregister the input file
+    public async ValueTask DisposeAsync() => await DialogService.UnregisterInputFileAsync("OpenInputFile");
+}

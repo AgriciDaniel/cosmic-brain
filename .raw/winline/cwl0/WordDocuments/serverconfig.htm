@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>server.config</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">server.config</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Datei "server.config" werden - wie in vorangegangenen 
+Kapiteln erwähnt - die verschiedenen Einstellungen zur Konfiguration der EWL 
+hinterlegt. Diese erfolgen teilweise durch getätigte Einstellungen im WinLine 
+ADMIN / EWL Server, können jedoch auch teilweise manuell hinzugefügt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>EWL Server</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Port=</P>
+<P class=MsoNormal>Angabe des verwendeten Ports für den Server. </P>
+<P class=MsoNormal>Bsp.: Port=50000 </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>serverpath=</P>
+<P class=MsoNormal>Als Serverpfad muss der Pfad zur mesoserverconnect.meso 
+angegeben werden. </P>
+<P class=MsoNormal>Bsp.: C:\WINLINE\</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>rootpath=</P>
+<P class=MsoNormal>Hier muss Pfad zum "root"-Verzeichnis" angegeben werden (Pfad 
+von dem sich der HTTP Server alle Dateien holt bzw. welcher auch zum 
+Download/Upload von Dateien verwendet wird).</P>
+<P class=MsoNormal>Bsp.: C:\WINLINE\EWL\root\</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>archivepath=</P>
+<P class=MsoNormal>Hier muss Pfad zum "archive"-Verzeichnis" angegeben werden 
+(Pfad der zum Download/Upload von Archivdateien verwendet wird).</P>
+<P class=MsoNormal>Bsp.: C:\WINLINE\EWL\root\archive\</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>ExtendedODBCOptions=</P>
+<P class=MsoNormal>Einstellungen für den ODBC Treiber die zusätzlich verwendet 
+werden (abhängig vom ODBC-Treiber).</P>
+<P class=MsoNormal>Bsp.: ExtendedODBCOptions=AutoTranslate=No;\</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>EWL Server als HTTP Server</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>serveradress=</P>
+<P class=MsoNormal>Die Serveradresse ist notwendig, damit in der HTML Seite, die 
+den Java Client startet, die richtige Adresse für den Java Client eingetragen 
+werden kann.</P>
+<P class=MsoNormal>Bsp.: serveradress=192.168.11.126</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>HTTPPort=80</P>
+<P class=MsoNormal>Auf diesem Port kann der Applikationsserver angesurft werden 
+(bei Verwendung ohne EWL Systemserver).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>ExternServerAdress=</P>
+<P class=MsoNormal>Auf diesem Port kann der EWL Server von "extern" angesurft 
+werden.</P>
+<P class=MsoNormal>Bsp: externserveradress=xx.xxx.xx.xxx</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>AllowedAdress=</P>
+<P class=MsoNormal>Durch Einträge in diesem Bereich können bestimmte Clients 
+"ausgeschlossen" werden.</P>
+<P class=MsoNormal>Bsp.: AllowedAdress= 192.168.10.*; 80.136.*.*</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>Systemserver</P>
+<P class=MsoNormal>===========================</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>UseSystemServer=</P>
+<P class=MsoNormal>Bei Verwendung des EWL System Servers muss dieser Eintrag auf 
+"1" gesetzt werden.</P>
+<P class=MsoNormal>Bsp.: usesystemserver=1</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>SystemServerPort=</P>
+<P class=MsoNormal>Bei Verwendung des EWL System Servers muss dieser Eintrag 
+gesetzt werden. Der Eintrag muss unterschiedlich zu jenem sein, der als Port für 
+den Applikationsserver (EWL Server) hinterlegt wurde falls der 
+Applikationsserver (EWL Server) am gleichen Rechner läuft wie der EWL System 
+Server.</P>
+<P class=MsoNormal>Bsp.: systemserverhttpport=52001</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>SystemServerAdress=</P>
+<P class=MsoNormal>Zum Ansurfen mittels Browser muss die entsprechende Adresse 
+hinterlegt sein.</P>
+<P class=MsoNormal>Bsp.: systemserveradress=192.168.11.29</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>SystemServerHTTPPort=</P>
+<P class=MsoNormal>Auf diesem Port kann der EWL System Server angesurft werden 
+(bei Verwendung mit EWL Systemserver).</P>
+<P class=MsoNormal>Bsp.: systemserverhttpport=52001</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>MaxPossiblePageCount=</P>
+<P class=MsoNormal>Grundsätzlich ist der die Seitenanzahl für Ausdrucke in der 
+EWL mit 100 Seiten begrenzt.</P>
+<P class=MsoNormal>Durch Eintragen der entsprechenden zahl kann diese Begrenzung 
+verändert werden. Mit dem Eintrag "0" wird die Begrenzung generell 
+aufgehoben.</P>
+<P class=MsoNormal>Bsp.: </P>
+<P class=MsoNormal>MaxPossiblePageCount=200</P>
+<P class=MsoNormal>MaxPossiblePageCount=0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>language=</P>
+<P class=MsoNormal>Hinterlegung der gewünschten Anzeigesprache für die EWL. Hier 
+sind die gleichen Definitionen wie in der Datei "mesonic.ini" der WinLine 
+verwendbar; z.B. 0=Deutsch, 1=Englisch, 5=Ungarisch, usw. </P>
+<P class=MsoNormal>Dies gilt für alle Benutzer und wird durch die entsprechende 
+Einstelllung in Datei "client.config" übersteuert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Grundsätzlich verwendet der EWL-Server "seine" Windows 
+Einstellungen für regionalspezifische Datums-, bzw. Zahlenformatierungen. In der 
+Datei "server.config" können allerdings abweichende Datums- bzw. 
+Zahlenformatierungen hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>iCountry=</P>
+<P class=MsoNormal>Mit diesem Eintrag "erkennt" der Server, dass nicht die 
+regionalen Einstellungen des Server-Computers verwendet werden sollen. In diesem 
+Fall wird <U>keine</U> Einstellung des Servers verwendet, vielmehr müssen dann 
+Datums- und Zahlenformate ebenfalls angegeben werden. Die folgende Countrycodes 
+können verwendet werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Albania 355 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>(Arabic Countries/regions) 785</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Austria 043 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Belgium 032 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Croatia 384 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Czech Republic 042 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Germany 049 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Hungary 036 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>International English 061 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Italy 039 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Poland 048 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Romania 040 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Russia 007 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Slovakia 421 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Slovenia 386 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Spain 034 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Switzerland 041 </P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>United States 001 </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wenn die Region mit Parameter "_iCountry" eingestellt ist, 
+können die Datums- bzw. Zahlenformatierungen hinterlegt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>_idate=</P>
+<P class=MsoNormal>Definition des Datumsformates (gilt wiederum für alle 
+Benutzer ausgenommen jenen, die eigene entsprechende Einstelllungen in der Datei 
+"client.config" haben).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>_iDate= 0 bedeutet das Format: 
+mm-dd-yyyy</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>_iDate= 1 bedeutet das Format: 
+dd-mm-yyyy</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>_iDate= 2 bedeutet das Format: 
+yyyy-mm-dd</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>_sDecimal=</P>
+<P class=MsoNormal>Definition des Dezimaltrennzeichens. (gilt für alle Benutzer 
+ausgenommen jenen, die eigene entsprechende Einstelllungen in der Datei 
+"client.config" haben).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>_sDecimal=,</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>_sThousand=</P>
+<P class=MsoNormal>Definition des Tausendertrennzeichens. (gilt für alle 
+Benutzer ausgenommen jenen, die eigene entsprechende Einstelllungen in der Datei 
+"client.config" haben).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>_sThousand=.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

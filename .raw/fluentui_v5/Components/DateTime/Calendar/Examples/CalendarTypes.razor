@@ -1,0 +1,14 @@
+﻿﻿<FluentStack Wrap="true" HorizontalGap="24px">
+    <FluentDatePicker Label="DateTime?" @bind-Value="@NullableDateTime" Width="140px" />
+    <FluentDatePicker Label="DateTime" @bind-Value="@DateTime" Width="140px" />
+    <FluentDatePicker Label="DateOnly?" @bind-Value="@NullableDateOnly" Width="140px" />
+    <FluentDatePicker Label="DateOnly" @bind-Value="@DateOnly" Width="140px" />
+</FluentStack>
+
+@code
+{
+    private DateTime? NullableDateTime;
+    private DateTime DateTime = DateTime.Today;
+    private DateOnly? NullableDateOnly;
+    private DateOnly DateOnly = DateOnly.FromDateTime(DateTime.Today);
+}

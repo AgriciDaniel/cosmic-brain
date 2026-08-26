@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="100%">
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <rect width="100%" height="100%" rx="10" fill="url(#bgGradient)" />
+
+    <rect x="15" y="15" width="730" height="290" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="35" y="45" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="15px" font-weight="bold" fill="#1a1a2e">RpcHub</text>
+    <text x="35" y="60" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084">singleton orchestrator</text>
+
+    <rect x="35" y="80" width="180" height="210" rx="8" fill="url(#nodeGradient)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="125" y="180" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ServiceRegistry</text>
+    <text x="125" y="200" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084" text-anchor="middle">RPC service definitions</text>
+
+    <rect x="235" y="80" width="495" height="210" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="250" y="105" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e">Peers</text>
+    <text x="250" y="122" font-family="Inter, sans-serif" font-size="11px" font-weight="600" text-transform="uppercase" fill="#8b90a8">Map: RpcPeerRef → RpcPeer</text>
+
+    <rect x="255" y="140" width="150" height="135" rx="8" fill="url(#nodeGradient)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="330" y="195" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcPeerRef</text>
+    <text x="330" y="215" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084" text-anchor="middle">identifies a peer</text>
+    <text x="330" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084" text-anchor="middle">manages peer lifetime</text>
+
+    <line x1="405" y1="207.5" x2="455" y2="207.5" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <rect x="465" y="130" width="250" height="145" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <text x="480" y="150" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" font-weight="bold" fill="#1a1a2e">RpcPeer</text>
+
+    <rect x="480" y="165" width="220" height="45" rx="8" fill="url(#nodeGradient)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="590" y="186" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcClientPeer</text>
+    <text x="590" y="201" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084" text-anchor="middle">outbound</text>
+
+    <rect x="480" y="215" width="220" height="45" rx="8" fill="url(#nodeGradient)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="590" y="236" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">RpcServerPeer</text>
+    <text x="590" y="251" font-family="Inter, -apple-system, sans-serif" font-size="11px" font-style="italic" fill="#6b7084" text-anchor="middle">inbound</text>
+</svg>

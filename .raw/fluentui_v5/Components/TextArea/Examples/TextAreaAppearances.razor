@@ -1,0 +1,30 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentStack HorizontalGap="12px" VerticalAlignment="VerticalAlignment.Bottom" Orientation="Orientation.Horizontal" Wrap="true">
+
+        <FluentSelect Label="Appearance"
+                      Items="@(Enum.GetValues<TextAreaAppearance>())"
+                      @bind-Value="@appearance" />
+
+        <FluentSelect Label="Size"
+                      Items="@(Enum.GetValues<TextAreaSize>())"
+                      @bind-Value="@size" />
+
+        <FluentCheckbox Label="Spell check" @bind-Value="spellCheck"></FluentCheckbox>
+    </FluentStack>
+				   
+    <FluentTextArea Appearance="@appearance"
+                    Size="@size"
+                    Label="Sample"
+                    Spellcheck="@spellCheck"
+                    @bind-Value="@value" />
+</FluentStack>
+
+<FluentLabel>Value = @value</FluentLabel>
+
+@code
+{
+    string value = "";
+    TextAreaAppearance appearance = TextAreaAppearance.Outline;
+    TextAreaSize size = TextAreaSize.Medium;
+    bool spellCheck = false;
+}

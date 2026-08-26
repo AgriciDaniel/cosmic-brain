@@ -1,0 +1,21 @@
+﻿
+<FluentStack HorizontalGap="12px"
+             Style="margin-bottom:15px;"
+             VerticalAlignment="VerticalAlignment.Bottom"
+             Orientation="Orientation.Horizontal"
+             Wrap="true">
+
+    <FluentTextInput Label="Name" @bind-Value="@name" />
+
+    <FluentTextInput Label="Initials" @bind-Value="@initials" />
+
+</FluentStack>
+
+<FluentAvatar Initials="@initials"
+              Name="@name" />
+
+@code
+{
+    string? name = "John Doe";
+    string? initials = null;
+}

@@ -1,0 +1,30 @@
+﻿﻿<FluentCalendar DisabledDateFunc="@DisabledDate" @bind-Value="@SelectedValue">
+    <DaysTemplate>
+        @if (!context.IsInactive &&
+                (context.Date.Day == 5 || context.Date.Day == 15))
+        {
+            <div style="color: red; font-weight: bold;">
+                @context.DayNumber
+            </div>
+        }
+        else
+        {
+            @context.DayNumber
+        }
+    </DaysTemplate>
+</FluentCalendar>
+
+<p>Selected date @(SelectedValue.ToString("yyyy-MM-dd"))</p>
+
+@code
+{
+    private DateOnly SelectedValue = DateOnly.FromDateTime(DateTime.Today);
+
+    private bool DisabledDate(DateOnly date)
+    {
+        return (date.Day == 3 ||
+                date.Day == 8 ||
+                date.Day == 20);
+    }
+}
+

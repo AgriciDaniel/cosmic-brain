@@ -1,0 +1,89 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+<div>Selected: <b>@string.Join("; ", SelectedCountries.Select(c => c.Name))</b></div>
+<div>Search Text: <b>@SearchText</b></div>
+
+<FluentAutocomplete TOption="Country"
+                    TValue="string"
+                    Width="100%"
+                    Label="Select countries"
+                    Placeholder="Type to search..."
+                    ShowProgressIndicator="@ShowProgressIndicator"                    
+                    MaximumSelectedOptions="4"
+                    MaxAutoHeight="@((MaxAutoHeight) ? "unset" : null)"
+                    OnOptionsSearch="@OnSearchAsync"
+                    OptionText="@(item => item.Name)"
+                    MaxSelectedWidth="@(MaxSelectedWidth ? "40px" : null)"
+                    ShowDismiss="@ShowDismiss"
+                    @bind-Value="@SearchText"
+                    @bind-SelectedItems="@SelectedCountries">
+
+    @* Template used with each Option items *@
+    <OptionTemplate>
+        <FluentStack Style="pointer-events: none;" VerticalAlignment="VerticalAlignment.Center">
+            <FluentAvatar Image="@context.Flag()"
+                          Name="@context.Name"
+                          Size="AvatarSize.Size20" />
+            <FluentText Margin="@Margin.Left4">
+                @context.Name
+            </FluentText>
+        </FluentStack>
+    </OptionTemplate>
+
+    @* Maximum selected options message *@
+    <MaximumSelectedOptionsMessage>
+        <FluentText Size="TextSize.Size200" Align="TextAlign.Center" Color="Color.Error">
+            You can only select up to 4 items.
+        </FluentText>
+    </MaximumSelectedOptionsMessage>
+
+    @* Content display at the top of the Popup area *@
+    <HeaderContent>
+        <FluentText Size="TextSize.Size200" Color="Color.Primary" Align="TextAlign.Center">
+            Suggested contacts
+        </FluentText>
+        <FluentProgressBar Thickness="ProgressThickness.Large" Visible="@context.InProgress" />
+    </HeaderContent>
+
+    @* Content display at the bottom of the Popup area *@
+    <FooterContent>
+        @if (!context.InProgress && !context.Items.Any())
+        {
+            <FluentText Size="TextSize.Size200" 
+                        Align="TextAlign.Center" 
+                        Color="Color.Error" 
+                        Style="width: 100%;">
+                No results found
+            </FluentText>
+        }
+    </FooterContent>
+    
+</FluentAutocomplete>
+
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentSwitch @bind-Value="@ShowProgressIndicator" Label="Show progress indicator" />
+    <FluentSwitch @bind-Value="@MaxAutoHeight" Label="Auto height" />
+    <FluentSwitch @bind-Value="@MaxSelectedWidth" Label="Set a max selected width (40px)" />
+    <FluentSwitch @bind-Value="@ShowDismiss" Label="Show search or dismiss button" />
+</FluentStack>
+
+@code
+{
+    bool ShowProgressIndicator { get; set; }
+    bool MaxAutoHeight { get; set; }
+    bool MaxSelectedWidth { get; set; }
+    bool ShowDismiss { get; set; } = true;
+    string? SearchText { get; set; }
+    IEnumerable<Country> SelectedCountries { get; set; } = [];
+
+    async Task OnSearchAsync(OptionsSearchEventArgs<Country> e)
+    {
+        if (ShowProgressIndicator)
+        {
+            await Task.Delay(500); // Simulate async search
+        }
+
+        e.Items = Countries.Where(i => i.Name.StartsWith(e.Text, StringComparison.OrdinalIgnoreCase))
+                           .OrderBy(i => i.Name);
+    }
+}

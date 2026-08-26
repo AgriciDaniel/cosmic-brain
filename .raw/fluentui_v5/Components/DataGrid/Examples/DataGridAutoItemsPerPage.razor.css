@@ -1,0 +1,7 @@
+#datagrid-container {
+  height: calc(45vh - 3rem);
+  min-height: 8rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+

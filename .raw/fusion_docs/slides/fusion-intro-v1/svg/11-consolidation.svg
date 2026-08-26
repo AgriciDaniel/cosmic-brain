@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a11" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#a8b1ff"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="100" fill="#fcfcf7" font-size="13">invalidations</text>
+  <line x1="200" y1="85" x2="700" y2="85" stroke="#7e7e87" stroke-width="1"/>
+  <g stroke="#f44" stroke-width="2">
+    <line x1="210" y1="70" x2="210" y2="100"/>
+    <line x1="225" y1="70" x2="225" y2="100"/>
+    <line x1="240" y1="70" x2="240" y2="100"/>
+    <line x1="260" y1="70" x2="260" y2="100"/>
+    <line x1="285" y1="70" x2="285" y2="100"/>
+    <line x1="310" y1="70" x2="310" y2="100"/>
+    <line x1="340" y1="70" x2="340" y2="100"/>
+    <line x1="380" y1="70" x2="380" y2="100"/>
+    <line x1="420" y1="70" x2="420" y2="100"/>
+    <line x1="465" y1="70" x2="465" y2="100"/>
+  </g>
+
+  <rect x="200" y="130" width="290" height="40" rx="6" fill="rgba(168,177,255,0.10)" stroke="#a8b1ff" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="345" y="156" text-anchor="middle" fill="#a8b1ff" font-size="14">ConsolidationDelay = 0.5 s</text>
+
+  <line x1="345" y1="180" x2="345" y2="225" stroke="#a8b1ff" stroke-width="2" marker-end="url(#a11)"/>
+
+  <text x="60" y="275" fill="#fcfcf7" font-size="13">recompute</text>
+  <line x1="200" y1="260" x2="700" y2="260" stroke="#7e7e87" stroke-width="1"/>
+  <line x1="490" y1="245" x2="490" y2="275" stroke="#4ade80" stroke-width="3"/>
+  <text x="490" y="305" text-anchor="middle" fill="#4ade80" font-size="12">one recompute</text>
+</svg>

@@ -1,0 +1,56 @@
+﻿@using FluentUI.Demo.SampleData
+@using static FluentUI.Demo.SampleData.DateAndTime  @* To use MonthItem *@
+
+<FluentTabs @bind-ActiveTabId="@SelectedTabId" Style="@CommonStyles.NeutralBorder1">
+
+    @foreach (var item in Items)
+    {
+        <FluentTab Id="@item.Index">
+
+            @* Tab Header *@
+            <HeaderTemplate>
+                <FluentStack HorizontalGap="4px" VerticalAlignment="VerticalAlignment.Center">
+                    <FluentLabel>@item.Name</FluentLabel>
+                    <FluentIcon Tooltip="Delete"
+                                Value="@(new Icons.Regular.Size12.Dismiss())"
+                                OnClick="@(e => RemoveTab(item.Index))" />
+                </FluentStack>
+            </HeaderTemplate>
+
+            @* Tab Content *@
+            <ChildContent>
+                Tab #@item.Index: @item.Name
+            </ChildContent>
+
+        </FluentTab>
+    }
+
+</FluentTabs>
+
+<FluentButton OnClick="AddTab" Disabled="@(Items.Count > 11)">Add and select</FluentButton>
+
+@code
+{
+    List<MonthItem> Items = new List<MonthItem>(DateAndTime.AllMonths.Take(4));
+    string? SelectedTabId;
+
+    void AddTab()
+    {
+        var newItem = DateAndTime.AllMonths.FirstOrDefault(month => !Items.Any(item => item.Index == month.Index));
+        if (newItem != null)
+        {
+            Items.Add(newItem);
+            SelectedTabId = newItem.Index;
+        }
+    }
+
+    void RemoveTab(string tabId)
+    {
+        var item = Items.FirstOrDefault(i => i.Index == tabId);
+        if (item != null)
+        {
+            Items.Remove(item);
+            SelectedTabId = Items.FirstOrDefault()?.Index;
+        }
+    }
+}

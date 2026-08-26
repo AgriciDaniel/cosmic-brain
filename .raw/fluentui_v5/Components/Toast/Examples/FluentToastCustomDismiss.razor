@@ -1,0 +1,33 @@
+﻿@inject IToastService ToastService
+
+<FluentButton OnClick="@OpenToastAsync">
+    Make toast
+</FluentButton>
+
+@code {
+    int clickCount = 0;
+
+    private async Task OpenToastAsync()
+    {
+        var result = await ToastService.ShowToastAsync(options =>
+        {
+            options.Intent = ToastIntent.Success;
+            options.Title = $"Toast title {++clickCount}";
+            options.Body = "This toast has a custom dismiss action.";
+            options.IsDismissable = true;
+            options.DismissAction = "Undo";
+            options.DismissActionCallback = () =>
+            {
+                Console.WriteLine("Undo action executed.");
+                return Task.CompletedTask;
+            };
+            options.OnStatusChange = (e) =>
+            {
+                Console.WriteLine($"Status changed: {e.Id} - {e.Status}");
+            };
+
+        });
+        Console.WriteLine($"Toast result: {result}");
+    }
+}
+

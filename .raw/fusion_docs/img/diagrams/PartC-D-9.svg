@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient (Light Blue) -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Action/Process Node Gradient (Warm Amber) -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 6 3 L 0 6 L 1.5 3 Z" fill="#8b90a8" />
+    </marker>
+
+    <!-- Shared Text Styles -->
+    <style>
+      .code-text {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 13px;
+        fill: #1a1a2e;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Nodes -->
+  
+  <!-- Call Node (Action) -->
+  <rect x="140" y="40" width="320" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="65" class="code-text" text-anchor="middle">Commander.Call(CreateOrderCommand)</text>
+
+  <!-- Resolve Node (Action) -->
+  <rect x="60" y="120" width="480" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="145" class="code-text" text-anchor="middle">CommandHandlerResolver.GetCommandHandlers(commandType)</text>
+
+  <!-- Steps Node (Action) -->
+  <rect x="130" y="200" width="340" height="130" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="150" y="228" class="code-text">1. Get all base types of command</text>
+  <text x="150" y="248" class="code-text">2. Find registered handlers</text>
+  <text x="150" y="268" class="code-text">3. Apply handler filters</text>
+  <text x="150" y="288" class="code-text">4. Sort by Priority DESC</text>
+  <text x="150" y="308" class="code-text">5. Verify: only ONE non-filter handler</text>
+
+  <!-- Chain Node (State/Object) -->
+  <rect x="200" y="370" width="200" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="300" y="395" class="code-text" text-anchor="middle">CommandHandlerChain</text>
+
+  <!-- Edges -->
+
+  <!-- Call -> Resolve -->
+  <path d="M 300 80 C 300 100, 300 100, 300 114" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Resolve -> Steps -->
+  <path d="M 300 160 C 300 180, 300 180, 300 194" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Steps -> Chain -->
+  <path d="M 300 330 C 300 350, 300 350, 300 364" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+</svg>

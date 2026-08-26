@@ -1,0 +1,14 @@
+﻿<FluentStack Orientation="@Orientation.Vertical">
+    <FluentField Message="Success ProgressBar" MessageState="@MessageState.Success">
+        <FluentProgressBar State="@ProgressState.Success" Value="20" Thickness="@ProgressThickness.Large" Width="300px" />
+    </FluentField>
+    <FluentField Message="Warning ProgressBar" MessageState="@MessageState.Warning">
+        <FluentProgressBar State="@ProgressState.Warning" Value="40" Thickness="@ProgressThickness.Large" Width="300px" />
+    </FluentField>
+    <FluentField Message="Error ProgressBar" MessageState="@MessageState.Error">
+        <FluentProgressBar State="@ProgressState.Error" Value="60" Thickness="@ProgressThickness.Large" Width="300px" />
+    </FluentField>
+    <FluentField Message="* Custom Color (Purple)">
+        <FluentProgressBar Color="purple" Value="80" Thickness="@ProgressThickness.Large" Width="300px" />
+    </FluentField>
+</FluentStack>

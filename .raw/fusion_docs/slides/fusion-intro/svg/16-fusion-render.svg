@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a16" viewBox="0 -5 10 10" refX="9" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+  </defs>
+
+  <!-- Row 1: GraphQL / one big query -->
+  <text x="14" y="79" fill="#7e7e87" font-size="14" font-weight="600">GraphQL</text>
+
+  <rect x="104" y="55" width="120" height="40" rx="7" fill="rgba(189,52,254,0.13)" stroke="#bd34fe" stroke-width="1.6"/>
+  <text x="164" y="79" text-anchor="middle" fill="#fcfcf7" font-size="12.5">one big query</text>
+
+  <rect x="224" y="55" width="320" height="40" rx="7" fill="rgba(126,126,135,0.13)"
+        stroke="#7e7e87" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="384" y="79" text-anchor="middle" fill="#9ca0ad" font-size="12">build &amp; ship the whole payload</text>
+
+  <line x1="545" y1="75" x2="563" y2="75" stroke="#7e7e87" stroke-width="1.6" marker-end="url(#a16)"/>
+  <rect x="565" y="55" width="78" height="40" rx="7" fill="rgba(189,52,254,0.13)" stroke="#bd34fe" stroke-width="1.6"/>
+  <text x="604" y="79" text-anchor="middle" fill="#fcfcf7" font-size="12.5">render</text>
+
+  <rect x="649" y="59" width="128" height="32" rx="16" fill="rgba(255,123,114,0.13)" stroke="#ff7b72" stroke-width="1.4"/>
+  <text x="713" y="79" text-anchor="middle" fill="#ff7b72" font-size="12">screen ready</text>
+
+  <text x="384" y="120" text-anchor="middle" fill="#ff7b72" font-size="11.5">blank until the whole response lands</text>
+
+  <!-- Row 2: Fusion / persistent cache -->
+  <text x="14" y="176" fill="#bd34fe" font-size="14" font-weight="600">Fusion</text>
+
+  <rect x="104" y="152" width="200" height="40" rx="7" fill="rgba(189,52,254,0.13)" stroke="#bd34fe" stroke-width="1.6"/>
+  <text x="204" y="176" text-anchor="middle" fill="#fcfcf7" font-size="12">render from the persistent cache</text>
+
+  <line x1="305" y1="172" x2="323" y2="172" stroke="#7e7e87" stroke-width="1.6" marker-end="url(#a16)"/>
+  <rect x="325" y="156" width="124" height="32" rx="16" fill="rgba(126,231,135,0.14)" stroke="#7ee787" stroke-width="1.4"/>
+  <text x="387" y="176" text-anchor="middle" fill="#7ee787" font-size="12">screen live</text>
+
+  <rect x="104" y="200" width="470" height="30" rx="7" fill="rgba(65,209,255,0.10)" stroke="#41d1ff" stroke-width="1.4"/>
+  <text x="339" y="219" text-anchor="middle" fill="#bfe6ff" font-size="11.5">validate every value in the background — never blocking a render</text>
+</svg>

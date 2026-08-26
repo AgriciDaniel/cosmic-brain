@@ -1,0 +1,47 @@
+@inject IDialogService DialogService
+
+<FluentStack Wrap="true" HorizontalGap="24px">
+    <FluentTextInput Label="Overlay Text"
+                     @bind-Value="overlayText" />
+
+    <FluentSelect Items="@GetAppearanceValues()"
+                  Label="Appearance"
+                  @bind-Value="appearance" />
+
+    <FluentSelect Items="@GetSpinnerSizes()"
+                  Label="Spinner Size"
+                  @bind-Value="spinnerSize" />
+</FluentStack>
+
+<FluentButton OnClick="@DisplayOverlay">
+    Show Overlay during 5 seconds
+</FluentButton>
+
+@code
+{
+    string overlayText = "Processing...";
+    CardAppearance? appearance = null;
+    SpinnerSize? spinnerSize = null;
+    IEnumerable<CardAppearance?> GetAppearanceValues() => (new CardAppearance?[] { null }).Union(Enum.GetValues(typeof(CardAppearance)).Cast<CardAppearance?>());
+    IEnumerable<SpinnerSize?> GetSpinnerSizes() => (new SpinnerSize?[] { null }).Union(Enum.GetValues(typeof(SpinnerSize)).Cast<SpinnerSize?>());
+
+    async Task DisplayOverlay()
+    {
+        await DialogService.ShowOverlayAsync(options =>
+        {
+            options.Text = overlayText;
+            options.CardAppearance = appearance;
+            options.SpinnerSize = spinnerSize;
+        });
+
+        try
+        {
+            // Simulate a long-running operation
+            await Task.Delay(5000);
+        }
+        finally
+        {
+            await DialogService.HideOverlayAsync();
+        }
+    }
+}

@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>PPS-Parameter - Parameter</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">PPS-Parameter - Parameter</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Bereich "PPS-Parameter - Parameter" können allgemein 
+gültige Parameter der WinLine PPS definiert werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Standardmäßig wird das Fenster in einem "Lesemodus" geöffnet, 
+d.h. es können die bestehenden Einstellungen kontrolliert, Änderungen allerdings 
+nicht durchgeführt werden. Hierfür muss zunächst mit Hilfe des Buttons 
+"Bearbeiten" der "Bearbeitungsmodus" aktiviert werden. Alternativ kann diese 
+Aktivierung auch über das Kontextmenü der rechten Maustaste (Funktion 
+"Applikation xxx bearbeiten") erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_718.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Parameter - Allgemein</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_719.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>absteigende 
+Priorität verwenden (niedrigere Werte = höhere Prio.)</P>
+<P class=MsoNormal>Im Standard ist ein Produktionsauftrag mit hoher Priorität 
+wichtiger wie ein Auftrag mit niedriger Priorität (0 = kleinste / niedrigste 
+Priorität). Durch Aktivierung dieser Option wird dieses System umgekehrt, d.h. 
+ein Auftrag mit niedriger Priorität ist wichtiger wie ein Produktionsauftrag mit 
+hoher Priorität (0 = größte / höchste Priorität).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>automatische 
+Prioritätsobergrenze</P>
+<P class=MsoNormal>Über dieses Feld wird ein Vorschlagswert definiert, welcher 
+im Leitstand, bei der Ausgabe der Materialentnahmescheine und bei den 
+Arbeitsscheinen in dem Selektionsfeld "Priorität bis" vorbesetzt wird. Dieser 
+Wert kann (mit einer Hinweismeldung) in den entsprechenden Menüpunkten manuell 
+übersteuert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>FFG-Belegart</P>
+<P class=MsoNormal>Um das Fenster "Fremdfertigung" zu verwenden, muss eine 
+Belegart (Typ "Einkauf" und Option "Fremdfertigung" muss aktiviert sein) in 
+diesem Feld hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Unterschreitung</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_720.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lagerstand</P>
+<P class=MsoNormal>Mit dieser Einstellung kann gesteuert werden, wie die WinLine 
+PPS auf Lagerstandunterschreitungen reagieren soll. Dabei sind folgende Optionen 
+möglich:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - erlaubt<BR>Bei dieser Option 
+werden bei der Produktionsmeldung die eingetragenen Mengen vom Lager abgebucht, 
+egal ob diese Mengen auch tatsächlich vorhanden sind. Eine 
+Lagerstandunterschreitung wird nicht geprüft.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - erlaubt mit Warnung<BR>Bei 
+dieser Option wird bei der Produktionsmeldung der Lagerstand geprüft. Sind die 
+gewünschten Artikel nicht auf Lager, wird eine entsprechende Meldung ausgegeben 
+und der Anwender kann entscheiden, ob trotzdem gebucht werden soll (weil es z.B. 
+einen Lagerzugang gegeben hat, der noch nicht erfasst wurde) oder nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - nicht erlaubt<BR>Bei dieser 
+Option ist eine Lagerstandunterschreitung nicht möglich - sind nicht alle 
+Artikel für die Produktionsmeldung am Lager, kann der Produktionsauftrag nicht 
+endgemeldet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - erlaubt mit Warnung (abzgl. 
+kommissionierter Menge)<BR>Bei dieser Option wird bei der Produktionsmeldung der 
+Lagerstand geprüft unter Berücksichtigung der bereits kommissionierten Menge. 
+Sind die gewünschten Artikel nicht auf Lager, wird eine entsprechende Meldung 
+ausgegeben und der Anwender kann entscheiden, ob trotzdem gebucht werden soll 
+oder nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - nicht erlaubt (abzgl. 
+kommissionierter Menge)<BR>Bei dieser Option ist eine Lagerstandunterschreitung 
+unter Berücksichtigung der bereits kommissionierten Menge nicht möglich - sind 
+nicht alle Artikel für die Produktionsmeldung am Lager, kann der 
+Produktionsauftrag nicht endgemeldet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>5 - erlaubt mit Warnung (inkl. 
+Lagerorte)<BR>Bei dieser Option wird bei der Produktionsmeldung der Lagerstand 
+geprüft. Sind die gewünschten Artikel nicht auf Lager bzw. auf dem gewählten 
+Lagerort, wird eine entsprechende Meldung ausgegeben und der Anwender kann 
+entscheiden, ob trotzdem gebucht werden soll oder nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>6 - nicht erlaubt (inkl. 
+Lagerorte)<BR>Bei dieser Option ist eine Lagerstandunterschreitung inklusive 
+Lagerorte nicht möglich - sind nicht alle Artikel für die Produktionsmeldung am 
+Lager bzw. auf den entsprechenden Lagerorten, so wird eine Endmeldung 
+blockiert.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Einstellungen "3 - erlaubt mit Warnung (abzgl. 
+kommissionierter Menge)" bis "6 - nicht erlaubt (inkl. Lagerorte)" werden 
+derzeit nur bei der Endmeldung, der Schnellendmeldung, dem EXIM und dem 
+Webservice berücksichtigt. In der Materialentnahme findet dieses nicht 
+statt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Prod. 
+Mindestmenge</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, welche "Aktion" bei 
+Unterschreitung der, im Artikelstamm hinterlegten, Produktionsmindestmenge 
+ausgeführt werden soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - erlaubt<BR>Bei dieser Option 
+wird bei einer Unterschreitung der Produktionsmindestmenge keine eigene Meldung 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - erlaubt mit Warnung<BR>Bei 
+dieser Option wird bei einer Unterschreitung der Produktionsmindestmenge eine 
+entsprechende Meldung ausgegeben und es kann entschieden werden, ob die Mengen 
+nochmals geändert werden soll oder nicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - nicht erlaubt<BR>Bei dieser 
+Option ist eine Unterschreitung der Produktionsmindestmenge nicht möglich. Es 
+muss die Menge entsprechend angepasst werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Diese Einstellung wirkt grundsätzlich für alle 
+Produktionsartikel. Innerhalb der Belegerfassen wird die Prüfung nur bei 
+Artikeln berücksichtigt, welche zusätzlich auf den Dispositionstyp "1 - 
+Auftragsbezogene Produktion/Bestellung" gestellt wurden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Parameter - Tätigkeiten / Reservierung</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_721.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Toleranz 
+Reservierungen</P>
+<P class=MsoNormal>An dieser Stelle wird gesteuert, was die minimale Zeitspanne 
+ist, welche noch verplant werden soll / darf. Wird diese Zeitspanne klein 
+definiert, so bleiben zwischen den Produktionsaufträgen nur wenige Lücken, es 
+müssen Ressourcen aber ggfs. unterschiedliche Aufträge in einem kurzen Zeitraum 
+bearbeiten.</P>
+<P class=MsoNormal>Wird die Zeitspanne hingegen groß definiert, so kann dieses 
+dazu führen, dass die Ressourcen in Summe über längere Zeiträume hinweg nicht 
+genutzt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückfalls - 
+Ressource</P>
+<P class=MsoNormal>Hier darf nur eine Ressource eingetragen werden, welche in 
+keinem Produktionsauftrag verwendet wird und auf inaktiv gestellt wurde. Diese 
+Ressource wird dann benötigt, wenn nicht mehr verwendete Ressourcen gelöscht 
+werden sollen. In diesem Fall wird die zu löschende Ressource durch die 
+Rückfalls - Ressource ausgetauscht. Damit können auch nach dem Löschen 
+entsprechende Auswertungen durchgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>mengenunabhängige Tätigkeiten mit Stückliste multiplizieren</P>
+<P class=MsoNormal>Mit dieser Option kann gesteuert werden, ob die Eigenschaft 
+"mengenunabhängige Tätigkeit" nur für die Berechnung "Menge in Stückliste x 
+Tätigkeit" gilt oder auch für die Anzahl der Tätigkeit innerhalb der 
+Stückliste.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>In einer Stückliste ist eine mengenunabhängige Tätigkeit mit 
+einer Menge von 6 Stück hinterlegt. Die Tätigkeit selbst dauert 10 Minuten. Nun 
+sollen 10 Stück von diesem Produkt produziert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist nicht aktiviert<BR>Ist 
+die Option nicht aktiviert, dann wird die Tätigkeit mit einer Dauer von 10 
+Minuten eingeplant (sowohl die Menge aus dem Produktionsauftrag als auch die 
+Menge in der Stückliste werden ignoriert).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Option ist aktiviert<BR>Ist die 
+Option aktiviert, dann wird die Tätigkeit mit 60 Minuten eingeplant, d.h. die 
+Menge aus dem Stücklistenstamm (6 Stück) wird berücksichtigt. Die Tätigkeit 
+selbst bleibt aber eine mengenunabhängige Tätigkeit, wodurch die 10 Stück des 
+Produktionsauftrages nach wie vor nicht berücksichtigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>durchg. 
+Fertigung mit Unterbrecher</P>
+<P class=MsoNormal>Die Option "durchgehende Fertigung mit Unterbecher" bezieht 
+sich auf Tätigkeiten mit der aktivierten Einstellung "durchgehende Fertigung", 
+wobei mehrere Ressourcen verwendet werden und diese z.B. in unterschiedlichen 
+Kalenderschemata zugewiesen sind und es dort wiederum zeitliche Abweichungen 
+gibt.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>In einer Stückliste gibt es eine Tätigkeit. Diese Tätigkeit 
+ist als durchgehende Fertigung aktiviert. Die Maschinen werden feingeplant 
+während bei den Mitarbeitern nur eine Grobplanung erfolgt. Als Ressourcen werden 
+einmal eine definierte Maschine hinterlegt ("9-1 - Maschine"). Zusätzlich werden 
+die Ressourcen Mitarbeiter Tagschicht (Ressourcengruppe "1", diese Arbeiten von 
+7 bis 15 Uhr) hinterlegt oder es kann die Nachtschicht der Mitarbeiter 
+(Ressourcengruppe "2", diese Arbeiten von 17 bis 22 Uhr) herangezogen werden. 
+Würde jetzt ein Produktionsauftrag angelegt werden, der mehr als 8 Stunden 
+dauert, so könnte dieser Auftrag nicht eingeplant werden, da die Nachtschicht 
+nicht direkt im Anschluss arbeitet. Mit der Aktivierung der Option " 
+durchgehende Fertigung mit Unterbecher" würde die Tagschicht eingeplant werden 
+und im Anschluss die Nachtschicht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Einplanungsdatum</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, mit welchem Datum das 
+Einplanen der Tätigkeiten stattfinden soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - 
+Produktionsauftragsdatum<BR>Aufgrund der Vorgabe bei der Produktionsvorbereitung 
+und einer ggfs. durchgeführten Verfügbarkeitsprüfung erhält der Fertigartikel 
+(das zu produzierende Endprodukt) ein Produktionsdatum. Auf Grundlage dieses 
+Datums werden alle anderen Arbeitsschritte eingeplant.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - 
+Verfügbarkeitsdatum<BR>Aufgrund der Vorgabe bei der Produktionsvorbereitung und 
+einer ggfs. durchgeführten Verfügbarkeitsprüfung erhält jeder einzelne 
+Arbeitsschritt ein individuelles Produktionsdatum. Bei der Einplanung wird jede 
+Tätigkeit mit dem Datum des jeweiligen Arbeitsschritts ausgestattet und 
+entsprechend eingeplant.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Parameter - Endmeldung</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_722.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzeige</P>
+<P class=MsoNormal>An dieser Stelle kann hinterlegte werden, welche Zeiten bei 
+der Endmeldung als Istzeiten vorgeschlagen werden sollen. Wird keine der zur 
+Verfügung stehenden Auswahlen aktiviert, so werden bei der Produktionsendmeldung 
+keine Zeiten vorgeschlagen. Die Istzeiten-Erfassung erfolgt somit ohne jeglichen 
+Vorschlag bzw. ausschließlich über den eigenen Menüpunkt 
+"Istzeiten-Erfassung".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lagermanagement</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, ob eine automatische 
+Erfassung von Lagerorten erwünscht ist, wenn ein Lagerort in der WinLine PPS 
+benötigt wird. Folgende Varianten stehen zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>LAGERMANAGEMENT-Fenster öffnet 
+sich immer<BR>Sollte der Lagerort noch nicht zugewiesen sein, so öffnet sich das 
+Fenster "Lagerorte erfassen". An dieser Stelle muss manuell ein Lagerort gewählt 
+und dieses per Button "Ok" bzw. Taste F5 bestätigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Automatik wird 
+unterstützt<BR>Sollte der Lagerort noch nicht zugewiesen sein, so öffnet sich 
+das Fenster "Lagerorte erfassen". Wenn es für den Ausgangsartikel nur einen 
+Lagerort gibt, so wird die Zu- bzw. Abgangsmenge (wenn ausreichend vorhanden) 
+automatisch eingetragen und die Erfassung gespeichert.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Automatik wird in den folgenden Programmbereichen 
+unterstützt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Produktionsendmeldung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Produktions-Schnellendmeldung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Expressendmeldung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Einstandspreis in den Kundenauftrag retourspeichern</P>
+<P class=MsoNormal>Wurde diese Option aktiviert, so wird bei der 
+Produktionsendmeldung der neu errechnete Einstandspreis (mit welchem der fertige 
+Produktionsartikel auf das Lager gebucht wurde) in den Kundenauftrag FIX 
+zurückgeschrieben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Voraussetzung für das Retourspeichern ist eine 
+auftragsbezogene Produktion! Des Weiteren ist zu beachten, dass in den Auftrag 
+immer der Einstandspreis der zuletzt getätigten Produktionsendmeldung 
+geschrieben wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Fenster 
+Neubewertung</P>
+<P class=MsoNormal>Mit Hilfe einer Auswahlliste kann gesteuert werden, ob die 
+Produktions-Neubewertung automatisch in Verbindung mit einer abschließenden 
+Endmeldung ausgeführt werden soll oder nicht. Folgende Varianten stehen zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - nur manuell<BR><SPAN 
+style="BACKGROUND: white; COLOR: black; LETTER-SPACING: -0.05pt">Bei dieser 
+Option wird die Produktions-Neubewertung nicht automatisch bei einer 
+abschließenden Endmeldung des Fertigartikels aufgerufen (die Neubewertung kann 
+allerdings im Fenster "Produktionsauftrag Neubewertung" nachträglich 
+durchgeführt werden).</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - automatisch aus Endmeldung 
+ohne Buchen<BR>Bei dieser Option wird die Produktions-Neubewertung automatisch 
+bei einer abschließenden Endmeldung des Fertigartikels aufgerufen. Die 
+Neubewertung wird aber nicht sofort ausgeführt, sondern das Fenster bleibt 
+vorerst offen, so dass die Bewertungen vor dem Buchen kontrolliert werden 
+können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - automatisch aus Endmeldung 
+inkl. Buchen<BR>Bei dieser Option wird die Produktions-Neubewertung automatisch 
+bei einer abschließenden Endmeldung des Fertigartikels aufgerufen und sofort 
+(d.h. wenn Bewertungs-Differenzen vorliegen) ausgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Artikelstatusgrenze</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_723.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In den nachfolgenden Feldern kann eine Artikelstatusgrenze 
+angegeben werden. Der Artikelstatus wird hierbei pro Produktionskomponente 
+geprüft.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelstatusgrenze Endmeldung - Warnung</P>
+<P class=MsoNormal>In das Feld "Warnung" kann die Artikelstatusnummer hinterlegt 
+werden, ab welcher eine Warnung im Fenster "Produktionskorrektur" ausgegeben 
+werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelstatusgrenze Produktionskorrektur - Sperre</P>
+<P class=MsoNormal>In das Feld "Sperre" kann die Artikelstatusnummer hinterlegt 
+werden, ab welcher keine Bearbeitung bzw. kein Speichern im Fenster 
+"Produktionskorrektur" erlaubt ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelstatusgrenze Endmeldung - Warnung</P>
+<P class=MsoNormal>In das Feld "Warnung" kann die Artikelstatusnummer hinterlegt 
+werden, ab welcher eine Warnung im Fenster "Produktionsendmeldung" ausgegeben 
+werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelstatusgrenze Endmeldung - Sperre</P>
+<P class=MsoNormal>In das Feld "Sperre" kann die Artikelstatusnummer hinterlegt 
+werden, ab welcher keine Bearbeitung bzw. kein Speichern im Fenster 
+"Produktionsendmeldung" erlaubt ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Kapazitätsplanung für Ressourcengruppen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_724.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ressourcengruppen - Kapazitätsplanung</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, ob man mit einer 
+Kapazitätsplanung (Grobplanung) arbeiten möchte. Nach Aktivierung kann pro 
+Ressourcengruppe die Planungsmethode im Ressourcenstamm hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Startdatum</P>
+<P class=MsoNormal>Die Kapazitätsplanung (d.h. Grobplanung) wird ab dem hier 
+hinterlegten Datum durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

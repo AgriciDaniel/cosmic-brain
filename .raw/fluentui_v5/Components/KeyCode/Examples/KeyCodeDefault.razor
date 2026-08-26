@@ -1,0 +1,28 @@
+﻿<FluentKeyCode OnKeyDown="@KeyDownHandler"
+               PreventDefault="true"
+               StopPropagation="true"
+               Style="@CommonStyles.NeutralBorder1"
+               Padding="@Padding.All3"
+               tabindex="0">
+    Click here and press <code>Ctrl</code> + <code>G</code>
+</FluentKeyCode>
+<div class="ma-4">
+    @(shortcutPressed ? "Shortcut pressed!" : "")
+</div>
+
+@code
+{
+    bool shortcutPressed = false;
+
+    void KeyDownHandler(FluentKeyCodeEventArgs e)
+    {
+        if (e.Key == KeyCode.KeyG && e.CtrlKey)
+        {
+            shortcutPressed = true;
+        }
+        else
+        {
+            shortcutPressed = false;
+        }
+    }
+}

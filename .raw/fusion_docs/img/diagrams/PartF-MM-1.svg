@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 330" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="blue-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="amber-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Subgraph: Before -->
+    <rect x="30" y="50" width="540" height="230" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+    <text x="45" y="70" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">View A Active</text>
+
+    <!-- Subgraph: After -->
+    <rect x="650" y="50" width="290" height="230" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+    <text x="665" y="70" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">View A Disposed</text>
+
+    <!-- Nodes: Before -->
+    <!-- CS -->
+    <rect x="50" y="145" width="160" height="40" fill="url(#blue-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="130" y="170" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">ComputedState&lt;T&gt;</text>
+
+    <!-- C1 -->
+    <rect x="250" y="145" width="140" height="40" fill="url(#blue-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="320" y="170" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Computed&lt;Order&gt;</text>
+
+    <!-- C2 -->
+    <rect x="430" y="85" width="120" height="40" fill="url(#blue-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="490" y="110" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Computed&lt;User&gt;</text>
+
+    <!-- C3 -->
+    <rect x="430" y="205" width="120" height="40" fill="url(#blue-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="490" y="230" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Computed&lt;Items&gt;</text>
+
+    <!-- Nodes: After -->
+    <!-- X1 (Action/Event) -->
+    <rect x="670" y="85" width="250" height="40" fill="url(#amber-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="795" y="110" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">ComputedState disposed</text>
+
+    <!-- X2 (State) -->
+    <rect x="670" y="145" width="250" height="40" fill="url(#blue-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="795" y="170" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">No strong references</text>
+
+    <!-- X3 (Action/Process) -->
+    <rect x="670" y="205" width="250" height="40" fill="url(#amber-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="795" y="230" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">GC collects Order, User, Items</text>
+
+    <!-- Edges: Before -->
+    <!-- CS to C1 -->
+    <path d="M 210 165 L 242 165" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- C1 to C2 -->
+    <path d="M 390 165 C 410 165, 410 105, 422 105" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    
+    <!-- C1 to C3 -->
+    <path d="M 390 165 C 410 165, 410 225, 422 225" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Edge: Navigation (Before to After) -->
+    <path d="M 570 165 L 642 165" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="610" y="155" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Navigation</text>
+
+    <!-- Edges: After -->
+    <!-- X1 to X2 -->
+    <path d="M 795 125 L 795 137" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" marker-end="url(#arrow)" />
+    
+    <!-- X2 to X3 -->
+    <path d="M 795 185 L 795 197" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" marker-end="url(#arrow)" />
+</svg>

@@ -1,0 +1,38 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+
+    <FluentRadioGroup Label="Numbers" @bind-Value="@NumberValue">
+        <FluentRadio Value="@((int?)1)">
+            <LabelTemplate>
+                <strong>One</strong>
+            </LabelTemplate>
+        </FluentRadio>
+        <FluentRadio Value="@((int?)2)">
+            <LabelTemplate>
+                <em>Two</em>
+            </LabelTemplate>
+        </FluentRadio>
+    </FluentRadioGroup>
+
+    <FluentLabel>Selected number: @NumberValue</FluentLabel>
+
+    <FluentRadioGroup Label="Strings" @bind-Value="@StringValue">
+        <FluentRadio Value="@("one")">
+            <LabelTemplate>
+                <em>One</em>
+            </LabelTemplate>
+        </FluentRadio>
+        <FluentRadio Value="@("two")">
+            <LabelTemplate>
+                <strong>Two</strong>
+            </LabelTemplate>
+        </FluentRadio>
+    </FluentRadioGroup>
+
+    <FluentLabel>Selected string: @StringValue</FluentLabel>
+</FluentStack>
+
+@code
+{
+    int? NumberValue;
+    string StringValue = "";
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="Inter, ui-sans-serif, sans-serif">
+  <rect x="30" y="60" width="220" height="180" rx="14" fill="rgba(168,177,255,0.06)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="140" y="105" text-anchor="middle" fill="#a8b1ff" font-size="22" font-weight="600">Computed&lt;T&gt;</text>
+  <text x="140" y="145" text-anchor="middle" fill="#fcfcf7" font-size="14">one execution</text>
+  <text x="140" y="167" text-anchor="middle" fill="#fcfcf7" font-size="14">+ dependencies</text>
+  <text x="140" y="189" text-anchor="middle" fill="#fcfcf7" font-size="14">+ state</text>
+  <text x="140" y="222" text-anchor="middle" fill="#7e7e87" font-size="12">the cached unit</text>
+
+  <rect x="290" y="60" width="220" height="180" rx="14" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="400" y="105" text-anchor="middle" fill="#bd34fe" font-size="22" font-weight="600">Compute Services</text>
+  <text x="400" y="145" text-anchor="middle" fill="#fcfcf7" font-size="14">[ComputeMethod]</text>
+  <text x="400" y="167" text-anchor="middle" fill="#fcfcf7" font-size="14">on your methods</text>
+  <text x="400" y="222" text-anchor="middle" fill="#7e7e87" font-size="12">your reactive surface</text>
+
+  <rect x="550" y="60" width="220" height="180" rx="14" fill="rgba(65,209,255,0.06)" stroke="#41d1ff" stroke-width="1.5"/>
+  <text x="660" y="105" text-anchor="middle" fill="#41d1ff" font-size="22" font-weight="600">RPC</text>
+  <text x="660" y="145" text-anchor="middle" fill="#fcfcf7" font-size="14">same code,</text>
+  <text x="660" y="167" text-anchor="middle" fill="#fcfcf7" font-size="14">distributed</text>
+  <text x="660" y="222" text-anchor="middle" fill="#7e7e87" font-size="12">the wire</text>
+</svg>

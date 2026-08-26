@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 620" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+    
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- TX Subgraph -->
+  <rect x="100" y="50" width="400" height="230" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="120" y="70" font-family="Inter,sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">Single Transaction</text>
+
+  <!-- BD Node (State/Object) -->
+  <rect x="150" y="90" width="300" height="70" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="110" font-family="Inter,-apple-system,sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Business Data</text>
+  <text x="300" y="130" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">UPDATE users</text>
+  <text x="300" y="148" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">SET name='...'</text>
+
+  <!-- OL Node (State/Object) -->
+  <rect x="150" y="180" width="300" height="70" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="200" font-family="Inter,-apple-system,sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Operation Log (Outbox)</text>
+  <text x="300" y="220" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">INSERT INTO operations</text>
+  <text x="300" y="238" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">(command, items, ...)</text>
+
+  <!-- Arrow TX -> Reader -->
+  <path d="M 300 280 C 300 310, 300 310, 300 340" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+
+  <!-- Reader Subgraph -->
+  <rect x="100" y="340" width="400" height="230" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="120" y="360" font-family="Inter,sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">Operation Log Reader (Background Service)</text>
+
+  <!-- R1 Node (Action/Process) -->
+  <rect x="150" y="380" width="300" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="300" y="405" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Reads committed operations</text>
+
+  <!-- R2 Node (Action/Process) -->
+  <rect x="150" y="440" width="300" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="300" y="465" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Notifies other hosts</text>
+
+  <!-- R3 Node (Action/Process) -->
+  <rect x="150" y="500" width="300" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="300" y="525" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Triggers invalidation</text>
+
+</svg>

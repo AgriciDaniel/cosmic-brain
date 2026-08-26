@@ -1,0 +1,40 @@
+﻿@inject IToastService ToastService
+
+<FluentButton @ref="openToastButton" OnClick="@OpenToastAsync">
+    Make toast
+</FluentButton>
+
+@code {
+    FluentButton openToastButton = default!;
+
+    private static RenderFragment BuildProgressContent(int value) =>
+    @<div>
+        <FluentProgressBar Min="0" Max="100" Value="value" Width="100%" />
+        @($"{value}% complete")
+    </div>;
+
+    private async Task OpenToastAsync()
+    {
+        openToastButton.SetDisabled(true);
+
+        var instance = await ToastService.ShowToastInstanceAsync(options =>
+        {
+            options.Type = ToastType.DeterminateProgress;
+            options.Icon = new Icons.Regular.Size20.ArrowDownload();
+            options.Title = "Downloading file";
+            options.BodyContent = BuildProgressContent(0);
+        });
+
+        for (int i = 0; i <= 100; i += 10)
+        {
+            await Task.Delay(500); // Simulate work being done
+            await instance.UpdateAsync(options =>
+            {
+                options.BodyContent = BuildProgressContent(i);
+            });
+        }
+
+        openToastButton.SetDisabled(false);
+    }
+}
+

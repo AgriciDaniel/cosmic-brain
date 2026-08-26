@@ -1,0 +1,14 @@
+﻿<FluentToggleButton OnClick="@ButtonClick">Default</FluentToggleButton>
+<FluentToggleButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Primary">Primary</FluentToggleButton>
+<FluentToggleButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Outline">Outline</FluentToggleButton>
+<FluentToggleButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Subtle">Subtle</FluentToggleButton>
+<FluentToggleButton OnClick="@ButtonClick" Appearance="ButtonAppearance.Transparent">Transparent</FluentToggleButton>
+<FluentToggleButton OnClick="@ButtonClick" BackgroundColor="var(--highlight-bg)" Color="var(--presence-busy)">Colored</FluentToggleButton>
+
+@code
+{
+    void ButtonClick()
+    {
+        Console.WriteLine("Button clicked");
+    }
+}

@@ -1,0 +1,25 @@
+﻿<FluentStack Orientation="@Orientation.Vertical">    
+    <div>
+        Content before the ProgressBar
+    </div>
+    <FluentSpinner Visible="@Visible" />
+    <div>
+        Content after the ProgressBar
+    </div>
+</FluentStack>
+
+<FluentSelect Items="@([true, false, null])"
+              OptionText="@(i => GetVisibleText(i) )"
+              TOption="bool?"
+              TValue="bool?"
+              @bind-Value="@Visible" />
+
+@code
+{
+    bool? Visible = true;
+
+    string GetVisibleText(bool? visible)
+    {
+        return $"Visible = {(visible.HasValue ? (visible == true ? "true" : "false") : "null")}";
+    }
+}

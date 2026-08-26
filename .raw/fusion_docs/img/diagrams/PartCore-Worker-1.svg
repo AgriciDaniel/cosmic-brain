@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 510" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient (Classes & Interfaces) -->
+    <linearGradient id="obj-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 Z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Title -->
+  <text x="360" y="35" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle" letter-spacing="1">Worker Inheritance Hierarchy</text>
+
+  <!-- Edges -->
+  <g fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)">
+    
+    <!-- WorkerBase -> ProcessorBase (Solid) -->
+    <path d="M 390 395 C 390 365, 560 365, 560 335" />
+
+    <!-- Dashed Edges -->
+    <g stroke-dasharray="6 4">
+      <!-- WorkerBase -> IWorker -->
+      <path d="M 390 395 C 390 365, 220 365, 220 335" />
+
+      <!-- IWorker -> IHostedService -->
+      <path d="M 220 285 C 220 255, 120 255, 120 225" />
+
+      <!-- IWorker -> IAsyncDisposable -->
+      <path d="M 220 285 C 220 255, 320 255, 320 225" />
+
+      <!-- ProcessorBase -> IHasWhenDisposed -->
+      <path d="M 560 285 L 560 225" />
+
+      <!-- IHasWhenDisposed -> IHasDisposeStatus -->
+      <path d="M 560 175 L 560 115" />
+    </g>
+  </g>
+
+  <!-- Nodes -->
+  <g text-anchor="middle">
+    
+    <!-- Level 1 -->
+    <!-- IHasDisposeStatus -->
+    <rect x="480" y="65" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="560" y="82" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" dominant-baseline="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="560" y="98" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">IHasDisposeStatus</text>
+
+    <!-- Level 2 -->
+    <!-- IHostedService -->
+    <rect x="40" y="175" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="120" y="192" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" dominant-baseline="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="120" y="208" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">IHostedService</text>
+
+    <!-- IAsyncDisposable -->
+    <rect x="240" y="175" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="320" y="192" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" dominant-baseline="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="320" y="208" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">IAsyncDisposable</text>
+
+    <!-- IHasWhenDisposed -->
+    <rect x="480" y="175" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="560" y="192" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" dominant-baseline="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="560" y="208" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">IHasWhenDisposed</text>
+
+    <!-- Level 3 -->
+    <!-- IWorker -->
+    <rect x="140" y="285" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="220" y="302" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" dominant-baseline="middle">&lt;&lt;interface&gt;&gt;</text>
+    <text x="220" y="318" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">IWorker</text>
+
+    <!-- ProcessorBase -->
+    <rect x="480" y="285" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="560" y="310" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">ProcessorBase</text>
+
+    <!-- Level 4 -->
+    <!-- WorkerBase -->
+    <rect x="310" y="395" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="390" y="420" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" dominant-baseline="middle">WorkerBase</text>
+
+  </g>
+</svg>

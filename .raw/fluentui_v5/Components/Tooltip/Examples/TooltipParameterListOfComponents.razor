@@ -1,0 +1,20 @@
+﻿<FluentGrid Spacing="0" Margin="@Margin.Start8">
+    @foreach (var component in GetComponentNames())
+    {
+        <FluentGridItem Md="3" Sm="12">
+            <code>@component</code>
+        </FluentGridItem>
+    }
+</FluentGrid>
+@code {
+    string[] GetComponentNames()
+    {
+        var assembly = typeof(Microsoft.FluentUI.AspNetCore.Components._Imports).Assembly;
+        return assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && t.GetProperty("Tooltip") != null)
+                .Where(t => t.Name.StartsWith("Fluent"))
+                .Select(t => t.Name.Replace("Fluent", "").Replace("`1", ""))
+                .OrderBy(t => t)
+                .ToArray();
+    }
+}

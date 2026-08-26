@@ -1,0 +1,17 @@
+sequenceDiagram
+  autonumber
+  Client->>+Web API: GreetUserAsync(1)
+  participant Stl.Fusion Bridge API
+  Web API->>+GreetingService: GreetUserAsync(1)
+  GreetingService->>-Web API: "Hello, John!" + IComputed
+  Web API->>-Client: "Hello, John!" + publicationId
+  Stl.Fusion Bridge API->>+Client: Invalidate(publicationId)
+  Client->>-Stl.Fusion Bridge API: Ok
+  opt Client decided whether to request update or not
+    Client->>+Stl.Fusion Bridge API: RequestUpdate(publicationId)
+    opt The new value might be already computed because another client or service requested an update earlier
+      Stl.Fusion Bridge API->>+GreetingService: GreetUserAsync(1)
+      GreetingService->>-Stl.Fusion Bridge API: "Hello, John!" + IComputed
+    end
+    Stl.Fusion Bridge API->>-Client: { Output=..., State=Consistent, LTag=... }
+  end

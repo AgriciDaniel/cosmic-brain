@@ -1,0 +1,17 @@
+﻿<FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+	<FluentTextInput Label="Text" Placeholder="Text" @bind-Value="@Value" TextInputType="TextInputType.Text" />
+	<FluentTextInput Label="Email" Placeholder="Email" @bind-Value="@Value" TextInputType="TextInputType.Email" />
+	<FluentTextInput Label="Password" Placeholder="Password" @bind-Value="@Value" TextInputType="TextInputType.Password" />
+	<FluentTextInput Label="Telephone" Placeholder="Telephone" @bind-Value="@Value" TextInputType="TextInputType.Telephone" />
+	<FluentTextInput Label="Url" Placeholder="Url" @bind-Value="@Value" TextInputType="TextInputType.Url" />
+	<FluentTextInput Label="Color" Width="50px" Placeholder="Color" @bind-Value="@Value" TextInputType="TextInputType.Color" />
+	<FluentTextInput Label="Search" Placeholder="Search" @bind-Value="@Value" TextInputType="TextInputType.Search" />
+	<FluentTextInput Label="Number" Placeholder="Number" @bind-Value="@Value" TextInputType="TextInputType.Number" />
+</FluentStack>
+
+<FluentLabel>Value = @Value</FluentLabel>
+
+@code
+{
+	string Value = "";
+}

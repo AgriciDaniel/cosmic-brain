@@ -1,0 +1,68 @@
+﻿<FluentInputFile DragDropZoneVisible="false"
+                 Mode="InputFileMode.SaveToTemporaryFolder"
+                 Multiple="true"
+                 AnchorId="MyUploadButton"
+                 MaximumFileSize="@FileSizeConverter.FromMegaBytes(100)"
+                 Accept=".mp4, .mov, .avi"
+                 OnProgressChange="@OnProgressChange"
+                 OnCompleted="@OnCompleted" />
+
+<FluentProgressBar Min="0" Max="100" Visible="@(ProgressPercent > 0)" Value="@ProgressPercent" />
+<FluentDivider>@ProgressTitle</FluentDivider>
+
+<FluentButton Id="MyUploadButton" OnClick="@(e => IsCanceled = false)" Loading="@(ProgressPercent > 0)" Appearance="ButtonAppearance.Primary">
+    Upload files
+</FluentButton>
+
+<FluentButton @onclick="@(e => IsCanceled = true)">
+    Cancel
+</FluentButton>
+
+@if (Files.Any())
+{
+    <h4>File(s) uploaded:</h4>
+    <ul>
+        @foreach (var file in Files)
+        {
+            <li>
+                <b>@file.Name</b> 🔹
+                @($"{FileSizeConverter.ToKiloBytes(file.Size):N} KB") 🔹
+                @file.ContentType 🔹
+                @file.LocalFile?.FullName
+                @file.ErrorMessage
+            </li>
+        }
+    </ul>
+}
+
+@code
+{
+    int ProgressPercent;
+    string? ProgressTitle;
+    bool IsCanceled;
+
+    FluentInputFileEventArgs[] Files = Array.Empty<FluentInputFileEventArgs>();
+
+    void OnProgressChange(FluentInputFileEventArgs file)
+    {
+        // To cancel?
+        file.IsCancelled = IsCanceled;
+
+        ProgressTitle = file.ProgressTitle;
+        ProgressPercent = file.ProgressPercent;
+    }
+
+    void OnCompleted(IEnumerable<FluentInputFileEventArgs> files)
+    {
+        Files = files.Where(i => !i.IsCancelled).ToArray();
+
+        ProgressTitle = "Completed";
+        ProgressPercent = 0;
+
+        // For the demo, delete these files.
+        foreach (var file in Files)
+        {
+            file.LocalFile?.Delete();
+        }
+    }
+}

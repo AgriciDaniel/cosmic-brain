@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a10" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="30" width="760" height="100" rx="10" fill="rgba(168,177,255,0.04)" stroke="#a8b1ff" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="40" y="55" fill="#a8b1ff" font-size="14" font-weight="600">CLIENT</text>
+
+  <rect x="60" y="65" width="200" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="160" y="96" text-anchor="middle" fill="#fcfcf7" font-size="13">Blazor UI</text>
+
+  <rect x="290" y="65" width="220" height="50" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="400" y="96" text-anchor="middle" fill="#fcfcf7" font-size="13">Fusion compute service proxies</text>
+
+  <rect x="540" y="65" width="200" height="50" rx="8" fill="rgba(168,177,255,0.08)" stroke="#a8b1ff" stroke-width="1.5"/>
+  <text x="640" y="96" text-anchor="middle" fill="#fcfcf7" font-size="13">Persistent cache</text>
+
+  <rect x="100" y="165" width="600" height="50" rx="8" fill="rgba(65,209,255,0.10)" stroke="#41d1ff" stroke-width="1.5"/>
+  <text x="400" y="197" text-anchor="middle" fill="#fcfcf7" font-size="13">ActualLab.Rpc — WebSocket / TCP</text>
+
+  <rect x="20" y="245" width="760" height="200" rx="10" fill="rgba(189,52,254,0.04)" stroke="#bd34fe" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="40" y="270" fill="#bd34fe" font-size="14" font-weight="600">BACKEND</text>
+
+  <text x="60" y="298" fill="#7e7e87" font-size="11">API services</text>
+
+  <rect x="60" y="305" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="140" y="331" text-anchor="middle" fill="#fcfcf7" font-size="12">IChats</text>
+
+  <rect x="240" y="305" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="320" y="331" text-anchor="middle" fill="#fcfcf7" font-size="12">IAuthors</text>
+
+  <rect x="420" y="305" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="500" y="331" text-anchor="middle" fill="#fcfcf7" font-size="12">IUserPresences</text>
+
+  <rect x="600" y="305" width="140" height="40" rx="6" fill="rgba(189,52,254,0.04)" stroke="#7e7e87" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="670" y="331" text-anchor="middle" fill="#7e7e87" font-size="13">…</text>
+
+  <line x1="40" y1="365" x2="760" y2="365" stroke="#7e7e87" stroke-width="0.8" stroke-dasharray="4 4"/>
+
+  <text x="60" y="385" fill="#7e7e87" font-size="11">Internal services</text>
+
+  <rect x="60" y="392" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="140" y="418" text-anchor="middle" fill="#fcfcf7" font-size="12">IChatsBackend</text>
+
+  <rect x="240" y="392" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="320" y="418" text-anchor="middle" fill="#fcfcf7" font-size="12">IAuthorsBackend</text>
+
+  <rect x="420" y="392" width="160" height="40" rx="6" fill="rgba(189,52,254,0.06)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="500" y="418" text-anchor="middle" fill="#fcfcf7" font-size="12">ILiveAudioBackend</text>
+
+  <rect x="600" y="392" width="140" height="40" rx="6" fill="rgba(189,52,254,0.04)" stroke="#7e7e87" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="670" y="418" text-anchor="middle" fill="#7e7e87" font-size="13">…</text>
+
+  <line x1="400" y1="115" x2="400" y2="165" stroke="#7e7e87" stroke-width="1" marker-end="url(#a10)"/>
+  <line x1="400" y1="215" x2="400" y2="240" stroke="#7e7e87" stroke-width="1" marker-end="url(#a10)"/>
+</svg>

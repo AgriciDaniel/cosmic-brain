@@ -1,0 +1,46 @@
+﻿@inject IJSRuntime JSRuntime
+@inject IToastService ToastService
+
+<FluentStack HorizontalGap="20px" Wrap="true">
+    <FluentTextInput Label="Company Url" @bind-Value="@Domain">
+        <StartTemplate>
+            <fluent-label>https://</fluent-label>
+        </StartTemplate>
+        <EndTemplate>
+            <fluent-label>.com</fluent-label>
+        </EndTemplate>
+    </FluentTextInput>
+
+    <FluentTextInput Label="Email" TextInputType="TextInputType.Email" @bind-Value="@EmailAddress" Style="width: 300px;">
+        <StartTemplate>
+            <FluentIcon Value="@(new Icons.Regular.Size20.Mail())" />
+        </StartTemplate>
+    </FluentTextInput>
+
+    <FluentTextInput Label="Email" TextInputType="TextInputType.Email" @bind-Value="@EmailAddress" Style="width: 300px;">
+        <EndTemplate>
+            <FluentButton Appearance="ButtonAppearance.Transparent"
+                        Size="ButtonSize.Small"
+                        Tooltip="Copy email address"
+                        IconOnly="true"
+                        OnClick="@CopyToClipboardAsync"
+                        IconStart="@(new Icons.Regular.Size16.Copy())" />
+        </EndTemplate>
+    </FluentTextInput>
+
+</FluentStack>
+
+@code {
+    string Domain = "microsoft";
+    string EmailAddress = "fluentui-blazor@microsoft.com";
+
+    async Task CopyToClipboardAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", EmailAddress);
+        
+        await ToastService.ShowToastAsync(options => {
+            options.Intent = ToastIntent.Success;
+            options.Title = "Email address copied to clipboard!";
+        });
+    }
+}

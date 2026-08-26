@@ -1,0 +1,59 @@
+/* === Palette Tile Root === */
+.palette-item {
+  text-align: left;
+  font-family: var(--fontFamilyBase);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: grid;
+  grid-template-columns: 0.5em auto;
+  grid-template-rows: 0.5em 0.2fr 1fr 0.5em;
+  background-color: rgb(2, 3, 5);
+  color: white;
+  height: 150px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+  /* === REAL hover rule from .fv8zdkx:hover === */
+  .palette-item:hover {
+    flex-shrink: 1; /* This is exactly what DevTools shows */
+  }
+
+
+.palette-item__header {
+  justify-content: space-between;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  display: none;
+  align-items:center;
+}
+
+.palette-item:hover .palette-item__header {
+    display: flex;
+}
+
+  /* === Shade Number === */
+.palette-item__value {
+  overflow: visible;
+  text-align: start;
+  white-space: normal;
+  text-overflow: clip;
+  display: flex;
+  grid-column-start: 2;
+  justify-content: left;
+  align-items: flex-end;
+  grid-row-start: 3;
+}
+
+::deep .palette-item__copy-button:hover .icon-rest,
+::deep .palette-item__copy-button:not(:hover) .icon-hover {
+  display: none;
+}
+
+::deep .palette-item__copy-button .icon-rest,
+::deep .palette-item__copy-button:hover .icon-hover {
+  display: block;
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="420" rx="10" fill="url(#bg-grad)" />
+
+  <!-- Header -->
+  <text x="300" y="35" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle" letter-spacing="1">Traditional Clean Architecture</text>
+
+  <!-- Presentation Layer -->
+  <g transform="translate(70, 60)">
+    <rect width="460" height="60" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="230" y="26" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Presentation</text>
+    <text x="230" y="44" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(Controllers, Views)</text>
+  </g>
+
+  <!-- Application Layer -->
+  <g transform="translate(70, 144)">
+    <rect width="460" height="60" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="230" y="26" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Application</text>
+    <text x="230" y="44" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(Use Cases, DTOs, Interfaces)</text>
+  </g>
+
+  <!-- Domain Layer -->
+  <g transform="translate(70, 228)">
+    <rect width="460" height="60" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="230" y="26" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Domain</text>
+    <text x="230" y="44" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(Entities, Value Objects)</text>
+  </g>
+
+  <!-- Infrastructure Layer -->
+  <g transform="translate(70, 312)">
+    <rect width="460" height="60" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="230" y="26" font-family="&quot;SF Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Infrastructure</text>
+    <text x="230" y="44" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(Database, External Services, Caching)</text>
+  </g>
+</svg>

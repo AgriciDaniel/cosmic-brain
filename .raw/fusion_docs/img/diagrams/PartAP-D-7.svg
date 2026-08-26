@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 380" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 8 5 L 0 8 Z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Subgraph: Pass-Through Proxy -->
+  <rect x="40" y="40" width="220" height="300" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="150" y="65" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Pass-Through Proxy</text>
+
+  <!-- Subgraph: Virtual Proxy -->
+  <rect x="290" y="40" width="250" height="300" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="415" y="65" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Virtual Proxy</text>
+
+  <!-- Edges for Pass-Through Proxy -->
+  <path d="M 150 120 C 150 140, 150 140, 150 160" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 150 200 C 150 230, 150 230, 150 260" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Edge Label for Pass-Through Proxy -->
+  <rect x="85" y="221" width="130" height="18" fill="#eaf1fb" rx="4" />
+  <text x="150" y="234" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">InvokeIntercepted()</text>
+
+  <!-- Edges for Virtual Proxy -->
+  <path d="M 415 120 C 415 140, 415 140, 415 160" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 415 200 C 415 230, 415 230, 415 260" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Nodes for Pass-Through Proxy -->
+  <!-- PT1: Proxy -->
+  <rect x="80" y="80" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="150" y="104" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Proxy</text>
+
+  <!-- PT2: Interceptor -->
+  <rect x="80" y="160" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="150" y="184" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Interceptor</text>
+
+  <!-- PT3: Real Service -->
+  <rect x="80" y="260" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="150" y="284" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Real Service</text>
+
+  <!-- Nodes for Virtual Proxy -->
+  <!-- V1: Proxy -->
+  <rect x="345" y="80" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="415" y="104" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Proxy</text>
+
+  <!-- V2: Interceptor -->
+  <rect x="345" y="160" width="140" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="415" y="184" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Interceptor</text>
+
+  <!-- V3: Return default/mock (Action Node) -->
+  <rect x="320" y="260" width="190" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="415" y="280" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Return default/mock</text>
+  <text x="415" y="298" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">(no target)</text>
+
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State Node Gradient (Light Blue) -->
+    <linearGradient id="stateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Action Node Gradient (Warm Amber) -->
+    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Arrowhead Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)" rx="10" />
+
+  <!-- Main Title -->
+  <text x="30" y="35" font-family="Inter,sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">ComputedState&lt;T&gt; Update Loop</text>
+
+  <!-- Subgraph Box -->
+  <rect x="20" y="50" width="560" height="380" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="35" y="75" font-family="Inter,sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">Cyclic Update Process</text>
+
+  <!-- ARROWS (Drawn first so they appear behind nodes) -->
+  <g fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round">
+    <!-- Start to Compute -->
+    <path d="M 300 38 L 300 75" marker-end="url(#arrow)" />
+    
+    <!-- Compute to Consistent -->
+    <path d="M 395 105 C 470 105, 500 140, 500 195" marker-end="url(#arrow)" />
+    
+    <!-- Consistent to Invalidated -->
+    <path d="M 500 265 C 500 330, 450 365, 380 365" marker-end="url(#arrow)" />
+    
+    <!-- Invalidated to Delay -->
+    <path d="M 220 365 C 140 365, 100 330, 100 275" marker-end="url(#arrow)" />
+    
+    <!-- Delay to Compute -->
+    <path d="M 100 195 C 100 140, 140 105, 195 105" marker-end="url(#arrow)" />
+  </g>
+
+  <!-- ARROW LABELS -->
+  <g font-family="Inter,sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">
+    <text x="475" y="140">returns value</text>
+    <text x="480" y="335">invalidated</text>
+    <text x="135" y="335">from previous</text>
+    <text x="125" y="140">timeout / trigger</text>
+  </g>
+
+  <!-- NODES -->
+
+  <!-- Start Circle -->
+  <circle cx="300" cy="30" r="8" fill="#8b90a8" />
+
+  <!-- Top: Compute (Action Node) -->
+  <g transform="translate(205, 85)">
+    <rect width="190" height="40" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="95" y="24" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Compute (run lambda)</text>
+  </g>
+
+  <!-- Right: Consistent (State Node) -->
+  <g transform="translate(435, 205)">
+    <rect width="130" height="40" fill="url(#stateGrad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="65" y="24" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Consistent</text>
+  </g>
+
+  <!-- Bottom: Invalidated (Action Node) -->
+  <g transform="translate(220, 345)">
+    <rect width="160" height="40" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="80" y="24" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Invalidated</text>
+  </g>
+
+  <!-- Left: Delay() (Action Node) -->
+  <g transform="translate(45, 205)">
+    <rect width="110" height="40" fill="url(#actionGrad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="55" y="24" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Delay()</text>
+  </g>
+
+</svg>

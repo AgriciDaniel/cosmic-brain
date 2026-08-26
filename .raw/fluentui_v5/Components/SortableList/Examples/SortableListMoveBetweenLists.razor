@@ -1,0 +1,49 @@
+﻿<div>
+	<FluentGrid Justify="JustifyContent.FlexStart" Spacing="3">
+    <FluentGridItem xs="12" sm="6">
+        <h5>List 1</h5>
+        <FluentSortableList Id="shared1" Group="sharedLists" @bind-Items="@items1" OnUpdate="@HandleOnUpdate" OnAdd="@HandleOnAdd" OnRemove="@HandleOnRemove">
+            <ItemTemplate>@context.Name</ItemTemplate>
+        </FluentSortableList>
+    </FluentGridItem>
+    <FluentGridItem xs="12" sm="6">
+        <h5>List 2</h5>
+			<FluentSortableList Id="shared2" Group="sharedLists" @bind-Items="@items2" OnUpdate="@HandleOnUpdate" OnAdd="@HandleOnAdd" OnRemove="@HandleOnRemove">
+            <ItemTemplate>@context.Name</ItemTemplate>
+        </FluentSortableList>
+    </FluentGridItem>
+</FluentGrid>
+</div>
+
+<p>List 1: @string.Join(", ", items1.Select(i => i.Name))</p>
+<p>List 2: @string.Join(", ", items2.Select(i => i.Name))</p>
+
+@code {
+    class Item
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+
+        public bool Disabled { get; set; } = false;
+    }
+
+    IEnumerable<Item> items1 = Enumerable.Range(1, 10).Select(i => new Item { Id = i, Name = $"Item {i}" });
+
+    IEnumerable<Item> items2 = Enumerable.Range(11, 10).Select(i => new Item { Id = i, Name = $"Item {i}" });
+
+	void HandleOnUpdate(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item moved in list '{args.FromListId}' from index {args.OldIndex} to index {args.NewIndex}");
+	}
+
+	void HandleOnAdd(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item added to list '{args.ToListId}' from list '{args.FromListId}' at index {args.NewIndex}");
+	}
+
+	void HandleOnRemove(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item removed from list '{args.FromListId}' to list '{args.ToListId}' at index {args.OldIndex}");
+	}
+
+}

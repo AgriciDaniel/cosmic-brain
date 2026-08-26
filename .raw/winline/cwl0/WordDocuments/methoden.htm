@@ -1,0 +1,1583 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Methoden</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="eigenschaften.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="ereignisse.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinestart.htm">WinLine START</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Parameter</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="programmmakros.htm">Programm Makros</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Methoden</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc469969536>Methoden</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MWait(long lMilliseconds);</P>
+<P class=MsoNormal>Das Abspielen des Makros wird für die angegebene Zeitspanne 
+angehalten.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>lMilliseconds&nbsp;&nbsp;&nbsp;&nbsp; Anzahl der 
+Millisekunden, die das Makro warten soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>VARIANT_BOOL MSetFieldFocus(short nWinId, short 
+nFieldId);</P>
+<P class=MsoNormal>Setzt den Cursor auf das angegebene Feld. Ist mit einem 
+Mausklick des Anwenders zu vergleichen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters, in dem sich das gewünschte Feld befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Feldes, das den Focus erhalten soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>True/False, abhängig davon ob der Focus versetzt werden 
+konnte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MSetFieldValue(short nWinId, short nFieldId, BSTR 
+strValue);</P>
+<P class=MsoNormal>Setzt den Wert des angegebenen Feldes. Hat den selben Effekt 
+als ob der Benutzer in dem Feld den Text eingibt und danach die ENTER Taste 
+drückt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem das gewünschte Feld sich befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Feldes, das den Wert erhalten soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>BSTR MGetFieldValue(short nWinId, short nFieldId);</P>
+<P class=MsoNormal>Gibt den Wert des angegebenen Feldes als Text zurück.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem das gewünschte Feld sich befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Feldes, von dem der Wert geholt werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Der Feldinhalt als Text</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MSetGridValue(short nWinId, short nFieldId, short 
+nRow, short nColumn, BSTR strValue);</P>
+<P class=MsoNormal>Setzt den Cursor in der Tabelle auf die angegebene 
+Zeile/Spalte und fügt dort den Text ein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P 
+class=MsoNormal>strValue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+der Text, der in der Zelle eingefügt werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MPushButton(short nWinId, short nButtonId, long 
+lParam);</P>
+<P class=MsoNormal>Der angegebene Button wird gedrückt. Der Parameter <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> kann auf 0 belassen werden. 
+Bei der Aufnahme des Makros könnte der Wert allerdings auf ungleich 0 stehen 
+(Beim Verlassen der Applikation erhält der Ende - Button hier einen speziellen 
+Wert, damit das Fenster erkennen kann, dass es in Folge des Programmendes 
+geschlossen wird). </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem der Button sich befindet</P>
+<P 
+class=MsoNormal>nButtonId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Buttons, der gedrückt werden soll</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+im Standardfall 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Nicht definiert</P>
+<P class=MsoNormal><B></B>&nbsp;</P>
+<P class=BeispielAchtung>long MGridMatchCode(short nWinId, short nFieldId, short 
+nRow, short nColumn, BSTR&nbsp; strSearchText, BOOL bExtended);</P>
+<P class=MsoNormal>Entspricht dem Klick auf die Lupe in einer Tabelle (bzw. der 
+&lt;F9&gt; Taste).</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>strSearchText&nbsp;&nbsp;&nbsp; der Text den das Editfeld 
+enthielt als &lt;F9&gt; gedrückt wurde</P>
+<P class=MsoNormal>bExtended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ist TRUE 
+falls auf die Lupe geklickt wurde, bzw. &lt;SHIFT&gt;&lt;F9&gt; gedrückt 
+wurde</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeExpand(short nWinId, short nFieldId, long 
+lParam, long lTreeData);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn in einer 
+Baumstruktur auf das Symbol <IMG 
+src="../ImagesExt/image862_891.png">&nbsp;geklickt wurde, sodass der dort 
+enthaltene Zweig aufgeklappt wird. Das Kommando sollte nicht manuell eingefügt 
+werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> und <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lTreeData</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P 
+class=MsoNormal>lTreeData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; falls 
+kein Fehler auftrat, sonst 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeCollapse(short nWinId, short nFieldId, long 
+lParam, long lTreeData);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn ein aufgeklappter 
+Baum in einer Baumstruktur vom Benutzer geschlossen wird (anklicken des <IMG 
+src="../ImagesExt/image862_892.png">&nbsp;Symbols). Das Kommando sollte nicht 
+manuell eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> und <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lTreeData</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P 
+class=MsoNormal>lTreeData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; falls 
+kein Fehler auftrat, sonst 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeSelChange(short nWinId, short nFieldId, long 
+lParam, long lTreeData);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einer Baumstruktur einen Eintrag auswählt. Das Kommando sollte nicht manuell 
+eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> und <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lTreeData</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P 
+class=MsoNormal>lTreeData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeDelete(short nWinId, short nFieldId, long 
+lParam, long lTreeData);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einer Baumstruktur einen Eintrag löscht. Das Kommando sollte nicht manuell 
+eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> und <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lTreeData</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P 
+class=MsoNormal>lTreeData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; falls 
+kein Fehler auftrat, sonst 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeDblClick(short nWinId, short nFieldId, long 
+lParam, BSTR&nbsp; strItemText);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einer Baumstruktur einen Eintrag doppelt anklickt. Das Kommando sollte nicht 
+manuell eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können. Der Parameter <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>strItemText</SPAN></B> enthält den Text des 
+selektierten Items.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P class=MsoNormal>nFieldId 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nummer des 
+Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>strItemText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; der 
+Text des gewählten Elements</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MMatchCode(short nWinId, short nFieldId, long 
+lParam, BSTR strSearchText, VARIANT_BOOL bExtended);</P>
+<P class=MsoNormal>Entspricht dem Anklicken der Lupe bei einem Eingabefeld bzw. 
+dem Drücken der F9-Taste in einem Eingabefeld.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Eingabefeld befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Eingabefeldes</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+immer 0</P>
+<P class=MsoNormal>strSearchText&nbsp;&nbsp;&nbsp; der Text den das Eingabefeld 
+enthielt als F9 gedrückt wurde</P>
+<P class=MsoNormal>bExtended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ist 
+"TRUE" falls auf die Lupe geklickt wurde, bzw. &lt;SHIFT&gt;&lt;F9&gt; gedrückt 
+wurde</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridLeftClick(short nWinId, short nFieldId, short 
+nRow, short nColumn);</P>
+<P class=MsoNormal>Entspricht dem Klick mit der linken Maustaste auf eine Zelle 
+in einer Tabelle (die Zelle darf kein Eingabefeld, keine Auswahllistbox oder 
+keine Checkbox enthalten). Das Kommando wird aufgezeichnet, wenn der Benutzer 
+die Aktion durchführt. Dies führt beim Abspielen aber nicht zu einem Klick auf 
+die Tabelle, sondern die Applikation reagiert als ob der Klick durchgeführt 
+worden wäre.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>long 
+MGridRightClick(short nWinId, short nFieldId, short nRow, short nColumn);</P>
+<P class=MsoNormal>Entspricht dem Klick mit der rechten Maustaste auf eine Zelle 
+in einer Tabelle (die Zelle darf kein Eingabefeld, keine Auswahllistbox oder 
+keine Checkbox enthalten). Das Kommando wird aufgezeichnet, wenn der Benutzer 
+die Aktion durchführt. Dies führt beim Abspielen aber nicht zu einem Klick auf 
+die Tabelle, sondern die Applikation reagiert als ob der Klick durchgeführt 
+worden wäre.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridDblClick(short nWinId, short nFieldId, short 
+nRow, short nColumn);</P>
+<P class=MsoNormal>Entspricht dem Doppelklick mit der linken Maustaste auf eine 
+Zelle in einer Tabelle (die Zelle darf kein Eingabefeld, keine Auswahllistbox 
+oder keine Checkbox enthalten). Das Kommando wird aufgezeichnet, wenn der 
+Benutzer die Aktion durchführt. Dies führt beim Abspielen aber nicht zu einem 
+Klick auf die Tabelle, sondern die Applikation reagiert als ob der Klick 
+durchgeführt worden wäre.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridColLeftClick(short nWinId, short nFieldId, 
+short nColumn);</P>
+<P class=MsoNormal>Entspricht dem Klick mit der linken Maustaste auf eine Zelle 
+im Kopf einer Tabelle. Das Kommando wird aufgezeichnet, wenn der Benutzer die 
+Aktion durchführt. Dies führt beim Abspielen aber nicht zu einem Klick auf die 
+Tabelle, sondern die Applikation reagiert als ob der Klick durchgeführt worden 
+wäre.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridInfo(short nWinId, short nFieldId, short 
+nRow, short nColumn);</P>
+<P class=MsoNormal>Diese Kommando wird eingefügt, wenn in einer Tabelle in einem 
+Eingabefeld oder einer Auswahllistbox die Taste &lt;F8&gt; gedrückt wird</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridCheckbox(short nWinId, short nFieldId, short 
+nRow, short nColumn, VARIANT_BOOL bChecked);</P>
+<P class=MsoNormal>Entspricht dem Klick mit der linken Maustaste auf eine Zelle 
+einer Tabelle die eine Checkbox enthält. Beim Abspielen wird der Focus auf die 
+entsprechende Zelle gesetzt und die Checkbox entsprechend dem Wert in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>bChecked</SPAN></B> gesetzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>bChecked&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+enthält TRUE falls die Checkbox gecheckt werden soll, andernfalls FALSE</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridLeave(short nWinId, short nFieldId, short 
+nToFgId, short nFromRow);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer eine 
+Tabelle verlässt (auf ein anderes Feld im Fenster klickt, oder mit TAB aus der 
+Tabelle springt)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nToFgId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die Nummer des Elements, das nach Verlassen der Tabelle aktiv wurde</P>
+<P class=MsoNormal>nFromRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; die 
+aktuelle Zeile in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MGridComboSelchange(short nWinId, short nFieldId, 
+short nRow, short nColumn, BSTR&nbsp; strFieldText);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender die 
+Selektion in einer Combobox in einer Tabelle ändert. Beim Abspielen wird der 
+Wert in <B><SPAN style='FONT-FAMILY: "Courier New"'>strFieldText</SPAN></B> in 
+die Combobox eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>nRow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Zeile in der Tabelle</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>strFieldText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; der 
+selektierte Text aus der Combobox</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MDrillDown(short nWinId, short nFieldId, long 
+lParam);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einem beliebigen Element in einem Fenster die Taste &lt;F8&gt; drückt, der 
+Parameter <B><SPAN style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> ist 
+immer 0.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem das aktive Feld ist</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Feldes, indem &lt;F8&gt; gedrückt wurde</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+immer 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MListboxSelChange(short nWinId, short nFieldId, 
+long nItemIndex);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einer Listbox die Selektion ändert. In <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>nItemIndex</SPAN></B> wird der Index des 
+selektierten Eintrags übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Listbox befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Listbox</P>
+<P class=MsoNormal>nItemIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Index 
+des gewählten Listbox Elements</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MListbox(short nWinId, short nFieldId, long 
+lItemIndex);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einer Listbox ein Item mit ENTER oder Doppelklick auswählt. In <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>nItemIndex</SPAN></B> wird der Index des 
+selektierten Eintrags übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Listbox befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Listbox</P>
+<P class=MsoNormal>nItemIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Index 
+des gewählten Listbox Elements</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MCheckbox(short nWinId, short nFieldId, BOOL 
+bChecked);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender auf 
+eine Checkbox klickt. In <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>bChecked</SPAN></B> wird der Status der 
+Checkbox übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Checkbox befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Checkbox</P>
+<P class=MsoNormal>nItemIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Index 
+des gewählten Checkbox Elements</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MRadiobutton(short nWinId, short nFieldId, long 
+lIndex);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender auf 
+einen Radiobutton klickt. In <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lIndex</SPAN></B> wird der Index des 
+gewählten Button übergeben (Radiobuttons sind in Gruppen organisiert wobei jeder 
+Button in der Gruppe einen Index beginnend bei 0 hat)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich der Radiobutton befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Radiobutton</P>
+<P class=MsoNormal>nItemIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Index 
+des gewählten Radiobutton Elements</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MComboSelchange(short nWinId, short nFieldId, 
+BSTR&nbsp; strFieldText);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender die 
+Selektion in einer Combobox in einem Fenster ändert. Beim Abspielen wird der 
+Wert in <B><SPAN style='FONT-FAMILY: "Courier New"'>strFieldText</SPAN></B> in 
+die Combobox eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Combobox befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Combobox</P>
+<P class=MsoNormal>strFieldText&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; der Text des 
+selektierten Combobox Eintrags</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MChangeGridCell (short nWinId, short nFieldId, 
+long lParam);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender sich in 
+der Tabelle bewegt (entweder über die Tastatur oder mit der Maus). </P>
+<P class=MsoNormal><B><SPAN style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> 
+beschreibt welche Methode der Anwender verwendet hat. Wurde die Tastatur 
+verwendet, dann enthält dieser Parameter die Nummer der verwendeten Taste (13 = 
+ENTER, 39 = Cursor Rechts, 37 = Cursor links, 40 = Cursor hinab, 38 = Cursor 
+hinauf, 35 = Cursor Ende, 36 = Cursor Pos1,&nbsp; 33 = Cursor Bild hinauf, 34 = 
+Cursor Bild hinunter). Wurde mit der Maus geklickt, dann enthält <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> die Zeile/Spalte der Zelle, 
+wobei die Zeile in den unteren 16 Bit kodiert ist, die Spalte in den oberen 16 
+Bit.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+abhängig von der Art, wie die Zelle aktiviert wurde, entweder ein Tastencode 
+oder ein 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+zusammengesetzter Wert aus Zeile und Spalte</P>
+<P 
+class=MsoNormal>nColumn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die aktuelle Spalte in der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; falls 
+kein Fehler auftrat, sonst 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MWindow (short nWinId, VARIANT_BOOL bQuiet);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender ein 
+Fenster öffnet oder zwischen verschiedenen Fenstern hin und her wechselt. Der 
+Parameter <B><SPAN style='FONT-FAMILY: "Courier New"'>bQuiet</SPAN></B> wird nur 
+dann auf "TRUE" gesetzt, wenn das Fenster neu geöffnet wird, dabei aber nicht 
+angezeigt werden soll. Der Parameter ist normalerweise immer FALSE.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters das geöffnet/aktiviert werden soll</P>
+<P 
+class=MsoNormal>bQuiet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+TRUE falls ein neu geöffnetes Fenster nicht sichtbar sein soll, normalerweise 
+FALSE</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1 falls das Fenster geöffnet/aktiviert wurde, sonst 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MApplication (short ApplicationNr);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender zu 
+einer anderen Applikation innerhalb der WinLine wechselt. Der Parameter <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>ApplicationNr</SPAN></B> kann folgende Werte 
+annehmen:</P>
+<P class=MsoHeader>&nbsp;</P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 85.05pt; BORDER-LEFT: medium none" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BACKGROUND: black; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal><B><SPAN 
+style="COLOR: white">Programm</SPAN></B></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BACKGROUND: black; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal><B><SPAN 
+  style="COLOR: white">Nummer</SPAN></B></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>START</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>0</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>FIBU</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>1</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>FAKT</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>2</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>LOHN A</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>3</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>LIST</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>4</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>KORE</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>5</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>ANBU</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>6</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>ADMIN</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>8</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>EXIM</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>9</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>INFO</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>11</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>LOHN D</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" align=right>18</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 116.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=156>
+      <P class=MsoNormal>PROD</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 78pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=104>
+      <P class=MsoNormal style="TEXT-ALIGN: right" 
+  align=right>20</P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>ApplicationNr&nbsp;&nbsp;&nbsp; Nummer des Applikation</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1 falls zu der Applikation gewechselt werden konnte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MExternalApplication (short nId);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender über 
+den Menüpunkt ""Applikationen"" eine selbst definierte Applikation startet. Der 
+Parameter <B><SPAN style='FONT-FAMILY: "Courier New"'>nId</SPAN></B> ist der 
+Index der gestarteten Applikation, wobei die erste eingetragene Applikation den 
+Index 0 hat.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Index der benutzerdefinierten Applikation</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1 falls die Applikation gestartet werden konnte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MToClipboard ();</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einem Eingabefeld den markierten Inhalt in die Zwischenablage kopiert. Beim 
+Abspielen des Makros wird mit diesem Kommando die gerade aktive Selektion im 
+aktuellen Eingabefeld in die Zwischenablage kopiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MFromClipboard ();</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in ein 
+Eingabefeld die Zwischenablage einfügt. Beim Abspielen des Makros wird mit 
+diesem Kommando der zu dem Zeitpunkt des Abspielens vorhandene 
+Zwischenablageinhalt in das gerade aktive Editfeld eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MStop ();</P>
+<P class=MsoNormal>Dieses Kommando wird nicht aufgezeichnet. Es kann vom 
+Anwender in das Makro eingefügt werden, wenn die Makroabarbeitung zu einem 
+bestimmten Zeitpunkt beendet werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MPauseForInput (BSTR strNextRoutineAfterPause, 
+short nWinId, short nFieldId);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einem Editfeld über die rechte Maustaste den Menüpunkt ""Pause Macro for Input"" 
+anwählt. Dies führt beim Ausführen des Makros dazu, dass die Makroabarbeitung 
+genau bei diesem Schritt anhält, um dem Benutzer eine Eingabe zu erlauben. 
+Danach kann das Makro mit der Funktionstaste &lt;F11&gt; weiter abgearbeitet 
+werden. Der Befehl sollte auf keinen Fall manuell eingefügt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>strNextRoutineAfterPause&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Der Name der Subroutine, die nach der Benutzerunterbrechung zur 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Fortführung des Makros gestartet werden soll</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Die Nummer des Fensters in dem die Unterbrechung erfolgt</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Die Nummer des Feldes in dem die Unterbrechung erfolgte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MPauseForFilter (BSTR 
+strNextRoutineAfterPause);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer im 
+Filtereingabefenster über die rechte Maustaste den Menüpunkt "Makro für die 
+Filtereingabe pausieren" anwählt. Dies führt beim Ausführen des Makros dazu, 
+dass die Makroabarbeitung während der Eingabe in der Filtereingabe pausiert, um 
+dem Benutzer spezifische Eingaben zu erlauben. Sobald das Fenster mit F5 oder 
+ESC geschlossen wird, wird das Makro weiter ausgeführt (bei OK wird die 
+Auswertung entsprechend den getätigten Filterbedingungen ausgeführt).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>strNextRoutineAfterPause 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Der Name der Subroutine, die 
+nach der Benutzerunterbrechung zur 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Fortführung des Makros gestartet werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MRunMacro (BSTR MacroName);</P>
+<P class=MsoNormal>Dieses Kommando wird nicht aufgezeichnet. Es kann vom 
+Anwender in das Makro eingefügt werden, um ein weiteres Makro zu starten. 
+Nachdem dieses andere Makro die Abarbeitung beendet hat, läuft das aktuelle 
+Makro nach diesem Kommando weiter.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>MacroName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Name des Makros das gestartet werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MRunForm (BSTR MacroName, short bMode);</P>
+<P class=MsoNormal>Dieses Kommando wird nicht aufgezeichnet. Es kann vom 
+Anwender in das Makro eingefügt werden, um ein System Skript zu starten. Mit dem 
+Parameter <B><SPAN style='FONT-FAMILY: "Courier New"'>bMode</SPAN></B> kann der 
+Modus festgelegt werden, wie das System Skript ablaufen soll (0.. als normales 
+Fenster, 1.. als modales Fenster, 2... als applikationsübergreifendes Fenster, 
+das immer im Vordergrund ist)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>MacroName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name des System 
+Skripts das gestartet werden soll</P>
+<P 
+class=MsoNormal>bMode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Modus mit dem das System Skript ablaufen 
+soll<BR>0…&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+normale (wird beim Umschalten auf andere Appl. 
+Versteckt)<BR>1…&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+modal (erst nach Schließen des Skripts kann in der Appl. Weitergearbeitet 
+werden)<BR>2…&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+applikationsübergreifend (bleibt auch beim Umschalten auf andere Appl. im 
+Vordergrund)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MChangeFilter(short nWinId, short nFieldId, BSTR 
+FilterName);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einem Fenster mit Filter-Funktion einen Filter aus der Auswahllistbox auswählt. 
+Der Parameter <B><SPAN style='FONT-FAMILY: "Courier New"'>FilterName</SPAN></B> 
+enthält den Namen des gewählten Filters.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich der Filter befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+immer 0</P>
+<P class=MsoNormal>FilterName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name des 
+ausgewählten Filters</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Immer 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MLastDialogResult (BOOL bResult, VARIANT value, 
+BSTR Remark);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn im Programm ein 
+Lohn- oder Faktformelfenster während des Makroaufzeichnens geöffnet wird. Das 
+Kommando registriert das Ergebnis des Dialogs um beim Abspielen des Makros das 
+Ergebnis der Aufzeichnung zur Hand zu haben und das Formelfenster nicht mehr 
+geöffnet werden muss.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>bResult&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<B>True</B> wenn das Formelfenster mit OK beendet wurde, andernfalls 
+<B>False</B></P>
+<P 
+class=MsoNormal>value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+der Rückgabewert des Formelfensters</P>
+<P 
+class=MsoNormal>Remark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+wird zur Zeit nicht verwendet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MLastReplacedForm (short Number);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn im Programm der 
+Formularersetzen Dialog eingeblendet wird, in dem der Benutzer ein vom 
+Standardformular abweichendes Formular auswählen kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>Number die Nummer des ausgewählten Ersatzformulars</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>BOOL MChangePreviewPage (short WinId, short PreviewId, 
+short PageNumber);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn im Programm in einer 
+Druckvorschau die angezeigte Seite geändert wird (d.h. in der Druckvorschau 
+geblättert wird).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>WinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die Nummer des Druckvorschaufensters</P>
+<P 
+class=MsoNormal>PreviewId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die interne Nummer des Druckvorschauelements</P>
+<P class=MsoNormal>PageNumber&nbsp;&nbsp;&nbsp;&nbsp; die Seitennummer zu der 
+geblättert wurde</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>True/False, abhängig davon ob beim Abspielen des Makros zu 
+der Seite gewechselt werden konnte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>BOOL MGridSort (short WinId, short FieldId, short 
+SortColumn1, short SortColumn2, short SortDirection);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn im Programm in einer 
+Tabelle eine Spalte sortiert wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>WinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die Nummer des Fensters</P>
+<P 
+class=MsoNormal>FieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die interne Nummer des Tabellenelements</P>
+<P class=MsoNormal>SortColumn1&nbsp;&nbsp;&nbsp;&nbsp; die 1. logische 
+Spaltennummer die sortiert wird</P>
+<P class=MsoNormal>SortColumn2&nbsp;&nbsp;&nbsp;&nbsp; die 2. logische 
+Spaltennummer die sortiert wird (ist 0, wenn nur nach einer Spalte sortiert 
+wird)</P>
+<P class=MsoNormal>SortDirection&nbsp;&nbsp;&nbsp;&nbsp; 1... aufwärts, 2... 
+abwärts</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>True/False, abhängig davon ob das Sortieren beim Abspielen 
+des Makros durchgeführt werden konnte</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MRetChar (short nWinId, short nFieldId, short 
+Key);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einem Editfeld eine Taste drückt, die von der Applikation speziell behandelt 
+wird. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>nWinId&nbsp; Nummer des Fensters in dem sich das Editfeld 
+befindet</P>
+<P class=MsoNormal>nFieldId Nummer des Editfeldes</P>
+<P 
+class=MsoNormal>Key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+die gedrückte Taste</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MMessageF3 (short nWinId, short nFieldId, BOOL 
+bShift);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Anwender in 
+einem Editfeld die Taste F3 drückt, die abhängig vom Typ des Editfeldes 
+unterschiedliche Aktionen auslöst. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Editfeld befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Editfeldes</P>
+<P 
+class=MsoNormal>bShift&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+True falls &lt;UMSCHALT&gt; &lt;F3&gt; gedrückt wurde</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MQuitApplication ()</P>
+<P class=MsoNormal>Dieses Kommando beendet die Applikation. Es wird die Auswahl 
+des Menüpunkts ‚Datei|Ende"" simuliert. Danach darf und kann kein Macrobefehl 
+mehr kommen, weil die Applikation geschlossen wird und damit die 
+Makroabarbeitung ebenfalls endet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>BOOL MStartExecutable (BSTR Application, BSTR 
+Parameters)</P>
+<P class=MsoNormal>Dieses Kommando startet ein beliebiges Programm. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>Application&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Der Name des 
+zu startenden Programmes inclusive Pfad wenn notwendig</P>
+<P class=MsoNormal>Parameters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Programmparameter, falls welche notwendig sind. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>True/False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Meldet den Erfolgreichen Start der Applikation</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>BSTR MGetPlainRTFFieldValue (short nWinId, short 
+nFieldId)</P>
+<P class=MsoNormal>Dieses Kommando holt den Text aus einem RTF Feld und 
+konvertiert diesen in reinen ANSI Text (ohne Formatierungen). </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Editfeld befindet</P>
+<P class=MsoNormal>nFieldId Nummer des Editfeldes</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Der konvertierte RTF Text.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MClosePreview (short nWinId)</P>
+<P class=MsoNormal>Schließt ein Druckvorschaufenster mit der Fenster Nummer 
+nWinId.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Druckvorschau befindet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MActivateWindow (short nWinId)</P>
+<P class=MsoNormal>Aktiviert das Fenster mit der Nummer nWinId. Ist das 
+angegebene Fenster bereits aktiv wird nichts gemacht, andernfalls wird das neue 
+Fenster zum aktiven Fenster.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters das aktiviert werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MCompanyYearChange (short nWinId, short 
+InternalYearValue);</P>
+<P class=MsoNormal>Bei Fenstern, die in der Werkzeugleiste eine Liste der 
+Wirtschaftsjahre aufweisen (z.B. Kontoblatt), kann mit diesem Befehl das 
+ausgewählte Wirtschaftsjahr verändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>nWinId&nbsp; Nummer des Fensters das aktiviert werden 
+soll</P>
+<P 
+class=MsoNormal>InternalYearValue&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+das Wirtschaftsjahr im internen numerischen Format</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeCheck(short nWinId, short nFieldId, long 
+lParam);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer eine 
+Baumstruktur mit TAB oder der Maus verlässt. Das Kommando sollte nicht manuell 
+eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>nWinId&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nummer des 
+Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 1</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MTreeCheckbox(short nWinId, short nFieldId, long 
+lParam);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn der Benutzer in 
+einer Baumstruktur, die Checkboxen enthält, den Inhalt dieser verändert. Das 
+Kommando sollte nicht manuell eingefügt werden, weil die Daten in <B><SPAN 
+style='FONT-FAMILY: "Courier New"'>lParam</SPAN></B> nur bei der Aufzeichnung 
+richtig gesetzt werden können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich das Baumelement befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Baumelements</P>
+<P 
+class=MsoNormal>lParam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(nur für interne Zwecke)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 1</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>void MPrintGrid (short nWinId, short nFieldId);</P>
+<P class=MsoNormal>Mit diesem Befehl wird eine Tabelle ausgedruckt (es wird das 
+gleiche durchgeführt wie bei der Auswahl des Kontextmenübefehls: ‚Tabelle 
+ausdrucken"".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters in dem sich die Tabelle befindet</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Tabelle</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MCompanyChange (BSTR Company, short 
+CompanyYear);</P>
+<P class=MsoNormal>Mit diesem Befehl wird der aktuelle Mandant gewechselt. Der 
+Befehl wird aufgezeichnet, wenn in der Hauptwerkzeugleiste des Programms ein 
+anderer Mandant oder ein anderes Wirtschaftsjahr ausgewählt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P class=MsoNormal>Company&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Die Nummer des Mandanten (z.B. ‚300M"")</P>
+<P class=MsoNormal>CompanyYear&nbsp;&nbsp; Das gewünschte Wirtschaftsjahr im 
+internen numerischen Format</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bei 
+erfolgreichem Mandantenwechsel, andernfalls 0.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MPrintPreview (short nWinId, short nFieldId, BSTR 
+Printer);</P>
+<P class=MsoNormal>Dieses Kommando wird aufgezeichnet, wenn in einem 
+Druckvorschaufenster auf den Druckschaltknopf gedrückt wird. Abhängig davon ob 
+in dem darauf folgenden Dialog ein neuer Drucker ausgewählt wird, oder der 
+Standarddrucker verwendet wird, wird im Parameter PrinterDescription der 
+gewählte Drucker übergeben, oder der Parameter bleibt leer.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Fenster Nummer des Druckvorschaufensters</P>
+<P 
+class=MsoNormal>bFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Feldnummer der Druckvorschau</P>
+<P 
+class=MsoNormal>Printer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+falls ein Drucker ausgewählt wurde, die Druckerbeschreibung, andernfalls leer 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+(Standarddrucker)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>long MMessageDynamicMenuCommand (short nWinId, short 
+nFieldId, short CommandIndex);</P>
+<P class=MsoNormal>Das Kommando wird aufgezeichnet, wenn der Benutzer in der 
+Werkzeugleiste eines Fensters eine Schaltfläche mit integrierten Menü anwählt. 
+Dieser Schaltflächentyp wird in der aktuellen Programmversion für die Ausgabe 
+einer Auswertung auf verschiedene Zielmedien verwendet (z.B: Ausgabe auf Drucker 
+oder Bildschirm).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>nWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Schaltfläche in der Werkzeugleiste</P>
+<P 
+class=MsoNormal>nCommandIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+der ausgewählte Befehl aus dem Menü, wobei die Befehle von 0 weggezählt 
+werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal style="TEXT-ALIGN: justify">Ist abhängig von der Applikation, 
+normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung><A name=_Toc469969537>long MToolbarMenuCommand (short 
+nWinId, short nFieldId, short CommandIndex);</A></P>
+<P class=MsoNormal>Das Kommando wird aufgezeichnet, wenn der Benutzer in der 
+Werkzeugleiste eines Fensters einen der Menüpunkte aufruft, der von der 
+gedrückten Schaltfläche angezeigt worden ist. Im Gegensatz zum 
+MMessageDynamicMenuCommand - Befehl beruht dieses Menü auf einer anderen 
+Technologie und wird intern anders verarbeitet. Im Makro wird an dieser Stelle 
+immer zuerst ein MPushbutton - Befehl für diese Schaltfläche erzeugt (dieser 
+Befehl füllt das Menü) und der MToolbarMenuCommand bei der Auswahl eines der 
+Menüpunkte.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>NWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Schaltfläche in der Werkzeugleiste</P>
+<P 
+class=MsoNormal>nCommandIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+der ausgewählte Befehl aus dem Menü, wobei die Befehle von 0 weggezählt 
+werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>Ist abhängig von der Applikation, normalerweise 0</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>MPutIntoCampaign(nWinId As Integer, nFieldId As 
+Integer, bAdd As Boolean, bShowWindow As Boolean, Relate Type As Integer, Name 
+As String</P>
+<P class=MsoNormal>Das Kommando wird aufgezeichnet wenn der Benutzer Daten aus 
+einer Auswertung mittels entsprechendem Button "zur Merkliste/Kampagne 
+hinzufügt" oder "aus Merkliste/Kampagne entfernt".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Parameter:</P>
+<P 
+class=MsoNormal>NWinId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer des Fensters</P>
+<P 
+class=MsoNormal>nFieldId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Nummer der Schaltfläche in der Werkzeugleiste</P>
+<P 
+class=MsoNormal>bAdd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Auswahl wird zur Kampagne hinzugeüfgt oder aus einer Kampagne abgezogen</P>
+<P 
+class=MsoNormal>bShowWindow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Definition ob das Kampagnenfenster angezeigt werden soll oder eben nicht</P>
+<P class=MsoNormal>Relate 
+Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Typs der Daten die übergeben werden (0: Konten, 1: Artikel, 2: Arbeitnehmer, 3: 
+Projekte, 4: CRM, 5: Vertreter, 6: Kontakte)</P>
+<P 
+class=MsoNormal>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Name der Kampagne/Merkliste</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Rückgabe:</P>
+<P class=MsoNormal>keine</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

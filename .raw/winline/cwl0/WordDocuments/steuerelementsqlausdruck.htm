@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Steuerelement - SQL Ausdruck</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="steuerelementmailversenden.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled 
+href="steuerelementn&auml;chsterdatensatz.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><SPAN 
+class=d2h_breadcrumbsContentsOnly>WinLine Formular Editor</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="buttonsundfunktionenimdetail.htm">Buttons und Funktionen im 
+Detail</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A 
+class=d2h_breadcrumbsNormal href="steuerelement.htm">Steuerelement</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Steuerelement - SQL Ausdruck</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc200977225>Steuerelement - SQL 
+Ausdruck</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit Hilfe des Steuerelements "SQL Ausdruck" können im 
+Formular SQL-Abfragen hinterlegt werden, deren Ergebnisse dann am Formular 
+angedruckt werden können. SQL-Statements werden in der Regel dann verwendet, 
+wenn im Formular die gewünschten Daten nicht direkt zur Verfügung stehen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Das Ergebnis wird automatisch in der View 500 ab Variable 100 
+zur Verfügung gestellt, wobei es insgesamt 254 unterschiedliche SQL-Variablen 
+gibt (in der View 500 bis Variable 354).</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Das Steuerelement "SQL Ausdruck" ist nur ein Teil einer 
+Datenbankabfrage, wobei die Ausgabe in einer fest vorgeschriebenen Reihenfolge 
+erfolgen muss:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datenbankabfrage (über 
+Steuerelement "SQL Ausdruck" -&gt; wird im Formulareditor "SQL AUX" 
+ausgewiesen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datenbankabfrage ausführen lassen 
+(über Steuerelement "Nächster Datensatz" -&gt; wird im Formulareditor mit "AUX 
+SQLNEXT" ausgewiesen)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Einbau der Variablen für den 
+Ausdruck (View 500, Variable 100 bis 354)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Reihenfolge kann überprüft werden, indem zuerst das 
+Element "AUX SQL" angeklickt wird - wird danach die TAB-Taste gedrückt, muss das 
+Element "AUX SQLNEXT" aktiviert werden, erst danach dürfen die Variablen 
+(500/100, 500/101, etc.) folgen.</P>
+<P class=MsoNormal>Ist das nicht der Fall, kann die Datenbankabfrage beim 
+Ausdruck nicht richtig abgearbeitet werden. Damit die Reihenfolge stimmt, können 
+die Elemente mit den Optionen (über rechte Maustaste) "in den Vordergrund" oder 
+"in den Hintergrund" in der Reihenfolge verändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_131.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Innerhalb eines SQL-Statements kann mit den folgenden 
+Platzhaltern gearbeitet werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>~~~~<BR>Dieser Platzhalter wird 
+durch das aktuelle Mandantenkürzel (z.B. 300M) ersetzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>yyyy<BR>Dieser Platzhalter wird 
+durch das aktuelle Wirtschaftsjahr (z.B. 1380 =&gt; entspricht dem Jahr 2015) 
+ersetzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Darstellung im Formular</P>
+<P class=MsoNormal>Im Formular werden Steuerelemente des Typs "SQL Ausdruck" wie 
+folgt dargestellt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image873_132.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Zusätzlich wird in der Buttonleiste "Elementeigenschaften" 
+der Inhalt (gemäß des hinterlegten SQL-Statements) wie folgt dargestellt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image873_133.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 1</P>
+<P class=MsoNormal>Am Kontoblatt soll jeweils die Kontobezeichnung der Soll- und 
+Haben-Konten angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Statement<BR>SELECT C003 from T055 
+WHERE C002 = '&lt;VAR:0/66&gt;' and MESOCOMP = '~~~~' and MESOYEAR = yyyy</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beschreibung<BR>Es wird die 
+Kontenbezeichnung (C003) der Tabelle T055 geladen, wo die Kontonummer (C002) mit 
+der Kontonummer des Gegenkontos (0/66) übereinstimmt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ergebnis<BR>Es wird die Variable 
+500/100 gefüllt, die an jeder beliebiger Position NACH dem SQL-Statement 
+gedruckt werden kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 2</P>
+<P class=MsoNormal>Am Lieferschein sollen die ersten 3 Zusatzfelder der 
+Lieferadresse angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Statement<BR>SELECT C201, C202, 
+C203 FROM V050 WHERE '&lt;VAR:25/30&gt;' = V050.C002 and MESOCOMP = '~~~~' and 
+MESOYEAR = yyyy</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beschreibung<BR>Es werden die 
+Zusatzfelder 1, 2 und 3 des Kontenstammes geladen, wo die Kontonummer der 
+Lieferadresse mit der Kontonummer des Kontenstamms übereinstimmt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ergebnis<BR>Es werden die 
+Variablen 500/100, 500/101 und 500/102 in der Reihenfolge des SQL-Statements 
+gefüllt (500/100 = Zusatzfeld1, 500/101 = Zusatzfeld2, 500/102 = Zusatzfeld3) 
+und können beliebig angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 3</P>
+<P class=MsoNormal>Es sollen die Adressinformationen der im Kundenstamm 
+hinterlegten Rechnungsadresse angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Statement<BR>SELECT C049, C003, 
+C084, C053, C050, C082, C097, C051, C052 FROM V050 WHERE '&lt;VAR:50/130&gt;' = 
+V050.C002 and MESOCOMP = '~~~~' and MESOYEAR = yyyy</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beschreibung<BR>Es werden die 
+Felder Anrede, Name, Name2, zu Handen, Straße, Straße2, Staat, PLZ und Ort 
+geladen, wo die Rechnungsadresse der Kontonummer entspricht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ergebnis<BR>Es werden die 
+Variablen 500/100 bis 500/108 in der oben genannten Reihenfolge befüllt und 
+können beliebig angedruckt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis zu den Beispiel-Statements</P>
+<P class=MsoNormal>Die Zeichen ~~~~, mit der die Spalte MESOCOMP abgefragt wird, 
+stehen für die Mandantennummer, die yyyy, mit der die Spalte MESOYEAR abgefragt 
+wird, steht für das aktuelle Wirtschaftsjahr. Damit die Statements 
+mandantenübergreifend wirken, werden die ~~~~ und yyyy verwendet, die dann bei 
+der Ausführung durch die Mandantennummer bzw. das Wirtschaftsjahr ersetzt 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wenn im WHERE-Statement eine Variable angesprochen wird, dann 
+muss darauf geachtet werden, welcher Datentyp die Variable ist. Wenn die 
+Variable ein String (Text) ist, dann muss die Variable mit einfachem Hochkomma 
+(') versehen werden. Wenn die Variable eine Zahl ist, dann darf das einfache 
+Hochkomma nicht verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel - Text</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Statement<BR>SELECT C003 from T055 
+WHERE C002 = '&lt;VAR:0/66&gt;' and MESOCOMP = '~~~~' and MESOYEAR = yyyy</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beschreibung<BR>In diesem Fall ist 
+die Variable "VAR:0/66" die Kontenbezeichnung und muss daher unter Hochkomma 
+gestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel - Zahl</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Statement<BR>SELECT C001 from T035 
+WHERE C008 = &lt;VAR:26/46&gt; and MESOCOMP = '~~~~' and MESOYEAR = yyyy</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beschreibung<BR>In diesem Fall ist 
+die Variable "VAR:26/46" die Vertreternummer (Zahl) und somit darf das Hochkomma 
+nicht gesetzt werden.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

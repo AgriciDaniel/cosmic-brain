@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Import - Hinweise</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="importdieimportvorschau.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="eximvorbelegungmatchcode.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinestart.htm">WinLine START</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Vorlagen</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="exportimport.htm">Export/Import</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Import - Hinweise</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc138664633>Import - Hinweise</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Meldung beim Import: "Die gewählte Vorlage wurde nicht 
+für den Export verwendet."</P>
+<P class=MsoNormal>Im Zuge eines Imports wurde eine Vorbelegung selektiert und 
+der Import mit den definierten Optionen durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1126.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Erklärung</P>
+<P class=MsoNormal>Zwischen der verwendeten Vorlage für das Erzeugen der 
+Exportdatei und der Vorlage für den (Re-)Import wurde eine Differenz 
+festgestellt. Sobald sich innerhalb der Vorlagendefinition in der Vorlagen 
+Anlage der Export/Import-Vorlage die enthaltenen Felder in Art, Menge und 
+Reihenfolge wieder gleichen, ist der Import wie gewohnt durchführbar.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Meldung beim Import mit Text-Treibern: "Textdatei kann 
+nicht geöffnet werden"</P>
+<P class=MsoNormal>Es wurde ein funktionaler Import mit Texttreibern 
+eingerichtet. Nun soll die Vorlage für den Import um Zusätzliche Felder 
+erweitert werden, die auch entsprechend in der zu übernehmenden Textdatei 
+hinterlegt werden. Trotzdem meldet der Import den Fehler "Textdatei kann nicht 
+geöffnet werden".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Erklärung</P>
+<P class=MsoNormal>Beim Import von Textdateien wird im Programmverzeichnis die 
+Datei SCHEMA.INI angelegt, welche die Dateibeschreibung der Importdatei enthält. 
+Wenn sich die Vorlage und die Importdatei selbst ändert, hat das aber keine 
+Auswirkung auf die SCHEMA.INI. Damit der Import wieder wie gewohnt durchgeführt 
+werden kann, muss die SCHEMA.INI entsprechend angepasst, oder gelöscht (und 
+damit beim nächsten Import neu angelegt) werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Import von Anlagegütern - Berechnung der kumulierten 
+AfA und Jahres-AfA</P>
+<P class=MsoNormal>Wenn beim Import von Anlagegütern der Anfangsbuchwert 
+(Pflichtfeld) mit importiert wird, dann wird die kumulierte AfA aus der 
+Differenz von Anschaffungswert und Anfangsbuchwert gerechnet. Werden Anlagegüter 
+importiert, die eine Jahres-AfA von 0,00 hinterlegt haben, wird der 
+Jahres-AfA-Betrag im Zuge des Imports automatisch neu berechnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Import von einstufigen Stücklisten (Vorlagentyp 13)</P>
+<P class=MsoNormal>Grundsätzlich bleiben im Stücklisten-Stamm bereits enthaltene 
+Artikel und Tätigkeiten auch nach einem neuen Stücklisten-Import vorhanden. Dies 
+gilt auch dann, wenn diese Artikel bzw. Tätigkeiten in der Stückliste der 
+Importdatei nicht enthalten sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit Hilfe der zwei Stücklistenoptionen…</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nicht importierte Artikel einer 
+Stückliste löschen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nicht importierte Tätigkeiten 
+einer Stückliste löschen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">… können beim 
+Import diese Artikel und / oder Tätigkeiten im Stücklisten-Stamm gelöscht 
+werden, wenn sie nicht mehr Bestandteil der zu importierenden Stücklistendatei 
+sind.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1127.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung><A name=_Hlk108525962>Hinweis zum Importieren von 
+Kontakten via XML (WebService)</A></P>
+<P class=MsoNormal>Das Inaktiv-Kennzeichen im Kontaktestamm ist ein Datumsfeld. 
+Datumsfelder können via XML ganz normal importiert werden, wodurch dann ein 
+Kontakt auf "Inaktiv" gesetzt wird. Bei einem XML-Import können aber keine 
+leeren Datumsfelder importiert werden, d.h. via XML kann kein Kontakt von 
+Inaktiv auf Aktiv gesetzt werden. Um das doch zu ermöglichen, kann das Datum mit 
+dem Wert "31.12.2999" (im jeweils gültigen Datumsformat) beschickt werden, dann 
+erkennt das Programm, dass in dem Fall beim Kontakt das Inaktiv-Kennzeichen 
+deaktiviert werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

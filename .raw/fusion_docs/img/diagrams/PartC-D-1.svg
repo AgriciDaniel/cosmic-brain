@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 760" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Subgraph: Handler Pipeline -->
+  <rect x="100" y="250" width="400" height="360" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="120" y="275" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase">Handler Pipeline (Descending Priority)</text>
+
+  <!-- Edges / Arrows -->
+  <path d="M 300 85 C 300 100, 300 105, 300 115" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  <path d="M 300 200 C 300 220, 300 230, 300 245" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  <path d="M 300 365 C 300 380, 300 390, 300 400" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  <path d="M 300 455 C 300 475, 300 480, 300 495" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+  <path d="M 300 610 C 300 620, 300 625, 300 635" stroke="#8b90a8" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-linecap="round" />
+
+  <!-- Node: Call (Action) -->
+  <rect x="170" y="35" width="260" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="65" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Commander.Call(command)</text>
+
+  <!-- Node: Context (State) -->
+  <rect x="140" y="120" width="320" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="300" y="145" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="bold">CommandContext Created</text>
+  <text x="300" y="165" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">• New ServiceScope (if outermost)</text>
+  <text x="300" y="180" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">• ExecutionState initialized</text>
+
+  <!-- Node: Filters (State) -->
+  <rect x="130" y="295" width="340" height="70" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="300" y="320" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="bold">Filtering Handlers</text>
+  <text x="300" y="340" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">PreparedCommandHandler, CommandTracer,</text>
+  <text x="300" y="355" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">LocalCommandRunner, RpcCommandHandler</text>
+
+  <!-- Node: Ops (State) -->
+  <rect x="130" y="405" width="340" height="50" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="300" y="430" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="bold">Operations Framework Handlers</text>
+  <text x="300" y="445" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">(See PartO)</text>
+
+  <!-- Node: Final (State) -->
+  <rect x="130" y="500" width="340" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="300" y="525" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="bold">Your Command Handler [Final]</text>
+  <text x="300" y="545" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Priority: 0</text>
+
+  <!-- Node: Result (Action) -->
+  <rect x="140" y="640" width="320" height="80" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="665" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" font-weight="bold">Result Returned</text>
+  <text x="300" y="685" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">• context.TryComplete</text>
+  <text x="300" y="705" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">• context.DisposeAsync</text>
+
+</svg>

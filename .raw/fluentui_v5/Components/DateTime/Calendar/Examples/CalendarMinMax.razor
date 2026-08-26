@@ -1,0 +1,35 @@
+﻿﻿@using Microsoft.FluentUI.AspNetCore.Components.Extensions
+@using System.Globalization
+
+<FluentStack Wrap="true" HorizontalGap="24px">
+    <FluentDatePicker @bind-Value="@MinDate" Label="MinDate"/>
+    <FluentDatePicker @bind-Value="@MaxDate" Label="MaxDate"/>
+</FluentStack>
+
+<FluentStack Wrap="true" HorizontalGap="24px">
+
+    <div>
+        <FluentCalendar MinDate="@MinDate"
+                        MaxDate="@MaxDate"
+                        View="CalendarViews.Days"
+                        DisabledDateFunc="@(date => date.Day == 15)"
+                        DisabledSelectable="false"
+                        Style="height: 250px; align-content: start;" />
+    </div>
+
+    <div>
+        <FluentCalendar MinDate="@MinDate"
+                        MaxDate="@MaxDate"
+                        View="CalendarViews.Months"
+                        DisabledDateFunc="@(date => date.Day == 15)"
+                        DisabledCheckAllDaysOfMonthYear="true"
+                        Style="height: 250px; align-content: start;" />
+    </div>
+
+</FluentStack>
+
+@code
+{
+    private DateTime MinDate = DateTime.Today.StartOfMonth(CultureInfo.CurrentCulture);
+    private DateTime MaxDate = DateTime.Today.EndOfMonth(CultureInfo.CurrentCulture);    
+}

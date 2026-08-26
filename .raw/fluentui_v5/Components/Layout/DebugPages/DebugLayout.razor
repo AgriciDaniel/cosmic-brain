@@ -1,0 +1,146 @@
+﻿@page "/Layout/Debug"
+@using Microsoft.AspNetCore.Components.Rendering
+
+<h1>Layout Debug Page</h1>
+
+<div style="margin: 24px;">
+
+    @_renderOptions
+
+    <FluentTextArea @bind-Value="@HamburgerContent" Label="Hamburger content" /> <br/>
+    <FluentCheckbox @bind-Value="@HamburgerOnDesktop" Label="Visible on desktop" />
+
+    <FluentStack Margin="@Margin.Vertical2">
+        View: @(MobileView ? "📱 Mobile" : "💻 Desktop")
+        <FluentSpacer />
+        Opened: @Opened
+    </FluentStack>
+
+    <div style="resize: horizontal; overflow: hidden;">
+        <FluentLayout GlobalScrollbar="@GlobalScrollbar" Height="400px" Style="@CommonStyles.NeutralBorder1" OnBreakpointEnter="@(e => MobileView = e)" NavigationDeferredLoading="@NavigationDeferredLoading">
+
+            @if (Header.Visible)
+            {
+                <!-- Header -->
+                <FluentLayoutItem Area="@LayoutArea.Header" Sticky="@Header.Sticky">
+
+                    <!-- Hamburger -->
+                    <FluentLayoutHamburger OnOpened="@(e => Opened = e.Opened)"
+                                           Display="@(HamburgerOnDesktop ? HamburgerDisplay.DesktopMobile : HamburgerDisplay.MobileOnly)"
+                                           ChildContent="@(string.IsNullOrWhiteSpace(HamburgerContent) ? null : builder => { builder.AddMarkupContent(0, HamburgerContent); })" />
+
+                    <FluentText Weight="TextWeight.Bold" Size="TextSize.Size400">
+                        Microsoft Demo
+                    </FluentText>
+                    <FluentSpacer />
+                    <FluentButton Appearance="ButtonAppearance.Primary" Shape="ButtonShape.Rounded">
+                        Sign in
+                    </FluentButton>
+
+                    <!-- Second Hamburger -->
+                    <FluentLayoutHamburger OnOpened="@(e => Opened = e.Opened)"
+                                           ChildContent="@(string.IsNullOrWhiteSpace(HamburgerContent) ? null : builder => { builder.AddMarkupContent(0, HamburgerContent); })" />
+
+                </FluentLayoutItem>
+            }
+
+            @if (Navigation.Visible)
+            {
+                <!-- Navigation -->
+                <FluentLayoutItem Area="@LayoutArea.Navigation" Sticky="@Navigation.Sticky"
+                                  Width="150px" Padding="@Padding.All2"
+                                  Style="border-right: var(--strokeWidthThin) solid var(--colorNeutralStroke1);">
+
+                    <FluentText Weight="TextWeight.Bold">Navigation</FluentText>
+                    @NavigationContent
+                </FluentLayoutItem>
+            }
+
+            @if (Content.Visible)
+            {
+                <!-- Content -->
+                <FluentLayoutItem Area="@LayoutArea.Content" Padding="@Padding.All3">
+                    <FluentText Weight="TextWeight.Bold">Content</FluentText>
+                    @BodyContent
+                </FluentLayoutItem>
+            }
+
+            @if (Aside.Visible)
+            {
+                <!-- Aside -->
+                <FluentLayoutItem Area="@LayoutArea.Aside" Width="120px" Sticky="Aside.Sticky"
+                                  Style="padding: 8px; background-color: var(--colorBrandBackground2);">
+                    <FluentText Weight="TextWeight.Bold">News</FluentText>
+                    @AsideContent
+                </FluentLayoutItem>
+            }
+
+            @if (Footer.Visible)
+            {
+                <!-- Footer -->
+                <FluentLayoutItem Area="@LayoutArea.Footer" Sticky="@Footer.Sticky">
+                    &copy; Microsoft @DateTime.Now.Year
+                </FluentLayoutItem>
+            }
+
+        </FluentLayout>
+    </div>
+ 
+</div>
+
+<h1>Standalone Hamburger</h1>
+<FluentLayoutHamburger Visible="true"
+                       Icon="@(new Icons.Regular.Size20.LineHorizontal4().WithColor(Color.Primary))">
+    Standalone Hamburger Content
+</FluentLayoutHamburger>
+
+@code
+{
+    protected void RenderOptions(RenderTreeBuilder __builder)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Visible</th>
+                    <th>Sticky</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Global Scrollbar</td>
+                    <td><InputCheckbox @bind-Value="@(GlobalScrollbar)" /></td>
+                </tr>
+                <tr>
+                    <td>Navigation Deferred Loading</td>
+                    <td><InputCheckbox @bind-Value="@(NavigationDeferredLoading)" /></td>
+                </tr>
+                <tr>
+                    <td>Header</td>
+                    <td><InputCheckbox @bind-Value="@(Header.Visible)" /></td>
+                    <td><InputCheckbox @bind-Value="@(Header.Sticky)" /></td>
+                </tr>
+                <tr>
+                    <td>Navigation</td>
+                    <td><InputCheckbox @bind-Value="@(Navigation.Visible)" /></td>
+                    <td><InputCheckbox @bind-Value="@(Navigation.Sticky)" /></td>
+                </tr>
+                <tr>
+                    <td>Content</td>
+                    <td><InputCheckbox @bind-Value="@(Content.Visible)" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Aside</td>
+                    <td><InputCheckbox @bind-Value="@(Aside.Visible)" /></td>
+                    <td><InputCheckbox @bind-Value="@(Aside.Sticky)" /></td>
+                </tr>
+                <tr>
+                    <td>Footer</td>
+                    <td><InputCheckbox @bind-Value="@(Footer.Visible)" /></td>
+                    <td><InputCheckbox @bind-Value="@(Footer.Sticky)" /></td>
+                </tr>
+            </tbody>
+        </table>
+    }
+}

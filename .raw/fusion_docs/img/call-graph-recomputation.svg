@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#8b90a8"/>
+    </marker>
+    <style>
+      .mt { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 13px; fill: #1a1a2e }
+      .lt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 11px; font-style: italic; fill: #6b7084 }
+      .dt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; font-style: italic; fill: #6b7084 }
+      .tc { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #4a8c66; font-weight: 500 }
+      .ti { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #a07858; font-weight: 500 }
+
+      /*
+       * Starts from last frame of invalidation diagram.
+       * GetUser green; others bleached; no arrows.
+       *
+       * Timeline (10s):
+       *   8%  GetUserProfile → computing;  inconsistent tag fades
+       *  12%  Arrow1 appears ("calls")
+       *  15%  GetUser cache-hit highlight
+       *  17%  Arrow1 label → "depends on" (already cached)
+       *  20%  Arrow2 appears ("calls")
+       *  22%  GetUserAvatar → computing;  inconsistent tag fades
+       *  28%  Arrow3 appears ("calls")
+       *  30%  GetThumbnail → computing;  inconsistent tag fades
+       *  40%  GetThumbnail → consistent + tag
+       *  48%  GetUserAvatar → consistent + tag;  Arrow3 → "depends on"
+       *  55%  GetUserProfile → consistent + tag;  Arrow1,2 → "depends on"
+       * 100%  Hold
+       *
+       * Inconsistent: #ede8e3 / #c4bab2
+       * Computing:    #c8ddf8 / #6b9ad4
+       * Consistent:   #c8e8d0 / #78b490
+       */
+
+      /* Boxes */
+      @keyframes rb-rt { 0%,6%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} 10%,53%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 58%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes rb-gu { 0%,13%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} 16%{fill:#b0dcc0;stroke:#58a078;stroke-width:2} 22%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes rb-av { 0%,20%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} 24%,46%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 50%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+      @keyframes rb-th { 0%,28%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} 32%,38%{fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5} 42%,100%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} }
+
+      /* Arrow groups fade in */
+      @keyframes ra1 { 0%,10%{opacity:0} 14%,100%{opacity:1} }
+      @keyframes ra2 { 0%,18%{opacity:0} 22%,100%{opacity:1} }
+      @keyframes ra3 { 0%,26%{opacity:0} 30%,100%{opacity:1} }
+
+      /* "calls" labels fade out (when dependant becomes consistent) */
+      @keyframes ra1c { 0%,56%{opacity:1} 60%,100%{opacity:0} }
+      @keyframes ra2c { 0%,56%{opacity:1} 60%,100%{opacity:0} }
+      @keyframes ra3c { 0%,48%{opacity:1} 52%,100%{opacity:0} }
+
+      /* "depends on" labels fade in */
+      @keyframes ra1d { 0%,56%{opacity:0} 60%,100%{opacity:1} }
+      @keyframes ra2d { 0%,56%{opacity:0} 60%,100%{opacity:1} }
+      @keyframes ra3d { 0%,48%{opacity:0} 52%,100%{opacity:1} }
+
+      /* Inconsistent tags fade out */
+      @keyframes rti-rt { 0%,6%{opacity:1} 10%,100%{opacity:0} }
+      @keyframes rti-av { 0%,20%{opacity:1} 24%,100%{opacity:0} }
+      @keyframes rti-th { 0%,28%{opacity:1} 32%,100%{opacity:0} }
+
+      /* Consistent tags fade in */
+      @keyframes rtc-th { 0%,40%{opacity:0} 44%,100%{opacity:1} }
+      @keyframes rtc-av { 0%,48%{opacity:0} 52%,100%{opacity:1} }
+      @keyframes rtc-rt { 0%,56%{opacity:0} 60%,100%{opacity:1} }
+
+      #rb-rt{animation:rb-rt 10s ease forwards} #rb-gu{animation:rb-gu 10s ease forwards}
+      #rb-av{animation:rb-av 10s ease forwards} #rb-th{animation:rb-th 10s ease forwards}
+      #ra1{animation:ra1 10s ease forwards} #ra2{animation:ra2 10s ease forwards} #ra3{animation:ra3 10s ease forwards}
+      #ra1c{animation:ra1c 10s ease forwards} #ra2c{animation:ra2c 10s ease forwards} #ra3c{animation:ra3c 10s ease forwards}
+      #ra1d{animation:ra1d 10s ease forwards} #ra2d{animation:ra2d 10s ease forwards} #ra3d{animation:ra3d 10s ease forwards}
+      #rti-rt{animation:rti-rt 10s ease forwards} #rti-av{animation:rti-av 10s ease forwards} #rti-th{animation:rti-th 10s ease forwards}
+      #rtc-th{animation:rtc-th 10s ease forwards} #rtc-av{animation:rtc-av 10s ease forwards} #rtc-rt{animation:rtc-rt 10s ease forwards}
+    </style>
+  </defs>
+
+  <rect width="750" height="300" rx="10" fill="url(#bg)"/>
+
+  <!-- Arrows (start hidden, appear during recomputation) -->
+  <g id="ra1" opacity="0">
+    <path d="M 192 142 C 220 142, 220 52, 248 52" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="ra1c" x="218" y="93" class="lt" text-anchor="middle">calls</text>
+    <text id="ra1d" x="218" y="93" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+  <g id="ra2" opacity="0">
+    <path d="M 192 142 C 220 142, 220 232, 248 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="ra2c" x="218" y="183" class="lt" text-anchor="middle">calls</text>
+    <text id="ra2d" x="218" y="183" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+  <g id="ra3" opacity="0">
+    <path d="M 404 232 C 430 232, 430 232, 456 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text id="ra3c" x="430" y="228" class="lt" text-anchor="middle">calls</text>
+    <text id="ra3d" x="430" y="228" class="dt" text-anchor="middle" opacity="0">depends on</text>
+  </g>
+
+  <!-- Boxes -->
+  <rect id="rb-rt" x="16" y="120" width="176" height="44" rx="12" fill="#ede8e3" stroke="#c4bab2" stroke-width="1.5"/>
+  <text x="104" y="142" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserProfile<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="rb-gu" x="248" y="30" width="114" height="44" rx="12" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <text x="305" y="52" class="mt" text-anchor="middle" dominant-baseline="middle">GetUser<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="rb-av" x="248" y="210" width="156" height="44" rx="12" fill="#ede8e3" stroke="#c4bab2" stroke-width="1.5"/>
+  <text x="326" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserAvatar<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="rb-th" x="456" y="210" width="280" height="44" rx="12" fill="#ede8e3" stroke="#c4bab2" stroke-width="1.5"/>
+  <text x="596" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetThumbnail<tspan fill="#6b7084">("user_3_avatar", 64)</tspan></text>
+
+  <!-- Inconsistent tags (fade out when computing starts) -->
+  <text id="rti-rt" x="104" y="178" class="ti" text-anchor="middle">&#x2717; inconsistent</text>
+  <text id="rti-av" x="326" y="268" class="ti" text-anchor="middle">&#x2717; inconsistent</text>
+  <text id="rti-th" x="596" y="268" class="ti" text-anchor="middle">&#x2717; inconsistent</text>
+
+  <!-- Consistent tags (fade in when cached; GetUser always visible) -->
+  <text             x="305" y="88"  class="tc" text-anchor="middle">&#x2713; consistent</text>
+  <text id="rtc-rt" x="104" y="178" class="tc" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+  <text id="rtc-av" x="326" y="268" class="tc" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+  <text id="rtc-th" x="596" y="268" class="tc" text-anchor="middle" opacity="0">&#x2713; consistent</text>
+</svg>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Aktion "Replikation"</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt"><A name=_Ref84572257></A>Aktion 
+"Replikation"</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1367.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Replikation 
+zw. diesen Mandanten - "Spalte Auswahl"</P>
+<P class=MsoNormal>Durch die Selektion der Checkboxen in der Spalte "Auswahl" 
+können die Mandanten ausgewählt werden, in denen Objekte repliziert werden 
+sollen. Änderungen innerhalb selektierter Mandanten werden auf alle anderen 
+Mandanten der Auswahl repliziert.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Nach einem durchgeführten Replikationslauf sind die Objekte 
+überall identisch, sofern der ursprüngliche Zustand (vor den ersten 
+aufgezeichneten Änderungen) ebenfalls identisch war.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Replikation 
+zw. diesen Mandanten - Spalte "Führungsmandant (wird nicht verändert)"</P>
+<P class=MsoNormal>Bei der Auswahl der Mandanten kann ein Mandant als 
+Führungsmandant gewählt werden. Dieser Mandant erhält somit keine Änderungen von 
+den anderen Mandanten, sondern verteilt seine Änderungen auf diese. </P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Erfolgen jedoch in einem anderen Mandanten Änderungen zu 
+einem späteren Zeitpunkt, dann gilt die Regel, dass diese bevorzugt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Objekttyp</P>
+<P class=MsoNormal>Der Action Server unterstützt im Zusammenhang mit der Aktion 
+"Replikation" folgende Objekttypen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mitarbeiter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Personenkonten</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bevor die Replikation durchgeführt werden kann, muss in der 
+WinLine START &gt; PARAMETER &gt; EINSTELLUNGEN im Register ADMIN in der Tabelle 
+"Alle Exportvariablen auditieren" selektiert worden sein (diese Checkbox ist als 
+Standard nicht aktiviert.) Dies ermöglicht das Setzen aller notwendigen Trigger 
+für eine zukünftige Replikation.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wenn nur Änderungen repliziert werden (und keine neuen 
+Datensätze), dann reicht es aus, wenn nur jene Variablen auditiert werden, die 
+auch geändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Logdateiname</P>
+<P class=MsoNormal>Neben der Auswahl des zu replizierenden Objekts kann optional 
+eine Logdatei angegeben werden. Dort werden durchgeführte Änderungen 
+hineingeschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1368.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über die Ausgabe "Action Server - Protokoll" (START &gt; 
+ACTION SERVER &gt; PROTOKOLL) gibt es später die Möglichkeit, mit einem Klick 
+auf den DrillDown (Spalte "Erfolgreich? Anzahl Datensätze") Änderungen direkt 
+extern in der zuvor definierten Logdatei (Beispiel s. o.) ausgeben zu 
+lassen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_1369.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweise</P>
+<P class=MsoNormal>Es werden nur jene Änderungen repliziert (und in der 
+Log-Datei dokumentiert), die seit der letzten Replikation angefallen sind. Wurde 
+noch nie etwas repliziert, dann setzt der erste Aufruf nur das Startdatum und 
+repliziert noch keine Werte. Für jeden durchgeführten Replikationslauf wird pro 
+gewähltem Objekt (Mitarbeiter, Artikel und Personenkonten) gemerkt wann der 
+letzte Replikationslauf durchgeführt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Bei der ersten durchgeführten Replikation (wenn es noch kein 
+gespeichertes Datum für das Objekt gibt), wird der aktuelle Zeitpunkt 
+angenommen. Das bedeutet, dass beim ersten Lauf nichts repliziert wird, sondern 
+nur der Ausgangszeitpunkt für die erste echte Replikation gesetzt wird. Bei 
+jedem weiteren Aufruf der Replikation wird exakt der Zeitraum von der letzten 
+Replikation bis zum aktuellen Zeitpunkt berücksichtigt und der aktuelle 
+Zeitpunkt zurückgeschrieben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Mandanten können in unterschiedlichen Datenbanken, oder 
+auch auf unterschiedlichen Servern existieren. In diesem Fall werden die 
+Variablenauditeinträge der Mandanten in eine temporäre Tabelle kopiert und die 
+Auswertung über diese Tabelle durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nach der Definition der Aktionsdetails erfolgt im nächsten 
+Schritt die Angabe zu <A href="JavaScript:TL_459806.HHClick()">"Benutzer und 
+Mandant"</A>.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_459806 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/actionserverbereichbenutzerundmandantdefinieren.htm"></OBJECT></DIV></BODY></HTML>

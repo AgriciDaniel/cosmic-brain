@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SQL Abfrage</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="datenstandtools.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="upsizesystemtabellenaufsql.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlineadmin.htm">WinLine ADMIN</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>System</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>SQL Abfrage</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc92857959>SQL 
+Abfrage</A></H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Menüpunkt</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>System</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>SQL 
+Abfrage</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>können Abfragen am SQL-Server ausgeführt werden. Dadurch 
+müssen nicht die Tools des SQL-Servers verwendet werden, die oft auch gar nicht 
+zur Verfügung stehen.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Es werden max. 10000 Datensätze angezeigt. Größere Abfragen 
+sollten daher z.B. im SQL Server Management Studio durchgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image866_580.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Grundsätzlich gibt es zwei Möglichkeiten, auf Datenbereiche 
+zuzugreifen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Über die Auswahl eines 
+Mandanten<BR>Damit werden die Informationen wie Datenbanktyp, Server und 
+Datenbank bereits vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Über die Auswahl eines 
+Servers/einer Datenbank<BR>Damit kann auch auf Datenbanken zugegriffen werden, 
+die nicht - wie die Mandanten - in Datenbankverbindungen enthalten sind (z.B. 
+Systemdatenbank der WinLine).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Abfrageziel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image866_581.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Mandant 
+wählen</P>
+<P class=MsoNormal>Aus der Auswahllistbox kann ein Mandant gewählt werden. Es 
+werden alle Mandanten vorgeschlagen, die in den Datenbankverbindungen hinterlegt 
+sind. Mit der Auswahl eines Mandanten werden gleich die Felder Datenbank Typ, 
+Server und Datenbank ausgefüllt, diese Felder müssen dann nicht mehr extra 
+bearbeitet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Alternativ können diese Informationen auch individuell 
+eingegeben werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Datenbanktyp</P>
+<P class=MsoNormal>Aus der Auswahlliste kann gewählt werden, auf welche Art von 
+Datenbank mit der Abfrage zugegriffen werden soll. Dabei gibt es 3 
+Möglichkeiten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>DAO Microsoft Access<BR>Der 
+Zugriff erfolgt auf eine ACCESS-Datenbank.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>SQL Microsoft SQL Server 
+(MSDE)<BR>Der Zugriff erfolgt auf einen SQL-Server oder auf eine 
+MSDE-Installation</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>POS PostgreSQL<BR>Der Zugriff 
+erfolgt auf deine PostGreSQL-Server</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Server</P>
+<P class=MsoNormal>In diesem Feld muss der Server angegeben werden, auf dem die 
+Datenbank liegt, auf der die Abfrage durchgeführt werden soll. Bei der Angabe 
+gibt es 2 Möglichkeiten: entweder es wird der Maschinenname (Computername) des 
+SQL-Servers angegeben, oder - wenn die Abfrage auf dem Computer mit dem 
+SQL-Server selbst ausgeführt wird - es kann (LOCAL) eingegeben werden. Durch 
+Drücken der F9-Taste kann auch nach allen SQL-Servern gesucht werden. Wurde als 
+Datenbank Typ "DAO Microsoft Access" ausgewählt, muss hier das Verzeichnis 
+angegeben werden, in dem sich die Datenbank befinden. Mit der Matchcodefunktion 
+kann nach allen Verzeichnissen gesucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datenbank</P>
+<P class=MsoNormal>Hier muss die Datenbank angegeben werden, auf der die Abfrage 
+ausgeführt werden soll. Durch Drücken der F9-Taste kann nach allen Datenbanken 
+gesucht werden, die auf dem zuvor eingegebenen Server vorhanden sind. Wurde als 
+Datenbank Typ "DAO Microsoft Access" gewählt, muss hier die Access-Datenbank 
+eingetragen werden. Auch hier gibt es wieder über die F9-Taste die Möglichkeit, 
+nach allen Datenbanken zu suchen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>SQL-Abfrage</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image866_582.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Eingabefeld</P>
+<P class=MsoNormal>In diesem Feld kann die Abfrage eingetragen werden. Welche 
+Möglichkeiten es dafür gibt, entnehmen Sie bitte dem SQL-Handbuch.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>select * from V050 where C051 = '1010'</P>
+<P class=MsoNormal>Diese Abfrage zeigt alle Konten an, bei denen die 
+Postleitzahl "1010" ist, wobei in diesem Fall alle Konten aus allen Mandanten 
+angezeigt würden. Damit die Abfrage eingeschränkt werden kann, gibt es 2 
+Parameter, die mit angegeben werden können:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>MESOCOMP = '~~~~'<BR>XXXX steht 
+für die Mandantennummer, wobei diese unter ein einfaches Hochkomma (') gesetzt 
+werden muss, weil die Mandantennummer ein alphanumerisches Feld ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>MESOYEAR = yyyy<BR>yyyy steht für 
+den Monat, in welchem das Wirtschaftsjahr beginnt. Dabei wird die Zahl aus der 
+Anzahl der Monate seit 1900 gerechnet (Beispiel: WJ-Beginn 1/2020, yyyy = 1440, 
+WJ-Beginn = 6/2020, yyyy = 1445).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>D.h. mit den zwei Parametern versehen, würde die Abfrage so 
+aussehen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>select * from V050 where C051 = 
+'1010' and MESOCOMP = '300M' and MESOYEAR = 1440</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Abfrage-Ergebnis</P>
+<P class=MsoNormal>Für die Anzeige des Ergebnisses gibt es 2 Möglichkeiten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Liste<BR>Das Ergebnis wird im 
+unteren Bereich des Fensters dargestellt, wobei die Ausgabe in der Form eines 
+Formulars erfolgt. Demnach kann der Inhalt ggf. auch mit der rechten Maustaste 
+kopiert und in ein anderes Programm transferiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kalkulationsblatt<BR>Das Ergebnis 
+wird in Form einer Tabelle angezeigt. Diese kann in weiterer Folge über die 
+rechte Maustaste auch als XLS-Datei abgespeichert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image866_583.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausführen</P>
+<P class=MsoNormal>Durch Anklicken des Ausführen-Buttons oder durch Drücken der 
+F5-Taste bzw. der Tastenkombination ALT + E wird die Abfrage gestartet, wobei 
+das Ergebnis in der zuvor gewählten Form (Liste oder Kalkulationsblatt) 
+ausgegeben wird.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Während der Ausführung wird ein Statusfenster über die 
+Abfrage angezeigt. Durch einen Abbruch-Button besteht dabei auch die 
+Möglichkeit, die Abfrage abzubrechen. Es werden danach nur jene Zeilen 
+angezeigt, die zum Zeitpunkt des Abbruchs bereits erfasst waren.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Im Fenster der SQL-Abfrage werden max. 10000 Datensätze 
+angezeigt. Größere Abfragen sollten daher z.B. im SQL Server Management Studio 
+durchgeführt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ende" bzw. der Taste F5 wird das 
+Fenster geschlossen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>SQL Abfrage 
+laden</P>
+<P class=MsoNormal>Durch Anklicken des Buttons "SQL Abfrage laden" kann eine 
+bereits abgespeicherte SQL-Abfrage geladen werden - sie muss nicht nochmals 
+eingegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>SQL Abfrage 
+speichern</P>
+<P class=MsoNormal>Durch Anklicken dieses Buttons kann eine eingegebene Abfrage 
+gespeichert werden. Damit kann zu einem späteren Zeitpunkt wieder geladen werden 
+und steht somit immer wieder zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

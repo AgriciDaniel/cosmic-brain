@@ -1,0 +1,69 @@
+﻿<FluentStack Wrap="true">
+    <FluentKeyCode OnKeyDown="@KeyDownHandler">
+        <div tabindex="0" style="width: 300px; height: 170px; @CommonStyles.NeutralBorder1 @CommonStyles.NeutralBorderShadow4" class="@Padding.All2">
+            Click here and press <FluentKeyCode Id="my-any-key" tabindex="0" OnKeyDown="@KeyDownHandler" StopPropagation="true" Style="font-weight: bold;">any key</FluentKeyCode> to get the event keycode info.
+        </div>
+    </FluentKeyCode>
+
+    <ul>
+        <li><span>Value:</span> <code>@LastKeyCode?.Value</code></li>
+        <li><span>Key:</span> <code>@LastKeyCode?.Key.ToString()</code></li>
+        <li><span>Code:</span> <code>@LastKeyCode?.KeyCode</code></li>
+        <li>
+            <span>Meta:</span>
+            @if (LastKeyCode?.ShiftKey == true)
+            {
+                <FluentIcon Value="@(new Icons.Filled.Size20.KeyboardShift())" Color="Color.Primary" />
+            }
+            else
+            {
+                <FluentIcon Value="@(new Icons.Regular.Size20.KeyboardShift())" Color="Color.Default" />
+            }
+            @if (LastKeyCode?.CtrlKey == true)
+            {
+                <FluentIcon Value="@(new Icons.Filled.Size20.ControlButton())" Color="Color.Primary" />
+            }
+            else
+            {
+                <FluentIcon Value="@(new Icons.Regular.Size20.ControlButton())" Color="Color.Default" />
+            }
+            @if (LastKeyCode?.AltKey == true)
+            {
+                <FluentIcon Value="@(new Icons.Filled.Size20.KeyCommand())" Color="Color.Primary" />
+            }
+            else
+            {
+                <FluentIcon Value="@(new Icons.Regular.Size20.KeyCommand())" Color="Color.Default" />
+            }
+            @if (LastKeyCode?.MetaKey == true)
+            {
+                <FluentIcon Value="@(new Icons.Filled.Size20.ArrowBounce())" Color="Color.Primary" />
+            }
+            else
+            {
+                <FluentIcon Value="@(new Icons.Regular.Size20.ArrowBounce())" Color="Color.Default" />
+            }
+        </li>
+        <li><span>Location:</span> <code>@LastKeyCode?.Location.ToString()</code></li>
+        <li><span>TargetId:</span> <code>@LastKeyCode?.TargetId</code></li>
+        <li><span>Repeat:</span> <code>@LastKeyCode?.Repeat</code></li>
+    </ul>
+</FluentStack>
+
+<style>
+    li > span {
+        float: left;
+        width: 70px;
+        font-weight: bold;
+    }
+</style>
+
+@code
+{
+    FluentKeyCodeEventArgs? LastKeyCode;
+
+    void KeyDownHandler(FluentKeyCodeEventArgs e)
+    {
+        LastKeyCode = e;
+    }
+}

@@ -1,0 +1,50 @@
+﻿<div style="background-color: var(--neutral-layer-4); overflow: auto; resize: horizontal; padding: 10px;">
+    <FluentOverflow OnOverflowRaised="OverflowHandler" Style="width: 100%; border: 1px solid darkgray; padding: 2px; margin-bottom: 4px;">
+        <ChildContent>
+            @foreach (var item in Items)
+            {
+                <FluentOverflowItem><FluentBadge Content="@item"></FluentBadge></FluentOverflowItem>
+            }
+        </ChildContent>
+        <MoreButtonTemplate>
+            <FluentBadge Style="min-width: 32px; max-width:32px;" Content="@($"+{context.ItemsOverflow.Count()}")" />
+        </MoreButtonTemplate>
+        <OverflowTemplate>
+            <FluentTooltip Anchor="@context.IdMoreButton" UseTooltipService="false">
+                @foreach (var item in context.ItemsOverflow)
+                {
+                    <div style="margin: 5px;">@item.Text</div>
+                }
+            </FluentTooltip>
+        </OverflowTemplate>
+    </FluentOverflow>
+</div>
+
+<FluentButton @onclick="@AddNewItemClick">Add</FluentButton>
+<FluentButton @onclick="@RemoveLastItemClick">Remove</FluentButton>
+
+@code
+{
+    static string[] Catalog = new[] { "Blazor", "WPF", "Microsoft", "Framework",
+                                      "Electron", "WinForms", "MAUI", "Fluent", "Reality",
+                                      "Office", "Installation", "Azure", "DevOps" };
+
+    List<string> Items = new List<string>() { Catalog[0], Catalog[1] };
+
+    void OverflowHandler(IEnumerable<FluentOverflowItem> items)
+    {
+        var text = String.Join("; ", items.Select(i => i.Text));
+
+    }
+
+    void AddNewItemClick()
+    {
+        var index = new Random().NextInt64(Catalog.Length);
+        Items.Add(Catalog[index]);
+    }
+
+    void RemoveLastItemClick()
+    {
+        Items.RemoveAt(Items.Count-1);
+    }
+}

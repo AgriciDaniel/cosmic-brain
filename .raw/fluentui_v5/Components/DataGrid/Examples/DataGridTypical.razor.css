@@ -1,0 +1,14 @@
+/* Ensure all the flags are the same size, and centered */
+.flag {
+  height: 1rem;
+  border: 1px solid var(--colorNeutralBackground3);
+  margin-top: 3px;
+}
+.search-box {
+    min-width: 250px;
+    width: 100%;
+}
+
+    .search-box fluent-search {
+        width: 100%;
+    }

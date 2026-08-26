@@ -1,0 +1,15 @@
+gantt
+  dateFormat s
+  axisFormat %S
+  section c1_v0
+    Computing   : crit, a0, 0, 1s
+    Consistent  : a1, after a0, 10s
+    Invalidated : done, a2, after a1, 25s
+  section c1_v1
+    Computing   : crit, b0, 15, 1s
+    Consistent  : b1, after b0, 10s
+    Invalidated : done, b2, after b1, 10s
+  section c1_v2 (Consistent)
+    Computing   : crit, c0, 27, 1s
+    Consistent  : c1, after c0, 8s
+  

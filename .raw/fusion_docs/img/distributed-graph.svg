@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 440" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#d0daea" stop-opacity="0.12"/>
+    </linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#8b90a8"/>
+    </marker>
+    <style>
+      .nl { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 10px; fill: #1a1a2e; stroke: none }
+      .nv { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 9px; fill: #1a1a2e; opacity: 0.6; stroke: none }
+      .sh { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase }
+      .bx { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 9px; fill: #5c6b82; stroke: none }
+      .lg { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #8b90a8; font-style: italic; stroke: none }
+      .ct { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 9px; fill: #5a88c0; font-style: italic }
+      .ht { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 9px; fill: #4a8c66; font-weight: 600 }
+
+      /*
+       * 18s animation — invalidated nodes fade+drift down, new nodes appear during recompute.
+       *
+       * Phase 1 — Hold (0-11%)
+       * Phase 2 — Invalidation R→L (12-28%): nodes bleach, edges disconnect, fade+drift 3s
+       * Phase 3 — Recomputation L→R (34-68%): new nodes appear blue→green, edges reconnect
+       * Phase 4 — Hold (72-100%)
+       */
+
+      /* Old nodes: bleach → fade + drift down */
+      @keyframes og-imgb {
+        0%,12% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        13% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        29% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(30px)}
+        100% {opacity:0;transform:translateY(30px)}
+      }
+      @keyframes og-imga {
+        0%,15% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        16% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        32% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(30px)}
+        100% {opacity:0;transform:translateY(30px)}
+      }
+      @keyframes og-avtr {
+        0%,18% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        19% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        35% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(30px)}
+        100% {opacity:0;transform:translateY(30px)}
+      }
+      @keyframes og-usra {
+        0%,22% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        23% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        39% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(30px)}
+        100% {opacity:0;transform:translateY(30px)}
+      }
+      @keyframes og-usrc {
+        0%,25% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        26% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        42% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(30px)}
+        100% {opacity:0;transform:translateY(30px)}
+      }
+      @keyframes og-pic {
+        0%,28% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1;transform:translateY(0)}
+        29% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0.9;transform:translateY(2px)}
+        45% {fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5;opacity:0;transform:translateY(50px)}
+        100% {opacity:0;transform:translateY(50px)}
+      }
+
+      /* New nodes: appear computing → green */
+      @keyframes ng-pic {
+        0%,33% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        35% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        66% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        68%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes ng-usrc {
+        0%,37% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        39% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        62% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        64%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes ng-usra {
+        0%,37% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        39% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        62% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        64%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes ng-avtr {
+        0%,43% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        45% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        58% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        60%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes ng-imga {
+        0%,49% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        51% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        54% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        56%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+      @keyframes ng-imgb {
+        0%,49% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:0}
+        51% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        54% {fill:#c8ddf8;stroke:#6b9ad4;stroke-width:1.5;opacity:1}
+        56%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5;opacity:1}
+      }
+
+      /* Edges: disconnect on invalidation, reconnect during recompute */
+      @keyframes e-pic-usrc {
+        0%,28% {opacity:1} 29% {opacity:0} 37% {opacity:0} 38%,100% {opacity:1}
+      }
+      @keyframes e-usrc-usra {
+        0%,25% {opacity:1} 26% {opacity:0} 37% {opacity:0} 38%,100% {opacity:1}
+      }
+      @keyframes e-usra-prof {
+        0%,22% {opacity:1} 23% {opacity:0} 40% {opacity:0} 41%,100% {opacity:1}
+      }
+      @keyframes e-usra-avtr {
+        0%,22% {opacity:1} 23% {opacity:0} 43% {opacity:0} 44%,100% {opacity:1}
+      }
+      @keyframes e-avtr-cfga {
+        0%,18% {opacity:1} 19% {opacity:0} 46% {opacity:0} 47%,100% {opacity:1}
+      }
+      @keyframes e-avtr-imga {
+        0%,18% {opacity:1} 19% {opacity:0} 49% {opacity:0} 50%,100% {opacity:1}
+      }
+      @keyframes e-imga-imgb {
+        0%,15% {opacity:1} 16% {opacity:0} 49% {opacity:0} 50%,100% {opacity:1}
+      }
+
+      /* Cache-hit pulses */
+      @keyframes ch-prof {
+        0%,40% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+        41%,43% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5}
+        45%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+      }
+      @keyframes ch-cfga {
+        0%,46% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+        47%,49% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5}
+        51%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+      }
+      @keyframes ch-cfgb {
+        0%,46% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+        47%,49% {fill:#b0dcc0;stroke:#58a078;stroke-width:2.5}
+        51%,100% {fill:#c8e8d0;stroke:#78b490;stroke-width:1.5}
+      }
+
+      /* Cache-hit labels */
+      @keyframes hl-prof { 0%,40% {opacity:0} 41%,43% {opacity:1} 45%,100% {opacity:0} }
+      @keyframes hl-cfga { 0%,46% {opacity:0} 47%,49% {opacity:1} 51%,100% {opacity:0} }
+      @keyframes hl-cfgb { 0%,46% {opacity:0} 47%,49% {opacity:1} 51%,100% {opacity:0} }
+
+      /* Computing labels */
+      @keyframes cl-pic { 0%,33% {opacity:0} 35%,66% {opacity:0.8} 68%,100% {opacity:0} }
+      @keyframes cl-usrc { 0%,37% {opacity:0} 39%,62% {opacity:0.8} 64%,100% {opacity:0} }
+      @keyframes cl-usra { 0%,37% {opacity:0} 39%,62% {opacity:0.8} 64%,100% {opacity:0} }
+      @keyframes cl-avtr { 0%,43% {opacity:0} 45%,58% {opacity:0.8} 60%,100% {opacity:0} }
+      @keyframes cl-imga { 0%,49% {opacity:0} 51%,54% {opacity:0.8} 56%,100% {opacity:0} }
+      @keyframes cl-imgb { 0%,49% {opacity:0} 51%,54% {opacity:0.8} 56%,100% {opacity:0} }
+
+      /* UserName.razor box */
+      @keyframes box-pic {
+        0%,27% {stroke:#78b490} 29%,33% {stroke:#c4bab2}
+        35%,66% {stroke:#6b9ad4} 68%,100% {stroke:#78b490}
+      }
+
+      /* Apply animations */
+      #og-imgb{animation:og-imgb 18s ease forwards} #og-imga{animation:og-imga 18s ease forwards} #og-avtr{animation:og-avtr 18s ease forwards} #og-usra{animation:og-usra 18s ease forwards} #og-usrc{animation:og-usrc 18s ease forwards} #og-pic{animation:og-pic 18s ease forwards}
+      #ng-pic{animation:ng-pic 18s ease forwards} #ng-usrc{animation:ng-usrc 18s ease forwards} #ng-usra{animation:ng-usra 18s ease forwards} #ng-avtr{animation:ng-avtr 18s ease forwards} #ng-imga{animation:ng-imga 18s ease forwards} #ng-imgb{animation:ng-imgb 18s ease forwards}
+      #e-pic-usrc{animation:e-pic-usrc 18s ease forwards} #e-usrc-usra{animation:e-usrc-usra 18s ease forwards} #e-usra-prof{animation:e-usra-prof 18s ease forwards} #e-usra-avtr{animation:e-usra-avtr 18s ease forwards} #e-avtr-cfga{animation:e-avtr-cfga 18s ease forwards} #e-avtr-imga{animation:e-avtr-imga 18s ease forwards} #e-imga-imgb{animation:e-imga-imgb 18s ease forwards}
+      #ch-prof{animation:ch-prof 18s ease forwards} #ch-cfga{animation:ch-cfga 18s ease forwards} #ch-cfgb{animation:ch-cfgb 18s ease forwards}
+      #hl-prof{animation:hl-prof 18s ease forwards} #hl-cfga{animation:hl-cfga 18s ease forwards} #hl-cfgb{animation:hl-cfgb 18s ease forwards}
+      #cl-pic{animation:cl-pic 18s ease forwards} #cl-usrc{animation:cl-usrc 18s ease forwards} #cl-usra{animation:cl-usra 18s ease forwards} #cl-avtr{animation:cl-avtr 18s ease forwards} #cl-imga{animation:cl-imga 18s ease forwards} #cl-imgb{animation:cl-imgb 18s ease forwards}
+      #box-pic{animation:box-pic 18s ease forwards}
+    </style>
+  </defs>
+  <rect width="850" height="440" rx="10" fill="url(#bg)"/>
+
+  <!-- Section background panels -->
+  <rect x="5" y="34" width="300" height="396" rx="8" fill="url(#sbg)"/>
+  <rect x="315" y="34" width="360" height="396" rx="8" fill="url(#sbg)"/>
+  <rect x="685" y="34" width="160" height="396" rx="8" fill="url(#sbg)"/>
+
+  <!-- Section boundaries -->
+  <line x1="310" y1="34" x2="310" y2="430" stroke="#c8d0dc" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="680" y1="34" x2="680" y2="430" stroke="#c8d0dc" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Section headers -->
+  <text x="155" y="26" class="sh" text-anchor="middle">Client</text>
+  <text x="495" y="26" class="sh" text-anchor="middle">API Server</text>
+  <text x="765" y="26" class="sh" text-anchor="middle">Backend</text>
+
+  <!-- Permanent edges -->
+  <line x1="531" y1="170" x2="609" y2="140" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="530" y1="193" x2="610" y2="237" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line x1="663" y1="130" x2="697" y2="130" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3"/>
+  <line x1="663" y1="250" x2="697" y2="250" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3"/>
+
+  <!-- Volatile edges (disconnect on invalidation, reconnect on recompute) -->
+  <line id="e-pic-usrc" x1="131" y1="178" x2="244" y2="272" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="e-usrc-usra" x1="293" y1="290" x2="327" y2="290" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3"/>
+  <line id="e-usra-prof" x1="378" y1="273" x2="482" y2="197" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="e-usra-avtr" x1="382" y1="299" x2="478" y2="331" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="e-avtr-cfga" x1="528" y1="324" x2="612" y2="266" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="e-avtr-imga" x1="532" y1="346" x2="608" y2="364" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+  <line id="e-imga-imgb" x1="663" y1="370" x2="697" y2="370" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3"/>
+
+  <!-- UserName.razor box -->
+  <rect id="box-pic" x="60" y="108" width="100" height="100" rx="8" fill="none" stroke="#78b490" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.5"/>
+  <text x="110" y="104" class="bx" text-anchor="middle" opacity="0.6">UserName.razor</text>
+
+  <!-- Static nodes -->
+  <circle id="ch-prof" cx="505" cy="180" r="28" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="505" y="176" class="nl" text-anchor="middle" dominant-baseline="middle">Profile</text>
+    <text x="505" y="188" class="nv" text-anchor="middle" dominant-baseline="middle">v2</text>
+  <text id="hl-prof" x="505" y="220" class="ht" text-anchor="middle" opacity="0">cache hit</text>
+  <circle cx="635" cy="130" r="28" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="635" y="130" class="nl" text-anchor="middle" dominant-baseline="middle">Settings</text>
+  <circle id="ch-cfga" cx="635" cy="250" r="28" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="635" y="250" class="nl" text-anchor="middle" dominant-baseline="middle">Cfg</text>
+  <text id="hl-cfga" x="635" y="290" class="ht" text-anchor="middle" opacity="0">cache hit</text>
+  <circle cx="725" cy="130" r="28" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="725" y="126" class="nl" text-anchor="middle" dominant-baseline="middle">Settings</text>
+    <text x="725" y="138" class="nv" text-anchor="middle" dominant-baseline="middle">v1</text>
+  <circle id="ch-cfgb" cx="725" cy="250" r="28" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+    <text x="725" y="246" class="nl" text-anchor="middle" dominant-baseline="middle">Cfg</text>
+    <text x="725" y="258" class="nv" text-anchor="middle" dominant-baseline="middle">v2</text>
+  <text id="hl-cfgb" x="725" y="290" class="ht" text-anchor="middle" opacity="0">cache hit</text>
+
+  <!-- Old nodes (invalidate → bleach → fade + drift down) -->
+  <g id="og-imgb">
+    <circle cx="725" cy="370" r="28"/>
+    <text x="725" y="366" class="nl" text-anchor="middle" dominant-baseline="middle">Img</text>
+    <text x="725" y="378" class="nv" text-anchor="middle" dominant-baseline="middle">v3</text>
+  </g>
+  <g id="og-imga">
+    <circle cx="635" cy="370" r="28"/>
+    <text x="635" y="366" class="nl" text-anchor="middle" dominant-baseline="middle">Img</text>
+    <text x="635" y="378" class="nv" text-anchor="middle" dominant-baseline="middle">v3</text>
+  </g>
+  <g id="og-avtr">
+    <circle cx="505" cy="340" r="28"/>
+    <text x="505" y="336" class="nl" text-anchor="middle" dominant-baseline="middle">Avatar</text>
+    <text x="505" y="348" class="nv" text-anchor="middle" dominant-baseline="middle">v4</text>
+  </g>
+  <g id="og-usra">
+    <circle cx="355" cy="290" r="28"/>
+    <text x="355" y="286" class="nl" text-anchor="middle" dominant-baseline="middle">User</text>
+    <text x="355" y="298" class="nv" text-anchor="middle" dominant-baseline="middle">v3</text>
+  </g>
+  <g id="og-usrc">
+    <circle cx="265" cy="290" r="28"/>
+    <text x="265" y="286" class="nl" text-anchor="middle" dominant-baseline="middle">User</text>
+    <text x="265" y="298" class="nv" text-anchor="middle" dominant-baseline="middle">v3</text>
+  </g>
+  <g id="og-pic">
+    <circle cx="110" cy="160" r="28"/>
+    <text x="110" y="156" class="nl" text-anchor="middle" dominant-baseline="middle">bob</text>
+    <text x="110" y="168" class="nv" text-anchor="middle" dominant-baseline="middle">v1</text>
+  </g>
+
+  <!-- New nodes (appear during recomputation: computing → green) -->
+  <g id="ng-pic">
+    <circle cx="110" cy="160" r="28"/>
+    <text x="110" y="156" class="nl" text-anchor="middle" dominant-baseline="middle">bob</text>
+    <text x="110" y="168" class="nv" text-anchor="middle" dominant-baseline="middle">v2</text>
+  </g>
+  <g id="ng-usrc">
+    <circle cx="265" cy="290" r="28"/>
+    <text x="265" y="286" class="nl" text-anchor="middle" dominant-baseline="middle">User</text>
+    <text x="265" y="298" class="nv" text-anchor="middle" dominant-baseline="middle">v4</text>
+  </g>
+  <g id="ng-usra">
+    <circle cx="355" cy="290" r="28"/>
+    <text x="355" y="286" class="nl" text-anchor="middle" dominant-baseline="middle">User</text>
+    <text x="355" y="298" class="nv" text-anchor="middle" dominant-baseline="middle">v4</text>
+  </g>
+  <g id="ng-avtr">
+    <circle cx="505" cy="340" r="28"/>
+    <text x="505" y="336" class="nl" text-anchor="middle" dominant-baseline="middle">Avatar</text>
+    <text x="505" y="348" class="nv" text-anchor="middle" dominant-baseline="middle">v5</text>
+  </g>
+  <g id="ng-imga">
+    <circle cx="635" cy="370" r="28"/>
+    <text x="635" y="366" class="nl" text-anchor="middle" dominant-baseline="middle">Img</text>
+    <text x="635" y="378" class="nv" text-anchor="middle" dominant-baseline="middle">v4</text>
+  </g>
+  <g id="ng-imgb">
+    <circle cx="725" cy="370" r="28"/>
+    <text x="725" y="366" class="nl" text-anchor="middle" dominant-baseline="middle">Img</text>
+    <text x="725" y="378" class="nv" text-anchor="middle" dominant-baseline="middle">v4</text>
+  </g>
+
+  <!-- Computing labels -->
+  <text id="cl-pic" x="110" y="200" class="ct" text-anchor="middle" opacity="0">computing</text>
+  <text id="cl-usrc" x="265" y="330" class="ct" text-anchor="middle" opacity="0">computing</text>
+  <text id="cl-usra" x="355" y="330" class="ct" text-anchor="middle" opacity="0">computing</text>
+  <text id="cl-avtr" x="505" y="380" class="ct" text-anchor="middle" opacity="0">computing</text>
+  <text id="cl-imga" x="635" y="410" class="ct" text-anchor="middle" opacity="0">computing</text>
+  <text id="cl-imgb" x="725" y="410" class="ct" text-anchor="middle" opacity="0">computing</text>
+
+  <!-- Legend (centered) -->
+  <g transform="translate(317, 420)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text x="38" y="4" class="lg">depends on</text>
+    <line x1="112" y1="0" x2="142" y2="0" stroke="#8b90a8" stroke-width="1.5" stroke-dasharray="5,3" stroke-linecap="round"/>
+    <text x="150" y="4" class="lg">network hop</text>
+  </g>
+</svg>

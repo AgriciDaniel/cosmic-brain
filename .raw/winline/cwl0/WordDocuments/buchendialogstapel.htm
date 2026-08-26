@@ -1,0 +1,1248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Buchen (Dialog-Stapel)</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="buchen.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="bucheneinerfaktura.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Buchen (Dialog-Stapel)</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc207273662>Buchen 
+(Dialog-Stapel)</A></H2>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Das Buchen Dialog Stapel ist das 
+Hauptbuchungsprogramm in der WinLine. Es kann sowohl zum Einzelbuchen als auch 
+für die Erfassung von Massendaten (Stapel) verwendet werden. Die erfassten 
+Buchungszeilen können wahlweise sofort oder aber auch erst zu einem späteren 
+Zeitpunkt gebucht werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal>Damit können auch eigene Stapel abgelegt bzw. gespeichert 
+werden, die auch immer wieder verwendet werden können - und somit als 
+Ausgangsbasis für automatisierte Buchungsabläufe dienen können.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_63.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Buchungsmaske ist in mehrere Abschnitte gegliedert, wobei 
+sich das Aussehen abhängig von der Buchungsart immer ändert. Gewisse Teile 
+bleiben aber immer gleich:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Periode</P>
+<P class=MsoNormal>Standardmäßig wird hier "14 automatisch" vorgeschlagen. Ist 
+dieser Eintrag ausgewählt, leitet sich die Periode aus dem ersten Buchungsdatum, 
+das in der Erfassungstabelle eingegeben wird, ab. Wird das Datum in der 
+Erfassungsmaske bestätigt, wird auf Grund dieses Datums auch die Periode 
+vorgeschlagen - danach werden alle nachfolgenden Buchungen in diese Periode 
+gebucht. Zusätzlich kann aus der Auswahllistbox die Periode ausgewählt werden, 
+in die alle im Stapel erfassten Buchungen gebucht werden sollen. Das 
+Buchungsdatum, das in den Erfassungszeilen eingegeben wird, übersteuert diese 
+Periode nicht. Bei Buchungen die Kosteninformationen beinhalten wird diese 
+Periode auch mit in die Kostenrechnung übergeben. Stellt man die Auswahllistbox 
+für die Periodeneinstellung auf "Eingabe pro Buchung", kann pro Erfassungszeile 
+eine beliebige Periode verwendet werden. Diese Periodeneinstellung kann auch in 
+WinLine Start in den FIBU-Parameter als Standard definiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Batchnummer</P>
+<P class=MsoNormal>In diesem Feld kann eine sogenannte Batchnummer hinterlegt 
+werden, die auch in allen anderen Buchungsprogrammen zur Verfügung steht. 
+Dadurch können Buchungen zu einem "Belegkreis" zusammengefasst werden. Wurde 
+einmal eine Batchnummer eingetragen und damit Buchungen durchgeführt, wird diese 
+Batchnummer benutzerspezifisch und buchungsprogrammunabhängig gespeichert 
+(sofern im WinLine START in den FIBU-Parametern festgelegt wurde, dass die 
+Batchnummer automatisch hochgezählt werden soll). Ruft also der gleiche Benutzer 
+wieder ein Buchungsprogramm auf, wird die zuletzt hinterlegte Batchnummer 
+vorgeschlagen. Die Batchnummer kann durch Drücken der + - Taste jeweils um 1 
+hochgezählt werden. In den FIBU-Parametern (WinLine START, Menüpunkt 
+Optionen/FIBU-Parameter) kann gesteuert werden, dass diese Batchnummer 
+automatisch hochgezählt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Erfassungsdatum</P>
+<P class=MsoNormal>Hier wird das Einstiegsdatum, das Sie in WinLine beim Starten 
+eingegeben haben, vorgeschlagen. Damit können Sie nachvollziehen, WANN eine 
+Buchung tatsächlich erfasst worden ist. Für die Nachvollziehbarkeit der 
+Erfassungsreihenfolge ist natürlich die automatisch vom System vergebene und 
+unbeeinflussbare Prima Nota Nummer relevant und ausreichend. In WinLine START / 
+Parameter / Applikationsparameter / FIBU-Parameter / Buchen kann für das 
+Erfassungsdatum eingestellt werden, ob das Erfassungsdatum pro Stapel 
+editierbar, pro Buchung editierbar oder nicht editierbar sein soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungsnr.</P>
+<P class=MsoNormal>Hier wird die letzte Buchungsnummer angezeigt. </P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wird ein Stapel geladen, der aus dem Menüpunkt "Buchungen 
+bearbeiten" erzeugt wurde, wird hier ein Eingabefeld eingeblendet, in dem die 
+Position, an der die Buchungen eingefügt werden sollen, noch verändert werden 
+kann. Buchungsnummern, die im definitiven Bereich liegen, können nicht angegeben 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Erfassungstabelle</P>
+<P class=MsoNormal>In dieser Tabelle werden die einzelnen Geschäftsfälle 
+erfasst, wobei alle verschiedenen Buchungsarten (abhängig von der verwendeten 
+Buchungsperiode) verwendet werden können. Es können auch Buchungen mit Betrag 0 
+abgesetzt werden, wenn man in der Buchungszeile zumindest das Feld Betrag einmal 
+angewählt hat. Beim Verbuchen erscheint die Meldung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_64.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wenn es sich bei den Buchungen um KF- oder DF-Buchungen 
+handelt, werden diese sofort mit dem OP-Kennzeichen -1 (ausgeglichen) 
+belegt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Verlassen einer Buchungszeile</P>
+<P class=MsoNormal>Beim Verlassen einer ungültigen oder nicht vollständig 
+gefüllten Buchungszeile kann durch den Eintrag</P>
+<P class=MsoNormal>[BUCHEN]</P>
+<P class=MsoNormal>FragenZeileVerlassen=1</P>
+<P class=MsoNormal>in der mesonic.ini eine Meldung ausgegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_65.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Verbuchen eines Stapels - Warnungen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Bei den nachfolgenden Warnungen stehen folgende Optionen zur 
+Verfügung: </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ja<BR>Der Buchungsvorgang wird 
+fortgesetzt und der Stapel wird verbucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ja, immer<BR>Der Buchungsvorgang 
+wird fortgesetzt, zusätzlich wird benutzerabhängig gespeichert, dass diese Frage 
+nicht mehr gestellt werden und der Stapel zukünftig kommentarlos gebucht werden 
+soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Nein<BR>Der Buchungsvorgang wird 
+abgebrochen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Vor dem Verbuchen eines Stapels wird geprüft, ob Buchungen 
+ohne Betrag im Stapel existieren.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_66.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Vor dem Verbuchen eines Stapels wird geprüft, ob Konten mit 
+Sachkonten-OP verwendet wurden, für die keine Referenznummer eingegeben wurde. 
+In diesem Fall wird eine Warnung ausgegeben, in der bis zu max. 10 betroffene 
+Buchungsnummern angezeigt werden. Der Stapel kann aber trotzdem verbucht 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_67.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Beim Verbuchen eines Stapels wird geprüft, ob B-Buchungen für 
+Personenkonten vorhanden sind. Ist dies der Fall, wird eine Warnung ausgegeben, 
+bis zu 10 betroffene Buchungsnummern werden aufgelistet. Der Stapel kann aber 
+trotzdem verbucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_68.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Vor dem Verbuchen eines Stapels wird geprüft, ob inaktive 
+Steuerzeilen bebucht wurden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung><IMG src="../ImagesExt/image863_69.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Vor dem Verbuchen eines Stapels wird geprüft, ob Buchungen 
+auf Anlagenkonten ohne zugeordneter/erstellter Anlage existieren.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_70.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Einstellung "Ja, immer" wird für folgende Warnungen in 
+der T004 gespeichert unter den Einträgen:</P>
+<P class=MsoNormal>- FB3BET0OK-Benutzernummer - Buchungen mit Betrag 0</P>
+<P class=MsoNormal>- FB3BPKOK-Benutzernummer - B-Buchungen für 
+Personenkonten</P>
+<P class=MsoNormal>- FB3INSTZOK- Benutzernummer - Inaktive Steuerzeilen</P>
+<P class=MsoNormal>- FB3NSOPOK- Benutzernummer - Buchungen auf 
+Sachkonten-OP-Konten ohne Referenznummer</P>
+<P class=MsoNormal>- FB3NANLOK- Benutzernummer - Buchungen auf Anlagenkonten 
+ohne zugeordneter/erstellter Anlage</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Soll die Warnung im Buchungsprogramm wieder erscheinen, muss 
+der jeweilige Eintrag aus der T004 entfernt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Zwischenspeichern von Buchungsstapeln</P>
+<P class=MsoNormal>Je nach FIBU-Parameter Einstellung erfolgt das automatische 
+Zwischenspeichern von Buchungsstapeln im Buchen Dialog-Stapel, Buchen 
+Dialog-Stapel Quick und Buchen Zahlungsmittelkonten.</P>
+<P class=MsoNormal>Das Zwischenspeichern kann im FIBU-Parameter für einen 
+Buchungsstapel nach jeweils einer Anzahl erfasster Buchungen bzw. seit der 
+letzten Speicherung einer Anzahl an vergangenen Minuten eingestellt werden.</P>
+<P class=MsoNormal>Beim ersten Speichern wird die erste freie Stapelnummer im 
+Bereich 500-999 verwendet. Dieser Stapel bleibt erhalten, bis der Stapel 
+verbucht oder das Fenster geschlossen wird.</P>
+<P class=MsoNormal>Nach einem Systemabbruch kann dieser Stapel mit der 
+Bezeichnung "AutoSave - Benutzer - Datum Uhrzeit" wie gewohnt geladen 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_71.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buchungsinformationen</P>
+<P class=MsoNormal>Die zweite und dritte Tabelle der Buchungsmaske beinhalten 
+die Buchungsinformationen, die zusätzlich bearbeitet werden können, wobei die 
+Tabellen - abhängig von der durchgeführten Buchung - immer einen anderen Inhalt 
+haben können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Standardmäßig werden in der zweiten Tabelle OP-Informationen 
+und in der dritten Tabelle Kostenrechnungsinformationen dargestellt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Werden Zahlungen (DZ- oder KZ-Buchungen) erfasst, kann es 
+keine Kostenrechnungsinformationen geben. Daher können in der dritten Tabelle 
+Gutschriften erfasst werden - sofern es für den Kunden/Lieferanten keine 
+Fakturen zum Ausgleichen gibt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal>Mit den Buttons können verschiedene Aktionen durchgeführt 
+werden. Nachfolgend finden Sie eine Beschreibung aller vorhandenen Buttons:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_72.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Buchen</P>
+<P class=MsoNormal>Durch Anklicken des Buchen-Buttons (kann auch durch Drücken 
+der F5-Taste, F12-Taste oder mit der Tastenkombination Shift+Enter ausgelöst 
+werden) werden alle Buchungen, die in den Tabellen erfasst wurden, gebucht - es 
+werden die Salden der Konten verändert und es werden die OP-Informationen bzw. 
+auch die KORE-Informationen geschrieben. Im Anschluss daran werden alle 
+Buchungen aus der Maske gelöscht und es können weitere Buchungen erfasst 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Damit wird das Fenster geschlossen. Wurden bereits mehrere 
+Buchungszeilen erfasst, die noch nicht verbucht wurden, wird folgende Meldung 
+ausgegeben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_73.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Meldung mit JA bestätigt, werden alle Buchungszeilen 
+gelöscht. Wird die Meldung mit NEIN bestätigt, kann das Buchungsprogramm normal 
+weiterbearbeitet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Abbruch</P>
+<P class=MsoNormal>Durch Betätigen des Abbruch-Buttons werden alle in der 
+Erfassungstabelle befindlichen Journalzeilen aus dem Zwischenspeicher gelöscht. 
+</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Laden</P>
+<P class=MsoNormal>Wurde ein Buchungsstapel mit SPEICHERN unter einer Nummer und 
+einer Beschreibung abgespeichert, kann dieser Stapel jederzeit wieder in die 
+Erfassungsmaske geladen und weiterbearbeitet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Speichern</P>
+<P class=MsoNormal>Erfasste Buchungszeilen können jederzeit durch Anwahl dieses 
+Buttons unter einer bestimmten Nummer und einer Beschreibungszeile gespeichert 
+werden, damit der Stapel zu einem späteren Zeitpunkt wieder abgerufen und 
+weiterbearbeitet werden kann (siehe Laden). Buchungszeilen, die hier gespeichert 
+wurden, können auch über die Funktion AUTO-BUCHEN mit Hilfe eines 
+selbstdefinierbaren Aktionsplanes periodisch abgerufen werden (Wiederkehrende 
+Buchungen). Nähere Informationen entnehmen Sie bitte dem Kapitel <A 
+href="JavaScript:TL_459816.HHClick()">Buchungen speichern</A>.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Das bedeutet aber nicht, dass dadurch z.B. ein gespeicherter 
+Stapel gelöscht wird. Wie ein bestehender Stapel gelöscht wird, entnehmen Sie 
+bitte dem Kapitel <A href="JavaScript:TL_459817.HHClick()">Buchungen 
+laden</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Kontoblatt</P>
+<P class=MsoNormal>Durch Betätigen des Kontoblatt-Buttons wird für jedes Konto, 
+das im Stapel angesprochen wurde, ein Kontoblatt angezeigt, das die aktuellen 
+Salden, die erfassten Buchungszeilen und die daraus resultierenden Salden (die 
+entstehen würden, wenn der Stapel abgesetzt werden würde) enthält.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Saldenliste</P>
+<P class=MsoNormal>Durch Betätigen des Saldenliste-Buttons wird eine neue Liste 
+geöffnet, in der für die im Stapel verwendeten Konten der alte Saldo, die Summen 
+der Buchungen und der entsprechende neue Saldo angezeigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Journal</P>
+<P class=MsoNormal>Durch Betätigen des Journal-Buttons wird das Buchungsjournal 
+angezeigt, das alle erfassten Buchungszeilen enthält. Neben den Buchungszeilen 
+werden auch (wenn vorhanden) die OP-Informationen (welche Fakturen werden 
+erstellt bzw. welche Fakturen werden gezahlt) und die KORE-Informationen 
+(welcher Betrag wird mit welcher Kostenart auf welche Kostenstelle gebucht) 
+enthalten.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Journal (mit 
+Protokolldruck)</P>
+<P class=MsoNormal>Bei Drücken dieses Buttons erfolgt automatisch eine Prüfung 
+aller im Stapel erfasster Buchungen auf ihre Richtigkeit. Sollten Fehler 
+vorhanden sein, werden diese gleich in einem Prüfprotokoll (Buchungsprotokoll) 
+ausgegeben. Dabei wird der gerade eingestellte Drucker verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Konteninfo</P>
+<P class=MsoNormal>Wird dieser Button gedrückt (kann bereits durch die 
+Einstellung aus den Fenstern "Buchen Eingangsrechnungen", "Buchen 
+Ausgangsrechnungen", "Buchen Zahlungsmittelkonten" oder "Buchen Splitbuchungen" 
+gedrückt sein), werden eigene Fenster für die Konteninfos geöffnet. Dabei gibt 
+es jeweils ein Fenster für das Soll- und ein Fenster für das Haben-Konto. Hier 
+können Sie z.B. die Kontennotiz oder die Adresse oder viele andere Felder des 
+Kontenstammes anzeigen lassen. Bei Wünschen für Anpassungen dieses Formulars ist 
+Ihnen Ihr mesonic-Betreuer gerne behilflich.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_74.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Welche Informationen angedruckt werden sollen, kann frei 
+definiert werden. (Siehe auch Kapitel <A 
+href="JavaScript:TL_459818.HHClick()">Buchen - Konteninfo Soll</A> bzw. Kapitel 
+<A href="JavaScript:TL_459819.HHClick()">Buchen - Konteninfo Haben</A>.)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Freigabe</P>
+<P class=MsoNormal>Durch Drücken dieses Buttons wird das Freigabefenster 
+geöffnet, um den Freigabestatus eines Buchungsstapels verändern zu können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_75.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Beim Anlegen bzw. Speichern eines <B>neuen</B> Stapels wird 
+der in der "Freigabedefinition" festgelegte Freigabestatus vergeben (ACHTUNG: 
+dies erfolgt nur bei Neuanlage eines Stapels! Wird ein bestehender Stapel 
+verändert und gespeichert, so wird der Freigabestatus nicht automatisch 
+verändert!).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die Funktion des Freigabe-Buttons steht nur für gespeicherte 
+Stapel zur Verfügung. D.h. wird das Buchungsfenster geöffnet und Buchungen 
+erfasst, so hat der Freigabe-Button keine Funktionalität.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird in einem Buchungsfenster der Freigabestatus eines 
+Stapels verändert, so wird dieser sofort in die Datenbank zurück geschrieben; 
+ein Speichern des Stapels ist dazu nicht notwendig.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Beim Speichern des Stapels wird in der Tabelle jener 
+Freigabestatus vorgeschlagen der lt. Freigabedefinition verwendet werden soll. 
+Dieser kann jedoch nach Bedarf verändert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_76.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Beim Laden von Stapeln wird der Freigabestatus zur Info 
+angezeigt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_77.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons Buchen-Fenster</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_78.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Einfügen 
+/Entfernen</P>
+<P class=MsoNormal>Durch Drücken des Einfügen-Buttons wird an der Stelle, an der 
+sich der Cursor befindet, eine neue Eingabezeile eingefügt. Mit dem 
+Entfernen-Button wird die aktive Zeile aus der Erfassungstabelle gelöscht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Splitzeile 
+einfügen</P>
+<P class=MsoNormal>Es wird eine neue Splitzeile eingefügt.</P>
+<P class=MsoNormal>Wird der Button geklickt, wird unterhalb der aktuellen Zeile 
+eine neue, leere Splitzeile eingefügt.</P>
+<P class=MsoNormal>Der Button steht nur dann zur Verfügung, wenn der Focus in 
+der letzten Zeile einer vollständigen Buchung steht und das Soll- oder das 
+Haben-Konto entfernt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Notiz</P>
+<P class=MsoNormal>Für jede Buchungszeile kann durch Anklicken des Notiz-Buttons 
+ein beliebig langer Buchungstext hinterlegt werden. Dieser Text kann auch auf 
+den diversen Auswertungen angedruckt werden (Buchungsjournal, Kontoblatt). </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sachkonten-OP</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Sachk.-OP" kann eine OP-Verwaltung 
+für Sachkonten durchgeführt werden. Voraussetzung dafür ist, dass das Sachkonto 
+entsprechend angelegt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OP suchen</P>
+<P class=MsoNormal>Nach Drücken der OP-Suchen Taste kann nach einer 
+Fakturennummer gesucht werden. Es werden vom Programm alle Fakturen aufgelistet, 
+die den Suchbegriff an irgendeiner Stelle der Fakturennummer beinhalten. Nähere 
+Details finden Sie im Kapitel <A href="JavaScript:TL_459820.HHClick()">Fakturen 
+suchen</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Archiv</P>
+<P class=MsoNormal>Befindet man sich in der Zahlungstabelle kann man automatisch 
+in das Archiv wechseln. Die Kontonummer der aktivierten Rechnung wird im Fenster 
+der Archivsuche automatisch vorbelegt. (Nähere Informationen zur Archivsuche 
+entnehmen Sie bitte dem WinLine ALLGEMEIN - Handbuch).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Dokument 
+anzeigen</P>
+<P class=MsoNormal>Wenn in der Buchungszeile ein Archivdokument hinzugefügt 
+wurde (entweder durch Eingabe einer Archivnummer, oder durch Drag&amp;Drop eines 
+Dokuments auf die Buchungszeile) dann kann über diesen Button das Archivdokument 
+direkt angezeigt werden. </P>
+<P class=MsoNormal>Auch Auto-Archiv-Dokumente der in der WinLine FAKT erzeugten 
+Belege werden angezeigt.</P>
+<P class=MsoNormal>Wenn keine Archivnummer hinterlegt ist, dann bleibt der 
+Button inaktiv.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle 
+Buchungen geprüft</P>
+<P class=MsoNormal style="tab-stops: 0pt">Es werden alle Buchungen als geprüft 
+gekennzeichnet, indem die Checkbox in der Spalte "Freigabe" eingetragen 
+wird.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle 
+Buchungen ungeprüft</P>
+<P class=MsoNormal style="tab-stops: 0pt">Es werden alle Buchungen als ungeprüft 
+gekennzeichnet, indem die Checkbox in der Spalte "Freigabe" herausgenommen 
+wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Vorsteuererstattung</P>
+<P class=MsoNormal>Wird dieser Button geklickt, wird das Fenster 
+"Vorsteuererstattung - Eingabe" geöffnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anlagen 
+erstellen</P>
+<P class=MsoNormal>Wird ein Anlagen-Neuzugang gebucht, so kann mittels dieses 
+Buttons die Anlage erfasst werden, ohne später in die WinLine ANBU wechseln zu 
+müssen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Belegzeilen 
+anzeigen</P>
+<P class=MsoNormal>Es werden die entsprechenden Belegzeilen am Bildschirm 
+ausgegeben. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Steuer bei 
+Bestätigung des Betrages neu einlesen</P>
+<P class=MsoNormal>Wird dieser Button aktiviert, dann wird bei jeder 
+Betragsbestätigung (durch Pfeiltaste oder Enter) die Steuerzeile neu eingelesen, 
+der Steuerbetrag gerechnet und gegebenenfalls geändert ausgewiesen. Beim Öffnen 
+des Buchungsprogrammes ist der Button immer deaktiviert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons OP-Fenster</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_79.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Entfernen</P>
+<P class=MsoNormal>Durch Drücken des Entfernen-Buttons wird die entsprechende 
+Zeile, in der sich der Cursor befindet, gelöscht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Notiz</P>
+<P class=MsoNormal>Für jede Buchungszeile kann durch Anklicken des Notiz-Buttons 
+ein beliebig langer Buchungstext hinterlegt werden. Dieser Text kann auch auf 
+den diversen Auswertungen angedruckt werden (Buchungsjournal, Kontoblatt). </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Archiv</P>
+<P class=MsoNormal>Befindet man sich in der Zahlungstabelle kann man aut 
+,omatisch in das Archiv wechseln. Die Kontonummer der aktivierten Rechnung wird 
+im Fenster der Archivsuche automatisch vorbelegt. (Nähere Informationen zur 
+Archivsuche entnehmen Sie bitte dem WinLine ALLGEMEIN - Handbuch).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Fakturenwerte-Historie</P>
+<P class=MsoNormal>Über diesen Button öffnet sich das Fenster 
+"Fakturenwerte-Historie". Wird eine Buchung geändert, für die bereits eine 
+Faktura in der Fakturentabelle erstellt wurde (z.B. beim Bearbeiten eines 
+geladenen Stapels), wird dieser OP wie bisher mit den Werten aus der Buchung 
+bzw. aus dem Personenkonto neu erzeugt. Allerdings werden zuvor einige Werte des 
+"alten" OP in eine Temp-Table weggespeichert, damit sie per Drag&amp;Drop aus 
+dem Fenster "Fakturenwerte-Historie" in die Fakturentabelle übernommen werden 
+können. Details dazu entnehmen Sie bitte dem Kapitel <U><SPAN 
+style="COLOR: #0070c0"><A href="JavaScript:TL_459821.HHClick()"><U></U><U><SPAN 
+style="COLOR: #0070c0">Fakturenwerte-Historie</SPAN></U><U><SPAN 
+style="COLOR: #365f91"></SPAN></U><U></U></A></SPAN></U><U></U>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Excel</P>
+<P class=MsoNormal>Der Inhalt der Fakturentabelle kann in eine Excel-Tabelle 
+ausgegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons KORE-Fenster</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_80.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Entfernen</P>
+<P class=MsoNormal>Durch Drücken des Entfernen-Buttons wird die entsprechende 
+Zeile, in der sich der Cursor befindet, gelöscht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KORE 
+wiederherstellen</P>
+<P class=MsoNormal>Wird dieser Button angeklickt, werden alle bisherigen 
+Änderungen im KORE-Bereich rückgängig gemacht</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Aufteilen</P>
+<P class=MsoNormal>Beschreibung zur KORE-Aufteilung finden Sie im Abschnitt <A 
+href="JavaScript:TL_459822.HHClick()">KORE-Periodenaufteilung</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Verteilungsschlüssel auswählen</P>
+<P class=MsoNormal>Ist eine Kostenart mit einem Verteilungsschlüssel 
+eingetragen, öffnet sich durch einen Doppelklick auf diesen Button das Fenster 
+"Buchen - Auswahl Kostenarten-Verteilungsschlüssel". In diesem Fenster werden 
+die ausgewählte Kostenart mit Nummer und Bezeichnung, sowie die Buchungsnummer 
+und das Buchungsdatum zur Info angezeigt. Über die Combobox 
+"Verteilungsschlüssel" kann ein anderer im Kostenartenstamm zu dieser Kostenart 
+hinterlegter Verteilungsschlüssel oder kein Verteilungsschlüssel ausgewählt 
+werden.</P>
+<P class=MsoNormal>Wird ein anderer Verteilungsschlüssel ausgewählt und mit dem 
+Button OK oder der F5-Taste bestätigt, werden die neuen Verhältniszahlen 
+entsprechend berechnet und die Angaben in der KORE-Tabelle geändert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_81.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Excel</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ausgabe Excel" wird der Inhalt der 
+Tabelle nach Microsoft Excel übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Taste "F7"</P>
+<P class=MsoNormal>Da die Standard-Tabellen nur einige wenige Zeilen darstellen 
+können (aus Platzgründen) können Sie jede Eingabetabelle mit der Taste "F7" auf 
+Fenstergröße vergrößern. Dies kann auch automatisiert werden, wenn Sie nach 
+Drücken der rechten Maustaste in der zu vergrößernden Tabelle die Option 
+"Tabelle in Fenstergröße" bestätigen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Fußteil der Erfassungsmaske</P>
+<P class=MsoNormal>Im Fußteil der Erfassungsmaske werden die Summen (Soll und 
+Haben) sowie der Saldo der Konten der gerade aktiven Buchungszeile dargestellt. 
+Handelt es sich bei dem Konto um ein Fremdwährungskonto (im Kontenstamm muss 
+eine fixe Fremdwährung hinterlegt sein), dann werden in einer eigenen Zeile auch 
+noch die Fremdwährungswerte angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Bisher</P>
+<P class=MsoNormal>Hier werden die Werte dargestellt, die das Konto zurzeit 
+tatsächlich aufweist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Stapel</P>
+<P class=MsoNormal>Hier werden die Summen dargestellt, die durch die 
+Journalzeilen im aktiven Buchungsstapel errechnet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Neu</P>
+<P class=MsoNormal>Hier werden die Werte dargestellt, die sich NACH Buchen des 
+Stapels ergeben WÜRDEN (also eine Saldenvorschau, die die Buchungszeilen des 
+Stapels bereits berücksichtigt). So können Sie z.B. schon während der Erfassung 
+kontrollieren, ob der Saldo des Bankkontos lt. Bankauszug erreicht ist oder ob 
+eventuell in einer Zeile ein Eingabefehler vorliegt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Handelt es sich bei dem Konto um ein Hauptbuchkonto, dann 
+werden nur die Werte dargestellt, die direkt auf das Konto gebucht wurden, d.h., 
+die Werte von zugewiesenen Nebenbuchkonten werden nicht dargestellt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Datenfelder der Erfassungstabelle</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Freigabe</P>
+<P class=MsoNormal>In den FIBU-Parametern kann für unterschiedliche Stapeltypen 
+eine Buchungsfreigabe definiert werden. Nur wenn Buchungsfreigaben definiert 
+wurden, erhält man ganz links in der Buchungstabelle die Spalte Freigabe. Diese 
+Checkbox zeigt an, ab eine Buchung bereits geprüft und freigegeben ist oder 
+nicht. Der Buchungsstapel kann nur verbucht werden, wenn alle Buchungen 
+freigegeben sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BA</P>
+<P class=MsoNormal>Buchungsart. Mit der Buchungsart werden gewisse Funktionen 
+des Buchungsprogramms gesteuert. (z.B. Vorbesetzung der Konten, des Textes, 
+etc.). Siehe dazu Kapitel <A 
+href="JavaScript:TL_459823.HHClick()">Buchungsarten</A>.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Standardbuchungsarten sind:<BR>B 
+(Sachbuchung), DF (Debitorenfaktura), KF (Kreditorenfaktura), DZ (Zahlung einer 
+DF), KZ (Zahlung einer KF), EB (Eröffnungsbuchung) und AB (Abschlussbuchung)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Individuelle Buchungsarten:<BR>Es 
+können beliebige eigene Buchungsarten definiert werden, um Buchungsabläufe zu 
+automatisieren (z.B. Ersatzbuchungsarten, Buchungsarten für Mikrostapeln).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal style="tab-stops: 0pt">Die Buchungsart AB - Abschlussbuchung 
+kann nur in der Abschlussperiode und die Buchungsart EB - Eröffnungsbuchung kann 
+nur in der Eröffnungsperiode verwendet werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hat ein Anwender keine Berechtigung 
+für eine Buchungsart, so wird diese in der Auswahllistbox nicht angezeigt, und 
+ist somit auch nicht auswählbar.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungskreis</P>
+<P class=MsoNormal style="tab-stops: 0pt">Diese Spalte wird im Buchungsprogramm 
+angezeigt, um einen Buchungskreis der Buchung zuzuordnen, wenn in dem 
+Programm</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Stammdaten</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Buchungskreise</P>
+<P class=MsoNormal style="tab-stops: 0pt">Buchungskreise definiert wurden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">In der Auswahllistbox werden nur jene 
+Buchungskreise angezeigt, für die der Benutzer die Berechtigung hat.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Vorgeschlagen wird der Buchungskreis 
+Standard oder der in der Buchungsart hinterlegte Buchungskreis.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Diverse Auswertungen können nach 
+Buchungskreisen selektiert werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum</P>
+<P class=MsoNormal>Buchungsdatum. Durch Drücken der F3-Taste kann das aktuelle 
+Systemdatum übernommen werden. Steht im Feld "Periode" der Wert "14 - 
+automatisch", dann wird nach Bestätigung des Datumsfeldes die Periode vom 
+Buchungsdatum abgeleitet. </P>
+<P class=MsoNormal>Es können alle Perioden des Wirtschaftsjahres parallel 
+bebucht und ausgewertet werden, wobei aber für jede Buchungsperiode ein eigener 
+bzw. ein neuer Stapel verwendet werden muss. </P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Soll</P>
+<P class=MsoNormal>Soll-Konto. Durch Drücken der F9-Taste kann nach Konten 
+gesucht werden.</P>
+<P class=MsoNormal>Existieren Gegenkonten als Vorschlag zu dem bereits zuvor 
+erfassten Konto, wird automatisch eine Autosuggest-Auswahl-Liste angezeigt, in 
+der die definierten Konten aufgelistet werden und wo das gewünschte Gegenkonto 
+ausgewählt werden kann. Wird in dem Gegenkonto zu Tippen begonnen, wird auf die 
+altbekannte Autovervollständigung-Funktionalität umgeschaltet und im gesamten 
+Kontenstamm gesucht. Mit "F3" im Gegenkonto kann der Vorschlag der Gegenkonten 
+jederzeit aktiviert werden, d.h. auch dann, wenn bereits ein Konto eingetragen 
+ist oder wenn bereits die Standard-Autovervollständigung aktiviert wurde.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Haben</P>
+<P class=MsoNormal>Haben-Konto. Durch Drücken der F9-Taste kann nach Konten 
+gesucht werden.</P>
+<P class=MsoNormal>Existieren Gegenkonten als Vorschlag zu dem bereits zuvor 
+erfassten Konto, wird automatisch eine Autosuggest-Auswahl-Liste angezeigt, in 
+der die definierten Konten aufgelistet werden und wo das gewünschte Gegenkonto 
+ausgewählt werden kann. Wird in dem Gegenkonto zu Tippen begonnen, wird auf die 
+altbekannte Autovervollständigung-Funktionalität umgeschaltet und im gesamten 
+Kontenstamm gesucht. Mit "F3" im Gegenkonto kann der Vorschlag der Gegenkonten 
+jederzeit aktiviert werden, d.h. auch dann, wenn bereits ein Konto eingetragen 
+ist oder wenn bereits die Standard-Autovervollständigung aktiviert wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Durch Klicken mit der rechten Maustaste wird ein Kontextmenü 
+geöffnet, in dem Sie die Konteninfo für die im Feld Soll-/Habenkonto der aktiven 
+FIBU-Buchungszeile eingegebenen Konten aufrufen können.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sachkonten-OPs</P>
+<P class=MsoNormal>Wird im Soll- oder im Haben-Konto ein Sachkonto ausgewählt, 
+bei dem im Sachkontenstamm die Option Sachkonten-OP aktiviert ist, erscheint 
+folgendes Eingabefenster:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_82.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Hier kann zusätzlich ein Fälligkeitsdatum und ein 
+Personenkonto eingetragen werden, welches bei der Liste Sachkonten - Offene 
+Posten ausgewertet werden kann. Weiters kann dieser OP mit der Checkbox 
+"erledigt" sofort ausgeziffert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Button</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_83.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OK</P>
+<P class=MsoNormal>Mit dem OK-Button wird der Sachkonten-OP erstellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird ein Konto ausgewählt, bei dem ein offener Sachkonten-OP 
+ausgeglichen wird erscheint folgendes Fenster:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_84.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier werden bei übereinstimmender 
+Referenznummer die gebuchten Sachkonten-OPs in der Tabelle angezeigt. Ergibt die 
+Zeile „Offen“ im Berechnungsteil 0, wird der Sachkonten-OP mittels Checkbox 
+"erledigt" markiert.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal style="tab-stops: 0pt"><IMG 
+src="../ImagesExt/image863_85.png"></P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OK</P>
+<P class=MsoNormal>Mit dem OK-Button wird der Sachkonten-OP entsprechend den 
+Bildschirmeingaben gebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle 
+anzeigen</P>
+<P class=MsoNormal>Es werden alle noch offenen Sachkonten-OP angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle OPs für 
+das eingetragene Personenkonto anzeigen </P>
+<P class=MsoNormal>Es werden lediglich die mit dem angegebenen Personenkonto in 
+Verbindung stehenden offenen Sachkonten-OP angezeigt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BelegNr</P>
+<P class=MsoNormal>Belegnummer des Buchungsbeleges. Diese Nummer wird 
+automatisch auch als Fakturennummer im OP-Bereich vorgeschlagen, es dürfen keine 
+Sonderzeichen wie ' oder % verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Symbol <IMG 
+src="../ImagesExt/image863_86.png"></P>
+<P class=MsoNormal>Diese Grafik zeigt an, ob ein Nummernkreis in der Buchungsart 
+hinterlegt und aktiv ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>OP-Nummer</P>
+<P class=MsoNormal>Die OP-Nummer wird automatisch aus der Belegnummer 
+vorgeschlagen. Die OP der Fakturentabelle wird anhand dieser Nummer erstellt. 
+Dieses Feld muss in WinLine START in den FIBU-Parameter aktiviert werden (siehe 
+Kapitel "FIBU-Parameter", Handbuch WinLine START).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Gibt man bei einer Zahlung in diesem Feld eine Fakturennummer 
+(bzw. einen Teil einer Fakturennummer) ein, so wird auch in der Projektnummer 
+gesucht. Es wird diese Faktura (bzw. jene Fakturen die einen Teil der angegeben 
+Nummer enthalten) automatisch in der Fakturentabelle zur Zahlung angezeigt und 
+selektiert. </P>
+<P class=MsoNormal>Entspricht kein Offener Posten der Angabe, so werden alle 
+OP'S angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Text</P>
+<P class=MsoNormal>Buchungstext, es können bis zu 50 Zeichen Kurztext eingegeben 
+werden, oder nach Drücken der F9-Taste bis zu 2000 Zeichen Freitext 
+(Notizblock-Funktion). Dieser Freitext kann im Journal durch Aktivieren der 
+Checkbox Notizen drucken abgerufen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>B/N/F</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier kann entschieden werden, wie der 
+Buchungsbetrag eingegeben werden soll. Dabei gibt es folgende Möglichkeiten:</P>
+<P class=MsoNormal 
+style="tab-stops: 0pt"><B>B</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Der Betrag wird Brutto (inkl. Steuer) eingegeben</P>
+<P class=MsoNormal 
+style="tab-stops: 0pt"><B>N</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Der Betrag wird Netto (exkl. Steuer) eingegeben</P>
+<P class=MsoNormal><B>FB</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Es wird 
+ein eigenes Fenster geöffnet, in das der Buchungsbetrag in Fremdwährung "Brutto" 
+eingegeben werden kann. Dabei kann neben der Fremdwährung auch der Kurs und die 
+Einheit geändert werden. Die Notierung (lt. FW-Stamm) bleibt jedoch gleich und 
+wird natürlich bei der Umrechnung berücksichtigt.</P>
+<P class=MsoNormal><B>FN</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Es wird 
+ein eigenes Fenster geöffnet, in das der Buchungsbetrag in Fremdwährung "Netto" 
+eingegeben werden kann. Dabei kann neben der Fremdwährung auch der Kurs und die 
+Einheit geändert werden. Die Notierung (lt. FW-Stamm) bleibt jedoch gleich und 
+wird natürlich bei der Umrechnung berücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Wurde ein Konto angesprochen, bei dem 
+eine Fremdwährung hinterlegt ist, wird FB für Fremdwährung Brutto automatisch 
+vorgeschlagen (kann natürlich in FN für Fremdwährung netto geändert werden) und 
+man gelangt automatisch in die Fremdwährungserfassung.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Betrag</P>
+<P class=MsoNormal>Betragseingabe </P>
+<P class=MsoNormal>Durch Drücken der F9-Taste oder Anklicken des <IMG 
+src="../ImagesExt/image863_87.png">-Buttons wird das Umrechnungsfenster 
+geöffnet, in dem der Betrag auf Basis der im Mandantenstamm hinterlegten 
+Landeswährungen (z. B. CHF und EURO) sowohl in Landeswährung 1 als auch in 
+Landeswährung 2 eingegeben werden kann. Zum Buchen wird dann der Betrag in 
+Landeswährung 1 verwendet.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>USt</P>
+<P class=MsoNormal>Steuerzeile des Unternehmensstammes</P>
+<P class=MsoNormal 
+style="tab-stops: 0pt"><B>U</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Umsatzsteuer<BR><B>V</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+Vorsteuer</P>
+<P class=MsoNormal>Danach folgt die Nummer der entsprechenden Zeile im 
+Unternehmensstamm (z.B. 2), der Prozentsatz (z.B. 20 %) wird zur Information 
+(nach dem USt-Betrag) ebenfalls angezeigt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Betrag</P>
+<P class=MsoNormal>Umsatzsteuer-Betrag der Buchungszeile, wird errechnet.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal>Durch Drücken der F9-Taste oder Anklicken des <IMG 
+src="../ImagesExt/image863_87.png">-Buttons wird das Umrechnungsfenster 
+geöffnet, in dem der Betrag auf Basis der im Mandantenstamm hinterlegten 
+Landeswährungen (z. B. CHF und EURO) sowohl in Landeswährung 1 als auch in 
+Landeswährung 2 eingegeben werden kann. Zum Buchen wird dann der Betrag in 
+Landeswährung 1 verwendet.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Satz</P>
+<P class=MsoNormal style="tab-stops: 0pt">In diesem Feld wird der 
+Steuerprozentsatz angezeigt, der bei der Buchung zur Anwendung kommt.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>KORE-Betrag</P>
+<P class=MsoNormal style="tab-stops: 0pt">In diesem Feld wird der Betrag 
+angezeigt, der auch in die Kostenrechnung übergeben werden muss. In diesem Feld 
+wird nur dann ein Betrag angezeigt, wenn in einem der verwendeten Konten eine 
+Kostenart hinterlegt wurde (Siehe auch Kapitel Sachkonten).</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Archivnummer</P>
+<P class=MsoNormal>In dieser Spalte kann ein Archivdokument, d.h. die 
+Dokumentenkreisnummer (siehe dazu das Kapitel "Nummernkreise") angegeben werden, 
+das lt. Einstellung in der Buchungsart beschlagwortet werden soll. Eingefügt 
+kann das Dokument auf mehrere Arten werden:</P>
+<P class=MsoNormal>1. Die Dokumentenkreisnummer wird manuell eingetippt.</P>
+<P class=MsoNormal>2. Ist die Archivsuche geöffnet, kann das Dokument mittels 
+Drag &amp; Drop in die Buchungszeile gezogen werden.</P>
+<P class=MsoNormal>3. Ist die Archivsuche geöffnet, und der Focus auf ein 
+archiviertes Dokument gesetzt, kann in der Buchungszeile mit der "F3"-Taste die 
+Dokumentenkreisnummer übernommen werden.</P>
+<P class=MsoNormal>4. Das Dokument kann direkt via Drag &amp; Drop z.B. aus dem 
+Explorer auf die Buchungsmaske gezogen werden. Voraussetzung dafür ist, dass 
+über den Formulartyp die Dokumentenkreisnummer vorgesehen ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Weiters wird in diesem Feld die Dokumentennummer angezeigt, 
+die vom Programm automatisch vergeben wird wenn Buchungen mittels 
+Signaturserver-Import erzeugt werden.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>- Gebucht wird eine Kreditorenfaktura, die bereits 
+eingescannt und archiviert wurde.</P>
+<P class=MsoNormal>- Das Archivdokument hat die Beschlagwortung 
+"Dokumentenkreisnummer"-"ER2" (sowie das Tagesdatum und die Abteilung) 
+hinterlegt. </P>
+<P class=MsoNormal>- In der Buchungsart "KF" sind die Archivschlagwörter 
+"Kontonummer", "Fakturendatum", und "Fakturennummer" hinterlegt.</P>
+<P class=MsoNormal>- In der Buchungszeile wird die Dokumentenkreisnummer (auf 
+eine der 3 möglichen Arten) eingefügt.</P>
+<P class=MsoNormal>- Die Buchung wird abgesetzt, und dem Archivdokument wird die 
+Beschlagwortung automatisch hinzugefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_88.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wird die Kontonummer als Schlagwort definiert, so wird 
+automatisch auch die Kontenbezeichnung hinzugefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Ist die Dokumentenkreisnummer bereits 
+in Verwendung, d.h. gibt es bereits ein archiviertes Dokument, oder gibt es eine 
+Buchung in der Tabelle oder in einem gespeicherten Stapel das die 
+Dokumentenkreisnummer verwendet, erfolgt eine Warnung. Wird die Zuordnung der 
+Dokumentenkreisnummer trotzdem verwendet, wird dem angegebenen Dokument die 
+Beschlagwortung aus dem "aktiven" Buchungssatz zugeordnet.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal>Die Bearbeitungsmöglichkeiten und logischen Prüfungen der 
+Datenfelder hängen von den in der Buchungsart getroffenen Vorbesetzungen ab.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Abgrenzungskonto</P>
+<P class=MsoNormal>Wird das Abgrenzungskonto aus den FIBU-Parametern in einer 
+Buchungszeile als Soll- oder Haben-Konto verwendet, wird in diesem Feld ein 
+Abgrenzungskonto, z.B. das Aufwands- oder Erlöskonto eingetragen oder über den 
+Matchcode mit F9 ausgewählt. Über das Programm Abgrenzungsbuchungen werden diese 
+Buchungen <SPAN style="COLOR: black">gemäß dem vorgegebenen Leistungsdatum 
+aufgelöst, damit sie in der richtigen Leistungsperiode erfolgswirksam 
+werden.</SPAN></P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Leistungsdatum</P>
+<P class=MsoNormal style="tab-stops: 0pt">Wurde ein Abgrenzungskonto in der 
+Buchungszeile eingetragen, muss auch das Leistungsdatum erfasst werden. Das 
+Leistungsdatum muss nicht im aktuellen Wirtschaftsjahr liegen, es kann auch ein 
+Datum im Folgejahr sein.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Wird das Abgrenzungskonto nicht 
+verwendet, so kann trotzdem ein Leistungsdatum hinterlegt werden. Die Felder 
+Abgrenzungskonto und Kostenstelle können dann nicht gefüllt werden. Dieses 
+Leistungsdatum wird dann für die Abgrenzung der Skontobuchung (sofern mit Skonto 
+gezahlt wurde) verwendet. Die Skontobuchung wird in diesem Fall immer mit dem 
+Abgrenzungskonto aus den FIBU-Parametern bebucht.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KSt 
+(Abgrenzung)</P>
+<P class=MsoNormal style="tab-stops: 0pt">Die Kostenstelle für die 
+Abgrenzungsbuchung wird hier eingetragen oder über den Matchcode mit F9 
+ausgewählt, wenn als Abgrenzungskonto ein Sachkonto mit hinterlegter Kostenart 
+eingetragen wurde. Diese Kostenstelle wird bei der Auflösung der 
+Abgrenzungsbuchung, die über das Programm Abgrenzungsbuchungen vorgenommen wird, 
+bebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_89.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In diesem Fenster können schon beim Erfassen der Buchungen 
+die für die Vorsteuererstattung notwendigen Daten eingegeben werden. </P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Der Button steht nicht zur 
+Verfügung, wenn im Mandanten keine Steuerzeilen für die Vorsteuererstattung 
+definiert sind und das Landeskennzeichen nicht "Österreich" ist. Ansonsten steht 
+der Button immer zur Verfügung.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wird also der Button für eine 
+Buchung geklickt, die nicht bei der Vorsteuererstattung mitspielt, da z.B.: 
+keine Vorsteuer gebucht, keine Steuerzeile mit hinterlegtem Land verwendet wird 
+usw., wird das Fenster nicht geöffnet und eine entsprechende Meldung wird 
+ausgegeben. </SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_90.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Beim Klicken des Buttons wird die 
+aktuelle Buchung geprüft, d.h. gegebenenfalls wird noch die OP erzeugt bzw. muss 
+die KORE eingegeben werden, bevor das Fenster geöffnet werden kann. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black">Beim erstmaligen Öffnen des 
+Fensters wird die Buchung analysiert und die Felder im Fenster werden aus der 
+Buchung bzw. den Konten gefüllt. Dabei werden alle Zeilen einer Splitbuchung 
+berücksichtigt, d.h. dass es keine Rolle spielt in welcher Zeile einer 
+Splitbuchung der Button geklickt wird. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wird das Fenster erneut geöffnet, 
+werden die zuvor gespeicherten Eingaben wieder geladen und angezeigt.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Im Fenster "Vorsteuererstattung - 
+Eingabe" wird oben in einem Info-PDB die aktuelle Buchung angezeigt. </SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_91.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Darunter können alle Felder 
+bearbeitet werden, die auch im Menüpunkt "Vorsteuererstattung" zur Verfügung 
+stehen.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Hier werden auch die Felder 
+gegraut, die abhängig von den aktuellen Einstellungen</SPAN> <SPAN 
+style="COLOR: black">nicht zur Verfügung stehen, so werden z.B. bei einem 
+"Import" die "Kleinbetragsrechnung" und die Felder für die "Steuernummer" grau 
+hinterlegt. </SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_92.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Abhängig von den Eingaben im 
+Fenster werden auch die Combos gefüllt, d.h. bei einem "Kauf" steht als 
+"Bezugsnummer" nur die "Rechnungsnummer" zur Verfügung, bei einem Import</SPAN> 
+<SPAN style="COLOR: black">zusätzlich auch die "Importnummer", für Deutschland 
+steht im Feld "Auswahl Steuernummer" zusätzlich zur UID-Nummer auch die 
+"Steuernummer" zur Verfügung, die Combo "Land (ISO)" wird abhängig von der 
+Auswahl Kauf/Import gefüllt. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wird die Bezugsart von "Kauf" auf 
+"Import" geändert, wird das Feld "Steuernummer" initialisiert. (Siehe Bild 
+oben). Wird nun wieder auf den "Kauf" zurückgesetzt, so wird die UID-Nummer aus 
+dem Kontenstamm wieder eingetragen bzw. geladen. </SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_93.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Zusätzlich wird auch geprüft, ob 
+das ausgewählte "Land (ISO)" gültig ist, denn nicht alle für "Import" gültigen 
+Länder sind auch für "Kauf" gültig. In solch einen Fall wird die Eingabe in 
+diesem Feld zurückgesetzt.&nbsp; </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Unten im Fensterbereich werden 
+neben den editierbaren Beträgen, entweder die aus der Buchung gerechneten 
+Beträge angezeigt, oder aber die Beträge in der verwendeten Fremdwährung, wenn 
+diese nicht der Währung des Landes entspricht. In diesem Fall werden die Beträge 
+wie auch im Menüpunkt "Vorsteuererstattung" auf 0 gesetzt für den 
+Antrag.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_94.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Mit F3 können die Beträge jeweils 
+wieder auf den aus der Buchung berechneten Wert zurückgesetzt werden. 
+</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Zudem kann auch noch das 
+Rechnungsdatum für die Buchung editiert werden. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Es ist auch Möglich die 
+Vorsteuererstattungs-Codes pro Buchung direkt bei der Eingabe zu ändern. 
+</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_95.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Beim Klick auf den 
+Vorsteuererstattungs-Code-Button </SPAN><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_96.png"></SPAN><SPAN style="COLOR: black">&nbsp;wird 
+das Fenster, wie im Kontenstamm, geöffnet. Wird der Code "10. Sonstiges" 
+ausgewählt, wird hier auch der eingegebene Beschreibungstext übernommen. 
+</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black">Zudem wird noch überprüft, ob auch 
+jeder Code nur 1x vorkommt. Kommt ein Code doppelt vor, wird eine entsprechende 
+Meldung ausgegeben. </SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_97.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Die Eingaben in diesem Fenster 
+werden nicht auf Gültigkeit oder Vollständigkeit geprüft, damit die Eingaben 
+auch gespeichert werden können, wenn sie noch nicht vollständig sind.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black">Die Prüfung der Eingaben erfolgt, 
+dann beim Erstellen der XML-Datei für die Vorsteuererstattung. </SPAN></P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Eine Ausnahme ist die UID-Nummer, 
+diese wird bereits in diesem Fenster geprüft, da sie auch hier in den 
+Kontenstamm zurückgeschrieben werden kann, sofern das verwendete Konto ein 
+Personenkonto ist. Nach einer Änderung kann mit "F3" der Wert aus dem 
+Kontenstamm wiederhergestellt werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black">Die Prüfung erfolgt, jedoch nur 
+für Österreich, Deutschland und Italien. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Nachdem die Eingaben gespeichert 
+wurden, wird das Fenster geschlossen und der Focus wird wieder auf die 
+entsprechende Buchung in der Buchungstabelle gesetzt. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wird das Fenster mit "Ende" 
+verlassen, werden die Eingaben nicht gespeichert, d.h. die beim Öffnen des 
+Fensters angezeigten Werte bleiben erhalten. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_98.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Alle Eingaben 
+verwerfen</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Mit dem Button werden nach einer 
+Abfrage alle Eingaben gelöscht und das Fenster wird geschlossen. </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Änderungen 
+zurücksetzen</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Im Gegensatz dazu bleibt bei 
+diesem Button das Fenster geöffnet und die Werte werden erneut aus der Buchung 
+vorbelegt.</SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wird nach dem Erfassen der 
+Vorsteuererstattungs-Daten die Buchung in der Buchungstabelle noch geändert, 
+werden die Eingaben zurückgesetzt und es wird auch eine entsprechende Meldung 
+ausgegeben.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black"><IMG 
+src="../ImagesExt/image863_99.png"></SPAN><SPAN style="COLOR: black"></SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Das Verwerfen der Eingaben 
+passiert, wenn eines der folgenden Felder geändert wird: </SPAN></P>
+<P class=MsoNormal><SPAN style="COLOR: black"></SPAN>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konto Soll</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konto Haben</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Brutto/Netto/Fremdwährung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Betrag</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Steuerzeile</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Steuerbetrag</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>FW-Code</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>FW-Betrag</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Nachfolgend werden die weiteren 
+Erfassungs-Tabellen beschrieben, die bei jeder verwendeten Buchungsart 
+unterschiedlich sein können.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons</P>
+<P class=MsoNormal style="tab-stops: 0pt"><IMG 
+src="../ImagesExt/image863_100.png"></P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Belegzeilen 
+anzeigen</P>
+<P class=MsoNormal>Wird dieser Button geklickt, so öffnet sich das Fenster 
+"Buchen-Belegzeilen".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_101.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Damit ist es möglich direkt in dem Buchungsfenster eine in 
+einem FAKT-Stapel vorhandene Faktura zu editieren. Es wird sofort die 
+Beleg-Information (aus der FAKT) zur aktuell ausgewählten Buchungszeile 
+angezeigt. Wird durch den Stapel gescrollt, so wird die Anzeige dementsprechend 
+aktualisiert. Jene Artikelzeilen, die die aktuelle Buchungszeile betreffen, 
+werden zuerst angedruckt und farblich hervorgehoben, alle weiteren Artikelzeilen 
+folgen danach. In dem Fenster stehen zwei weitere Buttons zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Beleg 
+anzeigen</P>
+<P class=MsoNormal>Damit wird die Beleg-Vorschau direkt in der FIBU geöffnet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_102.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Beleg 
+bearbeiten: </P>
+<P class=MsoNormal>Beim Klick auf dem Button wird das Belegerfassen-Fenster ohne 
+eine weitere Nachfrage geöffnet und der ausgewählte Beleg wird geladen und kann 
+editiert werden. Dabei können wie beim "normalen" Editieren diverse Änderungen 
+durchgeführt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel hinzugefügt oder gelöscht 
+werden</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mengen, Erlöskonten, Preise, 
+Steuerzeilen usw. geändert werden</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Belegarten und damit die zu 
+erzeugenden FIBU-Buchungen geändert werden</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Zahlungen erfasst werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_103.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nachdem die Änderungen im Beleg in der FAKT abgeschlossen 
+sind, werden in der FIBU alle Buchungen in der Buchungstabelle aktualisiert, die 
+den geänderten Beleg betreffen. </P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Während das Belegerfassen-Fenster aktiv ist, kann im 
+Buchungsfenster nicht weitergearbeitet werden, es wird bei jedem Klick in das 
+Buchungsfenster eine entsprechende Meldung ausgegeben und wieder in die FAKT 
+zurück gewechselt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_104.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nach Abschluss der Änderungen in der FAKT, wird die Buchung 
+in der Buchungstabelle in der FIBU aktualisiert. Dabei werden neu hinzugekommene 
+Buchungen am Ender der Buchungstabelle angehängt und entfernte Buchungen aus der 
+Buchungstabelle gelöscht.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_459816 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchungenspeichern.htm"></OBJECT>
+<OBJECT id=TL_459817 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchungenladen.htm"></OBJECT>
+<OBJECT id=TL_459818 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchenkonteninfosoll.htm"></OBJECT>
+<OBJECT id=TL_459819 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchenkonteninfohaben.htm"></OBJECT>
+<OBJECT id=TL_459820 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/fakturensuchen.htm"></OBJECT>
+<OBJECT id=TL_459821 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/fakturenwertehistorie.htm"></OBJECT>
+<OBJECT id=TL_459822 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/koreperiodenaufteilung.htm"></OBJECT>
+<OBJECT id=TL_459823 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/buchungsarten.htm"></OBJECT></DIV></BODY></HTML>

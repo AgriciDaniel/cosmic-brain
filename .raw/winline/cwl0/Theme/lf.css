@@ -1,0 +1,79 @@
+﻿div.d2h_main_nsbanner, div.d2h_main_titlerow, div.d2h_main_ienav, div.d2h_main_linknav, p.d2h_main_linknav, div.d2h_main_nstext, div.d2h_main_topic, div.d2h_secondary_topic, div.d2h_outer_topic
+{
+    background-color:transparent;
+    background-image:none;
+    border-style:none;
+    display:block;
+    float:none;
+    margin:0px 0px 0px 0px;
+    overflow:visible;
+    padding:0px 0px 0px 0px;
+    position:static;
+}
+
+html body table.d2h_cust, html body tr.d2h_cust, html body td.d2h_cust
+{
+    background-color:transparent;
+    background-image:none;
+    border-style:none;
+    float:none;
+    margin:0px 0px 0px 0px;
+    overflow:visible;
+    padding:0px 0px 0px 0px;
+    position:static;
+    vertical-align:middle;
+    border-collapse:separate;
+}
+
+html body table.D2HTopicToolbar, html body tr.D2HTopicToolbar, html body td.D2HTopicToolbar
+{
+    background-color:transparent;
+    background-image:none;
+    border-style:none;
+    float:none;
+    margin:0px 0px 0px 0px;
+    overflow:visible;
+    padding:0px 0px 0px 0px;
+    position:static;
+    width:auto;
+    height:auto;
+    vertical-align:middle;
+    border-collapse:separate;
+}
+
+html body table.D2HTopicToolbarOuter
+{
+    background-color:transparent;
+    background-image:none;
+    border-style:none;
+    float:none;
+    margin:0px 0px 0px 0px;
+    overflow:visible;
+    padding:0px 0px 0px 0px;
+    position:static;
+    vertical-align:middle;
+    border-collapse:separate;
+}
+
+table.d2h_cust, table.D2HTopicToolbar, table.D2HTopicToolbarOuter
+{
+    display:table;
+}
+
+tr.d2h_cust, tr.D2HTopicToolbar, tr.D2HTopicToolbarOuter
+{
+    display:table-row;
+}
+
+td.d2h_cust, td.D2HTopicToolbar, td.D2HTopicToolbarOuter
+{
+    display:table-cell;
+}
+
+html body img.d2h_cust
+{
+    border-style:none;
+    float:none;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}

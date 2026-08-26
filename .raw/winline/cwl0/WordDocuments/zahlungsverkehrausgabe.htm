@@ -1,0 +1,803 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Zahlungsverkehr - Ausgabe</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="zahlungsverkehrselektion.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="zahlungsstapelverteilen.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Zahlungsverkehr - Ausgabe</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc473645635>Zahlungsverkehr 
+- Ausgabe</A></H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_262.jpg"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Mit 
+Begleitzetteldruck</P>
+<P class=MsoNormal>Automatische Ausgabe eines Begleitzettels auf dem ersichtlich 
+ist, welche Fakturen mit einer Zahlung ausgeglichen worden sind. Ist diese 
+Option aktiviert, wird in der Clearingdatei KEINE Information mehr über die 
+einzelnen gezahlten Fakturen mitgegeben (da ja ohnehin der Begleitzettel 
+ausgegeben wurde). Dabei erscheint im Verwendungszweck der Text: Fakturen lt. 
+Begleitzettel. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung: </P>
+<P class=MsoNormal>Die Begleitzettel werden standardmäßig in den Spooler 
+gedruckt, auch wenn die Ausgabe auf Drucker aktiviert wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Ist die Option NICHT aktiviert, wird KEIN Begleitzettel 
+ausgegeben - dafür aber die Faktureninfo (welche Faktura, Zahlungsbetrag, 
+Skontobetrag) als Begleittext im Clearingfile ausgegeben. Bei Zahlungen/Einzüge 
+von mehr als 11 Fakturen je Konto wird automatisch ein Begleitzettel erstellt 
+und im Clearingfile wiederum nur der Hinweistext "lt. Begleitzettel" 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung: </P>
+<P class=MsoNormal>Wurde zuvor die Option "Einzelüberweisung" selektiert, kann 
+die Checkbox "mit Begleitzetteldruck" nicht aktiviert werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die im Clearingfile enthaltene Information der 
+Belegtextzeilen (12x53 Zeichen, wobei die erste Zeile die Headerinformation als 
+Text beinhaltet) kann über das Formular P01W37CLEAR gesteuert werden (um z.B. 
+auch den OP-Text mit auszugeben. Sollten Sie hier über die Standardausgabe 
+hinausgehende Wünsche bezüglich der auszugebenden Informationen haben, wenden 
+Sie sich bitte an Ihren mesonic-Betreuer. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Nur bei Ausgabe auf Formular oder 
+Clearing werden Zahlungen durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Buchung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>nicht buchen<BR>Es wird kein 
+Buchungssatz für die Zahlung erstellt.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>sofort buchen<BR>Die gezahlten 
+Rechnungen werden sofort OP-mäßig und FIBU-mäßig gebucht und ausgeglichen.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Stapel ablegen<BR>Die 
+Buchungszeilen werden in einem Stapel abgelegt (aus der Bezeichnung des Stapels 
+ist ersichtlich, wann und welche Zahlungsart gewählt wurde - z.B. Überweisung v. 
+16.07.1999) und können anschließend (normalerweise nach Eintreffen und Kontrolle 
+des Bankauszuges) im Punkt <B>"Zahlungsstapel buchen"</B> übernommen werden. Die 
+durch den Zahlungslauf ausgeglichenen OPs werden im OP-Blatt durch den 
+Mahnzähler -2 gekennzeichnet (d.h. ausgeglichen, aber noch nicht bestätigt). 
+Erst nach Buchen des Zahlungsstapels wird das Mahnkennzeichen von "-2" auf "-1" 
+(ausgeziffert) gesetzt. Wird die Zahlungszeile im "Zahlungsstapel Buchen" im 
+Zahlungsstapel deaktiviert oder der ganze Zahlungsstapel gelöscht, werden die 
+Offenen Posten automatisch wieder auf die Mahnstufe zurückgesetzt, die sie vor 
+dem Zahlungslauf gehabt haben.<BR>Diese Option sollte unbedingt verwendet 
+werden, wenn der Jahresabschluss bereits frühzeitig erfolgen soll, da der 
+Zahlungsverkehr nur im aktuellen Wirtschaftsjahr durchgeführt werden kann. Im 
+Menüpunkt <B>"Zahlungsstapel buchen"</B> ist es anschließend möglich durch die 
+Eingabe eines Buchungsdatums aus dem Vorjahr den Zahlungsstapel zu 
+verschieben.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Buchungsart<BR>Aus der 
+Auswahllistbox kann eine Standard-Buchungsart ausgewählt werden. Die Buchungsart 
+ist von der Zahlungsstapelart abhängig. Als Buchungsarten stehen alle 
+Buchungsarten zur Verfügung, die dem Buchungsschlüssel laut Zahlungsstapelart 
+entsprechen, z.B.: für Überweisungen stehen alle Buchungsarten mit dem 
+Buchungsschlüssel KZ und für Lastschriften stehen alle Buchungsarten mit dem 
+Buchungsschlüssel DZ zur Verfügung, und für die der jeweilige Benutzer die 
+Berechtigung hat. Beim Erstellen der Buchungen wird aus der eingetragenen 
+Buchungsart, der hinterlegte Buchungskreis und Nummernkreis verwendet.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Mikrostapel stehen im Zahlungsverkehr als Buchungsart nicht 
+zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>In den FIBU-Parametern gibt es unter "Buchen (erweitert)" die 
+Einstellung "Zahlungsverkehr".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Überweisungsnummer hochzählen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Pro Konto/Buchung<BR>Die 
+Überweisungsnummer im Bankenstamm wird pro Buchung hochgezählt und als 
+Belegnummer und Sachkonten-OP-Referenznummer für die erzeugten Buchungen 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Pro Zahlungsstapel<BR>Für alle 
+Buchungen eines Stapels wird dieselbe Überweisungsnummer aus dem Bankenstamm als 
+Belegnummer und Sachkonten-OP-Referenznummer verwendet. Der 
+Sachkonten-OP-Referenznummer wird ein "Z-" vorangestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Bei der Ausgabe im letzten Schritt des Zahlungsverkehrs und 
+auch bei der Ausgabe der Zahlungsübersicht wird unabhängig vom Ausgabetyp 
+geprüft, ob in der Tabelle eine Fakturennummer mehr als 1x vorkommt. Ist dies 
+der Fall, wird die Verarbeitung mit einer Fehlermeldung abgebrochen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_263.gif"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel für mehrmaliges Vorkommen einer 
+Fakturennummer:</P>
+<P class=MsoNormal>Bei mehreren Kreditoren ist im Personenkontenstamm / Register 
+FIBU der gleiche Debitor als "Deb.-/Kred.-Konto" hinterlegt.</P>
+<P class=MsoNormal>Im Zahlungsverkehr ist die Option "Gegenrechnungen" 
+aktiviert.</P>
+<P class=MsoNormal>Wird der Überweisungslauf für mehr als einen dieser 
+Kreditoren durchgeführt, wird die Verarbeitung mit dieser Fehlermeldung 
+abgebrochen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Mit den folgenden Einstellungen kann zurzeit noch keine 
+gültige Clearingdatei erzeugt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Verwendung einer italienischen 
+Hausbank bei Überweisung/Scheck</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei der Verwendung einer Hausbank 
+welche nicht in Österreich, Deutschland, Schweiz, Liechtenstein, Italien oder 
+Tschechien sitzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_264.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Erstellung einer SEPA-XML-Datei ist für Hausbanken mit 
+einem anderen Ländercode als A oder D (muss ein Euro-Land sein) möglich.</P>
+<P class=MsoNormal>Für die Erstellung der XML-Datei ist der folgende mesonic.ini 
+- Eintrag zu hinterlegen: </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>[Clearing]</P>
+<P class=MsoNormal>CreateForeignSepaFiles=1</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>ergänzt um den Eintrag des Ländercodes, in dessen Format die 
+SEPA-Datei erzeugt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>CreateForeignSepaFilesCountryCode=A</P>
+<P class=MsoNormal>oder</P>
+<P class=MsoNormal>CreateForeignSepaFilesCountryCode=D</P>
+<P class=MsoNormal>oder</P>
+<P class=MsoNormal>CreateForeignSepaFilesCountryCode=I</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Ist dieser zusätzliche Eintrag vorhanden, dann wird das 
+Foreign-SEPA-File nach der gewählten Landesnorm (A=Austria, D=Deutschland und 
+I=Italien) erzeugt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_265.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Clearing</P>
+<P class=MsoNormal>Mit dem Button 'Ausgabe Clearing' werden die Zahlungen 
+durchgeführt - die Zahlungsdaten werden in eine Clearing-Datei ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Formular</P>
+<P class=MsoNormal>Mit dem Button 'Ausgabe Formular' werden die Überweisungen 
+auf Überweisungsformularen ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Über den Ende-Button wird der Zahlungsverkehr verlassen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zurück</P>
+<P class=MsoNormal>Über diesen Button gelangt man zurück in den Schritt 
+"Selektion".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Vor</P>
+<P class=MsoNormal>Über diesen Button gelangt man in den nächsten Schritt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Selektionstabelle öffnen</P>
+<P class=MsoNormal>Über diesen Button wird das separate Fenster 
+"Zahlungsverkehr-Selektionstabelle" geöffnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Bildschirm</P>
+<P class=MsoNormal>Mit dem Button 'Ausgabe Bildschirm' werden die Zahlungen 
+nicht durchgeführt, sondern vorerst nur die Zahlungsvorschlagsliste 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Drucker</P>
+<P class=MsoNormal>Mit dem Button 'Ausgabe Drucker' werden die Zahlungen nicht 
+durchgeführt, sondern vorerst nur die Zahlungsvorschlagsliste ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Power 
+Report</P>
+<P class=MsoNormal>Durch Drücken des Buttons "Power Report" wird die Auswertung 
+auf Basis von Cube-Daten grafisch dargestellt. Die Ausgabe ist individuell 
+anpassbar und erfolgt in der Form von "Widgets", die unterschiedlichste 
+Darstellungen ermöglichen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Cube 
+erzeugen</P>
+<P class=MsoNormal>Mit dem Button 'Cube erzeugen' wird der Zahlungslauf bzw. die 
+selektieren Zahlungen als Cube ausgegeben. Der Zahlungslauf wird, aber nicht 
+durchgeführt. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Excel 
+Pivot</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Excel Pivot" werden die 
+selektierten Zahlungen in Form einer Pivot Ausgabe in Microsoft Excel (2007 oder 
+höher) angezeigt. Der Zahlungslauf wird, aber nicht durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+XLSX</P>
+<P class=MsoNormal>Mit Hilfe des Buttons "Ausgabe XLSX" wird die Auswertung mit 
+den von Ihnen definierten Selektionen an Microsoft Excel übergeben. Der 
+Zahlungslauf wird, aber nicht durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Datenquelle</P>
+<P class=MsoNormal>Mit Hilfe dieser Auswahl kann definiert werden, ob und wie 
+eine Datenquelle (d.h. ein Snapshot oder eine MasterView) verwendet werden 
+soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Keine Datenquelle<BR>Bei Auswahl 
+von "keine Datenquelle" wird keine zuvor angelegte Datenquelle genutzt. D.h. die 
+Daten werden von der WinLine "live" ermittelt und in der gewünschten Form 
+ausgegeben.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Da die BI-Ausgabe (z.B. Cube 
+oder Power Report) immer eine Datenquelle benötigt, wird im Hintergrund eine 
+temporäre Datenquelle (Snapshot) gebildet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datenquelle 
+erstellen/aktualisieren<BR>Die Daten werden zur Laufzeit ermittelt und an einen 
+zu definierenden Snapshot übergeben. Nach dem Füllen der Datenquelle wird die 
+gewünschte Ausgabevariante über die Datenquelle erzeugt. Dieser Vorgang kann mit 
+einer Zeitverzögerung verbunden sein, da die Daten zusätzlich gespeichert werden 
+müssen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datenquelle verwenden<BR>Bei der 
+Verwendung eines Snapshots werden die Daten direkt aus der Datenquelle gelesen, 
+d.h. die für die Ausgabe benötigten Daten können ohne Verzögerung in der 
+gewünschten Variante ausgegeben werden.<BR>Wird hingegen eine MasterView 
+gewählt, so werden die Daten für die Ausgabe "live" ermittelt, wobei diese so 
+aktuell sind wie die zugrunde liegenden Datenquellen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Der Button "Datenquelle 
+verwenden" wird nur angeboten, wenn für diesen Bereich (bezogen auf den 
+aktuellen Benutzer / Mandanten) zumindest eine private oder öffentliche 
+Datenquelle existiert. Des Weiteren stehen nur die Ausgabevarianten "Power 
+Report", "Cube erzeugen", "Excel Pivot" und "Ausgabe XLSX" zur Verfügung.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Weitere Informationen zum Thema "Datenquellen" entnehmen Sie 
+bitte dem Kapitel "Die Datenquelle".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Für Gegenverrechnungen werden die Vorzeichen aller Werte 
+umgekehrt, um die Gesamtsummen korrekt zu erhalten.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Wurde ein Stapel als "Scheckzahlung" oder "Sperrstapel" 
+definiert, so steht der Button "Ausgabe Clearing" nicht zur Verfügung.</P>
+<P class=MsoNormal>Wurde ein Stapel als "Auftraggeberhaftung" oder "Sperrstapel" 
+definiert, so steht der Button "Ausgabe Formular" nicht zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Clearing Parameter</P>
+<P class=MsoNormal>Nach Drücken dieses Buttons können Sie die Einstellungen für 
+SEPA-Überweisungen oder die Überweisung gemäß Auslandszahlungsverkehr 
+einstellen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_266.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Art des 
+Geschäftsvorfalles</P>
+<P class=MsoNormal>(3-stellig, alphanumerisch) Hier kann selektiert werden, ob 
+um welchen Geschäftsvorfall es sich dabei handelt. Z. B. Wareneinkauf, 
+Zinszahlungen usw. Bei dieser Angabe handelt es sich um Aussagen für die 
+Statistik. Es erfolgt hierfür auch keine Abprüfung durch die Bank. Standardmäßig 
+schlägt das Programm GDS = Kauf bzw. Verkauf von Waren vor.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Gilt nur für Tschechien:</P>
+<P class=MsoNormal>Für Tschechien stehen eigene Zahlungsarten für die 
+Clearingausgabe zur Verfügung. Beachten Sie die richtige Vorbelegung im Feld 
+neben der Art des Geschäftsvorfalles. </P>
+<P class=MsoNormal>z. B. 110 Warenausfuhr, 120 Wareneinfuhr, usw.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Zahlungsform</P>
+<P class=MsoNormal>Auswahl der zu verwendenden Zahlungsform wie z.B. TRF - 
+Normale Überweisung, UGI-Priority Payments usw.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Gilt nur für Deutschland:</P>
+<P class=MsoNormal>Ist im Bankenstamm der V2-Standard aktiviert, stehen hier bei 
+Überweisungen ins Ausland auch die Scheck-Zahlungsformen 20-23 ("Versandform 
+freigestellt", "per Einschreiben", "per Eilboten" und "per 
+Eilboten/Einschreiben") zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Art der 
+Transaktionsart</P>
+<P class=MsoNormal>In diesem Feld kann die Art der Transaktion festgelegt 
+werden. Wenn z.B. in Österreich ein Bankeinzug durchgeführt wird, dann wird hier 
+die Transaktionsart " 82 Einzug gemäß Einzugsermächtigungsverfahren", 
+vorgeschlagen, bei einer Abbuchung wird die Transaktionsart " 83 Lastschrift auf 
+Basis Abbuchungsauftrag" vorgeschlagen. Bei einer "normalen" Überweisung wird " 
+00 Standard" vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Spesenverrechnung</P>
+<P class=MsoNormal>Hier wird durch Auswahl der entsprechenden wer welchen Anteil 
+an den Spesen, die durch diese Überweisung entstehen, zu tragen hat. </P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn ein Auslandszahlungsverkehr durchgeführt wird, dann 
+sollte hier die Option " 14 inländ. Spesen zul. Auftragg. Ausländ. Spes. Zul. 
+Empf." Verwendet werden, womit dann die kostengünstigere Variante des AZV 
+verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Processing 
+Indicator</P>
+<P class=MsoNormal>Aus der Auswahllistbox kann gewählt werden, ob es sich bei 
+der Zahlung um einen "Import", einen "Eigenübertrag", oder um eine "sonstige 
+Zahlung" handelt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>ONB-Positionsnummer</P>
+<P class=MsoNormal>Dieses Feld kann für die Devisenstatistik verwendet 
+werden.</P>
+<P class=MsoNormal>Bezüglich genauerer Funktion der einzelnen Steuercodes 
+kontaktieren Sie bitte Ihr Kreditinstitut bzw. Ihre Hausbank (hier handelt es 
+sich um genormte Vorgaben, die mit den Anforderungen des Zahlungsverkehrs 
+konform gehend, selektiert werden müssen).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Textvorbelegung / SEPA Zahlungen</P>
+<P class=MsoNormal>Bei SEPA-Zahlungen gibt es zwei Bereiche, in denen 
+Zahlungsinformationen übermittelt werden können:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Strukturierter 
+Verwendungszweck<BR>Der strukturierte Verwendungszweck entspricht in der WinLine 
+dem Kurzverwendungszweck (eigene Spalte im Register "Editieren" in der 
+Clearing-Ausgabe) und darf max. 35 Zeichen lang sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Unstrukturierter 
+Verwendungszweck<BR>Der unstrukturierte Verwendungszweck entspricht in der 
+WinLine dem Langtext (einzelne Textzeilen im Register "Editieren" in der 
+Clearing-Ausgabe) und darf max. 140 Zeichen lang sein.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>In der SEPA-Datei darf nur <U>einer</U> der beiden 
+Zahlungsinformationen mit übergeben werden. Sind in einer Zahlungszeile beide 
+Zahlungsinformationen bei der Clearing-Ausgabe befüllt, so hat der 
+Kurzverwendungszweck (strukturierter Verwendungstext) eine höhere Priorität und 
+wird dem Langtext vorgezogen. Somit geht der Langtext nicht in die 
+SEPA-Datei.<BR>Die Prüfung, welcher Text in die SEPA-Datei geschrieben wird, 
+erfolgt je Zahlungszeile gesondert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis für Deutschland</P>
+<P class=MsoNormal>Üblicherweise wird mit dem unstrukturierten Verwendungszweck 
+gearbeitet. Ggf. kontaktieren Sie Ihre Hausbank, in wie weit der strukturierte 
+Verwendungszweck unterstützt wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Folgende Textvorbelegungen stehen für SEPA-Zahlungen in den 
+Clearing-Parametern zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Ausland<BR>Ausgabe der 
+Überschriftenzeile. Pro Rechnung werden die Fakturennummer sowie der 
+Zahlungsbetrag ausgewiesen. In den Kurzverwendungszweck wird der OP-Text 
+übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - 1-zeilig ohne Überschrift und 
+Anschrift<BR>Pro Rechnung wird eine Zeile mit der Fakturennummer und dem 
+Zahlungsbetrag ausgegeben. In den Kurzverwendungszweck wird der OP-Text 
+übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - Clearingausgabe Datum, 
+Faktura, und Betrag<BR>Die Ausgabe erfolgt nach dem Schema Fakturendatum, 
+Fakturennummer und dem Zahlungsbetrag. In den Kurzverwendungszweck wird der 
+OP-Text übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis zu den Textvorbelegungen 0, 3 und 4</P>
+<P class=MsoNormal>In der SEPA-Datei darf nur <U>einer</U> der beiden 
+Zahlungsinformationen mit übergeben werden. Sind in der WinLine einer 
+Zahlungszeile beide Zahlungsinformationen bei der Clearing-Ausgabe befüllt, so 
+hat der Kurzverwendungszweck (strukturierter Verwendungstext) eine höhere 
+Priorität und wird dem Langtext vorgezogen. Somit geht der Langtext nicht in die 
+SEPA-Datei.<BR>Die Prüfung, welcher Text in die SEPA-Datei geschrieben wird, 
+erfolgt je Zahlungszeile gesondert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>5 - SEPA 1 Zusatzfeld als 
+Kurzverwendungszweck strukt.<BR>Im Kurzverwendungszweck wird das 1. Zusatzfeld 
+aus dem Personenkontenstamm geladen. In der SEPA-Datei entspricht dies dem 
+strukturierten Verwendungszweck. Diese Textvorbelegung sollte nur dann verwendet 
+werden, wenn im Zusatzfeld 1 des Personenkontenstamms die "Kontonummer beim 
+Lieferanten" hinterlegt ist.<BR>Das Formular kann individuell angepasst werden 
+(P01W37CLEAR5INT).<BR>Unter Flag V im Kopfbereich befindet sich die Variable 
+50/201 "Zusatzfeld 1".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>6 - SEPA unstrukt. 
+Verwendungszweck Faktnr./Betrag/Sko<BR>Pro Rechnung wird im Langtext eine Zeile 
+mit Fakturennummer/Zahlungsbetrag/Skonto ausgegeben. In der SEPA-Datei 
+entspricht dies dem unstrukturierten Verwendungszweck. Bei dieser Variante kann 
+die Anzahl der Fakturen über das nachfolgende Feld "Anzahl Fakturen" gesteuert 
+werden. Als Standard-Wert ist hier 3 voreingestellt. Wie viele Fakturen von der 
+Stellenanzahl her in den Verwendungszweck übernommen werden können, hängt von 
+der Länge der Fakturennummer etc. ab und kann nur individuell entschieden 
+werden.<BR>Das Formular kann individuell angepasst werden 
+(P01W37CLEAR6INT).<BR>Unter Flag 2F (Deutschland) bzw. 1 (Österreich) im 
+Mittelteil befindet sich die Formel.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>7 - SEPA strukt. 
+Kurzverwendungszweck OPText<BR>Im Kurzverwendungszweck wird der OP-Text 
+eingetragen. Der Langtext bleibt leer. In der SEPA-Datei entspricht dies dem 
+strukturierten Verwendungszweck.<BR>Das Formular kann individuell angepasst 
+werden (P01W37CLEAR7INT).<BR>Unter Flag V im Kopfbereich befindet sich die 
+Variable 19/18 "OP-Text".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>8 - SEPA Fremdkontonummer 
+unstrukt. Verwendungszweck <BR>Die Fremdkontonummer aus dem Personenkontenstamm 
+wird in den Langtext eingetragen. Der Kurzverwendungszweck bleibt leer. In der 
+SEPA-Datei entspricht dies dem unstrukturierten Verwendungszweck.<BR>Das 
+Formular kann individuell angepasst werden (P01W37CLEAR8INT).<BR>Unter Flag 2F 
+(Deutschland) bzw. 1 (Österreich) im Mittelteil befindet sich die Variable 
+50/188 "Fremdkontonummer".</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Textvorbelegung / DTAUS</P>
+<P class=MsoNormal>Bei einer "normalen" Inlandsüberweisung können Textzeilen mit 
+angegeben werden, wobei die Anzahl der Textzeilen in A und D jeweils mit 12 
+beschränkt ist (pro Überweisung). Dazu kommt, dass in A pro Zeile 57 Zeichen, in 
+D 27 Zeichen pro Textzeile verwendet werden dürfen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über die Textvorbelegung kann nun gesteuert werden, wie die 
+Überschriften bzw. die Einzelzeilen bei Überweisungen gestaltet werden sollen, 
+wobei es folgende Möglichkeiten gibt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 Standard<BR>Die Ausgabe erfolgt 
+nach folgendem Schema:<BR>A: 1 Überschriftenzeile, pro Rechnung wird die 
+Fakturennummer, der Zahlungsbetrag und der Skontobetrag ausgewiesen - somit 
+können max. 11 Rechnungen mit einer Überweisung ausgeglichen werden.<BR>D: 1 
+Anschriftenzeile, 1 Überschriftenzeile, pro Rechnung werden 2 Zeilen mit der 
+Fakturennummer, dem Zahlungsbetrag und dem Rechnungsbetrag ausgegeben - somit 
+können max. 5 Rechnungen mit einer Überweisung ausgeglichen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 Ohne Überschrift und 
+Anschrift<BR>Die Ausgabe erfolgt nach folgendem Schema:<BR>A: pro Rechnung wird 
+die Fakturennummer, der Zahlungsbetrag und der Skontobetrag ausgewiesen - somit 
+können max. 12 Rechnungen mit einer Überweisung ausgeglichen werden.<BR>D: pro 
+Rechnung werden 2 Zeilen mit der Fakturennummer, dem Zahlungsbetrag und dem 
+Rechnungsbetrag ausgegeben - somit können max. 6 Rechnungen mit einer 
+Überweisung ausgeglichen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 1-Zeilig<BR>Nur für D sinnvoll. 
+Die Ausgabe erfolgt nach folgendem Schema:<BR>1 Anschriftenzeile, 1 
+Überschriftenzeile, pro Rechnung wird eine Zeile mit der Fakturennummer und dem 
+Zahlungsbetrag ausgegeben - somit können max. 10 Rechnungen mit einer 
+Überweisung ausgeglichen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 1-Zeilig ohne Überschrift und 
+Anschrift<BR>Nur für D sinnvoll. Die Ausgabe erfolgt nach folgendem 
+Schema:<BR>Pro Rechnung wird eine Zeile mit der Fakturennummer und dem 
+Zahlungsbetrag ausgegeben - somit können max. 12 Rechnungen mit einer 
+Überweisung ausgeglichen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 Mehrzeilig mit OP-Text pro 
+Faktura<BR>Die Ausgabe erfolgt nach folgendem Schema:<BR>A: 1 
+Überschriftenzeile, pro Rechnung wird die Fakturennummer, der Zahlungsbetrag und 
+der Skontobetrag ausgewiesen, in der 2. Zeile wird dann der OP-Text der Rechnung 
+mit übergeben - somit können max. 5 Rechnungen mit einer Überweisung 
+ausgeglichen werden.<BR>D: 1 Anschriftenzeile, 1 Überschriftenzeile, pro 
+Rechnung wird eine Zeile mit der Fakturennummer und dem Zahlungsbetrag 
+ausgegeben, in der 2. Zeile wird dann der OP-Text der Rechnung mit übergeben - 
+somit können max. 5 Rechnungen mit einer Überweisung ausgeglichen werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>5 Ohne Textinfos<BR>Mit dieser 
+Option werden gar keine Textzeilen ausgegeben, es wird sofort der Begleitzettel 
+gedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>6 3 Fakturen in einer Zeile<BR>Es 
+wird eine Überschriftenzeile erstellt, danach werden pro Zeile 3 
+Rechnungsnummern mit Strichpunkt (Semikolon) getrennt ausgegeben. Damit können 
+max. 33 Rechnungen pro Überweisung ausgeglichen werden.<BR>Beim V2-Format wird 
+beim Erstellen der Datei das Semikolon durch ein Komma ersetzt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Diese Optionen werden über die Formulare P01W37CLEAR1 bis 
+P01W37CLEAR6 gesteuert, wobei die Anzahl der Optionen individuell noch erweitert 
+werden kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über die Optionen 7 und 8 kann gesteuert werden, welcher Text 
+als Verwendungszweck im Clearing verwendet werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>7 Standard; Verwendungszweck = 1. 
+Zusatzfeld<BR>Im Formular P01W37CLEAR7 (das der Ausgabe 0 = Standard entspricht) 
+kann mittels Flag "V" definiert werden, welcher Text in den Kurzverwendungszweck 
+gestellt wird. In der Auslieferversion ist in diesem Formular das Zusatzfeld 1 
+des Personenkontos hinterlegt. Diese Formulare können individuell angepasst 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>8 1-Zeilig; kein 
+Verwendungszweck<BR>Es wird das Formular P01W37CLEAR8 (das der Ausgabe 2 = 
+1-Zeilig entspricht) verwendet. Wird diese Textvorbelegung verwendet, wird kein 
+Verwendungszweck übergeben. Das Formular kann individuell angepasst 
+werden.<BR>Wenn im Formular im Verwendungszweck einzig und alleine ein @ stehen, 
+dann bedeutet das, dass der Verwendungszweck leer bleibt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>9 Standard; Verwendungszweck = 
+Fremdkontonummer <BR>Es wird das Formular P01W37CLEAR9 (das der Ausgabe 0 = 
+Standard entspricht) verwendet. Bei dieser Textvorbelegung wird die 
+Fremdkontonummer aus dem Personenkontenstamm (Register "FAKT") als 
+Kurzverwendungszweck verwendet. Ist dieses Feld leer so wird der OP-Text 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Für SEPA-Überweisungen gelten gewisse Texteinschränkungen 
+beim Verwendungszweck. Bei der erstmaligen SEPA-Überweisung kommt im 
+Zahlungsverkehr, wenn im Clearingparameter eine andere Textvorbelegung als "3" 
+eingestellt ist, einmalig eine entsprechende Abfrage. Wird diese Abfrage mit JA 
+beantwortet, wird automatisch die Textvorbelegung 3 im Clearingparameter 
+eingetragen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_267.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzahl 
+Fakturen</P>
+<P class=MsoNormal>Damit kann vorgegeben werden, wie viele Fakturen in die 
+SEPA-Datei übergeben werden sollen, wenn die Textvorbelegung "6 SEPA unstrukt. 
+Verwendungszweck Faktnr./Betrag/Skonto" verwendet wird. Dieses Feld ist mit 
+Anzahl 3 voreingestellt. Wie viele Fakturen von der Stellenanzahl her in den 
+Verwendungszweck übernommen werden können, hängt von der Länge der 
+Fakturennummer etc. ab und kann nur individuell entschieden werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Auslandszahlungsverkehr</P>
+<P class=MsoNormal>Wenn die Checkbox aktiviert wird, bedeutet das, dass max. 4 
+Textzeilen ausgegeben werden (in D ist das nur eine Überweisung, in A können 
+damit 3 Überweisungen erstellt werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>1-€-Überweisung</P>
+<P class=MsoNormal>Wenn die Checkbox "1-€-Überweisung" aktiviert wird, dann 
+werden keine Begleitzettel mehr gedruckt (wenn nicht die Checkbox extra 
+aktiviert ist). Das bedeutet, dass so lange Überweisungen erzeugt werden, bis 
+für alle ausgeglichenen Rechnungen eine Textzeile in den Überweisungen vorhanden 
+ist.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Textvorbelegung: Standard -&gt; bedeutet in Österreich werden 
+11 Fakturen pro Überweisung übergeben. </P>
+<P class=MsoNormal>Es werden nun einem Lieferanten 25 Fakturen bezahlt, wobei 
+jede Faktura genau 10 € beträgt. Somit ergibt sich ein Gesamtbetrag von € 250,-. 
+Mit der 1-€- Überweisung sieht das ganze wie folgt aus:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Überweisung 1, Betrag 1 €,--</P>
+<P class=MsoNormal>Faktura Betrag</P>
+<P class=MsoNormal>1 10,-</P>
+<P class=MsoNormal>2 10,-</P>
+<P class=MsoNormal>3 10,-</P>
+<P class=MsoNormal>4 10,-</P>
+<P class=MsoNormal>5 10,-</P>
+<P class=MsoNormal>6 10,-</P>
+<P class=MsoNormal>7 10,-</P>
+<P class=MsoNormal>8 10,-</P>
+<P class=MsoNormal>9 10,-</P>
+<P class=MsoNormal>10 10,-</P>
+<P class=MsoNormal>11 10.-</P>
+<P class=MsoNormal>Überweisung 2, Betrag 1 €,--</P>
+<P class=MsoNormal>Faktura Betrag</P>
+<P class=MsoNormal>12 10,-</P>
+<P class=MsoNormal>13 10,-</P>
+<P class=MsoNormal>14 10,-</P>
+<P class=MsoNormal>15 10,-</P>
+<P class=MsoNormal>16 10,-</P>
+<P class=MsoNormal>17 10,-</P>
+<P class=MsoNormal>18 10,-</P>
+<P class=MsoNormal>19 10,-</P>
+<P class=MsoNormal>20 10,-</P>
+<P class=MsoNormal>21 10,-</P>
+<P class=MsoNormal>22 10,-</P>
+<P class=MsoNormal>Überweisung 3, Betrag 248 €,--</P>
+<P class=MsoNormal>Faktura Betrag</P>
+<P class=MsoNormal>23 10,-</P>
+<P class=MsoNormal>24 10,-</P>
+<P class=MsoNormal>25 10,-</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Begleitzettel 
+zusätzlich drucken</P>
+<P class=MsoNormal>Wenn diese Option aktiviert ist, werden die Begleitzettel 
+zusätzlich ausgedruckt. Auch für die Überweisungen, wo aufgrund der Anzahl der 
+Überweisungen kein Begleitzettel notwendig ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>EU-Überweisungsbetrag berücksichtigen</P>
+<P class=MsoNormal>Wird diese Option aktiviert, dann werden Überweisungen nur 
+bis zum EU-Überweisungsbetrag (lt. Einstellung in den "Absender Stammdaten - 
+Clearing-Absender") ausgegeben. Beträge die diesen Betrag übersteigen, werden 
+auf mehrere Überweisungen gesplittet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Zum Auslandszahlungsverkehr sind weiters noch die Punkte 
+"Bankleitzahlenstamm (WinLine START)" und "Bankenstamm" sowie der 
+"Clearing-Absender" zu beachten.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung><SPAN 
+style="LAYOUT-GRID-MODE: line">Formulare</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Nachfolgend finden Sie 
+eine Zusammenfassung, wie die Formulare im WinLine Zahlungsverkehr benannt 
+werden:</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=BeispielAchtung><SPAN 
+style="LAYOUT-GRID-MODE: line">Begleitzettel</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01W371</SPAN></B></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01W3711</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line">: Begleitzettel für den Zahlstapel 1</SPAN></P>
+<DIV 
+style="MARGIN-BOTTOM: 0pt; BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: medium none; MARGIN-TOP: 0pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0pt; PADDING-TOP: 1pt; PADDING-LEFT: 0pt; BORDER-LEFT: medium none; PADDING-RIGHT: 0pt">
+<P class=MsoFooter 
+style="MARGIN-TOP: 0pt; BORDER-BOTTOM: windowtext 0.75pt solid; PADDING-BOTTOM: 1pt"><SPAN 
+style="LAYOUT-GRID-MODE: line">Pro Zahlstapel kann ein eigenes Formular für den 
+Begleitzettel verwendet werden. Es wird die Nummer des Zahlstapels an die 
+Bezeichnung des Formulars P01W371 angehängt. Das Formular P01W3711 ist das 
+Formular für den Zahlstapel 1, Formular P01W3712 ist für den Zahlstapel 2 
+usw.</SPAN></P>
+<P class=MsoFooter style="MARGIN-BOTTOM: 0pt; PADDING-TOP: 1pt"><SPAN 
+style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P></DIV>
+<P class=BeispielAchtung><SPAN 
+style="LAYOUT-GRID-MODE: line">Formulardruck</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Der Name des 
+Standard-Überweisungsformulars lautet:</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0A00:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> (P01WZ = fix, 0 = Spracheinstellung, A = 
+Österreich - Ländereinstellung, 00 = Standard Überweisung)</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0D00:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> (P01WZ = fix, 0 = Spracheinstellung, D = 
+Deutschland - Ländereinstellung, 00 = Standard Überweisung)</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Der Name des 
+Standard-Scheckformulars lautet</SPAN></P>
+<P class=MsoNormal><B><SPAN style="LAYOUT-GRID-MODE: line">P01WZ0A10: 
+</SPAN></B><SPAN style="LAYOUT-GRID-MODE: line">(P01WZ = fix, 0 = 
+Spracheinstellung, A = Österreich -Ländereinstellung, 10 = Standard 
+Scheck)</SPAN></P>
+<P class=MsoNormal><B><SPAN style="LAYOUT-GRID-MODE: line">P01WZ0D10: 
+</SPAN></B><SPAN style="LAYOUT-GRID-MODE: line">(P01WZ = fix, 0 = 
+Spracheinstellung, D = Deutschland - Ländereinstellung, 10 = Standard 
+Scheck)</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Der Name des 
+Standard-Bankeinzugsformulars lautet</SPAN></P>
+<P class=MsoNormal><B><SPAN style="LAYOUT-GRID-MODE: line">P01WZ0A20: 
+</SPAN></B><SPAN style="LAYOUT-GRID-MODE: line">(P01WZ = fix, 0 = 
+Spracheinstellung, A = Österreich - Ländereinstellung, 20 = Standard 
+Bankeinzug)</SPAN></P>
+<P class=MsoNormal><B><SPAN style="LAYOUT-GRID-MODE: line">P01WZ0D20: 
+</SPAN></B><SPAN style="LAYOUT-GRID-MODE: line">(P01WZ = fix, 0 = 
+Spracheinstellung, D = Deutschland - Ländereinstellung, 20 = Standard 
+Bankeinzug)</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Der Name des 
+Standard-Abbuchungsformulars lautet</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0A30:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> P01WZ = fix, 0 = Spracheinstellung, A = 
+Österreich - Ländereinstellung, 30 = Standard Abbuchung)</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0D30:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> (P01WZ = fix, 0 = Spracheinstellung, D = 
+Deutschland - Ländereinstellung, 30 = Standard Abbuchung)</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Nun kann für jeden 
+Zahlungsstapel ein eigenes Überweisungs- / Scheck- / Bankeinzug- / 
+Abbuchungsformular hinterlegt werden. Dies ist vor allem für den 
+Auslandszahlungsverkehr sinnvoll (für jede FW einen eigenen Stapel - da die 
+Formulare zwischen Inlandszahlungsverkehr und Auslandszahlungsverkehr sich in 
+der Regel unterscheiden werden).</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Folgende Anpassung des 
+Formularnamens wird aufgrund der Stapelnummer vorgenommen - dabei kann (wenn 
+gewünscht) pro Stapel ein eigenes Formular hinterlegt werden</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">z.B.: Der Formular-Name 
+für Stapel 1 lautet:</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0AS1:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> (P01WZ = fix, 0 = Spracheinstellung, A = 
+Österreich - Ländereinstellung, S1 = Stapel 1)</SPAN></P>
+<P class=MsoNormal><B><SPAN 
+style="LAYOUT-GRID-MODE: line">P01WZ0DS1:</SPAN></B><SPAN 
+style="LAYOUT-GRID-MODE: line"> (P01WZ = fix, 0 = Spracheinstellung, D = 
+Deutschland - Ländereinstellung, S1 = Stapel 1)</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Ob es sich bei dem 
+Formular um eine Überweisung, einen Scheck, einen Bankeinzug oder eine Abbuchung 
+handelt wird in der Stapeldefinition selbst festgelegt.</SPAN></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

@@ -1,0 +1,79 @@
+﻿@inject IDialogService DialogService
+
+<FluentButton OnClick="@ShowSuccessAsync" Appearance="ButtonAppearance.Primary">Success</FluentButton>
+<FluentButton OnClick="@ShowWarningAsync" Appearance="ButtonAppearance.Primary">Warning</FluentButton>
+<FluentButton OnClick="@ShowErrorAsync" Appearance="ButtonAppearance.Primary">Error</FluentButton>
+<FluentButton OnClick="@ShowInformationAsync" Appearance="ButtonAppearance.Primary">Information</FluentButton>
+<FluentButton OnClick="@ShowConfirmationAsync" Appearance="ButtonAppearance.Primary">Confirmation</FluentButton>
+<FluentButton OnClick="@ShowMessageBoxLongAsync" Appearance="ButtonAppearance.Primary">Long message</FluentButton>
+<FluentButton OnClick="@ShowMessageBoxAsync" Appearance="ButtonAppearance.Primary">Custom message</FluentButton>
+
+<p>
+    Last result: @GetResult()
+</p>
+
+@code
+{
+    private bool? Canceled;
+
+    private async Task ShowSuccessAsync()
+    {
+        var result = await DialogService.ShowSuccessAsync("The action was a success");        
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowWarningAsync()
+    {
+        var result = await DialogService.ShowWarningAsync("This is your final warning");
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowErrorAsync()
+    {
+        var result = await DialogService.ShowErrorAsync("This is an error");
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowInformationAsync()
+    {
+        var result = await DialogService.ShowInfoAsync("This is a message");
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowConfirmationAsync()
+    {
+        var result = await DialogService.ShowConfirmationAsync("Are you <strong>sure</strong> you want to delete this item? <br />This will also remove any linked items");
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowMessageBoxLongAsync()
+    {
+        var result = await DialogService.ShowInfoAsync(SampleData.Text.GenerateLoremIpsum(1));
+        Canceled = result.Cancelled;
+    }
+
+    private async Task ShowMessageBoxAsync()
+    {
+        var result = await DialogService.ShowMessageBoxAsync(new MessageBoxOptions()
+            {
+                Title = "My title",
+                Message = "My <strong>customized</strong> message",
+                Icon = new Icons.Regular.Size24.Games(),
+                IconColor = Color.Success,
+                PrimaryButton = "Plus",
+                SecondaryButton = "Minus",
+            });
+
+        Canceled = result.Cancelled;
+    }
+
+    private string GetResult()
+    {
+        return Canceled switch
+        {
+            true => "❌ Canceled",
+            false => "✅ OK",
+            _ => ""
+        };
+    }
+}

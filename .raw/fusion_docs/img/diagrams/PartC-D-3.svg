@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 390" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+    
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 Z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Subgraph: Outermost -->
+  <rect x="20" y="20" width="760" height="160" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="35" y="40" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">IOUTERMOSTCOMMAND (FORCED ISOLATION)</text>
+
+  <!-- Subgraph: Regular -->
+  <rect x="20" y="210" width="760" height="160" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="35" y="230" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">REGULAR COMMAND (NESTED)</text>
+
+  <!-- Outermost Nodes -->
+  <!-- O1: Context #1 -->
+  <rect x="40" y="80" width="120" height="50" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="100" y="105" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Context #1</text>
+
+  <!-- O2: Call(OutermostCmd) -->
+  <rect x="220" y="80" width="180" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="310" y="105" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Call(OutermostCmd)</text>
+
+  <!-- O3: Context #2 (NEW SCOPE!) -->
+  <rect x="460" y="55" width="300" height="100" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="610" y="75" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Context #2 (NEW SCOPE!)</text>
+  <text x="610" y="95" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">OuterContext: null</text>
+  <text x="610" y="115" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">ServiceScope: NEW</text>
+  <text x="610" y="135" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">OutermostContext: #2</text>
+
+  <!-- Regular Nodes -->
+  <!-- R1: Context #1 -->
+  <rect x="40" y="270" width="120" height="50" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="100" y="295" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Context #1</text>
+
+  <!-- R2: Call(RegularCmd) -->
+  <rect x="220" y="270" width="180" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="310" y="295" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Call(RegularCmd)</text>
+
+  <!-- R3: Context #2 -->
+  <rect x="460" y="255" width="300" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="610" y="275" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Context #2</text>
+  <text x="610" y="295" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">OuterContext: #1</text>
+  <text x="610" y="315" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">ServiceScope: shared</text>
+
+  <!-- Arrows Outermost -->
+  <path d="M 160 105 C 180 105, 194 105, 214 105" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 400 105 C 420 105, 434 105, 454 105" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <!-- Arrows Regular -->
+  <path d="M 160 295 C 180 295, 194 295, 214 295" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 400 295 C 420 295, 434 295, 454 295" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+</svg>

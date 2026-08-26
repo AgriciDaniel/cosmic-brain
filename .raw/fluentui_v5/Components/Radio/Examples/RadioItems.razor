@@ -1,0 +1,18 @@
+﻿<FluentRadioGroup Label="The winner is"
+                  Orientation="Orientation.Vertical"
+                  Items="@Employees"
+                  @bind-Value="@SelectedPerson"
+                  RadioLabel="@(i => $"{i?.FirstName} [{(i?.Male == true ? "M" : "F")}]")"
+                  RadioDisabled="@(i => i?.Male == true)"
+                  RadioValue="@(i => i?.Id)" />
+
+<FluentDivider Margin="@Margin.Vertical2" />
+
+<FluentLabel>Selected person: #@(SelectedPerson?.Id ?? "0") @SelectedPerson?.FirstName</FluentLabel>
+
+@code
+{
+    static SampleData.People.Person[] Employees = SampleData.People.GeneratePersons(5).ToArray();
+
+    SampleData.People.Person? SelectedPerson;
+}

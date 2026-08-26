@@ -1,0 +1,7 @@
+.palette-bar {
+  display: flex;
+  flex-direction: row;
+  max-width: 750px;
+  width: 100%;
+  gap: 0;
+}

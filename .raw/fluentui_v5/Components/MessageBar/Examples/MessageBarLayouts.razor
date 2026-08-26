@@ -1,0 +1,38 @@
+﻿<FluentStack>
+    <FluentSelect Label="Layout"
+                  Items="@(Enum.GetValues<MessageBarLayout>())"
+                  @bind-Value="@Layout" />
+
+    <FluentSwitch Label="Display an Action"
+                  Margin="42px 0 0 24px"
+                  @bind-Value="@DisplayAction" />
+</FluentStack>
+
+@if (DisplayAction)
+{
+    <FluentMessageBar Layout="@Layout"
+                      Intent="MessageBarIntent.Success"
+                      Title="Delete operation">
+        <ChildContent>
+            Successfully deleted 'XYZ-blazor.pdf'
+        </ChildContent>
+        <ActionsTemplate>
+            <FluentButton Size="ButtonSize.Small">Go to the resource</FluentButton>
+        </ActionsTemplate>
+    </FluentMessageBar>
+}
+else
+{
+    <FluentMessageBar Layout="@Layout"
+                      Intent="MessageBarIntent.Success"
+                      Title="Delete operation"
+                      TimeStamp="@(DateTime.Now.AddHours(-1))">
+        Successfully deleted 'XYZ-blazor.pdf'
+    </FluentMessageBar>
+}
+
+@code
+{
+    MessageBarLayout Layout = MessageBarLayout.SingleLine;
+    bool DisplayAction = true;
+}

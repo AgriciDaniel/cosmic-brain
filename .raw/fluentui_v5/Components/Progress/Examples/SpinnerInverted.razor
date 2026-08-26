@@ -1,0 +1,22 @@
+﻿<FluentStack HorizontalAlignment="HorizontalAlignment.Center"
+             VerticalAlignment="VerticalAlignment.Center"
+             Padding="@Padding.All2">
+    <FluentSpinner />
+    <FluentText Margin="@Margin.Horizontal3">Primary spinner</FluentText>
+</FluentStack>
+
+
+<FluentStack HorizontalAlignment="HorizontalAlignment.Center"
+             VerticalAlignment="VerticalAlignment.Center"
+             Class="inverted-colors"
+             Padding="@Padding.All2">
+    <FluentSpinner AppearanceInverted="true" />
+    <FluentText Margin="@Margin.Horizontal3">Inverted spinner</FluentText>
+</FluentStack>
+
+<style>
+    .inverted-colors {
+        color: var(--colorNeutralForegroundOnBrand);
+        background-color: var(--colorBrandBackgroundHover);
+    }
+</style>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>KORE-Parameter - Buchen</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">KORE-Parameter - Buchen</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Bereich "KORE-Parameter - Buchen" können 
+Einstellungen für die Buchungen hinterlegt werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Standardmäßig wird das Fenster in einem "Lesemodus" geöffnet, 
+d.h. es können die bestehenden Einstellungen kontrolliert, Änderungen allerdings 
+nicht durchgeführt werden. Hierfür muss zunächst mit Hilfe des Buttons 
+"Bearbeiten" der "Bearbeitungsmodus" aktiviert werden. Alternativ kann diese 
+Aktivierung auch über das Kontextmenü der rechten Maustaste (Funktion 
+"Applikation xxx bearbeiten") erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_687.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Skonto und Fremdwährungsdifferenz</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_688.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>an die KORE 
+übergeben</P>
+<P class=MsoNormal>Hier kann eingestellt werden, ob bei Skonto- und / oder 
+Kursdifferenzbuchungen automatische Kostenrechnungszeilen erzeugt werden sollen 
+oder nicht.</P>
+<P class=BeispielAchtung>Voraussetzungen</P>
+<P class=MsoNormal>Damit Skontobuchungen und Fremdwährungsdifferenzen 
+automatisch in die WinLine KORE gebucht werden, müssen folgende Voraussetzungen 
+erfüllt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>In den KORE-Parametern muss die 
+Funktion aktiviert werden und es muss eine Sammelkostenstelle angegeben 
+werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>In den Sachkonten (FW-Differenz- 
+und Skontokonten) muss eine Kostenart hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird beim Buchen eine Skontobuchung oder eine 
+FW-Differenzen-Buchung abgesetzt, wird aufgrund der bestehenden OP-Informationen 
+die WinLine KORE mitgebucht - die Beträge werden entsprechend der OP-Information 
+aliquotiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sammelkostenstelle</P>
+<P class=MsoNormal>Hier kann eine Sammelkostenstelle hinterlegt werden, die im 
+Falle eines Fehlers (wenn die Faktura z.B. nicht mehr vorhanden ist, da das 
+Kore-Journal bereits gelöscht wurde) verwendet wird. Durch Drücken der F9-Tasste 
+kann nach allen vorhandenen Kostenstellen gesucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sammelkostenstelle immer verwenden</P>
+<P class=MsoNormal>Wird diese Option aktiviert, so wird bei der Übergabe des 
+Skontos (und der FW-Differenzen) in die KORE immer fix die eingestellte 
+Sammelkostenstelle verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buchen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_689.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>keine 
+Kosteneingabe ohne Kostenträger</P>
+<P class=MsoNormal>Wenn diese Option aktiviert ist und zusätzlich in den 
+Fakt-Parametern die Checkbox "Kostenstelle und Kostenträger prüfen" aktiviert 
+ist, muss in der Belegzeile zwingend ein Kostenträger eingegeben werden, wenn 
+beim Erlöskonto eine Kostenart (keine Gemeinkostenart) hinterlegt ist und eine 
+Kostenstelle vorhanden ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Des Weiteren ist es nicht möglich, bei aktiver Checkbox einen 
+Buchungsstapel zu verbuchen, in dem KORE-Zeilen ohne Kostenträger vorhanden 
+sind. Beim Erfassen einer Buchungszeile wird bereits ein entsprechender Hinweis 
+gegeben, dass in einer KORE-Zeile ein Kostenträger eingegeben werden muss.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Der Import eines Buchungsstapels mit KORE-Zeilen ohne 
+Kostenträger über den Menüpunkt "Buchungsstapel-EXIM" ist ohne Fehlermeldung 
+durchzuführen, jedoch beim Versuch ihn sofort zu verbuchen, erfolgt ein 
+entsprechender Hinweis und der Stapel wird nur gespeichert und nicht 
+verbucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>keine 
+Kosteneingabe ohne Kostenstelle</P>
+<P class=MsoNormal>Wenn diese Option aktiviert ist, ist es nicht möglich, einen 
+Buchungsstapel zu verbuchen, in dem KORE-Zeilen ohne Kostenstellen vorhanden 
+sind (ausgenommen sind Buchungsstapel aus der Fakturierung - diese Buchungen 
+werden so übergeben, wie sie in der Fakturierung hinterlegt wurden). Beim 
+Erfassen einer Buchungszeile wird bereits ein entsprechender Hinweis gegeben, 
+dass in einer KORE-Zeile eine Kostenstelle eingegeben werden muss.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

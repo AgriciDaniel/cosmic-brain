@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Zahlungsausgleich</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="edifactviewer.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="vorschau.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Zahlungsausgleich</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A 
+name=_Toc473645646>Zahlungsausgleich</A></H2>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Das Programm-Modul 
+Zahlungsausgleich (ZAGL) erlaubt das automatische Buchen von Eingangs- als auch 
+Ausgangszahlungen auf Basis von Datenträgern, die von der Hausbank zur Verfügung 
+gestellt werden (z.B. CREMUL-Dateien, die im V3-Format von den Banken zur 
+Verfügung gestellt werden können). Zusätzlich können auch Kontoauszüge, die die 
+Bank im MT940-Format (= SWIFT-Format) und im NON-SWIFT-Format ausgibt, 
+eingelesen und gebucht werden.</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line"></SPAN>&nbsp;</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Voraussetzung für das 
+Einlesen von Überweisungen ist, dass die Kunden zur Zahlung die mit OCR/A bzw. 
+OCR/B bedruckten Zahlscheine verwenden, und dass ein Verwendungszweck 
+(Kontonummer + Fakturennummer, die gezahlt werden sollen) am Zahlschein 
+angedruckt wurde - ODER die Zahlung über ein </SPAN>Telebanking-Programm unter 
+Angabe des 12stelligen Verwendungszwecks erfolgt ist. Aufgrund dieser 
+Information kann die WinLine FIBU erkennen, für welches Konto und für welche 
+Faktura die Zahlung erfolgt ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Das Programm Modul Zahlungsausgleich ist Bestandteil der 
+Standardauslieferung der Corporate WinLine. Für die WinLine ist der 
+Zahlungsausgleich als Zusatzmodul verfügbar.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Das Modul Zahlungsausgleich</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>liest die Daten der Bank- ein</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>druckt die Übersichtsliste, welche 
+die von der Bank bereitgestellten Gutschriften enthält</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>prüft die Bankdaten auf formale 
+Richtigkeit</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>übernimmt die Bankdaten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>legt die Zahlungseingänge auf 
+einem Stapel (Nr. &gt; 300) ab</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>berechnet und bucht Skonti</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>führt Ausgleiche oder 
+Teilausgleiche der Offenen Posten durch</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung><SPAN style="LAYOUT-GRID-MODE: line">Gilt nur für 
+Deutschland:</SPAN></P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Zusätzlich zum 
+MT940-Format können auch Dateien im DTAUS-Format eingelesen werden. In diesem 
+Format ist es für Banken möglich, nur BAZ (Kundenzahlungen) 
+bereitzustellen.</SPAN></P>
+<P class=BeispielAchtung>Hinweis 1</P>
+<P class=MsoNormal><SPAN style="LAYOUT-GRID-MODE: line">Wenn im Bankenstamm 
+eingestellt ist, dass ein Bankkonto in einer Fremdwährung geführt wird, dann 
+werden beim Zahlungsausgleich die Beträge in die Landeswährung umgerechnet bzw. 
+(falls z.B. eine Faktura ebenfalls in dieser Fremdwährung erstellt worden ist) 
+die Zahlung in FW </SPAN>gebucht und ggf. Kursdifferenzen erstellt.</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Seit der Version 8.4 berücksichtigt der Zahlungsausgleich 
+auch die in den Konten hinterlegten Steuerzeilen/-leisten. Somit erfolgt auch 
+eine automatische Buchung der Steuer.</P>
+<P class=BeispielAchtung>Hinweis 3</P>
+<P class=MsoNormal>Sind im Sachkontenstamm Kostenrechnungsdaten (Kostenart, 
+Kostenstelle, Kostenträger) hinterlegt bei einem Konto, welches im 
+Zahlungsausgleich angesprochen wird, dann werden diese Daten in den 
+ZAGL-Buchungsstapel mit übernommen. Sollten im Buchungsstapel die KORE-Daten 
+nicht vollständig hinterlegt sein, wird beim Verbuchen des Stapels ein 
+entsprechender Hinweis ausgegeben und der Stapel wird nicht verbucht, solange 
+die Daten nicht vollständig im Buchungsstapel ergänzt wurden.</P>
+<P class=BeispielAchtung>Hinweis 4</P>
+<P class=MsoNormal>Alle generellen Einstellungen wie z.B. die Personenkontosuche 
+oder Skontoberücksichtigung, welche für den Zahlungsausgleich gelten sollen, 
+werden in dem Register Einstellungen vorgenommen. Die Einträge in der 
+MESONIC.INI unter [ZAGL] haben somit keine Auswirkung mehr.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Der Aufruf des Zahlungsausgleiches erfolgt im 
+Programmpunkt</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>WinLine 
+FIBU</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Buchen</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Zahlungsausgleich</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_320.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Vorbesetzungen für die Datenübernahme</P>
+<P class=MsoNormal>Beim Einsatz des elektronischen Zahlungsverkehrs findet 
+folgender Vorgang statt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Im Zuge der Erstellung der Faktura werden Zahlscheine 
+bedruckt und vom Kunden zum Ausgleich der Rechnung verwendet. Die Bank 
+bearbeitet diese Zahlscheine weiter und erstellt eine Datei mit 
+Zahlungsdaten.</P>
+<P class=MsoNormal>Wesentliche Bestandteile dieser Daten sind Fakturen- und 
+Debitorennummer. Auf Basis dieser Datei erzeugt der Zahlungsausgleich 
+Buchungssätze für den Ausgleich und Teilausgleich der Fakturen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Voraussetzung für eine reibungslose Übernahme ist das 
+korrekte Ausfüllen der folgenden Datenfelder.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hausbank</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt 38.85pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Hausbank</P>
+<P class=MsoNormal>Mit Cursor down können Sie aus der Auswahlbox die Bank 
+auswählen, von der die Daten übernommen werden sollen. Die Felder mit der 
+Adresse, Bankleitzahl/Kontonr., FIBU-Kontonr. werden aufgrund der Hinterlegungen 
+im Bankenstamm automatisch befüllt.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Damit der Zahlungsausgleich reibungslos funktionieren kann, 
+muss die entsprechende Bank im Bankenstamm (Menüpunkt 
+<I>Stammdaten/Zahlungsstammdaten/Bankenstamm</I>) ordnungsgemäß angelegt worden 
+sein. D.h. im Bankenstamm muss auch die FIBU-Kontonummer der Bank hinterlegt 
+worden sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Dateiname</P>
+<P class=MsoNormal>Eingabe des Dateinamens, in der sich die Daten zur Übernahme 
+befinden. Durch Anklicken der Lupe kann in allen vorhandenen Laufwerken und 
+Verzeichnissen nach der Übernahmedatei gesucht werden. Die Felder Dateiformat, 
+Bankleitzahl/Kontonummer unter Datei-Info werden automatisch aufgrund der 
+Übernahmedatei befüllt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Dateien können auch mittels Drag &amp; Drop in den 
+Zahlungsausgleich geladen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Auszug</P>
+<P class=MsoNormal>Befinden sich in der Kontoauszugsdatei mehrere Kontoauszüge, 
+kann hierüber ausgewählt werden welche Kontoauszüge eingelesen werden 
+sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Eigener 
+Stapel pro Auszug</P>
+<P class=MsoNormal>Die Checkbox wird freigeschaltet, sobald eine ZAGL-Datei mehr 
+als einen Auszug enthält.</P>
+<P class=MsoNormal>Ist die Checkbox aktiv, wird pro Auszug ein eigener 
+ZAGL-Buchungsstapel erzeugt.</P>
+<P class=MsoNormal>Ist die Checkbox nicht aktiv, werden die Buchungszeilen aller 
+Auszüge in einen ZAGL-Buchungsstapel gestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Stapelbezeichnung des ZAGL-Buchungsstapels werden die 
+ersten 18 Zeichen von der Auszugsnummer angehängt, damit die Stapel leichter zu 
+unterscheiden sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis:</P>
+<P class=MsoNormal>Sollte das Programm keinen freien Stapel mehr finden (d.h. im 
+Bereich von Stapelnummer 300 bis 399 sind alle Buchungsstapel belegt), wird der 
+Import an dieser Stelle abgebrochen. Pro Stapel, der nicht mehr angelegt werden 
+kann, kommt eine entsprechende Meldung.</P>
+<P class=MsoNormal>Das Programm beginnt immer bei Stapelnummer 300 und sucht 
+"nach unten" nach freien Nummern. Somit kann es also passieren, dass die 
+angelegten Stapelnummern je nach bereits vorhandenen Stapelnummern nicht 
+durchgehend hintereinander liegen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis:</P>
+<P class=MsoNormal>Wurden nicht alle Kontoauszüge einer MT940-Datei ausgewählt 
+und der Buchungsstapel erzeugt, wird die komplette Datei verschoben (sofern die 
+entsprechende Einstellung gesetzt ist) oder die Datei befindet sich in der 
+Dateiliste "bereits eingelesene Dateien". Von dort aus kann die Datei nochmals 
+ausgewählt, der noch zu verbuchende Kontoauszug markiert und eingelesen 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buchungssatz</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungsdatum</P>
+<P class=MsoNormal>Datum, mit welchem der Buchungssatz für den Zahlungseingang 
+erstellt wird. Existiert das Buchungsdatum in der Kontoauszugsdatei, wird dieses 
+für den Buchungssatz herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Belegnummer</P>
+<P class=MsoNormal>Hier kann eine Belegnummer eingetragen werden, die für alle 
+Buchungszeilen der eingelesenen Datei verwendet werden soll. In den 
+Einstellungen muss dazu die Option "Belegnummer immer übernehmen" aktiviert 
+sein.</P>
+<P class=MsoNormal>Ist die Belegnummer über eine Regel definiert, hat diese 
+Vorrang.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungstext</P>
+<P class=MsoNormal>Hier kann ein Buchungstext eingetragen werden, der für alle 
+Buchungszeilen der eingelesenen Datei verwendet werden soll. In den 
+Einstellungen muss dazu die Option "Buchungstext immer übernehmen" aktiviert 
+sein.</P>
+<P class=MsoNormal>Ist der Buchungstext über eine Regel definiert, hat dieser 
+Vorrang.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Valutadatum 
+als Buchungsdatum</P>
+<P class=MsoNormal>Für das Valutadatum existiert in der Tabelle der Vorschau 
+eine separate Spalte.</P>
+<P class=MsoNormal>Ist das Valutadatum in der MT940-Datei gefüllt, wird über 
+Aktivierung dieser Option das Valutadatum als Buchungsdatum in den 
+ZAGL-Buchungsstapel übernommen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweis:</P>
+<P class=MsoNormal>Das Valutadatum / Buchungsdatum steuert, in welcher Periode 
+der Buchungssatz verbucht wird.</P>
+<P class=MsoNormal>Sollte das Valutadatum in einem anderen Wirtschaftsjahr 
+liegen, lässt sich der ZAGL-Buchungsstapel nicht verbuchen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Dateiliste</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_321.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Noch nicht 
+eingelesene Dateien</P>
+<P class=MsoNormal>Nach Auswahl der Hausbank werden bis zu neun 
+Kontoauszugsdateien aus dem im Bankenstamm hinterlegten 
+Zahlungsausgleich-Verzeichnis in der Dateiliste angezeigt, für die noch kein 
+Buchungsstapel erzeugt wurde.</P>
+<P class=MsoNormal>Die Dateiliste wird nur mit den Kontoauszugsdateien gefüllt, 
+wenn ein Zahlungsausgleich-Verzeichnis im Bankenstamm hinterlegt ist. Ist kein 
+Verzeichnis hinterlegt, werden die ersten neun txt-Dateien aus dem 
+WinLine-Installationsverzeichnis in der Tabelle angezeigt.</P>
+<P class=MsoNormal>Durch einen Klick auf den DrillDown "Noch nicht eingelesene 
+Dateien" wird in die Dateiliste der bereits eingelesenen Dateien gewechselt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Noch einzulesende Dateien können folgenden Status haben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Neue Datei<BR>Die Datei wurde noch 
+nicht in der Vorschau betrachtet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Regelwerk<BR>Die Datei wurde 
+bereits (mind. 1x) in der Vorschau betrachtet und das Regelwerk angewendet</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Editiert am<BR>Die Datei wurde in 
+der Vorschau betrachtet, das Regelwerk angewendet und bearbeitet über den 
+"Bearbeiten-Button"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Bereits 
+eingelesene Dateien</P>
+<P class=MsoNormal>Durch einen Klick auf den DrillDown "Noch nicht eingelesene 
+Dateien" wird in die Dateiliste der bereits eingelesenen Dateien gewechselt.</P>
+<P class=MsoNormal>In dieser Dateiliste werden die MT940-Dateien aufgelistet, 
+für die ein Buchungsstapel erstellt wurde.</P>
+<P class=MsoNormal>Nur wenn die Option "Datei verschieben" nicht aktiviert ist, 
+werden erfolgreich eingelesene Dateien in der Liste der bereits eingelesenen 
+Dateien aufgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_322.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Zahlungsausgleich-Verzeichnis / Kein Verzeichnis eingetragen</P>
+<P class=MsoNormal>Anzeige des im Bankenstamm eingetragenen 
+Zahlungsausgleich-Verzeichnisses. </P>
+<P class=MsoNormal>Ist kein Zahlungsausgleich-Verzeichnis im Bankenstamm für die 
+ausgewählte Hausbank hinterlegt, wird der DrillDown "Kein Verzeichnis 
+eingetragen" angezeigt.</P>
+<P class=MsoNormal>Über diesen DrillDown öffnet sich der Bankenstamm / Register 
+Zahlungsausgleich.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>div. Einstellungen</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Maskierung / 
+Datei archivieren / Datei verschieben</P>
+<P class=MsoNormal>Die Einstellungen (JA / NEIN), die in diesem Bereich durch 
+Klicken auf den jeweiligen DrillDown getroffen werden, stehen auch im Register 
+Einstellungen als eigene Option zur Verfügung.</P>
+<P class=MsoNormal>Veränderungen dieser Einstellung gelten für die einzulesende 
+Datei und werden dauerhaft in dem Register Einstellungen über den Button 
+"Einstellungen speichern" gespeichert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>verwendete 
+Regeln</P>
+<P class=MsoNormal>Über diese Combobox wird eine Regelgruppe ausgewählt, der im 
+Regelwerk diverse Regeln zugeordnet sind. Es werden dann nur die Regeln dieser 
+Regelgruppe für die Vervollständigung der Buchungssätze in der Vorschau 
+berücksichtigt. Im Regelwerk können vorab bereits Regeln hinterlegt werden, mit 
+denen die Eingabefelder im Regel-Assistenten bereits gefüllt werden. Die Anlage 
+der Regelgruppen selbst erfolgt über den Button Regelwerk.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Nur jene 
+Zeilen berücksichtigen, die durch die verwendeten Regeln verändert wurden:</P>
+<P class=MsoNormal>Durch Aktivierung erhalten Sie in der Vorschau nur die durch 
+die zuvor gewählte Regelgruppe veränderten Übernahmezeilen als Buchungssätze 
+angezeigt. Außerdem werden auch die Zeilen, die aufgrund einer hinterlegten 
+Bankverbindung ein Gegenkonto zugeordnet bekommen haben, angezeigt.</P>
+<P class=MsoNormal>Wird diese Option nicht aktiviert, werden alle Datensätze aus 
+der Bankdatei in der Vorschau angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_323.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Buchungsstapel erzeugen</P>
+<P class=MsoNormal>Durch Anklicken des Buchungsstapel erzeugen - Buttons wird 
+der Zahlungsausgleich durchgeführt, wobei alle Buchungen in den nächsten freien 
+Zahlungsstapel ab Stapelnummer 300 abgelegt werden. Die Buchungen können dann 
+durch Anwahl des Menüpunktes <I>Buchen/ Buchen/Dialog-Stapel und Laden des 
+ZAGL-Buchungsstapels </I>verbucht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Durch Anklicken des Ende-Buttons wird der Programmpunkt 
+beendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Wiederherst.</P>
+<P class=MsoNormal>Durch Anklicken des Wiederherst.-Buttons werden die Eingaben 
+der Maskierung auf die Werte zurückgesetzt, die während der letzten Speicherung 
+verändert wurden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Einstellungen 
+speichern</P>
+<P class=MsoNormal>Die Einstellungen können nur in dem Register Einstellungen 
+gespeichert werden, deshalb ist der Button in diesem Fenster nicht aktiv.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Druckvorschau</P>
+<P class=MsoNormal>Durch Anklicken des Druckvorschau-Buttons wird die 
+Zahlungsausgleichsliste auf das ausgewählte Medium (Spooler oder Drucker) 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Bankenstamm</P>
+<P class=MsoNormal>Über diesen Button kann in den Bankenstamm in das Register 
+Zahlungsausgleich verzweigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Regelwerk</P>
+<P class=MsoNormal>Sie können durch Anklicken des Regelwerk-Buttons bestimmte 
+Verarbeitungsregeln für bestimmte importierte Feldinhalte im Fenster 
+Regelassistent festlegen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Sämtliche Regeln greifen auf die Buchungsnotiz. Es wird im 
+gesamten Text gesucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Formale Prüfungen</P>
+<P class=MsoNormal>Der Zahlungsausgleich geht bei der Übernahme der Daten wie 
+folgt vor:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Debitor</P>
+<P class=MsoNormal>Ist der Debitor nicht vorhanden, erfolgt die Buchung auf das 
+Interimskonto, das im Feld "Div. Nicht geführt Deb." (= diverse nicht geführte 
+Debitoren) festgelegt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Offene 
+Posten-Nummer</P>
+<P class=MsoNormal>Ist die Fakturennummer des Zahlungsbeleges nicht in der 
+Offenen Posten-Liste gespeichert, wird automatisch eine Vorauszahlung eröffnet. 
+Diese Vorgehensweise gilt sowohl für Debitoren- als auch für 
+Kreditorenzahlungen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Skontofristen</P>
+<P class=MsoNormal>Ist der Zahlungsbetrag niedriger als der Fakturenbetrag, 
+werden die Skontokonditionen berücksichtigt. Sollen zusätzlich noch die 
+Skontotoleranzen aus der Zahlungskondition berücksichtigt werden, dann muss im 
+FIBU-Parameter unter Buchen die Checkbox "Skontotoleranzen beim Vorschlag 
+berücksichtigen" aktiviert sein. Ist diese Grenze überschritten, wird die 
+Zahlung als Teilzahlung ohne Ausgleich der Offenen Faktura behandelt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Hinweise für den Einsatz des Zahlungsausgleiches in 
+Verbindung mit der WinLine FAKT</P>
+<P class=MsoNormal>Das von der Bank verarbeitete Feld Verwendungszweck 
+(Kundennummer und Belegnummer) ist zwölfstellig. Daher muss bei der 
+Stammdatenanlage darauf geachtet werden, dass die Länge der Kontonummer und der 
+Belegnummer in Summe zwölf Stellen nicht überschreitet. Darüber hinaus werden 
+alle nicht numerischen Zeichen (Buchstaben, Leerschritte, Sonderzeichen) von der 
+Bank in Nullen umgewandelt.</P>
+<P class=MsoNormal>Mit Hilfe der Maske Belegnummer und Kontonummer können 
+nicht-numerische Teile, die in Nullen umgewandelt wurden, wieder zurückgesetzt 
+werden.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Fakturennr. In der Auftragsbearbeitung&nbsp; 1234-FA</P>
+<P class=MsoNormal>Kundennr. in der Auftragsbearbeitung&nbsp;&nbsp;&nbsp; 
+12345</P>
+<P 
+class=MsoNormal>Verwendungszweck&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+123451234000</P>
+<P class=MsoNormal>Maske 
+Kundennummer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+#####I_II_I</P>
+<P class=MsoNormal>Maske 
+Belegnummer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+####-FA</P>
+<P class=MsoNormal>I_II_I bedeutet die Eingabe von zwei Leerzeichen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Alle Kundenkontonummern sollten die gleiche Länge aufweisen. 
+Erfüllt ein Konto nicht die vorgegebene Standard-Länge, wird es im Feld 
+Verwendungszweck mit Folgenullen aufgefüllt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Bei der Übergabe der Datensätze in die FIBU werden dann von 
+rechts beginnend die Nullen wieder entfernt und nach jedem Durchgang geprüft, ob 
+ein entsprechendes Konto vorhanden ist. Sollten mehrere Konten vorhanden sein, 
+die sich nur durch die Anzahl der rechts befindlichen Nullen unterscheidet, kann 
+es zu Fehlzuordnungen kommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Voraussetzungen</P>
+<P class=MsoNormal>Um eine automationsunterstützte Verarbeitung Ihrer 
+Zahlscheine durch die Bank zu gewährleisten, ist der Einsatz eines Zahlscheines, 
+der mit OCRB-Schrift bedruckt wird, notwendig.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=RelatedHead>Mehr Themen:</P><SPAN id=related-topics>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5240.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Vorschau</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5241.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Einstellungen</SPAN></A></P></SPAN>
+<OBJECT id=RT_5240 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/vorschau.htm"></OBJECT>
+<OBJECT id=RT_5241 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/einstellungen2.htm"></OBJECT></DIV></BODY></HTML>

@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "omnisql": {
+            "command": "omnisql-mcp"
+        },
+        "ilspy-mcp": {
+            "type": "stdio",
+            "command": "ilspy-mcp",
+            "args": []
+        }
+    }
+}

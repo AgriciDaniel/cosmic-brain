@@ -1,0 +1,16 @@
+﻿<FluentRadioGroup @bind-Value="@Fruit" Orientation="Orientation.Vertical">
+    <FluentRadio Value="@("Apple")" Label="Apple" />
+    <FluentRadio Value="@("Banana")" Label="Banana" />
+    <FluentRadio Value="@("Orange")" Label="Orange" />
+    <FluentRadio Value="@("Grape")" Label="Grape" />
+    <FluentRadio Value="@("Kiwi")" Label="Kiwi" />
+</FluentRadioGroup>
+
+<FluentDivider Margin="@Margin.Vertical2" />
+
+<FluentLabel>Selected fruit: @Fruit</FluentLabel>
+
+@code
+{
+    string Fruit = "Banana";
+}

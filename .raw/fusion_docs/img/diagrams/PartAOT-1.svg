@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 540" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    <linearGradient id="obj-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <text x="200" y="30" text-anchor="middle" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">ProxyCodeKeeper Hierarchy</text>
+
+  <rect x="80" y="60" width="240" height="40" rx="8" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="200" y="85" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">CodeKeeper</text>
+
+  <path d="M 200 100 C 200 130, 200 130, 200 157" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <rect x="80" y="160" width="240" height="40" rx="8" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="200" y="185" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">ProxyCodeKeeper</text>
+
+  <path d="M 200 200 C 200 230, 200 230, 200 257" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <rect x="80" y="260" width="240" height="40" rx="8" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="200" y="285" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">CommanderProxyCodeKeeper</text>
+
+  <path d="M 200 300 C 200 330, 200 330, 200 357" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <rect x="80" y="360" width="240" height="40" rx="8" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="200" y="385" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">RpcProxyCodeKeeper</text>
+
+  <path d="M 200 400 C 200 430, 200 430, 200 457" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <rect x="80" y="460" width="240" height="40" rx="8" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="200" y="485" text-anchor="middle" font-family="'SF Mono','Fira Code',Consolas,monospace" font-size="13px" fill="#1a1a2e">FusionProxyCodeKeeper</text>
+</svg>

@@ -1,0 +1,92 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Extensions
+
+@{
+    const string AdaptedLightDark = "Adapted to Light/Dark theme";
+    const string CustomColor = "#570078"; // like Purple color
+}
+<FluentGrid Style="align-items: center;">
+    <FluentGridItem Md="2" Xs="4" title="Color Enumeration value">Color&nbsp;Enum</FluentGridItem>
+    <FluentGridItem Md="4" HiddenWhen="GridItemHidden.SmAndDown" title="Equivalent CSS variable">CSS variable</FluentGridItem>
+    <FluentGridItem Md="1" HiddenWhen="GridItemHidden.SmAndDown" title="@AdaptedLightDark">Theme</FluentGridItem>
+    <FluentGridItem Md="5" Xs="8" title="Examples">Examples</FluentGridItem>
+ 
+    @foreach (var color in Enum.GetValues(typeof(Color)).Cast<Color>().Where(i => !i.IsObsolete() ))
+    {
+        var name = Enum.GetName<Color>(color);
+        var css = color == Color.Custom ? CustomColor : color.ToAttributeValue();
+
+        @* Color Enum *@
+        <FluentGridItem Md="2" Xs="4">
+            @name
+        </FluentGridItem>
+
+        @* CSS Variables *@
+        <FluentGridItem Md="4" HiddenWhen="GridItemHidden.SmAndDown">
+            <code>@css</code>
+        </FluentGridItem>
+
+        @* Theme *@
+        <FluentGridItem Md="1" HiddenWhen="GridItemHidden.SmAndDown" title="@AdaptedLightDark">
+            @switch (color)
+            {
+                case Color.Default:
+                case Color.Primary:
+                case Color.Lightweight:
+                    <FluentIcon Value="@(new Icons.Regular.Size24.CheckboxChecked())"
+                                Color="@Color.Success" />
+                    break;
+
+                default:
+                    <FluentIcon Value="@(new Icons.Regular.Size24.CheckboxUnchecked())"
+                                Color="@Color.Info" />
+                    break;
+            }
+        </FluentGridItem>
+
+        @* Examples *@
+        <FluentGridItem Md="1" Xs="2" Style="background-color: var(--colorNeutralBackground6);">
+            @if (color == Color.Custom)
+            {
+                <FluentIcon Value="@(new @Icons.Filled.Size24.Alert())"
+                            Color="Color.Custom"
+                            CustomColor="@CustomColor"
+                            Title="@($"Icon with Color=\"Color.Custom\"")" />
+            }
+            else
+            {
+                <FluentIcon Value="@(new @Icons.Filled.Size24.Alert())"
+                            Color="@color"
+                            Title="@($"Icon with Color=\"Color.{name}\"")" />
+            }
+        </FluentGridItem>
+        <FluentGridItem Md="2" Xs="3" Style="background-color: var(--colorNeutralBackground6);">
+            <FluentButton IconStart="@(new Icons.Filled.Size24.Alert().WithColor(css))"
+                          Title="@($"Button with an IconStart colorized using .WithColor(\"{css}\")")">
+                OK
+            </FluentButton>
+        </FluentGridItem>
+        <FluentGridItem Md="2" Xs="3" Style="background-color: var(--colorNeutralBackground6);">
+            <FluentButton IconStart="@(new Icons.Filled.Size24.Alert().WithColor(css))"
+                          Title="@($"Button with an IconStart colorized using .WithColor(\"{css}\")")"
+                          Appearance="ButtonAppearance.Primary">
+                OK
+            </FluentButton>
+        </FluentGridItem>
+    }
+
+</FluentGrid>
+
+<style>
+    .fluent-grid > div:nth-of-type(-n+4) {
+        font-weight: 600;
+    }
+
+    .fluent-grid > div:not(:nth-of-type(-n+4)) {
+        height: 60px;
+        font-weight: 600;
+    }
+
+    .fluent-grid fluent-button {
+        font-weight: 600;
+    }
+</style>

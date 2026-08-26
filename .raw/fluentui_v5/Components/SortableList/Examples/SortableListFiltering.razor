@@ -1,0 +1,59 @@
+﻿<div>
+	<FluentGrid Justify="JustifyContent.FlexStart" Spacing="3">
+		<FluentGridItem xs="12" sm="6">
+			<FluentSortableList Id="filter" ItemFilter="@(i => i.Disabled)" @bind-Items="items1" OnUpdate="@HandleOnUpdate" OnAdd="@HandleOnAdd" OnRemove="@HandleOnRemove">
+				<ItemTemplate>@context.Name</ItemTemplate>
+			</FluentSortableList>
+		</FluentGridItem>
+
+		<FluentGridItem xs="12" sm="6">
+			<FluentSortableList Id="filter2" ItemFilter="@(i => i.Id > 6)" @bind-Items="items2" OnUpdate="@HandleOnUpdate" OnAdd="@HandleOnAdd" OnRemove="@HandleOnRemove">
+				<ItemTemplate>@context.Name</ItemTemplate>
+			</FluentSortableList>
+		</FluentGridItem>
+	</FluentGrid>
+</div>
+
+<p>List 1: @string.Join(", ", items1.Select(i => i.Name))</p>
+<p>List 2: @string.Join(", ", items2.Select(i => i.Name))</p>
+
+@code {
+	class Item
+	{
+		public int Id { get; set; }
+		public string Name { get; set; } = "";
+
+		public bool Disabled { get; set; } = false;
+	}
+
+	IEnumerable<Item> items1 = Enumerable.Range(1, 10).Select(i => new Item { Id = i, Name = $"Item {i}" });
+	IEnumerable<Item> items2 = Enumerable.Range(1, 10).Select(i => new Item { Id = i, Name = $"Item {i}" });
+
+	// on initialized, set a random item in the list to disabled
+	protected override void OnInitialized()
+	{
+		var random = new Random();
+		var list1 = items1.ToList();
+		for (int i = 0; i < 3; i++)
+		{
+			var randomIndex = random.Next(0, list1.Count);
+			list1[randomIndex].Disabled = true;
+		}
+		items1 = list1;
+	}
+
+	void HandleOnUpdate(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item moved in list '{args.FromListId}' from index {args.OldIndex} to index {args.NewIndex}");
+	}
+
+	void HandleOnAdd(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item added to list '{args.ToListId}' from list '{args.FromListId}' at index {args.NewIndex}");
+	}
+
+	void HandleOnRemove(FluentSortableListEventArgs args)
+	{
+		Console.WriteLine($"Item removed from list '{args.FromListId}' to list '{args.ToListId}' at index {args.OldIndex}");
+	}
+}

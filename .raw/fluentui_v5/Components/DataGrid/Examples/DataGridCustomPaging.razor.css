@@ -1,0 +1,38 @@
+/* Fix height and enable scrolling */
+.grid {
+  overflow-y: auto;
+}
+
+
+/* Style the custom page links*/
+.page-buttons {
+  margin: 1rem 0;
+  align-items: center;
+  display: flex;
+  column-gap: 5px;
+
+  button {
+    background: #d6d7d8;
+    color: black;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.4rem;
+    transition: transform 0.3s ease-out;
+    margin: 0.25rem;
+  }
+
+    button:active {
+      background: #a7c1ff !important;
+      color: white;
+      transform: scale(0.95) translateY(-0.15rem);
+      transition-duration: 0.05s;
+    }
+
+    button:hover:not(.current) {
+      background: #c0c9dc;
+    }
+
+    button.current {
+      background: #3771f4;
+      color: white;
+    }
+}

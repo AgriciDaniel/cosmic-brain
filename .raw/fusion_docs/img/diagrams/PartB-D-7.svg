@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 880" width="100%">
+  <defs>
+    <style>
+      .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+      .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+      .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+      .edge-label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+    </style>
+
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Edges -->
+  <path d="M 300 90 C 300 130, 300 130, 300 167" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 300 230 C 300 270, 300 270, 300 307" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 300 370 C 300 410, 300 410, 300 447" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 300 510 C 300 550, 300 550, 300 587" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 300 670 C 300 710, 300 710, 300 747" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <!-- Edge Labels -->
+  <text x="315" y="134" class="edge-label" text-anchor="start">User clicks 'Switch to WASM'</text>
+
+  <!-- Node 1: Server (State) -->
+  <rect x="190" y="30" width="220" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="56" class="code" text-anchor="middle">Blazor Server</text>
+  <text x="300" y="76" class="label" text-anchor="middle">(running in circuit)</text>
+
+  <!-- Node 2: ChangeMode (Action) -->
+  <rect x="40" y="170" width="520" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="300" y="196" class="code" text-anchor="middle">RenderModeHelper.ChangeMode()</text>
+  <text x="300" y="216" class="code" text-anchor="middle">Navigates to: /fusion/renderMode/w?redirectTo=/current-page</text>
+
+  <!-- Node 3: Endpoint (State) -->
+  <rect x="150" y="310" width="300" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="336" class="header" text-anchor="middle">Server Endpoint</text>
+  <text x="300" y="356" class="code" text-anchor="middle">MapFusionRenderModeEndpoints</text>
+
+  <!-- Node 4: SetCookie (Action) -->
+  <rect x="160" y="450" width="280" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="300" y="476" class="code" text-anchor="middle">1. Sets render mode cookie</text>
+  <text x="300" y="496" class="code" text-anchor="middle">2. Redirects to redirectTo</text>
+
+  <!-- Node 5: HostPage (State) -->
+  <rect x="150" y="590" width="300" height="80" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="616" class="code" text-anchor="middle">_HostPage.razor</text>
+  <text x="300" y="636" class="label" text-anchor="middle">Reads mode from cookie</text>
+  <text x="300" y="656" class="code" text-anchor="middle">RenderModeDef.GetOrDefault</text>
+
+  <!-- Node 6: WASM (State) -->
+  <rect x="180" y="750" width="240" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="300" y="776" class="code" text-anchor="middle">Blazor WebAssembly</text>
+  <text x="300" y="796" class="label" text-anchor="middle">(now running in browser)</text>
+
+</svg>

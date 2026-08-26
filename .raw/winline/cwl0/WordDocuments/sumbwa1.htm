@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SUMBWA</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707720></A>SUMBWA</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion wird die BWA-Summe auf Grundlage einer 
+BWA-Kennzahl (inklusive BWA-Nummer) berechnet und ausgegeben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Grundlage der Berechnung bilden die Summenspeicher der 
+BWAs. Diese können durch Anwahl des Buttons "Gruppensummen aktualisieren" 
+jederzeit aktualisiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=SUMBWA (BWA-Kennzahl, Zeitraum, Wirtschaftsjahr, BWA-Nummer 
+[optional])</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BWA-Kennzahl 
+(Kennzahl in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu summierende 
+BWA-Kennzahl</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeitraum (14 
+/ 15 / 99 / 0 bis 13)</P>
+<P class=MsoNormal>Hinterlegung des auszuwertenden Zeitraums:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>14</B> - aktuelle Periode (lt. 
+Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>15</B> - kumuliert bis aktuelle 
+Periode (lt. Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>99</B> - Wirtschaftsjahr 
+kumuliert</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> bis <B>13</B> - gewählte 
+Periode</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Wirtschaftsjahr (0 / 1 / 2 / …)</P>
+<P class=MsoNormal>Angabe des Wirtschaftsjahres:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - aktuelles 
+Wirtschaftsjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - erste Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - zweite Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>...</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>BWA-Nummer (1 
+/ 2 / 3) [optional]</P>
+<P class=MsoNormal>Optionale Angabe der BWA-Nummer:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - BWA 1 (Standard)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - BWA 2</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - BWA 3</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SUMBWA ("<U>100</U>", <U>99</U>, 
+<U>0</U>)<BR>Es wird die Summe der BWA-Kennzahl "<B>100</B>" (keine Angabe der 
+BWA-Nummer, d.h. es wird <B>1</B> verwendet) des aktuellen Wirtschaftsjahres 
+(<B>0</B>) berechnet und ausgegeben. Die Berechnung erfolgt hierbei für das 
+Wirtschaftsjahr kumuliert<B> </B>(<B>99</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SUMBWA ("<U>105</U>", <U>15</U>, 
+<U>0</U>, <U>A5</U>)<BR>Es wird die Summe der BWA-Kennzahl "<B>105</B>" 
+(BWA-Nummer stammt aus Zelle <B>A5</B>) des aktuellen Wirtschaftsjahres 
+(<B>0</B>) berechnet und ausgegeben. Die Berechnung erfolgt hierbei kumuliert 
+bis zur aktuellen Periode (<B>15</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SUMBWA (<U>D9</U>, <U>14</U>, 
+<U>1</U>, <U>3</U>)<BR>Es wird die Summe jener BWA-Kennzahl berechnet und 
+ausgegeben, welche in der Zelle <B>D9</B> (BWA-Gruppe <B>3</B>) hinterlegt 
+wurde. Die Berechnung erfolgt hierbei für die aktuelle Periode (<B>14</B>) auf 
+Basis der Vorjahreswerte (<B>1</B>).</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

@@ -1,0 +1,402 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Produktion Export / Import - Export von PPS-Daten</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="produktionexportimport.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled 
+href="produktionexportimportimportvonppsdaten.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinepps.htm">WinLine PPS</A><SPAN class=d2h_breadcrumbsLinkSeparator> 
+&gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="bearbeitungvonproduktionsauftr&auml;gen.htm">Bearbeitung von 
+Produktionsaufträgen</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A 
+class=d2h_breadcrumbsNormal href="produktionexportimport.htm">Produktion Export 
+/ Import</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Produktion Export / Import - Export von 
+PPS-Daten</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc400271463>Produktion Export / Import - 
+Export von PPS-Daten</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Folgende Einstellungen stehen beim Export zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Einstellungen - Alle Register</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image874_591.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Vorbelegung</P>
+<P class=MsoNormal>Über die Vorbelegung, welche in allen Register zur Verfügung 
+steht, können die Einstellungen eines Ex- bzw. Importvorgangs gespeichert 
+werden. Wurde bereits eine Vorbelegung definiert, kann diese durch Drücken der 
+F9-Taste gesucht werden. Wurde noch keine Vorbelegung definiert, kann diese 
+durch eine Eingabe im Feld "Vorbelegung" angelegt werden. Wurden alle Eingaben 
+durchgeführt, wird die Vorbelegung durch Drücken der F5-Taste bzw. des Buttons 
+"Ok" gespeichert.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wird mit einer bestehenden Vorbelegung gearbeitet und der Ex- 
+bzw. Import mit Hilfe der Taste F5 bzw. des Buttons "Ok" gestartet, erfolgt eine 
+Sicherheitsabfrage, ob mögliche Änderungen der Einstellungen in der Vorbelegung 
+gespeichert werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image874_592.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Export/Import</P>
+<P class=MsoNormal>An dieser Stelle wird "Export" ausgewählt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>EXIM-Treiber</P>
+<P class=MsoNormal>An dieser Stelle erfolgt die Auswahl des ODBC-Treibers, 
+welcher verwendet werden soll. Dieser hat eine direkte Auswirkung auf die 
+möglichen Eingabefelder des Bereichs "Exportziel / Datenquelle".</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die angebotenen Treiber sind abhängig von der Installation 
+des PCs , wobei alle vorhandenen 32-Bit ODBC-Treiber zur Verfügung stehen 
+(mesonic ist für die Funktionsfähigkeit bzw. das Vorhandensein der Treiber nicht 
+verantwortlich).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Je nachdem, welche ODBC-Treiber verwendet werden bzw. welche 
+ODBC-Treiber-Version verwendet wird, kann es zu ungewünschten Verhalten des 
+Exports bzw. Imports kommen, wenn Sonderzeichen im Verzeichnisnamen oder im 
+Datenbankname vorkommen. Aus diesem Grund wird, wenn solche Sonderzeichen 
+verwendet werden, eine entsprechende Hinweismeldung ausgegeben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image874_593.png"></P>
+<P class=BeispielAchtung>Achtung - Treiberauswahl</P>
+<P class=MsoNormal>Um sicherzustellen, dass Notizfelder in voller Länge 
+exportiert werden, sollte je nach verwendetem Treiber (Access- oder SQL-Treiber) 
+der erste auswählbare Treiber aus der Auswahlliste verwendet werden. D.h. ist 
+die Auswahlmöglichkeit an Treibern der Reihenfolge nach z.B. "02 - Microsoft 
+Access Driver (*.mdb)", "10 - Microsoft Access Treiber (*.mdb)" und "16 - Driver 
+do Microsoft Access (*.mdb)", dann sollte in diesem Fall "02 - Microsoft Access 
+Driver (*.mdb)" selektiert werden. Andernfalls wird das Notizfeld in der Regel 
+nur mit 255 Zeichen exportiert.</P>
+<P class=BeispielAchtung>Achtung - Textdateien</P>
+<P class=MsoNormal>Wenn ein Export von Textdateien ausgeführt wird, so wird eine 
+SCHEMA.INI-Datei angelegt, welche die Dateibeschreibung der Exportdatei 
+beinhaltet.</P>
+<P class=MsoNormal>Wenn sich die Vorlage ändert, so hat dieses keine Auswirkung 
+auf die bereits erzeugte SCHEMA.INI-Datei und es würde die Fehlermeldung "Die 
+Tabellen existieren bereits und haben einen anderen Aufbau als die gewählte 
+Vorlage!" ausgegeben werden. Damit der Export wieder "normal" durchgeführt 
+werden kann, muss dieses Dokument entsprechend angepasst oder gelöscht (und 
+damit beim nächsten Export neu angelegt) werden. Ebenso bedarf es, dass die 
+vorhandenen Exportdateien gelöscht werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Vorlage</P>
+<P class=MsoNormal>An dieser Stelle wird die Vorlage hinterlegt, welche für den 
+Export verwendet werden soll.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Mit Hilfe der Vorlage wird definiert, welche Felder 
+exportiert bzw. später importiert werden sollen. Zusätzlich können Vorbelegungen 
+hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>sprechende 
+Spaltenbezeichnungen</P>
+<P class=MsoNormal>Ist diese Checkbox aktiv, so erhalten die exportierten 
+Spalten den Namen des ursprünglichen Feldes. Ansonsten werden die Spalten nach 
+den Spaltenbezeichnungen gemäß Datenbank (z.B. C007) benannt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Einstellungen - Register "Produktionsaufträge"</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Aktionscode 
+(Export)</P>
+<P class=MsoNormal>Mit dem Aktionscode kann definiert werden, welche 
+Bestandteile eines Produktionsauftrags exportiert werden sollen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>00 - Alle Zeil<SPAN 
+style="BACKGROUND: white">en</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>01 - <SPAN 
+style="BACKGROUND: white">Komponente</SPAN>n (d.h. Rohstoffteile)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>02 - <SPAN 
+style="BACKGROUND: white">Arbeitsschritt</SPAN>e (Produktionsartikel)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: -42.55pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Datum von / bis</P>
+<P class=MsoNormal>Mit diesen Feldern kann der Export auf Produktionsaufträge 
+innerhalb eines bestimmten Zeitraumes eingeschränkt werden (unter 
+Berücksichtigung des Produktionsdatums).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Druckstatus - 
+Materialentnahmeschein</P>
+<P class=MsoNormal>Mit den folgenden Optionen können Produktionsaufträge nach 
+dem Druckstatus des Materialentnahmescheines für den Export selektiert 
+werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Alle 
+Zeilen<BR>Produktionsaufträge werden unabhängig vom Druckstatus des 
+Materialentnahmescheins für den Export vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - muss gedruckt sein<BR>Nur jene 
+Produktionsaufträge werden vorgeschlagen, für die ein Materialentnahmeschein 
+gedruckt wurde. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - darf nicht gedruckt 
+sein<BR>Nur jene Produktionsaufträge werden vorgeschlagen, für die noch kein 
+Materialentnahmeschein gedruckt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Druckstatus - 
+Arbeitsschein</P>
+<P class=MsoNormal>Mit den folgenden Optionen können Projekte nach dem 
+Druckstatus des Arbeitsscheines selektiert werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Alle 
+Zeilen<BR>Produktionsaufträge werden unabhängig vom Druckstatus des 
+Arbeitsscheins für den Export vorgeschlagen. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - muss gedruckt sein<BR>Nur jene 
+Produktionsaufträge werden vorgeschlagen, für die ein Arbeitsschein gedruckt 
+wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - darf nicht gedruckt 
+sein<BR>Nur jene Produktionsaufträge werden vorgeschlagen, für die noch kein 
+Arbeitsschein gedruckt wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Produktionsauftrag 
+von / bis</P>
+<P class=MsoBodyTextIndent>In diesen Feldern können die Produktionsaufträge 
+selektiert werden, die exportiert werden sollen. </P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Artikel von / 
+bis</P>
+<P class=MsoNormal>In diesen Feldern können die Artikel selektiert werden, die 
+exportiert werden sollen (ggf. auch unter Berücksichtigung von anderen 
+Selektionen im Fenster).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Personenkonten von 
+/ bis</P>
+<P class=MsoNormal>Mit diesen Feldern kann der Export auf Produktionsaufträge 
+eingeschränkt werden, die mit bestimmten Personenkonten verbunden sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Stapelnummer von / 
+bis</P>
+<P class=MsoNormal>Mit diesen Feldern kann der Export auf Produktionsaufträge 
+eingeschränkt werden, die mit bestimmten Stapelnummern verbunden sind.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Einstellungen - Register "Einzelner 
+Produktionsauftrag"</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Auftrag</P>
+<P class=MsoBodyTextIndent>In diesem Feld kann der Produktionsauftrag selektiert 
+werden sollen, der exportiert werden soll. </P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Arbeitsschritt</P>
+<P class=MsoBodyTextIndent>In diesem Feld kann der Arbeitsschritt (d.h. der 
+Fertig- bzw. Halbfertig-Artikel) selektiert werden sollen, der exportiert werden 
+soll. Der Arbeitsschritt kann auch im Arbeitsschritten-Matchcode gesucht und 
+selektiert werden.</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Aktionscode 
+(Export)</P>
+<P class=MsoNormal>Mit dem Aktionscode kann definiert werden, welche 
+Bestandteile eines Produktionsauftrags exportiert werden sollen: </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>00 - <SPAN 
+style="BACKGROUND: white">gewählter Arbeitsschritt und seine 
+Komponenten</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>01 - <SPAN 
+style="BACKGROUND: white">nur die Komponenten vom gewählten 
+Arbeitsschritt</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>02 - <SPAN 
+style="BACKGROUND: white">nur der Arbeitsschritt</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>03 - <SPAN 
+style="BACKGROUND: white">nur die Komponenten vom gewählten Arbeitsschritt inkl. 
+Subebenen</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>04 - <SPAN 
+style="BACKGROUND: white">gewählter Arbeitsschritt und seine Komponenten inkl. 
+Subebenen</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>10 - 14: <SPAN 
+style="BACKGROUND: white">wie 0-4 - allerdings kommen nur die 
+Arbeitsschritte</SPAN></P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>20 - 24: <SPAN 
+style="BACKGROUND: white">wie 0-4 - allerdings kommen nur Komponenten</SPAN></P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Export des Produktionsauftrags 
+"LAGER4711" mit Aktionscode "00" und Arbeitsschritt 1<BR>Der gesamte 
+Produktionsauftrag wird ausgegeben, d.h. alle Produktionsartikel (Fertig- und 
+Halbfertigartikel) und Rohmaterialzeilen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Export des Produktionsauftrags 
+"LAGER4711" mit Aktionscode "00" und Arbeitsschritt 2<BR>Der gesamte 
+Arbeitsschritt 2 des Produktionsauftrags wird ausgegeben, d.h. alle 
+Produktionsartikel (Fertig- und Halbfertigartikel) und Rohmaterialzeilen im 
+Arbeitsschritt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Export des Produktionsauftrags 
+"LAGER4711" mit Aktionscode "02" und Arbeitsschritt 2<BR>Nur Arbeitsschritt 2 
+des Produktionsauftrags wird ausgegeben, d.h. nur der Produktionsartikel 
+selbst.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Export des Produktionsauftrags 
+"LAGER4711" mit Aktionscode "03" und Arbeitsschritt 2<BR>Nur das Rohmaterial im 
+Arbeitsschritt 2 des&nbsp; Produktionsauftrags wird ausgegeben (inkl. 
+Subebenen).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Einstellungen - Register "Kalendereinträge"</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Aktionscode 
+(Export)</P>
+<P class=MsoNormal>Mit dem Aktionscode kann definiert werden, welche Art vom 
+Kalendereintrag (SOLL- bzw. IST-Zeit) exportiert werden sollen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>00 - SOLL-Zeit</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>04 - erfasste IST-Zeiten (noch 
+nicht endgemeldet)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 42.55pt; TEXT-INDENT: -42.55pt">&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Datum von / bis</P>
+<P class=MsoNormal>Mit diesen Feldern kann der Export nur auf SOLL- bzw. 
+IST-Zeiten innerhalb eines bestimmten Zeitraumes eingeschränkt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Schichtauswahl</P>
+<P class=MsoNormal>In dem Feld kann ein Kalenderschema ausgewählt werden, auf 
+die der Export nur für SOLL- bzw. IST-Zeiten in Verbindung mit dem Schema 
+ausgeführt werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Produktionsauftrag 
+von / bis</P>
+<P class=MsoNormal>In diesen Feldern können auf SOLL- bzw. IST-Zeiten von 
+bestimmten Produktionsaufträgen für den Export bzw. Import eingeschränkt 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Ressourcen von / 
+bis</P>
+<P class=MsoNormal>In diesen Feldern können auf SOLL- bzw. IST-Zeiten von 
+bestimmten Ressourcen für den Export bzw. Import eingeschränkt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Tätigkeiten von / 
+bis</P>
+<P class=MsoNormal>In diesen Feldern können auf SOLL- bzw. IST-Zeiten in 
+Verbindung mit bestimmten Tätigkeiten für den Export bzw. Import eingeschränkt 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Stapelnummer von / 
+bis</P>
+<P class=MsoNormal>In diesen Feldern können auf SOLL- bzw. IST-Zeiten von 
+bestimmten Stapelnummern für den Export bzw. Import eingeschränkt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Exportziel - alle Register</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image874_594.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 17.85pt; tab-stops: 0pt 10.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Beschreibung von 
+Datei bzw. Datenbank</P>
+<P class=MsoNormal>In Abhängigkeit der am PC installierten ODBC-Treiber werden 
+in diesem Bereich Felder angezeigt, in denen Ziel (Bereich in den die Daten aus 
+der WinLine kommend abgespeichert werden) bzw. Quelle (Bereich aus dem die Daten 
+in die WinLine importiert werden) zu beschreiben sind.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Der ODBC-Treiber kann zwar innerhalb von Access-Dateien und 
+SQL-Datenbanken Tabellen erzeugen und diese Tabellen mit Datensätzen füllen, er 
+kann aber nicht die Access-Datei bzw. die Datenbank selbst erstellen. Diese muss 
+bereits vorhanden sein.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

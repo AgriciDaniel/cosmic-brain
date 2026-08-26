@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "sqlproj: Build fGE",
+			"type": "process",
+			"command": "dotnet",
+			"args": [
+				"build",
+				"d:/0.Work/0.Repos/claude-obsidian/sql/fIN/fGE/fGE.sqlproj"
+			],
+			"problemMatcher": "$sqlproj-problem-matcher",
+			"isBackground": true,
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"detail": "Builds the fGE SQL project"
+		}
+	]
+}

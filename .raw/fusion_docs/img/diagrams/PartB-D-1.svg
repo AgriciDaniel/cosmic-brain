@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 660" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+
+    <style>
+      .header {
+        font-family: Inter, sans-serif;
+        font-size: 11px;
+        fill: #8b90a8;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .code-bold {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 13px;
+        fill: #1a1a2e;
+        font-weight: 600;
+      }
+      .code {
+        font-family: "SF Mono", "Fira Code", Consolas, monospace;
+        font-size: 13px;
+        fill: #1a1a2e;
+      }
+      .label {
+        font-family: Inter, -apple-system, sans-serif;
+        font-size: 11px;
+        fill: #6b7084;
+        font-style: italic;
+      }
+      .node-border {
+        stroke: #bcc8da;
+        stroke-width: 1.5;
+      }
+      .divider {
+        stroke: #bcc8da;
+        stroke-width: 1.5;
+      }
+      .edge {
+        stroke: #8b90a8;
+        stroke-width: 1.5;
+        fill: none;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Header -->
+  <text x="30" y="30" class="header">Component Hierarchy</text>
+
+  <!-- Edges (Arrows) -->
+  <!-- CB to FCB -->
+  <path d="M 400 120 C 400 140, 400 140, 400 160" class="edge" marker-end="url(#arrow)" />
+  
+  <!-- FCB to CHCB -->
+  <path d="M 400 220 C 400 240, 400 240, 400 260" class="edge" marker-end="url(#arrow)" />
+  
+  <!-- CHCB to SCB -->
+  <path d="M 400 320 C 400 340, 400 340, 400 360" class="edge" marker-end="url(#arrow)" />
+  
+  <!-- SCB to CSC -->
+  <path d="M 400 400 C 400 430, 230 430, 230 460" class="edge" marker-end="url(#arrow)" />
+  
+  <!-- SCB to MSC -->
+  <path d="M 400 400 C 400 430, 570 430, 570 460" class="edge" marker-end="url(#arrow)" />
+  
+  <!-- CSC to CRSC -->
+  <path d="M 230 500 C 230 530, 230 530, 230 560" class="edge" marker-end="url(#arrow)" />
+
+  <!-- Nodes -->
+  <!-- ComponentBase -->
+  <g>
+    <rect x="310" y="60" width="180" height="60" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="400" y="82" class="code-bold" text-anchor="middle">ComponentBase</text>
+    <line x1="310" y1="92" x2="490" y2="92" class="divider" />
+    <text x="400" y="108" class="label" text-anchor="middle">(Blazor)</text>
+  </g>
+
+  <!-- FusionComponentBase -->
+  <g>
+    <rect x="290" y="160" width="220" height="60" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="400" y="182" class="code-bold" text-anchor="middle">FusionComponentBase</text>
+    <line x1="290" y1="192" x2="510" y2="192" class="divider" />
+    <text x="400" y="208" class="code" text-anchor="middle">+ IHandleEvent</text>
+  </g>
+
+  <!-- CircuitHubComponentBase -->
+  <g>
+    <rect x="280" y="260" width="240" height="60" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="400" y="282" class="code-bold" text-anchor="middle">CircuitHubComponentBase</text>
+    <line x1="280" y1="292" x2="520" y2="292" class="divider" />
+    <text x="400" y="308" class="code" text-anchor="middle">+ IHasCircuitHub</text>
+  </g>
+
+  <!-- StatefulComponentBase<T> -->
+  <g>
+    <rect x="280" y="360" width="240" height="40" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="400" y="385" class="code-bold" text-anchor="middle">StatefulComponentBase&lt;T&gt;</text>
+  </g>
+
+  <!-- ComputedStateComponent<T> -->
+  <g>
+    <rect x="100" y="460" width="260" height="40" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="230" y="485" class="code-bold" text-anchor="middle">ComputedStateComponent&lt;T&gt;</text>
+  </g>
+
+  <!-- MixedStateComponent<T, TMutable> -->
+  <g>
+    <rect x="420" y="460" width="300" height="40" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="570" y="485" class="code-bold" text-anchor="middle">MixedStateComponent&lt;T, TMutable&gt;</text>
+  </g>
+
+  <!-- ComputedRenderStateComponent<T> -->
+  <g>
+    <rect x="80" y="560" width="300" height="40" rx="8" fill="url(#state-grad)" class="node-border" />
+    <text x="230" y="585" class="code-bold" text-anchor="middle">ComputedRenderStateComponent&lt;T&gt;</text>
+  </g>
+
+</svg>

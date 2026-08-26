@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>KORESUM</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707728></A>KORESUM</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion kann die KORE-Summe auf Grundlage von KA, 
+KST, KTR und / oder der KORE-Gruppe berechnet und ausgegeben werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei der Funktion KORESUM werden Aufwände mit negativen 
+Vorzeichen berechnet, Erlöse bleiben Positiv. Dies ist ggfs. bei weiterführenden 
+Berechnungen zu berücksichtigen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=KORESUM (Art, KST(Grp.) von, KST(Grp.) bis, KA(Grp.) von, 
+KA(Grp.) bis, KTR(Grp.) von, KTR(Grp.) bis, Zeitraum, Wirtschaftsjahr)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Art (1 bis 
+1113)</P>
+<P class=MsoNormal>Über die Art wird definiert, ob einzelne Datensätze oder 
+Gruppen ausgewertet werden sollen. Des Weiteren wird darüber gesteuert, welche 
+Art von Kosten berechnet werden sollen. Das Kennzeichen besteht aus maximal 4 
+Zeichen, wobei führende 0 weggelassen werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1. Stelle</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - Kostenstelle</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Kostenstellengruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2. Stelle</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 46.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü </SPAN><B>0</B> - Kostenart</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 46.35pt; TEXT-INDENT: -28.35pt; tab-stops: 28.35pt 38.7pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü </SPAN><B>1</B> - Kostenartengruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3. Stelle</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - Kostenträger</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Kostenträgergruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4. Stelle</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Vollkosten 
+wertmäßig</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - Teilkosten 
+wertmäßig</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - Vollkosten 
+mengenmäßig</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn die Option "Vollkosten mengenmäßig" gewählt wurde, dann 
+kann nicht mehr zwischen Voll- und Teilkosten unterschieden werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KST/Gruppe 
+von (Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende von 
+KST bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KST/Gruppe 
+bis (Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende bis 
+KST bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KA/Gruppe von 
+(Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende von KA 
+bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KA/Gruppe bis 
+(Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende bis KA 
+bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KTR/Gruppe 
+von (Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende von 
+KTR bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>KTR/Gruppe 
+bis (Eingabe in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende bis 
+KTR bzw. Gruppe</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeitraum (14 
+/ 15 / 98 / 99 / 100 / 0 bis 13)</P>
+<P class=MsoNormal>Hinterlegung des auszuwertenden Zeitraums:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>14</B> - aktuelle Periode (lt. 
+Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>15</B> - kumuliert bis aktuelle 
+Periode (lt. Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>98</B> - alle Wirtschaftsjahre 
+kumuliert</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>99</B> - Wirtschaftsjahr 
+kumuliert</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>100</B> - alle Wirtschaftsjahre 
+kumuliert bis aktuelle Periode (lt. Einlogdatum)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> bis <B>13</B> - gewählte 
+Periode</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Wirtschaftsjahr (0 / 1 / 2 / …)</P>
+<P class=MsoNormal>Angabe des Wirtschaftsjahres:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - aktuelles 
+Wirtschaftsjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - erste Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - zweite Vorjahr</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>...</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=KORESUM (<U>1</U>, "<U>10</U>", 
+"<U>10</U>", "<U>8300</U>", "<U>8300</U>", "", "", <U>14</U>, <U>0</U>)<BR>Die 
+Funktion berücksichtigt bei der Vollkostenberechnung (<B>1</B>) alle Buchungen 
+der Kostenstelle "<B>10</B>" mit der Kostenart "<B>8300</B>". Die Daten stammen 
+dabei aus der aktuellen Periode (<B>14</B>) und des aktuellen Wirtschaftsjahres 
+(<B>0</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>= KORESUM 
+(<U>1002</U>,"<U>01-00-00-00-00-00-00-00-00</U>", <U>B4</U>, "", "", "", "", 
+<U>14</U>, <U>0</U>)<BR>Die Funktion berücksichtigt bei der Teilkostenberechnung 
+(100<B>2</B>) alle Buchungen der Kostenstellengruppe (<B>1</B>002) <I>von</I> 
+"<B>01-00-00-00-00-00-00-00-00</B>". Die <I>Bis</I>-Kostenstellengruppe wurde 
+nicht fix angegeben und befindet sich in der Zelle <B>B4</B>. Des Weiteren sind 
+die Kostenarten und Kostenträgern der Buchungssätze irrelevant (keine Selektion) 
+und die Daten sollen aus der aktuellen Periode (<B>14</B>) und des aktuellen 
+Wirtschaftsjahres (<B>0</B>) stammen.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

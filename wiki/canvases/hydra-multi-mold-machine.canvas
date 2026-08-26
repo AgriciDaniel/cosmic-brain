@@ -1,0 +1,166 @@
+{
+  "nodes": [
+    {
+      "id": "title-1751300000",
+      "type": "text",
+      "text": "# One Machine, Many Molds\n\nOne PU machine runs **many orders (products) at once**, each mounting **many molds**, within a **fixed number of slots**.\n\n*HYDRA MES — concept & implementation*",
+      "x": -660, "y": -1220, "width": 760, "height": 180, "color": "6"
+    },
+
+    {
+      "id": "zone-problem-1751300001",
+      "type": "group",
+      "label": "1 · The Problem",
+      "x": -680, "y": -990, "width": 1360, "height": 300, "color": "2"
+    },
+    {
+      "id": "text-setup-1751300002",
+      "type": "text",
+      "text": "## The Setup\n\n- One PU machine\n- **Fixed** physical slots\n- Each slot holds **one mold**\n- Many molds available in total",
+      "x": -640, "y": -950, "width": 380, "height": 230, "color": "2"
+    },
+    {
+      "id": "text-goal-1751300003",
+      "type": "text",
+      "text": "## The Goal\n\nRun **several orders in parallel** on the machine — each order = a different product — and let each product use **many molds at once**.",
+      "x": -220, "y": -950, "width": 380, "height": 230, "color": "2"
+    },
+    {
+      "id": "text-wrongright-1751300004",
+      "type": "text",
+      "text": "## Wrong vs Right\n\n❌ Model each mold as a separate machine\n\n✅ One machine holding a **list of tools**, capped by **two capacity limits**",
+      "x": 200, "y": -950, "width": 380, "height": 230, "color": "2"
+    },
+
+    {
+      "id": "zone-idea-1751300010",
+      "type": "group",
+      "label": "2 · The Idea",
+      "x": -680, "y": -650, "width": 1360, "height": 380, "color": "6"
+    },
+    {
+      "id": "text-model-1751300011",
+      "type": "text",
+      "text": "## The Model\n\n```\nMACHINE (primary)\n  ├ mold A  \\\n  ├ mold B   } secondary\n  └ mold N  /  resources\n```\n\nMachine = primary resource\nMolds = secondary resources\nSlot = a capacity unit",
+      "x": -640, "y": -610, "width": 380, "height": 320, "color": "6"
+    },
+    {
+      "id": "text-coreidea-1751300012",
+      "type": "text",
+      "text": "## Core Idea\n\nThe machine declares: *I hold a list of tools.*\n\nEach order asks for: *N molds from its product pool.*\n\nThe system binds molds at logon and checks capacity.",
+      "x": -220, "y": -610, "width": 380, "height": 320, "color": "6"
+    },
+    {
+      "id": "text-twoshapes-1751300013",
+      "type": "text",
+      "text": "## Don't Confuse Two Shapes\n\n**N machines in parallel** — one quantity split across separate machines.\n\n**1 machine, N mold slots** — *this idea*. Molds mounted in slots on one machine.",
+      "x": 200, "y": -610, "width": 380, "height": 320, "color": "6"
+    },
+
+    {
+      "id": "zone-realpu-1751300040",
+      "type": "group",
+      "label": "3 · Real PU Case — 3 Tiers",
+      "x": -680, "y": -230, "width": 1360, "height": 380, "color": "1"
+    },
+    {
+      "id": "text-tiers-1751300041",
+      "type": "text",
+      "text": "## 3 Nested Tiers\n\n```\nMACHINE (fixed slots)\n ├ Order 1 = Product X -> molds\n ├ Order 2 = Product Y -> molds\n └ Order 3 = Product Z -> molds\n```\n\nOrders: 1..N (varies).\nMolds/product: not fixed.\nSlots: fixed.",
+      "x": -640, "y": -190, "width": 380, "height": 320, "color": "1"
+    },
+    {
+      "id": "text-twocaps-1751300042",
+      "type": "text",
+      "text": "## Two Capacity Caps\n\n**Parallel orders** →\n*Available capacity* = N_orders × 1000\n\n**Parallel molds/slots** →\n*Anonymous slot-pool Quantity* = fixed slot count\n\nCeiling: max 20 OPs / machine.",
+      "x": -220, "y": -190, "width": 380, "height": 320, "color": "1"
+    },
+    {
+      "id": "text-fixedslots-1751300043",
+      "type": "text",
+      "text": "## Fixed Slots Enforced\n\nHLS capacity-checks **the tools on an operation**, not just the machine.\n\nModel slots as one **anonymous resource, Quantity = N**. Every OP consumes `anzahl` molds.\n\n→ Σ molds across all orders ≤ N.",
+      "x": 200, "y": -190, "width": 380, "height": 320, "color": "1"
+    },
+
+    {
+      "id": "zone-impl-1751300020",
+      "type": "group",
+      "label": "4 · How to Implement",
+      "x": -680, "y": 190, "width": 1360, "height": 640, "color": "4"
+    },
+    {
+      "id": "text-step1-1751300021",
+      "type": "text",
+      "text": "### 1 · Define resources\n\n- Machine = type **MNR**, marked **meta-resource**\n- Each mold = type **WNR**\n- Group molds into a **Family**",
+      "x": -640, "y": 230, "width": 380, "height": 270, "color": "4"
+    },
+    {
+      "id": "text-step2-1751300022",
+      "type": "text",
+      "text": "### 2 · Mold pool per product\n\nUse a **Required resource**: one logical resource standing for a product's molds.\n\nThe system picks actual molds at logon.",
+      "x": -220, "y": 230, "width": 380, "height": 270, "color": "4"
+    },
+    {
+      "id": "text-step3-1751300023",
+      "type": "text",
+      "text": "### 3 · Slot-pool (fixed slots)\n\nCreate an **anonymous resource**, **Quantity = N** = physical slots on the machine.\n\nThis becomes the hard cap on total mounted molds.",
+      "x": 200, "y": 230, "width": 380, "height": 270, "color": "4"
+    },
+    {
+      "id": "text-step4-1751300024",
+      "type": "text",
+      "text": "### 4 · Cavities = partitioning\n\nEach mold's **partitioning = number of cavities**.\n\nEnable *Partitioning due to cavities* → output qty per cycle auto-calculated.",
+      "x": -640, "y": 520, "width": 380, "height": 270, "color": "4"
+    },
+    {
+      "id": "text-step5-1751300025",
+      "type": "text",
+      "text": "### 5 · Attach to the order\n\nOn the operation tool list add the **mold pool** (`anzahl` = molds) **and the slot-pool**.\n\nSet **Log on with OP = Explicit** (operator scans mounted molds).",
+      "x": -220, "y": 520, "width": 380, "height": 270, "color": "4"
+    },
+    {
+      "id": "text-step6-1751300026",
+      "type": "text",
+      "text": "### 6 · Parallel + planning\n\n- **Logon of several OPs = Y** (≤20)\n- **Available capacity** = N_orders × 1000\n- Plan **manual or auto** (`graptsbap`) — both honour both caps",
+      "x": 200, "y": 520, "width": 380, "height": 270, "color": "4"
+    },
+
+    {
+      "id": "zone-runtime-1751300030",
+      "type": "group",
+      "label": "5 · Runtime & Verify",
+      "x": -680, "y": 870, "width": 1360, "height": 320, "color": "5"
+    },
+    {
+      "id": "text-occupancy-1751300031",
+      "type": "text",
+      "text": "## Who Occupies Which Slot\n\nEvery mold gets its own occupancy record on the board:\n\n- order\n- lock\n- maintenance window",
+      "x": -640, "y": 910, "width": 380, "height": 240, "color": "5"
+    },
+    {
+      "id": "text-cavitychange-1751300032",
+      "type": "text",
+      "text": "## Cavity Changes Mid-Run\n\nOperator records opening / closing cavities at the terminal (reason: increase / reduction).\n\nLogged to machine history; targets recalculate automatically.",
+      "x": -220, "y": 910, "width": 380, "height": 240, "color": "5"
+    },
+    {
+      "id": "text-quality-1751300033",
+      "type": "text",
+      "text": "## Quality Per Slot\n\nQuality data captured per cavity number.\n\nSample size = per-characteristic × number of cavities. Every part traceable to its mold.",
+      "x": 200, "y": 910, "width": 380, "height": 240, "color": "5"
+    }
+  ],
+  "edges": [
+    { "id": "e-title-problem", "fromNode": "title-1751300000", "toNode": "zone-problem-1751300001", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "5" },
+    { "id": "e-problem-idea", "fromNode": "zone-problem-1751300001", "toNode": "zone-idea-1751300010", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "5" },
+    { "id": "e-idea-realpu", "fromNode": "zone-idea-1751300010", "toNode": "zone-realpu-1751300040", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "5" },
+    { "id": "e-realpu-impl", "fromNode": "zone-realpu-1751300040", "toNode": "zone-impl-1751300020", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "5" },
+    { "id": "e-impl-runtime", "fromNode": "zone-impl-1751300020", "toNode": "zone-runtime-1751300030", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "5" },
+
+    { "id": "e-s1-s2", "fromNode": "text-step1-1751300021", "toNode": "text-step2-1751300022", "fromSide": "right", "toSide": "left", "toEnd": "arrow", "color": "4" },
+    { "id": "e-s2-s3", "fromNode": "text-step2-1751300022", "toNode": "text-step3-1751300023", "fromSide": "right", "toSide": "left", "toEnd": "arrow", "color": "4" },
+    { "id": "e-s3-s4", "fromNode": "text-step3-1751300023", "toNode": "text-step4-1751300024", "fromSide": "bottom", "toSide": "top", "toEnd": "arrow", "color": "4" },
+    { "id": "e-s4-s5", "fromNode": "text-step4-1751300024", "toNode": "text-step5-1751300025", "fromSide": "right", "toSide": "left", "toEnd": "arrow", "color": "4" },
+    { "id": "e-s5-s6", "fromNode": "text-step5-1751300025", "toNode": "text-step6-1751300026", "fromSide": "right", "toSide": "left", "toEnd": "arrow", "color": "4" }
+  ]
+}

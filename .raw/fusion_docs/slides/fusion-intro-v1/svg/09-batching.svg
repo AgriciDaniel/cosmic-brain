@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a09" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#a8b1ff"/>
+    </marker>
+    <pattern id="dots09" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+      <rect x="3" y="3" width="16" height="16" rx="2" fill="rgba(168,177,255,0.5)"/>
+    </pattern>
+  </defs>
+
+  <text x="180" y="60" text-anchor="middle" fill="#fcfcf7" font-size="14">~1,000 concurrent calls</text>
+  <rect x="40" y="80" width="280" height="260" rx="6" fill="url(#dots09)" stroke="#a8b1ff" stroke-width="1"/>
+
+  <line x1="340" y1="210" x2="465" y2="210" stroke="#a8b1ff" stroke-width="2" marker-end="url(#a09)"/>
+  <text x="402" y="195" text-anchor="middle" fill="#a8b1ff" font-size="13">coalesce</text>
+
+  <text x="620" y="60" text-anchor="middle" fill="#fcfcf7" font-size="14">1 frame on the wire</text>
+  <rect x="500" y="80" width="240" height="260" rx="12" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="2"/>
+  <text x="620" y="200" text-anchor="middle" fill="#fcfcf7" font-size="22" font-weight="500">one frame</text>
+  <text x="620" y="230" text-anchor="middle" fill="#7e7e87" font-size="13">~100 KB</text>
+</svg>

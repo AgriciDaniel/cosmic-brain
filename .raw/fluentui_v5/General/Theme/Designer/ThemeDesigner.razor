@@ -1,0 +1,57 @@
+﻿@inject IJSRuntime JSRuntime
+
+<FluentGrid Spacing="2">
+    <FluentGridItem Xs="12" Sm="4">
+        <FluentStack Orientation="Orientation.Vertical" Style="background-color: var(--colorNeutralBackground3);" Padding="10px 10px 20px 10px">
+            <strong>Parameters</strong>
+            <FluentTextInput Label="Color"
+                             Width="100%"
+                             @bind-Value="@_color"
+                             @bind-Value:after="@PreviewThemeAsync"
+                             TextInputType="TextInputType.Color"
+                             MessageCondition="@FluentFieldCondition.Always"
+                             MessageIcon="@(new Icons.Regular.Size24.PaintBrushSparkle())"
+                             Message="@($"Selected color (hex): {_color}")" />
+            <FluentTextInput Label="Hue Torsion"
+                             Width="100%"
+                             @bind-Value="@_hue"
+                             @bind-Value:after="@PreviewThemeAsync"
+                             TextInputType="TextInputType.Number"
+                             Message="Between -50 and 50"
+                             MessageIcon="@FluentStatus.InfoIcon"
+                             MessageCondition="@FluentFieldCondition.Always" />
+            <FluentTextInput Label="Vibrancy"
+                             Width="100%"
+                             @bind-Value="@_vibrancy"
+                             @bind-Value:after="@PreviewThemeAsync"
+                             TextInputType="TextInputType.Number"
+                             Message="Between -50 and 50"
+                             MessageIcon="@FluentStatus.InfoIcon"
+                             MessageCondition="@FluentFieldCondition.Always" />
+            <FluentSwitch Label="Dark"
+                          @bind-Value="@_isDark"
+                          @bind-Value:after="@PreviewThemeAsync" />
+            <FluentSwitch Label="Use exact color"
+                          @bind-Value="@_isExact"
+                          @bind-Value:after="@PreviewThemeAsync" />
+            <FluentStack Orientation="Orientation.Vertical" VerticalGap="8px">
+                <FluentButton Style="width: 100%;" Appearance="ButtonAppearance.Primary" OnClick="@ApplyThemeAsync">
+                    Apply
+                </FluentButton>
+                <FluentButton Style="width: 100%;" OnClick="@ResetThemeAsync">
+                    Reset
+                </FluentButton>
+            </FluentStack>
+        </FluentStack>
+    </FluentGridItem>
+    <FluentGridItem Xs="12" Sm="8">
+        <div id="theme-preview" @ref="_themePreviewElement">
+            <FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+                <PaletteBar Palette="@_palette" />
+                <strong>Examples</strong>
+                <ExampleBlocks />
+            </FluentStack>
+        </div>
+    </FluentGridItem>
+
+</FluentGrid>

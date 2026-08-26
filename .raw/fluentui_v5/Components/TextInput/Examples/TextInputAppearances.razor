@@ -1,0 +1,19 @@
+﻿<FluentStack HorizontalGap="20px">
+    <FluentTextInput Appearance="@TextInputAppearance.Outline" Label="Outline" Placeholder="Outline" @bind-Value="@Value" />
+    <FluentTextInput Appearance="@TextInputAppearance.Underline" Label="Underline" Placeholder="Underline" @bind-Value="@Value" />
+    <FluentTextInput Appearance="@TextInputAppearance.FilledLighter" Label="FilledLighter" Placeholder="FilledLighter" @bind-Value="@Value" />
+    <FluentTextInput Appearance="@TextInputAppearance.FilledDarker" Label="FilledDarker" Placeholder="FilledDarker" @bind-Value="@Value" />
+</FluentStack>
+
+<FluentStack HorizontalGap="20px">
+    <FluentTextInput Size="@TextInputSize.Small" Label="Small" Placeholder="Small" @bind-Value="@Value" />
+    <FluentTextInput Size="@TextInputSize.Medium" Label="Medium" Placeholder="Medium" @bind-Value="@Value" />
+    <FluentTextInput Size="@TextInputSize.Large" Label="Large" Placeholder="Large" @bind-Value="@Value" />
+</FluentStack>
+
+<FluentLabel>Value = @Value</FluentLabel>
+
+@code
+{
+    string Value = "";
+}

@@ -1,0 +1,43 @@
+﻿<FluentStack Orientation="Orientation.Vertical" VerticalGap="15">
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentToggleButton Size="ButtonSize.Small">
+            <ChildContent>Small</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Small" IconStart="@(new Icons.Regular.Size16.Globe())">
+            <ChildContent>Small with calendar icon</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Small"
+                              IconOnly="true"
+                              Title="Small icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" />
+        </FluentToggleButton>
+    </FluentStack>
+
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentToggleButton Size="ButtonSize.Medium">
+            <ChildContent>Medium</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Medium" IconStart="@(new Icons.Regular.Size20.Globe())">
+            <ChildContent>Medium with calendar icon</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Medium"
+                              IconOnly="true"
+                              Title="Medium icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size20.Globe())" />
+        </FluentToggleButton>
+    </FluentStack>
+
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentToggleButton Size="ButtonSize.Large">
+            <ChildContent>Large</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Large" IconStart="@(new Icons.Regular.Size24.Globe())">
+            <ChildContent>Large with calendar icon</ChildContent>
+        </FluentToggleButton>
+        <FluentToggleButton Size="ButtonSize.Large"
+                              IconOnly="true"
+                              Title="Large icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size24.Globe())" />
+        </FluentToggleButton>
+    </FluentStack>
+</FluentStack>

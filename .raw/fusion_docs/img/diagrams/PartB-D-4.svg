@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 380" width="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd"/>
+            <stop offset="50%" stop-color="#eaf1fb"/>
+            <stop offset="100%" stop-color="#e2ebf7"/>
+        </linearGradient>
+
+        <!-- State Node Gradient (Light Blue) -->
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc"/>
+            <stop offset="100%" stop-color="#d4e3f7"/>
+        </linearGradient>
+
+        <!-- Action Node Gradient (Warm Amber) -->
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0"/>
+            <stop offset="100%" stop-color="#faecd8"/>
+        </linearGradient>
+
+        <!-- Arrow Marker -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+    <!-- Subgraph: MixedStateComponent -->
+    <rect x="270" y="30" width="300" height="310" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+    <text x="285" y="50" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">MixedStateComponent</text>
+
+    <!-- Edges (Curved Bezier Paths) -->
+    <!-- Input to Mutable -->
+    <path d="M 240 110 C 255 110, 275 110, 292 110" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+    
+    <!-- Mutable to Computed -->
+    <path d="M 420 140 C 420 170, 420 210, 420 242" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+    
+    <!-- Computed to UI -->
+    <path d="M 540 280 C 560 280, 580 280, 602 280" stroke="#8b90a8" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <!-- Edge Label -->
+    <text x="430" y="185" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">On update: triggers</text>
+    <text x="430" y="200" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic">State.Recompute()</text>
+
+    <!-- Nodes -->
+    <!-- Action Node: Input -->
+    <rect x="20" y="80" width="220" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+    <text x="130" y="114" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">User types in search box</text>
+
+    <!-- State Node: Mutable -->
+    <rect x="300" y="80" width="240" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="420" y="106" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">MutableState&lt;string&gt;</text>
+    <text x="420" y="126" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(local form state)</text>
+
+    <!-- State Node: Computed -->
+    <rect x="300" y="250" width="240" height="60" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="420" y="276" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ComputedState&lt;T&gt;</text>
+    <text x="420" y="296" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">(computed state)</text>
+
+    <!-- Action Node: UI -->
+    <rect x="610" y="250" width="220" height="60" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+    <text x="720" y="284" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">UI renders search results</text>
+</svg>

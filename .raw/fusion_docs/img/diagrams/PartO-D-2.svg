@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 740" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+
+        <marker id="arrowhead" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 6 3 L 0 6 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Subgraph: Command Handlers -->
+    <rect x="80" y="120" width="440" height="580" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+    <text x="95" y="145" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Command Handlers</text>
+
+    <!-- Nodes -->
+    
+    <!-- Client Request (State/Object) -->
+    <rect x="170" y="40" width="260" height="54" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="300" y="60" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Client Request</text>
+    <text x="300" y="78" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">CreateOrderCommand(...)</text>
+
+    <!-- P1: NestedOperationLogger (Action/Process) -->
+    <rect x="110" y="160" width="380" height="74" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="181" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">1. NestedOperationLogger</text>
+    <text x="300" y="195" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45" text-anchor="middle">priority: 11000</text>
+    <text x="300" y="204" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Captures nested command calls</text>
+    <text x="300" y="218" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Stores in Operation.NestedOperations</text>
+
+    <!-- P2: InMemoryOperationScopeProvider (Action/Process) -->
+    <rect x="110" y="274" width="380" height="74" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="295" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">2. InMemoryOperationScopeProvider</text>
+    <text x="300" y="309" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45" text-anchor="middle">priority: 10000</text>
+    <text x="300" y="318" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Provides transient operation scope</text>
+    <text x="300" y="332" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Runs operation completion</text>
+
+    <!-- P3: DbOperationScopeProvider (Action/Process) -->
+    <rect x="110" y="388" width="380" height="74" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="409" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">3. DbOperationScopeProvider</text>
+    <text x="300" y="423" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45" text-anchor="middle">priority: 1000</text>
+    <text x="300" y="432" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Creates DbOperationScope</text>
+    <text x="300" y="446" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Manages DB transaction</text>
+
+    <!-- Your: YOUR COMMAND HANDLER (Action/Process) -->
+    <rect x="110" y="502" width="380" height="54" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="524" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">YOUR COMMAND HANDLER</text>
+    <text x="300" y="542" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Business logic + invalidation block</text>
+
+    <!-- P4: InvalidatingCommandCompletionHandler (Action/Process) -->
+    <rect x="110" y="596" width="380" height="74" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="300" y="617" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">4. InvalidatingCommandCompletionHandler</text>
+    <text x="300" y="631" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#1a1a2e" opacity="0.45" text-anchor="middle">priority: 100</text>
+    <text x="300" y="640" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Reacts to ICompletion</text>
+    <text x="300" y="654" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">Runs invalidation mode</text>
+
+    <!-- Arrows -->
+    <path d="M 300 94 C 300 127, 300 127, 300 160" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <path d="M 300 234 C 300 254, 300 254, 300 274" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <path d="M 300 348 C 300 368, 300 368, 300 388" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <path d="M 300 462 C 300 482, 300 482, 300 502" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <path d="M 300 556 C 300 576, 300 576, 300 596" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+
+</svg>

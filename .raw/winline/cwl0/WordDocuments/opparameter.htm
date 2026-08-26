@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>OP-Parameter</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="buchungskreise.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="mahnparameter.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefibu1.htm">WinLine FIBU</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Stammdaten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>OP-Parameter</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A 
+name=_Toc207273655>OP-Parameter</A></H2>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Die OP-Parameter werden einerseits für 
+die Stapelbuchungsschnittstelle benötigt, da über die Stapelbuchungen auch 
+Zahlungen eingelesen werden können. Andererseits können darin CRM-Folgeschritte 
+hinterlegt werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image863_53.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Offene Posten Parameter</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Fehlbetrag 
+akzeptiert</P>
+<P class=MsoNormal>Im Feld Fehlbetrag akzeptiert wird der Betrag eingegeben, der 
+als zusätzlicher Skontoabzug genehmigt wird - z.B. 10,--. </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Fehlbetrag 
+maximal</P>
+<P class=MsoNormal>Im Feld Fehlbetrag maximal wird der Betrag eingegeben, der 
+als zusätzlicher (also über den berechtigen Skonto hinausgehender) Skonto gerade 
+noch akzeptiert werden kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Mit welcher Logik wird festgestellt, ob ein Fehlbetrag 
+ausgebucht wird oder nicht?</P>
+<P class=MsoNormal>Ist der Fehlbetrag kleiner als der Wert Fehlbetrag 
+akzeptiert, wird der Fehlbetrag immer ausgebucht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Ist der Fehlbetrag größer als der Wert Fehlbetrag maximal, 
+wird immer eine Teilzahlung erzeugt und die Faktura mit dem Restbetrag offen 
+gelassen.</P>
+<P class=MsoNormal>Liegt der Fehlbetrag zwischen dem Wert Fehlbetrag akzeptiert 
+und Fehlbetrag maximal, wird aufgrund des Fakturenbetrages und des Toleranz 
+%-Satzes der Wert errechnet, der maximal abgezogen werden darf. Ist der 
+Fehlbetrag auch noch innerhalb des Toleranzprozentsatzes, wird er als 
+zusätzlicher Skontobetrag genehmigt und die OP ausgebucht. Wird der 
+Toleranzprozentsatz überschritten, wird nur eine Teilzahlung durchgeführt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Fakturennr.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Eingabe einer Ersatzfakturennummer, 
+die dann verwendet wird, wenn die einzulesende Faktura bereits (bei DF- oder 
+KF-Buchungen) oder nicht mehr vorhanden (bei DZ-Buchungen) ist.</P>
+<P class=BeispielAchtung>Beispiel 1</P>
+<P class=MsoNormal style="tab-stops: 0pt">Eine Fremddatei wird über die 
+Stapelbuchung eingelesen. In dieser Datei ist eine Fakturennummer für einen 
+Kunden doppelt vorhanden. Da bei der Übernahme erkannt wird, dass die 
+Fakturennummer bereits vorhanden ist, wird die Ersatz-Fakturennummer 
+verwendet.</P>
+<P class=BeispielAchtung>Beispiel 2</P>
+<P class=MsoNormal style="tab-stops: 0pt">In der Ausgabe der Differenzliste wird 
+festgestellt, dass auf einem Konto eine Differenz zwischen OP-Saldo und 
+FIBU-Saldo entstanden ist, weil z.B. versehentlich eine Buchung auf ein 
+Personenkonto anstelle mit der Buchungsart "DF" mit "B" gemacht worden ist. Die 
+Differenzliste kann diese Differenz automatisch bereinigen, indem die fehlende 
+OP vom System erstellt wird. Als OP-Nummer wird auch die Ersatz-Fakturennummer 
+herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Vertreter 
+OP-Nummer</P>
+<P class=MsoNormal>In diesem Feld kann ein Vertreter OP-Nummernkreis vorbelegt 
+werden, der für die Übergabe der Buchungen der Vertreterabrechnung aus WinLine 
+FAKT an die FIBU verwendet wird.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Der numerische Teil der OP-Nummer darf nicht mit einer 
+"Vorlaufnull" beginnen, sondern wie z.B. in der Abbildung dargestellt mit einer 
+Ziffer größer 0.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Zahlungsausgleich</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Zahlungsausgleich</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier kann definiert werden, nach 
+welcher Methode der Zahlungsausgleich bei der Buchung von Zahlungen durchgeführt 
+werden soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>automatischer 
+Zahlungsvorschlag</P>
+<P class=MsoNormal style="tab-stops: 0pt">Ist diese Option aktiviert, erfolgt 
+der Zahlungsvorschlag in der Tabelle, in der alle offenen Fakturen angezeigt 
+werden. Dabei schlägt das Programm automatisch vor (durch Setzen der 
+entsprechenden Häkchen in den Checkboxen), welche Fakturen mit welchem Betrag 
+ausgeglichen werden sollen. Dieser Vorschlag kann selbstverständlich immer noch 
+manuell überarbeitet werden.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">Zuerst sucht das Programm, ob es eine 
+OP gibt, die exakt dem Zahlungsbetrag entspricht. Gibt es eine solche nicht, 
+beginnt das Programm von oben weg (abhängig von der Sortierung - siehe unten) 
+den Zahlungsbetrag auf die offenen Fakturen - natürlich unter Berücksichtigung 
+der berechtigten Skontoabzüge - zuzuordnen, bis der Zahlungsbetrag komplett 
+aufgeteilt ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Fakturenauswahl im Eingabefeld</P>
+<P class=MsoNormal style="tab-stops: 0pt">Mit dieser Option wird im 
+Zahlungsverkehr der Focus auf die Spalte "Faktura" gesetzt. Wird dann die 
+Fakturennummer eingegeben, sucht sich das Programm den entsprechenden Eintrag. 
+Durch Bestätigen der Fakturenzeile mit der ENTER-Taste wird der offene 
+Zahlungsbetrag automatisch der Faktura zugeordnet und die OP für die Zahlung 
+markiert. Dann kann die nächste Fakturennummer eingegeben werden, usw.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Sortierung</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hier kann entschieden werden, wie die 
+Fakturen in der Zahlungstabelle sortiert werden sollen. Dabei stehen folgende 
+Optionen zur Verfügung:</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Nummer<BR>Sortierung nach 
+Fakturennummer (Achtung: die Fakturennummer ist alphanumerisch, daher erfolgt 
+auch die Sortierung nach diesem Gesichtspunkt - also zuerst die erste Stelle, 
+dann die zweite Stelle, usw.)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Datum<BR>Sortierung nach 
+Fakturendatum (hier würde die älteste OP zuerst gezahlt werden)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Betrag<BR>Sortierung nach 
+Buchungsbetrag (hier würde die OP mit dem höchsten Betrag zuerst gezahlt 
+werden)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Leistungsdatum<BR>Sortierung nach 
+Leistungsdatum (hier würde der OP mit dem ältesten Leistungsdatum, das bei einer 
+Abgrenzungsbuchung eingetragen wurde, zuerst gezahlt werden)</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=BeispielAchtung>CRM-Schritte</P>
+<P class=MsoNormal>In diesem Bereich können CRM-Folgeschritte hinterlegt werden, 
+die beim Ausgleichen von Offenen Posten zum "zugehörigen" Workflow geschrieben 
+werden sollen.</P>
+<P class=MsoNormal>Hierbei wird grundsätzlich unterschieden zwischen 
+Folgeschritte für Debitoren oder Kreditoren, bzw. zwischen den Buchungsvorgängen 
+in den Buchungsfenstern (inkl. Fakturenausgleich) bzw. jenen im 
+Zahlungsverkehr.</P>
+<P class=MsoNormal>Beim Ausgleichen von Offenen Posten (OP wird auf "-1" oder 
+"-2" gesetzt) wird geprüft, ob die Personenkontennummer und die auszugleichende 
+OP-Nummer in einem Workflow, bzw. event. in verschiedenen Workflows enthalten 
+ist. Ist dies der Fall, so wird der entsprechende Folgeschritt dazu geschrieben. 
+Voraussetzung dafür ist, dass der zu schreibende Folgeschritt lt. 
+Workflowdefinition als nächster Schritt möglich ist, und, dass der Benutzer auch 
+die Berechtigung hat, den Schritt zu schreiben.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt 38.85pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>CRM-Schritte - 
+Fakturen ausgleichen (Buchen)</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hinterlegung des CRM-Folgeschrittes, 
+der beim Ausgleichen von Offenen Posten, für Debitoren bzw. für Kreditoren in 
+den Buchungsmenüpunkten (inkl. Fakturenausgleich) geschrieben werden soll.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Zur Suche nach Folgeschritten steht 
+der Matchcode zur Verfügung.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt 38.85pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>CRM-Schritte - 
+Fakturen ausgleichen (Zahlungsverkehr)</P>
+<P class=MsoNormal style="tab-stops: 0pt">Hinterlegung des CRM-Folgeschrittes, 
+der beim Ausgleichen von Offenen Posten, für Debitoren bzw. für Kreditoren im 
+Zahlungsverkehr geschrieben werden soll.</P>
+<P class=MsoNormal style="tab-stops: 0pt">Zur Suche nach Folgeschritten steht 
+der Matchcode zur Verfügung.</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P>
+<P class=MsoNormal style="tab-stops: 0pt">&nbsp;</P><SPAN 
+id=related-topics></SPAN></DIV></BODY></HTML>

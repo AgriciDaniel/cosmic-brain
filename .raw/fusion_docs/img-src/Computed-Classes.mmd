@@ -1,0 +1,17 @@
+classDiagram
+  IComputed <|.. Computed
+  Computed <|-- StateBoundComputed
+  Computed <|-- ReplicaClientComputed
+  class IComputed {
+    <<interface>>
+  }
+  class Computed {
+    <<Backs computed methods>>
+  }
+  class StateBoundComputed {
+    <<Backs IState.Computed>>
+  }
+  class ReplicaClientComputed {
+    <<Backs client-side IComputed replicas>>
+    +IReplica Replica 
+  }

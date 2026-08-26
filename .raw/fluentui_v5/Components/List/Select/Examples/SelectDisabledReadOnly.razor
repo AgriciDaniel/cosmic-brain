@@ -1,0 +1,14 @@
+﻿<FluentSelect Label="Disabled"
+              Disabled="true"
+              Items="@Colors"
+              @bind-Value="@Value" />
+
+<FluentSelect Label="ReadOnly"
+              ReadOnly="true"
+              Items="@Colors"
+              @bind-Value="@Value" />
+
+@code {
+    static string[] Colors = ["Red", "Green", "Blue"];
+    string? Value = "Red";
+}

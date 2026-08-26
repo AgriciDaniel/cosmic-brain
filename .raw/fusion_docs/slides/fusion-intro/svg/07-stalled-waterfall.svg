@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Inter, ui-sans-serif, sans-serif">
+  <line x1="120" y1="295" x2="760" y2="295" stroke="#7e7e87" stroke-width="1"/>
+  <text x="775" y="299" fill="#7e7e87" font-size="12">time</text>
+
+  <text x="60" y="60" fill="#7e7e87" font-size="12">UI</text>
+  <text x="60" y="100" fill="#7e7e87" font-size="12">/users</text>
+  <text x="60" y="140" fill="#7e7e87" font-size="12">/chats</text>
+  <text x="60" y="180" fill="#7e7e87" font-size="12">/messages</text>
+  <text x="60" y="220" fill="#7e7e87" font-size="12">/me</text>
+
+  <rect x="120" y="90" width="120" height="20" rx="3" fill="#a8b1ff" opacity="0.6"/>
+  <rect x="240" y="130" width="100" height="20" rx="3" fill="#a8b1ff" opacity="0.6"/>
+  <rect x="340" y="170" width="160" height="20" rx="3" fill="#a8b1ff" opacity="0.6"/>
+  <rect x="500" y="210" width="90" height="20" rx="3" fill="#a8b1ff" opacity="0.6"/>
+
+  <rect x="120" y="50" width="470" height="20" rx="3" fill="#facc15" opacity="0.4"/>
+  <text x="595" y="65" text-anchor="start" fill="#4ade80" font-size="12">UI ready</text>
+
+  <line x1="120" y1="40" x2="120" y2="285" stroke="#7e7e87" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="590" y1="40" x2="590" y2="285" stroke="#7e7e87" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <text x="400" y="335" text-anchor="middle" fill="#f44" font-size="13">UI is "loading" until the slowest call finishes</text>
+</svg>

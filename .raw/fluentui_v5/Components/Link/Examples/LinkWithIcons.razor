@@ -1,0 +1,10 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentLink OnClick="@(() => Console.WriteLine("Link with icon at start clicked"))"
+                IconStart="@(new Icons.Regular.Size16.Link())">
+        Link with icon at start
+    </FluentLink>
+    <FluentLink OnClick="@(() => Console.WriteLine("Link with icon at end clicked"))"
+                IconEnd="@(new Icons.Regular.Size16.Bookmark().WithColor(Color.Success))">
+        Link with icon at end
+    </FluentLink>
+</FluentStack>

@@ -1,0 +1,42 @@
+﻿    <FluentDataGrid Items="@employees"
+                    Style="min-width: max-content;"
+                    HeaderCellAsButtonWithMenu="true"
+                    ReorderableColumns="true"
+                    DisplayMode="DataGridDisplayMode.Table">
+        <PropertyColumn Title="ID" Property="@(e => e.Id)" Width="10%" Pin="DataGridColumnPin.Start" Sortable="true" />
+        <PropertyColumn Title="Full Name" Property="@(e => e.FullName)" Sortable="true" />
+        <PropertyColumn Title="Department" Property="@(e => e.Department)" Sortable="true" />
+        <PropertyColumn Title="Location" Property="@(e => e.Location)" Sortable="true" />
+        <PropertyColumn Title="Start Date" Property="@(e => e.StartDate)" Sortable="true" />
+        <PropertyColumn Title="Salary" Property="@(e => e.Salary)" Width="120px" Sortable="true" Align="DataGridCellAlignment.End" />
+        <TemplateColumn Title="Actions">
+            <FluentButton IconStart="@(new Icons.Regular.Size16.Edit())" Appearance="ButtonAppearance.Subtle" Title="Edit" @onclick="@(() => selectedName = context.FullName + " (edit)")" />
+            <FluentButton IconStart="@(new Icons.Regular.Size16.Delete())" Appearance="ButtonAppearance.Subtle" Title="Delete" @onclick="@(() => selectedName = context.FullName + " (delete)")" />
+        </TemplateColumn>
+    </FluentDataGrid>
+
+
+@if (!string.IsNullOrEmpty(selectedName))
+{
+    <p style="margin-top: 1rem;">Last action: <strong>@selectedName</strong></p>
+}
+
+@code {
+    string selectedName = string.Empty;
+
+    record Employee(int Id, string FullName, string Department, string Location, string StartDate, string Salary);
+
+    IQueryable<Employee> employees = new[]
+    {
+        new Employee(1, "Denis Voituron", "Engineering", "Brussels", "2019-03-01", "$120,000"),
+        new Employee(2, "Vincent Baaij", "Engineering", "Amsterdam", "2018-07-15", "$130,000"),
+        new Employee(3, "Harry Mars", "Executive", "Medina", "1975-04-04", "$1,000,000"),
+        new Employee(4, "Bruno Styles", "Executive", "Bellevue", "1992-02-17", "$950,000"),
+        new Employee(5, "Taylor Eilish", "Developer Relations", "Portland", "2007-01-22", "$200,000"),
+        new Employee(6, "Billie Swift", "Languages", "Seattle", "2005-08-01", "$180,000"),
+        new Employee(7, "Jacky Bond", "Framework", "Seattle", "2010-06-14", "$190,000"),
+        new Employee(8, "James Chan", "Framework", "Cambridge", "2009-03-30", "$185,000"),
+        new Employee(9, "John Cage", "Community", "San Diego", "2011-11-01", "$160,000"),
+        new Employee(10, "Nick Travolta", "Engineering", "New York", "2016-05-20", "$155,000"),
+    }.AsQueryable();
+}

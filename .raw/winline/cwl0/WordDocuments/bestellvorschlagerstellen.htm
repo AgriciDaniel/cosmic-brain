@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Bestellvorschlag erstellen</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84fakt21.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="kassenfinanzonlinejournal.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled 
+href="bestellvorschlagerstellenregistereinkaufsartikelbestellen.htm"><IMG 
+border=0 alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" 
+align=absMiddle></A> </P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefakt1.htm">WinLine FAKT</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Einkauf</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Bestellvorschlag erstellen</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A 
+name=_Toc209707432></A>Bestellvorschlag erstellen</H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In dem Menüpunkt…</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>WinLine 
+FAKT</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; </SPAN>Einkauf</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Bestellvorschlag</P>
+<P class=Menpunkt style="tab-stops: 28.35pt 42.5pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">1&nbsp; 
+</SPAN>Bestellvorschlag erstellen</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>… werden alle Lagerbestände (inklusive offener Aufträge und 
+Bestellungen) kontrolliert und bei Unterschreitung des im Artikelstamm 
+eingetragenen Lagermindestbestands (Register "Lager" - Unterregister 
+"Einstellungen" - Feld "Lager Mind.") ein Bestellvorschlag erstellt.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Ein Bestellvorschlag kann für einen Artikel nur dann 
+ausgelöst werden, wenn im Artikelstamm zumindest 1 
+Lieferanten-Preislisteneintrag mit folgenden Daten vorhanden ist:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag mit Status 
+"A"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag mit Menge ab 
+"0"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag ist gültig 
+bezogen auf das "Bestelldatum"</P>
+<P class=BeispielAchtung>Hinweis 1</P>
+<P class=MsoNormal>Artikel des Typs "1 - Lagerneutraler Artikel" werden im 
+Bestellvorschlag nicht berücksichtigt.</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Welche Artikel im Fall von Ausprägungsartikel in den 
+Bestellvorschlag übernommen werden sollen, kann in dem Programm <SPAN 
+class=MsoHyperlink><A href="JavaScript:TL_460522.HHClick()"><SPAN 
+class=MsoHyperlink></SPAN><SPAN class=MsoHyperlink>Ausprägungsoptionen - 
+Einkauf</SPAN></A></SPAN> definiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_1348.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Da der Bestellvorschlag für unterschiedliche Arten von 
+Artikeln durchgeführt werden kann, ist dieser in 6 Register unterteilt, welche 
+in den nachfolgenden Kapiteln beschrieben werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460523.HHClick()">Register "Einkaufsartikel 
+bestellen"</A><BR>In diesem Register können "normale" Ein-/Verkaufsartikel bei 
+Lieferanten bestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460524.HHClick()">Register "PPS-Artikel 
+produzieren"</A><BR>In diesem Register können Produktionsaufträge für 
+Produktionsartikel in der WinLine PPS generiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460525.HHClick()">Register "PPS-Artikel best. / 
+Fertigung"</A><BR>In diesem Register können Produktionsartikel bei Lieferanten 
+bestellt und eigene Fertigungen in Auftrag gegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460526.HHClick()">Register "Komponenten bestellen"</A><BR>In 
+diesem Register können Artikel bei Lieferanten bestellt werden, welche für die 
+Herstellung von Produktionsaufträgen oder Handelsstücklisten benötigt 
+werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460527.HHClick()">Register "Bestellbatch"</A><BR>In diesem 
+Register werden bestehende Batches mit Nummer, Benutzer und Datum angezeigt. 
+Zusätzlich können weitere Batches erstellt bzw. bei den bestehenden Batches eine 
+Bezeichnung vergeben werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A 
+href="JavaScript:TL_460528.HHClick()">Register "Sollbestand"</A><BR>In diesem 
+Register kann eine neue Sollbestandsmenge für ein bestimmtes Datum berechnet und 
+manuell bearbeitet werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_1349.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ok</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ok" wird ein Bestellvorschlag 
+erstellt und an das Programm "Bestellvorschlag bearbeiten" übergeben, welches 
+sich automatisch öffnet. Zusätzlich wird für Reservierungsartikel, welche 
+bestellt aber nicht rechtzeitig (gemäß Auftrag) geliefert werden können, eine 
+Sperrliste ausgegeben.</P>
+<P class=MsoNormal>Im "Bestellvorschlag bearbeiten" werden anschließend alle zu 
+bestellenden Artikel mit Menge und Lieferant aufgelistet, wobei jede Zeile 
+editiert werden kann. Der endgültige Druck der Bestellung findet im Programm 
+"Lieferantenbelege erstellen" statt.</P>
+<P class=BeispielAchtung>Hinweis 1</P>
+<P class=MsoNormal>Durch die Erstellung des Bestellvorschlags wird pro Artikel 
+eine Dispositionszeile des Typs "Einkauf (Disposition)" gebildet.</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Jeder Bestellvorschlag wird unter einer eigenen Batchnummer 
+gespeichert. Mit Hilfe dieser Nummer können im weiteren Verlauf u.a. 
+zielgerichtet Bestellungen ausgelöst (Programm "Lieferantenbelege erstellen") 
+oder Bestellvorschläge gelöscht werden (Programm "Bestellvorschlag 
+initialisieren").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Durch Anwählen des Buttons "Ende" bzw. der Taste ESC wird der 
+Menüpunkt geschlossen und kein Bestellvorschlag erstellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Vorschau 
+(nicht bei "Bestellbatch" und "Sollstand")</P>
+<P class=MsoNormal>Mit Hilfe des Buttons "Vorschau" werden am Bildschirm alle 
+Artikel angezeigt, welche zu der entsprechenden Selektion gefunden werden 
+(abhängig von der Art des Bestellvorschlages).</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn Artikel mit Reservierungskennzeichen bestellt werden 
+(siehe Einstellungen in den Fakt-Parametern und im Artikelstamm), so werden in 
+der Vorschlagsliste alle reservierten Kundenaufträge des Artikels angezeigt. 
+Zeilen in "blau" werden gemäß Wiederbeschaffungstagen rechtzeitig geliefert, 
+Zeilen in "rot" hingegen nicht. Zusätzlich wird bei diesen Problemzeilen 
+geprüft, ob eine Teillieferung möglich ist (wenn eine teilweise Reservierung vom 
+Lager vorgenommen werden kann) oder ob der Auftrag nicht erfüllt werden kann und 
+somit überarbeitet werden muss,</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_1350.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Prüflauf 
+(nicht bei "PPS-Artikel produzieren", "Bestellbatch" und "Sollstand")</P>
+<P class=MsoNormal>Mit dem Button "Prüflauf" besteht die Möglichkeit einen 
+Prüflauf zu starten und am Bildschirm auszugeben. Dieser Prüflauf listet alle 
+Artikel auf, bei denen zwar ein Bedarf (zu geringer Lagerstand, 
+Kundenbestellungen vorhanden, etc.) vorhanden ist, die Bestellung aber aufgrund 
+fehlender Stammdaten nicht erzeugt werden kann.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Ein Bestellvorschlag kann für einen Artikel nur dann 
+ausgelöst werden, wenn im Artikelstamm zumindest 1 
+Lieferanten-Preislisteneintrag mit folgenden Daten vorhanden ist:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag mit Status 
+"A"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag mit Menge ab 
+"0"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Preislisteneintrag ist gültig 
+bezogen auf das "Bestelldatum"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Sollbestand 
+berechnen (nicht bei "Bestellbatch")</P>
+<P class=MsoNormal>Bei Anwahl dieses Buttons wird für alle Artikel (abhängig vom 
+gewählten Register), die bei dem Sollbestandskennzeichen im Artikelstamm einen 
+Wert ungleich 0 hinterlegt haben (Register "Lager" - Unterregister 
+"Einstellungen" - Feld "Sollbestand"), der Sollbestand für das Bestelldatum 
+berechnet (bzw. Bestelldatum + Beobachtungszeitraum, wenn hinterlegt) und in das 
+Feld "Lager Soll" in den Artikelstamm zurückgeschrieben. Über die Veränderungen 
+wird ein Protokoll in den Spooler bzw. auf den Drucker ausgegeben.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Neben dem Sollbestandskennzeichen des Artikels ist der Typ 
+relevant, da die Berechnung in Abhängigkeit vom gewählten Register erfolgt:</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN></P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Einkaufsartikel bestellen =&gt; 
+Artikeltyp "0 - Hauptartikel"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>PPS-Artikel produzieren =&gt; 
+Artikeltyp "2 - Produktionsartikel"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>PPS-Artikel best. / Fertigung 
+=&gt; Artikeltyp "2 - Produktionsartikel" und "3 - Handelsstückliste"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Komponenten bestellen =&gt; 
+Artikeltyp "0 - Hauptartikel"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Sollbestand =&gt; Artikeltyp "0 - 
+Hauptartikel"</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei den Einstellungen 1 bis 12 (Durchschnitt…) werden die 
+durchschnittlichen Verkäufe der letzten x Monate (lt. Verkaufsstatistik) 
+berücksichtigt.</P>
+<P class=MsoNormal>Bei der Hinterlegung "99 - manuelle Eingabe" wird der 
+Sollbestand des aktuellen Tages berechnet. Falls in diesem Fall datumsmäßige 
+Überschneidungen hinterlegt wurden, so wird wie bei der Sollbestandsermittlung 
+das "jüngste" Datum berücksichtigt.</P>
+<P class=MsoNormal>Wenn keine Werte gefunden werden, also z.B. keine 
+Statistikzeilen vorhanden sind, wird das Feld "Lager Soll" mit dem 
+entsprechenden Wert verändert (d.h. in diesem Fall auf 0).</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Im Artikelstamm ist als Sollbestand die Einstellung "5 - 
+Durchschnitt der letzten 5 Monate" hinterlegt.</P>
+<P class=MsoNormal>Vom Artikel wurde lt. Verkaufsstatistik im letzten Monat 30 
+Stk. und im vorletzten Monat 500 Stk. verkauft.</P>
+<P class=MsoNormal>Im Bestellvorschlag wird die Sollberechnung durchgeführt, 
+wodurch in den Artikelstamm (Feld "Lager Soll") 106 Stk. Zurückgeschrieben. Die 
+Berechnung lautet:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>530 (Gesamtverkaufsmenge der 
+letzten 5 Monate) / 5 (Monate) = 106 (Durchschnitt)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Voreinstellung speichern</P>
+<P class=MsoNormal>Durch Anwahl dieses Buttons erfolgt eine benutzerspezifische 
+Speicherung aller im Fenster getätigten Einstellungen. Diese sogenannten 
+"Voreinstellungen" können jederzeit wieder abgerufen werden und ermöglichen 
+dadurch ein schnelleres und zielorientierteres Arbeiten (nähere Informationen 
+entnehmen Sie bitte dem Kapitel "Die Voreinstellungen").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Filter 
+bearbeiten</P>
+<P class=MsoNormal>Durch Anklicken des Buttons "Filter bearbeiten" kann der 
+Bestellvorschlag nach frei definierbaren Kriterien eingeschränkt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=RelatedHead>Mehr Themen:</P><SPAN id=related-topics>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5818.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"Einkaufsartikel bestellen"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5819.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"PPS-Artikel produzieren"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5820.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"PPS-Artikel best. / Fertigung"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5821.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"Komponenten bestellen"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5822.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"Bestellbatch"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_5823.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Bestellvorschlag erstellen - Register 
+"Sollbestand"</SPAN></A></P></SPAN>
+<OBJECT id=TL_460522 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/ausprägungsoptioneneinkauf.htm"></OBJECT>
+<OBJECT id=TL_460523 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregistereinkaufsartikelbestellen.htm"></OBJECT>
+<OBJECT id=TL_460524 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterppsartikelproduzieren.htm"></OBJECT>
+<OBJECT id=TL_460525 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterppsartikelbestfertigung.htm"></OBJECT>
+<OBJECT id=TL_460526 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterkomponentenbestellen.htm"></OBJECT>
+<OBJECT id=TL_460527 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterbestellbatch.htm"></OBJECT>
+<OBJECT id=TL_460528 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregistersollbestand.htm"></OBJECT>
+<OBJECT id=RT_5818 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregistereinkaufsartikelbestellen.htm"></OBJECT>
+<OBJECT id=RT_5819 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterppsartikelproduzieren.htm"></OBJECT>
+<OBJECT id=RT_5820 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterppsartikelbestfertigung.htm"></OBJECT>
+<OBJECT id=RT_5821 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterkomponentenbestellen.htm"></OBJECT>
+<OBJECT id=RT_5822 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregisterbestellbatch.htm"></OBJECT>
+<OBJECT id=RT_5823 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bestellvorschlagerstellenregistersollbestand.htm"></OBJECT></DIV></BODY></HTML>

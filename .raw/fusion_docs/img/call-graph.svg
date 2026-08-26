@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 250" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <linearGradient id="node-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+    <style>
+      .method-text {
+        font-family: "SF Mono", "Fira Code", "Cascadia Code", Consolas, Menlo, Monaco, monospace;
+        font-size: 13px;
+        fill: #1a1a2e;
+        pointer-events: none;
+      }
+      .label-text {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        font-style: italic;
+        fill: #6b7084;
+        pointer-events: none;
+      }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="750" height="250" rx="10" fill="url(#bg)"/>
+
+  <!-- Connections -->
+  <g id="connections">
+    <!-- Root to GetUser -->
+    <path d="M 192 125 C 220 125, 220 65, 248 65"
+          fill="none"
+          stroke="#8b90a8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          marker-end="url(#arrow)" />
+    <text x="220" y="91" class="label-text" text-anchor="middle" dominant-baseline="baseline">calls</text>
+
+    <!-- Root to GetUserAvatar -->
+    <path d="M 192 125 C 220 125, 220 185, 248 185"
+          fill="none"
+          stroke="#8b90a8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          marker-end="url(#arrow)" />
+    <text x="220" y="151" class="label-text" text-anchor="middle" dominant-baseline="baseline">calls</text>
+
+    <!-- GetUserAvatar to GetThumbnail -->
+    <path d="M 404 185 C 430 185, 430 185, 456 185"
+          fill="none"
+          stroke="#8b90a8"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          marker-end="url(#arrow)" />
+    <text x="430" y="181" class="label-text" text-anchor="middle" dominant-baseline="baseline">calls</text>
+  </g>
+
+  <!-- Nodes -->
+  <g id="nodes">
+    <!-- Root Node: GetUserProfile(3) -->
+    <rect x="16" y="103" width="176" height="44" rx="12"
+          fill="url(#node-bg)"
+          stroke="#bcc8da"
+          stroke-width="1.5" />
+    <text x="104" y="125" class="method-text" text-anchor="middle" dominant-baseline="middle">
+      GetUserProfile<tspan fill="#6b7084">(3)</tspan>
+    </text>
+
+    <!-- Child 1: GetUser(3) -->
+    <rect x="248" y="43" width="114" height="44" rx="12"
+          fill="url(#node-bg)"
+          stroke="#bcc8da"
+          stroke-width="1" />
+    <text x="305" y="65" class="method-text" text-anchor="middle" dominant-baseline="middle">
+      GetUser<tspan fill="#6b7084">(3)</tspan>
+    </text>
+
+    <!-- Child 2: GetUserAvatar(3) -->
+    <rect x="248" y="163" width="156" height="44" rx="12"
+          fill="url(#node-bg)"
+          stroke="#bcc8da"
+          stroke-width="1" />
+    <text x="326" y="185" class="method-text" text-anchor="middle" dominant-baseline="middle">
+      GetUserAvatar<tspan fill="#6b7084">(3)</tspan>
+    </text>
+
+    <!-- Grandchild: GetThumbnail("user_3_avatar", 64) -->
+    <rect x="456" y="163" width="280" height="44" rx="12"
+          fill="url(#node-bg)"
+          stroke="#bcc8da"
+          stroke-width="1" />
+    <text x="596" y="185" class="method-text" text-anchor="middle" dominant-baseline="middle">
+      GetThumbnail<tspan fill="#6b7084">("user_3_avatar", 64)</tspan>
+    </text>
+  </g>
+</svg>

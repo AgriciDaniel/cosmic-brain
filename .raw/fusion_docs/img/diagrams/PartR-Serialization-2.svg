@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 280" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd"/>
+            <stop offset="50%" stop-color="#eaf1fb"/>
+            <stop offset="100%" stop-color="#e2ebf7"/>
+        </linearGradient>
+        <linearGradient id="obj-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc"/>
+            <stop offset="100%" stop-color="#d4e3f7"/>
+        </linearGradient>
+        <linearGradient id="act-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0"/>
+            <stop offset="100%" stop-color="#faecd8"/>
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+        </marker>
+    </defs>
+
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+    <rect x="40" y="60" width="670" height="160" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+    <text x="60" y="85" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Client</text>
+
+    <rect x="790" y="60" width="670" height="160" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+    <text x="810" y="85" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Server</text>
+
+    <path d="M 170 140 C 183 140, 196 140, 210 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 370 140 C 383 140, 396 140, 410 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 560 140 C 573 140, 586 140, 600 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 690 140 C 730 140, 770 140, 810 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 900 140 C 913 140, 926 140, 940 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 1090 140 C 1103 140, 1116 140, 1130 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    <path d="M 1290 140 C 1303 140, 1316 140, 1330 140" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+    <rect x="60" y="115" width="110" height="50" fill="url(#act-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+    <text x="115" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Method Call</text>
+
+    <rect x="210" y="115" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="290" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ArgumentSerializer</text>
+
+    <rect x="410" y="115" width="150" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="485" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">MessageSerializer</text>
+
+    <rect x="600" y="115" width="90" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="645" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">WebSocket</text>
+
+    <rect x="810" y="115" width="90" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="855" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">WebSocket</text>
+
+    <rect x="940" y="115" width="150" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="1015" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">MessageSerializer</text>
+
+    <rect x="1130" y="115" width="160" height="50" fill="url(#obj-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+    <text x="1210" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ArgumentSerializer</text>
+
+    <rect x="1330" y="115" width="110" height="50" fill="url(#act-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+    <text x="1385" y="144" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Method Invoke</text>
+</svg>

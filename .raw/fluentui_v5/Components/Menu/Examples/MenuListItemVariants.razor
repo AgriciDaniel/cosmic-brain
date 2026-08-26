@@ -1,0 +1,29 @@
+﻿<FluentStack Orientation="Orientation.Vertical" VerticalGap="10">
+    <FluentMenuList OnCheckedChanged="HandleMenuChanged">
+        <FluentMenuItem Role="MenuItemRole.Checkbox" Checked="true">Check One</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Checkbox" Checked="true">Check Two</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Checkbox" Checked="true">Triple Check</FluentMenuItem>
+    </FluentMenuList>
+
+    <FluentMenuList OnCheckedChanged="HandleMenuChanged">
+        <FluentMenuItem Role="MenuItemRole.Radio">Yesterday</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Radio" Checked="true">Today</FluentMenuItem>
+        <FluentMenuItem Role="MenuItemRole.Radio">Tomorrow</FluentMenuItem>
+    </FluentMenuList>
+
+    <FluentMenuList>
+        <FluentMenuItem>Item 1</FluentMenuItem>
+        <FluentMenuItem Disabled="true">Item 2</FluentMenuItem>
+        <FluentMenuItem>Item 3</FluentMenuItem>
+    </FluentMenuList>
+</FluentStack>
+
+@code {
+    void HandleMenuChanged(MenuItemEventArgs args)
+    {
+        if (args.Checked.HasValue)
+        {
+            Console.WriteLine($"Menu item {(args.Checked.Value ? "checked" : "unchecked")}: {args.Text}");
+        }
+    }
+}

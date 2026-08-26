@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect width="960" height="680" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Lifelines -->
+    <line x1="100" y1="60" x2="100" y2="640" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <line x1="280" y1="60" x2="280" y2="640" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <line x1="460" y1="60" x2="460" y2="640" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <line x1="640" y1="60" x2="640" y2="640" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+    <line x1="820" y1="60" x2="820" y2="640" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+
+    <!-- Lifeline Headers (State Nodes) -->
+    <rect x="40" y="20" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="100" y="45" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Client</text>
+
+    <rect x="220" y="20" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="280" y="45" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Client Proxy</text>
+
+    <rect x="400" y="20" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="460" y="45" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">WebSocket</text>
+
+    <rect x="580" y="20" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="640" y="45" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Server Proxy</text>
+
+    <rect x="760" y="20" width="120" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+    <text x="820" y="45" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Service</text>
+
+    <!-- Activation Boxes -->
+    <rect x="92" y="120" width="16" height="440" rx="2" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" />
+    <rect x="272" y="120" width="16" height="440" rx="2" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" />
+    <rect x="452" y="200" width="16" height="280" rx="2" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" />
+    <rect x="632" y="240" width="16" height="200" rx="2" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" />
+    <rect x="812" y="320" width="16" height="40" rx="2" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" />
+
+    <!-- Messages -->
+    
+    <!-- 1. Client -> ClientProxy -->
+    <line x1="108" y1="120" x2="272" y2="120" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="190" y="114" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">service.Method(args)</text>
+
+    <!-- 2. ClientProxy self: Serialize args -->
+    <path d="M 288 135 C 330 135, 330 165, 288 165" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="335" y="154" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Serialize args</text>
+
+    <!-- 3. ClientProxy -> Transport -->
+    <line x1="288" y1="200" x2="452" y2="200" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="370" y="194" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">RpcMessage (request)</text>
+
+    <!-- 4. Transport -> ServerProxy -->
+    <line x1="468" y1="240" x2="632" y2="240" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="550" y="234" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">RpcMessage</text>
+
+    <!-- 5. ServerProxy self: Deserialize args -->
+    <path d="M 648 255 C 690 255, 690 285, 648 285" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="695" y="274" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Deserialize args</text>
+
+    <!-- 6. ServerProxy -> Service -->
+    <line x1="648" y1="320" x2="812" y2="320" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="730" y="314" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">Method(args)</text>
+
+    <!-- 7. Service -> ServerProxy (Return) -->
+    <line x1="812" y1="360" x2="648" y2="360" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+    <text x="730" y="354" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">result</text>
+
+    <!-- 8. ServerProxy self: Serialize result -->
+    <path d="M 648 375 C 690 375, 690 405, 648 405" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="695" y="394" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Serialize result</text>
+
+    <!-- 9. ServerProxy -> Transport -->
+    <line x1="632" y1="440" x2="468" y2="440" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="550" y="434" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">RpcMessage (response)</text>
+
+    <!-- 10. Transport -> ClientProxy -->
+    <line x1="452" y1="480" x2="288" y2="480" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="370" y="474" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">RpcMessage</text>
+
+    <!-- 11. ClientProxy self: Deserialize result -->
+    <path d="M 288 495 C 330 495, 330 525, 288 525" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <text x="335" y="514" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="start">Deserialize result</text>
+
+    <!-- 12. ClientProxy -> Client (Return) -->
+    <line x1="272" y1="560" x2="108" y2="560" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 4" marker-end="url(#arrow)" />
+    <text x="190" y="554" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">result</text>
+
+</svg>

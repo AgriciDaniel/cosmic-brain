@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Externes Objekt - Typ "Objekt"</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="externesobjekttypbrowser.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="signatur.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><SPAN 
+class=d2h_breadcrumbsContentsOnly>WinLine Formular Editor</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="buttonsundfunktionenimdetail.htm">Buttons und Funktionen im 
+Detail</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A 
+class=d2h_breadcrumbsNormal href="externesobjektoif.htm">Externes Objekt 
+(OIF)</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Externes Objekt - Typ "Objekt"</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Toc200977240>Externes Objekt - Typ 
+"Objekt"</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit Hilfe des Typs "Objekt" können objektorientierte 
+Informationen dargestellt werden. Hierbei benötigen die meisten Objekte einen 
+sogenannten Key, d.h. Zuordnungselement.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Um Informationen zu einem Personenkonto anzuzeigen, muss 
+WinLine wissen, wie die Kontonummer lautet. Woher diese stammt, wird über das 
+Feld "Text" oder den Bereich "Var / View" zugeordnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_180.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Breite / 
+Höhe</P>
+<P class=MsoNormal>In diesen Feldern wird definiert, in welchem Bereich das OIF 
+angedruckt werden soll. Neben der direkten Eingabe kann das Externe Objekt auch 
+via Maus in der Größe verändert werden, wodurch die Werte dann in diese Felder 
+zurückgeschrieben werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Das Objekt wird nicht skaliert, d.h. Abschnitte, welche über 
+das Externe Objekt hinausragen, werden abgeschnitten (keine Scrollbalken).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Element 
+ID</P>
+<P class=MsoNormal>Hier muss eine eindeutige Nummer (am besten beginnend mit 1) 
+hinterlegt werden. Dieses ist allerdings nur dann notwendig, wenn mehrere OIF´s 
+in einem Formular verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Typ</P>
+<P class=MsoNormal>Aus der Auswahlbox wird für die Ausgabe von Objekten der 
+Punkt "Objekt" gewählt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>kein 
+Kopfbereich</P>
+<P class=MsoNormal>Wenn diese Option aktiviert wird, dann wird das OIF ohne 
+Kopfbereich angedruckt (auch wenn in den dafür vorgesehenen Felder Informationen 
+hinterlegt sind).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>kein 
+Rahmen</P>
+<P class=MsoNormal>Wenn diese Option aktiviert wird, dann wird das OIF ohne 
+Rahmen gedruckt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Titel</P>
+<P class=MsoNormal>Hier kann der Titel (Überschrift) des OIF´s eingegeben 
+werden. Wenn der Kopfbereich (siehe Option "kein Kopfbereich") mit ausgegeben 
+werden soll, dann wird dieser Titel entsprechend angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Text</P>
+<P class=MsoNormal>Wenn für das Objekt ein Key (Zuordnungselement) benötigt, 
+dann kann dieses Element hier fix hinterlegt werden, wenn er nicht aus einer 
+Variable stammen soll. Zusätzlich kann mit Hilfe der Syntax '&lt;VAR:X/Y&gt;' 
+auch auf Variablen zugegriffen werden.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_181.png"></P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Damit der Inhalt vom Feld "Text" für die Zuweisung genutzt 
+wird, muss die View / Var jeweils auf "0" gestellt worden sein.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image873_165.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Icon</P>
+<P class=MsoNormal>Im Eingabefeld "Icon" kann die Grafik angeben werden, welche 
+im Kopfbereich ausgegeben werden soll (Kopfbereich muss hierzu aktiviert sein - 
+siehe Option "kein Kopfbereich"). Falls der Dateiname nicht bekannt ist, kann - 
+analog dem Matchcode der WinLine<B> </B>Programme - mit einem Klick auf das 
+Fragezeichen nach der Grafik gesucht werden. Es empfiehlt sich, alle 
+eingebundenen Grafiken in einem zentralen Verzeichnis (z.B. am Server) zu 
+speichern oder in den Systemtabellen der WinLine zu verwalten.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Mit Hilfe der Option "Bild aus Datenbank" wird gesteuert, ob 
+das Bild in einem Windows-Verzeichnis liegt oder sich in der 
+WinLine-Systemdatenbank befindet. Dementsprechend wird auch der Matchcode per 
+Icon <IMG src="../ImagesExt/image873_67.png">&nbsp;dargestellt.</P>
+<P class=BeispielAchtung>Hinweis 2</P>
+<P class=MsoNormal>Alternativ kann eine der standardmäßig mitgelieferten 5 
+Bilderlisten mit verschiedenen Symbolen hinterlegt werden (Details entnehmen Sie 
+bitte dem Kapitel <A href="JavaScript:TL_461624.HHClick()">Bild</A>). Die 
+Hinterlegung erfolgt in der Form "LIST: Leiste,Bildnummer", d.h. z.B. 
+LIST:5,31.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Bild aus 
+Datenbank</P>
+<P class=MsoNormal>In der WinLine gibt es die Möglichkeit die Grafikdateien 
+zentral in der SQL-Datenbank (Systemdatenbank) abzulegen (nähere Informationen 
+dazu entnehmen Sie bitte dem WinLine START-Handbuch, Kapitel "Grafiken 
+importieren"). Mit dieser Option wird festgelegt, dass die anzugebende Grafik 
+eben aus dieser Datenbank geholt werden soll.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>View / 
+Var</P>
+<P class=MsoNormal>Über die Auswahllisten kann die View (d.h. die SQL-Tabelle) 
+und die Variable (d.h. die SQL-Spalte in einer Tabelle) bestimmt werden, welche 
+per Externes Objekt ausgegeben werden soll. Dieses ist - mit wenigen Ausnahmen - 
+elementar wichtig, damit WinLine weiß, für welches Objekt "etwas" angezeigt 
+werden soll.</P>
+<P class=MsoNormal>Mit Hilfe des Icons <IMG 
+src="../ImagesExt/image873_67.png">&nbsp;kann das Fenster "Variable suchen" 
+geöffnet werden. In diesem ist es möglich per Volltextsuche nach Variablen zu 
+suchen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Weitere Information entnehmen Sie bitte dem Kapitel <A 
+href="JavaScript:TL_461625.HHClick()">Einfügen von Variablen</A>.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Objekt</P>
+<P class=MsoNormal>Aus der Auswahlbox kann das Objekt ausgewählt werden, für 
+welches Daten im OIF angedruckt werden sollen. Dabei stehen nachfolgenden 
+Varianten zur Verfügung, welche in den folgenden Kapiteln erläutert werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konto -&gt; für Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikel -&gt; für Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Projekt -&gt; für Projekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmer (A) -&gt; für 
+Arbeitnehmer A</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmer (D) -&gt; für 
+Arbeitnehmer D</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ansprechpartner -&gt; für Kontakte 
+/ Ansprechpartner</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Cockpit Liste -&gt; für WinLine 
+LIST-Listen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Cockpit Archiv Report -&gt; für 
+WinLine Reports</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kontosalden -&gt; für Sach- und 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Saldengrafik -&gt; für Sach- und 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mesocalcgrafik -&gt; für 
+Mesocalcsheets</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Kalenderliste -&gt; für WinLine 
+LIST-Listen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Projekt Übersicht -&gt; für 
+Projekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>CRM Übersicht -&gt; für 
+Personenkonten / Artikel / Projekte / Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Chartgrafik Liste -&gt; für 
+WinLine LIST-Listen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Buchungsinfo -&gt; für WinLine 
+FIBU-Buchungen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Fibujournal Buchungen -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Belege -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Statistik -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Umsatz -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Umsatzdiagramm -&gt; 
+für Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Lieferanten -&gt; 
+für Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Preise -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Bedarf -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Artikeljournal 
+Eingänge -&gt; für Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Artikeljournal 
+Ausgänge -&gt; für Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Belege -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Statistik -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Offene Posten -&gt; 
+für Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Fälligkeiten -&gt; 
+für Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Fälligkeitsdiagramm 
+-&gt; für Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - Preise -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beleginfo -&gt; für WinLine 
+FAKT-Belege</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vertreterinfo - Belege -&gt; für 
+Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vertreterinfo - Journal -&gt; für 
+Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Projektinfo - Belege -&gt; für 
+Projekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Projektinfo - Statistik -&gt; für 
+Projekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Projektinfo - Erfassungszeilen 
+-&gt; für Projekte</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmerinfo - Fehlzeitenliste 
+-&gt; für Arbeitnehmer A und D</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmerinfo - Jahreslohnkonto 
+-&gt; für Arbeitnehmer A und D</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmerinfo - 
+Arbeitnehmerkosten -&gt; für Arbeitnehmer A und D</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Arbeitnehmerinfo - Pfändung -&gt; 
+für Arbeitnehmer A und D</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - MJV -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - MJV -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - YTD -&gt; für 
+Artikel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Konteninfo - YTD -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vertreterinfo - YTD -&gt; für 
+Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Vertreterinfo - Stammdaten -&gt; 
+für Vertreter</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>G&amp;V-Übersicht -&gt; für 
+gesamten Mandanten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>G&amp;V-Übersicht Grafik -&gt; für 
+gesamten Mandanten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Offene Posten - Faktura -&gt; für 
+Personenkonten</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bild anzeigen -&gt; für 
+Personenkonten / Kontakte und Ansprechp. / Artikel / Vertreter / 
+Arbeitnehmer</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Artikelinfo - Lagerorte -&gt; für 
+Artikel</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=RelatedHead>Mehr Themen:</P><SPAN id=related-topics>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7202.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konto"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7203.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikel"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7204.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Projekt"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7205.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmer (A)"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7206.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmer (D)"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7207.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Ansprechpartner"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7208.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - Cockpit 
+Liste"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7209.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - Cockpit 
+Archiv Report"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7210.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Kontensalden"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7211.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Saldengrafik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7212.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Mesocalcgrafik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7213.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Kalenderliste"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7214.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - CRM 
+Übersicht"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7215.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - Projekt 
+Übersicht"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7216.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Chartgrafik Liste"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7217.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Buchungsinfo"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7218.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Fibujournal Buchungen"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7219.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Belege"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7220.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Statistik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7221.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Umsatz"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7222.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Umsatzdiagramm"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7223.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Lieferanten"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7224.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Preise"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7225.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Bedarf"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7226.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Artikeljournal Eingänge"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7227.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Artikeljournal Ausgänge"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7228.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Belege"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7229.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Statistik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7230.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Offene Posten"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7231.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Fälligkeiten"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7232.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Fälligkeitsdiagramm"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7233.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - Preise"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7234.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Beleginfo"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7235.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Vertreterinfo - Belege"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7236.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Vertreterinfo - Journal"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7237.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Projektinfo - Belege"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7238.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Projektinfo - Statistik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7239.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Projektinfo - Erfassungszeilen</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7240.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmerinfo - Fehlzeitenliste"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7241.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmerinfo - Jahreslohnkonto"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7242.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmerinfo - Arbeitnehmerkosten"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7243.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Arbeitnehmerinfo - Pfändung"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7244.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - MJV"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7245.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - MJV"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7246.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - YTD"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7247.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Konteninfo - YTD"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7248.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Vertreterinfo - YTD"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7249.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Vertreterinfo - Stammdaten"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7250.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+G&amp;V-Übersicht"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7251.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+G&amp;V-Übersicht Grafik"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7252.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - Offene 
+Posten - Faktura"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7253.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - Bild 
+anzeigen"</SPAN></A></P>
+<P class=RelatedHead><A style="TEXT-DECORATION: none" 
+href="JavaScript:RT_7254.HHClick()"><IMG border=0 alt="" src="../button.gif" 
+align=absMiddle><SPAN class=RelatedHead>Externes Objekt - Typ "Objekt - 
+Artikelinfo - Lagerorte"</SPAN></A></P></SPAN>
+<OBJECT id=TL_461624 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bild.htm"></OBJECT>
+<OBJECT id=TL_461625 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/einfügenvonvariablen.htm"></OBJECT>
+<OBJECT id=RT_7202 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonto.htm"></OBJECT>
+<OBJECT id=RT_7203 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikel.htm"></OBJECT>
+<OBJECT id=RT_7204 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektprojekt.htm"></OBJECT>
+<OBJECT id=RT_7205 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmera.htm"></OBJECT>
+<OBJECT id=RT_7206 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmerd.htm"></OBJECT>
+<OBJECT id=RT_7207 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektansprechpartner.htm"></OBJECT>
+<OBJECT id=RT_7208 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektcockpitliste.htm"></OBJECT>
+<OBJECT id=RT_7209 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektcockpitarchivreport.htm"></OBJECT>
+<OBJECT id=RT_7210 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkontensalden.htm"></OBJECT>
+<OBJECT id=RT_7211 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektsaldengrafik.htm"></OBJECT>
+<OBJECT id=RT_7212 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektmesocalcgrafik.htm"></OBJECT>
+<OBJECT id=RT_7213 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkalenderliste.htm"></OBJECT>
+<OBJECT id=RT_7214 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektcrmübersicht.htm"></OBJECT>
+<OBJECT id=RT_7215 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektprojektübersicht.htm"></OBJECT>
+<OBJECT id=RT_7216 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektchartgrafikliste.htm"></OBJECT>
+<OBJECT id=RT_7217 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektbuchungsinfo.htm"></OBJECT>
+<OBJECT id=RT_7218 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektfibujournalbuchungen.htm"></OBJECT>
+<OBJECT id=RT_7219 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfobelege.htm"></OBJECT>
+<OBJECT id=RT_7220 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfostatistik.htm"></OBJECT>
+<OBJECT id=RT_7221 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfoumsatz.htm"></OBJECT>
+<OBJECT id=RT_7222 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfoumsatzdiagramm.htm"></OBJECT>
+<OBJECT id=RT_7223 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfolieferanten.htm"></OBJECT>
+<OBJECT id=RT_7224 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfopreise.htm"></OBJECT>
+<OBJECT id=RT_7225 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfobedarf.htm"></OBJECT>
+<OBJECT id=RT_7226 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfoartikeljournaleingänge.htm"></OBJECT>
+<OBJECT id=RT_7227 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfoartikeljournalausgänge.htm"></OBJECT>
+<OBJECT id=RT_7228 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfobelege.htm"></OBJECT>
+<OBJECT id=RT_7229 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfostatistik.htm"></OBJECT>
+<OBJECT id=RT_7230 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfooffeneposten.htm"></OBJECT>
+<OBJECT id=RT_7231 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfofälligkeiten.htm"></OBJECT>
+<OBJECT id=RT_7232 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfofälligkeitsdiagramm.htm"></OBJECT>
+<OBJECT id=RT_7233 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfopreise.htm"></OBJECT>
+<OBJECT id=RT_7234 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektbeleginfo.htm"></OBJECT>
+<OBJECT id=RT_7235 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektvertreterinfobelege.htm"></OBJECT>
+<OBJECT id=RT_7236 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektvertreterinfojournal.htm"></OBJECT>
+<OBJECT id=RT_7237 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektprojektinfobelege.htm"></OBJECT>
+<OBJECT id=RT_7238 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektprojektinfostatistik.htm"></OBJECT>
+<OBJECT id=RT_7239 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektprojektinfoerfassungszeilen.htm"></OBJECT>
+<OBJECT id=RT_7240 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmerinfofehlzeitenliste.htm"></OBJECT>
+<OBJECT id=RT_7241 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmerinfojahreslohnkonto.htm"></OBJECT>
+<OBJECT id=RT_7242 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmerinfoarbeitnehmerkosten.htm"></OBJECT>
+<OBJECT id=RT_7243 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektarbeitnehmerinfopfändung.htm"></OBJECT>
+<OBJECT id=RT_7244 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfomjv.htm"></OBJECT>
+<OBJECT id=RT_7245 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfomjv.htm"></OBJECT>
+<OBJECT id=RT_7246 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfoytd.htm"></OBJECT>
+<OBJECT id=RT_7247 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektkonteninfoytd.htm"></OBJECT>
+<OBJECT id=RT_7248 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektvertreterinfoytd.htm"></OBJECT>
+<OBJECT id=RT_7249 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektvertreterinfostammdaten.htm"></OBJECT>
+<OBJECT id=RT_7250 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektgvübersicht.htm"></OBJECT>
+<OBJECT id=RT_7251 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektgvübersichtgrafik.htm"></OBJECT>
+<OBJECT id=RT_7252 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektoffenepostenfaktura.htm"></OBJECT>
+<OBJECT id=RT_7253 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektbildanzeigen.htm"></OBJECT>
+<OBJECT id=RT_7254 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/externesobjekttypobjektartikelinfolagerorte.htm"></OBJECT></DIV></BODY></HTML>

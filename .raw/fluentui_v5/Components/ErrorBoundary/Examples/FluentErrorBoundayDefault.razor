@@ -1,0 +1,21 @@
+﻿<FluentErrorBoundary HideChildContentOnError="false">
+    <FluentButton OnClick="@(e => throw new InvalidOperationException("Invalid operation"))">
+        Throw Exception (no details)
+    </FluentButton>
+</FluentErrorBoundary>
+
+<FluentDivider Style="height: 30px;" />
+
+<FluentErrorBoundary DisplayErrorDetails="ErrorBoundaryDetails.ErrorMessage" HideChildContentOnError="false">
+    <FluentButton OnClick="@(e => throw new InvalidOperationException("Invalid operation"))">
+        Throw Exception (message only)
+    </FluentButton>
+</FluentErrorBoundary>
+
+<FluentDivider Style="height: 30px;" />
+
+<FluentErrorBoundary DisplayErrorDetails="ErrorBoundaryDetails.ErrorStack" HideChildContentOnError="false">
+    <FluentButton OnClick="@(e => throw new InvalidOperationException("Invalid operation"))">
+        Throw Exception (stack)
+    </FluentButton>
+</FluentErrorBoundary>

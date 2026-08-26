@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 970" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+    
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="970" rx="10" fill="url(#bg-grad)" />
+
+  <!-- Subgraph: Update Loop -->
+  <rect x="80" y="460" width="440" height="480" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" />
+  <text x="95" y="485" font-family="Inter,sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Update Loop</text>
+
+  <!-- Edges -->
+  <path d="M 300 90 L 300 120" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 300 180 L 300 210" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 300 270 L 300 300" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 300 350 L 300 380" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <path d="M 300 430 L 300 500" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <path d="M 300 550 L 300 590" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <text x="310" y="574" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">Dependency invalidated</text>
+
+  <path d="M 300 640 L 300 680" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <text x="310" y="664" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">UpdateDelayer.Delay()</text>
+
+  <path d="M 300 730 L 300 770" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <text x="310" y="754" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">State updated</text>
+
+  <path d="M 300 820 L 300 860" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  <text x="310" y="844" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic">Triggers render</text>
+
+  <!-- Loop back edge -->
+  <path d="M 190 890 L 120 890 Q 100 890 100 870 L 100 550 Q 100 530 120 530 L 180 530" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Nodes -->
+  
+  <!-- Start -->
+  <rect x="210" y="50" width="180" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="74" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Component Created</text>
+
+  <!-- Init -->
+  <rect x="200" y="130" width="200" height="50" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="151" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OnInitialized()</text>
+  <text x="300" y="169" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">[sync init]</text>
+
+  <!-- Create -->
+  <rect x="200" y="220" width="200" height="50" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="241" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">CreateState()</text>
+  <text x="300" y="259" font-family="Inter,-apple-system,sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">[state created]</text>
+
+  <!-- InitAsync -->
+  <rect x="200" y="310" width="200" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="334" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OnInitializedAsync()</text>
+
+  <!-- FirstRender -->
+  <rect x="220" y="390" width="160" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="414" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">First Render</text>
+
+  <!-- Consistent (State) -->
+  <rect x="190" y="510" width="220" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="300" y="534" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">State.Value is consistent</text>
+
+  <!-- Inconsistent (State) -->
+  <rect x="190" y="600" width="220" height="40" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" />
+  <text x="300" y="624" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">State becomes inconsistent</text>
+
+  <!-- Compute -->
+  <rect x="190" y="690" width="220" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="714" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">ComputeState() executed</text>
+
+  <!-- Changed -->
+  <rect x="190" y="780" width="220" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="804" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">StateChanged() event fires</text>
+
+  <!-- Render -->
+  <rect x="190" y="870" width="220" height="40" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" />
+  <text x="300" y="894" font-family="&quot;SF Mono&quot;,&quot;Fira Code&quot;,Consolas,monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Component re-renders</text>
+
+</svg>

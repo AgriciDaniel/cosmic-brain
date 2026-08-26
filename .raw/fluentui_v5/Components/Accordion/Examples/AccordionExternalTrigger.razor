@@ -1,0 +1,54 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentStack HorizontalGap="10">
+        <FluentButton OnClick="ExpandItem2Async">Expand item 2</FluentButton>
+        <FluentButton OnClick="CollapseItem4Async">Collapse item 4</FluentButton>
+    </FluentStack>
+    <FluentAccordion @ref="accordion" OnAccordionItemChange="HandleOnAccordionItemChange">
+        <FluentAccordionItem Id="item1" Header="Panel one">
+            Panel one content
+        </FluentAccordionItem>
+        <FluentAccordionItem Id="item2" Header="Panel two">
+            Panel two content
+        </FluentAccordionItem>
+        <FluentAccordionItem Id="item3" Expanded="true" Header="Panel three" Disabled="true">
+            Panel three content
+        </FluentAccordionItem>
+        <FluentAccordionItem Id="item4" @bind-Expanded="@expanded" Header="Panel four">
+            Panel four content
+        </FluentAccordionItem>
+    </FluentAccordion>
+</FluentStack>
+<p>
+    Last changed accordion item: @headerText<br />
+    Expanded: @changed?.Expanded
+</p>
+
+
+@code {
+    FluentAccordion? accordion;
+    FluentAccordionItem? changed;
+    string? headerText;
+    bool expanded = true;
+
+    private async Task ExpandItem2Async()
+    {
+        if (accordion is not null)
+        {
+            await accordion.ExpandItemAsync("item2");
+        }
+    }
+
+    private async Task CollapseItem4Async()
+    {
+        if (accordion is not null)
+        {
+            await accordion.CollapseItemAsync("item4");
+        }
+    }
+
+    private void HandleOnAccordionItemChange(AccordionItemEventArgs args)
+    {
+        changed = args.Item;
+        headerText = args.HeaderText;
+    }
+}

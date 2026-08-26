@@ -1,0 +1,46 @@
+﻿<!-- Settings -->
+<FluentStack Wrap="true" VerticalAlignment="VerticalAlignment.Center">
+    <FluentSwitch @bind-Value="@FullScreen" Label="FullScreen" Margin="@Margin.Right4" />
+    <FluentSwitch @bind-Value="@Interactive" Label="Interactive" Margin="@Margin.Right4" />
+    <FluentSwitch @bind-Value="@Visible" Label="Visible" Margin="@Margin.Right4" />
+    <FluentSpacer />
+    <FluentSelect @bind-Value="@CloseMode"
+                  Items="@(Enum.GetValues(typeof(OverlayCloseMode)).Cast<OverlayCloseMode>())"
+                  Label="Close Mode"
+                  LabelPosition="LabelPosition.Before" />
+</FluentStack>
+
+<FluentCard Appearance="@CardAppearance.Outline" Margin="@Margin.Vertical4">
+
+    <!-- Content with an interactive (clickable) link -->
+    <FluentText>
+        Lorem Ipsum rhoncus turpis turpis sed maecenas Odio turpis Lorem Euismod ipsum felis ridiculus
+        <a href="Overlay#clicked" onclick="alert('clicked')">Click Me</a>
+        Dignissim enim aliquam vulputate dui rhoncus tempus sed dui Odio penatibus urn ut habitasse aliquam Quam laoreet mollis
+    </FluentText>
+
+    <!-- Overlay -->
+    <FluentOverlay @ref="OverlayRef"
+                   FullScreen="@FullScreen"
+                   Interactive="@Interactive"
+                   @bind-Visible="@Visible"
+                   @bind-Visible:after="@(() => Console.WriteLine($"Overlay is now {(Visible ? "visible" : "hidden")}"))"
+                   CloseMode="@CloseMode">
+        <FluentSpinner />
+    </FluentOverlay>
+</FluentCard>
+
+<!-- Commands to manually show/close the overlay -->
+<FluentStack Wrap="true" HorizontalGap="12px">
+    <FluentButton OnClick="@(e => OverlayRef.ShowAsync())">Show Overlay</FluentButton>
+    <FluentButton OnClick="@(e => OverlayRef.CloseAsync())">Close Overlay</FluentButton>
+</FluentStack>
+
+@code
+{
+    FluentOverlay OverlayRef = default!;
+    bool FullScreen = false;
+    bool Interactive = false;
+    bool Visible = false;
+    OverlayCloseMode CloseMode = OverlayCloseMode.All;
+}

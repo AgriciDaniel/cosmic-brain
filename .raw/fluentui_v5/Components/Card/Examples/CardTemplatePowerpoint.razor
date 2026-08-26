@@ -1,0 +1,23 @@
+﻿<FluentCard Width="300px">
+    <FluentStack VerticalAlignment="VerticalAlignment.Center">
+        <FluentImage Source="@PowerPointLogo" />
+        <FluentStack Orientation="Orientation.Vertical" Margin="@Margin.Horizontal2">
+            <FluentText Weight="TextWeight.Semibold">
+                Team Offsite 2025
+            </FluentText>
+            <FluentText Size="TextSize.Size200" Color="@Color.Custom" CustomColor="@SystemColors.Neutral.Foreground3">
+                OneDrive > Presentations
+            </FluentText>
+        </FluentStack>
+        <FluentSpacer />
+        <FluentButton Appearance="ButtonAppearance.Subtle"
+                      IconOnly="true"
+                      IconStart="@(new Icons.Regular.Size20.LineHorizontal1Dot())"
+                      OnClick="@(e => Console.WriteLine("Button clicked"))" />
+    </FluentStack>
+</FluentCard>
+
+@code
+{
+    const string PowerPointLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAByUExURZiYlqWlpPn5+f///6Wjouvr68zLy5+dncQ+HOKejv/Htf/Vx//q4//j2v+rkP+WddNuVfjn4+Gfjf+Pa//x7Nd6Y/fn49qGcf/Lus9iR/vz8d6SgO1sR8tWOchKKvGQdfjIuva1o+52Uvva0eCejQAAAJERN9AAAAAmdFJOU/////////////////////////////////////////////////8Ap3qBvAAAAAlwSFlzAAAOwwAADsMBx2+oZAAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIDUuMS44G2nqqAAAALZlWElmSUkqAAgAAAAFABoBBQABAAAASgAAABsBBQABAAAAUgAAACgBAwABAAAAAgAAADEBAgAQAAAAWgAAAGmHBAABAAAAagAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS44AAMAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAABaAEAAEAAACUAAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAKuAIRNTnjgoAAAAwElEQVQ4T63TyRaCMAwF0EocahFB6iwIOPz/L3rogE0gpy58y767aDqIdySCLtB8gUCZjYBIIIyYjwDqQSycYAE4wQMnWJA4wYGlmWXFAxvxI5BB1hMg7KW0jUo3PMi2OSilMgQKANiVBiitdQ/UHgMpD1D0QHuQUiCPJwTOFBRwGcBoin4P15vZQ+VDQF3f7RS+bwgYxvSg5UBn+44/qLapHs0zctRoilfYlxMgft3/AvjjmCQhIF/PJnzVXKLgA5zWRDJHUmYIAAAAAElFTkSuQmCC";
+}

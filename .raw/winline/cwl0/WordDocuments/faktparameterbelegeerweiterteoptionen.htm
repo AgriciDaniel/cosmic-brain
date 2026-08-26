@@ -1,0 +1,629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>FAKT-Parameter - Belege - Erweiterte Optionen</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84startd1.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="tab-stops: 0pt 54.0pt 56.7pt">FAKT-Parameter - Belege - Erweiterte 
+Optionen</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Über den Bereich "FAKT-Parameter - Belege - Erweiterte 
+Optionen" können weitere allgemeine Einstellungen für die Belegerfassung der 
+WinLine FAKT vorgenommen werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Standardmäßig wird das Fenster in einem "Lesemodus" geöffnet, 
+d.h. es können die bestehenden Einstellungen kontrolliert, Änderungen allerdings 
+nicht durchgeführt werden. Hierfür muss zunächst mit Hilfe des Buttons 
+"Bearbeiten" der "Bearbeitungsmodus" aktiviert werden. Alternativ kann diese 
+Aktivierung auch über das Kontextmenü der rechten Maustaste (Funktion 
+"Applikation xxx bearbeiten") erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_608.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Automatische Lieferungen bei Kundenbestellungen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_609.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Mindestverteilung</P>
+<P class=MsoNormal>Eingabe des Mindestverteilungsprozentsatzes, d.h. es müssen 
+mindestens xx Prozent des Gesamtauftrages geliefert werden, sonst wird der 
+Auftrag in dem Programm "Kundenbestellungen bearbeiten" gar nicht zur 
+Auslieferung vorgeschlagen (hierbei spielt natürlich auch noch die Option 
+"Teillieferung erlaubt" aus dem Personenkontenstamm - Register "FAKT" - bzw. der 
+Belegart eine Rolle).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Mindestauslieferung</P>
+<P class=MsoNormal>Eingabe des Mindestprozentsatzes, welcher bei einer 
+Auslieferung im Programm "Kundenbestellungen bearbeiten" pro Artikelzeile 
+erfüllt sein muss. Wird dieser Prozentsatz nicht erreicht, wird die Lieferung 
+unterlassen (hierbei spielt natürlich auch noch die Option "Teillieferung 
+erlaubt" aus dem Personenkontenstamm - Register "FAKT" - bzw. der Belegart eine 
+Rolle).</P>
+<P class=MsoNormal>Wenn der Lagerstand nicht den Prozentsatz für die 
+Mindestauslieferung eines Auftrages erfüllt, dann kommt dieser Artikel auf die 
+Sperrliste beim "Kundenbestellungen bearbeiten".</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Kunde erteilt einen Auftrag über 40 Stück. Der Lagerstand 
+beträgt 15 Stück und als Mindestauslieferung wurden 50% in den FAKT Parametern 
+hinterlegt. Die 40 Stück kommen auf die Sperrliste, da die Mindestlieferung von 
+50% (20 Stück) nicht erreicht wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Berechnung der Mindestverteilung</P>
+<P class=MsoNormal>Für den Fall, dass mehrere Aufträge für einen Artikel 
+vorhanden sind und der Lagerstand nicht ausreichend ist, kommt die 
+Mindestverteilung zum Tragen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Der Lagerstand des Artikels wird nach der folgenden 
+Berechnung aufgeteilt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>100 / gesamte Bestellmenge * 
+tatsächlichen Lagerstand</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Der Kunde bekommt nun die Menge, die sich aus dem berechneten 
+Prozentsatz und seiner Bestellmenge ergibt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Es wird immer aufgerundet. Der dritte Auftrag bekommt noch 
+den Rest der auf Lager ist. Wenn dieser Rest die 50% Mindestauslieferung 
+unterschreitet, dann bekommt der dritte Auftrag keine Lieferung. </P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Die Mindestauslieferung beträgt 50% und die Mindestverteilung 
+60%.</P>
+<P class=MsoNormal>&nbsp;</P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 88.55pt; BORDER-LEFT: medium none" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 1</P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>Lagerstand 100</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 2</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>Lagerstand 45</P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal>&nbsp;</P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; MARGIN-LEFT: 88.55pt; BORDER-LEFT: medium none" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BACKGROUND: #cccccc; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Auftrag 1 06.08.2025</P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>&nbsp;</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 1</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>50 Stück</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 2</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>30 Stück</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BACKGROUND: #cccccc; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Auftrag 2 07.08.2025</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>&nbsp;</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 1</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>50 Stück</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: medium none; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 2</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>20 Stück</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BACKGROUND: #cccccc; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Auftrag 3 08.08.2025</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>&nbsp;</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 1</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>50 Stück</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 121.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=163>
+      <P class=MsoNormal>Artikel 2</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 182.9pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=244>
+      <P class=MsoNormal>40 Stück</P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Im Programm "Kundenbestellungen bearbeiten" werden folgende 
+Mengen zur Lieferung vorgeschlagen:</P>
+<P class=BeispielAchtung>Berechnung bei Artikel 1</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">100 / 150 * 100 = 67,67%</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 1 = 50 Stück * 
+67,67%&nbsp;&nbsp;&nbsp;&nbsp; = 33,3334 =&gt; wird auf 34 Stück aufgerundet</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 2 = 50 Stück * 
+67,67%&nbsp;&nbsp;&nbsp;&nbsp; = 33,3334 =&gt; wird auf 34 Stück aufgerundet</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 3 = 50 Stück * 
+67,67%&nbsp;&nbsp;&nbsp;&nbsp; = 33,3334 =&gt; nur mehr 32 Stück auf Lager</P>
+<P class=BeispielAchtung>Berechnung bei Artikel 2</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">100 / 90 * 45 = 
+50%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=&gt; die Mindestverteilung von 60% kommt zum Tragen</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 1 = 30 Stück * 
+60%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 18 Stück</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 2 = 20 Stück * 
+60%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 12 Stück</P>
+<P class=MsoNormal style="tab-stops: 148.85pt">Auftrag 3 = 40 
+Stück&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+=&gt; da nur mehr 15 Stück auf Lager sind, wird die Mindestauslieferung von 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 50% nicht erreicht, daher 
+erfolgt keine Lieferung</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Losgröße im Verkauf</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_610.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Losgröße</P>
+<P class=MsoNormal>Mit dieser Option kann definiert werden, was bei 
+Unterschreitung der im Artikelstamm (Register "Preise" - Unterregister "Preise") 
+hinterlegten Losgröße im Verkauf (d.h. Erfassung von Verkaufsbelegen oder 
+Kontrakten) passieren soll.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die Prüfung der Losgröße, bzw. automatischer Korrektur dieser 
+erfolgt NICHT bei Lieferscheinen und Fakturen, für die bereits ein Auftrag 
+erfasst wurde.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - darf unterschritten 
+werden<BR>Wird diese Option gewählt, erfolgt weder eine Warnung o.ä. ausgegeben. 
+D.h. die eingetragene Losgröße wird nicht berücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - darf mit Warnung 
+unterschritten werden<BR>Bei Verwendung dieser Option erfolgt bei 
+Unterschreitung der hinterlegten Losgröße eine Warnung, welche mit "Ok" 
+bestätigt werden muss.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - wird automatisch 
+aufgefüllt<BR>Mit dieser Option wird bei Unterschreitung der hinterlegten 
+Losgröße auf diese aufgefüllt. Dabei erfolgt kein Hinweis; das Auffüllen erfolgt 
+automatisch.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Beispiel</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 18pt; TEXT-INDENT: 0pt">Hinterlegte 
+Losgröße = 12 Stk.<BR>Wird eine Artikelzeile mit Menge 10 Stk. erfasst, wird 
+automatisch auf 12 Stk. korrigiert.<BR><BR>Wird eine Artikelzeile mit Menge 13 
+Stk. erfasst, wird automatisch auf das nächste Vielfache - also 24 Stk. 
+erhöht.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - wird mit Warnung automatisch 
+aufgefüllt<BR>Bei Unterschreitung der Losgröße wird diese automatisch auf die 
+hinterlegte Menge aufgefüllt, wobei eine entsprechende Meldung angezeigt 
+wird.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die hier hinterlegte Einstellung kann im Artikelstamm 
+(Register "Preise" - Unterregister "Preise") pro Artikel nochmals übersteuert 
+werden.</P>
+<P class=BeispielAchtung>Achtung - Auswirkung bei Artikeln mit Ausprägungen</P>
+<P class=MsoNormal>Die Eingabe im Ausprägungsfenster wird nur geprüft, wenn die 
+einzelnen Ausprägungen einen eigenen Preisstamm haben. Wenn die Ausprägungen im 
+Preisstamm auf den Hauptartikel verweisen, so wird die gesamte eingegebene Menge 
+beim Druck des Buttons "Ok" kontrolliert. D.h. ist beim Artikel als Losgröße 
+z.B. 12 Stk. hinterlegt, erfolgt beim Verlassen des Aufteilungsfensters mittels 
+Button "Ok" die Prüfung, ob die Gesamtmenge den 12 Stk. entspricht.</P>
+<P class=MsoNormal>Bei Verwendung der Option "2 - wird automatisch aufgefüllt" 
+bzw. "3 - wird mit Warnung automatisch aufgefüllt" erfolgt eine Warnung sofern 
+die angegebenen Mengen (Gesamtmenge der Ausprägungen) nicht der Losgröße 
+entsprechen und das Aufteilungsfenster wird nicht geschlossen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>in Makros 
+berücksichtigen</P>
+<P class=MsoNormal>Ist diese Option aktiviert, so wird in der Belegerfassung die 
+Verkaufs-Losgröße beim Expandieren eines Artikelmakros berücksichtigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Inaktive Sachkonten</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_611.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Verwendung</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, ob auf inaktive 
+Sachkonten abgeprüft werden sollen, wobei die Abprüfung beim Erfassen von 
+Artikelzeilen im Beleg, beim Belegdruck, sowie bei der Belegumstellung und dem 
+automatischen Belegdruck erfolgt. Folgende Varianten der Prüfung bzw. Verwendung 
+stehen zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - erlaubt</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - erlaubt mit Warnung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - nicht erlaubt (ab Stufe 
+Angebot/Anfrage)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - nicht erlaubt (ab Stufe 
+Auftrag/Bestellung)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - nicht erlaubt (ab Stufe 
+Lieferschein)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>5 - nicht erlaubt (ab Stufe 
+Faktura)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Abweichende Faktstapel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_612.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Abweichende 
+Faktstapel) verwenden</P>
+<P class=MsoNormal>Ist diese Option aktiviert, wird bei der Erfassung von 
+Fakturen in der WinLine FAKT ein weiteres Eingabefeld "Buchungsstapel" 
+eingeblendet, in welchem der Periodenstapel und alle FAKT-Stapel zur Auswahl zur 
+Verfügung stehen.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Ein FAKT-Stapel wird in der WinLine FIBU im Programm "Buchen 
+Dialog-Stapel" über den Button "Speichern" definiert, indem ein leerer Stapel 
+mit aktiviertem Flag "Löschen" und aktiviertem Flag "FAKT-Stapel" gespeichert 
+wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Periodensperre beim Lieferscheindruck</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_613.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>(Periodensperre beim Lieferscheindruck) berücksichtigen</P>
+<P class=MsoNormal>Ist die Option gesetzt und Perioden im Mandantenstamm 
+gesperrt, erfolgt beim Druck/Rechnen eines Lieferscheins die Prüfung, ob der 
+Beleg (Lieferschein) in dem Monat / Periode gedruckt werden darf.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Zahlungen von Gutscheinen beim Einlösen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_614.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Zahlungen 
+von Gutscheinen beim Einlösen) prüfen</P>
+<P class=MsoNormal>Wenn diese Option aktiviert ist, so wird beim Einlösen eines 
+Gutscheins geprüft, ob es zu dem eingelösten Gutschein auch eine Zahlung gibt 
+(d.h. ob der Offene Posten des Gutscheins ausgeglichen ist). Falls dem nicht der 
+Fall nicht, wird eine entsprechende Meldung beim Belege erfassen ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Belegdatum beim Speichern eines Beleges</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_615.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Belegdatum 
+beim Speichern eines Beleges) festschreiben</P>
+<P class=MsoNormal>Im Standard wird bereits beim Speichern des Belegs das 
+hinterlegte Belegdatum in das zugehörige Datumsfeld des Belegs (z.B. 
+Angebotsdatum) abgespeichert (Option ist aktiviert).</P>
+<P class=MsoNormal>Wird die Option hingegen deaktiviert, so wird beim alleinigen 
+Speichern eines Belegs das Belegdatum in keines der Belegdatumsfelder 
+(Angebotsdatum / Auftragsdatum / Lieferscheindatum / Fakturadatum) 
+abgespeichert, wodurch der Beleg "nur" ein Datum der Anlage erhält. Beim Laden 
+des Belegs wird somit das Feld "Belegdatum" wieder mit dem Einlogdatum 
+vorbelegt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Beim Batchbeleg wird diese Funktion ebenfalls unterstützt, es 
+sei denn in der Importdatei wird ein Datum explizit importiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Kontenneuanlage im Belegerfassen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_616.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>(Kontenneuanlage im Belegerfassen) erlauben</P>
+<P class=MsoNormal>Durch Aktivieren dieser Checkbox steht in den 
+Belegerfassen-Menüpunkten "Belege erfassen" und "Telesales" der Button für die 
+Kontenneuanlage zur Verfügung. Die Position des Buttons ist abhängig davon, ob 
+das Formular "0 - Allgemein" oder "1 bis 99999 - individuelles Formular" genutzt 
+wird:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Allgemein<BR><IMG 
+src="../ImagesExt/image862_617.png">&nbsp; </P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 bis 99999 - individuelles 
+Formular<BR><IMG src="../ImagesExt/image862_618.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird der Button gedrückt, so wird der Personenkontenstamm 
+(mit jener Vorlage, welche im Feld "mit Vorlage" hinterlegt wurde) geöffnet. 
+Beim Speichern des angegebenen Personenkontos (neu angelegtes oder bestehendes 
+Konto) wird dieses in die Belegerfassung übernommen und der Personenkontenstamm 
+automatisch geschlossen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>(Kontenneuanlage im Belegerfassen) mit Vorlage</P>
+<P class=MsoNormal>Wurde die Option "Kontenneuanlage im Belegerfassen erlauben" 
+aktiviert, so kann aus der Auswahlliste eine Vorlage gewählt werden, mit welcher 
+der Personenkontenstamm geöffnet werden soll. Zur Auswahl stehen die Einträge 
+"----- - zuletzt verwendete Vorlage", das Standard-Personenkontenfenster "00000 
+- Allgemein", sowie die individuell erstellten Personenkontenvorlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Adresse im Belegerfassen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_619.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>(Adresse im 
+Belegerfassen) aktualisieren</P>
+<P class=MsoNormal>Wird diese Option aktiviert, so steht in den 
+Belegerfassen-Menüpunkten (Belege erfassen, Telesales, Kontrakte abbuchen) ein 
+Button zur Verfügung, mit dessen Hilfe die angegebenen Adressdaten aus dem Beleg 
+in den jeweiligen Stammdatensatz (Personenkontenstamm, Interessentenstamm) 
+übergeben werden können (nach Bestätigung der Laufnummer). Die Position des 
+Buttons ist abhängig davon, ob das Formular "0 - Allgemein" oder "1 bis 99999 - 
+individuelles Formular" genutzt wird:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Beleg erfassen "0 - Allgemein", 
+"Telesales" und "Kontrakte abbuchen" (Register "Kopf" und "Zusatz")<BR><IMG 
+src="../ImagesExt/image862_620.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Belege erfassen "1 bis 99999 - 
+individuelles Formular" (Hauptführungskonto)<BR><IMG 
+src="../ImagesExt/image862_621.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Aktualisiert werden folgende Werte:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Anrede</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>zu Handen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Straße</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Straße 2</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Landeskennzeichen</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>PLZ</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>PLZ2</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ort</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Land</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Fakturennummern beim Belegdruck prüfen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_622.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Verkauf / 
+Einkauf</P>
+<P class=MsoNormal>Mit Hilfe einer Auswahlliste können verkaufs- und 
+einkaufsseitig Optionen bezüglich einer erweiterten Prüfung auf doppelte 
+Fakturennummern definiert werden. Folgende Einstellungen stehen zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - keine Prüfung<BR>Es erfolgt 
+keine erweiterte Prüfung auf doppelte Prüfung, d.h. bei einer manuellen Änderung 
+der Fakturennummer erfolgt nur ein Hinweis, dass die Nummer ggfs. bereits 
+vorhanden ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - Warnung wenn mehrfach<BR>Wenn 
+eine Rechnung mit einer bereits vorhandenen Fakturennummer gedruckt wird, so 
+wird aus dem Belegerfassen eine Meldung ausgegeben, bzw. im Protokoll 
+(Stapeldruck, Batchbeleg-Import, Sammelfaktura) ein Hinweis angedruckt ("Die 
+Fakturennummer xxxx ist bereits vorhanden.").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - Sperre wenn mehrfach<BR>Wenn 
+eine Rechnung mit einer Fakturennummer gedruckt wird, welche bereits vorhanden 
+ist, so wird beim Druck aus der Belegerfassung eine Meldung ausgegeben bzw. im 
+Protokoll (Stapeldruck, Batchbeleg-Import, Sammelfaktura) eine Meldung 
+angedruckt ("Die Fakturennummer xxxx ist bereits vorhanden" bzw. "2 Beleg(e) 
+konnte(n) nicht gedruckt werden. Bitte kontrollieren Sie das 
+Belegdruckprotokoll.").<BR>Der Belegdruck selbst wird in diesem Fall 
+abgebrochen!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>3 - hochzählen<BR>Wenn eine 
+Rechnung mit einer Fakturennummer gedruckt wird, welche bereits vorhanden ist, 
+so wird die Nummer so lange hochgezählt, bis eine nicht verwendete 
+Fakturennummer gefunden wird. Diese wird in Folge gespeichert.<BR>Zusätzlich 
+wird beim Druck aus dem Belegerfassen ein Hinweis ausgegeben bzw. im Protokoll 
+(Stapeldruck, Batchbeleg-Import, Sammelfaktura) eine Meldung angedruckt ("Die 
+Fakturennummer xxxx ist bereits vorhanden. Es wurde die Fakturennummer xxxx 
+verwendet.").</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Lieferscheinmenge in Fakturen</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_623.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Lieferscheinmenge in Fakturen editieren</P>
+<P class=MsoNormal>Durch Aktivierung einer dieser beiden Optionen kann bei dem 
+Aufruf eines gedruckten Lieferscheines in der Belegstufe "4 - Faktura" bzw. "8 - 
+L.Faktura" die bisherige Liefermenge editiert werden. Wurde eine Änderung 
+vorgenommen, so muss die Faktura in der weiteren Folge gerechnet oder gedruckt 
+werden, d.h. ein Speichern ist nicht zulässig.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Das Editieren der Menge ist unter folgenden Umständen nicht 
+möglich:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Der Artikel darf kein HSL-Artikel 
+sein.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Der Artikel darf keine Lagerorte 
+des Lagermanagements verwenden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="COLOR: black">Wenn die Faktura gedruckt wird, 
+wird für die geänderten Artikel die Differenzmenge im Lager gebucht. Im 
+Artikeljournal wird eine Minuszeile mit der ursprünglichen Menge und eine 
+Pluszeile mit der neuen Menge gebucht. In beiden Zeilen wird im Text die 
+Fakturennummer, in der Spalte Belegnummer aber die Lieferscheinnummer 
+gespeichert, damit nach einem eventuellen Storno der Faktura bis zur Vorstufe 
+Lieferschein korrekt editiert werden kann.</SPAN><SPAN 
+style='FONT-FAMILY: "Times New Roman",serif'></SPAN></P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Wenn die Lieferantenfaktura laut Freigabe-Definition nicht 
+freigegeben ist, können die Belegzeilenfelder für "Liefermenge", "Preis", 
+"Rabatt" und "BNK" nicht editiert werden, auch wenn diese Option in den 
+FAKT-Parameter aktiviert ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Eingabe von Retourgeld in allen Zahlungsfenstern</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_624.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Eingabe von 
+Retourgeld in allen Zahlungsfenstern ermöglichen</P>
+<P class=MsoNormal>An dieser Stelle kann definiert werden, ob die Eingabefelder 
+"Retourgeld" und "Zahlungsbetrag" in den Programmfenstern "Belegerfassen -&nbsp; 
+Zahlung" und "Zahlungen" zur Verfügung stehen sollen. Folgende Varianten stehen 
+hierfür zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - Nie<BR>Die Felder stehen in 
+"Belegerfassen - Zahlung" und "Zahlungen" nicht zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - Immer<BR>Die Felder 
+"Retourgeld" und "Zahlungsbetrag" stehen in den Fenstern "Belegerfassen - 
+Zahlung" und "Zahlungen" immer zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - Nur bei Barbelegarten<BR>Die 
+Felder stehen in den Fenstern "Belegerfassen - Zahlung" und "Zahlungen" nur zur 
+Verfügung, wenn mit einer Barbelegart gearbeitet wird.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Für das Fenster "Barrechungen" der WinLine FAKT gilt die 
+Einstellung nicht, d.h. dort werden die beiden Felder immer angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Mehrstufige Rückfallsbelegart</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_625.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN><A 
+name=_Hlk42500969>(Mehrstufige Rückfallsbelegart) berücksichtigen</A></P>
+<P class=MsoNormal>Durch Aktivieren dieser Option wird der Nummernkreis nicht 
+nur aus der hinterlegten Rückfallsbelegart berücksichtigt, sondern, bei leerer 
+Belegnummer, auch aus den weiteren Rückfallsbelegarten.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal>Für Reparaturlieferungen sind die eigenen Belegarten (R1 und 
+R2) angelegt, wobei Belege mit diesen Belegarten einen gemeinsamen Nummernkreis 
+für die Belegstufe "Lieferschein" besitzen sollten.</P>
+<P class=MsoNormal>Für die Belegstufen Angebot, Auftrag und Rechnung soll der 
+Belegnummernkreis der Standard-Belegart 1 verwendet werden.</P>
+<P class=MsoNormal>Bei der Belegart "R1" ist der Nummernkreis für die Belegstufe 
+"Lieferschein" hinterlegt und als Rückfallsbelegart die Belegart "1 - Standard" 
+angegeben.</P>
+<P class=MsoNormal>Bei der Belegart "R2" ist für die Belegstufe "Lieferschein" 
+keine Belegnummer angegeben und als Rückfallsbelegart die Belegart "R1" 
+hinterlegt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image862_626.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Option "Mehrstufige Rückfallsbelegart 
+berücksichtigen" <U>nicht aktiviert</U>, so erhalten die Belege folgende 
+Belegnummern:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Belege mit der Belegart "R1"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Angebot: AN20-0790</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Auftrag: AG20-0702</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lieferschein: R20-0086</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Rechnung: FA20-0686</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Belege mit der Belegart "R2"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Angebot: 1</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Auftrag: 1</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lieferschein: R20-0086</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Rechnung: 1</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Wird die Option "Mehrstufige Rückfallsbelegart 
+berücksichtigen" <U>aktiviert</U>, so erhalten sowohl Belege mit der Belegart 
+"R1", als auch jene Belege mit der Belegart "R2" folgende Belegnummern:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Belege mit der Belegart "R1" bzw. "R2"</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Angebot: AN20-0790</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Auftrag: AG20-0702</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Lieferschein: R20-0086</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Rechnung: FA20-0686</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

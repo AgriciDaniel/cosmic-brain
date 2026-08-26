@@ -1,0 +1,98 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Extensions
+
+<FluentStack Wrap="true" HorizontalGap="32px">
+    @* SelectMode: Single *@
+    <div>
+        <FluentCalendar Label="Single"
+                        DisabledDateFunc="@DisabledNullableDay"
+                        DisplayToday="false"
+                        @bind-Value="@SelectedDay"
+                        SelectMode="CalendarSelectMode.Single" />
+        <p>Selected days: @SelectedDay?.ToShortDateString()</p>
+    </div>
+
+    @* SelectMode: Range *@
+    <div>
+        <FluentCalendar Label="Range"
+                        DisabledDateFunc="@DisabledDay"
+                        DisplayToday="false"
+                        @bind-SelectedDates="@SelectedRange"
+                        SelectMode="CalendarSelectMode.Range" />
+        <p>Selected days: @DisplaySelectedDays(SelectedRange)</p>
+    </div>
+
+    @* SelectMode: Range + SelectDatesHover *@
+    <div>
+        <FluentCalendar Label="Range with 'SelectOneWeek'"
+                        DisabledDateFunc="@DisabledDay"
+                        DisplayToday="false"
+                        @bind-SelectedDates="@SelectedRangeCustomized"
+                        SelectDatesHover="@SelectOneWeek"
+                        SelectMode="CalendarSelectMode.Range" />
+        <p>Selected days: @DisplaySelectedDays(SelectedRangeCustomized)</p>
+    </div>
+
+    @* SelectMode: Multiple + Validation *@
+    <div>
+        <FluentCalendar Label="Multiple (max 4 days)"
+                        DisabledDateFunc="@DisabledDay"
+                        DisplayToday="false"
+                        @bind-SelectedDates="@SelectedDays"
+                        SelectMode="CalendarSelectMode.Multiple"
+                        MessageCondition="@(i => i.When(() => SelectedDays.Count() > 4).Display("You can select a maximum of 4 days.", MessageState.Error).Build())" />
+        <FluentMessageBar Visible="@DisplayError" Intent="MessageBarIntent.Error" Style="width: 230px;">
+            You can select a maximum of 5 days. Delete a day to select a new one.
+        </FluentMessageBar>
+        <p>Selected days: @DisplaySelectedDays(SelectedDays)</p>
+    </div>
+
+    @* SelectMode: Multiple + SelectDatesHover *@
+    <div>
+        <FluentCalendar Label="Multiple with 'Select3Days'"
+                        DisabledDateFunc="@DisabledDay"
+                        DisplayToday="false"
+                        @bind-SelectedDates="@SelectedDaysCustomized"
+                        SelectDatesHover="@Select3Days"
+                        SelectMode="CalendarSelectMode.Multiple" />
+        <p>Selected days: @DisplaySelectedDays(SelectedDaysCustomized)</p>
+    </div>
+</FluentStack>
+
+@code
+{
+    private DateTime? SelectedDay = null;
+    private IEnumerable<DateTime> SelectedRange = new List<DateTime>();
+    private IEnumerable<DateTime> SelectedRangeCustomized = new List<DateTime>();
+    private IEnumerable<DateTime> SelectedDays = new List<DateTime>();
+    private IEnumerable<DateTime> SelectedDaysCustomized = new List<DateTime>();
+    private bool DisplayError = false;
+
+    // Disable all days with the day number 3, 8, and 20.
+    private bool DisabledDay(DateTime date) => date.Day == 3 || date.Day == 8 || date.Day == 20;
+    private bool DisabledNullableDay(DateTime? date) => date.HasValue && DisabledDay(date.Value);
+
+    // Always select the full week, containing the "clicked" day.
+    private IEnumerable<DateTime> SelectOneWeek(DateTime date)
+    {
+        return new[] { date.StartOfWeek(), date.StartOfWeek().AddDays(6) };
+    }
+
+    // Always select 3 days, from the "clicked" day.
+    private IEnumerable<DateTime> Select3Days(DateTime date)
+    {
+        return Enumerable.Range(0, 3).Select(i => date.AddDays(i));
+    }
+
+    // Display the selected days in a list.
+    private RenderFragment DisplaySelectedDays(IEnumerable<DateTime> days) => builder =>
+    {
+        builder.OpenElement(0, "ul");
+        foreach (var day in days)
+        {
+            builder.OpenElement(1, "li");
+            builder.AddContent(2, day.ToShortDateString());
+            builder.CloseElement();
+        }
+        builder.CloseElement();
+    };
+}

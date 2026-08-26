@@ -1,0 +1,60 @@
+﻿<FluentStack>
+    <FluentButton Appearance="ButtonAppearance.Primary"
+                  OnClick="@(e => Menu.OpenMenuAsync("Target1"))">
+        Open menu on Zone 1
+    </FluentButton>
+    <FluentSpacer />
+    <FluentButton Appearance="ButtonAppearance.Primary"
+                  OnClick="@(e => Menu.OpenMenuAsync("Target3"))">
+        Open menu on Zone 3
+    </FluentButton>
+</FluentStack>
+
+<FluentStack HorizontalGap="10"
+             Margin="@Margin.Top5">
+    <div id="Target1"
+         class="card"
+         @oncontextmenu="@(e => Menu.OpenMenuAsync("Target1"))"
+         @oncontextmenu:preventDefault>
+        Zone 1
+    </div>
+    <FluentSpacer />
+    <div id="Target2"
+         class="card"
+         @oncontextmenu="@(e => Menu.OpenMenuAsync("Target2"))"
+         @oncontextmenu:preventDefault>
+        Zone 2
+    </div>
+    <FluentSpacer />
+    <div id="Target3"
+         class="card"
+         @oncontextmenu="@(e => Menu.OpenMenuAsync("Target3"))"
+         @oncontextmenu:preventDefault>
+        Zone 3
+    </div>
+</FluentStack>
+
+<!-- Common menu with multiple targets -->
+<FluentMenu @ref="@Menu">
+    <FluentMenuList>
+        <FluentMenuItem>Menu item 1</FluentMenuItem>
+        <FluentMenuItem>Menu item 2</FluentMenuItem>
+        <FluentMenuItem>Menu item 3</FluentMenuItem>
+        <FluentMenuItem>Menu item 4</FluentMenuItem>
+    </FluentMenuList>
+</FluentMenu>
+
+<style>
+    .card {
+        width: 100px;
+        height: 40px;
+        box-shadow: var(--shadow4);
+        align-content: center;
+        text-align: center;
+    }
+</style>
+
+
+@code {
+    private FluentMenu Menu { get; set; } = default!;
+}

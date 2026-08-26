@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>VB-Script-Formel</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="koregr.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="listmatchcode.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinelist.htm">WinLine LIST</A><SPAN class=d2h_breadcrumbsLinkSeparator> 
+&gt; </SPAN><A class=d2h_breadcrumbsNormal href="listformelparameter.htm">List - 
+Formel Parameter</A><SPAN class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>VB-Script-Formel</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Ref54169646>VB-Script-Formel</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Nicht immer stehen alle benötigten Variablen innerhalb einer 
+LIST-Liste fix zur Verfügung. Um trotzdem die gewünschte Ausgabe zu erhalten, 
+können solche Felder mit Hilfe der Formelfunktion "VB-Script-Formel" kreiert 
+werden.</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mathematische Berechnungen<BR>In 
+einer Artikelliste soll der %-Anteile des Lagerstands vom Artikel bezogen auf 
+den Gesamtlagerstand ausgewiesen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Zusammenführen von Feldern<BR>Die 
+einzelnen Felder der Telefonnummer sollen in einer Debitorenliste innerhalb 
+einer Spalte angezeigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ableiten von Daten<BR>Wenn der 
+Umsatz größer x ist, dann soll bitte in einer Sortierspalte das Wort "WICHTIG" 
+erscheinen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Um eine VB-Script-Formel zu erstellen, wird diese aus dem 
+Variablenbereich per Doppelklick übernommen. Anschließend öffnet sich 
+automatisch das Formelfenster, in welchem die VB-Script-Formel hinterlegt werden 
+kann.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Es können maximal 50 VB-Script-Formeln pro Liste verwendet 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_85.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Folgende Punkte sind bei der Erstellung von Formeln zu 
+beachten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formel-Objekte - Allgemein</P>
+<P class=MsoNormal>Es stehen die Objekte "CWLStart", "General" und "LISTScripts" 
+zur Verfügung. Die für diese Art von Formeln extra geschaffenen 
+LISTScripts-Objekte beinhalten die Methoden "GetValue" und "Property".</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_86.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formel-Objekte - LISTScripts.GetValue</P>
+<P class=MsoNormal>Per "GetValue" kann eine Variable aus der LIST-Liste geholt 
+und mit dieser gearbeitet werden.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_87.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formel-Objekte - LISTScripts.Property</P>
+<P class=MsoNormal>Die Methode "Property" ist ein Speicher, welcher innerhalb 
+einer LIST-Listen-Ausgabe zeilenübergreifend zur Verfügung steht und nach dem 
+Beenden der Ausgabe automatisch initialisiert wird. Die Speicher selber können 
+über Angabe einer Zahl selber definiert werden.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_88.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>ResultValue</P>
+<P class=MsoNormal>Das "ResultValue" stellt das Ergebnis der Formel da und wird 
+bei der Ausgabe der LIST-Liste dargestellt. Die Art des Formats wird nicht in 
+der Formel selber, sondern im LIST-Aufbau definiert (siehe Feld 
+"Formatierung").</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_89.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ergebnisvariablen (0,801) bis (0,850)</P>
+<P class=MsoNormal>Die VB-Script-Formeln erhalten in der Reihenfolge wie sie 
+definiert sind die View0-Ergebnisvariablen 801 bis 850 zugewiesen, wobei die 
+Variablen entsprechend dem selektierten Typ immer neu angelegt werden. Das 
+Ergebnis der ersten Formel wird in die 801 abgestellt. Dadurch ist es möglich, 
+in z.B. der 3 VB-Script-Formel mit der Ergebnis der ersten Formeln 
+weiterzuarbeiten.</P>
+<P class=BeispielAchtung>Beispiel</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_90.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Formatierung</P>
+<P class=MsoNormal>Über die Spalte "Formatierung" in der Tabelle <A 
+href="JavaScript:TL_460743.HHClick()">"Variablen für Ausgabe"</A> kann definiert 
+werden, wie die VB-Script-Formel optisch ausgegeben werden soll. In der weiteren 
+Folge wird der Inhalt der Formeln auch entsprechend in den BI-Ausgaben 
+behandelt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Editieren 
+einer bestehenden Formel</P>
+<P class=MsoNormal>Eine VB-Script-Formel wird immer mit der Tabelle "-2" und 
+"Spalte "0" in den LIST-Aufbau eingefügt. Um eine bestehende Formel zu 
+editieren, muss einfach ein Doppelklick auf "-2" oder "0" erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 1 - Mathematische Berechnung</P>
+<P class=MsoNormal>In der Personenkontenliste soll der Umsatz/pro Jahr auf den 
+durchschnittlichen Umsatz pro Monat berechnet werden. Der Umsatz steht in der 
+Spalte C060 der Kontenview V050. Mit der Funktion "GetValue(Tabelle/Spalte)" 
+wird die Variable herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_91.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Für eine optisch ansprechende Ausgabe wird abschließend die 
+Formatierung "04 - Double" gewählt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_92.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 2 - Ableiten von Daten</P>
+<P class=MsoNormal>Wenn der monatliche Umsatz größer 5.000,- € ist, dann soll 
+der Text "guter Kunde" erscheinen, ansonsten "normaler Kunde". Damit man nicht 
+den monatlichen Wert erneut berechnen muss, wird auf den bereits errechneten 
+monatlichen Umsatz zugegriffen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_93.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Ausgabe wird abhängig vom Monatsumsatz der Text 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_94.png"></P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die Zeilen einer Liste können natürlich verschoben werden. 
+Sollte mit Formeln gearbeitet werden, dann sollte immer geprüft werden, ob mit 
+Ergebnissen in einer anderen Formel weitergearbeitet wird. Das Ergebnis der 
+ersten Formel wird in die Variable (0,801) gestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 3 - Nutzung von Speichern</P>
+<P class=MsoNormal>Es soll eine fortlaufende Zeilennummerierung erzeugt werden. 
+D.h. es ist notwendig bei der Zahl mit "1" zu beginnen und in jeder 
+darauffolgenden Zeile die Zahl "1" zum bestehenden Ergebnis dazu zu 
+addieren.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_95.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 4 - Zugriff auf nicht vorhandene Daten I</P>
+<P class=MsoNormal>Es soll in einer Spalte einer Debitorenliste der 
+Vorjahresumsatz ausgegeben werden. Da diese Information nicht direkt zur 
+Verfügung steht (alle Daten der Liste sind in der Regel basierend auf dem 
+aktuellen Wirtschaftsjahr), wird die benötigte Zahl per SQL-Zugriff geholt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_96.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 5 - Zugriff auf nicht vorhandene Daten II</P>
+<P class=MsoNormal>In einer Projektliste soll der Pre-Sales-Status ausgegeben 
+werden. Innerhalb der Liste steht allerdings die Tabelle 64, in welcher die 
+Klartexte der Stati stehen, nicht zur Verfügung. Aus diesem Grund werden die 
+Texte per SQL-Statement geholt, mit dem vorliegen Status verglichen und 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_97.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 6 - Zugriff auf nicht vorhandene Daten III</P>
+<P class=MsoNormal>In einer Artikelliste soll ausgegeben werden, ob sich Ware in 
+Zulauf befindet, d.h. ob es lt. Disposition offene Einkaufsmengen gibt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_98.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiel 7 - Zugriff auf nicht vorhandene Daten IV</P>
+<P class=MsoNormal>Es wird mit benutzerdefinierten Variablen gearbeitet, deren 
+Inhalt automatisch in die BI-Datenbank abgelegt wird. In einer Debitorenliste 
+soll nun der Inhalt solch einer Variable ausgegeben werden, obwohl die Pflege 
+der Daten über eine andere Liste stattfindet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image871_99.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_460743 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/bereichvariablen.htm"></OBJECT></DIV></BODY></HTML>

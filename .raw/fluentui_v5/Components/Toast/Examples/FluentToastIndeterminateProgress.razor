@@ -1,0 +1,41 @@
+﻿@inject IToastService ToastService
+
+<FluentStack HorizontalGap="16">
+    <FluentButton @ref="openToastButton" OnClick="@OpenToastAsync">
+        Make toast
+    </FluentButton>
+    <FluentButton OnClick="@FinishProcessAsync">
+        Finish process
+    </FluentButton>
+</FluentStack>
+
+@code {
+    int clickCount = 0;
+    FluentButton openToastButton = default!;
+
+    private async Task OpenToastAsync()
+    {
+        // Disable the button to prevent multiple toasts from being opened.
+        // In a real app, you would likely want to track the toast ID and only disable if that specific toast is open.
+        openToastButton.SetDisabled(true);
+        var result = await ToastService.ShowToastAsync(options =>
+        {
+            options.Id = "indeterminate-toast";
+            options.Timeout = 0;
+            options.Type = ToastType.IndeterminateProgress;
+            options.Intent = ToastIntent.Success;
+            options.Title = $"Toast title {++clickCount}";
+            options.Body = "No idea when this will be finished...";
+        });
+        Console.WriteLine($"Toast result: {result}");
+    }
+
+    private async Task FinishProcessAsync()
+    {
+        // In a real app, you would likely keep track of the toast ID and update that specific toast.
+        await ToastService.DismissAsync("indeterminate-toast");
+        // Enable the button again so a new toast can be opened.
+        openToastButton.SetDisabled(false);
+    }
+}
+

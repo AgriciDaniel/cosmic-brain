@@ -1,0 +1,50 @@
+﻿<FluentDataGrid Items="@_gridData" ResizableColumns=true GridTemplateColumns="0.5fr 0.5fr">
+    <TemplateColumn Sortable="true" Title="First Name" SortBy="_firstNameSort">
+        @context.Properties["firstname"]
+    </TemplateColumn>
+
+    <TemplateColumn Sortable="true" Title="Last Name" SortBy="_lastNameSort">
+        @context.Properties["lastname"]
+    </TemplateColumn>
+</FluentDataGrid>
+
+@code {
+    private ColumnKeyGridSort<GridRow> _firstNameSort = new ColumnKeyGridSort<GridRow>(
+        "firstname",
+        (queryable, sortAscending) =>
+        {
+            if (sortAscending)
+            {
+                return queryable.OrderBy(x => x.Properties["firstname"]);
+            }
+            else
+            {
+                return queryable.OrderByDescending(x => x.Properties["firstname"]);
+            }
+        }
+    );
+
+    private ColumnKeyGridSort<GridRow> _lastNameSort = new ColumnKeyGridSort<GridRow>(
+        "lastname",
+        (queryable, sortAscending) =>
+        {
+            if (sortAscending)
+            {
+                return queryable.OrderBy(x => x.Properties["lastname"]);
+            }
+            else
+            {
+                return queryable.OrderByDescending(x => x.Properties["lastname"]);
+            }
+        }
+    );
+
+    private static readonly IQueryable<GridRow> _gridData = new GridRow[] {
+        new(new Dictionary<string, string>{ { "firstname", "Tom" }, { "lastname", "Cruise" } }),
+        new(new Dictionary<string, string>{ { "firstname", "Dolly" }, { "lastname", "Parton" } }),
+        new(new Dictionary<string, string>{ { "firstname", "Nicole" }, { "lastname", "Kidmon" } }),
+        new(new Dictionary<string, string>{ { "firstname", "James" }, { "lastname", "Bond" } }),
+    }.AsQueryable();
+
+    public record GridRow(Dictionary<string, string> Properties);
+}

@@ -1,0 +1,6 @@
+sequenceDiagram
+  autonumber
+  Client->>+Web API: GreetUserAsync(1)
+  Web API->>+GreetingService: GreetUserAsync(1)
+  GreetingService->>-Web API: "Hello, John!"
+  Web API->>-Client: "Hello, John!"

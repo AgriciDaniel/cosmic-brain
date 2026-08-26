@@ -1,0 +1,31 @@
+﻿<FluentStack VerticalGap="12px" Style="max-width: 500px;"
+                Orientation="Orientation.Vertical">
+
+    <b>Default</b>
+    <FluentCard>
+        This is the default style to use for cards. Use this style variant for most of your card designs.
+    </FluentCard>
+
+    <br />
+
+    <b>Filled</b>
+    <FluentCard Appearance="@CardAppearance.Filled">
+        Use if your card is being displayed on a lighter gray or white surface. <br />
+        This ensures that you have adequate contrast between the card surface and the background of the application.
+    </FluentCard>
+
+    <br />
+
+    <b>Outline</b>
+    <FluentCard Appearance="@CardAppearance.Outline">
+        Use when you don't want a filled background color but a discernable outline (border) on the card.
+    </FluentCard>
+
+    <br />
+
+    <b>Subtle</b>
+    <FluentCard Appearance="@CardAppearance.Subtle">
+        This variant doesn't have a background or border for the card container.<br />
+        However, it does include interaction states that display a visible footprint when interacting with the card item.
+    </FluentCard>
+</FluentStack>

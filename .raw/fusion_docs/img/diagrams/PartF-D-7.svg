@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+
+    <!-- State Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+
+    <!-- Action Node Gradient -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Subgraph Boxes -->
+  <rect x="20" y="30" width="840" height="110" fill="rgba(200, 215, 240, 0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="35" y="50" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-anchor="start">MUTABLESTATE&lt;T&gt;</text>
+
+  <rect x="20" y="180" width="840" height="110" fill="rgba(200, 215, 240, 0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="35" y="200" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-anchor="start">COMPUTEDSTATE&lt;T&gt;</text>
+
+  <!-- Arrows Row 1 -->
+  <path d="M 125 100 L 159 100" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 235 100 L 284 100" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 580 100 L 614 100" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <!-- Arrows Row 2 -->
+  <path d="M 125 250 L 159 250" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 235 250 L 284 250" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 390 250 L 474 250" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M 580 250 L 614 250" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <!-- Delay Label -->
+  <text x="432" y="242" font-family="Inter, sans-serif" font-size="11" fill="#6b7084" font-style="italic" text-anchor="middle">delay</text>
+
+  <!-- ROW 1 NODES -->
+  <!-- User Code -->
+  <rect x="35" y="80" width="90" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="80" y="101" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">User Code</text>
+
+  <!-- State -->
+  <rect x="165" y="80" width="70" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="200" y="101" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">State</text>
+
+  <!-- Synchronously invalidated... -->
+  <rect x="290" y="75" width="290" height="50" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="435" y="93" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Synchronously invalidated</text>
+  <text x="435" y="111" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">and recomputed on .Set(..)</text>
+
+  <!-- Updated State -->
+  <rect x="620" y="80" width="240" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="740" y="101" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Updated State / New Computed&lt;T&gt;</text>
+
+
+  <!-- ROW 2 NODES -->
+  <!-- User Code -->
+  <rect x="35" y="230" width="90" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="80" y="251" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">User Code</text>
+
+  <!-- State -->
+  <rect x="165" y="230" width="70" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="200" y="251" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">State</text>
+
+  <!-- Invalidated -->
+  <rect x="290" y="230" width="100" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="340" y="251" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Invalidated</text>
+
+  <!-- Recompute -->
+  <rect x="480" y="230" width="100" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="530" y="251" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Recompute</text>
+
+  <!-- Updated State -->
+  <rect x="620" y="230" width="240" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="740" y="251" font-family="SF Mono, Fira Code, Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle" dominant-baseline="middle">Updated State / New Computed&lt;T&gt;</text>
+
+</svg>

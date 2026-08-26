@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>PRICINGFROMACCOUNT</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707737></A>PRICINGFROMACCOUNT</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion wird eine Preisfindung auf Grundlage von 
+Artikelnummer und Kontonummer (Personenkonto bzw. Interessent) durchgeführt. Das 
+Ergebnis wird anschließend in der Zelle ausgegeben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Es wird zur Preisermittlung die Standardpreisliste des Kontos 
+(Personenkonten / Interessenverwaltung - Register "FAKT" - Feld "Preisliste") 
+verwendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=PRICINGFROMACCOUNT (Artikelnummer, Kontonummer)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Artikelnummer 
+(Nummer in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende 
+Artikelnummer</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Kontonummer 
+(Nummer in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende 
+Kontonummer</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=PRICINGFROMLIST ("<U>10001</U>", 
+"<U>230A001</U>")<BR>Die Funktion ermittelt den Preislistenpreis des Artikels 
+"<SPAN class=AufzhlungZchn><B>10001</B></SPAN>", bezogen auf Personenkonto 
+"<B>230A001</B>" (Kunde), und gibt diesen aus.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=PRICINGFROMLIST ("<U>10001</U>", 
+"<U>330003</U>")<BR>Die Funktion ermittelt den Preislistenpreis des Artikels 
+"<SPAN class=AufzhlungZchn><B>10001</B></SPAN>", bezogen auf Personenkonto 
+"<B>330003</B>" (Lieferant), und gibt diesen aus.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=PRICINGFROMLIST (<U>A4</U>, 
+<U>C5</U>)<BR>Die Funktion ermittelt den Preislistenpreis und gibt diesen aus, 
+wobei sich der Artikel in Zelle <B>A4</B> und das Konto in Zelle <B>C5</B> 
+befinden.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

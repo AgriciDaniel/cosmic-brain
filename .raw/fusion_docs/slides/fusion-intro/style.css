@@ -1,0 +1,19 @@
+@import url('../_shared/vitepress-theme.css');
+
+/* --- Line highlighting in code blocks --- */
+/* Add {lines} after the language, e.g. ```csharp {7-8} */
+/* Highlighted lines get a tint + accent bar + a saturation boost.        */
+/* The rest of the code is NOT dimmed — highlights are added, not subtracted. */
+.slidev-code .line.highlighted {
+  filter: saturate(2.1) brightness(1.22) contrast(1.05);
+  background-color: rgba(167, 139, 250, 0.15);
+  box-shadow: inset 2px 0 0 0 rgba(167, 139, 250, 0.95);
+}
+.slidev-code .line.highlighted * {
+  filter: saturate(1.3) brightness(1.1);
+}
+/* Never dim the rest of the code — override any default focus/dim behavior. */
+.slidev-code .line:not(.highlighted) {
+  opacity: 1 !important;
+  filter: none !important;
+}

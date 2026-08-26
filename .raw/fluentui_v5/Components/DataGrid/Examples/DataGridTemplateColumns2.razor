@@ -1,0 +1,60 @@
+﻿
+<FluentDataGrid id="defaultGrid"
+                Items=RowsGrid.AsQueryable()
+                GridTemplateColumns="1fr 1fr"
+                TGridItem=SampleGridData
+                OnRowClick="HandleRowClick"
+                OnRowFocus="HandleRowFocus"
+                OnCellClick="HandleCellClick"
+                OnCellFocus="HandleCellFocus"
+                RowSize="@DataGridRowSize.Medium">
+    <TemplateColumn Title="Name">
+        <FluentTextInput @bind-Value="@context!.Name" />
+    </TemplateColumn>
+    <TemplateColumn Title="Age">
+        <FluentTextInput @bind-Value="@context!.Age" InputMode="TextInputMode.Numeric"  />
+    </TemplateColumn>
+</FluentDataGrid>
+
+
+@code {
+    public class SampleGridData
+    {
+        public string Name { get; set; }
+        public string Age { get; set; }
+
+        public SampleGridData(string name, int age)
+        {
+            Name = name;
+            Age = age.ToString();
+        }
+    }
+
+
+
+    List<SampleGridData> RowsGrid = new()
+    {
+        new SampleGridData("Rob", 19 ),
+        new SampleGridData("Bob", 20 )
+    };
+
+    private void HandleRowClick(FluentDataGridRow<SampleGridData> row)
+    {
+        Console.WriteLine($"Row clicked: {row.RowIndex}");
+    }
+
+    private void HandleRowFocus(FluentDataGridRow<SampleGridData> row)
+    {
+        Console.WriteLine($"Row focused: {row.RowIndex}");
+    }
+
+    private void HandleCellClick(FluentDataGridCell<SampleGridData> cell)
+    {
+        Console.WriteLine($"Cell clicked: {cell.GridColumn}");
+    }
+
+    private void HandleCellFocus(FluentDataGridCell<SampleGridData> cell)
+    {
+        Console.WriteLine($"Cell focused : {cell.GridColumn}");
+    }
+}

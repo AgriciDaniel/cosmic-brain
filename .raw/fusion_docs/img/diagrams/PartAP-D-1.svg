@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 760" width="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc"/>
+      <stop offset="100%" stop-color="#d4e3f7"/>
+    </linearGradient>
+
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0"/>
+      <stop offset="100%" stop-color="#faecd8"/>
+    </linearGradient>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8"/>
+    </marker>
+
+    <style>
+      .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+      .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+      .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+      .node-title { font-family: Inter, -apple-system, sans-serif; font-size: 13px; fill: #1a1a2e; font-weight: 600; }
+      .edge-path { fill: none; stroke: #8b90a8; stroke-width: 1.5; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Subgraphs -->
+  <!-- Proxy Subgraph -->
+  <rect x="70" y="120" width="560" height="170" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="85" y="140" class="header">IGreetingServiceProxy</text>
+
+  <!-- Interceptor Subgraph -->
+  <rect x="100" y="320" width="500" height="170" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="115" y="340" class="header">Interceptor</text>
+
+  <!-- Target Subgraph -->
+  <rect x="70" y="520" width="560" height="100" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8"/>
+  <text x="85" y="540" class="header">Target Service</text>
+
+  <!-- Edges -->
+  <path d="M 350 90 C 350 110, 350 140, 350 158" class="edge-path" marker-end="url(#arrow)"/>
+  <path d="M 350 200 C 350 210, 350 220, 350 228" class="edge-path" marker-end="url(#arrow)"/>
+  <path d="M 350 270 C 350 300, 350 330, 350 358" class="edge-path" marker-end="url(#arrow)"/>
+  <path d="M 350 400 C 350 410, 350 420, 350 428" class="edge-path" marker-end="url(#arrow)"/>
+  <path d="M 350 470 C 350 500, 350 530, 350 558" class="edge-path" marker-end="url(#arrow)"/>
+  <path d="M 350 600 C 350 630, 350 650, 350 678" class="edge-path" marker-end="url(#arrow)"/>
+
+  <!-- Edge Label -->
+  <text x="360" y="519" class="label">if pass-through proxy</text>
+
+  <!-- Nodes -->
+  <!-- Client -->
+  <rect x="170" y="40" width="360" height="50" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="350" y="60" text-anchor="middle" class="node-title">Client Code</text>
+  <text x="350" y="78" text-anchor="middle" class="code">proxy.GreetAsync("World")</text>
+
+  <!-- P1 -->
+  <rect x="90" y="160" width="520" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="350" y="185" text-anchor="middle" class="code">1. Create Invocation(proxy, method, arguments, intercepted)</text>
+
+  <!-- P2 -->
+  <rect x="90" y="230" width="520" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="350" y="255" text-anchor="middle" class="code">2. Call interceptor.Intercept&lt;TResult&gt;(invocation)</text>
+
+  <!-- I1 -->
+  <rect x="120" y="360" width="460" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="350" y="385" text-anchor="middle" class="code">1. GetHandler(invocation) - lookup or create</text>
+
+  <!-- I2 -->
+  <rect x="120" y="430" width="460" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="350" y="455" text-anchor="middle" class="code">2. handler(invocation) - execute your logic</text>
+
+  <!-- T1 -->
+  <rect x="90" y="560" width="520" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14"/>
+  <text x="350" y="585" text-anchor="middle" class="code">invocation.InvokeIntercepted() -&gt; real implementation</text>
+
+  <!-- Result -->
+  <rect x="230" y="680" width="240" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8"/>
+  <text x="350" y="705" text-anchor="middle" class="node-title">Client receives result</text>
+</svg>

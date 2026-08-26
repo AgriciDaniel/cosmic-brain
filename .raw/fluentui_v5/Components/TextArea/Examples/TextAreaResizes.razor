@@ -1,0 +1,16 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+
+    <FluentSelect Label="Resize modes"
+                  Items="@(Enum.GetValues<TextAreaResize>())"
+                  @bind-Value="@resizeMode" />
+
+    <FluentTextArea Resize="@resizeMode"
+                    @bind-Value="@value" />
+
+</FluentStack>
+
+@code
+{
+    TextAreaResize resizeMode = TextAreaResize.None;
+    string value = "";
+}

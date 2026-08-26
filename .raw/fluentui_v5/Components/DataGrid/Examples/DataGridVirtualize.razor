@@ -1,0 +1,87 @@
+﻿<div style="height: 400px; max-width: 800px; overflow-y: scroll;">
+	<FluentDataGrid @ref="grid"
+					Items=@items
+					Virtualize="true"
+					DisplayMode="DataGridDisplayMode.Table"
+					Style="width: 100%;"
+					ItemSize="54"
+					GenerateHeader="@DataGridGeneratedHeaderType.Sticky">
+		<ChildContent>
+			<PropertyColumn Width="25%" Property="@(c => c.Item1)" Sortable="true" />
+			<PropertyColumn Width="25%" Property="@(c => c.Item2)" />
+			<PropertyColumn Width="25%" Property="@(c => c.Item3)" Align="DataGridCellAlignment.Center" />
+			<PropertyColumn Width="25%" Property="@(c => c.Item4)" Align="DataGridCellAlignment.End" />
+		</ChildContent>
+		<EmptyContent>
+			<FluentIcon Value="@(new Icons.Filled.Size24.Crown())" Color="@Color.Primary" />&nbsp; Nothing to see here. Carry on!
+		</EmptyContent>
+		<LoadingContent>
+			<FluentStack Orientation="Orientation.Vertical" HorizontalAlignment="HorizontalAlignment.Center">
+				Loading...<br />
+				<FluentProgressBar Width="240px" />
+			</FluentStack>
+		</LoadingContent>
+	</FluentDataGrid>
+</div>
+<br />
+<FluentStack Orientation="Orientation.Horizontal" HorizontalGap="10px" VerticalAlignment="VerticalAlignment.Center">
+	<FluentSwitch @ref="_clearToggle"
+				  @bind-Value="@_clearItems"
+				  @bind-Value:after="ToggleItems"
+				  Label="@switchLabel">
+	</FluentSwitch>
+	<FluentButton OnClick="SimulateDataLoading">Simulate data loading</FluentButton>
+</FluentStack>
+
+@code {
+	FluentDataGrid<SampleGridData>? grid;
+	FluentSwitch? _clearToggle;
+	string switchLabel = "Clear data";
+
+	bool _clearItems = false;
+	public record SampleGridData(string Item1, string Item2, string Item3, string Item4);
+
+	IQueryable<SampleGridData>? items = Enumerable.Empty<SampleGridData>().AsQueryable();
+
+	private IQueryable<SampleGridData> GenerateSampleGridData(int size)
+	{
+		SampleGridData[] data = new SampleGridData[size];
+
+		for (int i = 0; i < size; i++)
+		{
+			data[i] = new SampleGridData($"value {i}-1", $"value {i}-2", $"value {i}-3", $"value {i}-4");
+		}
+		return data.AsQueryable();
+	}
+	protected override void OnInitialized()
+	{
+		items = GenerateSampleGridData(5000);
+	}
+
+	private void ToggleItems()
+	{
+		if (_clearItems)
+		{
+			items = null;
+			switchLabel = "Restore data";
+		}
+		else
+		{
+			items = GenerateSampleGridData(5000);
+			switchLabel = "Clear data";
+		}
+	}
+
+	private async Task SimulateDataLoading()
+	{
+		_clearItems = false;
+
+		items = null;
+		grid?.SetLoadingState(true);
+
+		await Task.Delay(1500);
+
+		items = GenerateSampleGridData(5000);
+		grid?.SetLoadingState(false);
+	}
+}

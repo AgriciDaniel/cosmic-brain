@@ -1,0 +1,10 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentCheckbox @bind-Value="@value" @bind-CheckState="checkState" ShowIndeterminate="false" Label="Indeterminate with label" />
+    <FluentLabel>Value is @(value ? "checked" : "unchecked")</FluentLabel>
+    <FluentLabel>CheckState is @(checkState is null ? "(null indeterminate)" : checkState.Value ? "checked" : "unchecked")</FluentLabel>
+</FluentStack>
+
+@code {
+    private bool value;
+    private bool? checkState;
+}

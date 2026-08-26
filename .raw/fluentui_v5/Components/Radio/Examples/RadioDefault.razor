@@ -1,0 +1,15 @@
+﻿<FluentRadioGroup @bind-Value="@Fruit" Label="Favorite fruit" Wrap="true">
+    <FluentRadio Label="Apple" />
+    <FluentRadio Label="Banana" />
+    <FluentRadio Label="Orange" Disabled="true" />
+    <FluentRadio Label="Kiwi" />
+</FluentRadioGroup>
+
+<FluentDivider Margin="@Margin.Vertical2" />
+
+<FluentLabel>Selected radio: @Fruit</FluentLabel>
+
+@code
+{
+    string Fruit = "Banana";
+}

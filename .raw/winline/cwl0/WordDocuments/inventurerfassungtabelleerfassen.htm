@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Inventur - Erfassung - Tabelle "Erfassen"</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84fakt21.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="inventurerfassung.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled 
+href="inventurerfassungtabellemehrfacheingabe.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinefakt1.htm">WinLine FAKT</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Bearbeiten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="inventurerfassung.htm">Inventur - Erfassung</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Inventur - Erfassung - Tabelle 
+"Erfassen"</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Ref196388636></A>Inventur - Erfassung - 
+Tabelle "Erfassen"</H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Der Inhalt der Tabelle "Erfassen" ist abhängig vom 
+Ausgangsfenster <A href="JavaScript:TL_460355.HHClick()">Inventur - Register 
+"Eingabe"</A>:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste - ohne 
+Datumsselektion<BR>Es werden alle Artikel gemäß Selektion angezeigt. Hierbei ist 
+es irrelevant, ob bereits ein Inventurstand erfasst wurde oder nicht. Es werden 
+aber nur jene bereits getätigten Erfassungen dargestellt, deren Inventurdatum 
+gleich oder größer dem Einlogdatum entspricht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste - mit 
+Datumsselektion<BR>Es werden alle Artikel gemäß der Selektion angezeigt, für 
+welche es nicht gebuchte Inventurerfassungen gibt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste - Option "Manuelle 
+Erfassung" aktiviert<BR>In der Tabelle werden keine Artikelzeilen angezeigt, 
+sondern die Eingabe der Artikel erfolgt manuell. Wird hierbei ein Artikel 
+erfasst, welcher bereits ungebuchte Inventurwerte besitzt, so werden diese 
+vorgeschlagen, sofern das Inventurdatum gleich oder größer dem Einlogdatum 
+ist.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mit Zählliste<BR>Es werden alle 
+Artikel gemäß <A href="JavaScript:TL_460356.HHClick()">Zählliste</A> 
+angezeigt.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Jeder Artikel bzw. Lagerort kann nur 1x im ungebuchten 
+Zustand vorhanden sein. D.h. ein Artikel, welcher bereits über eine Zählliste 
+erfasst wurde, kann nicht nochmals über eine andere Zählliste bzw. ohne 
+Zählliste erfasst werden oder umgekehrt!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_873.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In der Tabelle werden standardmäßig die folgenden Spalten 
+dargestellt und Funktionen angeboten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_874.png"> <IMG 
+src="../ImagesExt/image865_875.png">&nbsp;alle Ausprägungen ein- bzw. 
+ausblenden</P>
+<P class=MsoNormal>Durch Anwahl dieses Buttons werden alle Ausprägungen in der 
+Inventurerfassung ein- bzw. ausgeblendet. Die Auswahl wird benutzerspezifisch 
+gespeichert und beim nächsten Öffnen automatisch angewendet.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Zur Nutzung dieser Funktion muss in der <A 
+href="JavaScript:TL_460357.HHClick()">Eingabe</A> die Option "manuelle 
+Erfassung" oder die Einstellung "Hauptartikel" aktiviert sein. Des Weiteren 
+werden bei Anwahl der Buttons "Übernahme Soll =&gt; Ist" bzw. "Übernahme 0 =&gt; 
+Ist" die Ausprägungen automatisch eingeblendet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>manuelle 
+Ergänzung</P>
+<P class=MsoNormal>Erfolgt die Erfassung über eine <A 
+href="JavaScript:TL_460358.HHClick()">Zählliste</A>, so wird in dieser Spalte 
+durch eine farbliche Kennzeichnung auf manuelle Erfassungen (d.h. nicht zur 
+Zähllisten-Selektion passende Artikel) hingewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeile</P>
+<P class=MsoNormal>Jede Erfassungszeile erhält automatisch eine Nummer 
+zugeordnet. Neben einer schnellen Navigation kann hierüber der Zusammenhang von 
+Ausprägungsartikeln dargestellt werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Navigation<BR>Wenn der Fokus in 
+der Spalte liegt, kann durch Eingabe der Nummer direkt zur jeweiligen Erfassung 
+gewechselt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ausprägungsartikel<BR>Wird die 
+Option "Hauptartikel" im <A 
+href="JavaScript:TL_460359.HHClick()">Ausgangsfenster</A> aktiviert, so wird 
+durch unterschiedliche Farbgebung darauf hingewiesen, ob die Erfassungszeilen 
+von Ausprägungen vom gleichen Hauptartikel stammen (blau bzw. grün) oder nicht 
+(schwarz).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Info</P>
+<P class=MsoNormal>In der Spalte "Info" wird das Icon <IMG 
+src="../ImagesExt/image865_351.png">&nbsp;angezeigt, sobald es für den Artikel 
+zumindest eine ungebuchte Inventurerfassung gibt. Das Inventurdatum der alten 
+Erfassung ist dabei abweichenend zum Einlogdatum und würde in der Folge 
+überschrieben werden.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Durch einen Doppelklick auf das Icon wird eine Liste der 
+alten ungebuchten Erfassungen (bezogen auf den aktuellen Artikel) am Bildschirm 
+ausgegeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelnummer</P>
+<P class=MsoNormal>An dieser Stelle wird die Artikelnummer des Artikels 
+dargestellt bzw. kann eingegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ausprägungsartikelnummer (optional)</P>
+<P class=MsoNormal>Handelt es sich um einen Ausprägungsartikel, so wird in 
+dieser Spalte die entsprechende Ausprägungsartikelnummer angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikelbezeichnung</P>
+<P class=MsoNormal>In der Spalte "Artikelbezeichnung" wird die Bezeichnung des 
+Artikels angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Charge-/Identnr.</P>
+<P class=MsoNormal>Handelt es sich bei dem Artikel um einen Chargen- oder 
+Identnummernartikel, so wird die jeweilige Nummer angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Lager Ist / 
+Lager Ist 2</P>
+<P class=MsoNormal>In diesen Spalten erfolgt die Eingabe der gezählten 
+Inventurmenge. Sobald das Eingabefeld bestätigt bzw. verlassen wird, erfolgt 
+automatisch die Befüllung des Inventurdatums.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei Artikeln mit Lagerortstruktur wird automatisch das 
+Fenster <A href="JavaScript:TL_460360.HHClick()">Lagerorte erfassen</A> 
+geöffnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum</P>
+<P class=MsoNormal>In der Spalte "Datum" wird das Inventurdatum eingetragen, 
+wobei dieses dem aktuellen Wirtschaftsjahr entsprechen muss.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Das Entfernen des Datums ist in der Regel nur möglich, sofern 
+die Erfassung noch nicht gespeichert wurde. Wird die Löschung einer bestehenden 
+Erfassungszeile benötigt, so kann dieses durch Anwahl des Tabellenbuttons "Zeile 
+initialisieren" und anschließender Speicherung erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Colli EK 
+(optional) / Colli VK (optional)</P>
+<P class=MsoNormal>In den Colli-Spalten wird der Colli des Artikels gemäß 
+Stammdaten ausgewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Lagerorte / 
+Ausprägungserfassung</P>
+<P class=MsoNormal>In dieser Spalte wird bei Lagerortartikeln über den Status 
+der Lagerorterfassung Auskunft gegeben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_87.png"> - Rot<BR>Die Menge der Inventur wurde bisher 
+nicht auf Lagerorte aufgeteilt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_876.png"> - Blau<BR>Das Inventurdatum der Lagerorte 
+ist unterschiedlich.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_877.png"> - Lila<BR>Im Fenster "Lagerorte erfassen" 
+existieren Inventurerfassungen, welche aber alle vor dem Einlogdatum liegen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_89.png"> - Grün<BR>Die Menge der Inventur wurde auf 
+Lagerorte aufgeteilt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Handelt es hingegen um die manuelle Erfassung eines 
+Hauptartikels mit Ausprägungen, so wird in dieser Spalte das Ausprägungssymbol 
+<IMG src="../ImagesExt/image865_878.png">&nbsp;dargestellt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Per Doppelklick auf das Symbol kann das Fenster <A 
+href="JavaScript:TL_460361.HHClick()">Lagerorte erfassen</A> bzw. <A 
+href="JavaScript:TL_460362.HHClick()">Ausprägungen erfassen</A> geöffnet 
+werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN><A 
+name=_Hlk196390589>Weitere Eingaben</A></P>
+<P class=MsoNormal>Über das Symbol in der Spalte "Weitere Eingaben" kann in die 
+<A href="JavaScript:TL_460363.HHClick()">Mehrfacheingabe</A> gewechselt werden. 
+In dieser können mehrere Erfassungszeilen pro Artikel hinterlegt werden, welche 
+in der weiteren Folge nach Datum, Mitarbeiter und Notiz summiert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_879.png"> - keine Erfassung vorhanden<BR>Wird kein 
+Symbol dargestellt, so existiert bisher noch keine Inventurerfassung für den 
+Artikel. Ein Wechsel in die <A 
+href="JavaScript:TL_460364.HHClick()">Mehrfacheingabe</A> ist nicht möglich.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><IMG 
+src="../ImagesExt/image865_880.png"> - keine weiteren Erfassungen 
+möglich<BR>Handelt es sich um einen Identartikel, so kann es nur eine 
+Erfassungszeile geben und ein Wechsel in die <A 
+href="JavaScript:TL_460365.HHClick()">Mehrfacheingabe</A> ist dementsprechend 
+nicht möglich.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Auch bei Identartikeln mit 
+Lagerorten steht die Mehrfacheingabe nicht zur Verfügung! Eine Kontrolle der 
+Erfassungen kann über das Fenster <A 
+href="JavaScript:TL_460366.HHClick()">Lagerorte erfassen</A> erfolgen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A name=_Hlk196378326><IMG 
+src="../ImagesExt/image865_881.png"></A> - keine weiteren Erfassung 
+vorhanden<BR>Es sind keine weiteren Erfassungen vorhanden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><A name=_Hlk196378316><IMG 
+src="../ImagesExt/image865_882.png"></A> - weitere Erfassungen vorhanden<BR>Es 
+sind weitere Erfassungen vorhanden, d.h. die Inventurmenge der Spalte "Lager 
+Ist" setzt sich aus mehreren Zeilen zusammen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Mitarbeiter 
+(optional)</P>
+<P class=MsoNormal>Mit Hilfe der optional einblendbaren Spalte "Mitarbeiter" 
+kann ein Mitarbeiter der Erfassung zugeordnet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Notiz 
+(optional)</P>
+<P class=MsoNormal>Über die Spalte "Notiz" kann zu der Erfassungszeile ein Text 
+(bestehend aus maximal 255 Zeichen) hinterlegt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Initialisierung (optional)</P>
+<P class=MsoNormal>Durch Anwahl des Tabellenbuttons "Zeile initialisieren" wird 
+die Erfassungszeile als "zu löschen" markiert und erhält in dieser Spalte ein 
+Vermerk in Form des Icons <IMG src="../ImagesExt/image865_883.png">.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Tabellenbuttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_884.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Ausprägungsfenster öffnen</P>
+<P class=MsoNormal>Mit Hilfe des Buttons "Ausprägungsfenster öffnen", welcher 
+nur im Erfassungsmodus "Manuelle Erfassung" zur Verfügung steht, kann das 
+Fenster <A href="JavaScript:TL_460367.HHClick()">Ausprägungen erfassen</A> 
+geöffnet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Lagerorte 
+erfassen</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Lagerorte erfassen" wird das 
+Fenster <A href="JavaScript:TL_460368.HHClick()">Lagerorte erfassen</A> 
+geöffnet.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Zeile 
+initialisieren</P>
+<P class=MsoNormal>Die Inventurerfassung wird nach dem Speichern gelöscht! 
+Optisch kann diese Information über die optional einblendbare Spalte 
+"Initialisierung" dargestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Inventurinfo</P>
+<P class=MsoNormal>Mit Hilfe des Buttons "Inventurinfo" wird das Programm <A 
+href="JavaScript:TL_460369.HHClick()">Inventurinformation</A> gestartet, in 
+welchem die einzelnen Inventurerfassungen des Artikels dargestellt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikeljournal</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Artikeljournal" wird die Auswertung 
+<A href="JavaScript:TL_460370.HHClick()">Artikeljournal</A> aufgerufen und der 
+aktuell gewählte Artikel in die Selektion übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ausgabe 
+Excel</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ausgabe Excel" wird der Inhalt der 
+Tabelle an Microsoft Excel übergeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Tabelleneinstellungen speichern</P>
+<P class=MsoNormal>Die Spalten einer Tabelle können grundsätzlich an beliebige 
+Positionen verschoben, bzw. in der Breite entsprechend angepasst werden. Durch 
+Anwahl des Buttons "Tabelleneinstellungen speichern" werden die Einstellungen 
+benutzerspezifisch gespeichert und bei dem nächsten Aufruf des Programmpunktes 
+wieder vorgeschlagen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Gesamteinstellungen speichern</P>
+<P class=MsoNormal>Im Gegensatz zu "Tabelleneinstellungen speichern" können mit 
+"Gesamteinstellungen speichern" mehrere Tabellenaufbauten gespeichert und nach 
+Wunsch geladen werden. Zusätzlich werden Sonderfunktionen der Tabelle (z.B. 
+"Spalte gruppieren") ebenfalls bei der Speicherung bedacht.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Register "Info"</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_885.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>In dem Register "Info" werden Informationen des markierten 
+Artikels und der aktuell ausgewählten Zählliste angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Artikelnummer 
+/ Bezeichnung</P>
+<P class=MsoNormal>In diesen Feldern wird der aktuell markierte Artikel samt 
+Bezeichnung angezeigt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Lager 
+Soll</P>
+<P class=MsoNormal>Sofern die Option "Sollmengen anzeigen" im Register 
+"Optionen" aktiviert wurde, wird an dieser Stelle die Soll-Menge des aktuellen 
+Artikels angezeigt. Dieser ermittelt sich wie folgt:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste - Artikel ohne 
+Lagerorte<BR>Wurde bereits eine Erfassung getätigt, so wird die Soll-Menge des 
+Artikels über das Artikeljournalzeilen, auf Grundlage des hinterlegten 
+Inventurerfassungsdatums, gebildet. Ansonsten wird das Inventurdatum aus dem 
+Register "Optionen" zur Ermittlung herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste - Artikel mit 
+Lagerorte<BR>Wurde bereits eine Erfassung getätigt, so wird die Soll-Menge des 
+Artikels über das Artikeljournalzeilen, auf Grundlage des <U>höchsten</U> 
+hinterlegten Inventurerfassungsdatums, gebildet. Ansonsten wird das 
+Inventurdatum aus dem Register "Optionen" zur Ermittlung herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mit Zählliste<BR>Die Soll-Menge 
+des Artikels wird immer aufgrund des "Inventurdatum von" (gemäß Zählliste) 
+gebildet, da dieses Datum im späteren Verlauf auch zur Ermittlung möglicher 
+Differenzen verwendet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Aktuelle 
+Zählliste</P>
+<P class=MsoNormal>In diesen Feldern werden Information zur ggfs. verwendeten 
+Zählliste ausgewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Register "Optionen"</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_886.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Im Register "Optionen" können u.a. Vorgaben für neue 
+Inventurerfassungen hinterlegt werden. Die Einstellungen der Bereiche "Optionen" 
+und "Optionen - Lagerorte" werden benutzerspezifisch gespeichert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Vorbelegung 
+(Inventurdatum / Mitarbeiter / Notiz)</P>
+<P class=MsoNormal>In diese Felder kann eine Vorbelegung für neue Erfassungen 
+hinterlegt werden. Das Datum wird hierbei wie folgt vorgegeben und kann 
+jederzeit individuell angepasst werden:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Ohne Zählliste<BR>Es wird das 
+Datum aus dem Einlogvorgang eingetragen. Soll das Datum angepasst werden, so 
+muss dieses dem aktuellen Wirtschaftsjahr entsprechen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Mit Zählliste<BR>Es wird das Datum 
+"Inventurdatum von" (gemäß Zählliste) eingetragen. Soll das Datum angepasst 
+werden, so muss dieses dem Zähllistenzeitraum entsprechen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Sollmengen 
+anzeigen</P>
+<P class=MsoNormal>Ist die Option "Sollmengen anzeigen" aktiviert, so werden in 
+dem Info-Feld "Lager Soll" die Soll-Menge des gerade aktiven Artikels angezeigt. 
+Zusätzlich steht im Fenster <A href="JavaScript:TL_460371.HHClick()">Lagerorte 
+erfassen</A> die Spalte "Bestand Soll" zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Bestand</P>
+<P class=MsoNormal>Über die Auswahl "Bestand" kann definiert werden, welche 
+Lagerorte in der <A href="JavaScript:TL_460372.HHClick()">Lagerorterfassung</A> 
+ausgewiesen werden sollen. Dabei stehen folgende Möglichkeiten zur 
+Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - mit Bestand<BR>Es werden alle 
+Lagerorte mit einem aktuellen Bestand lt. <A 
+href="JavaScript:TL_460373.HHClick()">Artikel - Lagerorte</A> oder einer 
+Inventurerfassung ausgewiesen, wobei die Lagerort-Selektion des Fensters <A 
+href="JavaScript:TL_460374.HHClick()">Inventur - Eingabe</A> berücksichtigt 
+wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - inkl. Bestand 0<BR>Es werden 
+alle Lagerorte mit und ohne Bestand ausgewiesen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Achtung</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Je nach Einrichtung wird die 
+Tabelle sehr umfangreich, was zu Wartezeiten führen kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2 - inkl. Bestand 0 (alle 
+Ebenen)<BR>Es werden alle Lagerorte mit und ohne Bestand aller Hierarchie-Ebenen 
+ausgewiesen.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Achtung</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Je nach Einrichtung wird die 
+Tabelle sehr umfangreich, was zu Wartezeiten führen kann.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>4 - laut Analyse<BR>Die 
+ausgewiesenen Lagerorte ermitteln sich aus der Lagerortanalyse des Bereichs <A 
+href="JavaScript:TL_460375.HHClick()">Nicht gezählten Artikel</A>. Eine 
+Veränderung der Auswahl ist nicht möglich!</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Zusatzerfassung</P>
+<P class=MsoNormal>Wird unter "Bestand" mit der Einstellung "0 - mit Bestand" 
+gearbeitet, so ist es grundsätzlich möglich die Tabelle der <A 
+href="JavaScript:TL_460376.HHClick()">Lagerorterfassung</A> um bisher nicht 
+aufgeführte Orte zu ergänzen. An dieser Stelle kann die Steuerung des hierfür 
+notwendigen Buttons "Zusatzerfassung" erfolgen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - automatische 
+Speicherung<BR>Beim Beenden der Lagerorterfassung wird der Zustand des Buttons 
+benutzerspezifisch gespeichert und beim Öffnen entsprechend dargestellt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - immer aktivieren'<BR>Der 
+Button "Zusatzerfassung" ist beim Öffnen der Lagerorterfassung immer 
+aktiviert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>2- immer deaktivieren<BR>Der 
+Button "Zusatzerfassung" ist beim Öffnen der Lagerorterfassung immer 
+deaktiviert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Buttons</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image865_887.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Speichern / 
+Übernehmen</P>
+<P class=MsoNormal>Bei Anwahl des Buttons "Speichern / Übernehmen" werden die 
+getätigten Erfassungen gespeichert.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Die endgültige Speicherung finden immer über die Tabelle 
+"Erfassen" statt und nicht in der Mehrfacherfassung.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Nach Drücken des Buttons werden die eingegebenen Werte auch 
+im Artikelstamm (Register "Lager", Unterregister "Lagerwerte", Feld "Inventur") 
+angezeigt.</P>
+<P class=MsoNormal>Des Weiteren kann die Inventurerfassung mit Hilfe der 
+Tastenkombination SHIFT + F5 zwischengespeichert werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Ende</P>
+<P class=MsoNormal>Durch Anwahl des Buttons "Ende" bzw. der Taste ESC wird die 
+Inventurerfassung geschlossen und alle nicht gespeicherten Eingaben 
+verworfen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Übernahme 
+Soll =&gt; Ist</P>
+<P class=MsoNormal>Mit Hilfe dieses Buttons werden alle Datensätze der Tabelle 
+mit einem editierbaren Erfassungsvorschlag versehen, wobei sich die 
+Inventurmenge über den Sollstand des jeweiligen Artikels ermittelt. Die hierfür 
+benötigten Angaben werden im Fenster <A 
+href="JavaScript:TL_460377.HHClick()">Inventur - Übernahme Soll =&gt; Ist</A> 
+hinterlegt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Die Funktion steht bei Nutzung der Option "manuelle 
+Erfassung" nicht zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Übernahme 0 
+=&gt; Ist</P>
+<P class=MsoNormal>Bei Anwahl dieses Buttons werden alle Datensätze der Tabelle 
+mit einem editierbaren Erfassungsvorschlag versehen, wobei die Inventurmenge 0 
+lautet. Die hierfür benötigten Angaben werden im Fenster <A 
+href="JavaScript:TL_460378.HHClick()">Inventur - Übernahme 0 =&gt; Ist</A> 
+hinterlegt.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Handelt es sich um Artikel mit Lagerortstruktur, so werden 
+nur jene Lagerorte auf 0 gesetzt, welche lt. Option "Bestand" bei Anwahl des 
+Buttons "Lagerorte erfassen" sichtbar wären.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_460355 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurregistereingabe.htm"></OBJECT>
+<OBJECT id=TL_460356 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/definitionzählliste.htm"></OBJECT>
+<OBJECT id=TL_460357 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurregistereingabe.htm"></OBJECT>
+<OBJECT id=TL_460358 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/definitionzählliste.htm"></OBJECT>
+<OBJECT id=TL_460359 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurregistereingabe.htm"></OBJECT>
+<OBJECT id=TL_460360 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460361 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460362 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/ausprägungenerfassen.htm"></OBJECT>
+<OBJECT id=TL_460363 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurerfassungtabellemehrfacheingabe.htm"></OBJECT>
+<OBJECT id=TL_460364 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurerfassungtabellemehrfacheingabe.htm"></OBJECT>
+<OBJECT id=TL_460365 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurerfassungtabellemehrfacheingabe.htm"></OBJECT>
+<OBJECT id=TL_460366 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460367 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/ausprägungenerfassen.htm"></OBJECT>
+<OBJECT id=TL_460368 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460369 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurinformation.htm"></OBJECT>
+<OBJECT id=TL_460370 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/artikeljournal.htm"></OBJECT>
+<OBJECT id=TL_460371 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460372 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460373 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/artikellagerorte.htm"></OBJECT>
+<OBJECT id=TL_460374 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurregistereingabe.htm"></OBJECT>
+<OBJECT id=TL_460375 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurregistereingabe.htm"></OBJECT>
+<OBJECT id=TL_460376 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/lagerorteerfassen.htm"></OBJECT>
+<OBJECT id=TL_460377 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurübernahmesollist.htm"></OBJECT>
+<OBJECT id=TL_460378 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/inventurübernahme0ist.htm"></OBJECT></DIV></BODY></HTML>

@@ -1,0 +1,29 @@
+﻿
+<div style="height: 400px; max-width: 800px; overflow-y: scroll;">
+            <FluentDataGrid TGridItem="Customer" Items="items" ItemSize=32 Virtualize="true" DisplayMode="DataGridDisplayMode.Table" >
+                <PropertyColumn Property="@(x => x.Name)" />
+            </FluentDataGrid>
+            </div>
+
+@code {
+    private IQueryable<Customer>? items;
+
+    protected override void OnInitialized()
+    {
+        items = GetRandomCustomers(); // Added method call to assign items
+    }
+
+    private record Customer(int Id, string Name);
+
+    private IQueryable<Customer> GetRandomCustomers(int size = 500)
+    {
+        Customer[] data = new Customer[size];
+
+        for (int i = 0; i < size; i++)
+        {
+
+            data[i] = new Customer(i, $"Customer {i} - {Guid.NewGuid().ToString("N").Substring(0, 8)}");
+        }
+        return data.AsQueryable();
+    }
+}

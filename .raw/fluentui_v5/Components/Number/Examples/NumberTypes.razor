@@ -1,0 +1,46 @@
+<FluentStack HorizontalGap="10px"
+             Wrap="true">
+    <FluentNumberInput Label="int"
+                  Width="100px"
+                  Message="@($"Value: {ValueInt}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueInt" />
+
+    <FluentNumberInput Label="long"
+                  Width="100px"
+                  Placeholder="Long"
+                  Message="@($"Value: {ValueLong}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueLong" />
+
+    <FluentNumberInput Label="float"
+                  Width="100px"
+                  Placeholder="Float"
+                  Step="0.1f"
+                  Message="@($"Value: {ValueFloat}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueFloat" />
+
+    <FluentNumberInput Label="double"
+                  Width="100px"
+                  Step="0.01d"
+                  Message="@($"Value: {ValueDouble}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueDouble" />
+
+    <FluentNumberInput Label="decimal"
+                  Width="100px"
+                  Step="0.01m"
+                  Message="@($"Value: {ValueDecimal}")"
+                  MessageCondition="@(e => true)"
+                  @bind-Value="@ValueDecimal" />
+</FluentStack>
+
+@code
+{
+    int ValueInt = 42;
+    long? ValueLong = 1000;
+    float? ValueFloat = 3.14f;
+    double ValueDouble = 2.71;
+    decimal ValueDecimal = 9.999m;
+}

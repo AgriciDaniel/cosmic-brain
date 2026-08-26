@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Exkurs - Belegexport</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84allgemeinII1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="xmlvorlage.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="xmlimport.htm"><IMG border=0 alt=Vor 
+src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinehilfe.htm">WinLine Hilfe</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Stammdaten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><A class=d2h_breadcrumbsNormal 
+href="xmlvorlage.htm">XML-Vorlage</A><SPAN class=d2h_breadcrumbsLinkSeparator> 
+&gt; </SPAN><SPAN class=d2h_breadcrumbsSelected>Exkurs - 
+Belegexport</SPAN></DIV>
+
+<H3 style="tab-stops: 0pt"><A name=_Ref190945114>Exkurs - Belegexport</A></H3>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mittels Export-Vorlage können Belege im XML-Format unter 
+Verwendung einer Vorlage exportiert werden. Dabei können einzelne Werte, auch 
+aus einer möglichen bereits dem Beleg anhängenden XML-Datei, übernommen bzw. 
+eingefügt werden können. Weiteres können auch XML-Erweiterungen aus dem 
+Personenkonto übernommen werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG src="../ImagesExt/image857_497.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Um einzelne Werte zu beschreiben bzw. einzufügen stehen 
+folgende "Exportkennzeichen" zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>01 - konstanter Wert<BR>Das Tag 
+wird 1:1 aus der XML-Vorlage übernommen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>02 - aus Programmvariable<BR>Wird 
+diese Option gewählt so kann als Wert für die XML-Datei ein Wert aus den 
+Bereichen "Belegkopf", "Belegmittelteil", "Personenkonto", "Vertreter", 
+Mandantenstamm", "Artikelstamm" sowie "Bankenstamm" eingefügt werden. Diese 
+eigentliche Variable muss in der Spalte "Eingabe" angegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>03 - manuelle Eingabe<BR>In der 
+Spalte "Eingabe" kann manuell ein fixer Wert hinterlegt werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>04 - Wert aus 
+XML-Erweiterung<BR>Jener Wert (Tag), der in der bereits vorhandenen XML-Datei 
+steht, kann auch in die neue Datei übernommen werden. Dazu wird im Feld 
+"Eingabe" das vorhandene Tag vorgeschlagen. Weiters steht ein Matchcode zur 
+Verfügung in dem zuerst das entsprechende Schema und dann das gewünschte Tag 
+ausgewählt werden kann. Der Pfad wird dadurch in das Eingabefeld 
+übernommen.<BR><BR>Bei dieser Option gibt es zusätzlich die Spalte 
+"Darunterliegende Tags übernehmen". Wird die darin enthaltene Checkbox gesetzt 
+so werden die entsprechenden Tags aus der Datei (die durch den Beleg erzeugt 
+wird) gelöscht und jene aus der vorhandenen XML-Datei verwendet. Hinweis: Ist 
+das Tag bzw. sind die Tags in der bestehenden Datei leer, so bleibt auch der 
+Bereich in der neuen Datei leer.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>05 - Artikelzeilen hier 
+einfügen<BR>Mit dieser Option können bestehende Artikelzeilen aus der 
+bestehenden XML-Datei entfernt und neue Artikelzeilen aus dem "aktuellen" Beleg 
+eingefügt werden. Hierbei werden jedoch nur Zeilen der Typen 1 (Artikel) und 6 
+(Gutschrift) berücksichtigt.<BR><BR>D.h. wird z.B. diese Option beim Tag 
+"&lt;Rechnung&lt;Leistungsdetails&lt;Leistung&gt; gesetzt, so werden alle Tags 
+die mit diesem Wert beginnen entfernt, und die Artikelzeilen an dieser Position 
+eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>06 - manuelle Eingabe 
+(Artikelzeile)<BR>Entspricht im Prinzip einer Export-Vorbelegung. D.h. mit 
+dieser Funktion kann ein bestimmtes Tag mit einem Wert (Artikelnummer) vorbelegt 
+werden. Dieser Wert kann in der Spalte "Eingabe" angegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>07 - Vertreterzeilen hier 
+einfügen<BR>Mit dieser Option können bestehende Vertreterzeilen aus der 
+bestehenden XML-Datei entfernt und neue Vertreterzeilen aus dem "aktuellen" 
+Beleg eingefügt werden.<BR><BR>D.h. wird z.B. diese Option beim Tag 
+"&lt;Rechnung&lt;Leistungsdetails&lt;Leistung&lt;Referenznummer&gt; gesetzt, so 
+werden alle Tags die mit diesem Wert beginnen entfernt, und die Vertreterzeilen 
+an dieser Position eingefügt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>08 - manuelle Eingabe 
+(Vertreterzeile)<BR>Entspricht im Prinzip einer Export-Vorbelegung. D.h. mit 
+dieser Funktion kann ein bestimmtes Tag mit einem Wert (Vertreternummer) 
+vorbelegt werden. Dieser Wert kann in der Spalte "Eingabe" angegeben werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>09 - Wert aus 
+Konto-XML-Erweiterung <BR>Mit diesem Kennzeichen können Werte aus der 
+XML-Erweiterung des Personenkontos übernommen werden. Gleich wie beim 
+Kennzeichen "4 Wert aus XML-Erweiterung" steht ein Matchcode zur Verfügung in 
+dem zuerst das entsprechende Schema und dann das gewünschte Tag ausgewählt 
+werden kann. Der Pfad wird dadurch in das Eingabefeld übernommen. <BR><BR>Bei 
+dieser Option gibt es zusätzlich die Spalte "Darunterliegende Tags übernehmen". 
+Wird die darin enthaltene Checkbox gesetzt so werden die entsprechenden Tags aus 
+der Datei (die durch den Beleg erzeugt wird) gelöscht und jene aus der 
+vorhandenen XML-Datei verwendet. Hinweis: Ist das Tag bzw. sind die Tags in der 
+bestehenden Datei leer, so bleibt auch der Bereich in der neuen Datei leer.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>10 - Signatur hier einfügen<BR>An 
+dieser Position wird die Signatur (aus dem Signaturserver) eingefügt. Wird 
+dieses Kennzeichen am Beginn eines Tags ("&lt;Test") eingetragen, so wird die 
+Signatur danach eingefügt, im anderen Fall ("&lt;/Test") wird die Signatur 
+unmittelbar davor eingefügt. Dieses Kennzeichen muss gesetzt werden damit die 
+Exportvorlage im Signaturserver verwendet werden kann. Ist dieses Kennzeichen 
+nicht in der Exportvorlage enthalten, so kann die Vorlage im Action Server 
+verwendet werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>11 - Dateianhang hier 
+einfügen<BR>Dieses Kennzeichen legt fest welches Tag für jeden Dateianhang 
+wiederholt werden soll. Ist dieses, und das Kennzeichen "12 Dateianhang", in der 
+Exportvorlage enthalten, so können mit dieser Vorlage im Signaturserver 
+Dateianhänge exportiert werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>12 - Dateianhang<BR>An dieser 
+Position wird der "base64"-Code eingefügt. Ist dieses Kennzeichen und das 
+Kennzeichen " 11 Dateianhang hier einfügen" in der Exportvorlage enthalten, so 
+können mit dieser Vorlage im Signaturserver Dateianhänge exportiert werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 0pt; TEXT-INDENT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>13 - Dateianhang: 
+Beschlagwortung<BR>Hier kann aus einer Auswahllistbox das Schlagwort ausgewählt 
+werden dessen Inhalt in das Tag übernommen werden soll. Zusätzlich zu den 
+Archiv-Schlagworten (inkl. selbst definierter Archivschlagworte) stehen hier 
+noch sechs weitere Werte zur Verfügung: 990 - Dateiname, 991 - Dateierweiterung, 
+992 - Dokumentennummer (die Dateianhänge innerhalb einer XML-Datei werden hier 
+durchnummeriert, 993 - Dokumentennummer (ID-des Archivdokuments), 994 - 
+Dateierweiterung (Beschreibung); 995 - Dateierweiterung (Codeliste).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>14 - Wert aus XML-Erweiterung 
+(Artikelzeile)<BR>Mit diesem Kennzeichen können Werte aus der XML-Erweiterung 
+der Belegmittelteilszeile (Artikelzeile) übernommen werden. Dieses Kennzeichen 
+muss für ein Tag "unterhalb" der Position "05 -Artikelzeilen hier einfügen" 
+verwendet werden; an anderen Stellen hat dieses Kennzeichen keine Funktion! 
+Gleich wie beim Kennzeichen "4 Wert aus XML-Erweiterung" steht ein Matchcode zur 
+Verfügung in dem zuerst das entsprechende Schema und dann das gewünschte Tag 
+ausgewählt werden kann. Der Pfad wird dadurch in das Eingabefeld übernommen. Bei 
+diesem Exportkennzeichen steht die Funktion " Darunterliegende Tags übernehmen" 
+NICHT zur Verfügung.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>15 - USt-Summen hier 
+einfügen<BR>Mit diesem Exportkennzeichen werden die weiters definierten Tags 
+"USt Summen" (ähnlich dem Eintrag "5 Artikelzeilen hier einfügen") mehrmals 
+hintereinander exportiert und jeweils mit den entsprechenden Werten gefüllt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>16 - USt-Summen<BR>Bei diesem 
+Exportkennzeichen stehen in der Auswahllistbox die entsprechenden Werte aus dem 
+Bereich "Steuer" zur Verfügung. Bei diesen Werten kann die Anzahl der 
+Nachkommastellen festgelegt werden.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Schrift, Zahl enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_510.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>17 - Skonto hier einfügen<BR>Mit 
+diesem Exportkennzeichen werden die weiters definierten Tags "Skonto" (ähnlich 
+dem Eintrag "5 Artikelzeilen hier einfügen") mehrmals hintereinander exportiert 
+und jeweils mit den entsprechenden Werten gefüllt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>18 - Skonto<BR>Bei diesem 
+Exportkennzeichen stehen in der Auswahllistbox die entsprechenden Werte aus dem 
+Bereich "Steuer" zur Verfügung. Bei diesen Werten kann die Formatierung bzw. 
+Anzahl der Nachkommastellen festgelegt werden.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Schrift, Zahl enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_511.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>19 - manuelle Eingabe 
+(USt-Summen)<BR>Dieses Exportkennzeichen entspricht im Prinzip einer 
+Export-Vorbelegung. D.h. mit dieser Funktion kann das Tag mit einem fixen Wert 
+vorbelegt werden. Dieser Wert kann in der Spalte "Eingabe" angegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>20 - manuelle Eingabe 
+(Skonto)<BR>Dieses Exportkennzeichen entspricht im Prinzip einer 
+Export-Vorbelegung. D.h. mit dieser Funktion kann das Tag mit einem fixen Wert 
+vorbelegt werden. Dieser Wert kann in der Spalte "Eingabe" angegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>21 - Lieferscheine hier 
+einfügen<BR>Mit dieser Option können Daten aus, zur Rechnung zugehörigen 
+Lieferscheinen in die XML-Datei eingefügt werden. Dieser Exporttyp ist ein so 
+genannter "wiederholender Typ" (gleich wie die Exporttypen für Artikelzeilen, 
+Vertreterdaten, Dateianhängen, Skonti und USt-Summen). Die weiteren 
+Exportkennzeichen (22 und 23) legen fest, welche Werte in die darunterliegenden 
+Tags übernommen werden.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweise</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Die Auswahlmöglichkeit der 
+Exportkennzeichen hängt vom jeweiligen Tag ab. D.h. für "Ende-Tags" 
+("&lt;/…&gt;") stehen die Kennzeichen nicht zur Auswahl. Für Attribute steht das 
+Kennzeichen 21 nicht zur Verfügung.<BR>Wird im Zuge einer Sammelrechnung die 
+Option "Artikel kumulieren" verwendet, können die Lieferschein-Daten nicht in 
+die XML-Rechnung übernommen werden! Diese Option darf für die elektronische 
+Rechnung in Italien nicht verwendet werden.</P>
+<P class=MsoListParagraph style="MARGIN-LEFT: 0pt">&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>22 - Lieferscheine<BR>Bei Auswahl 
+dieses Exportkennzeichens stehen in der Auswahllistbox die Möglichkeiten 
+"Lieferschein-Nummer" und "Lieferschein-Datum" (mit der Möglichkeit einer Angabe 
+der Formatierung).<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Schrift, Reihe enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_512.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>23 - manuelle Eingabe 
+(Lieferscheine)<BR>Dieses Exportkennzeichen entspricht im Prinzip einer 
+Export-Vorbelegung. D.h. mit dieser Funktion kann das Tag mit einem fixen Wert 
+vorbelegt werden. Dieser Wert kann in der Spalte "Eingabe" angegeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>24 bis 29 VB-Script-Formel 
+(…)<BR>Die Kennzeichen 24 bis 29 können an den jeweils gültigen Positionen in 
+der Struktur verwendet werden. D.h. …<BR><BR></P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "24" für die 
+Belegkopf-Daten</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "25" nur 
+"unterhalb" des Kennzeichens "04 Artikelzeilen hier einfügen"</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "26" nur 
+"unterhalb" des Kennzeichens "07 Vertreterzeilen hier einfügen"</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "27" nur 
+"unterhalb" des Kennzeichens "15 USt-Summen hier einfügen"</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "28" nur 
+"unterhalb" des Kennzeichens "17 Skonto hier einfügen"</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>das Kennzeichen "29" nur 
+"unterhalb" des Kennzeichens "21 Lieferscheine hier einfügen"</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Für "Ende-Tags" stehen diese 
+Kennzeichen nicht zur Verfügung, für Attribute können sie jedoch verwendet 
+werden.<BR>Wird eines dieser Kennzeichen ausgewählt (und es ist noch kein Script 
+in der Zeile vorhanden), wird das Fenster zum Bearbeiten des Scripts automatisch 
+geöffnet.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Display, Software enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_513.png"><BR><BR>Wird anschließend dabei kein Script 
+gespeichert, so bleibt der Focus danach in der Auswahllistbox für das 
+Exportkennzeichen stehen und es kann ein anderes Kennzeichen ausgewählt, oder 
+erneut das Fenster zum Bearbeiten des Scripts geöffnet werden (mittels eigenem 
+Button "VB-Script-Formel bearbeiten).</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Beim Ändern des Kennzeichens 
+wird ein bereits vorhandenes Script nicht sofort verworfen, sondern bleibt bis 
+zum Speichern der Vorlage erhalten.<BR>Für diese Kennzeichen 24 bis 29 steht 
+auch die Spalte für die Eingabe einer Formatierung in der Zeile zur Verfügung. 
+Hier können Nachkommastellen, falls das Script einen numerischen Wert 
+zurückliefert, oder ein Datumsformat eingetragen werden.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Schrift, Reihe enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_514.png"><BR><BR>Für alle anderen Datentypen wird die 
+Eingabe in diesem Feld nicht berücksichtigt.<BR><BR>Beim Export der Belege 
+werden die Scripte ausgeführt und der im Script der Variable "ExportValue" 
+zugeordnete Wert in die XML-Datei übernommen. Zu beachten ist dabei, dass eine 
+aus dem Script zurückgelieferte Double mit der eingegebenen Anzahl an 
+Nachkommastellen (gültige Werte sind in diesem Fall 0-9) formatiert wird. Wird 
+keine Formatierung angegeben, so werden 2 Nachkommastellen verwendet. Liefert 
+das Script ein Datum zurück, so wird ebenfalls die eingetragene Formatierung 
+verwendet. Wurde keine Formatierung angegeben, so wird das Format 
+"{DD}.{MM}.{YYYY}" verwendet.</P>
+<P class=BeispielAchtung style="MARGIN-LEFT: 28.35pt">Hinweis</P>
+<P class=MsoNormal style="MARGIN-LEFT: 28.35pt">Beim Bearbeiten des Scripts 
+stehen unter "XMLExportScripts" folgende Funktionen zur Verfügung:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValue (View, Var)<BR>Diese 
+Funktion liefert den Wert der entsprechenden Variable zurück.<BR>Auch die 
+dynamisch ermittelten Werte stehen hier zur Verfügung (also alle Werte, die beim 
+Typ "02 aus Programmvariable" ausgewählt werden können).<BR>Diese Funktion steht 
+für alle VB-Script-Exportkennzeichen zur Verfügung.<BR>Die Variablen aus dem 
+Belegkopf (T025), dem Kontenstamm (T051, T054, T055, T058), dem Mandantenstamm 
+(T001) und dem Bankenstamm (T286) können immer verwendet werden.<BR>Beim 
+Exportkennzeichen "25 VB-Script-Formel (Artikelzeile)" steht zusätzlich die 
+Belegmittelteilszeile (T026) zur Verfügung.<BR>Beim Typ "26 VB-Script-Formel 
+(Vertreterzeile) steht der Vertreterstamm (T034) zur Verfügung.<BR><BR>Die Werte 
+werden mit entsprechendem Datentyp zurückgeliefert (dies gilt auch für die 
+dynamischen Werte und die Zusatzfelder).<BR><BR>Die Übergabewerte sind 
+Tabellen-, und Variablennummer. D.h. z.B. für 054256 in der Auswahllistbox 
+(=ERPEL-Firmen ID) muss beim Aufruf der Funktion GetValue (54,256) übergeben 
+werden.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Display, Software enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_515.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueXMLExtension 
+(XMLPath)<BR>Diese Funktion lädt einen Wert aus der XML-Erweiterung des Beleges 
+und steht nur für das Exportkennzeichen "24 VB-Script-Formel" zur Verfügung. Der 
+XML-Pfad muss im selben Format übergeben werden wie in der XML-Vorlage beim 
+entsprechenden Exportkennzeichen.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Software, Reihe enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_516.png"><BR><BR>Wenn die Erweiterung und ein 
+entsprechender Wert vorhanden sind, wird dieser (immer als Text) 
+zurückgeliefert. Andernfalls wird die Funktion einen Leerstring zurückgeben.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueXMLExtensionProductLine 
+(XMLPath)<BR>Diese Funktion lädt einen Wert aus der XML-Erweiterung der aktiven 
+Artikelzeile des Beleges, und steht nur für das Exportkennzeichen "25 
+VB-Script-Formel (Artikelzeile)" zur Verfügung. Der XML-Pfad muss im selben 
+Format übergeben werden, wie in der XML-Vorlage beim entsprechenden 
+Exportkennzeichen.<BR>Wenn die Erweiterung und ein entsprechender Wert vorhanden 
+sind, wird dieser (immer als Text) zurückgeliefert. Andernfalls bringt die 
+Funktion einen Leerstring zurück.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueXMLExtensionAccount 
+(XMLPath)<BR>Diese Funktion lädt einen Wert aus der XML-Erweiterung des Kontos 
+und steht nur für das Exportkennzeichen "24 VB-Script-Formel" zur Verfügung. Der 
+XML-Pfad muss im selben Format übergeben werden wie in der XML-Vorlage beim 
+entsprechenden Exportkennzeichen. Wenn die Erweiterung und ein entsprechender 
+Wert vorhanden sind, wird dieser (immer als Text) zurückgeliefert. Andernfalls 
+bringt die Funktion einen Leerstring zurück.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueVATTotals 
+(FieldNr)<BR>Diese Funktion liefert den ausgewählten Wert (mit entsprechendem 
+Datentyp) aus den aktiven "USt-Summen" zurück. Die Funktion steht für das 
+Exportkennzeichen "27 VB-Script-Formel (USt-Summen)" zur Verfügung (kann daher 
+nur "unterhalb" von "USt-Summen hier einfügen" verwendet werden). Für die 
+Übergabe können, die für das entsprechende Exportkennzeichen in der 
+Auswahllistbox verfügbaren, Feldnummern verwendet werden.<BR><BR><IMG 
+alt="Ein Bild, das Text, Screenshot, Display, Software enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_517.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueDiscount 
+(FieldNr)<BR>Diese Funktion liefert den ausgewählten Wert (mit entsprechendem 
+Datentyp) aus dem aktiven "Skonto" zurück und steht für das Exportkennzeichen 
+"28 VB-Script-Formel (Skonto)" zur Verfügung. Für die Übergabe können die, für 
+das entsprechende Exportkennzeichen in der Auswahllistbox verfügbaren 
+Feldnummern verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung2 style="tab-stops: 28.35pt 56.7pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>GetValueDeliveryNotes 
+(FieldNr)<BR>Diese Funktion liefert den ausgewählten Wert (mit entsprechendem 
+Datentyp) für den aktiven "Lieferschein" zurück. Sie steht für das 
+Exportkennzeichen "29 VB-Script-Formel (Lieferscheine)" zur Verfügung. Für die 
+Übergabe können die, für das entsprechende Exportkennzeichen in der 
+Auswahllistbox verfügbaren Feldnummern verwendet werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Eingabe</P>
+<P class=MsoNormal>In der Spalte "Eingabe" muss, je nach gewähltem Wert in der 
+Spalte "Exportkennzeichen", die jeweilige Auswahl getroffen, bzw. Eingabe 
+getätigt werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Datumsformat / 
+Nachkommastellen</P>
+<P class=MsoNormal>Neben der Datumsformatierung (für Datumsfelder steht eine 
+zusätzliche Spalte für das Datumsformat zur Verfügung -&gt; siehe dazu auch 
+Datum beim Import) steht auch bei numerischen Werten eine weitere Spalte zur 
+Verfügung, in der die Anzahl der zu exportierenden Nachkommastellen festgelegt 
+werden kann. Die maximale Anzahl an Nachkommastellen beträgt 10.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Tag darf nicht leer 
+bleiben</P>
+<P class=MsoNormal>Bei Vorlagen für den Belegexport kann in der Spalte "Tag darf 
+nicht leer bleiben" die Checkbox aktiviert werden was bedeutet, dass im Falle 
+eines nicht vorhandenen Eintrages der Export mit einer entsprechenden Meldung 
+abgebrochen wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><IMG 
+alt="Ein Bild, das Text, Screenshot, Display, Zahl enthält.&#10;&#10;Automatisch generierte Beschreibung" 
+src="../ImagesExt/image857_518.png"></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="tab-stops: 18.0pt 28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø </SPAN>Tag/Attribut muss 
+erhalten bleiben</P>
+<P class=MsoNormal>Wird diese Option aktiviert, so bleibt das Tag bzw. das 
+Attribut auch dann erhalten, wenn kein Wert zugeordnet wird.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

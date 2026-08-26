@@ -1,0 +1,8 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+<img class="flag" src="@country.Flag()" alt="Flag of @(country.Name)" />
+
+@code {
+    Country country = SampleData.Olympics2024.Countries.First();
+
+}

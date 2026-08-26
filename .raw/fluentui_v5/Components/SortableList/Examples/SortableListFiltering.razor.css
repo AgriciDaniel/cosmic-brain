@@ -1,0 +1,4 @@
+::deep #filter {
+  --fluent-sortable-list-item-filtered-background-color: var(--colorPaletteBerryBackground2);
+  --fluent-sortable-list-item-filtered-color: var(--colorNeutralForeground);
+}

@@ -1,0 +1,37 @@
+﻿<FluentStack Orientation="Orientation.Vertical" VerticalGap="15">
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentButton Size="ButtonSize.Small">Small</FluentButton>
+        <FluentButton Size="ButtonSize.Small" IconStart="@(new Icons.Regular.Size16.Globe())">
+            Small with globe icon
+        </FluentButton>
+        <FluentButton Size="ButtonSize.Small"
+                      IconOnly="true"
+                      Title="Small icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size16.Globe())" />
+        </FluentButton>
+    </FluentStack>
+
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentButton Size="ButtonSize.Medium">Medium</FluentButton>
+        <FluentButton Size="ButtonSize.Medium" IconStart="@(new Icons.Regular.Size20.Globe())">
+            Medium with globe icon
+        </FluentButton>
+        <FluentButton Size="ButtonSize.Medium"
+                      IconOnly="true"
+                      Title="Medium icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size20.Globe())" />
+        </FluentButton>
+    </FluentStack>
+
+    <FluentStack HorizontalGap="10" Wrap="true">
+        <FluentButton Size="ButtonSize.Large">Large</FluentButton>
+        <FluentButton Size="ButtonSize.Large" IconStart="@(new Icons.Regular.Size24.Globe())">
+            Large with globe icon
+        </FluentButton>
+        <FluentButton Size="ButtonSize.Large"
+                      IconOnly="true"
+                      Title="Large icon only button">
+            <FluentIcon Value="@(new Icons.Regular.Size24.Globe())" />
+        </FluentButton>
+    </FluentStack>
+</FluentStack>

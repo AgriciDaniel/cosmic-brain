@@ -1,0 +1,27 @@
+﻿<table data-selectable>
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr @onclick="@(e => DataRowSelected[0] = !DataRowSelected[0])" data-selected="@DataRowSelected[0]">
+            <td>BE</td>
+            <td>Belgium</td>
+        </tr>
+        <tr @onclick="@(e => DataRowSelected[1] = !DataRowSelected[1])" data-selected="@DataRowSelected[1]">
+            <td>FR</td>
+            <td>France</td>
+        </tr>
+        <tr @onclick="@(e => DataRowSelected[2] = !DataRowSelected[2])" data-selected="@DataRowSelected[2]">
+            <td>NL</td>
+            <td>Netherland</td>
+        </tr>
+    </tbody>
+</table>
+
+@code
+{
+    bool[] DataRowSelected = new bool[3];
+}

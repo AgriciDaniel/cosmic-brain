@@ -1,0 +1,79 @@
+﻿<div style="height: 400px; overflow-y: scroll;">
+    <FluentDataGrid @ref="grid" Items=@items GridTemplateColumns="1fr 1fr 1fr 1fr">
+        <ChildContent>
+            <PropertyColumn Property="@(c => c.Item1)" Sortable="true" />
+            <PropertyColumn Property="@(c => c.Item2)" />
+            <PropertyColumn Property="@(c => c.Item3)" Align="DataGridCellAlignment.Center" />
+            <PropertyColumn Property="@(c => c.Item4)" Align="DataGridCellAlignment.End" />
+        </ChildContent>
+        <EmptyContent>
+            <FluentStack Orientation="Orientation.Horizontal" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center" HorizontalGap="10">
+                <FluentIcon Value="@(new Icons.Filled.Size24.Crown())" Color="@Color.Primary" />
+                <div>Nothing to see here. Carry on!</div>
+            </FluentStack>
+        </EmptyContent>
+    </FluentDataGrid>
+</div>
+<FluentStack Orientation="Orientation.Horizontal" VerticalAlignment="VerticalAlignment.Center" HorizontalGap="10">
+    <FluentSwitch @ref="_clearToggle"
+                  @bind-Value="@_clearItems"
+                  @bind-Value:after="ToggleItems"
+                  Label="@switchLabel">
+    </FluentSwitch>
+    <FluentButton OnClick="SimulateDataLoading">Simulate data loading</FluentButton>
+</FluentStack>
+
+
+@code {
+    FluentDataGrid<SampleGridData>? grid;
+    FluentSwitch? _clearToggle;
+    string switchLabel = "Clear data";
+
+    bool _clearItems = false;
+
+    public record SampleGridData(string Item1, string Item2, string Item3, string Item4);
+    IQueryable<SampleGridData>? items = Enumerable.Empty<SampleGridData>().AsQueryable();
+
+    private IQueryable<SampleGridData> GenerateSampleGridData(int size)
+    {
+        SampleGridData[] data = new SampleGridData[size];
+
+        for (int i = 0; i < size; i++)
+        {
+            data[i] = new SampleGridData($"This {i}-1", $"is {i}-2", $"some {i}-3", $"data {i}-4");
+        }
+        return data.AsQueryable();
+    }
+
+    protected override void OnInitialized()
+    {
+        items = GenerateSampleGridData(100);
+    }
+
+    private async Task SimulateDataLoading()
+    {
+        _clearItems = false;
+
+        grid?.SetLoadingState(true);
+        items = null;
+
+        await Task.Delay(1500);
+
+        items = GenerateSampleGridData(100);
+        grid?.SetLoadingState(false);
+    }
+
+    private void ToggleItems()
+    {
+        if (_clearItems)
+        {
+            items = null;
+            switchLabel = "Restore data";
+        }
+        else
+        {
+            items = GenerateSampleGridData(100);
+            switchLabel = "Clear data";
+        }
+    }
+}

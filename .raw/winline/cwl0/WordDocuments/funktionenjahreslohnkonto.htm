@@ -1,0 +1,1152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>Funktionen Jahreslohnkonto</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/nav.css"><LINK rel=stylesheet 
+type=text/css href="../Theme/lf.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84lohna1.css">
+<SCRIPT type=text/javascript>
+
+
+
+var _needIndentation = false;
+
+
+
+_needIndentation = true;
+
+
+
+
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitMainThemeHandlers != "undefined")
+
+    d2hInitMainThemeHandlers();
+
+</SCRIPT>
+
+<DIV id=nsbanner class=d2h_main_nsbanner 
+style="BORDER-TOP: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; DISPLAY: inline; PADDING-RIGHT: 0px">
+<DIV id=TitleRow class=d2h_main_titlerow 
+style="WIDTH: 100%; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; PADDING-LEFT: 22px; DISPLAY: inline; PADDING-RIGHT: 10px">
+<DIV id=ienav class=d2h_main_ienav style="DISPLAY: inline">
+<P class=d2h_main_linknav align=right><A id=D2HPrevious class=D2HPreviousEnabled 
+href="getweihnachtsgeld.htm"><IMG border=0 alt=Zurück 
+src="../Images/Theme/ButtonsAndIcons/nav_prev.gif" align=absMiddle></A> &nbsp; 
+<A id=D2HNext class=D2HNextEnabled href="funktionenvbscript.htm"><IMG border=0 
+alt=Vor src="../Images/Theme/ButtonsAndIcons/nav_next.gif" align=absMiddle></A> 
+</P></DIV></DIV></DIV>
+<DIV id=nstext class=d2h_main_nstext 
+style="OVERFLOW: auto; HEIGHT: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px" 
+valign="bottom">
+<DIV id=d2h_breadcrumbs class=d2h_breadcrumbs><A class=d2h_breadcrumbsNormal 
+href="winlinelohn&ouml;sterreich.htm">WinLine LOHN - Österreich</A><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsContentsOnly>Stammdaten</SPAN><SPAN 
+class=d2h_breadcrumbsLinkSeparator> &gt; </SPAN><SPAN 
+class=d2h_breadcrumbsSelected>Funktionen Jahreslohnkonto</SPAN></DIV>
+
+<H2 style="tab-stops: 0pt 36.0pt 42.55pt"><A name=_Toc200979517></A>Funktionen 
+Jahreslohnkonto</H2>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Die nachfolgenden Funktionen haben alle eine ähnliche 
+Bedeutung und die gleiche Syntax: alle Funktionen greifen auf die Werte des 
+Jahreslohnkontos zu . Daher werden sie nicht im Detail, sondern nur 
+Übersichtsweise beschrieben:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>Variable = Funktion (Monat, Jahr, Originalwerte)</P>
+<P class=MsoNormal>Für Monat kann der gewünschte Monat eingegeben werden, bei 
+Verwendung von 0 werden alle abgerechneten Monate des Abrechnungsjahres 
+genommen.</P>
+<P class=MsoNormal>Originalwerte ist ein optionaler Parameter, der standardmäßig 
+auf 0 gesetzt ist (wodurch dann die letztgültigen Werte genommen werden). Wird 
+der Wert auf 1 gesetzt, so werden die Originalwerte (die Werte, die bei der 
+ursprünglichen Rechnung verwendet wurden) herangezogen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<TABLE class=MsoNormalTable 
+style="BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" 
+cellSpacing=0 cellPadding=0 border=1>
+  <TBODY>
+  <TR>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>&nbsp;</P>
+      <P class=MsoNormal><B>Funktion</B></P></TD>
+    <TD 
+    style="BORDER-TOP: windowtext 1pt solid; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><B>Beschreibung</B></P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoHeader>GetJLKBrutto (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bruttowert aus dem Jahreslohnkonto</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBruttoL161 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bruttowert (KZ 210) für L16</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSVBeitrag (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SV-Beitrag gesamt (NZ + SZ) DN-Anteil</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSVDG (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SV-Dienstgeberbeitrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLSBeitrag (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>LSt-Beitrag gesamt (NZ + SZ)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSonderabzuege (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Sonderbe- bzw. -abzüge</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKRollungsdifferenz (Monat, Jahr, 
+    Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Rollungsdifferenz</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKNetto (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Nettoauszahlungsbetrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSonderzahlungen (Monat, Jahr, 
+    Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Summe Sonderzahlung</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLSTage (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>LST-Tage</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSVTage (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SV-Tage</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar681Ges (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SEG-Zulagen gesamt</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar681frei (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SEG-Zulagen frei</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar681Ueb (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SEG-Zulagen Überhang</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar682Ges (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Überstunden gesamt</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar682frei (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Überstunden frei</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPar682Ueb (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Überstunden Überhang</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGLstNZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage LSt NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGLstSZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage LSt SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLstNZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Lohnsteuer NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLstSZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Lohnsteuer SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKUBahn (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>U-Bahn-Steuer</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKJ6Ueberhang (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Jahressechstel Überhang</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPendlerpauschale (Monat, Jahr, 
+    Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Pendlerpauschale</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbsetzbetrag (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Freibetrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKzumJ6 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage für Jahressechstel</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKaufJ6 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Verbrauchte Sonderzahlungen innerhalb J/6</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKL162a (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Verbrauchter Freibetrag für SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLstPfl (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Summe der lohnsteuerpflichtigen Bezüge NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLstSZPfl (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Summe der lohnsteuerpflichtigen Bezüge SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGKommSt (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage Kommunalsteuer</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGDB (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage DB</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGNZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SV Normalzahlung</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGSZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SV Sonderzahlung</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ1 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage KU NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ2 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage WF NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ3 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage LK NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ4 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SW NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ5 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage EF NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ6 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage IE NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGENZ7 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage NB NZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ1 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage KU SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ2 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage WF SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ3 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage LK SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ4 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SW SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ5 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage EF SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ6 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage IE SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSONSTIGESZ7 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage NB SZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema1 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 1</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema2 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 2</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema3 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 3</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema4 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 4</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema5 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 5</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema6 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 6</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema7 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 7</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema8 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 8</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema9 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 9</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema10 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 10</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema11 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 11</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema12 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 12</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema13 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 13</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema14 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 14</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema15 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 15</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema16 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 16</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema17 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 17</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema18 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 18</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema19 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 19</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema20 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 20</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSVGesamt (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SV Gesamtbeitrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKKrankenscheine (Monat, Jahr, 
+Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Krankenscheingebühr</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKLohnpfaendung (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Pfändungsbetrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKPfaendungsfreibetragSZ (Monat, Jahr, 
+      Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Pfändungsfreibetrag bei Sonderzahlungen</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGSVNZGering (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SV NZ geringfügig Besch.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGSVSZGering (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage SV SZ geringfügig Besch.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJKLMVTage (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>BV-Tage</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJKLBMGMVNZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage BV Normalzahlung</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJKLBMGMVSZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage BV Sonderzahlung</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJKLMVBeitrag (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>BV-Beitrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema21 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 21</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema22 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 22</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema23 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 23</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema24 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 24</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema25 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 25</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema26 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 26</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKAbrSchema27 (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 27</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema28 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 28 
+      (Ersatzleistung SZ)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKAbrSchema29 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag Abrechnungsschema 29 
+      (Auslandstätigkeit)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKBMGDZ (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Bemessungsgrundlage DZ</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKTETage (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Summe der Teilentgelt-Tage (0, 50 und 100 %)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKLandarbeiterfreibetrag 
+      (Monat, Jahr</SPAN>, Originalwerte<SPAN 
+    style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Landarbeiterfreibetrag</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKBetrieb (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Betrieb</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKFinanzamt (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Finanzamt</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKKrankenkasse (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Krankenkasse</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKGemeinde (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Gemeinde</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKMVKasse (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>BV-Kasse</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKAVABAEAB (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Kennzeichen AVAB/AEAB</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKAnzahlKinder (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Anzahl der Kinder für AVAB/AEAB</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN style="COLOR: black">GetJLKSVANAnteilDG (Monat, 
+      Jahr</SPAN>, Originalwerte<SPAN style="COLOR: black">)</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>SV-Anteil des AN der vom DG übernommen wurde (z.B. 
+      Altersteilzeit)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKSachbezugsregel (Monat, Jahr, Originalwerte)<SPAN 
+      style="COLOR: black"></SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Anteil vom DG übernommene SV bei Sachbezügen</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKServiceEntgelt (Monat, Jahr, 
+Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechnetes Service Entgelt (wird nur im November 
+      abgerechnet)</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetGeringGrenze (Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abruf der Geringfügigkeitsgrenze für ein 
+      Abrechnungsjahr</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKJ6Ueberhang677 (Monat, Jahr, 
+Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>J/6-Überhang für Bezüge, die gemäß § 67/7 abgerechnet 
+      wurden</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetJLKaufJ6677 (Monat, Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Abgerechneter Betrag innerhalb des zusätzlichen J/6 
+      gemäß § 67/7</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetKUGBezug()</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Diese Funktion ermittelt den Bezug für die tatsächlich 
+      geleistete Arbeitszeit gemäß Einstellungen in den Betriebsdaten</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetKUGAusgleich()</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Diese Funktion ermittelt den Bezug für die 
+      Vergütungsentschädigung, wobei sowohl der Unterstützungsprozentsatz als 
+      auch die AMS-Förderung berücksichtigt wird.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetKUGDifferenz()</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Mit dieser Funktion kann die Differenz zwischen dem 
+      tatsächlichen Bezug, der Vergütungsentschädigung und dem letzten Vollen 
+      Bezug berechnen.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetKUGPauschalsatzbetrag ()</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Mit dieser Funktion kann der Betrag ermittelt werden, 
+      der dem AN gemäß den Einstellungen mindestens als Verfügungsentschädigung 
+      zusteht, wobei dieser Betrag mit der Anzahl der Reduzierungsstunden 
+      hochgerechnet wird.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>GetKUGPauschalsatz (Stunden, Bezug)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Mit dieser Funktion wird der pro Ausfallstunde 
+      festgelegte Pauschalsatz ermittelt. Optional kann als Parameter die 
+      Arbeitszeit des AN oder der Bezug, anhand dessen der Pauschalsatz 
+      ermittelt werden soll, angegeben werden. Dies wird vor allen dann 
+      benötigt, wenn der AN nur Teilzeitbeschäftigt ist. Damit kann dann der 
+      Bezug auf "Vollbeschäftigung" hochgerechnet werden. Wenn die 
+      "Normalstundenanzahl" verwendet werden soll, so kann der Wert 0 Übergeben 
+      werden.</P>
+      <P class=MsoNormal>&nbsp;</P>
+      <P class=MsoNormal><B><U>Beispiel:</U></B> Satz = GetKUGPauschalsatz 
+      (GetViewVar(400,116)/100)</P>
+      <P class=MsoNormal>&nbsp;</P>
+      <P class=MsoNormal>In der Variable 400,116 sind die Anzahl der 
+      Beschäftigungsstunden pro Woche gespeichert, wobei dieser Wert ohne 
+      Nachkommastellen und 4stellig gespeichert wird. Dieser Wert wird dann auf 
+      die Anzahl der Wochenstunden, die im KUG-Stamm hinterlegt sind, 
+      hochgerechnet.</P>
+      <P class=MsoNormal>&nbsp;</P>
+      <P class=MsoNormal><B><U>Beispiel:</U></B> Satz = GetKUGPauschalsatz (0, 
+      2400)</P>
+      <P class=MsoNormal>In diesem Beispiel der Pauschalsatz auf Basis des 
+      Wertes von 2400 in der entsprechenden Arbeitszeittabelle (Anzahl der 
+      Stunden, die im KUG-Stamm hinterlegt sind) ermittelt.</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN 
+      style="FONT-SIZE: 9pt; COLOR: black">GetKUGLastBezug ()</SPAN></P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Mit dieser Funktion kann der letzte Bezug anhand der 
+      Einstellungen im KUG-Stamm ermittelt werden, wobei allerdings die 
+      anteilige Sonderzahlung (1/6) noch nicht berücksichtigt ist. Damit können 
+      dann ggf. individuelle Berechnungen für den Einstiegswerte in die 
+      Pauschalsatztabelle ermittelt werden (wenn z.B. Einmalzahlungen 
+      berücksichtigt werden müssen).</P></TD></TR>
+  <TR>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.45pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: windowtext 1pt solid; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal><SPAN 
+      style="FONT-SIZE: 9pt; COLOR: black">GetJLKBeitragsgruppe (</SPAN>Monat, 
+      Jahr, Originalwerte)</P></TD>
+    <TD 
+    style="BORDER-TOP: medium none; BORDER-RIGHT: windowtext 1pt solid; WIDTH: 244.5pt; BORDER-BOTTOM: windowtext 1pt solid; PADDING-BOTTOM: 0pt; PADDING-TOP: 0pt; PADDING-LEFT: 3.5pt; BORDER-LEFT: medium none; PADDING-RIGHT: 3.5pt" 
+    vAlign=top width=326>
+      <P class=MsoNormal>Mit dieser Funktion wird die Beitragsgruppe aus der 
+      Abrechnung ausgelesen.</P></TD></TR></TBODY></TABLE>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

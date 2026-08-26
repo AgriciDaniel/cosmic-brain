@@ -1,0 +1,54 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Extensions
+
+<!-- Default usage -->
+<FluentDatePicker TValue="DateTime?"
+                  @bind-Value="@MyDate0" />
+<FluentTimePicker TValue="DateTime?"
+                  @bind-Value="@MyTime0" />
+<b>Date:</b> @(MyDate0?.ToString("yyyy-MM-dd"))
+<b>Time:</b> @(MyTime0?.ToString("HH:mm"))
+<br />
+
+<!-- Using conversion methods -->
+<FluentDatePicker TValue="DateTime?"
+                  Value="@MyDate1"
+                  ValueChanged="@(e => MyDate1 = e.ToDateTime())" />
+<FluentTimePicker TValue="DateTime?"
+                  Value="@MyTime1"
+                  ValueChanged="@(e => MyTime1 = e.ToDateTime())" />
+<b>Date:</b> @(MyDate1.ToString("yyyy-MM-dd"))
+<b>Time:</b> @(MyTime1.ToString("HH:mm"))
+<br />
+
+<FluentDatePicker TValue="DateTime?"
+                  Value="@MyDate2.ToDateTimeNullable()"
+                  ValueChanged="@(e => MyDate2 = e.ToDateOnlyNullable())" />
+<FluentTimePicker TValue="DateTime?"
+                  Value="@MyTime2.ToDateTimeNullable()"
+                  ValueChanged="@(e => MyTime2 = e.ToTimeOnlyNullable())" />
+<b>Date:</b> @(MyDate2?.ToString("yyyy-MM-dd"))
+<b>Time:</b> @(MyTime2?.ToString("HH:mm"))
+<br />
+
+<FluentDatePicker TValue="DateTime?"
+                  Value="@MyDate3.ToDateTime()"
+                  ValueChanged="@(e => MyDate3 = e.ToDateOnly())" />
+<FluentTimePicker TValue="DateTime?"
+                  Value="@MyTime3.ToDateTime()"
+                  ValueChanged="@(e => MyTime3 = e.ToTimeOnly())" />
+<b>Date:</b> @(MyDate3.ToString("yyyy-MM-dd"))
+<b>Time:</b> @(MyTime3.ToString("HH:mm"))
+<br />
+
+@code
+{
+    private DateTime? MyDate0 = DateTime.Now;
+    private DateTime MyDate1 = DateTime.Now;
+    private DateOnly? MyDate2 = DateOnly.FromDateTime(DateTime.Now);
+    private DateOnly MyDate3 = DateOnly.FromDateTime(DateTime.Now);
+
+    private DateTime? MyTime0 = DateTime.Now;
+    private DateTime MyTime1 = DateTime.Now;
+    private TimeOnly? MyTime2 = TimeOnly.FromDateTime(DateTime.Now);
+    private TimeOnly MyTime3 = TimeOnly.FromDateTime(DateTime.Now);
+}

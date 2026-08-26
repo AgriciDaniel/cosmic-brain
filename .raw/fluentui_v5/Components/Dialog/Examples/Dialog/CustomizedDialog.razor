@@ -1,0 +1,61 @@
+﻿<FluentDialogBody>
+
+    <TitleTemplate>
+        @Dialog.Options.Header.Title
+    </TitleTemplate>
+
+    <ChildContent>
+        <FluentTextInput Label="Name:" @bind-Value="@Name" Disabled="true" Style="max-width: 100%;" />
+        <FluentTextInput Label="Age:" @bind-Value="@Person.Age" Style="max-width: 100%;" />
+        <FluentLabel>Description</FluentLabel>
+        @Person.VeryLongDescription
+    </ChildContent>
+
+    <ActionTemplate>
+        <FluentButton OnClick="btnCancel_Click">Cancel</FluentButton>
+        <FluentButton OnClick="btnOK_Click" Appearance="ButtonAppearance.Primary">OK</FluentButton>
+    </ActionTemplate>
+
+</FluentDialogBody>
+
+@code {
+    // If you want to use this razor component in standalone mode,
+    // you can use a nullable IDialogInstance property.
+    // If the value is not null, the component is running using the DialogService.
+    // `public IDialogInstance? FluentDialog { get; set; }`
+    [CascadingParameter]
+    public required IDialogInstance Dialog { get; set; }
+
+    [Inject]
+    public required IDialogService DialogService { get; set; }
+
+    // A simple type is not updatable
+    [Parameter]
+    public string? Name { get; set; }
+
+    // A class is updatable
+    [Parameter]
+    public PersonDetails Person { get; set; } = new();
+
+    // A nullable type is optional
+    [Parameter]
+    public int? NotAssignedParam { get; set; }
+
+    private async Task btnOK_Click()
+    {
+        int.TryParse(Person.Age, out var age);
+        if (age <= 0)
+        {
+            await DialogService.ShowErrorAsync("Age must be a positive number.");
+        }
+        else
+        {
+            await Dialog.CloseAsync(DialogResult.Ok("Yes"));
+        }
+    }
+
+    private async Task btnCancel_Click()
+    {
+        await Dialog.CloseAsync(DialogResult.Cancel("No"));
+    }
+}

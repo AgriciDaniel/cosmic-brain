@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd"/>
+            <stop offset="50%" stop-color="#eaf1fb"/>
+            <stop offset="100%" stop-color="#e2ebf7"/>
+        </linearGradient>
+        
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc"/>
+            <stop offset="100%" stop-color="#d4e3f7"/>
+        </linearGradient>
+        
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0"/>
+            <stop offset="100%" stop-color="#faecd8"/>
+        </linearGradient>
+        
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8"/>
+        </marker>
+    </defs>
+
+    <!-- Background -->
+    <rect x="0" y="0" width="100%" height="100%" fill="url(#bg-grad)" rx="10"/>
+
+    <!-- Subgraph: Server A -->
+    <rect x="40" y="110" width="180" height="140" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="130" y="135" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Server A</text>
+
+    <!-- Subgraph: Log Watcher Notification -->
+    <rect x="280" y="40" width="240" height="280" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="400" y="65" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Log Watcher Notification</text>
+
+    <!-- Subgraph: Server B -->
+    <rect x="580" y="110" width="180" height="140" rx="8" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="670" y="135" font-family="Inter, sans-serif" font-size="11" fill="#8b90a8" font-weight="600" text-transform="uppercase" text-anchor="middle">Server B</text>
+
+    <!-- Node: Operation Log Writer (Action/Process) -->
+    <rect x="60" y="150" width="140" height="80" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+    <text x="130" y="185" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Operation</text>
+    <text x="130" y="205" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Log Writer</text>
+
+    <!-- Node: PostgreSQL (State/Object) -->
+    <rect x="320" y="90" width="160" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+    <text x="400" y="120" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">PostgreSQL</text>
+
+    <!-- Node: Redis (State/Object) -->
+    <rect x="320" y="165" width="160" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+    <text x="400" y="195" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Redis</text>
+
+    <!-- Node: File System (State/Object) -->
+    <rect x="320" y="240" width="160" height="50" rx="8" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5"/>
+    <text x="400" y="270" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">File System</text>
+
+    <!-- Node: Operation Log Reader (Action/Process) -->
+    <rect x="600" y="150" width="140" height="80" rx="14" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5"/>
+    <text x="670" y="185" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Operation</text>
+    <text x="670" y="205" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13" fill="#1a1a2e" text-anchor="middle">Log Reader</text>
+
+    <!-- Arrows -->
+    <!-- Writer to Notify Subgraph -->
+    <path d="M 200 190 C 230 190, 244 190, 274 190" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+    
+    <!-- Notify Subgraph to Reader -->
+    <path d="M 520 190 C 550 190, 564 190, 594 190" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+</svg>

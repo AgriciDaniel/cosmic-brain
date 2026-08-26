@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>SALESSUMEXT</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Toc209707738></A>SALESSUMEXT</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion wird eine Summenwert aus der Statistik 
+auf Grundlage von Artikel, Personenkonto, etc. berechnet und ausgegeben.</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Alle Selektions-Parameter sind optional und müssen nicht mit 
+einer Eingabe versehen werden (nicht benötigte Parameter mit "" hinterlegen). 
+Des Weiteren können auch mehrere Parameter gleichzeitig angeben werden.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=SALESSUMEXT (Artikelnummer, Personenkonto, Artikelgruppe, 
+Artikeluntergruppe, Vertreter, Datum von, Datum bis, Wert, Verkauf/Einkauf)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Artikelnummer 
+(Nummer in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende 
+Artikelnummer; wenn keine Artikel-Auswahl gewünscht ist, muss <B>""</B> 
+angegeben werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Personenkonto 
+(Konto in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf das zu berücksichtigende 
+Personenkonto; wenn keine Konten-Auswahl gewünscht ist, muss <B>""</B> angegeben 
+werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Artikelgruppe 
+(-1 / 0 / 1 / 2 / …)</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die auszuwertende Artikelgruppe 
+(Nummer); wenn keine Gruppen-Auswahl gewünscht ist, muss <B>-1</B> angegeben 
+werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Artikeluntergruppe (Gruppe in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die zu berücksichtigende 
+Artikeluntergruppe (5x5stellige Nummer); wenn keine Gruppen-Auswahl gewünscht 
+ist, muss <B>""</B> angegeben werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Vertreter 
+(Zahl)</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf den zu berücksichtigenden 
+Vertreter (Vertreternummer); wenn keine Vertreter-Auswahl gewünscht ist, muss 
+<B>""</B> angegeben werden</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum von 
+(Datum in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf den auszuwertenden von 
+Zeitraum; wenn keine von Datumsangabe gewünscht ist, muss <B>""</B> angegeben 
+werden</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Neben der Angabe des vollständigen Datums (z.B. 
+<B>"04.09.2024"</B>) wird auch eine Teilangabe unterstützt.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><SPAN 
+class=AufzhlungZchn><B>"4</B></SPAN><SPAN class=AufzhlungZchn><B>" 
+</B></SPAN>=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+4. Tag des aktuellen Monats (lt. Einlogdatum)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>"5.7."</B> 
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 05.07.&lt;aktuelles Jahr&gt; (lt. 
+Einlogdatum)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>"3.6.12"</B> 
+=&nbsp;&nbsp;&nbsp; 03.06.2012</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Datum von 
+(Datum in ")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf den auszuwertenden von 
+Zeitraum; wenn keine bis Datumsangabe gewünscht ist, muss <B>""</B> angegeben 
+werden</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Neben der Angabe des vollständigen Datums (z.B. 
+<B>"06.09.2024"</B>) wird auch eine Teilangabe unterstützt.</P>
+<P class=MsoNormal style="tab-stops: 92.15pt">&nbsp;</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><SPAN 
+class=AufzhlungZchn><B>"9</B></SPAN><SPAN class=AufzhlungZchn><B>" 
+</B></SPAN>=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+9. Tag des aktuellen Monats (lt. Einlogdatum)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>"30.7."</B> 
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30.07.&lt;aktuelles Jahr&gt; (lt. 
+Einlogdatum)</P>
+<P class=Aufzhlung 
+style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt; tab-stops: 38.7pt 92.15pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>"10.5.25"</B> =&nbsp; 
+10.05.2025</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Wert (0 / 1 / 
+2 / 3)</P>
+<P class=MsoNormal>Angabe, ob der Verkaufs- oder Einkaufspreis ermittelt werden 
+soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - Umsatz (Betrag)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Rohertrag</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>2</B> - Menge1</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>3</B> - Menge2</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Verkauf/Einkauf (0 / 1)</P>
+<P class=MsoNormal>Angabe, ob der Verkaufs- oder Einkaufswert ermittelt werden 
+soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - Verkauf (Standard)</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - Einkauf</P>
+<P class=BeispielAchtung>Hinweis</P>
+<P class=MsoNormal>Bei Angabe eines Personenkontos wird der Parameter 
+automatisch auf den Typ des Kontos korrigiert.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SALESSUMEXT ("", 
+"<U>230B005</U>", <U>-1</U>, "", <U>0</U>, "", "", <U>0</U>, <U>0</U>)<BR>Die 
+Funktion ermittelt für das Personenkonto "<B>230B005</B>" den gesamten 
+bisherigen Umsatz (<B>0</B>). Alle weiteren Selektions-Parameter wurden nicht 
+angegeben ("", <B>-1</B> und <B>0</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SALESSUMEXT("<U>10005</U>", "", 
+<U>-1</U>, "", <U>0</U>, "<U>01.01</U>", "<U>31.12</U>", <U>1</U>, 
+<U>0</U>)<BR>Die Funktion ermittelt den Rohertrag (<B>1</B>) des Verkaufs 
+(<B>0</B>) für den Artikels "<SPAN class=AufzhlungZchn><B>10005</B></SPAN>" in 
+dem Zeitraum "<B>01.01</B>" (Jahr aus Einlogdatum) bis "<B>31.12</B>" (Jahr aus 
+Einlogdatum). Alle weiteren Selektions-Parameter wurden nicht angegeben ("", 
+<B>-1</B> und <B>0</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=SALESSUMEXT("", "", <U>7</U>, "", 
+<U>0</U>, "<U>01.01.2024</U>", "<U>31.03.2024</U>", <U>2</U>, <U>1</U>)<BR>Die 
+Funktion ermittelt die eingekaufte (<B>1</B>) Menge (<B>2</B>) der Artikelgruppe 
+<B>7</B> für den Zeitraum "<B>01.01.2024</B>" bis "<B>31.03.2024</B>". Alle 
+weiteren Selektions-Parameter wurden nicht angegeben ("" und <B>0</B>).</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN></DIV></BODY></HTML>

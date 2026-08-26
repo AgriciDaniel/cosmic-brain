@@ -1,0 +1,29 @@
+@inject IDialogService DialogService
+
+<FluentStack HorizontalGap="24px"
+             Wrap="true">
+
+    <FluentSwitch Label="Fixed Header and Footer"
+                  @bind-Value="@IsFixedHeaderFooter" />
+
+    <FluentButton
+        OnClick="@(async e => await DialogService.ShowDialogAsync<Dialog.FixedHeaderFooterDialog>(DefaultOptions))">
+        Open Dialog
+    </FluentButton>
+
+    <FluentButton
+        OnClick="@(async e => await DialogService.ShowDrawerAsync<Dialog.FixedHeaderFooterDialog>(DefaultOptions))">
+        Open Drawer
+    </FluentButton>
+</FluentStack>
+
+@code
+{
+    bool IsFixedHeaderFooter { get; set; } = true;
+
+    Action<DialogOptions> DefaultOptions => options =>
+    {
+        options.Parameters.Add("ParamFixedHeaderFooter", IsFixedHeaderFooter);
+        options.Header.Title = "Fixed Header and Footer Dialog";
+    };
+}

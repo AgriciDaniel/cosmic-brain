@@ -1,0 +1,29 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <FluentCheckbox @bind-Value="@markerAtEnd" Label="Marker at the end" Message="The marker can be placed either in front or at the end of the item header" />
+    <FluentCheckbox @bind-Value="@block" Label="Use 'Block' parameter" Disabled="@(!markerAtEnd)" Message="When the marker is placed at the end, this makes the item header use the full available width." />
+
+    <FluentAccordion ExpandMode="AccordionExpandMode.Single"
+                     MarkerPosition="@markerPosition"
+                     Style="@($"width: 350px; {CommonStyles.NeutralBorder1}")"
+                     Block="@block">
+        <FluentAccordionItem Header="Accordion Header 1">
+            Accordion Panel 1
+        </FluentAccordionItem>
+
+        <FluentAccordionItem Header="Accordion Header 2">
+            Accordion Panel 2
+        </FluentAccordionItem>
+
+        <FluentAccordionItem Header="Accordion Header 3">
+            Accordion Panel 3
+        </FluentAccordionItem>
+    </FluentAccordion>
+
+</FluentStack>
+
+@code {
+    bool markerAtEnd;
+    bool block;
+
+    AccordionItemMarkerPosition markerPosition => markerAtEnd ? AccordionItemMarkerPosition.End : AccordionItemMarkerPosition.Start;
+}

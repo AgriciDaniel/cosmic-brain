@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f8fd"/>
+      <stop offset="50%" stop-color="#eaf1fb"/>
+      <stop offset="100%" stop-color="#e2ebf7"/>
+    </linearGradient>
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 8.5 5 L 0 8.5 z" fill="#8b90a8"/>
+    </marker>
+    <style>
+      .mt { font-family: "SF Mono","Fira Code","Cascadia Code",Consolas,Menlo,Monaco,monospace; font-size: 13px; fill: #1a1a2e }
+      .dt { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; font-style: italic; fill: #6b7084 }
+      .tc { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #4a8c66; font-weight: 500 }
+      .ti { font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size: 10px; fill: #a07858; font-weight: 500 }
+
+      /*
+       * Starts from last frame of computation diagram.
+       * Timeline (10s):
+       *  0-10%  Hold: all green, all arrows with "depends on", all "consistent" tags
+       *   15%   GetThumbnail → inconsistent
+       *   20%   Arrow3 fades out (invalidation propagates to GetUserAvatar)
+       *   25%   GetUserAvatar → inconsistent
+       *   30%   Arrow2 fades out (invalidation propagates to Root)
+       *   35%   GetUserProfile → inconsistent
+       *   38%   Arrow1 fades out (stale dependency)
+       *  100%   Hold: GetUser green; others bleached; no arrows
+       *
+       * Consistent:   #c8e8d0 / #78b490
+       * Inconsistent: #ede8e3 / #c4bab2
+       */
+
+      /* Boxes: green → bleached */
+      @keyframes ib-th { 0%,13%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} 18%,100%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} }
+      @keyframes ib-av { 0%,23%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} 28%,100%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} }
+      @keyframes ib-rt { 0%,33%{fill:#c8e8d0;stroke:#78b490;stroke-width:1.5} 38%,100%{fill:#ede8e3;stroke:#c4bab2;stroke-width:1.5} }
+
+      /* Arrows fade out */
+      @keyframes ia3 { 0%,18%{opacity:1} 23%,100%{opacity:0} }
+      @keyframes ia2 { 0%,28%{opacity:1} 33%,100%{opacity:0} }
+      @keyframes ia1 { 0%,36%{opacity:1} 42%,100%{opacity:0} }
+
+      /* Consistent tags fade out */
+      @keyframes itc-th { 0%,13%{opacity:1} 18%,100%{opacity:0} }
+      @keyframes itc-av { 0%,23%{opacity:1} 28%,100%{opacity:0} }
+      @keyframes itc-rt { 0%,33%{opacity:1} 38%,100%{opacity:0} }
+
+      /* Inconsistent tags fade in */
+      @keyframes iti-th { 0%,13%{opacity:0} 18%,100%{opacity:1} }
+      @keyframes iti-av { 0%,23%{opacity:0} 28%,100%{opacity:1} }
+      @keyframes iti-rt { 0%,33%{opacity:0} 38%,100%{opacity:1} }
+
+      #ib-th{animation:ib-th 10s ease forwards} #ib-av{animation:ib-av 10s ease forwards} #ib-rt{animation:ib-rt 10s ease forwards}
+      #ia1{animation:ia1 10s ease forwards} #ia2{animation:ia2 10s ease forwards} #ia3{animation:ia3 10s ease forwards}
+      #itc-th{animation:itc-th 10s ease forwards} #itc-av{animation:itc-av 10s ease forwards} #itc-rt{animation:itc-rt 10s ease forwards}
+      #iti-th{animation:iti-th 10s ease forwards} #iti-av{animation:iti-av 10s ease forwards} #iti-rt{animation:iti-rt 10s ease forwards}
+    </style>
+  </defs>
+
+  <rect width="750" height="300" rx="10" fill="url(#bg)"/>
+
+  <!-- Arrows (start visible with "depends on", fade out during cascade) -->
+  <g id="ia1">
+    <path d="M 192 142 C 220 142, 220 52, 248 52" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text x="218" y="93" class="dt" text-anchor="middle">depends on</text>
+  </g>
+  <g id="ia2">
+    <path d="M 192 142 C 220 142, 220 232, 248 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text x="218" y="183" class="dt" text-anchor="middle">depends on</text>
+  </g>
+  <g id="ia3">
+    <path d="M 404 232 C 430 232, 430 232, 456 232" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+    <text x="430" y="228" class="dt" text-anchor="middle">depends on</text>
+  </g>
+
+  <!-- Boxes (all start green) -->
+  <rect id="ib-rt" x="16" y="120" width="176" height="44" rx="12" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <text x="104" y="142" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserProfile<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect x="248" y="30" width="114" height="44" rx="12" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <text x="305" y="52" class="mt" text-anchor="middle" dominant-baseline="middle">GetUser<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="ib-av" x="248" y="210" width="156" height="44" rx="12" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <text x="326" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetUserAvatar<tspan fill="#6b7084">(3)</tspan></text>
+
+  <rect id="ib-th" x="456" y="210" width="280" height="44" rx="12" fill="#c8e8d0" stroke="#78b490" stroke-width="1.5"/>
+  <text x="596" y="232" class="mt" text-anchor="middle" dominant-baseline="middle">GetThumbnail<tspan fill="#6b7084">("user_3_avatar", 64)</tspan></text>
+
+  <!-- Consistent tags (fade out for invalidated nodes; GetUser stays) -->
+  <text id="itc-rt" x="104" y="178" class="tc" text-anchor="middle">&#x2713; consistent</text>
+  <text             x="305" y="88"  class="tc" text-anchor="middle">&#x2713; consistent</text>
+  <text id="itc-av" x="326" y="268" class="tc" text-anchor="middle">&#x2713; consistent</text>
+  <text id="itc-th" x="596" y="268" class="tc" text-anchor="middle">&#x2713; consistent</text>
+
+  <!-- Inconsistent tags (fade in for invalidated nodes) -->
+  <text id="iti-rt" x="104" y="178" class="ti" text-anchor="middle" opacity="0">&#x2717; inconsistent</text>
+  <text id="iti-av" x="326" y="268" class="ti" text-anchor="middle" opacity="0">&#x2717; inconsistent</text>
+  <text id="iti-th" x="596" y="268" class="ti" text-anchor="middle" opacity="0">&#x2717; inconsistent</text>
+</svg>

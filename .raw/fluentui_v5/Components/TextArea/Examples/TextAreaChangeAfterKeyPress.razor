@@ -1,0 +1,28 @@
+﻿<FluentTextArea Placeholder="Write your message and press Enter"
+                Style="--colorCompoundBrandStroke: transparent;"
+                Spellcheck="false"
+                ReadOnly="Running"
+                @bind-Value="@ChatInput"
+                ChangeAfterKeyPress="@([KeyPress.For(KeyCode.Enter).AndCtrlKey(), KeyPress.For(KeyCode.Enter)])"
+                OnChangeAfterKeyPress="@StartChatDiscussion" />
+
+<div style="height: 10px;">
+    <FluentProgressBar Visible="@Running" Width="280px" />
+</div>
+
+Message sent: <b>@ChatInput</b>
+
+@code
+{
+    string ChatInput = string.Empty;
+    bool Running = false;
+
+    async Task StartChatDiscussion(FluentKeyPressEventArgs e)
+    {
+        Running = true;
+
+        await Task.Delay(3000); // Simulate a delay for processing
+
+        Running = false;
+    }
+}

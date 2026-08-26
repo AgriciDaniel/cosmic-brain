@@ -1,0 +1,14 @@
+﻿<FluentSlider Min="10"
+              Max="40"
+              @bind-Value="@Celsius"
+              @bind-Value:after="@ValueChangedHandler"
+              Step="2.5"
+              Style="width: 300px"
+              Label="@($"C°: {Celsius:0.0} - F°: {Fahrenheit:0.0}")" />
+
+@code {
+    double Celsius = 20;
+    double Fahrenheit = 68;
+
+    void ValueChangedHandler() => Fahrenheit = Celsius * 9 / 5 + 32;
+}

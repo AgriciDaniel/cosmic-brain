@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META content="text/html; charset=Windows-1252" http-equiv=Content-Type><TITLE>GETBIDATA</TITLE><LINK 
+rel=stylesheet type=text/css href="../Theme/lf.css"><LINK rel=stylesheet 
+type=text/css href="../LinksExt/C1H_HELP.css"><LINK rel=stylesheet type=text/css 
+href="../LinksExt/84BI.css">
+<SCRIPT type=text/javascript src="../DocToHelp.js">
+
+</SCRIPT>
+
+<meta name="Generator" content="Doc-To-Help v.5.0.0.1518" />
+<meta name="D2HTheme" content="WinLineNeu v.30" />
+</HEAD>
+<BODY 
+style="PADDING-BOTTOM: 15px; PADDING-TOP: 15px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND-COLOR: transparent" 
+relPart="../">
+<SCRIPT language=javascript>
+
+if (typeof d2hInitSecThemeHandlers != "undefined")
+
+    d2hInitSecThemeHandlers();
+
+</SCRIPT>
+
+<DIV class=d2h_secondary_topic 
+style="PADDING-BOTTOM: 10pt; PADDING-TOP: 0pt; PADDING-LEFT: 0pt; MARGIN: 0pt; PADDING-RIGHT: 0pt">
+
+<H4 style="MARGIN-LEFT: 56.7pt; TEXT-INDENT: -56.7pt"><A 
+name=_Ref193111453></A>GETBIDATA</H4>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal>Mit dieser Funktion können die Daten eines 
+Datenquellen-Widgets des Typs <A 
+href="JavaScript:TL_461237.HHClick()">Kachel</A>, <A 
+href="JavaScript:TL_461238.HHClick()">Grafik</A>, <A 
+href="JavaScript:TL_461239.HHClick()">Datentabelle</A>, <A 
+href="JavaScript:TL_461240.HHClick()">Tabelle</A>, <A 
+href="JavaScript:TL_461241.HHClick()">Olap</A> und <A 
+href="JavaScript:TL_461242.HHClick()">Tag Cloud</A> ausgegeben werden. Die 
+Auswahl des Widgets kann durch einen Klick auf dessen Kopfleiste erfolgen.</P>
+<P class=BeispielAchtung>Hinweise</P>
+<P class=MsoNormal>Bei Nutzung der Funktion ist folgendes zu beachten:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Die GETBIDATA-Funktion reserviert 
+sich auf Grundlage des Datenquellen-Widgets automatisch einen 
+Darstellungsbereich. Sollten Zellen innerhalb dieses Bereichs bereits in 
+Verwendung sein, so führt dieses zu der Meldung "#SPILL!".</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Da die angezeigten Daten dynamisch 
+ermittelt werden, ist ein Formatieren innerhalb des Darstellungsbereichs nicht 
+vorgesehen (u.a. <A href="JavaScript:TL_461243.HHClick()">Datenformat</A> und <A 
+href="JavaScript:TL_461244.HHClick()">Textformat</A>).</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Das Datenfeld "Zeile" wird, 
+ausgehend von dem Widget <A href="JavaScript:TL_461245.HHClick()">Tabelle</A>, 
+nicht in das WinCalc übertragen.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Soll mit den Informationen der 
+Funktion gearbeitet werden (z.B. Prozentberechnungen), so muss dieses innerhalb 
+des gleichen <A href="JavaScript:TL_461246.HHClick()">Tabellenblatts</A> 
+stattfinden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Bei dem Verschieben von Zellen 
+werden nur die Parameter der Funktion verschoben, aber der Datenzugriff nicht 
+erneut ausgeführt. Dieser kann durch das Bearbeiten der Funktion via <A 
+href="JavaScript:TL_461247.HHClick()">Funktion bearbeiten</A> reaktiviert 
+werden.</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>Sollte die Anzahl der Zeilen bzw. 
+Spalten für eine Anzeige im CalcSheet nicht ausreichen, so wird auf dieses 
+hingewiesen. Sobald ausreichend Platz zur Verfügung steht, erfolgt die 
+Anzeige.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Syntax</P>
+<P class=MsoNormal>=GETBIDATA (WidgetID, Beschriftung, Anzahl Datensätze, 
+Synchronisierung)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>WidgetID 
+(Eingabe in "")</P>
+<P class=MsoNormal>Hinterlegung bzw. Verweis auf die ID des Widgets, welches 
+ausgegeben werden soll</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Beschriftung 
+(Zahl)</P>
+<P class=MsoNormal>Angabe, ob eine Beschriftungszeile ausgegeben werden 
+soll:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>0</B> - ohne Beschriftung</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN><B>1</B> - mit Beschriftung 
+(Standard)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; </SPAN>Anzahl 
+Datensätze (Zahl)</P>
+<P class=MsoNormal>Hier kann die maximale Anzahl der Datensätze hinterlegt 
+werden, welche im CalcSheet dargestellt werden sollen.</P>
+<P class=BeispielAchtung>Achtung</P>
+<P class=MsoNormal>Sollte die Anzahl der Zeilen bzw. Spalten für eine Anzeige im 
+CalcSheet nicht ausreichen, so wird auf dieses entsprechend hingewiesen.</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Eingabefeld style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings; FONT-WEIGHT: normal">Ø&nbsp; 
+</SPAN>Synchronisierung (Zahl)</P>
+<P class=MsoNormal>Definition, ob bei dem Auslösen eines <A 
+href="JavaScript:TL_461248.HHClick()">Quickfilters</A> die Daten im CalcSheet 
+aktualisiert werden sollen:</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>0 - keine Synchronisation</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>1 - automatische Synchronisation 
+(Standard)</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=BeispielAchtung>Beispiele</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETBIDATA 
+("<U>T2137#widget3</U>", <U>1</U>, <U>50</U>, <U>1</U>)<BR>Die Funktion gibt die 
+ersten <B>50</B> Datenätze des Widgets "<B>3</B>" aus Datenquelle "<B>T2137</B>" 
+mit einer Überschrift (<B>1</B>) aus, wobei die Implementation im Power Report 
+stattgefunden hat. Bei Nutzung des Quickfilters erfolgt eine Aktualisierung der 
+Daten im CalcSheet (<B>1</B>).</P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=Aufzhlung style="MARGIN-LEFT: 28.35pt; TEXT-INDENT: -28.35pt"><SPAN 
+style="FONT-FAMILY: Wingdings">ü&nbsp; </SPAN>=GETBIDATA 
+("<U>LIST_39388#87555dedf4824bcc954fa74f6d281b89</U>", <U>0</U>, <U>20</U>, 
+<U>1</U>)<BR>Die Funktion gibt die ersten <B>20</B> Datenätze des Widgets 
+"<B>87555dedf4824bcc954fa74f6d281b89</B>" aus Datenquelle " <B>LIST_39388</B>" 
+ohne eine Überschrift (<B>0</B>) aus, wobei die Implementation im Cockpit&nbsp; 
+stattgefunden hat. Da es im Cockpit keinen Quickfilter gibt, ist die 
+Synchronisationseinstellung (<B>1</B>) irrelevant.</P>
+<P class=MsoNormal>&nbsp;</P><SPAN id=related-topics></SPAN>
+<OBJECT id=TL_461237 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetskachel1.htm"></OBJECT>
+<OBJECT id=TL_461238 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetsgrafik1.htm"></OBJECT>
+<OBJECT id=TL_461239 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetsdatentabelle1.htm"></OBJECT>
+<OBJECT id=TL_461240 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetstabelle1.htm"></OBJECT>
+<OBJECT id=TL_461241 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetsolap1.htm"></OBJECT>
+<OBJECT id=TL_461242 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetstagcloud1.htm"></OBJECT>
+<OBJECT id=TL_461243 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/datenformat.htm"></OBJECT>
+<OBJECT id=TL_461244 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/textformat.htm"></OBJECT>
+<OBJECT id=TL_461245 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetstabelle1.htm"></OBJECT>
+<OBJECT id=TL_461246 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/tabellenblatt.htm"></OBJECT>
+<OBJECT id=TL_461247 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/funktionbearbeiten.htm"></OBJECT>
+<OBJECT id=TL_461248 classid=clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11 
+type=application/x-oleobject><PARAM NAME="Command" VALUE="Related Topics"><PARAM NAME="Window" VALUE="$global_WinLine  Hilfe"><PARAM NAME="Item1" VALUE=";cwl0.chm::/WordDocuments/powerreportwidgetsquickfilter.htm"></OBJECT></DIV></BODY></HTML>

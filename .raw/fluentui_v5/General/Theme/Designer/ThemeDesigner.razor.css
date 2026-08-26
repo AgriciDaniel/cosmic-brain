@@ -1,0 +1,27 @@
+#theme-preview {
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.sticker-sheet {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.sticker-card {
+  border: 1px solid var(--colorNeutralStroke2);
+  border-radius: 6px;
+  padding: 16px;
+  background: var(--colorNeutralBackground1);
+}
+
+.sticker-title {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--colorNeutralForeground1);
+}

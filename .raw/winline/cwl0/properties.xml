@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?>
+<Data xmlns="http://componentone.com/Data.xsd">
+  <BackgroundRepeat d2p1:Name="None" d2p1:Value="no-repeat" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <BackgroundRepeat d2p1:Name="Tiled" d2p1:Value="repeat" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <BackgroundRepeat d2p1:Name="Horizontal" d2p1:Value="repeat-x" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <BackgroundRepeat d2p1:Name="Vertical" d2p1:Value="repeat-y" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <CommandStyle d2p1:Name="Text only" d2p1:Value="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <CommandStyle d2p1:Name="Picture only" d2p1:Value="1" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <CommandStyle d2p1:Name="Text and picture" d2p1:Value="2" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <SizeType d2p1:Name="Percent" d2p1:Value="%" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <SizeType d2p1:Name="Pixels" d2p1:Value="px" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <FramePosition d2p1:Name="Top of topic" d2p1:Value="3" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <FramePosition d2p1:Name="Bottom of topic" d2p1:Value="4" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <FramePosition d2p1:Name="None" d2p1:Value="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Background d2p1:Node="Navigator\Background" d2p1:Inherit="false" d2p1:UseColor="false" d2p1:Color="window" d2p1:UsePicture="false" d2p1:Repeat="no-repeat" d2p1:OnlyBody="true" d2p1:UseBtnColor="false" d2p1:BtnColor="window" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Background d2p1:Node="Document\Background" d2p1:Inherit="true" d2p1:UseColor="false" d2p1:Color="window" d2p1:UsePicture="false" d2p1:Repeat="no-repeat" d2p1:OnlyBody="false" d2p1:UseBtnColor="false" d2p1:BtnColor="window" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Background d2p1:Node="Popup\Background" d2p1:Inherit="false" d2p1:UseColor="true" d2p1:Color="LightYellow" d2p1:UsePicture="false" d2p1:Repeat="no-repeat" d2p1:OnlyBody="false" d2p1:UseBtnColor="false" d2p1:BtnColor="LightYellow" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Background d2p1:Node="Secondary\Background" d2p1:Inherit="false" d2p1:UseColor="false" d2p1:Color="White" d2p1:UsePicture="false" d2p1:Repeat="no-repeat" d2p1:OnlyBody="false" d2p1:UseBtnColor="false" d2p1:BtnColor="White" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Layout d2p1:Node="Navigator\Layout" d2p1:Location="3" d2p1:Height="20" d2p1:HeightType="px" d2p1:Nonscrolling="true" d2p1:Alignment="right" d2p1:IncludeTitle="false" d2p1:Width="80" d2p1:WidthType="px" d2p1:HighlightUse="false" d2p1:HighlightColor="window" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Command d2p1:Node="Navigator\Commands\Previous" d2p1:Style="1" d2p1:UseSystem="false" d2p1:Visited="Verdana, 8.25pt, style=Underline" d2p1:Unvisited="Verdana, 8.25pt" d2p1:Rollover="Verdana, 8.25pt, style=Underline" d2p1:OpenPicture="ButtonsAndIcons\nav_prev.gif" d2p1:ClosePicture="ButtonsAndIcons\nav_prev_d.gif" d2p1:Name="Previous" d2p1:VisitedColor="Blue" d2p1:UnvisitedColor="Black" d2p1:RolloverColor="Red" d2p1:Normal="Verdana, 8pt" d2p1:NormalColor="WindowText" d2p1:InheritName="true" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Command d2p1:Node="Navigator\Commands\Next" d2p1:Style="1" d2p1:UseSystem="false" d2p1:Visited="Verdana, 8.25pt, style=Underline" d2p1:Unvisited="Verdana, 8.25pt" d2p1:Rollover="Verdana, 8.25pt, style=Underline" d2p1:OpenPicture="ButtonsAndIcons\nav_next.gif" d2p1:ClosePicture="ButtonsAndIcons\nav_next_d.gif" d2p1:Name="Next" d2p1:VisitedColor="Blue" d2p1:UnvisitedColor="Black" d2p1:RolloverColor="Red" d2p1:Normal="Verdana, 8pt" d2p1:NormalColor="WindowText" d2p1:InheritName="true" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Internal d2p1:Predefined="false" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Windows d2p1:Name="Navigator" d2p1:Value="Navigator" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Windows d2p1:Name="Document" d2p1:Value="Document" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Windows d2p1:Name="Popup" d2p1:Value="Popup" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Windows d2p1:Name="Secondary" d2p1:Value="Secondary" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Alignment d2p1:Name="Left" d2p1:Value="left" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Alignment d2p1:Name="Center" d2p1:Value="center" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Alignment d2p1:Name="Right" d2p1:Value="right" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="1" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="2" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="3" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="4" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="5" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="6" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Navigator\Customize" d2p1:Position="7" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="1" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="2" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="3" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="4" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="5" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="6" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Document\Customize" d2p1:Position="7" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="1" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="2" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="3" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="4" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="5" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="6" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Popup\Customize" d2p1:Position="7" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="0" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="1" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="2" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="3" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="4" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="5" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="6" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFile d2p1:Node="Secondary\Customize" d2p1:Position="7" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="0" d2p1:Name="Top-Left" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="1" d2p1:Name="Top-Center" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="2" d2p1:Name="Top-Right" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="3" d2p1:Name="Left" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="4" d2p1:Name="Right" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="5" d2p1:Name="Bottom-Left" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="6" d2p1:Name="Bottom-Center" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <IncludeFilePositions d2p1:ID="7" d2p1:Name="Bottom-Right" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Properties d2p1:Name="Version" d2p1:Value="30" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <TopicTextLayout d2p1:ShowIndent="false" xmlns:d2p1="http://componentone.com/Data.xsd" />
+  <Breadcrumbs d2p1:UseBreadcrumbs="true" d2p1:UseSeparator="true" d2p1:InheritLabel="true" d2p1:ContentsOnlyStyle="Tahoma, 10pt" d2p1:SelectedStyle="Tahoma, 10pt" d2p1:NormalStyle="Tahoma, 10pt" d2p1:HoverStyle="Tahoma, 10pt" d2p1:UseDefaultStyles="false" d2p1:ContentsOnlyColor="Black" d2p1:SelectedColor="Purple" d2p1:NormalColor="Blue" d2p1:HoverColor="Red" d2p1:LinkSeparator=" &gt; " d2p1:LabelStyle="Tahoma, 10pt" d2p1:LinkSeparatorStyle="Tahoma, 10pt" d2p1:LabelColor="Black" d2p1:LinkSeparatorColor="Black" d2p1:IncludeCurrentTopic="true" xmlns:d2p1="http://componentone.com/Data.xsd" />
+</Data>

@@ -1,0 +1,39 @@
+﻿@inject IToastService ToastService
+
+<FluentButton OnClick="@OpenToastAsync">
+   Make toast
+</FluentButton>
+
+@code {
+    int clickCount = 0;
+
+    private async Task OpenToastAsync()
+    {
+        var result = await ToastService.ShowToastAsync(options =>
+        {
+            options.Title = $"Toast title {++clickCount}";
+            options.Body = "Toasts are used to show brief messages to the user.";
+            options.Subtitle = "subtitle";
+            options.QuickAction1 = "Action";
+            options.QuickAction1Callback = () =>
+            {
+                Console.WriteLine("Action 1 executed.");
+                return Task.CompletedTask;
+            };
+            options.QuickAction2 = "Action";
+            options.QuickAction2Callback = () =>
+            {
+                Console.WriteLine("Action 2 executed.");
+                return Task.CompletedTask;
+            };
+            options.IsDismissable = true;
+            options.OnStatusChange = (e) =>
+            {
+                   Console.WriteLine($"Status changed: {e.Id} - {e.Status}");
+            };
+
+        });
+        Console.WriteLine($"Toast result: {result}");
+    }
+}
+

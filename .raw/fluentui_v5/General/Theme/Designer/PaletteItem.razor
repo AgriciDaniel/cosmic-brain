@@ -1,0 +1,18 @@
+﻿<div class="palette-item" style="background-color:@Hex; color: @_color">
+    <div class="palette-item__header">
+        <span class="palette-item__hex">@Hex</span>
+
+        <FluentButton Appearance="ButtonAppearance.Transparent"
+                      Class="palette-item__copy-button"
+                      IconOnly="true"
+
+                      OnClick="CopyHexAsync">
+            <FluentIcon Value="@(new Icons.Regular.Size16.Copy().WithColor(_color))" Class="icon-rest" />
+            <FluentIcon Value="@(new Icons.Filled.Size16.Copy().WithColor(_color))" Class="icon-hover" />
+
+
+        </FluentButton>
+    </div>
+
+    <span class="palette-item__value">@Value</span>
+</div>

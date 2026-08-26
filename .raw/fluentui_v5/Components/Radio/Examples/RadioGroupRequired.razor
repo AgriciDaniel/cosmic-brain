@@ -1,0 +1,20 @@
+﻿<form>
+    <FluentRadioGroup Name="options"
+                      Items="@Fruits"
+                      Label="Choose a fruit"
+                      Required="true"
+                      @bind-Value="@Value"
+                      Message="Please select a fruit." />
+
+    <FluentDivider Margin="@Margin.Vertical3" />
+
+    <FluentButton Type="ButtonType.Submit" Appearance="ButtonAppearance.Primary">Submit</FluentButton>
+    <FluentButton Type="ButtonType.Reset">Reset</FluentButton>
+</form>
+
+
+@code {
+
+    private static readonly string[] Fruits = new[] { "Apple", "Banana", "Orange" };
+    private string? Value;
+}

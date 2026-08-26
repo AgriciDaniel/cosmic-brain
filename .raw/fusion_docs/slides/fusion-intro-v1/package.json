@@ -1,0 +1,13 @@
+{
+  "name": "slides-fusion-intro",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open --port 3049",
+    "build": "slidev build --base ./ --out ../../public/slides/fusion-intro-v1",
+    "export": "slidev export"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.0.0",
+    "@slidev/theme-default": "latest"
+  }
+}

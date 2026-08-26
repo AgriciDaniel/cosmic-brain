@@ -1,0 +1,12 @@
+:root {
+  --datagrid-hover-color: lightyellow;
+}
+
+.fluent-data-grid {
+  --fluent-data-grid-resize-handle-color: var(--colorNeutralStencil1) !important;
+}
+
+.flag {
+  height: 1rem;
+  border: 1px solid var(--colorNeutralBackground3);
+}

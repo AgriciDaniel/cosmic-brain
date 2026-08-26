@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 200" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State Node Gradient (Light Blue) -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Action Node Gradient (Warm Amber) -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Arrowhead Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 8 5 L 0 8 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="940" height="200" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Header -->
+  <text x="30" y="40" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">Lifecycle Flow</text>
+
+  <!-- Edges (Bezier Paths) -->
+  <!-- Run to OnStart -->
+  <path d="M 120 100 C 140 100, 150 100, 168 100" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- OnStart to OnRun -->
+  <path d="M 270 100 C 290 100, 300 100, 318 100" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- OnRun to OnStop -->
+  <path d="M 410 100 C 460 100, 490 100, 538 100" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+  
+  <!-- OnStop to Done -->
+  <path d="M 630 100 C 650 100, 660 100, 678 100" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+  <!-- Edge Label -->
+  <text x="475" y="88" font-family="Inter, -apple-system, sans-serif" font-size="11px" fill="#6b7084" font-style="italic" text-anchor="middle">StopToken cancelled</text>
+
+  <!-- Nodes -->
+  <!-- Run() (Action Node) -->
+  <rect x="40" y="80" width="80" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="80" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Run()</text>
+
+  <!-- OnStart (Action Node) -->
+  <rect x="170" y="80" width="100" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="220" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OnStart</text>
+
+  <!-- OnRun (Action Node) -->
+  <rect x="320" y="80" width="90" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="365" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OnRun</text>
+
+  <!-- OnStop (Action Node) -->
+  <rect x="540" y="80" width="90" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="585" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">OnStop</text>
+
+  <!-- Done (State Node) -->
+  <rect x="680" y="80" width="220" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="790" y="104" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">WhenRunning completes</text>
+</svg>

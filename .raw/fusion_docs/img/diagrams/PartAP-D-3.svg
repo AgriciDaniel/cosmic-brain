@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <marker id="arrow" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 6 3 L 0 6 Z" fill="#8b90a8" />
+        </marker>
+    </defs>
+    <style>
+        .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+        .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+        .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+    </style>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Inheritance Arrows -->
+    <path d="M 170 180 C 170 147.5, 170 147.5, 170 115" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+    <path d="M 510 180 C 510 147.5, 510 147.5, 510 115" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrow)" />
+
+    <!-- Class: IRequiresAsyncProxy -->
+    <g transform="translate(50, 50)">
+        <rect width="240" height="65" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+        <line x1="0" y1="45" x2="240" y2="45" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="120" y="20" text-anchor="middle" class="label">&lt;&lt;interface&gt;&gt;</text>
+        <text x="120" y="36" text-anchor="middle" class="code" font-weight="bold">IRequiresAsyncProxy</text>
+    </g>
+
+    <!-- Class: IRequiresFullProxy -->
+    <g transform="translate(50, 180)">
+        <rect width="240" height="85" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+        <line x1="0" y1="45" x2="240" y2="45" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="120" y="20" text-anchor="middle" class="label">&lt;&lt;interface&gt;&gt;</text>
+        <text x="120" y="36" text-anchor="middle" class="code" font-weight="bold">IRequiresFullProxy</text>
+        <text x="15" y="65" class="label">also intercepts sync methods</text>
+    </g>
+
+    <!-- Class: InterfaceProxy -->
+    <g transform="translate(350, 50)">
+        <rect width="320" height="65" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+        <line x1="0" y1="35" x2="320" y2="35" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="160" y="24" text-anchor="middle" class="code" font-weight="bold">InterfaceProxy</text>
+        <text x="15" y="55" class="code">ProxyTarget: object?</text>
+    </g>
+
+    <!-- Class: IGreetingServiceProxy -->
+    <g transform="translate(350, 180)">
+        <rect width="320" height="145" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+        <line x1="0" y1="45" x2="320" y2="45" stroke="#bcc8da" stroke-width="1.5" />
+        <text x="160" y="20" text-anchor="middle" class="label">implements IGreetingService, IProxy</text>
+        <text x="160" y="36" text-anchor="middle" class="code" font-weight="bold">IGreetingServiceProxy</text>
+        <text x="15" y="65" class="code">__interceptor: Interceptor</text>
+        <text x="15" y="85" class="code">__cachedIntercepted0: Func</text>
+        <text x="15" y="105" class="code">__cachedIntercept0: Func</text>
+        <text x="15" y="125" class="code">GreetAsync(name, ct)</text>
+    </g>
+</svg>

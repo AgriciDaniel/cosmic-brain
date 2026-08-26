@@ -1,0 +1,79 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="461px" height="141px" viewBox="-0.5 -0.5 461 141" content="&lt;mxfile&gt;&lt;diagram id=&quot;kw18oWOQznUcBdoQ51Q1&quot; name=&quot;Page-1&quot;&gt;zVZJc5swFP41zCSHdkDY1Dk2xG56SC/uMjkKJJaJQFSI2O6v79OCgHgpmeRQPIOlT99b9dCTF8bV/ovATfHACWUe8sneC+88hKIIwVsBBwOsQt8AuSiJgYIB2JZ/qAV7WlcS2k6IknMmy2YKpryuaSonGBaC76a0jLOp1Qbn9AjYppgdo79KIgsbxdIf8Hta5kVvOfDtSoV7sgXaAhO+G0Hh2gtjwbk0o2ofU6Zy1+fFyG3OrDrHBK3lHAG7Ec+YdTY2D0UMRG8lTiBc5CdcECr0WvS7U37dBsMQCDuXAbeuwl1OSCmYbTAhZZ1PqIsJq5UHm+IetMo/w2Kv1Tfcwib4xJJx+UPKGcNNSw3HzUYGo9z+m4gTDgX5EhQn/Upw+pQL3tVEmeHC2BB5chVEn5QjKIY3eObGUXT9wkHre7NXFjiDLbEalshJBTeDhjC8vuB8oWqblXk98ZPRTB4LfT80tBeE2lCyb9D29aHTxbKVWCq1uGoUVxty04n6d7AZ86rpJCVvNKpAMXfPz+6ah8KbVZKh4ML+EOd6qw4CkzIv3PSExLlxVeBWOwCRffypv0xlApj+Gg4v7RyVkor2ehwGOW/yEQ7Lecxv/CLxVek6+YlAqijOEAlnfAyvT6vJWV8bup52+NCaVtCWrdTH4ua/Ttv7pONe19CPhkBC7ijDB6VzbuD/CGd+hk4GrsBTR63CTdPpcTTJEJJ0r/BCVgyAAIatFPyJxqa8gBKmvvrBSlYyNsIz/QDOn6nImG65igKILlGq+qGW47Ucyfn6cc6AMDhxttcGroPDzYfyikoBUfpWYGV7vr30oIWdDw0ULSKLFePrQ0/E9tqSO9VDZ4eBbe79dLhE6LXRTSxc/wU=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <rect x="0" y="0" width="460" height="140" fill="#ffffff" stroke="#c0c0c0" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 462px; height: 140px; padding-top: 0px; margin-left: 0px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; width: 460px; height: 140px; overflow: hidden; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; width: 100%; height: 100%; white-space: nowrap; ">
+                                <table border="1" width="100%" cellpadding="4" style="width: 100% ; height: 100% ; border-collapse: collapse">
+                                    <tbody>
+                                        <tr style="background-color: rgb(167 , 201 , 66) ; border: 1px solid rgb(152 , 191 , 33)">
+                                            <th align="left">
+                                                Type
+                                            </th>
+                                            <th align="left">
+                                                IMutableState&lt;T&gt;
+                                            </th>
+                                            <th align="left">
+                                                IComputedState&lt;T&gt;
+                                            </th>
+                                        </tr>
+                                        <tr style="border: 1px solid #98bf21">
+                                            <td>
+                                                Is mutable?
+                                                <br/>
+                                                (has state.Value / Error setters)
+                                            </td>
+                                            <td>
+                                                Yes
+                                            </td>
+                                            <td>
+                                                No
+                                            </td>
+                                        </tr>
+                                        <tr style="background-color: #eaf2d3 ; border: 1px solid #98bf21">
+                                            <td>
+                                                Is state.Computed always consistent?
+                                            </td>
+                                            <td>
+                                                Yes
+                                            </td>
+                                            <td>
+                                                No
+                                            </td>
+                                        </tr>
+                                        <tr style="border: 1px solid #98bf21">
+                                            <td>
+                                                Has UpdateDelayer?
+                                            </td>
+                                            <td>
+                                                No
+                                            </td>
+                                            <td>
+                                                Yes
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="0" y="12" fill="#000000" font-family="Helvetica" font-size="12px">
+                    TypeIMutableState&lt;T&gt;IComputedState&lt;T&gt;Is mutable?...
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>

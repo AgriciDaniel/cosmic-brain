@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="a13" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#a8b1ff"/>
+    </marker>
+    <marker id="r13" viewBox="0 -5 10 10" refX="10" refY="0" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#41d1ff"/>
+    </marker>
+  </defs>
+
+  <text x="160" y="30" text-anchor="middle" fill="#a8b1ff" font-size="15" font-weight="600">CLIENT</text>
+  <text x="640" y="30" text-anchor="middle" fill="#a8b1ff" font-size="15" font-weight="600">SERVER</text>
+
+  <rect x="60" y="50" width="200" height="60" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="160" y="85" text-anchor="middle" fill="#fcfcf7" font-size="14">UI / compute method call</text>
+
+  <rect x="60" y="160" width="200" height="60" rx="8" fill="rgba(168,177,255,0.10)" stroke="#a8b1ff" stroke-width="2"/>
+  <text x="160" y="187" text-anchor="middle" fill="#fcfcf7" font-size="14">Persistent cache</text>
+  <text x="160" y="208" text-anchor="middle" fill="#7e7e87" font-size="11">localStorage / IndexedDB / SQLite</text>
+
+  <rect x="540" y="160" width="200" height="60" rx="8" fill="rgba(189,52,254,0.10)" stroke="#bd34fe" stroke-width="1.5"/>
+  <text x="640" y="195" text-anchor="middle" fill="#fcfcf7" font-size="14">Real Compute Service</text>
+
+  <line x1="160" y1="110" x2="160" y2="155" stroke="#a8b1ff" stroke-width="2" marker-end="url(#a13)"/>
+  <text x="170" y="135" text-anchor="start" fill="#a8b1ff" font-size="12">1. lookup</text>
+
+  <path d="M 160 215 C 160 270, 160 270, 240 270" stroke="#a8b1ff" stroke-width="2" fill="none" marker-end="url(#a13)"/>
+  <text x="200" y="290" text-anchor="middle" fill="#a8b1ff" font-size="12">2. cached value returned immediately</text>
+
+  <line x1="260" y1="190" x2="535" y2="190" stroke="#41d1ff" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#r13)"/>
+  <text x="397" y="180" text-anchor="middle" fill="#41d1ff" font-size="12">3. background RPC with cached hash</text>
+
+  <line x1="535" y1="200" x2="265" y2="200" stroke="#41d1ff" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#r13)"/>
+  <text x="397" y="218" text-anchor="middle" fill="#41d1ff" font-size="12">4. match · or new value + invalidate</text>
+
+  <text x="400" y="340" text-anchor="middle" fill="#7e7e87" font-size="12">The UI never waits. Validation happens in the background.</text>
+</svg>

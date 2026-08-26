@@ -1,0 +1,52 @@
+﻿@using static FluentUI.Demo.SampleData.Olympics2024
+
+<div class="grid" style="width: 100%; overflow-x:auto;">
+    <FluentDataGrid Items="@items" Pagination="@pagination"  Style="width: 1000px;">
+        <PropertyColumn Property="@(c => c.Name)" Sortable="true" Class="country-name" />
+        <PropertyColumn Property="@(c => c.Medals.Gold)" Sortable="true" Align="DataGridCellAlignment.End" />
+        <PropertyColumn Property="@(c => c.Medals.Silver)" Sortable="true" Align="DataGridCellAlignment.End" />
+        <PropertyColumn Property="@(c => c.Medals.Bronze)" Sortable="true" Align="DataGridCellAlignment.End" />
+    </FluentDataGrid>
+</div>
+
+<div class="page-buttons">
+    Page:
+    @if (pagination.TotalItemCount.HasValue)
+    {
+        for (var pageIndex = 0; pageIndex <= pagination.LastPageIndex; pageIndex++)
+        {
+            var capturedIndex = pageIndex;
+            <FluentButton IconOnly="true" @onclick="@(() => GoToPageAsync(capturedIndex))"
+                    Appearance="@PageButtonAppearance(capturedIndex)"
+                    aria-current="@AriaCurrentValue(capturedIndex)"
+                    aria-label="@AriaLabel(capturedIndex + 1)">
+                @(capturedIndex + 1)
+            </FluentButton>
+        }
+    }
+</div>
+
+@code {
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
+    IQueryable<Country>? items;
+
+    protected override void OnInitialized()
+    {
+        items = SampleData.Olympics2024.Countries.AsQueryable();
+        pagination.TotalItemCountChanged += (sender, eventArgs) => StateHasChanged();
+    }
+
+    private async Task GoToPageAsync(int pageIndex)
+    {
+        await pagination.SetCurrentPageIndexAsync(pageIndex);
+    }
+
+    private ButtonAppearance PageButtonAppearance(int pageIndex)
+        => pagination.CurrentPageIndex == pageIndex ? ButtonAppearance.Primary : ButtonAppearance.Default;
+
+    private string? AriaCurrentValue(int pageIndex)
+        => pagination.CurrentPageIndex == pageIndex ? "page" : null;
+
+    private string AriaLabel(int pageIndex)
+        => $"Go to page {pageIndex}";
+}

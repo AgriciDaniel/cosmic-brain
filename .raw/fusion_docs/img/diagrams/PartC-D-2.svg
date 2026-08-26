@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 860" width="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fd" />
+      <stop offset="50%" stop-color="#eaf1fb" />
+      <stop offset="100%" stop-color="#e2ebf7" />
+    </linearGradient>
+
+    <!-- State/Object Node Gradient -->
+    <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0fc" />
+      <stop offset="100%" stop-color="#d4e3f7" />
+    </linearGradient>
+
+    <!-- Action/Process Node Gradient -->
+    <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef9f0" />
+      <stop offset="100%" stop-color="#faecd8" />
+    </linearGradient>
+
+    <!-- Arrowhead Marker -->
+    <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b90a8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+  <!-- Subgraph C1: CommandContext #1 -->
+  <rect x="50" y="110" width="500" height="710" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="65" y="135" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">CommandContext #1 (Outermost)</text>
+
+  <!-- Subgraph C2: CommandContext #2 -->
+  <rect x="70" y="350" width="460" height="440" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="85" y="375" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">CommandContext #2 (Nested)</text>
+
+  <!-- Subgraph C3: CommandContext #3 -->
+  <rect x="90" y="590" width="420" height="170" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+  <text x="105" y="615" font-family="Inter, sans-serif" font-size="11px" fill="#8b90a8" font-weight="600" text-transform="uppercase">CommandContext #3 (Deeply Nested)</text>
+
+  <!-- Arrows (drawn before nodes so they sit underneath node borders if they touch) -->
+  <path d="M 300 80 C 300 120, 300 120, 300 160" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 300 250 C 300 265, 300 265, 300 280" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 300 320 C 300 360, 300 360, 300 400" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 300 490 C 300 505, 300 505, 300 520" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+  <path d="M 300 560 C 300 600, 300 600, 300 640" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+
+  <!-- Node: Call (Action) -->
+  <rect x="160" y="40" width="280" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="64" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Commander.Call(OuterCommand)</text>
+
+  <!-- Node: Info1 (State) -->
+  <rect x="120" y="160" width="360" height="90" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="140" y="182" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">Command: OuterCommand</text>
+  <text x="140" y="202" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">ServiceScope: New scope created</text>
+  <text x="140" y="222" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OuterContext: null</text>
+  <text x="140" y="242" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OutermostContext: this</text>
+
+  <!-- Node: CallInner (Action) -->
+  <rect x="120" y="280" width="360" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="304" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Handler calls Commander.Call(InnerCommand)</text>
+
+  <!-- Node: Info2 (State) -->
+  <rect x="120" y="400" width="360" height="90" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="140" y="422" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">Command: InnerCommand</text>
+  <text x="140" y="442" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">ServiceScope: Shared with #1</text>
+  <text x="140" y="462" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OuterContext: Context #1</text>
+  <text x="140" y="482" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OutermostContext: Context #1</text>
+
+  <!-- Node: CallDeep (Action) -->
+  <rect x="120" y="520" width="360" height="40" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+  <text x="300" y="544" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e" text-anchor="middle">Handler calls Commander.Call(DeepCommand)</text>
+
+  <!-- Node: Info3 (State) -->
+  <rect x="120" y="640" width="360" height="90" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+  <text x="140" y="662" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">Command: DeepCommand</text>
+  <text x="140" y="682" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">ServiceScope: Shared with #1</text>
+  <text x="140" y="702" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OuterContext: Context #2</text>
+  <text x="140" y="722" font-family="'SF Mono', 'Fira Code', Consolas, monospace" font-size="13px" fill="#1a1a2e">OutermostContext: Context #1</text>
+
+</svg>

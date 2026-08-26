@@ -1,0 +1,25 @@
+﻿<FluentStack Orientation="Orientation.Vertical"
+             VerticalGap="12px">
+
+    <h3>SwatchPalette</h3>
+    <FluentColorPicker Orientation="Orientation.Horizontal"
+                       View="ColorPickerView.SwatchPalette"
+                       @bind-SelectedColor="SelectedColor" />
+
+    <h3>ColorWheel</h3>
+    <FluentColorPicker View="ColorPickerView.ColorWheel"
+                       @bind-SelectedColor="SelectedColor" />
+
+    <h3>HsvSquare</h3>
+    <FluentColorPicker View="ColorPickerView.HsvSquare"
+                       @bind-SelectedColor="SelectedColor" />
+</FluentStack>
+
+<div>
+    <FluentText>Selected Color: @SelectedColor</FluentText>
+</div>
+
+@code
+{
+    string SelectedColor = "#FF0000";
+}

@@ -1,0 +1,57 @@
+﻿@using FluentUI.Demo.SampleData
+
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+<div style="height: 434px; overflow:auto;" tabindex="-1">
+    <FluentDataGrid ItemsProvider="foodRecallProvider"
+                    OnRowDoubleClick="@(()=>Console.WriteLine("Row double clicked!"))"
+                    Virtualize="true"
+                    DisplayMode="DataGridDisplayMode.Table"
+                    ItemSize="46"
+                    GenerateHeader="DataGridGeneratedHeaderType.Sticky"
+                    TGridItem="FoodRecall" >
+        <PropertyColumn Title="ID" Property="@(c => c!.Event_Id)" />
+        <PropertyColumn Property="@(c => c!.State)" Style="color: #af5f00 ;" />
+        <PropertyColumn Property="@(c => c!.City)" />
+        <PropertyColumn Title="Company" Property="@(c => c!.Recalling_Firm)" Tooltip="true"/>
+        <PropertyColumn Property="@(c => c!.Status)" />
+        <TemplateColumn Title="Actions" Align="@DataGridCellAlignment.End">
+            <FluentButton aria-label="Edit item" IconEnd="@(new Icons.Regular.Size16.Edit())" OnClick="@(() => Console.WriteLine("Edit clicked"))" />
+            <FluentButton aria-label="Delete item" IconEnd="@(new Icons.Regular.Size16.Delete())" OnClick="@(() => Console.WriteLine("Delete clicked"))" />
+        </TemplateColumn>
+    </FluentDataGrid>
+</div>
+
+<p>Total: <strong>@numResults results found</strong></p>
+
+@code {
+    GridItemsProvider<FoodRecall> foodRecallProvider = default!;
+    int? numResults;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Define the GridRowsDataProvider. Its job is to convert QuickGrid's GridRowsDataProviderRequest into a query against
+        // an arbitrary data source. In this example, we need to translate query parameters into the particular URL format
+        // supported by the external JSON API. It's only possible to perform whatever sorting/filtering/etc is supported
+        // by the external API.
+        foodRecallProvider = async req =>
+        {
+            var url = NavManager.GetUriWithQueryParameters("https://api.fda.gov/food/enforcement.json", new Dictionary<string, object?>
+                        {
+                { "skip", req.StartIndex },
+                { "limit", req.Count },
+                        });
+
+            var response = await Http.GetFromJsonAsync<FoodRecallQueryResult>(url, req.CancellationToken);
+
+
+            return GridItemsProviderResult.From(
+                items: response!.Results,
+                totalItemCount: response!.Meta.Results.Total);
+        };
+
+        // Display the number of results just for information. This is completely separate from the grid.
+        numResults = (await Http.GetFromJsonAsync<FoodRecallQueryResult>("https://api.fda.gov/food/enforcement.json"))!.Meta.Results.Total;
+    }
+}

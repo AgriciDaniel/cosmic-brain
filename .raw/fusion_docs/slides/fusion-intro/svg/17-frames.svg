@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" font-family="Inter, ui-sans-serif, sans-serif">
+  <defs>
+    <marker id="tA" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,-5L10,0L0,5" fill="#7e7e87"/>
+    </marker>
+    <marker id="bA" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,-5L10,0L0,5" fill="#8ef0a4"/>
+    </marker>
+  </defs>
+
+  <!-- legend -->
+  <rect x="206" y="8" width="13" height="13" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <text x="225" y="18" fill="#9ca0ad" font-size="11.5">header</text>
+  <rect x="290" y="8" width="13" height="13" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+  <text x="309" y="18" fill="#9ca0ad" font-size="11.5">call payload</text>
+  <rect x="410" y="8" width="13" height="13" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+  <text x="429" y="18" fill="#9ca0ad" font-size="11.5">result payload</text>
+
+  <!-- ===== Row 1: Regular ===== -->
+  <text x="14" y="66" fill="#9ca0ad" font-size="14" font-weight="600">Regular</text>
+  <line x1="88" y1="80" x2="732" y2="80" stroke="#5a5a63" stroke-width="1"/>
+
+  <!-- step labels -->
+  <text x="116" y="37" text-anchor="middle" fill="#a8b1ff" font-size="10.5">1 · sent</text>
+  <text x="176" y="37" text-anchor="middle" fill="#a8b1ff" font-size="10.5">2 · sent</text>
+  <text x="236" y="37" text-anchor="middle" fill="#7ee787" font-size="10.5">3 · got</text>
+  <text x="296" y="37" text-anchor="middle" fill="#7ee787" font-size="10.5">4 · got</text>
+  <text x="396" y="37" text-anchor="middle" fill="#a8b1ff" font-size="10.5">5 · sent</text>
+  <text x="456" y="37" text-anchor="middle" fill="#7ee787" font-size="10.5">6 · got</text>
+
+  <!-- F1 sent call 1 -->
+  <rect x="92"  y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="104" y="44" width="36" height="36" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+  <text x="122" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">1</text>
+  <!-- F2 sent call 2 -->
+  <rect x="152" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="164" y="44" width="36" height="36" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+  <text x="182" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">2</text>
+  <!-- F3 got result 1 -->
+  <rect x="212" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="224" y="44" width="36" height="36" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+  <text x="242" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">1</text>
+  <!-- F4 got result 2 -->
+  <rect x="272" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="284" y="44" width="36" height="36" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+  <text x="302" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">2</text>
+
+  <text x="346" y="70" text-anchor="middle" fill="#7e7e87" font-size="16">···</text>
+
+  <!-- F5 sent call 5 -->
+  <rect x="372" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="384" y="44" width="36" height="36" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+  <text x="402" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">5</text>
+  <!-- F6 got result 5 -->
+  <rect x="432" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="444" y="44" width="36" height="36" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+  <text x="462" y="66" text-anchor="middle" fill="#fcfcf7" font-size="11">5</text>
+
+  <text x="490" y="70" text-anchor="middle" fill="#7e7e87" font-size="16">···</text>
+
+  <!-- faded continuation: many more round-trips -->
+  <g opacity="0.4">
+    <rect x="500" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+    <rect x="512" y="44" width="36" height="36" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+    <rect x="560" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+    <rect x="572" y="44" width="36" height="36" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+    <rect x="620" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+    <rect x="632" y="44" width="36" height="36" rx="2" fill="rgba(168,177,255,0.55)" stroke="#a8b1ff" stroke-width="1"/>
+    <rect x="680" y="44" width="12" height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+    <rect x="692" y="44" width="36" height="36" rx="2" fill="rgba(126,231,135,0.50)" stroke="#7ee787" stroke-width="1"/>
+  </g>
+
+  <text x="400" y="98" text-anchor="middle" fill="#ff9a9a" font-size="12">every call is its own framed round-trip — 200+ of them to paint one screen</text>
+
+  <!-- ===== Row 2: Batched ===== -->
+  <text x="14" y="141" fill="#bd34fe" font-size="14" font-weight="600">Batched</text>
+  <line x1="88" y1="155" x2="452" y2="155" stroke="#5a5a63" stroke-width="1"/>
+
+  <text x="173" y="113" text-anchor="middle" fill="#a8b1ff" font-size="10.5">one · sent</text>
+  <text x="367" y="113" text-anchor="middle" fill="#7ee787" font-size="10.5">one · got</text>
+
+  <!-- batched: one sent frame, all call payloads packed -->
+  <rect x="92"  y="119" width="12"  height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="104" y="119" width="150" height="36" rx="2" fill="rgba(168,177,255,0.16)" stroke="#a8b1ff" stroke-width="1"/>
+  <g>
+    <rect x="111" y="125" width="25" height="24" rx="1.5" fill="rgba(168,177,255,0.78)" stroke="#a8b1ff" stroke-width="0.7"/>
+    <text x="123.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">1</text>
+    <rect x="139" y="125" width="25" height="24" rx="1.5" fill="rgba(168,177,255,0.78)" stroke="#a8b1ff" stroke-width="0.7"/>
+    <text x="151.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">2</text>
+    <rect x="167" y="125" width="25" height="24" rx="1.5" fill="rgba(168,177,255,0.78)" stroke="#a8b1ff" stroke-width="0.7"/>
+    <text x="179.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">3</text>
+    <rect x="195" y="125" width="25" height="24" rx="1.5" fill="rgba(168,177,255,0.78)" stroke="#a8b1ff" stroke-width="0.7"/>
+    <text x="207.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">4</text>
+    <rect x="223" y="125" width="25" height="24" rx="1.5" fill="rgba(168,177,255,0.78)" stroke="#a8b1ff" stroke-width="0.7"/>
+    <text x="235.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">5</text>
+  </g>
+
+  <!-- batched: one got frame, all result payloads packed -->
+  <rect x="286" y="119" width="12"  height="36" rx="2" fill="rgba(255,123,114,0.30)" stroke="#ff7b72" stroke-width="1"/>
+  <rect x="298" y="119" width="150" height="36" rx="2" fill="rgba(126,231,135,0.14)" stroke="#7ee787" stroke-width="1"/>
+  <g>
+    <rect x="305" y="125" width="25" height="24" rx="1.5" fill="rgba(126,231,135,0.70)" stroke="#7ee787" stroke-width="0.7"/>
+    <text x="317.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">1</text>
+    <rect x="333" y="125" width="25" height="24" rx="1.5" fill="rgba(126,231,135,0.70)" stroke="#7ee787" stroke-width="0.7"/>
+    <text x="345.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">2</text>
+    <rect x="361" y="125" width="25" height="24" rx="1.5" fill="rgba(126,231,135,0.70)" stroke="#7ee787" stroke-width="0.7"/>
+    <text x="373.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">3</text>
+    <rect x="389" y="125" width="25" height="24" rx="1.5" fill="rgba(126,231,135,0.70)" stroke="#7ee787" stroke-width="0.7"/>
+    <text x="401.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">4</text>
+    <rect x="417" y="125" width="25" height="24" rx="1.5" fill="rgba(126,231,135,0.70)" stroke="#7ee787" stroke-width="0.7"/>
+    <text x="429.5" y="141" text-anchor="middle" fill="#fcfcf7" font-size="9">5</text>
+  </g>
+
+  <text x="270" y="172" text-anchor="middle" fill="#8ef0a4" font-size="12">all calls in one message, all results in one — header &amp; round-trip paid twice</text>
+
+  <!-- ===== finish-line comparison ===== -->
+  <line x1="452" y1="104" x2="452" y2="182" stroke="#7ee787" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+  <line x1="730" y1="30"  x2="730" y2="182" stroke="#ff7b72" stroke-width="1" opacity="0.45" stroke-dasharray="4 4"/>
+
+  <rect x="406" y="182" width="92" height="20" rx="10" fill="rgba(126,231,135,0.14)" stroke="#7ee787" stroke-width="1.1"/>
+  <text x="452" y="195.5" text-anchor="middle" fill="#8ef0a4" font-size="11">screen ready</text>
+  <rect x="684" y="182" width="92" height="20" rx="10" fill="rgba(255,123,114,0.12)" stroke="#ff7b72" stroke-width="1.1"/>
+  <text x="730" y="195.5" text-anchor="middle" fill="#ff9a9a" font-size="11">screen ready</text>
+
+  <line x1="500" y1="192" x2="682" y2="192" stroke="#8ef0a4" stroke-width="1.6" marker-start="url(#bA)" marker-end="url(#bA)"/>
+  <text x="591" y="176" text-anchor="middle" fill="#8ef0a4" font-size="12.5" font-weight="600">time saved</text>
+
+  <!-- time axis -->
+  <line x1="88" y1="224" x2="760" y2="224" stroke="#5a5a63" stroke-width="1" marker-end="url(#tA)"/>
+  <text x="766" y="228" fill="#7e7e87" font-size="11">time</text>
+</svg>

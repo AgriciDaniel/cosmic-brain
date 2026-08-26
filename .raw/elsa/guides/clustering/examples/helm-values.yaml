@@ -1,0 +1,245 @@
+# Elsa Workflows Clustering - Annotated Helm Values Example
+# This file provides a reference configuration for deploying Elsa in a clustered environment.
+# Adjust values according to your specific infrastructure and requirements.
+
+# Global settings
+global:
+  imageRegistry: docker.io
+  imagePullPolicy: IfNotPresent
+
+# Elsa Server configuration for clustering
+elsaServer:
+  enabled: true
+  name: elsa-server
+  
+  image:
+    repository: elsaworkflows/elsa-server-v3
+    tag: latest
+    pullPolicy: IfNotPresent
+  
+  # Multiple replicas for high availability
+  replicaCount: 3
+  
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "2000m"
+  
+  env:
+    - name: ASPNETCORE_ENVIRONMENT
+      value: "Production"
+    - name: HTTP_PORTS
+      value: "8080"
+    
+    # Database provider (PostgreSQL recommended for distributed locking)
+    - name: DATABASEPROVIDER
+      value: "PostgreSql"
+    - name: CONNECTIONSTRINGS__POSTGRESQL
+      valueFrom:
+        secretKeyRef:
+          name: elsa-secrets
+          key: postgresql-connection-string
+    
+    # Redis for distributed locking (alternative: use DB-based locks)
+    - name: REDIS__CONNECTIONSTRING
+      valueFrom:
+        secretKeyRef:
+          name: elsa-secrets
+          key: redis-connection-string
+    
+    # RabbitMQ for distributed cache invalidation via MassTransit
+    - name: RABBITMQ__CONNECTIONSTRING
+      valueFrom:
+        secretKeyRef:
+          name: elsa-secrets
+          key: rabbitmq-connection-string
+    
+    # Distributed runtime configuration
+    - name: ELSA__RUNTIME__TYPE
+      value: "Distributed"
+    
+    # Distributed caching configuration
+    - name: ELSA__CACHING__TYPE
+      value: "Distributed"
+    
+    # Distributed locking provider (Redis or PostgreSQL)
+    - name: ELSA__LOCKING__PROVIDER
+      value: "Redis"  # or "PostgreSQL"
+    
+    # Quartz.NET clustering settings
+    - name: QUARTZ__CLUSTERED
+      value: "true"
+    - name: QUARTZ__INSTANCENAME
+      value: "ElsaQuartzCluster"
+    - name: QUARTZ__SCHEDULER_INSTANCEID
+      value: "AUTO"  # Auto-generate unique ID per pod
+  
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+    # No session affinity needed - distributed state managed externally
+    sessionAffinity: None
+  
+  # Horizontal Pod Autoscaling
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+  
+  # Health probes for container orchestration
+  livenessProbe:
+    httpGet:
+      path: /health/live
+      port: 8080
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  
+  readinessProbe:
+    httpGet:
+      path: /health/ready
+      port: 8080
+    initialDelaySeconds: 20
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 3
+  
+  startupProbe:
+    httpGet:
+      path: /health/startup
+      port: 8080
+    initialDelaySeconds: 0
+    periodSeconds: 5
+    failureThreshold: 30  # Allow up to 150s for startup
+
+# PostgreSQL configuration
+postgresql:
+  enabled: true
+  auth:
+    username: elsa
+    password: ""  # Set via secret
+    database: elsa
+  
+  primary:
+    persistence:
+      enabled: true
+      size: 50Gi
+    
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "4Gi"
+        cpu: "2000m"
+    
+    # PostgreSQL tuning for Elsa workload
+    extendedConfiguration: |
+      max_connections = 200
+      shared_buffers = 256MB
+      effective_cache_size = 1GB
+      maintenance_work_mem = 64MB
+      checkpoint_completion_target = 0.9
+      wal_buffers = 16MB
+      default_statistics_target = 100
+    
+    initdb:
+      scripts:
+        init.sql: |
+          CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+          CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+
+# Redis configuration (for distributed locking and caching)
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: true
+    password: ""  # Set via secret
+  
+  master:
+    persistence:
+      enabled: true
+      size: 10Gi
+    
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+      limits:
+        memory: "1Gi"
+        cpu: "1000m"
+    
+    # Redis tuning
+    extraFlags:
+      - "--maxmemory 1gb"
+      - "--maxmemory-policy allkeys-lru"
+      - "--appendonly yes"
+
+# RabbitMQ configuration (for MassTransit distributed cache invalidation)
+rabbitmq:
+  enabled: true
+  auth:
+    username: elsa
+    password: ""  # Set via secret
+  
+  persistence:
+    enabled: true
+    size: 20Gi
+  
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+  
+  # RabbitMQ clustering for high availability
+  replicaCount: 3
+  clustering:
+    enabled: true
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    # No session affinity required for clustered Elsa
+    nginx.ingress.kubernetes.io/affinity: "none"
+  
+  hosts:
+    - host: elsa.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+          service: elsa-server
+  
+  tls:
+    - secretName: elsa-tls
+      hosts:
+        - elsa.example.com
+
+# Pod Disruption Budget to maintain availability during updates
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+# Security context
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+  capabilities:
+    drop:
+      - ALL

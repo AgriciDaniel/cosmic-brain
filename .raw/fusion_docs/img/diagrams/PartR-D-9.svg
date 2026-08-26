@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640" width="100%">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f8fd" />
+            <stop offset="50%" stop-color="#eaf1fb" />
+            <stop offset="100%" stop-color="#e2ebf7" />
+        </linearGradient>
+        <linearGradient id="state-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#e8f0fc" />
+            <stop offset="100%" stop-color="#d4e3f7" />
+        </linearGradient>
+        <linearGradient id="action-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef9f0" />
+            <stop offset="100%" stop-color="#faecd8" />
+        </linearGradient>
+        <marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#8b90a8" />
+        </marker>
+        <style>
+            .code { font-family: "SF Mono", "Fira Code", Consolas, monospace; font-size: 13px; fill: #1a1a2e; }
+            .label { font-family: Inter, -apple-system, sans-serif; font-size: 11px; fill: #6b7084; font-style: italic; }
+            .header { font-family: Inter, sans-serif; font-size: 11px; fill: #8b90a8; font-weight: 600; text-transform: uppercase; }
+        </style>
+    </defs>
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#bg-grad)" rx="10" />
+
+    <!-- Lifelines -->
+    <line x1="150" y1="70" x2="150" y2="600" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="5 5" />
+    <line x1="450" y1="70" x2="450" y2="600" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="5 5" />
+
+    <!-- Loop 1: Until BufferSize reached -->
+    <rect x="30" y="100" width="540" height="90" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+    <text x="40" y="118" class="header">LOOP: UNTIL BUFFERSIZE REACHED</text>
+
+    <!-- Loop 2: Continue streaming -->
+    <rect x="30" y="390" width="540" height="150" fill="rgba(200,215,240,0.15)" stroke="#c0c8d4" stroke-width="1.5" stroke-dasharray="6 4" rx="8" />
+    <text x="40" y="408" class="header">LOOP: CONTINUE STREAMING</text>
+
+    <!-- Activation Boxes -->
+    <rect x="142" y="90" width="16" height="160" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+    <rect x="142" y="270" width="16" height="300" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+
+    <rect x="442" y="130" width="16" height="30" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+    <rect x="442" y="270" width="16" height="30" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+    <rect x="442" y="440" width="16" height="80" fill="#e8f0fc" stroke="#bcc8da" stroke-width="1.5" rx="2" />
+
+    <!-- Messages -->
+    <!-- Msg 1: Item 1..N -->
+    <path d="M 158 145 Q 300 155 434 145" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <text x="300" y="138" text-anchor="middle" class="label">Item 1..N</text>
+
+    <!-- Msg 2: Ack (received 30) -->
+    <path d="M 442 285 Q 300 295 166 285" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <text x="300" y="278" text-anchor="middle" class="label">Ack (received 30)</text>
+
+    <!-- Msg 3: More items -->
+    <path d="M 158 455 Q 300 465 434 455" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <text x="300" y="448" text-anchor="middle" class="label">More items</text>
+
+    <!-- Msg 4: Ack (every AckPeriod=30) -->
+    <path d="M 442 505 Q 300 515 166 505" fill="none" stroke="#8b90a8" stroke-width="1.5" stroke-linecap="round" marker-end="url(#arrowhead)" />
+    <text x="300" y="498" text-anchor="middle" class="label">Ack (every AckPeriod=30)</text>
+
+    <!-- Notes (Action Nodes) -->
+    <!-- Note 1: Pauses -->
+    <rect x="40" y="210" width="220" height="36" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="150" y="233" text-anchor="middle" class="code">Pauses (BufferSize=61)</text>
+
+    <!-- Note 2: Resumes sending -->
+    <rect x="60" y="330" width="180" height="36" fill="url(#action-grad)" stroke="#e0cba8" stroke-width="1.5" rx="14" />
+    <text x="150" y="353" text-anchor="middle" class="code">Resumes sending</text>
+
+    <!-- Lifeline Headers (State Nodes) -->
+    <rect x="60" y="30" width="180" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="150" y="54" text-anchor="middle" class="code">Server (Producer)</text>
+
+    <rect x="360" y="30" width="180" height="40" fill="url(#state-grad)" stroke="#bcc8da" stroke-width="1.5" rx="8" />
+    <text x="450" y="54" text-anchor="middle" class="code">Client (Consumer)</text>
+</svg>

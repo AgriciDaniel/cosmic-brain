@@ -1,0 +1,33 @@
+﻿<FluentStack Orientation="Orientation.Horizontal" HorizontalGap="10">
+    <FluentButton Appearance="ButtonAppearance.Primary" Title="Open menu on hovering this button" Id="hover">Hover me</FluentButton>
+    <FluentMenu Trigger="hover" OpenOnHover="true">
+        @RenderMenuItems()
+    </FluentMenu>
+
+    <FluentButton Appearance="ButtonAppearance.Primary" Id="rightclick" Title="Open menu on context (right) click">Context click</FluentButton>
+    <FluentMenu Trigger="rightclick" OpenOnContext="true">
+        @RenderMenuItems()
+    </FluentMenu>
+
+    <FluentButton Appearance="ButtonAppearance.Primary" Title="Stay open after menu item click" Id="persist">Menu won't close'</FluentButton>
+    <FluentMenu Trigger="persist" PersistOnItemClick="true">
+        @RenderMenuItems()
+    </FluentMenu>
+
+    @* THis does not work yet in the web component. We need to uncomment when it gets fixed.*@
+    @*<FluentButton Appearance="ButtonAppearance.Primary" Title="Close the mneu when scrolling the document" Id="scroll">Toggle Menu</FluentButton>
+    <FluentMenu Trigger="scroll" CloseOnScroll="true">
+        @RenderMenuItems()
+    </FluentMenu>
+    *@
+</FluentStack>
+
+@code {
+    RenderFragment RenderMenuItems() =>
+        @<FluentMenuList>
+            <FluentMenuItem>Menu item 1</FluentMenuItem>
+            <FluentMenuItem>Menu item 2</FluentMenuItem>
+            <FluentMenuItem>Menu item 3</FluentMenuItem>
+            <FluentMenuItem>Menu item 4</FluentMenuItem>
+        </FluentMenuList>;
+}
