@@ -53,6 +53,20 @@ Legacy migration safety and clearer Windows and WSL support guidance.
 - Git-backed release and checkpoint fixtures now ignore machine-wide hooks and
   commit-signing settings, keeping the hermetic suite offline and deterministic.
 
+### Fixed
+
+- Lint link resolution no longer reports a wikilink as ambiguous when the
+  extra candidates are gitignored files (for example a compiled binary whose
+  name shadows a page, such as `bin/env8oy` next to `wiki/projects/env8oy.md`).
+  A new pure-Python `.gitignore` evaluator (`claude_obsidian/gitignore.py`)
+  reads only `.gitignore` files inside the vault root — never
+  `.git/info/exclude`, global excludes, or a `git` subprocess — keeping
+  reports deterministic and process-free. Gitignored files remain valid link
+  targets when they are the only candidate, so no new dead links are
+  introduced; ambiguity among only-gitignored candidates is still reported.
+  This unblocks `checkpoint` runs that previously failed `LINT_FAILED`
+  whenever a build artifact existed.
+
 ## [2.1.0] - 2026-07-31
 
 Native Windows compatibility.
