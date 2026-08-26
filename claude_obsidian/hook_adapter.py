@@ -20,6 +20,7 @@ from .paths import (
     is_relative_to,
     resolve_vault_root,
 )
+from .transaction import MAX_TRANSACTION_RUNTIME_JSON_BYTES
 
 
 MAX_CONTEXT_BYTES = 32 * 1024
@@ -233,6 +234,7 @@ def stop_status(
         return ""
     root = selection.root
     warnings: list[str] = []
+    recommend_recover = False
     meta = root / ".vault-meta"
     if not meta.exists():
         return ""
@@ -249,7 +251,6 @@ def stop_status(
     if transactions.is_dir():
         directories: list[Path] = []
         recovery_counts = {"prepared": 0, "applying": 0, "rollback-failed": 0}
-        unsafe_journals = 0
         unreadable_journals = 0
         try:
             with os.scandir(transactions) as entries:
@@ -266,52 +267,71 @@ def stop_status(
                     elif entry.is_symlink():
                         warnings.append("an unsafe transaction entry is present")
         except OSError:
-            warnings.append("transaction journal directory is unreadable")
+            warnings.append(
+                "transaction journal directory is unreadable; inspect manually"
+            )
             return _bounded_status(warnings)
         for directory in sorted(directories, key=lambda path: path.name):
             if len(warnings) >= MAX_STATUS_ITEMS:
                 break
             journal = directory / "journal.json"
             try:
-                payload = _bounded_regular_bytes(root, journal, 64 * 1024)
+                payload = _bounded_regular_bytes(
+                    root, journal, MAX_TRANSACTION_RUNTIME_JSON_BYTES
+                )
                 if payload is None:
                     if journal.exists() or journal.is_symlink():
-                        unsafe_journals += 1
+                        unreadable_journals += 1
                     continue
-                state = strict_json_loads(payload.decode("utf-8")).get("state")
-            except (UnicodeDecodeError, json.JSONDecodeError, ValueError):
+                if len(payload) > MAX_TRANSACTION_RUNTIME_JSON_BYTES:
+                    unreadable_journals += 1
+                    continue
+                document = strict_json_loads(payload.decode("utf-8"))
+                if not isinstance(document, dict):
+                    unreadable_journals += 1
+                    continue
+                state = document.get("state")
+            except (
+                UnicodeDecodeError,
+                json.JSONDecodeError,
+                RecursionError,
+                ValueError,
+            ):
                 unreadable_journals += 1
                 continue
             if state in recovery_counts:
                 recovery_counts[state] += 1
         recovery_total = sum(recovery_counts.values())
         if recovery_total:
+            recommend_recover = True
             detail = ", ".join(
                 f"{state}={count}" for state, count in recovery_counts.items() if count
             )
             warnings.append(
                 f"{recovery_total} transaction journal(s) need recovery ({detail})"
             )
-        if unsafe_journals:
-            warnings.append(f"{unsafe_journals} unsafe transaction journal(s) detected")
         if unreadable_journals:
             warnings.append(
-                f"{unreadable_journals} unreadable transaction journal(s) detected"
+                f"{unreadable_journals} unsafe or unreadable transaction "
+                "journal(s) detected; inspect manually"
             )
     if not warnings:
         return ""
-    return _bounded_status(warnings)
+    return _bounded_status(warnings, recommend_recover=recommend_recover)
 
 
-def _bounded_status(warnings: list[str]) -> str:
+def _bounded_status(
+    warnings: list[str], *, recommend_recover: bool = False
+) -> str:
     selected = warnings[:MAX_STATUS_ITEMS]
     if len(warnings) > len(selected):
         selected.append(f"{len(warnings) - len(selected)} additional warnings omitted")
-    value = (
-        "CLAUDE_OBSIDIAN_STATUS: "
-        + "; ".join(selected)
-        + ". Run `claude-obsidian transaction recover` before the next mutation."
-    )
+    value = "CLAUDE_OBSIDIAN_STATUS: " + "; ".join(selected) + "."
+    if recommend_recover:
+        value += (
+            " Run `claude-obsidian transaction recover` for the recognized "
+            "recoverable journals before the next mutation."
+        )
     encoded = value.encode("utf-8")
     if len(encoded) <= MAX_STATUS_BYTES:
         return value

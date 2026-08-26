@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import subprocess
 import sys
@@ -245,6 +246,74 @@ def test_executable_mode_drift_is_rejected_before_ref_update() -> None:
         )
         assert git(root, "rev-list", "--count", "HEAD") == "1"
         assert note.stat().st_mode & 0o111
+
+
+def test_executable_mode_drift_is_ignored_when_core_filemode_is_false() -> None:
+    for false_value in ("false", "no", "off", "0"):
+        with tempfile.TemporaryDirectory() as td:
+            root = make_repo(Path(td) / "vault")
+            git(root, "config", "core.filemode", false_value)
+            note = root / "wiki/Note.md"
+            original = "---\ntitle: Note\ntype: concept\nstatus: developing\ncreated: 2026-01-01\nupdated: 2026-01-01\ntags: [test]\n---\n# Note\nOriginal.\n"
+            note.write_text(original)
+            note.chmod(0o777)
+            git(root, "add", ".")
+            git(root, "commit", "-qm", "add executable note")
+            assert git(root, "ls-files", "-s", "wiki/Note.md").startswith("100644")
+
+            updated = original.replace("Original.", "Updated.")
+            transaction_result = apply_bundle(
+                root,
+                {
+                    "schema": BUNDLE_SCHEMA,
+                    "operation_id": "save-two",
+                    "operation_type": "save",
+                    "expected_hashes": {
+                        "wiki/Note.md": hashlib.sha256(original.encode()).hexdigest()
+                    },
+                    "writes": [
+                        {
+                            "path": "wiki/Note.md",
+                            "mode": "replace",
+                            "content": updated,
+                        }
+                    ],
+                },
+            )
+            assert transaction_result["modes"]["wiki/Note.md"] & 0o111
+
+            result = checkpoint_operation(root, "save-two", run_lint=False)
+            assert result["paths"] == ["wiki/Note.md"]
+            assert git(root, "rev-list", "--count", "HEAD") == "3"
+
+
+def test_invalid_core_filemode_fails_closed() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        root = make_repo(Path(td) / "vault")
+        transaction(root)
+        git(root, "config", "core.filemode", "invalid")
+
+        expect_code(
+            "GIT_FAILED",
+            lambda: checkpoint_module._filemode_is_tracked(root),
+        )
+
+
+def test_core_filemode_false_still_rejects_content_mismatch() -> None:
+    with tempfile.TemporaryDirectory() as td:
+        root = make_repo(Path(td) / "vault")
+        transaction(root)
+        git(root, "config", "core.filemode", "false")
+        result_path = root / ".vault-meta/transactions/save-one/changed-paths.json"
+        result = json.loads(result_path.read_text(encoding="utf-8"))
+        result["hashes"]["wiki/Note.md"] = "0" * 64
+        result_path.write_text(json.dumps(result), encoding="utf-8")
+
+        expect_code(
+            "TRANSACTION_DRIFT",
+            lambda: checkpoint_operation(root, "save-one", run_lint=False),
+        )
+        assert git(root, "rev-list", "--count", "HEAD") == "1"
 
 
 def test_operation_ids_and_transaction_directories_are_confined() -> None:
@@ -536,6 +605,9 @@ def main() -> None:
     test_unrelated_staging_and_drift_are_rejected()
     test_intent_to_add_index_state_is_rejected_and_preserved()
     test_executable_mode_drift_is_rejected_before_ref_update()
+    test_executable_mode_drift_is_ignored_when_core_filemode_is_false()
+    test_invalid_core_filemode_fails_closed()
+    test_core_filemode_false_still_rejects_content_mismatch()
     test_operation_ids_and_transaction_directories_are_confined()
     test_temporary_index_freezes_verified_bytes()
     test_retry_finalizes_one_commit_after_final_record_failure()

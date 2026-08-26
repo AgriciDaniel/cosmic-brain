@@ -87,7 +87,7 @@ def test_payload_attaches_cache_control_by_body_size():
         def __init__(self, d):
             self._d = json.dumps(d).encode()
 
-        def read(self):
+        def read(self, limit=None):
             return self._d
 
         def __enter__(self):
@@ -121,6 +121,142 @@ def test_payload_attaches_cache_control_by_body_size():
         assert_true(
             "below-floor body omits cache_control",
             "cache_control" not in captured["body"]["system"][1],
+        )
+
+
+def test_anthropic_api_response_read_is_bounded():
+    captured = {}
+
+    class _Resp:
+        def read(self, limit):
+            captured["limit"] = limit
+            return b"x" * limit
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+    with mock.patch.object(cp.urllib.request, "urlopen", return_value=_Resp()):
+        result = cp.anthropic_api_prefix("KEY", "T", "body", "chunk")
+
+    assert_eq("oversized Anthropic response is rejected", None, result)
+    assert_eq(
+        "Anthropic response read is bounded",
+        cp.ANTHROPIC_RESPONSE_MAX_BYTES + 1,
+        captured["limit"],
+    )
+
+
+def test_anthropic_api_response_boundaries_and_shapes():
+    class _Resp:
+        def __init__(self, raw):
+            self.raw = raw
+
+        def read(self, limit):
+            assert_eq(
+                "Anthropic response boundary read uses sentinel",
+                cp.ANTHROPIC_RESPONSE_MAX_BYTES + 1,
+                limit,
+            )
+            return self.raw
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+    valid = json.dumps(
+        {"content": [{"type": "text", "text": "exact boundary"}], "usage": {}},
+        separators=(",", ":"),
+    ).encode("utf-8")
+    valid += b" " * (cp.ANTHROPIC_RESPONSE_MAX_BYTES - len(valid))
+    with mock.patch.object(cp.urllib.request, "urlopen", return_value=_Resp(valid)):
+        assert_eq(
+            "exact-size Anthropic response is accepted",
+            "exact boundary",
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+        )
+
+    malformed_payloads = [
+        b'"not an object"',
+        json.dumps({"content": {"type": "text"}}).encode("utf-8"),
+        json.dumps({"content": [1]}).encode("utf-8"),
+        json.dumps({"content": [{"type": "text", "text": 1}]}).encode("utf-8"),
+        b'{"content":[]}\xff',
+    ]
+    for index, malformed in enumerate(malformed_payloads):
+        with mock.patch.object(
+            cp.urllib.request, "urlopen", return_value=_Resp(malformed)
+        ):
+            assert_eq(
+                f"malformed Anthropic response {index} fails closed",
+                None,
+                cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+            )
+
+    class _ReadFailureResp:
+        def read(self, limit):
+            raise OSError("simulated response-body read failure")
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+    with mock.patch.object(
+        cp.urllib.request, "urlopen", return_value=_ReadFailureResp()
+    ):
+        assert_eq(
+            "Anthropic response read failure fails closed",
+            None,
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+        )
+
+    with mock.patch.object(
+        cp.urllib.request,
+        "urlopen",
+        side_effect=cp.urllib.error.URLError("simulated HTTP transport failure"),
+    ):
+        assert_eq(
+            "Anthropic HTTP failure fails closed",
+            None,
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+        )
+
+    with (
+        mock.patch.object(cp.urllib.request, "urlopen", return_value=_Resp(b"{}")),
+        mock.patch.object(cp.json, "loads", side_effect=RecursionError),
+    ):
+        assert_eq(
+            "Anthropic JSON recursion failure fails closed",
+            None,
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+        )
+
+    with (
+        mock.patch.object(cp.urllib.request, "urlopen", return_value=_Resp(b"{}")),
+        mock.patch.object(cp.json, "loads", side_effect=ValueError),
+    ):
+        assert_eq(
+            "Anthropic JSON value failure fails closed",
+            None,
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
+        )
+
+    empty_text = json.dumps(
+        {"content": [{"type": "text", "text": " \n "}], "usage": {}}
+    ).encode("utf-8")
+    with mock.patch.object(
+        cp.urllib.request, "urlopen", return_value=_Resp(empty_text)
+    ):
+        assert_eq(
+            "empty Anthropic text fails closed",
+            None,
+            cp.anthropic_api_prefix("KEY", "T", "body", "chunk"),
         )
 
 
@@ -716,6 +852,8 @@ def main():
     test_at_floor_returns_ephemeral()
     test_above_floor_returns_ephemeral()
     test_payload_attaches_cache_control_by_body_size()
+    test_anthropic_api_response_read_is_bounded()
+    test_anthropic_api_response_boundaries_and_shapes()
     test_remote_prefix_tiers_remain_explicit_opt_in()
     test_claude_cli_prompt_uses_stdin_not_process_argv()
     test_long_single_paragraph_is_hard_split_with_bounded_prefixes()
