@@ -389,7 +389,7 @@ def test_stop_status_regular_journal_read_failure_requires_manual_inspection() -
         original_reader = hook_adapter._bounded_regular_bytes
 
         def failing_reader(root, path, limit):
-            if path == journal:
+            if path.name == "journal.json" and path.parent.name == "operation-000":
                 return None
             return original_reader(root, path, limit)
 
