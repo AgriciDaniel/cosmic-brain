@@ -231,6 +231,16 @@ machine-facing detail.
 | Contextual prefixes or remote models | Optional and gated by explicit egress consent |
 | Obsidian CLI | Optional for reads/search; filesystem transport remains available |
 
+Sources the vault intentionally fingerprints rather than extracts — PDF/EPUB
+semantic content, web pages with in-page video/attachments, local audio or
+video — still deserve a seat in the graph. Run them through
+[cue-omni-reader](https://github.com/sensedeal/cue-skills/tree/main/cue-omni-reader)
+first and you get the content as Markdown (web pages including in-page
+video/attachments, plus authorized local documents, audio, or video; several
+local files at once). Feed that into the capture flow and the note carries the
+material, not just the fingerprint. Install:
+`npx skills add sensedeal/cue-skills --skill cue-omni-reader` (MIT; may bill).
+
 High-risk accepted claims require two independent sources. Unsupported or
 contradictory evidence stays visible, and a grounded refusal is preferred over
 an invented citation. Model-based retrieval falls back to deterministic BM25
